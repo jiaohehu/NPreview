@@ -5,6 +5,12 @@
         "label": "Toggle sphinx-preview",
         "command": "sphinx-preview:toggle"
       }
+    ],
+    "div.sphinx-preview": [
+      {
+        "label": "Show inspection",
+        "command": "sphinx-preview:inspect"
+      }
     ]
   },
   "menu": [

@@ -2,13 +2,13 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Toggle sphinx-preview",
+        "label": "Show Sphinx Preview",
         "command": "sphinx-preview:toggle"
       }
     ],
     "div.sphinx-preview": [
       {
-        "label": "Show inspection",
+        "label": "Show Source Lines",
         "command": "sphinx-preview:inspect"
       }
     ]
@@ -18,11 +18,15 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "sphinx-preview",
+          "label": "Sphinx Preview",
           "submenu": [
             {
-              "label": "Toggle",
+              "label": "Show Sphinx Preview",
               "command": "sphinx-preview:toggle"
+            },
+            {
+              "label": "Scroll to Current Block",
+              "command": "sphinx-preview:jump"
             }
           ]
         }

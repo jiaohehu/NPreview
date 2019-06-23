@@ -8,7 +8,7 @@
     ],
     "div.sphinx-preview": [
       {
-        "label": "Back to Editor",
+        "label": "Select Source Lines",
         "command": "sphinx-preview:inspect"
       },
       {

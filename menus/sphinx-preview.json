@@ -8,11 +8,9 @@
     ],
     "div.sphinx-preview": [
       {
-        "label": "Show Source Lines",
+        "label": "Back to Editor",
         "command": "sphinx-preview:inspect"
-      }
-    ],
-    "div.sphinx-preview": [
+      },
       {
         "label": "Show Source",
         "command": "sphinx-preview:showsource"
@@ -29,10 +27,6 @@
             {
               "label": "Show Sphinx Preview",
               "command": "sphinx-preview:toggle"
-            },
-            {
-              "label": "Scroll to Current Block",
-              "command": "sphinx-preview:jump"
             }
           ]
         }

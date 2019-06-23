@@ -12,8 +12,12 @@
         "command": "sphinx-preview:inspect"
       },
       {
-        "label": "Show Source",
+        "label": "Show HTML Source",
         "command": "sphinx-preview:showsource"
+      },
+      {
+        "label": "Translate to LuaLaTeX",
+        "command": "sphinx-preview:tolualatex"
       }
     ]
   },

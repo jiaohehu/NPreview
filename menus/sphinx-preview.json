@@ -11,6 +11,12 @@
         "label": "Show Source Lines",
         "command": "sphinx-preview:inspect"
       }
+    ],
+    "div.sphinx-preview": [
+      {
+        "label": "Show Source",
+        "command": "sphinx-preview:showsource"
+      }
     ]
   },
   "menu": [

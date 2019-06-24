@@ -8,15 +8,15 @@
     ],
     "div.sphinx-preview": [
       {
-        "label": "Select Source Lines",
+        "label": "Select Editor Lines",
         "command": "sphinx-preview:inspect"
       },
       {
-        "label": "Show HTML Source",
+        "label": "Edit HTML Source",
         "command": "sphinx-preview:showsource"
       },
       {
-        "label": "Translate to LuaLaTeX",
+        "label": "Translate to LuaLaTeX Source",
         "command": "sphinx-preview:tolualatex"
       }
     ]

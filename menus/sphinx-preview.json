@@ -16,11 +16,19 @@
         "command": "sphinx-preview:showsource"
       },
       {
-        "label": "Translate to LuaLaTeX Source",
-        "command": "sphinx-preview:tolualatex"
+        "label": "Generate LuaLaTeX Article",
+        "command": "sphinx-preview:tolualatexarticle"
       },
       {
-        "label": "Translate to XHTML Source",
+        "label": "Generate LuaLaTeX Chapter",
+        "command": "sphinx-preview:tolualatexchapter"
+      },
+      {
+        "label": "Generate LuaLaTeX Book",
+        "command": "sphinx-preview:tolualatexbook"
+      },
+      {
+        "label": "Generate XHTML Source",
         "command": "sphinx-preview:toxhtml"
       }
     ]

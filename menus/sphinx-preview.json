@@ -18,6 +18,10 @@
       {
         "label": "Translate to LuaLaTeX Source",
         "command": "sphinx-preview:tolualatex"
+      },
+      {
+        "label": "Translate to XHTML Source",
+        "command": "sphinx-preview:toxhtml"
       }
     ]
   },

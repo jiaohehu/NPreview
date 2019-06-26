@@ -12,8 +12,12 @@
         "command": "nitrile-preview:inspect"
       },
       {
-        "label": "Edit HTML Source",
+        "label": "Copy Text/HTML",
         "command": "nitrile-preview:showsource"
+      },
+      {
+        "label": "Save As HTML\u2026",
+        "command": "core:save-as"
       },
       {
         "label": "Generate LuaLaTeX Article",

@@ -1,6 +1,0 @@
-{
-  "atom-workspace": {
-    "ctrl-alt-o": "sphinx-preview:toggle",
-    "ctrl-alt-p": "sphinx-preview:jump"
-  }
-}

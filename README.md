@@ -1,4 +1,4 @@
-# sphinx-preview package
+# nitrile-preview package
 
 A short description of your package.
 

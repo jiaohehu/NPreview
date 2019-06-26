@@ -1,0 +1,6 @@
+{
+  "atom-workspace": {
+    "ctrl-alt-o": "nitrile-preview:toggle",
+    "ctrl-alt-p": "nitrile-preview:jump"
+  }
+}

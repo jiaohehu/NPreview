@@ -2,34 +2,34 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Show Sphinx Preview",
-        "command": "sphinx-preview:toggle"
+        "label": "Show Nitrile Preview",
+        "command": "nitrile-preview:toggle"
       }
     ],
-    "div.sphinx-preview": [
+    "div.nitrile-preview": [
       {
         "label": "Select Editor Lines",
-        "command": "sphinx-preview:inspect"
+        "command": "nitrile-preview:inspect"
       },
       {
         "label": "Edit HTML Source",
-        "command": "sphinx-preview:showsource"
+        "command": "nitrile-preview:showsource"
       },
       {
         "label": "Generate LuaLaTeX Article",
-        "command": "sphinx-preview:tolualatexarticle"
+        "command": "nitrile-preview:tolualatexarticle"
       },
       {
         "label": "Generate LuaLaTeX Chapter",
-        "command": "sphinx-preview:tolualatexchapter"
+        "command": "nitrile-preview:tolualatexchapter"
       },
       {
         "label": "Generate LuaLaTeX Book",
-        "command": "sphinx-preview:tolualatexbook"
+        "command": "nitrile-preview:tolualatexbook"
       },
       {
         "label": "Generate XHTML Source",
-        "command": "sphinx-preview:toxhtml"
+        "command": "nitrile-preview:toxhtml"
       }
     ]
   },
@@ -38,11 +38,11 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "Sphinx Preview",
+          "label": "Nitrile Preview",
           "submenu": [
             {
-              "label": "Show Sphinx Preview",
-              "command": "sphinx-preview:toggle"
+              "label": "Show Nitrile Preview",
+              "command": "nitrile-preview:toggle"
             }
           ]
         }

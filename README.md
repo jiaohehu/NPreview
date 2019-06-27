@@ -292,7 +292,7 @@ This will likely be translated into the following LATEX document.
 
 A packed list block is detected by the first line that starts with a hyphen, an asterisk, or a number followed by a period such as "1.". A hyphen or an asterisk expresses the start of a unordered list, a number expresses the start of an ordered list.
 
-Nested lists can be specified. A new nested list is detected if the line starts with a hyphen, an asterisk, or a number-and-period and it is intended deeper than the indent level of the current list. If a number-and-period is detected then that number is used as the numerical identifier of that list item. Following is an example involving using number-and-period list items. 
+Nested lists can be specified. A new nested list is detected if the line starts with a hyphen, an asterisk, or a number-and-period and it is intended deeper than the indent level of the current list. If a number-and-period is detected then that number is used as the numerical identifier of that list item. Following is an example involving using number-and-period list items.
 
 ```
 - Apple
@@ -328,11 +328,129 @@ Note that the 'compactitem' and 'compactenum' environments are provided by the '
 
 A packed list block is also know as a PLST block.
 
+## Description blocks
+
+A "description block" is the one that starts with one or more at-signs at the beginning of the first line of a paragraph. It is to be followed with a space and then more texts. The texts of the rest of the first line is the term to be described. The second line of the paragraph and the line afterwards are treated as the description for this term.
+
+```
+@ Apple
+  A great fruit.
+
+@@ Apple
+  A great fruit.
+
+@@@ Apple
+  A great fruit.
+```
+
+Each description block is designed to provide description text for one or more terms, where consecutive description blocks can be arranged one after another, and white spaces will be allocated between each block.
+
+Only one, two, or three at-signs can be used. They only differ in the styling of the term. For a single-at-sign the block is known as DEF1, and the term is to be styled as bold text. For double-at-sign the block is known as DEF2, and the term is to be styled as bold-italic. For triple-at-sign the block is known as DEF3, and the term is to be styled as bold-typewriter.
+
+If two or more terms are to be placed one following another they are to be recognized, for as long as they both start at the left-most of the column with each line having the exact same number of leading at-signs.
+
+~~~
+@ Apple
+@ Pear
+@ Banana
+  These are all great fruits.
+~~~
+
+The LATEX document translation for each DEF1, DEF2, and DEF3 block is done with a `\begin{description}` and `\end{description}` environment that allow for multiple `\item` commands and a single description text. This environment requires the presence of the "paralist" package. The translation for the previous example is shown here.
+
+```
+\begin{description}[leftmargin=0.5cm,font=\normalfont\bfseries]
+\item[Apple]
+\item[Pear]
+\item[Banana]
+\mbox{}\\
+These are all great fruits.
+\end{description}
+```
+
+Here, the description text will be having a left margin of 0.5cm which is the distance between the left edge of the first character of the term and the first character of the description text.
+
+The margin is calculated by counting the number of blank spaces of the first line of the description text and then multiple that number with a step distance of 0.25cm to compute the total distance of the left margin.  In the previous example where two spaces are detected,  the left margin is computed to be at 0.5cm.
+
+# Primary blocks
+
+A "primary block" is used to generate a LATEX `\paragraph` paragraph.
+
+```
+[ Apple ] This is a wonderful fruit that is full of
+flavor and nutrition.
+```
+
+This will be translated to LATEX as:
+
+```
+\paragraph{Apple}
+This is a wonderful fruit that is full
+of flavor and nutrition.
+```
+
+The leading text must be placed inside a pair of brackets,
+and there must be at least one space after the left bracket and a space before the right bracket. There must also be more text following the right bracket where they are separated by at least one space.
+
+The primary block is also know as PRIM block.
+
+# Secondary blocks
+
+A "secondary block" is used to generate a LATEX `\subparagraph` paragraph.
+
+```
+[[ Apple ]] This is a wonderful fruit that is full of
+flavor and nutrition.
+```
+
+This will be translated to LATEX as:
+
+```
+\subparagraph{Apple}
+This is a wonderful fruit that is full
+of flavor and nutrition.
+```
+
+## Styling of inline texts
+
+Texts can have its own inline markups that allows for styling some portion of a text differently than its surrounding text. Following styling are supported.
+
+- Italic text, using single-underscore: `_italic_`
+- Bold text, using double-underscore: `__bold__`
+- Computer sample code, using single backquote, or grave accent. ``` `my code` ```.
+
+The compute sample code will be styled using `\tttext{}` command. The italic text is styled using `\emph{}` command, and the bold text is styled using `\textbf{}` command.
+
+The opening underscores and grave accents that are to start styling will have to start after a blank space, or at the beginning of a line. They will not be recognized if they are surrounded by non-blank characters. The ending underscore and grave accents do not this restriction, but only to have to match the opening ones in the number of characters exactly in order to be considered one.
+
+Following is how you would be able to include a grave accent in your inline text.
+
+~~~
+The grave accent ``` ` ``` is used to quote a piece of
+compute sample code.
+~~~
+
+## Inline phrases
+
+Phrases are those that are to present a complete different entitiy than simply styling of plain text.
+
+- URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
+- RUBY : Japanese style phonetic annotation of a Han character;
+- Cross references : reference to a sectional heading in the current document or another sub-document;
+- Unicode character literal : inserting of a Unicode character simply by listing its numerical code point value;
+
+For URI the syntax is follows:
+
+```
+The yahoo website is [yahoo](www.yahoo.com)
+```
+
+
+
 
 ## Cross references
 
-In Latex a label is a short name that refer to a specific heading such as a
-chapter, section, subsection, etc. It also refers to a float such as a figure, table, or listing.
+In Latex a label is a short name that refer to a specific heading such as a chapter, section, subsection, etc. It also refers to a float such as a figure, table, or listing.
 
 In Nitrile all headings and floats are assigned a label. So far the only float that is supported is 'figure'.
 

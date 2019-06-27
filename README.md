@@ -5,8 +5,121 @@ A short description of your package.
 ![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 
 
+## Document structure
 
+A Nitrile document uses the extension of .md, same as the markdown document.
 
+Within the document, paragraphs are separated by spaces. The first paragraph is usually treated as a main heading.
+
+~~~
+Tutorial
+
+# Example 1
+
+In this example we will cover some basics of
+HTML
+and CSS...
+
+# Example 2
+
+In this example we will cover more topics regarding
+HTML and CSS...
+~~~
+
+All lines with no blank lines will be considered part of a paragraph. A paragraph is checked for certain markup patterns and will be determined to be a different "block type" depending on the pattern detected. For example, a leading number-sign at the first line of a paragraph expresses a "sectioning heading block":
+
+~~~
+# Example 1
+~~~
+
+When generating a LATEX ARTICLE document, these blocks are to become `\section{}` blocks. Similarly, a double-number-sign block will become a `\subsection{}` and a triple-number-sign block will become a `subsubsection{}`.
+
+~~~
+# section
+
+## subsection
+
+### subsubsection
+~~~
+
+A normal paragraph without any specific block pattern detected is a "default block". A default block is become a normal paragraph that typically appears between a pair of `\begin{flushleft}` and `\end{flushleft}`.
+
+~~~
+\begin{flushleft}
+In this example we will cover some basics of
+HTML
+and CSS...
+\end{flushleft}
+~~~
+
+A default block that is the very first block of the document is to be treated as the "main heading block". There can only be at most one main heading block for the entire document. The main heading block will be treated differently depending on the class of the LATEX document we are generating. For generating a LATEX ARTICLE the main heading block, if present, is to become the title of the document. For BOOK and REPORT a main heading of a sub-document is to become a chapter, a section, a subsection, or a subsubsection depending on the placement of this sub-document within the %!BOOK or %!REPORT block.
+
+## Verbatim blocks
+
+Aside from a main heading block, sectioning heading blocks, or default blocks that we have seen, Nitrile also defines other types of blocks. For example, following is a "verbatim block".
+
+```
+~~~
+#include <stdio>
+main(int argc, char **argv) {
+  printf("hello world!\n");
+}
+~~~
+```
+
+A verbatim block is identified between a pair of triple-tilda or triple-grave-accent lines:
+
+~~~
+```
+#include <stdio>
+main(int argc, char **argv) {
+  printf("hello world!\n");
+}
+```
+~~~
+
+In either of these case, triple-tilda and/or triple-grave-accent lines are considered "fences", in which case they are used to "fence in" a block that might contain blank lines. The verbatim block and other blocks that require the use of fences are called "fenced blocks".
+
+For LATEX translation it will be styled using `\begin{Verbatim}` and `\end{Verbatim}` environment. This environment requires the use of the fancyvrb package.
+
+```
+\usepackage{fancyvrb}
+```
+
+The translated LATEX document might look like the following for the previous example.
+
+```
+\begin{Verbatim}
+#include <stdio>
+main(int argc, char **argv) {
+  printf("hello world!\n");
+}
+\end{Verbatim}
+```
+
+## Verse blocks
+
+A "verse block" is the one that is always fenced by a pair of triple-hyphen fences.
+
+```
+---
+Whose woods these are I think I know.   
+His house is in the village though;   
+He will not see me stopping here   
+To watch his woods fill up with snow.
+---
+```
+
+A verse block is to be style by `\begin{verse}` and `\end{verse}`.
+
+```
+\begin{verse}
+Whose woods these are I think I know.   
+His house is in the village though;   
+He will not see me stopping here   
+To watch his woods fill up with snow.
+\begin{verse}
+```
 
 ## Cross references
 

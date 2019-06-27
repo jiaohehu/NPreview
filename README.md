@@ -238,6 +238,97 @@ The use of the `\begin{description}` and `\end{description}` environment with th
 
 A definition list block is also know as a TERM block.
 
+## A picture block
+
+A picture block is to house one or more pictures, typically consists of the specification of one or more external image files.
+
+///
+image [width:5cm] (tree.png)
+image [width:5cm] (fish.png)
+///
+
+This will be translated into a LATEX document as the following:
+
+```
+\begin{flushleft}
+\includegraphics[width=5cm]{tree.png}
+\includegraphics[width=5cm]{fish.png}
+\end{flushleft}
+```
+
+This block is to be started with a pair of fences that is triple-slash. Each line of this block is scanned and if the line starts with a keyword "image", then the rest of the line is to be scanned for the presence of styles as well as the source files of the image. The styles are to be placed inside a pair of square brackets in much the same form as that of a CSS style attribute value. The source image files are to be placed inside a pair of parentheses. If more than one files are specified then one of them is selected based on their perceived quality. For example, a PDF file is preferred over a PNG file, etc.
+
+A picture block is also known as a PICT block.
+
+## Packed list blocks
+
+A "packed list block" is a block that packs lists that can be nested.
+
+```
+- Apple
+  - Green
+  - Red
+- Pear
+  - Round
+  - Long
+```
+
+This will likely be translated into the following LATEX document.
+
+```
+\begin{flushleft}
+\begin{compactitem}
+\item Apple
+\begin{compactitem}
+\item Green
+\item Red
+\begin{compactitem}
+\item Round
+\item Lon
+\end{compactitem}
+\end{compactitem}
+\end{flushleft}
+```
+
+A packed list block is detected by the first line that starts with a hyphen, an asterisk, or a number followed by a period such as "1.". A hyphen or an asterisk expresses the start of a unordered list, a number expresses the start of an ordered list.
+
+Nested lists can be specified. A new nested list is detected if the line starts with a hyphen, an asterisk, or a number-and-period and it is intended deeper than the indent level of the current list. If a number-and-period is detected then that number is used as the numerical identifier of that list item. Following is an example involving using number-and-period list items. 
+
+```
+- Apple
+  1. Green
+  2. Red
+- Pear
+  3. Round
+  4. Lon
+```
+
+```
+\begin{flushleft}
+\begin{compactitem}
+\item Apple
+\begin{compactenum}
+\item[1.] Green
+\item[2.] Red
+\end{compactenum}
+\item Pear
+\begin{compactenum}
+\item[3.] Round
+\item[4.] Lon
+\end{compactenum}
+\end{compactitem}
+\end{flushleft}
+```
+
+Note that the 'compactitem' and 'compactenum' environments are provided by the 'enumitem' package which must be included.
+
+```
+\usepackage{enumitem}
+```
+
+A packed list block is also know as a PLST block.
+
+
 ## Cross references
 
 In Latex a label is a short name that refer to a specific heading such as a

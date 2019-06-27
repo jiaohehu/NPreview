@@ -12,6 +12,10 @@
         "command": "nitrile-preview:select-source-paragraph"
       },
       {
+        "label": "Open Linked File",
+        "command": "nitrile-preview:open-linked-file"
+      },
+      {
         "label": "Copy Selected Text",
         "command": "nitrile-preview:copy-text"
       },

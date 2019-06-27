@@ -1,4 +1,6 @@
 [ ] need to change the htmlparser so that toPREVIEW does not
     generate image but toXHTML/toHTML does.
 
-    
+[ ] allowing a heading to specify a customized id
+
+[ ] allow for including math formula and equations

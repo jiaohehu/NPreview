@@ -19,3 +19,8 @@
   the label of the highest heading of the source file 'src1.md'.
 
 -  6/26/2019
+
+- Allow for opening of source files from within preview of %BOOK block
+
+- Changed cross reference markup syntax to [^/d3js] or [^/d3js:intro]
+  or [^/:intro]

@@ -8,7 +8,7 @@
     ],
     "div.nitrile-preview": [
       {
-        "label": "Select Source Paragraph",
+        "label": "Jump to Editor",
         "command": "nitrile-preview:select-source-paragraph"
       },
       {

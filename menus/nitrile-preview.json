@@ -8,8 +8,8 @@
     ],
     "div.nitrile-preview": [
       {
-        "label": "Show Text Editor",
-        "command": "nitrile-preview:inspect"
+        "label": "Select Source Paragraph",
+        "command": "nitrile-preview:select-source-paragraph"
       },
       {
         "label": "Copy Selected Text",
@@ -20,20 +20,20 @@
         "command": "nitrile-preview:copy-html"
       },
       {
-        "label": "Save As HTML\u2026",
-        "command": "core:save-as"
+        "label": "Export as HTML\u2026",
+        "command": "nitrile-preview:to-html"
       },
       {
-        "label": "Save As LuaLaTeX Article\u2026",
-        "command": "nitrile-preview:tolualatexarticle"
+        "label": "Export as LuaLaTeX Article\u2026",
+        "command": "nitrile-preview:to-lualatex-article"
       },
       {
-        "label": "Save As LuaLaTeX Chapter\u2026",
-        "command": "nitrile-preview:tolualatexchapter"
+        "label": "Export as LuaLaTeX Chapter\u2026",
+        "command": "nitrile-preview:to-lualatex-chapter"
       },
       {
-        "label": "Save As LuaLaTeX Book\u2026",
-        "command": "nitrile-preview:tolualatexbook"
+        "label": "Export as LuaLaTeX Book\u2026",
+        "command": "nitrile-preview:to-lualatex-book"
       }
     ]
   },

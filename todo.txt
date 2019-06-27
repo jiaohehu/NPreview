@@ -6,3 +6,8 @@
 [ ] allow for including math formula and equations
 
 [ ] work on getting title and author from %!BOOK block
+
+[ ] only display the named label
+
+[ ] change it so that for book generating the main heading
+isn't need of a ref, and only the base the is needed.

@@ -7,9 +7,9 @@ A short description of your package.
 
 ## Document structure
 
-A Nitrile document uses the extension of .md, same as the markdown document.
+A Nitrile document uses the extension of .md, same as that of a markdown document because they share some formatting syntax.
 
-Within the document, paragraphs are separated by spaces. The first paragraph is usually treated as a main heading.
+To comprise a document, paragraphs are detected. A paragraph is defined as a group lines with no empty lines between them.
 
 ~~~
 Tutorial
@@ -26,13 +26,19 @@ In this example we will cover more topics regarding
 HTML and CSS...
 ~~~
 
-All lines with no blank lines will be considered part of a paragraph. A paragraph is checked for certain markup patterns and will be determined to be a different "block type" depending on the pattern detected. For example, a leading number-sign at the first line of a paragraph expresses a "sectioning heading block":
+In the previous example a Nitrile document consists of five paragraphs. Each paragraph is also called a "block" among other blocks that surrounds it.
+
+The text of each block is always checked and matched with some known patterns and will be determined to be of a different kind of blocks if it has found to have matched to one of the patterns.
+
+For example, a single-number-sign at the first line of a paragraph expresses a "sectioning block":
 
 ~~~
 # Example 1
 ~~~
 
-When generating a LATEX ARTICLE document, these blocks are to become `\section{}` blocks. Similarly, a double-number-sign block will become a `\subsection{}` and a triple-number-sign block will become a `subsubsection{}`.
+When generating a LATEX ARTICLE document, a sectioning block could a become a block that is marked with `\section{}` command, essentially turning it into a sectioning header.
+
+Similarly, a double-number-sign block will become a `\subsection{}` and a triple-number-sign block will become a `subsubsection{}`.
 
 ~~~
 # section
@@ -42,7 +48,9 @@ When generating a LATEX ARTICLE document, these blocks are to become `\section{}
 ### subsubsection
 ~~~
 
-A normal paragraph without any specific block pattern detected is a "default block". A default block is become a normal paragraph that typically appears between a pair of `\begin{flushleft}` and `\end{flushleft}`.
+In the previous example the three blocks are known as HDG1, HDG2, and HDG3. The pattern here is that the number-signs appear at the beginning of the first line of the paragraph. This is a known pattern in Nitrile document that we can use to designate a paragraph as the name of a sectioning header.
+
+A paragraph that has not matched to a known pattern is known as a "default block", with no specific name. A default block is become a normal paragraph that typically appears between a pair of `\begin{flushleft}` and `\end{flushleft}` in a generated LATEX document:
 
 ~~~
 \begin{flushleft}
@@ -52,11 +60,13 @@ and CSS...
 \end{flushleft}
 ~~~
 
-A default block that is the very first block of the document is to be treated as the "main heading block". There can only be at most one main heading block for the entire document. The main heading block will be treated differently depending on the class of the LATEX document we are generating. For generating a LATEX ARTICLE the main heading block, if present, is to become the title of the document. For BOOK and REPORT a main heading of a sub-document is to become a chapter, a section, a subsection, or a subsubsection depending on the placement of this sub-document within the %!BOOK or %!REPORT block.
+A default block that is also the very first block of the document is to be treated as the "main heading block". There can only be at most one main heading block for the entire document and the main heading block is always the first block of the document.
+
+The main heading block is to be treated differently depending on the class of the LATEX document we are generating. When generating a LATEX ARTICLE the main heading block, when detected, is to have its content become the title of the article document. For BOOK and REPORT a main heading block of a sub-document is to become a chapter, a section, a subsection, or a subsubsection depending on the placement of this sub-document within the %!BOOK or %!REPORT block.
 
 ## Verbatim blocks
 
-Aside from a main heading block, sectioning heading blocks, or default blocks that we have seen, Nitrile also defines other types of blocks. For example, following is a "verbatim block".
+Aside from the main heading block, sectioning blocks, and default blocks, Nitrile also defines other types of blocks. For example, following is a "verbatim block".
 
 ```
 ~~~
@@ -78,9 +88,11 @@ main(int argc, char **argv) {
 ```
 ~~~
 
-In either of these case, triple-tilda and/or triple-grave-accent lines are considered "fences", in which case they are used to "fence in" a block that might contain blank lines. The verbatim block and other blocks that require the use of fences are called "fenced blocks".
+In either of these case, triple-tilda and/or triple-grave-accent lines are considered "fences", in which case they are used to "fence in" a block that might contain blank lines. The fences themselves are not part of the contents and will not be appear in the translated LATEX document.
 
-For LATEX translation it will be styled using `\begin{Verbatim}` and `\end{Verbatim}` environment. This environment requires the use of the fancyvrb package.
+The verbatim block and other blocks that require the use of fences are called "fenced blocks".
+
+For a verbatim block the LATEX translation is to place the source text line-by-line in the LATEX document and surround them with `\begin{Verbatim}` and `\end{Verbatim}` environment. This environment requires the use of the fancyvrb package.
 
 ```
 \usepackage{fancyvrb}
@@ -96,6 +108,8 @@ main(int argc, char **argv) {
 }
 \end{Verbatim}
 ```
+
+A verbatim block is also known as a VERB block.
 
 ## Verse blocks
 
@@ -120,6 +134,109 @@ He will not see me stopping here
 To watch his woods fill up with snow.
 \begin{verse}
 ```
+
+A verse block is also know as a VRSE block.
+
+## A tabular block
+
+A tabular block is used to construct a tabular. On LATEX it will be translated using the `\begin{xtabular}` and `\end{xtabular}` environment. The block is fenced by a pair of triple-equal-sign fences.
+
+```
+===
+mpg     cyl    disp   hp     drat
+21      6      160    110    3.9
+21      6      160    110    3.9
+22.8    4      108    93     3.85
+21.4    6      258    110    3.08
+18.7    8      360    175    3.15
+18.1    6      225    105    2.76
+===
+```
+
+Each line is to express the entire row of tabular. Each cell is separated by three or more spaces. The generated LATEX document might looks like:
+
+```
+\begin{xtabular}{|l|l|l|l|l|}
+\hline
+mpg & cyl & disp & hp & drat \\
+\hline
+21 & 6 & 160 & 110 & 3.9 \\
+\hline
+21 & 6 & 160 & 110 & 3.9 \\
+\hline
+22.8 & 4 & 108 & 93 & 3.85 \\
+\hline
+21.4 & 6 & 258 & 110 & 3.08 \\
+\hline
+18.7 & 8 & 360 & 175 & 3.15 \\
+\hline
+18.1 & 6 & 225 & 105 & 2.76 \\
+\hline
+\end{xtabular}
+```
+
+A tabular block is also known as a TABB block.
+
+## Quote blocks
+
+A "quote block" is used to designate one or more paragraphs as "blockquote". It is a fenced block fenced by triple-quotation-marks.
+
+```
+"""
+It's not how much you have that makes people look up to you, it’s who you are. - Elvis Presley
+"""
+```
+
+It will be styled by `\begin{displayquote}` and `\end{displayquote}` environment, which requires the inclusion of "csquotes" package.
+
+```
+\usepackage{csquotes}
+```
+
+The previous example will likely be translated into a LATEX document such as following:
+
+```
+\begin{displayquote}
+It's not how much you have that makes people look up to you, it’s who you are. - Elvis Presley
+\end{displayquote}
+```
+
+A quote block is also known as a QUOT block.
+
+## A definition list block
+
+A "definition list" block is used to house a list of terms and corresponding definitions. Definition lists are typically formatted with the term on the left with the definition following on the right or on the next line.
+
+```
+<<<
+Apple
+  Great fruit
+  And this also good fruit
+Pear
+  Great fruit
+<<<
+```
+
+The likely translation of the previous block will be the following:
+
+```
+\begin{flushleft}
+\begin{description}[nosep,font=\ttfamily]
+\item[Apple] \mbox{}\\
+Great fruit And this also good fruit
+\item[Pear] \mbox{}\\
+Great fruit
+\end{description}
+\end{flushleft}
+```
+
+The use of the `\begin{description}` and `\end{description}` environment with the options of 'nosep' and 'font' requires the inclusion of the 'paralist' package.
+
+```
+\usepackage{paralist}
+```
+
+A definition list block is also know as a TERM block.
 
 ## Cross references
 

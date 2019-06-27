@@ -430,23 +430,44 @@ The grave accent ``` ` ``` is used to quote a piece of
 compute sample code.
 ~~~
 
-## Inline phrases
+## Inline phrase markup
 
-Phrases are those that are to present a complete different entitiy than simply styling of plain text.
+Phrases markups are the markups that are to designate a complete entity using plain text. For example, you would be creating a RUBY markup using the syntax such as ``` [^^私 わたし] ```.
 
-- URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
 - RUBY : Japanese style phonetic annotation of a Han character;
+- URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
 - Cross references : reference to a sectional heading in the current document or another sub-document;
 - Unicode character literal : inserting of a Unicode character simply by listing its numerical code point value;
 
-For URI the syntax is follows:
+A RUBY markup such as ``` [^^私 わたし] ``` would have generated the RUBY mark for LATEX as:
 
 ```
-The yahoo website is [yahoo](www.yahoo.com)
+\ruby{私}{わたし}
 ```
 
+For URI markup the syntax is follows:
 
+```
+The yahoo website is [Yahoo!](www.yahoo.com)
+```
 
+The translation of this phrase is to show both the word "Yahoo!" and the link "www.yahoo.com" text, where the link text is placed inside a parentheses. However, you can completely omit the text inside the bracket such as:
+
+```
+The yahoo web site is [](www.yahoo.com).
+```
+
+In this case the link is shown without the parentheses.
+
+A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[^/tutorial:15]` is to generate a LATEX `\ref{}` command such as the following:
+
+```
+\ref{tutorial:15}
+```
+
+See the "Cross references" section for more details.
+
+A Unicode character literal markup is to physically insert a Unicode character into the document by specify its numeric code point in hexadecimal form. For example, the markup of `[^U+4f60]` would have insert a CJK character "你" into the generated LATEX document.
 
 ## Cross references
 
@@ -559,3 +580,5 @@ The notation of `[^/tutorial:ex1]` will become `\ref{tutorial:ex1}` in the trans
 Note that the entire notation must be a left/right brackets with a caret immediately following the left bracket which is then immediately followed by a slash and then the entire label. There should not be any blank spaces within the brackets.
 
 Use `[^/tutorial]` to refer to the main heading that is "Tutorial" in 'tutorial.md' document. There is no provision to specify a customized id for it.
+
+## Indenting

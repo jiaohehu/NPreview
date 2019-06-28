@@ -11,3 +11,12 @@
 
 [ ] change it so that for book generating the main heading
 isn't need of a ref, and only the base the is needed.
+
+[ ] need to implement select a best possible image from a
+list of source images, currently the first image is selected.
+
+[ ] change it so that the ending fences must also be the last
+line of a paragraph.
+
+[ ] change it so that ``` fence would be a CODE block and
+~~~ is a VERB block. 

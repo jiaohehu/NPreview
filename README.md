@@ -60,13 +60,13 @@ and CSS...
 \end{flushleft}
 ~~~
 
-A default block that is also the very first block of the document is to be treated as the "main heading block". There can only be at most one main heading block for the entire document and the main heading block is always the first block of the document.
+A default block that is also the very first block of the document is to be treated as the "header block". There can only be at most one header block for the entire document and the header block is always the first block of the document.
 
-The main heading block is to be treated differently depending on the class of the LATEX document we are generating. When generating a LATEX ARTICLE the main heading block, when detected, is to have its content become the title of the article document. For BOOK and REPORT a main heading block of a sub-document is to become a chapter, a section, a subsection, or a subsubsection depending on the placement of this sub-document within the %!BOOK or %!REPORT block.
+The header block is to be treated differently depending on the class of the LATEX document we are generating. When generating a LATEX ARTICLE the header block, when detected, is to have its content become the title of the article document. For BOOK and REPORT a header block of a sub-document is to become a chapter, a section, a subsection, or a subsubsection depending on the placement of this sub-document within the %!BOOK or %!REPORT block.
 
 ## Verbatim blocks
 
-Aside from the main heading block, sectioning blocks, and default blocks, Nitrile also defines other types of blocks. For example, following is a "verbatim block".
+Aside from the header block, sectioning blocks, and default blocks, Nitrile also defines other types of blocks. For example, following is a "verbatim block".
 
 ```
 ~~~
@@ -101,12 +101,12 @@ For a verbatim block the LATEX translation is to place the source text line-by-l
 The translated LATEX document might look like the following for the previous example.
 
 ```
-\begin{Verbatim}
+\begin{verbatim}
 #include <stdio>
 main(int argc, char **argv) {
   printf("hello world!\n");
 }
-\end{Verbatim}
+\end{verbatim}
 ```
 
 A verbatim block is also known as a VERB block.
@@ -242,10 +242,12 @@ A definition list block is also know as a TERM block.
 
 A picture block is to house one or more pictures, typically consists of the specification of one or more external image files.
 
+```
 ///
 image [width:5cm] (tree.png)
 image [width:5cm] (fish.png)
 ///
+```
 
 This will be translated into a LATEX document as the following:
 
@@ -430,9 +432,9 @@ The grave accent ``` ` ``` is used to quote a piece of
 compute sample code.
 ~~~
 
-## Inline phrase markup
+## Phrase markups
 
-Phrases markups are the markups that are to designate a complete entity using plain text. For example, you would be creating a RUBY markup using the syntax such as ``` [^^私 わたし] ```.
+Phrases markups are those that creates new entities that are not considered plain texts. Following are phrase markups supported by Nitrile:
 
 - RUBY : Japanese style phonetic annotation of a Han character;
 - URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
@@ -445,7 +447,7 @@ A RUBY markup such as ``` [^^私 わたし] ``` would have generated the RUBY ma
 \ruby{私}{わたし}
 ```
 
-For URI markup the syntax is follows:
+A URI markup is to designate a long URI. For URI markup the syntax is follows:
 
 ```
 The yahoo website is [Yahoo!](www.yahoo.com)
@@ -579,6 +581,75 @@ The notation of `[^/tutorial:ex1]` will become `\ref{tutorial:ex1}` in the trans
 
 Note that the entire notation must be a left/right brackets with a caret immediately following the left bracket which is then immediately followed by a slash and then the entire label. There should not be any blank spaces within the brackets.
 
-Use `[^/tutorial]` to refer to the main heading that is "Tutorial" in 'tutorial.md' document. There is no provision to specify a customized id for it.
+Use `[^/tutorial]` to refer to the header that is "Tutorial" in 'tutorial.md' document. There is no provision to specify a customized id for it.
 
-## Indenting
+## Left margin of a paragraph
+
+Following blocks will be indented based the indent of the first line of the source document.
+
+- Verbatim blocks (VERB)
+- Verse blocks (VRSE)
+- Tabular blocks (TABB)
+- Quotation blocks (QUOT)
+- Definition list blocks (TERM)
+- Picture blocks (PICT)
+- Packed list blocks (PLST)
+- default paragraph blocks
+
+The generals are that for each single space detected that is to the left-hand side of the first line, the entire paragraph is to be indented for 0.25cm. Thus, if a default paragraph starts at column 3 then there are two spaces to the left of the first line, thus the entire paragraph has a left margin of 0.5cm.
+
+For fenced blocks that are VERB, VRSE, TABB, QUOT, TERM, PICT, the number of blank spaces before the first fence will be used to calculate the left margin of that block.
+
+For PLST and the default paragraph the number of blank spaces before the first line is used to calculate the left margin of that block.
+
+## Directives
+
+The directives are some paragraphs that provide special instruction for the block that immediately follows it. For a paragraph to be recognized as a directive the first line must be without any leading spaces, and must start with a period, followed by only words.
+
+So far the only supported directive is ".figure". When placed in front of a PICT block, it instructs that the PICT block should turn into a figure.
+
+```
+.figure
+A figure of tree and fish.
+
+///
+image [width:5cm] (tree.png)
+image [width:5cm] (fish.png)
+///
+```
+
+In the previous example the ".figure" directive tells the PICT block that immediately follows it to style itself as a figure rather than a normal PICT block. A figure in LATEX is considered a float with one or more subfigures, and each subfigure is to have its own sub-caption.
+
+## The %!BOOK block
+
+The %!BOOK block refers to a special block that is to typeset multi-chapter book, as opposed to the fact that a LATEX article that is generated when processing a single Nitrile document.
+
+In order to generate a LATEX book, you must have a %!BOOK block in your Nitrile document. You do that by placing "%!BOOK" as the first line of the document.
+
+```
+%!BOOK
+title=My Book
+creator=John Smith; Jane Johnson
+: chapter1.md
+: chapter2.md
+: chapter3.md
+```
+
+After the first line, you can configure the book by placing one or more configuration entries. For example the "title=" entry would specify the title of the book and the "creator=" entry would express the names of the author, separated by semicolons.
+
+If a line starts with a colon, and followed by one or more spaces, then whatever comes after that is being treated as the name of a file that is one of the sub-documents to comprise the content of the BOOK. In particular, the header block of that sub-document is to become the chapter and each of its sectioning blocks is to become a section, a subsection, a subsubsection.
+
+If a double-colon is detected instead of a single-colon, then whatever follows is the name of a sub-document whose header block is to become a section to a previous chapter. And as a result, its HDG1 will become a subsection, and its HDG2 will become a subsubsection.
+
+```
+%!BOOK
+title=My Book
+creator=John Smith; Jane Johnson
+: chapter1.md
+:: section11.md
+:: section12.md
+: chapter2.md
+:: section21.md
+::: section211.md
+: chapter3.md
+```

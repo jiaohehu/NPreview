@@ -24,19 +24,19 @@
         "command": "nitrile-preview:copy-html"
       },
       {
-        "label": "Export as HTML\u2026",
+        "label": "Export as a HTML Ducument\u2026",
         "command": "nitrile-preview:to-html"
       },
       {
-        "label": "Export as LuaLaTeX Article\u2026",
+        "label": "Export as a LuaLaTeX Article\u2026",
         "command": "nitrile-preview:to-lualatex-article"
       },
       {
-        "label": "Export as LuaLaTeX Chapter\u2026",
+        "label": "Export as a LuaLaTeX Chapter\u2026",
         "command": "nitrile-preview:to-lualatex-chapter"
       },
       {
-        "label": "Export as LuaLaTeX Book\u2026",
+        "label": "Export as a LuaLaTeX Book\u2026",
         "command": "nitrile-preview:to-lualatex-book"
       }
     ]

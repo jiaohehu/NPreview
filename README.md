@@ -77,18 +77,7 @@ main(int argc, char **argv) {
 ~~~
 ```
 
-A verbatim block is identified between a pair of triple-tilda or triple-grave-accent lines:
-
-~~~
-```
-#include <stdio>
-main(int argc, char **argv) {
-  printf("hello world!\n");
-}
-```
-~~~
-
-In either of these case, triple-tilda and/or triple-grave-accent lines are considered "fences", in which case they are used to "fence in" a block that might contain blank lines. The fences themselves are not part of the contents and will not be appear in the translated LATEX document.
+In either of these case, triple-tilda lines are considered "fences", in which case they are used to "fence in" a block that might contain blank lines. The fences themselves are not part of the contents and will not be appear in the translated LATEX document.
 
 The verbatim block and other blocks that require the use of fences are called "fenced blocks".
 
@@ -101,15 +90,39 @@ For a verbatim block the LATEX translation is to place the source text line-by-l
 The translated LATEX document might look like the following for the previous example.
 
 ```
-\begin{verbatim}
+\begin{Verbatim}
 #include <stdio>
 main(int argc, char **argv) {
   printf("hello world!\n");
 }
-\end{verbatim}
+\end{Verbatim}
 ```
 
 A verbatim block is also known as a VERB block.
+
+## Code blocks
+
+A "code block" is identified between a pair of triple-tilde fences:
+
+~~~
+```
+var greeting = 'hello world';
+console.log(greeting);
+```
+~~~
+
+Unlike a verbatim block, a code block does not rely on `\begin{Verbatim}` environment to typeset a paragraph of lines of texts, but instead, it uses the `\mbox` command to ensure that each line of the paragraph is in its own line, followed by adding a double-slashes at the end. It also uses the `\ttfamily` command to ensure a typewriter font, and ensures that space characters in a line are each replaced with a tilde character which expresses a non-breakable space in LATEX.
+
+The generated LATEX translation looks like the following:
+
+~~~
+\begin{flushleft}
+\mbox{\ttfamily{}var~greeting~=~'hello~world';}\\
+\mbox{\ttfamily{}console.log(greeting);}
+\end{flushleft}
+~~~
+
+The look of a code block is similar to that of a verbatim block in most cases, but it has an added advantage that it does not have the limitation of a verbatim block such that the line `\end{Verbatim}` cannot be part of the content text. This type of block is also know as CODE block.
 
 ## Verse blocks
 
@@ -583,24 +596,7 @@ Note that the entire notation must be a left/right brackets with a caret immedia
 
 Use `[^/tutorial]` to refer to the header that is "Tutorial" in 'tutorial.md' document. There is no provision to specify a customized id for it.
 
-## Left margin of a paragraph
-
-Following blocks will be indented based the indent of the first line of the source document.
-
-- Verbatim blocks (VERB)
-- Verse blocks (VRSE)
-- Tabular blocks (TABB)
-- Quotation blocks (QUOT)
-- Definition list blocks (TERM)
-- Picture blocks (PICT)
-- Packed list blocks (PLST)
-- default paragraph blocks
-
-The generals are that for each single space detected that is to the left-hand side of the first line, the entire paragraph is to be indented for 0.25cm. Thus, if a default paragraph starts at column 3 then there are two spaces to the left of the first line, thus the entire paragraph has a left margin of 0.5cm.
-
-For fenced blocks that are VERB, VRSE, TABB, QUOT, TERM, PICT, the number of blank spaces before the first fence will be used to calculate the left margin of that block.
-
-For PLST and the default paragraph the number of blank spaces before the first line is used to calculate the left margin of that block.
+The preview shows the label text that is attached to the chapter, section, subsection, subsection and a figure caption.
 
 ## Directives
 
@@ -620,11 +616,62 @@ image [width:5cm] (fish.png)
 
 In the previous example the ".figure" directive tells the PICT block that immediately follows it to style itself as a figure rather than a normal PICT block. A figure in LATEX is considered a float with one or more subfigures, and each subfigure is to have its own sub-caption.
 
+## Left margin of a paragraph
+
+Following blocks will be indented based the indent of the first line of the source document.
+
+- Verbatim blocks (VERB)
+- Code blocks (CODE)
+- Verse blocks (VRSE)
+- Tabular blocks (TABB)
+- Quotation blocks (QUOT)
+- Definition list blocks (TERM)
+- Picture blocks (PICT)
+- Packed list blocks (PLST)
+- default paragraph blocks
+
+The rule is that for each leading space character that is detected of the first line of the paragraph, the left margin is increased by 0.25cm. Thus, for example, if the first line of a default paragraph starts at column 3 then then the entire paragraph has a left margin of 0.5cm.
+
+For fenced blocks that are VERB, CODE, VRSE, TABB, QUOT, TERM, PICT, the left margin is determined by the number of leading space characters of the first fence line.
+
+A PLST block is treated similarly as that of a default paragraph such that the number of leading space characters of the first line is used to determine the left margin of the entire block.
+
+The left margin of a paragraph such as 0.5cm is enforced by placing the entire paragraph under the `\begin{adjustwidth}{0.5cm}{}` and `end{adjustwidth}` environment which requires the LATEX package of "changepage":
+
+```
+\usepackage{changepage}
+```
+
+Thus, to add a left margin of 0.5cm to a default paragraph a LATEX translation might look like the following:
+
+```
+~~~
+\begin{flushleft}
+\begin{adjustwidth}{0.5cm}{}
+In this example we will cover some basics of
+HTML
+and CSS...
+\end{adjustwidth}
+\end{flushleft}
+~~~
+```
+
+The `\begin{adjustwidth}` environment works well with `\begin{flushleft}`. However, for adding a left margin to a `begin{Verbatim}` environment the 'xleftmargin=' option of the "Verbatim" environment is to be used instead:
+
+```
+\begin{Verbatim}[xleftmargin=0.5cm]
+#include <stdio>
+main(int argc, char **argv) {
+  printf("hello world!\n");
+}
+\end{Verbatim}
+```
+
 ## The %!BOOK block
 
-The %!BOOK block refers to a special block that is to typeset multi-chapter book, as opposed to the fact that a LATEX article that is generated when processing a single Nitrile document.
+The %!BOOK block refers to a special block that is to typeset a multi-chapter LATEX document. The document class is set to "book".
 
-In order to generate a LATEX book, you must have a %!BOOK block in your Nitrile document. You do that by placing "%!BOOK" as the first line of the document.
+You would start a %!BOOK block by placing "%!BOOK" at the first line of your Nitrile document with no leading spaces:
 
 ```
 %!BOOK
@@ -634,6 +681,8 @@ creator=John Smith; Jane Johnson
 : chapter2.md
 : chapter3.md
 ```
+
+If "%!BOOK" is detected as the first line of the document, the entire document is treated as a single %!BOOK block. 
 
 After the first line, you can configure the book by placing one or more configuration entries. For example the "title=" entry would specify the title of the book and the "creator=" entry would express the names of the author, separated by semicolons.
 
@@ -653,3 +702,35 @@ creator=John Smith; Jane Johnson
 ::: section211.md
 : chapter3.md
 ```
+
+The
+
+
+## The context menus
+
+Following is the contents of the context menus of the Nitrile Preview:
+
+- Jump to Editor
+- Open Linked File
+- Copy Selected Text
+- Copy Source HTML
+- Export as a HTML Document...
+- Export as a LuaLaTeX Article...
+- Export as a LuaLaTeX Chapter...
+- Export as a LuaLaTeX Book...
+
+"Jump to Editor" entry is to jump to the original text editor that has supplied the preview text, and will also highlight the range of lines corresponds to the current pointer position.
+
+"Open Linked File" entry is only applicable when showing a %!BOOK block, in which case the preview would have made each sub-document a hyperlink. This entry allows you to open the hyperlinked sub-document in a new editor window or show it if it has already been opened.
+
+"Copy Selected Text" entry is to copy selected text (if any) to the system clipboard so that it can be pasted into other window, or to other applications.
+
+"Copy Source HTML" entry is to copy the HTML source that comprises the preview. Note that no CSS or HTML header is copied.
+
+"Export as a HTML Document..." entry prompts for saving of the HTML source to a new text file. HTML header and CSS styles used by the preview window will be included as part of the text file.
+
+"Export as a LuaLaTeX Article" entry prompts for translating the previewed Nitrile document to a new LuaLaTeX article document and save it under a new file name.
+
+"Export as a LuaLaTeX Chapter" entry is similar to "Export as a LuaLaTeX Article" except for that the current previewed Nitrile document is translated as a LATEX chapter and the saved file does not added LATEX header. This is useful for including the saved file with `\include{}` or `\input{}`.
+
+"Export as a LuaLaTeX Book" entry is to work with a %!BOOK block to create a single large LATEX document that encompasses the contents of all sub-documents included in the block.

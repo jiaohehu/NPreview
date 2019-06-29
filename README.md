@@ -418,15 +418,33 @@ This is a wonderful fruit that is full
 of flavor and nutrition.
 ```
 
-## Styling of inline texts
+## Inline text styling and phrase markup
 
-Texts can have its own inline markups that allows for styling some portion of a text differently than its surrounding text. Following styling are supported.
+Texts can have its own inline markups that allows for styling some portion of a text differently than its surrounding text. Following text stylings are supported.
 
 - Italic text, using single-underscore: `_italic_`
 - Bold text, using double-underscore: `__bold__`
-- Computer sample code, using single backquote, or grave accent. ``` `my code` ```.
+- Typewriter text, using single backquote, or grave accent. ``` `my code` ```.
 
-The compute sample code will be styled using `\tttext{}` command. The italic text is styled using `\emph{}` command, and the bold text is styled using `\textbf{}` command.
+Phrases markups are those that creates new entities that are not considered plain texts. Following are phrase markups supported by Nitrile:
+
+- RUBY : Japanese style phonetic annotation of a Han character;
+- URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
+- Cross references : reference to a sectional heading in the current document or another sub-document;
+- Unicode character literal : inserting of a Unicode character simply by listing its numerical code point value;
+
+Inline phrase and style processing is not process for the following areas:
+
+- Document title
+- Sectioning blocks
+- Description block terms
+- Definition block terms
+- Primary block terms
+- Secondary block terms
+
+## Text styling
+
+Typewriter texts are styled using `\texttt{}` command. The italic text is styled using `\emph{}` command, and the bold text is styled using `\textbf{}` command.
 
 The opening underscores and grave accents that are to start styling will have to start after a blank space, or at the beginning of a line. They will not be recognized if they are surrounded by non-blank characters. The ending underscore and grave accents do not this restriction, but only to have to match the opening ones in the number of characters exactly in order to be considered one.
 
@@ -437,20 +455,15 @@ The grave accent ``` ` ``` is used to quote a piece of
 compute sample code.
 ~~~
 
-## Phrase markups
-
-Phrases markups are those that creates new entities that are not considered plain texts. Following are phrase markups supported by Nitrile:
-
-- RUBY : Japanese style phonetic annotation of a Han character;
-- URI : styling of a long URI that typically will need to be split into multiple lines down at any position;
-- Cross references : reference to a sectional heading in the current document or another sub-document;
-- Unicode character literal : inserting of a Unicode character simply by listing its numerical code point value;
+## RUBY phrase markup
 
 A RUBY markup such as ``` [私](^わたし) ``` would have generated the RUBY markup for LATEX as:
 
 ```
 \ruby{私}{わたし}
 ```
+
+### URI phrase markup
 
 A URI markup is to designate a long URI. For URI markup the syntax is follows:
 
@@ -476,7 +489,13 @@ In this case the link is shown without the parentheses.
 The Yahoo web site is www.yahoo.com.
 ~~~
 
-However, the link text itself is styled by LATEX `\href{}{}` command so that a long link text will be split into multiple lines without being hyphenated. 
+However, the link text itself is styled by LATEX `\href{}{}` command so that a long link text will be split into multiple lines without being hyphenated.
+
+## Unicode phrase markup
+
+A Unicode character literal markup is to physically insert a Unicode character into the document by specify its numeric code point in hexadecimal form. For example, the markup of `[&](U+4f60)` would have insert a CJK character "你" into the generated LATEX document.
+
+## Cross reference phrase markup
 
 A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[#](tutorial:15)` is to generate a LATEX `\ref{}` command such as the following:
 
@@ -490,11 +509,9 @@ The translated LATEX document would look like:
 Please see section \ref{tutorial:15}
 ~~~
 
-See the "Cross references" section for more details.
+See the following section for working with cross references in general.
 
-A Unicode character literal markup is to physically insert a Unicode character into the document by specify its numeric code point in hexadecimal form. For example, the markup of `[&](U+4f60)` would have insert a CJK character "你" into the generated LATEX document.
-
-## Cross references
+## Working with cross references
 
 In Latex a label is a short name that refer to a specific heading such as a chapter, section, subsection, etc. It also refers to a float such as a figure, table, or listing.
 
@@ -626,7 +643,7 @@ image [width:5cm] (fish.png)
 
 In the previous example the ".figure" directive tells the PICT block that immediately follows it to style itself as a figure rather than a normal PICT block. A figure in LATEX is considered a float with one or more subfigures, and each subfigure is to have its own sub-caption.
 
-## Left margin of a paragraph
+## Adding additional left margin of a block
 
 Following blocks will be indented based the indent of the first line of the source document.
 
@@ -713,9 +730,6 @@ creator=John Smith; Jane Johnson
 : chapter3.md
 ```
 
-The
-
-
 ## The context menus
 
 Following is the contents of the context menus of the Nitrile Preview:
@@ -744,14 +758,3 @@ Following is the contents of the context menus of the Nitrile Preview:
 "Export as a LuaLaTeX Chapter" entry is similar to "Export as a LuaLaTeX Article" except for that the current previewed Nitrile document is translated as a LATEX chapter and the saved file does not added LATEX header. This is useful for including the saved file with `\include{}` or `\input{}`.
 
 "Export as a LuaLaTeX Book" entry is to work with a %!BOOK block to create a single large LATEX document that encompasses the contents of all sub-documents included in the block.
-
-## Inline phrase and style processing
-
-Inline phrase and style processing is not process for the following areas:
-
-- Document title
-- Sectioning blocks
-- Description block terms
-- Definition block terms
-- Primary block terms
-- Secondary block terms

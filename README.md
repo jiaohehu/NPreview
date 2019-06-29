@@ -275,7 +275,10 @@ This block is to be started with a pair of fences that is triple-slash. Each lin
 
 A picture block is also known as a PICT block.
 
-## Packed list blocks
+If you insert spaces between two 'image' lines, then these spaces will be carried over and inserted between the `\includegraphics` lines. In this case LATEX will treated as if you would like to insert a manual line break between the two images, and will arrange for the two images to be on top of another, even though it is still possible for them to be laid side-by-side. Thus, for the source Nitrile document:
+
+
+## A packed list block
 
 A "packed list block" is a block that packs lists that can be nested.
 
@@ -359,7 +362,7 @@ However, for asterisk bullet list items, if the pattern just mentioned isn't fou
 
 A packed list block is also know as a PLST block.
 
-## Description blocks
+## A description block
 
 A "description block" is the one that starts with one or more at-signs at the beginning of the first line of a paragraph. It is to be followed with a space and then more texts. The texts of the rest of the first line is the term to be described. The second line of the paragraph and the line afterwards are treated as the description for this term.
 
@@ -395,7 +398,7 @@ Here, the description text will be having a left margin of 0.5cm which is the di
 
 The margin is calculated by counting the number of blank spaces of the first line of the description text and then multiple that number with a step distance of 0.25cm to compute the total distance of the left margin.  In the previous example where two spaces are detected,  the left margin is computed to be at 0.5cm.
 
-# Primary blocks
+# A primary block
 
 A "primary block" is used to generate a LATEX `\paragraph` paragraph.
 
@@ -417,7 +420,7 @@ and there must be at least one space after the left bracket and a space before t
 
 The primary block is also know as PRIM block.
 
-# Secondary blocks
+# A secondary block
 
 A "secondary block" is used to generate a LATEX `\subparagraph` paragraph.
 
@@ -641,11 +644,11 @@ Use `[^/tutorial]` to refer to the header that is "Tutorial" in 'tutorial.md' do
 
 The preview shows the label text that is attached to the chapter, section, subsection, subsection and a figure caption.
 
-## Directives
+## The figure directives
 
 The directives are some paragraphs that provide special instruction for the block that immediately follows it. For a paragraph to be recognized as a directive the first line must be without any leading spaces, and must start with a period, followed by only words.
 
-So far the only supported directive is ".figure". When placed in front of a PICT block, it instructs that the PICT block should turn into a figure.
+So far the only supported directive is ".figure". When placed in front of a PICT block, it instructs that the following PICT block should turn into a figure.
 
 ```
 .figure
@@ -657,7 +660,24 @@ image [width:5cm] (fish.png)
 ///
 ```
 
-In the previous example the ".figure" directive tells the PICT block that immediately follows it to style itself as a figure rather than a normal PICT block. A figure in LATEX is considered a float with one or more subfigures, and each subfigure is to have its own sub-caption.
+A figure block is named FIGT. You could also attach a customized label to a figure, in which case the LATEX `\label` command is to be generated and placed underneath the `\begin{figure}` command. The label, if to be placed, must be placed at the line immediately below the '.figure' line, and must be by itself as the only element of that line.
+
+```
+.figure
+[:tree-and-fish]
+A figure of tree and fish.
+```
+
+Like PICT, if spaces are inserted between 'image' lines then they will appear in the generated LATEX document as well, resulting in manual break between images. In the following example the two sub-figures will be manually split and placed one on top of another.
+
+```
+///
+image [width:5cm] (tree.png)
+
+image [width:5cm] (fish.png)
+///
+```
+
 
 ## Adding additional left margin of a block
 

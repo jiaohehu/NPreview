@@ -660,7 +660,7 @@ image [width:5cm] (fish.png)
 ///
 ```
 
-A figure block is named FIGT. You could also attach a customized label to a figure, in which case the LATEX `\label` command is to be generated and placed underneath the `\begin{figure}` command. The label, if to be placed, must be placed at the line immediately below the '.figure' line, and must be by itself as the only element of that line.
+A figure block is named FIGE. You could also attach a customized label to a figure, in which case the LATEX `\label` command is to be generated and placed underneath the `\begin{figure}` command. The label, if to be placed, must be placed at the line immediately below the '.figure' line, and must be by itself as the only element of that line.
 
 ```
 .figure

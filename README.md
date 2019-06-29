@@ -350,17 +350,9 @@ A "description block" is the one that starts with one or more at-signs at the be
 ```
 @ Apple
   A great fruit.
-
-@@ Apple
-  A great fruit.
-
-@@@ Apple
-  A great fruit.
 ```
 
 Each description block is designed to provide description text for one or more terms, where consecutive description blocks can be arranged one after another, and white spaces will be allocated between each block.
-
-Only one, two, or three at-signs can be used. They only differ in the styling of the term. For a single-at-sign the block is known as DEF1, and the term is to be styled as bold text. For double-at-sign the block is known as DEF2, and the term is to be styled as bold-italic. For triple-at-sign the block is known as DEF3, and the term is to be styled as bold-typewriter.
 
 If two or more terms are to be placed one following another they are to be recognized, for as long as they both start at the left-most of the column with each line having the exact same number of leading at-signs.
 
@@ -371,10 +363,10 @@ If two or more terms are to be placed one following another they are to be recog
   These are all great fruits.
 ~~~
 
-The LATEX document translation for each DEF1, DEF2, and DEF3 block is done with a `\begin{description}` and `\end{description}` environment that allow for multiple `\item` commands and a single description text. This environment requires the presence of the "paralist" package. The translation for the previous example is shown here.
+The LATEX document translation for a DESC block is done with a `\begin{description}` and `\end{description}` environment that allow for multiple `\item` commands and a single description text. This environment requires the presence of the "paralist" package. The translation for the previous example is shown here.
 
 ```
-\begin{description}[leftmargin=0.5cm,font=\normalfont\bfseries]
+\begin{description}[leftmargin=0.5cm,font=\normalfont\ttfamily\bfseries]
 \item[Apple]
 \item[Pear]
 \item[Banana]
@@ -682,7 +674,7 @@ creator=John Smith; Jane Johnson
 : chapter3.md
 ```
 
-If "%!BOOK" is detected as the first line of the document, the entire document is treated as a single %!BOOK block. 
+If "%!BOOK" is detected as the first line of the document, the entire document is treated as a single %!BOOK block.
 
 After the first line, you can configure the book by placing one or more configuration entries. For example the "title=" entry would specify the title of the book and the "creator=" entry would express the names of the author, separated by semicolons.
 

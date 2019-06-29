@@ -341,6 +341,22 @@ Note that the 'compactitem' and 'compactenum' environments are provided by the '
 \usepackage{enumitem}
 ```
 
+In addition, for an unordered list item that is marked by a asterisk, the content of the list item is scanned and the leading text up until the first appearance of a colon or a hyphen is considered a data term, and will be styled using typewriter font. Thus,
+
+~~~
+* Apple : This is a fruit.
+* Pear : This is a fruit.
+~~~
+
+For this list, the word Apple and Pear will be styled using typewriter font, while the following will not.
+
+~~~
+- Apple : This is a fruit.
+- Pear : This is a fruit.
+~~~
+
+However, for asterisk bullet list items, if the pattern just mentioned isn't found then nothing is going to happen, and the entire text is treated just like the a hyphen bullet list item. 
+
 A packed list block is also know as a PLST block.
 
 ## Description blocks

@@ -726,3 +726,14 @@ Following is the contents of the context menus of the Nitrile Preview:
 "Export as a LuaLaTeX Chapter" entry is similar to "Export as a LuaLaTeX Article" except for that the current previewed Nitrile document is translated as a LATEX chapter and the saved file does not added LATEX header. This is useful for including the saved file with `\include{}` or `\input{}`.
 
 "Export as a LuaLaTeX Book" entry is to work with a %!BOOK block to create a single large LATEX document that encompasses the contents of all sub-documents included in the block.
+
+## Inline phrase and style processing
+
+Inline phrase and style processing is not process for the following areas:
+
+- Document title
+- Sectioning blocks
+- Description block terms
+- Definition block terms
+- Primary block terms
+- Secondary block terms

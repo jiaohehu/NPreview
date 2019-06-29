@@ -355,7 +355,7 @@ For this list, the word Apple and Pear will be styled using typewriter font, whi
 - Pear : This is a fruit.
 ~~~
 
-However, for asterisk bullet list items, if the pattern just mentioned isn't found then nothing is going to happen, and the entire text is treated just like the a hyphen bullet list item. 
+However, for asterisk bullet list items, if the pattern just mentioned isn't found then nothing is going to happen, and the entire text is treated just like the a hyphen bullet list item.
 
 A packed list block is also know as a PLST block.
 
@@ -774,3 +774,19 @@ Following is the contents of the context menus of the Nitrile Preview:
 "Export as a LuaLaTeX Chapter" entry is similar to "Export as a LuaLaTeX Article" except for that the current previewed Nitrile document is translated as a LATEX chapter and the saved file does not added LATEX header. This is useful for including the saved file with `\include{}` or `\input{}`.
 
 "Export as a LuaLaTeX Book" entry is to work with a %!BOOK block to create a single large LATEX document that encompasses the contents of all sub-documents included in the block.
+
+## The four-space indented verbatim block
+
+If you would prefer to have a paragraph that is indented by four or more spaces to be treated as if it were a verbatim block then you need to enable the "verbatim" flag in your document.
+
+~~~
+Tutorial
+
+%! verbatim
+
+# Introduction
+
+...
+~~~
+
+Any line that starts with `%!` is treated as a designation of a flag that serves to instruct Nitrile to process the rest of the document a little differently then usually. Thinking of it as a configuration or setting parameter. So far the only defined flag is "verbatim".

@@ -446,7 +446,7 @@ Phrases markups are those that creates new entities that are not considered plai
 - Cross references : reference to a sectional heading in the current document or another sub-document;
 - Unicode character literal : inserting of a Unicode character simply by listing its numerical code point value;
 
-A RUBY markup such as ``` [^^私 わたし] ``` would have generated the RUBY mark for LATEX as:
+A RUBY markup such as ``` [私](^わたし) ``` would have generated the RUBY markup for LATEX as:
 
 ```
 \ruby{私}{わたし}
@@ -455,26 +455,44 @@ A RUBY markup such as ``` [^^私 わたし] ``` would have generated the RUBY ma
 A URI markup is to designate a long URI. For URI markup the syntax is follows:
 
 ```
-The yahoo website is [Yahoo!](www.yahoo.com)
+The [Yahoo!](www.yahoo.com) site shows this info.
 ```
 
-The translation of this phrase is to show both the word "Yahoo!" and the link "www.yahoo.com" text, where the link text is placed inside a parentheses. However, you can completely omit the text inside the bracket such as:
+The translation of this phrase is to show both the word "Yahoo!" and the link "www.yahoo.com" text, where the link text is placed inside a parentheses.
 
-```
-The yahoo web site is [](www.yahoo.com).
-```
+~~~
+The Yahoo!(www.yahoo.com) site shows this info.
+~~~
+
+However, you can completely omit the text inside the bracket such as:
+
+~~~
+The Yahoo web site is [](www.yahoo.com).
+~~~
 
 In this case the link is shown without the parentheses.
 
-A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[^/tutorial:15]` is to generate a LATEX `\ref{}` command such as the following:
+~~~
+The Yahoo web site is www.yahoo.com.
+~~~
 
-```
-\ref{tutorial:15}
-```
+However, the link text itself is styled by LATEX `\href{}{}` command so that a long link text will be split into multiple lines without being hyphenated. 
+
+A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[#](tutorial:15)` is to generate a LATEX `\ref{}` command such as the following:
+
+~~~
+Please see section [#](tutorial:15).
+~~~
+
+The translated LATEX document would look like:
+
+~~~
+Please see section \ref{tutorial:15}
+~~~
 
 See the "Cross references" section for more details.
 
-A Unicode character literal markup is to physically insert a Unicode character into the document by specify its numeric code point in hexadecimal form. For example, the markup of `[^U+4f60]` would have insert a CJK character "你" into the generated LATEX document.
+A Unicode character literal markup is to physically insert a Unicode character into the document by specify its numeric code point in hexadecimal form. For example, the markup of `[&](U+4f60)` would have insert a CJK character "你" into the generated LATEX document.
 
 ## Cross references
 

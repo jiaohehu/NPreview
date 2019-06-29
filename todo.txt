@@ -19,4 +19,4 @@ list of source images, currently the first image is selected.
 line of a paragraph.
 
 [ ] change it so that ``` fence would be a CODE block and
-~~~ is a VERB block. 
+~~~ is a VERB block.

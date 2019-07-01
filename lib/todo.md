@@ -35,3 +35,7 @@ line of a paragraph. (not done because the syntax highlighting for markdown is n
 [ ] figure out how to set the flags globally
 
 [ ] figure out how to insert customized LATEX code.
+
+[ ] add the boxed text back by assuming a 80-character wide terminal and each character is to be drawn individually at certain location, following by LATEX \resizebox{\textwidth}{!} command to scale it back to \textwidth.
+
+[ ] settings: step, verbatim, desc, indent, 

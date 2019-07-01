@@ -32,4 +32,8 @@ line of a paragraph.
 
 [ ] add a phantom section for LSTG block for LATEX
 
-[ ] add a package menu item to allow it to generate LATEX document without having to go through the preview context menu.
+[-] add a package menu item to allow it to generate LATEX document without having to go through the preview context menu. (not to be done because the View class provides essential functions that must be shown in order for a lot of functions to work such as saveAs())
+
+[ ] figure out how to set the flags globally
+
+[ ] figure out how to insert customized LATEX code.

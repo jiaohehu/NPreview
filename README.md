@@ -648,7 +648,7 @@ The preview shows the label text that is attached to the chapter, section, subse
 
 The directives are some paragraphs that provide special instruction for the block that immediately follows it. For a paragraph to be recognized as a directive the first line must be without any leading spaces, and must start with a period, followed by only words.
 
-So far the only supported directive is ".figure". When placed in front of a PICT block, it instructs that the following PICT block should turn into a figure.
+For a figure directive that is ".figure", when placed in front of a PICT block, it instructs that the following PICT block should turn into a figure.
 
 ```
 .figure
@@ -678,6 +678,18 @@ image [width:5cm] (fish.png)
 ///
 ```
 
+## The listing directive
+
+For a ".listing" directive that is placed in front of a CODE block, it is to generate a `begin{lstlisting}` environment that is to treat the lines of a CODE block as source source code, and will go ahead try to place these lines between the `begin{lstlisting}` and `end{lstlisting}`. In addition, it adds the 'caption=' and 'label=' options that is to set the caption of the listing as well as the label for the `begin{lstlisting}` environment.
+
+~~~
+.listing
+Example JavaScript Code
+
+```
+console.log('hello world!');
+```
+~~~
 
 ## Adding additional left margin of a block
 

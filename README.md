@@ -490,25 +490,26 @@ A URI markup is to designate a long URI. For URI markup the syntax is follows:
 The [Yahoo!](www.yahoo.com) site shows this info.
 ```
 
-The translation of this phrase is to show both the word "Yahoo!" and the link "www.yahoo.com" text, where the link text is placed inside a parentheses.
+or 
+
+```
+The [](www.yahoo.com) site shows this info.
+```
+
+The syntax of this link is similar to markdown link syntax except that the text that hides the link can be empty, in which case the link itself is shown. 
+
+However, when Nitrile generates the LATEX translation it does not attempt to hide the link. Instead it will show it after the text in the bracket and then place the link inside a pair parentheses immediately following the previous text. In the second situation the entire link is shown without parentheses. Thus, for the first translation the LATEX would have looked like:
 
 ~~~
-The Yahoo!(www.yahoo.com) site shows this info.
+The Yahoo!(\url{www.yahoo.com}) site shows this info.
 ~~~
 
-However, you can completely omit the text inside the bracket such as:
+And the second example would have generated the following LATEX:
 
 ~~~
-The Yahoo web site is [](www.yahoo.com).
+The \url{www.yahoo.com} site shows this info.
 ~~~
 
-In this case the link is shown without the parentheses.
-
-~~~
-The Yahoo web site is www.yahoo.com.
-~~~
-
-However, the link text itself is styled by LATEX `\href{}{}` command so that a long link text will be split into multiple lines without being hyphenated.
 
 ## Unicode phrase markup
 

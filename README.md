@@ -443,7 +443,7 @@ Texts can have its own inline markups that allows for styling some portion of a 
 
 - Italic text, using single-underscore: `_italic_`
 - Bold text, using double-underscore: `__bold__`
-- Typewriter text, using single backquote, or grave accent. ``` `my code` ```.
+- Typewriter text, using single backquote, or grave accent. `` `my code` ``.
 
 Phrases markups are those that creates new entities that are not considered plain texts. Following are phrase markups supported by Nitrile:
 

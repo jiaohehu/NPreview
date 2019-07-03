@@ -38,6 +38,10 @@
       {
         "label": "Export as a LuaLaTeX Book\u2026",
         "command": "nitrile-preview:to-lualatex-book"
+      },
+      {
+        "label": "Refresh Contents",
+        "command": "nitrile-preview:reload"
       }
     ]
   },

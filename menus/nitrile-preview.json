@@ -12,7 +12,7 @@
         "command": "nitrile-preview:select-source-paragraph"
       },
       {
-        "label": "Open Linked File",
+        "label": "Show or Hide Contents",
         "command": "nitrile-preview:open-linked-file"
       },
       {

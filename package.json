@@ -16,10 +16,10 @@
       "default": false,
       "description": "In Markdown, a single newline character doesn't cause a line break in the generated HTML. In GitHub Flavored Markdown, that is not true. Enable this config option to insert line breaks in rendered HTML for single newlines in Markdown source."
     },
-    "liveUpdate": {
+    "liveUpdateJames": {
       "type": "boolean",
       "default": true,
-      "description": "Re-render the preview as the contents of the source changes, without requiring the source buffer to be saved. If disabled, the preview is re-rendered only when the buffer is saved to disk."
+      "description": "James Re-render the preview as the contents of the source changes, without requiring the source buffer to be saved. If disabled, the preview is re-rendered only when the buffer is saved to disk."
     },
     "openPreviewInSplitPane": {
       "type": "boolean",

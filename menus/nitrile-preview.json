@@ -9,11 +9,15 @@
     "div.nitrile-preview": [
       {
         "label": "Jump to Editor",
-        "command": "nitrile-preview:select-source-paragraph"
+        "command": "nitrile-preview:jump-to-editor"
       },
       {
-        "label": "Show or Hide Contents",
-        "command": "nitrile-preview:open-linked-file"
+        "label": "Scroll To Cursor",
+        "command": "nitrile-preview:scroll-to-cursor"
+      },
+      {
+        "label": "Toggle Section Contents",
+        "command": "nitrile-preview:toggle-section-contents"
       },
       {
         "label": "Copy Selected Text",

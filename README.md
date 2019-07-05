@@ -830,6 +830,8 @@ Any line that starts with `%!` is treated as a designation of a flag that serves
 
 - Need to be able to construct multi-part document that uses LATEX \part command.
 
+- Add configuration options for settings such as "update on save only", "step margin", "use indent for default paragraphs", and others.
+
 ## Known problems
 
 - A Nitrile Preview window will be saved but during refreshing it does not pick up the CSS style. However, after toggle to invisible and back to visible again the CSS style will be picked up --- need to figure out why.

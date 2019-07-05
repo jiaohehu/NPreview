@@ -824,11 +824,15 @@ Tutorial
 
 Any line that starts with `%!` is treated as a designation of a flag that serves to instruct Nitrile to process the rest of the document a little differently then usually. Thinking of it as a configuration or setting parameter. So far the only defined flag is "verbatim".
 
-# TODO
+## TODO
 
 - Only certain ranges of CJK, Hanagina, Katakana, and Korean characters in Unicode range is known to have mapped to fonts. Other Unicode characters are not mapped. Need to enlarge the current font map coverage to cover more Unicode character ranges including the character U+25BA (►), which is currently not be able to show up in a LATEX document because the default font does not have a glyph for it.
 
 - Need to be able to construct multi-part document that uses LATEX \part command.
+
+## Known problems
+
+- A Nitrile Preview window will be saved but during refreshing it does not pick up the CSS style. However, after toggle to invisible and back to visible again the CSS style will be picked up --- need to figure out why.
 
 
 

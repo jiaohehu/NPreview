@@ -8,7 +8,7 @@
     "atom-workspace": "nitrile-preview:toggle"
   },
   "deserializers": {
-    "NitrilePreviewView": "deserializeNitrilePreviewView"
+    "nitrile-preview/NitrilePreviewView": "deserializeNitrilePreviewView"
   },
   "repository": "https://github.com/bingeli1212/nitrile-preview",
   "license": "MIT",

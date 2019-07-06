@@ -85,3 +85,16 @@ COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
 
 By default, if "columns" option is absent, all columns is assumed the type of
 "L".
+
+However, tabulary does not break over page boundaries. So if you have a long
+table that would need to be broken over several pages, you would need the
+".longtable" directive.
+
+When a ".longtable" directive is given, the table is styled using "tabularx"
+environment. This package introduces a new column type that is "X" and can be
+used to adjust relative size of the columns that are marked as "X" among
+themselves with the goal of having the entire table width the same width of
+\textwidth or some other values. 
+
+
+

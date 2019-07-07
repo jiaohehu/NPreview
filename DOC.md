@@ -3,13 +3,12 @@ Nitrile Preview
 
 # A TABB block
 
-This block is used to construct a LATEX Table. The table is to be styled using
-the "tabularx" environment, which is provided by package "tabulary" and must be
-included.  This environment allows you to specify the left-one-line column (l),
-right-one-line column (r), center-one-line column (c), and
-fixed-width-paragraph column (p{1in}), and left-justified-paragraph column (L).
+This block is to style a LATEX Table. The result is either a "tabulary" or a
+"tabularx" environment. The first is provided by package "tabulary" and the
+second "ltablex". 
 
-As a defualt, a table such as the following will be translated into LATEX as follows.
+As a defualt, a table such as the following will be translated into LATEX as
+follows.
 
 ~~~
 ===
@@ -36,27 +35,40 @@ COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
 \end{tabulary}
 ~~~
 
-The first row is always treated as a heading, and will be translated as
-bold-text that is always center justified. the \multicolumn command here 
-completes this task for us. 
+Each line is recognized as a row to a table. Cells are recognized by splittting
+the line into multiple segments separated by two or more spaces. 
 
-The rest of rows are treated as table body, and the text will be processed
-for any appearances of inline markups. The table header will be treated
-as plain text.
+If there are no double-space detected in the first line, then it is assumed
+that the entire line is for the first cell of the first row, and the next 
+line is for the second cell of the first row, and so on. A second row is
+started when a blank line is encountered. Thus, the previous table can be rewritten
+as follows.
 
-The "tabulary" package is chosen because it allows for specification of
-fixed-width columns as well as a "balanced" column that tabulary environment
-itself will try to determine based on the content of the text. 
+===
+Node Type      
+Value   
+Example       
 
-We will isnert a \textwidth as the width of the table, but the "tabulary"
-environment seems to want to shrink the table width if all columns of the table
-are short enough.
+ELEMENT_NODE   
+1       
+The <body> element
 
-The "tabulary" environment also supports fixed-width columns such as p{1in}.
-You can specify the columns using the forms such as l, r, c, p{1in}, and L, by
-pass it as the value of the "columns" option of this block. The following
-example shows how we have designated the second and third columns as having the
-column being set to the type of "L" and the first column to "l":
+TEXT_NODE      
+3       
+Text that is not part of an element
+
+COMMENT_NODE   
+8       
+<!-- an HTML comment -->
+===
+
+The "tabulary" package is used by default. By default all columns are assumed
+the type of "L", as is recognized in "tabulary" as a "balanced" column, whose
+width is automatically determiend by "tabulary" based on the content of the column
+and also those of other "L" columns.
+
+You can change the column type by using the option of "columns" and then list 
+the type of the columns separated by spaces.
 
 ~~~
 ===[columns:l L L]
@@ -83,18 +95,60 @@ COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
 \end{tabulary}
 ~~~
 
-By default, if "columns" option is absent, all columns is assumed the type of
-"L".
+One thing to remember is that "tabulary" does not split a table over two pages.
+Thus, for a table with many rows a different LATEX table would be needed. 
+In this case you can specify a "longtable" option such as the following.
 
-However, tabulary does not break over page boundaries. So if you have a long
-table that would need to be broken over several pages, you would need the
-".longtable" directive.
+~~~
+===[longtable;columns:l L L]
+Node Type      Value   Example       
+ELEMENT_NODE   1       The <body> element
+TEXT_NODE      3       Text that is not part of an element
+COMMENT_NODE   8       <!-- an HTML comment -->
+===
+~~~
 
-When a ".longtable" directive is given, the table is styled using "tabularx"
-environment. This package introduces a new column type that is "X" and can be
-used to adjust relative size of the columns that are marked as "X" among
-themselves with the goal of having the entire table width the same width of
-\textwidth or some other values. 
+In this case any column that is "L" is automatically converted to a "X" column 
+as is recognized by "tabularx". 
+
+~~~
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Node Type}} & 
+\multicolumn{1}{c|}{\textbf{Value}} & 
+\multicolumn{1}{c|}{\textbf{Example}} \\
+\hline
+ELEMENT\_NODE & 1 & The {$<$}body{$>$} element \\
+\hline
+TEXT\_NODE & 3 & Text that is not part of an element \\
+\hline
+COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
+\hline
+\end{tabularx}
+~~~
+
+A "X" column in "tabularx" is almost the same as that of a "L" column in
+"tabulary", except that "tabularx" does not try to "balance" the width of "X"
+columns the same way as "tabulary" does. However, "tabularx" does have a 
+provision that allows you to specify the relative widths of all "X" columns
+among each other. To do that, you can use the "adjust" option such as
+follows.
+
+~~~
+===[longtable;columns:l L L;adjust:0.4 0.6]
+Node Type      Value   Example       
+ELEMENT_NODE   1       The <body> element
+TEXT_NODE      3       Text that is not part of an element
+COMMENT_NODE   8       <!-- an HTML comment -->
+===
+~~~
+ 
+
+
+
+
+
+
 
 
 

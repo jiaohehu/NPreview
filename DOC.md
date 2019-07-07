@@ -1,14 +1,11 @@
 Nitrile Preview
 
 
-# A TABB block
+# Stylign a tabular
 
-This block is to style a LATEX Table. The result is either a "tabulary" or a
-"tabularx" environment. The first is provided by package "tabulary" and the
-second "ltablex". 
-
-As a defualt, a table such as the following will be translated into LATEX as
-follows.
+A tabular can be constructed by constructing a fenced block using === fences.
+The result is either a "tabulary" or a "tabularx" environment. The first is
+provided by package "tabulary" and the second "ltablex". 
 
 ~~~
 ===
@@ -18,6 +15,8 @@ TEXT_NODE      3       Text that is not part of an element
 COMMENT_NODE   8       <!-- an HTML comment -->
 ===
 ~~~
+
+Followig is the translation of this block.
 
 ~~~
 \begin{tabulary}{\textwidth}{|L|L|L|}
@@ -143,8 +142,10 @@ COMMENT_NODE   8       <!-- an HTML comment -->
 ===
 ~~~
  
-
-
+By default, Nitrile uses the \toprule, \midrule to draw horizontal lines
+on top of the header row and underneath the header row. It also uses
+\bottomrule to draw a horizontal line after the last row of the table.
+The first row is always assumed as the header row. 
 
 
 

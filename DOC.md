@@ -129,10 +129,10 @@ COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
 
 A "X" column in "tabularx" is almost the same as that of a "L" column in
 "tabulary", except that "tabularx" does not try to "balance" the width of "X"
-columns the same way as "tabulary" does. However, "tabularx" does have a 
-provision that allows you to specify the relative widths of all "X" columns
-among each other. To do that, you can use the "adjust" option such as
-follows.
+columns the same way as "tabulary" does; so by default all "X" columns are the
+same width. However, "tabularx" does have a provision that allows you to ajust
+the relative widths of all "X" columns so that one column is wider than the
+other. To do that, you can use the "adjust" option such as follows.
 
 ~~~
 ===[longtable;columns:l L L;adjust:0.4 0.6]

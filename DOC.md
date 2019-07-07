@@ -1,5 +1,12 @@
 Nitrile Preview
 
+Nitrile Preview package generates LATEX document from one or more Markdown (MD) documents. 
+
+The goal of this package is simply, that is to allow you to quickly whip up a LATEX file
+from a MD document. By default, a MD document will be 
+
+# Makeups 
+
 
 # Stylign a tabular
 

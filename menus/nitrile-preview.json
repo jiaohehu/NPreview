@@ -12,12 +12,19 @@
         "command": "nitrile-preview:jump-to-editor"
       },
       {
-        "label": "Scroll to Highlight",
+        "label": "Show Highlight",
         "command": "nitrile-preview:scroll-to-cursor"
       },
       {
-        "label": "Toggle Section Contents",
+        "label": "Show/Hide Contents",
         "command": "nitrile-preview:toggle-section-contents"
+      },
+      {
+        "label": "Reload All",
+        "command": "nitrile-preview:reload"
+      },
+      {
+        "type": "separator"
       },
       {
         "label": "Copy Selected Text",
@@ -26,6 +33,9 @@
       {
         "label": "Copy Source HTML",
         "command": "nitrile-preview:copy-html"
+      },
+      {
+        "type": "separator"
       },
       {
         "label": "Export as a HTML Ducument\u2026",
@@ -42,10 +52,6 @@
       {
         "label": "Export as a LuaLaTeX Book\u2026",
         "command": "nitrile-preview:to-lualatex-book"
-      },
-      {
-        "label": "Refresh Contents",
-        "command": "nitrile-preview:reload"
       }
     ]
   },

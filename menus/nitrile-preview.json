@@ -20,7 +20,7 @@
         "command": "nitrile-preview:toggle-section-contents"
       },
       {
-        "label": "Reload All",
+        "label": "Reload Contents",
         "command": "nitrile-preview:reload"
       },
       {

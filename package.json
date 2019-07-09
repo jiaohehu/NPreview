@@ -2,7 +2,7 @@
   "name": "nitrile-preview",
   "main": "./lib/nitrile-preview",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "A preview of LATEX document generated from Markdown.",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": "nitrile-preview:toggle"
@@ -11,25 +11,10 @@
     "nitrile-preview/NitrilePreviewView": "deserializeNitrilePreviewView"
   },
   "configSchema": {
-    "breakOnSingleNewline": {
-      "type": "boolean",
-      "default": false,
-      "description": "In Markdown, a single newline character doesn't cause a line break in the generated HTML. In GitHub Flavored Markdown, that is not true. Enable this config option to insert line breaks in rendered HTML for single newlines in Markdown source."
-    },
-    "liveUpdateJames": {
-      "type": "boolean",
-      "default": true,
-      "description": "James Re-render the preview as the contents of the source changes, without requiring the source buffer to be saved. If disabled, the preview is re-rendered only when the buffer is saved to disk."
-    },
-    "openPreviewInSplitPane": {
-      "type": "boolean",
-      "default": true,
-      "description": "Open the preview in a split pane. If disabled, the preview is opened in a new tab in the same pane."
-    },
-    "allowUnsafeProtocols": {
-      "type": "boolean",
-      "default": false,
-      "description": "Allow HTML attributes to use protocols normally considered unsafe such as `file://` and absolute paths on Windows."
+    "step": {
+      "type": "number",
+      "default": 0.25,
+      "description": "Additional left margin in centimeters for every character indented."
     },
     "grammars": {
       "type": "array",

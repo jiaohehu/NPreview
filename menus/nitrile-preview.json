@@ -13,7 +13,7 @@
       },
       {
         "label": "Show Highlight",
-        "command": "nitrile-preview:scroll-to-cursor"
+        "command": "nitrile-preview:show-highlight"
       },
       {
         "label": "Show/Hide Contents",
@@ -56,6 +56,10 @@
       {
         "label": "Export as a LuaLaTeX Book\u2026",
         "command": "nitrile-preview:to-lualatex-book"
+      },
+      {
+        "label": "Export to LATEX\u2026",
+        "command": "nitrile-preview:to-latex"
       }
     ]
   },

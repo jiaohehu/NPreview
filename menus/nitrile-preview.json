@@ -12,7 +12,7 @@
         "command": "nitrile-preview:jump-to-editor"
       },
       {
-        "label": "Show Highlight",
+        "label": "Scroll to Highlight",
         "command": "nitrile-preview:show-highlight"
       },
       {

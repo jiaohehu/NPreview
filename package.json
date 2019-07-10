@@ -14,7 +14,17 @@
     "step": {
       "type": "number",
       "default": 0.25,
-      "description": "Additional left margin in centimeters for every character indented."
+      "description": "Left margin increment (in centimeters) for every character indented."
+    },
+    "liveUpdate": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want the preview to be updated whenever document is updated. Set to false if you only want the preview to be updated when the document is saved."
+    },
+    "flushLeftParagraph": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want default paragraphs to be placed inside a 'flushleft' environment so that it does not have an indentation. Set to false if you do not want this behavior."
     },
     "grammars": {
       "type": "array",

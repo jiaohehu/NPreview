@@ -39,3 +39,7 @@ line of a paragraph. (not done because the syntax highlighting for markdown is n
 [ ] add the boxed text back by assuming a 80-character wide terminal and each character is to be drawn individually at certain location, following by LATEX \resizebox{\textwidth}{!} command to scale it back to \textwidth.
 
 [ ] settings: step, verbatim, desc, indent, 
+
+[ ] add a configuration to do 'save' instead of 'saveAs' so that it exports to the last file without asking for confirmatoin.
+
+[ ] add a configuration option to generate the latex file without the flushleft for normal paragraphs. 

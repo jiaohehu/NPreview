@@ -54,7 +54,7 @@
         "command": "nitrile-preview:to-latex"
       },
       {
-        "label": "Export as a LATEX Chapter\u2026",
+        "label": "Export to LATEX as a Chapter\u2026",
         "command": "nitrile-preview:to-latex-chapter"
       }
     ]

@@ -26,23 +26,20 @@
       "default": true,
       "description": "Set it to true if you want default paragraphs to be placed inside a 'flushleft' environment so that it does not have an indentation. Set to false if you do not want this behavior."
     },
+    "texFamily": {
+      "type": "string",
+      "default": "LuaLaTeX",
+      "enum": ["LuaLaTeX","PdfLaTeX"],
+      "description": ""
+    },
     "grammars": {
       "type": "array",
       "default": [
-        "source.gfm",
-        "source.litcoffee",
-        "text.html.basic",
         "text.md",
         "text.plain",
         "text.plain.null-grammar"
       ],
       "description": "List of scopes for languages for which previewing is enabled. See [this README](https://github.com/atom/spell-check#spell-check-package-) for more information on finding the correct scope for a specific language."
-    },
-    "useGitHubStyle": {
-      "title": "Use GitHub.com style",
-      "type": "boolean",
-      "default": false,
-      "description": "Use the same CSS styles for preview as the ones used on GitHub.com."
     }
   },
   "repository": "https://github.com/bingeli1212/nitrile-preview",

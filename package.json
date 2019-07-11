@@ -12,9 +12,18 @@
   },
   "configSchema": {
     "step": {
+      "type": "integer",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 8,
+      "description": "Number of spaces count as an indentation."
+    },
+    "indentMargin": {
       "type": "number",
-      "default": 0.25,
-      "description": "Left margin increment (in centimeters) for every character indented."
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Left margin increment (in centimeters) for each indentation."
     },
     "liveUpdate": {
       "type": "boolean",

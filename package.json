@@ -38,7 +38,10 @@
     "texFamily": {
       "type": "string",
       "default": "LuaLaTeX",
-      "enum": ["LuaLaTeX","PdfLaTeX"],
+      "enum": [
+        "LuaLaTeX",
+        "PdfLaTeX"
+      ],
       "description": ""
     },
     "grammars": {

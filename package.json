@@ -37,10 +37,10 @@
     },
     "texFamily": {
       "type": "string",
-      "default": "LuaLaTeX",
+      "default": "lualatex",
       "enum": [
-        "LuaLaTeX",
-        "PdfLaTeX"
+        "lualatex",
+        "pdflatex"
       ],
       "description": ""
     },

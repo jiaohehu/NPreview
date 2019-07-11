@@ -20,7 +20,7 @@
     },
     "indentMargin": {
       "type": "number",
-      "default": 0.8,
+      "default": 0.85,
       "minimum": 0,
       "maximum": 10,
       "description": "Left margin increment (in centimeters) for each indentation."

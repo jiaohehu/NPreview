@@ -18,7 +18,7 @@
       "maximum": 8,
       "description": "Number of spaces count as an indentation."
     },
-    "indentMargin": {
+    "stepMargin": {
       "type": "number",
       "default": 0.85,
       "minimum": 0,

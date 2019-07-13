@@ -1,0 +1,71 @@
+{
+  "name": "nitrile-preview",
+  "main": "./lib/nitrile-preview",
+  "version": "0.0.0",
+  "description": "A preview of LATEX document generated from Markdown.",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "nitrile-preview:toggle"
+  },
+  "deserializers": {
+    "nitrile-preview/NitrilePreviewView": "deserializeNitrilePreviewView"
+  },
+  "configSchema": {
+    "step": {
+      "type": "integer",
+      "default": 2,
+      "minimum": 1,
+      "maximum": 8,
+      "description": "Number of spaces count as an indentation."
+    },
+    "stepMargin": {
+      "type": "number",
+      "default": 0.85,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Left margin increment (in centimeters) for each indentation."
+    },
+    "liveUpdate": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want the preview to be updated whenever document is updated. Set to false if you only want the preview to be updated when the document is saved."
+    },
+    "autoScroll": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want the preview to scroll to the highlighted part whenever it refreshes."
+    },
+    "parskip": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want to simulate the effect of the 'parskip' package. When enabled, each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
+    },
+    "texFamily": {
+      "type": "string",
+      "default": "lualatex",
+      "enum": [
+        "lualatex",
+        "pdflatex"
+      ],
+      "description": ""
+    },
+    "grammars": {
+      "type": "array",
+      "default": [
+        "text.md",
+        "text.plain",
+        "text.plain.null-grammar"
+      ],
+      "description": "List of scopes for languages for which previewing is enabled. See [this README](https://github.com/atom/spell-check#spell-check-package-) for more information on finding the correct scope for a specific language."
+    }
+  },
+  "repository": "https://github.com/bingeli1212/nitrile-preview",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "fs": "*",
+    "jszip": "^3.2.1"
+  }
+}

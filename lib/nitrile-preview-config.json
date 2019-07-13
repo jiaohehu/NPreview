@@ -11,6 +11,11 @@
     "nitrile-preview/NitrilePreviewView": "deserializeNitrilePreviewView"
   },
   "configSchema": {
+    "outlineOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set to true to translate headings only."
+    },
     "step": {
       "type": "integer",
       "default": 2,

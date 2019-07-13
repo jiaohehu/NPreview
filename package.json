@@ -30,10 +30,15 @@
       "default": true,
       "description": "Set it to true if you want the preview to be updated whenever document is updated. Set to false if you only want the preview to be updated when the document is saved."
     },
-    "flushLeftParagraph": {
+    "autoScroll": {
       "type": "boolean",
       "default": true,
-      "description": "Set it to true if you want default paragraphs to be placed inside a 'flushleft' environment so that it does not have an indentation. Set to false if you do not want this behavior."
+      "description": "Set it to true if you want the preview to scroll to the highlighted part whenever it refreshes."
+    },
+    "parskip": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if you want to simulate the effect of the 'parskip' package. When enabled, each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
     },
     "texFamily": {
       "type": "string",

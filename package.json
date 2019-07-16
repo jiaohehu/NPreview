@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "fs": "*",
+    "mathjax-node": "*",
     "jszip": "^3.2.1"
   }
 }

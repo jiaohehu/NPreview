@@ -1,15 +1,4 @@
 {
-  "name": "nitrile-preview",
-  "main": "./lib/nitrile-preview",
-  "version": "0.0.0",
-  "description": "A preview of LATEX document generated from Markdown.",
-  "keywords": [],
-  "activationCommands": {
-    "atom-workspace": "nitrile-preview:toggle"
-  },
-  "deserializers": {
-    "nitrile-preview/NitrilePreviewView": "deserializeNitrilePreviewView"
-  },
   "configSchema": {
     "outlineOnly": {
       "type": "boolean",
@@ -63,14 +52,5 @@
       ],
       "description": "List of scopes for languages for which previewing is enabled. See [this README](https://github.com/atom/spell-check#spell-check-package-) for more information on finding the correct scope for a specific language."
     }
-  },
-  "repository": "https://github.com/bingeli1212/nitrile-preview",
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "dependencies": {
-    "fs": "*",
-    "jszip": "^3.2.1"
   }
 }

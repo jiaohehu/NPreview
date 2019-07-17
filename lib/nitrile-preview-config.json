@@ -94,6 +94,7 @@
     { "kbd": ".",      "unicode": "."        ,  "id": "myDOT",    "dx":"0",      "dy":".8em", "width": 4       },
     { "kbd": ",",      "unicode": ","        ,  "id": "myCOMMA",  "dx":"0",      "dy":".8em", "width": 4       },
     { "kbd": ";",      "unicode": ";"        ,  "id": "mySEMIC",  "dx":"0",      "dy":".8em", "width": 4       },
+    { "kbd": "_",      "unicode": "_"        ,  "id": "myUS",     "dx":"0",      "dy":".8em", "width": 6       },
     { "kbd": "\\sqrt", "unicode": "&#x221A;" ,  "id": "mySQ",     "dx":"0",      "dy":"0.95em",  "width": 8    },
     { "kbd": "\\lbrace", "unicode": "&#x007B;" ,  "id": "myLB",     "dx":"0",      "dy":"0.75em",  "width": 7    },
     { "kbd": "\\rbrace", "unicode": "&#x007D;" ,  "id": "myRB",     "dx":"0",      "dy":"0.75em",  "width": 7    }

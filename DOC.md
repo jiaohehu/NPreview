@@ -189,6 +189,12 @@ The first row is always assumed as the header row.
     "\\right\\lceil"
     "\\right\\lfloor"
 
+## Supported LATEX combinators       
+
+    \binom
+    \frac
+    \sqrt
+    
 
 
 

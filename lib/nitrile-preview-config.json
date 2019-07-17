@@ -81,7 +81,7 @@
     { "kbd": "y",      "unicode": "&#x1D466;",  "id": "myY",      "dx":"0",      "dy":".7em", "width": 5.5     },
     { "kbd": "z",      "unicode": "&#x1D467;",  "id": "myZ",      "dx":"0",      "dy":".7em", "width": 5.5     },
     { "kbd": "+",      "unicode": "+"        ,  "id": "myPLUS",   "dx":"0.00em", "dy":".7em", "width": 8       },
-    { "kbd": "\\sqrt", "unicode": "&#x221A;" ,  "id": "mySQ",     "dx":"0",      "dy":"1em",  "width": 8       }
+    { "kbd": "\\sqrt", "unicode": "&#x221A;" ,  "id": "mySQ",     "dx":"0",      "dy":"0.95em",  "width": 8       }
 
   ]
 }

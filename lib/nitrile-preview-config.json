@@ -123,6 +123,7 @@
     { "kbd": "_",      "unicode": "_"        ,  "id": "myUS",     "dx":"0",      "dy":".8em", "width": 6       },
     { "kbd": "^",      "unicode": "^"        ,  "id": "myCR",     "dx":"0",      "dy":".8em", "width": 6       },
     { "kbd": "=",      "unicode": "="        ,  "id": "myEQ",     "dx":"0",      "dy":".8em", "width": 8       },
+    { "kbd": "-",      "unicode": "&#8722;"  ,  "id": "myMI",     "dx":"0",      "dy":".8em", "width": 8       },
     { "kbd": "\\sqrt", "unicode": "&#x221A;" ,  "id": "mySQ",     "dx":"0",      "dy":"0.95em",  "width": 8    },
     { "kbd": "\\lbrace", "unicode": "&#x007B;" ,  "id": "myLB",     "dx":"0",      "dy":"0.75em",  "width": 7    },
     { "kbd": "\\rbrace", "unicode": "&#x007D;" ,  "id": "myRB",     "dx":"0",      "dy":"0.75em",  "width": 7    }

@@ -167,7 +167,27 @@ on top of the header row and underneath the header row. It also uses
 The first row is always assumed as the header row. 
 
 
+## Supported LATEX left/right fences
 
+    "\\left\\lbrace"
+    "\\left\\lbrack"
+    "\\left\\llbracket"
+    "\\left\\langle"
+    "\\left("
+    "\\left\\lVert"
+    "\\left\\lvert"
+    "\\left\\lceil"
+    "\\left\\lfloor"
+
+    "\\right\\lbrace"
+    "\\right\\lbrack"
+    "\\right\\llbracket"
+    "\\right\\langle"
+    "\\right)"
+    "\\right\\lVert"
+    "\\right\\lvert"
+    "\\right\\lceil"
+    "\\right\\lfloor"
 
 
 

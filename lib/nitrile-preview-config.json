@@ -54,7 +54,17 @@
     }
   },
   "mathSymbols": [
-    { "kbd": "a",      "unicode": "&#x1D44E;",  "id": "myA",      "dx":"0",      "dy":".7em", "width": 8       },
+    { "kbd": "0",      "unicode": "0",          "id": "my0",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "1",      "unicode": "1",          "id": "my1",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "2",      "unicode": "2",          "id": "my2",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "3",      "unicode": "3",          "id": "my3",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "4",      "unicode": "4",          "id": "my4",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "5",      "unicode": "5",          "id": "my5",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "6",      "unicode": "6",          "id": "my6",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "7",      "unicode": "7",          "id": "my7",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "8",      "unicode": "8",          "id": "my8",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "9",      "unicode": "9",          "id": "my9",      "dx":"0",      "dy":".8em", "width": 6       },
+    { "kbd": "a",      "unicode": "&#x1D44E;",  "id": "myA",      "dx":"0",      "dy":".7em", "width": 6       },
     { "kbd": "b",      "unicode": "&#x1D44F;",  "id": "myB",      "dx":"0",      "dy":".7em", "width": 6       },
     { "kbd": "c",      "unicode": "&#x1D450;",  "id": "myC",      "dx":"0",      "dy":".7em", "width": 5       },
     { "kbd": "d",      "unicode": "&#x1D451;",  "id": "myD",      "dx":"0",      "dy":".7em", "width": 5.9     },

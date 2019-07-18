@@ -79,7 +79,7 @@
     { "kbd": "V"               ,    "unicode": "V"              ,  "id": "myCapV",        "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "W"               ,    "unicode": "W"              ,  "id": "myCapW",        "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "Y"               ,    "unicode": "Y"              ,  "id": "myCapY",        "dx":"0",      "dy":".8em",    "width": 8.5  },
-                                
+
     { "kbd": "a"               ,    "unicode": "&#x1D44E;"      ,  "id": "myA",           "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "b"               ,    "unicode": "&#x1D44F;"      ,  "id": "myB",           "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "c"               ,    "unicode": "&#x1D450;"      ,  "id": "myC",           "dx":"0",      "dy":".8em",    "width": 6    },
@@ -105,7 +105,7 @@
     { "kbd": "x"               ,    "unicode": "&#x1D465;"      ,  "id": "myX",           "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "y"               ,    "unicode": "&#x1D466;"      ,  "id": "myY",           "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "z"               ,    "unicode": "&#x1D467;"      ,  "id": "myZ",           "dx":"0",      "dy":".8em",    "width": 6    },
-                                
+
     { "kbd": "A"               ,    "unicode": "&#913;"         ,  "id": "myi913"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "B"               ,    "unicode": "&#914;"         ,  "id": "myi914"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "\\Gamma"         ,    "unicode": "&#915;"         ,  "id": "myi915"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
@@ -114,10 +114,10 @@
     { "kbd": "Z"               ,    "unicode": "&#918;"         ,  "id": "myi918"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "H"               ,    "unicode": "&#919;"         ,  "id": "myi919"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "\\Theta"         ,    "unicode": "&#920;"         ,  "id": "myi920"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
-    { "kbd": "I"               ,    "unicode": "&#921;"         ,  "id": "myi921"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
+    { "kbd": "I"               ,    "unicode": "&#921;"         ,  "id": "myi921"    ,    "dx":"0",      "dy":".8em",    "width": 4.5  },
     { "kbd": "K"               ,    "unicode": "&#922;"         ,  "id": "myi922"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "\\Lambda"        ,    "unicode": "&#923;"         ,  "id": "myi923"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
-    { "kbd": "M"               ,    "unicode": "&#924;"         ,  "id": "myi924"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
+    { "kbd": "M"               ,    "unicode": "&#924;"         ,  "id": "myi924"    ,    "dx":"0",      "dy":".8em",    "width": 11  },
     { "kbd": "N"               ,    "unicode": "&#925;"         ,  "id": "myi925"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "\\Xi"            ,    "unicode": "&#926;"         ,  "id": "myi926"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
     { "kbd": "O"               ,    "unicode": "&#927;"         ,  "id": "myi927"    ,    "dx":"0",      "dy":".8em",    "width": 8.5  },
@@ -157,7 +157,7 @@
     { "kbd": "\\psi"           ,    "unicode": "&#968;"         ,  "id": "myi968"    ,    "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "\\omega"         ,    "unicode": "&#969;"         ,  "id": "myi969"    ,    "dx":"0",      "dy":".8em",    "width": 6    },
     { "kbd": "\\varepsilon"    ,    "unicode": "&#x03F5;"       ,  "id": "my03F5"    ,    "dx":"0",      "dy":".8em",    "width": 6    },
-                                
+
     { "kbd": ","               ,    "unicode": ","              ,  "id": "myCOMMA",       "dx":"0",      "dy":".8em",    "width": 8    },
     { "kbd": ":"               ,    "unicode": ":"              ,  "id": "myCOLON",       "dx":"0",      "dy":".8em",    "width": 8    },
     { "kbd": ";"               ,    "unicode": ";"              ,  "id": "mySEMIC",       "dx":"0",      "dy":".8em",    "width": 8    },
@@ -215,7 +215,7 @@
     { "kbd": "\\nsubseteq"     ,    "unicode": "&#x2288;"       ,  "id": "my2288",        "dx":"5",      "dy":".8em",    "width": 14   },
     { "kbd": "\\not\\supset"   ,    "unicode": "&#x2285;"       ,  "id": "my2285",        "dx":"5",      "dy":".8em",    "width": 14   },
     { "kbd": "\\nsupseteq"     ,    "unicode": "&#x2289;"       ,  "id": "my2289",        "dx":"5",      "dy":".8em",    "width": 14   },
-    { "kbd": "\\times"         ,    "unicode": "&#x00D7;"       ,  "id": "my00D7",        "dx":"5",      "dy":".8em",    "width": 14   }, 
+    { "kbd": "\\times"         ,    "unicode": "&#x00D7;"       ,  "id": "my00D7",        "dx":"5",      "dy":".8em",    "width": 14   },
     { "kbd": "\\pm"            ,    "unicode": "&#x00B1;"       ,  "id": "my00B1",        "dx":"5",      "dy":".8em",    "width": 14   },
     { "kbd": "\\bmod"          ,    "unicode": "mod"            ,  "id": "myMOD",         "dx":"5",      "dy":".8em",    "width": 30   },
 

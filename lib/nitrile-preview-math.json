@@ -182,12 +182,7 @@
     { "kbd": "\\emptyset"      ,    "unicode": "&#x2205;"       ,  "id": "my2205",        "dx":"0",      "dy":".8em",    "width": 8    },
     { "kbd": "\\infty"         ,    "unicode": "&#x221E;"       ,  "id": "my221E",        "dx":"0",      "dy":".8em",    "width": 8    },
     { "kbd": "\\aleph"         ,    "unicode": "&#x2135;"       ,  "id": "my2135",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{N\\}" ,    "unicode": "&#x2115;"       ,  "id": "my2115",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{Z\\}" ,    "unicode": "&#x2124;"       ,  "id": "my2124",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{Q\\}" ,    "unicode": "&#x211A;"       ,  "id": "my211A",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{R\\}" ,    "unicode": "&#x211D;"       ,  "id": "my211D",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{C\\}" ,    "unicode": "&#x2102;"       ,  "id": "my2102",        "dx":"0",      "dy":".8em",    "width": 8    },
-    { "kbd": "\\mathbb\\{P\\}" ,    "unicode": "&#x2119;"       ,  "id": "my2119",        "dx":"0",      "dy":".8em",    "width": 8    },
+    { "kbd": "\\lim"           ,    "unicode": "lim"            ,  "id": "myLIM" ,        "dx":"0",      "dy":".8em",    "width": 16   },
 
     { "kbd": " "               ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":".75em",   "width": 6    },
     { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQ",          "dx":"0",      "dy":"0.95em",  "width": 8    },

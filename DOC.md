@@ -239,5 +239,19 @@ Or
 
 So far only the inline-math mode is supported.
 
+# Work still needs to be done
+
+- Need to continue fine-tune individual symbols in nitrile-preview-math.json file 
+so that each of the math symbols in the "mathSymbols" section have its optimal width
+such that when displayed the symbol is neither cut-off or left with too much space
+at the tail-end.
+
+- Need to work on display-math such that the fraction, the lim, sum, and integral
+will be styled and scaled differently than those of inline-math mode. 
+
+- Need to add an "formula" block that will turn into either an equation or display
+math. 
+
+
 
 

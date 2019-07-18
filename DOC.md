@@ -191,10 +191,19 @@ The first row is always assumed as the header row.
 
 ## Supported LATEX commands          
 
+    \text  
     \binom
     \frac
     \sqrt
     
+# Supported LATEX font variants
+
+    \mathbb{AB}  
+    \mathscr{AB}  
+    \mathcal{AB} 
+
+NOTE: all the letters must be capital letters. Lowercase letters
+and numbers are not supported.
 
 
 

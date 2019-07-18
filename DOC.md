@@ -198,12 +198,24 @@ The first row is always assumed as the header row.
     
 # Supported LATEX font variants
 
-    \mathbb{AB}  
-    \mathscr{AB}  
-    \mathcal{AB} 
+    \mathbb{ABab12}  
+    \mathscr{ABab12}  
+    \mathcal{ABab12} 
 
-NOTE: all the letters must be capital letters. Lowercase letters
-and numbers are not supported.
+NOTE: only the upper-case letter, lower-case letter, and digits are supported.
+
+NOTE: for mathbb variant, which is for double-strike variant, 
+the following letters in Unicode are having a "different" appearance
+than the other ones:
+
+    C  - field of complex numbers
+    H  - field of quaternion numbers, which is a number system that extends the complex numbers.
+    N  - field of all natural numbers, which must be a positive integers: 1, 2, 100, ...
+    P  - field of all prime number
+    Q  - field of rational numbers, excluding irrational number such as PI  
+    R  - field of all real numbers, including integers and floating point numbers
+    Z  - field of all integers, including negative integers and zeros. 
+   
 
 
 

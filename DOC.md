@@ -203,6 +203,7 @@ The first row is always assumed as the header row.
     \mathcal{ABab12} 
 
 NOTE: only the upper-case letter, lower-case letter, and digits are supported.
+No spaces are allowed.
 
 NOTE: for mathbb variant, which is for double-strike variant, 
 the following letters in Unicode are having a "different" appearance
@@ -216,6 +217,6 @@ than the other ones:
     R  - field of all real numbers, including integers and floating point numbers
     Z  - field of all integers, including negative integers and zeros. 
    
-
+NOTE: 
 
 

@@ -217,6 +217,27 @@ than the other ones:
     R  - field of all real numbers, including integers and floating point numbers
     Z  - field of all integers, including negative integers and zeros. 
    
-NOTE: 
+NOTE: Unicode only provide code points for mathbb-variant digits, which would have
+been styled with double-struck appearance. Unicode does not provide code points for 
+mathscr or mathcal style variants. Thus, if digits are detected for mathscr or mathcal
+variants it simply falls back to using regular digits. 
+
+# \sum, \lim and \int           
+
+Supports are provided for using these commands for showing the summation, limits, and
+integral equations. 
+
+    \lim_{i \to \infty} \frac{1}{i} 
+
+Or
+
+    \sum_{i=0}^{100} i^2
+
+Or
+
+    \int_{0}^{100} x dx
+
+So far only the inline-math mode is supported.
+
 
 

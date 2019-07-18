@@ -145,10 +145,9 @@
     { "kbd": "\\rceil",      "unicode": "&#x2309;" ,  "id": "myRCEIL",       "dx":"0",      "dy":"0.75em",  "width": 5    },
     { "kbd": "\\lfloor",     "unicode": "&#x230A;" ,  "id": "myLFLOOR",      "dx":"0",      "dy":"0.75em",  "width": 5    },
     { "kbd": "\\rfloor",     "unicode": "&#x230B;" ,  "id": "myRFLOOR",      "dx":"0",      "dy":"0.75em",  "width": 5    },
-    { "kbd": "\\;",          "unicode": "&#x2004;" ,  "id": "myTHINSP",      "dx":"0",      "dy":"0.75em",  "width": 5    },
-    { "kbd": "\\:",          "unicode": "&#x2005;" ,  "id": "myTHINSP",      "dx":"0",      "dy":"0.75em",  "width": 3    },
-    { "kbd": "\\,",          "unicode": "&#x2006;" ,  "id": "myTHINSP",      "dx":"0",      "dy":"0.75em",  "width": 2    },
-    { "kbd": " ",            "unicode": "&#x2009;" ,  "id": "myTHINSP",      "dx":"0",      "dy":"0.75em",  "width": 2    } 
+    { "kbd": "\\;",          "unicode": "&#x2004;" ,  "id": "myBIGSP",       "dx":"0",      "dy":"0.75em",  "width": 5    },
+    { "kbd": "\\:",          "unicode": "&#x2005;" ,  "id": "myMEDSP",       "dx":"0",      "dy":"0.75em",  "width": 3    },
+    { "kbd": "\\,",          "unicode": "&#x2006;" ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "width": 2    }
 
   ]
 }

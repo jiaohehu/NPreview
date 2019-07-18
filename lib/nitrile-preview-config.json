@@ -151,5 +151,10 @@
     { "kbd": "\\:",          "unicode": "&#x2005;" ,  "id": "myMEDSP",       "dx":"0",      "dy":"0.75em",  "width": 3    },
     { "kbd": "\\,",          "unicode": "&#x2006;" ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "width": 2    }
 
+  ],
+  "mathCommands": [
+    { "name": "\\sqrt",  "count": 1 },
+    { "name": "\\frac",  "count": 2 },
+    { "name": "\\binom", "count": 2 }
   ]
 }

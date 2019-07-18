@@ -186,7 +186,8 @@
 
     { "kbd": " "               ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":".75em",   "op": 0    ,  "width": 6    },
     { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQRT",        "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 8    },
-    { "kbd": "\\int"           ,    "unicode": "&#x222B;"       ,  "id": "myINT",         "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 6    },
+    { "kbd": "\\int"           ,    "unicode": "&#x222B;"       ,  "id": "myINT",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
+    { "kbd": "\\sum"           ,    "unicode": "&#x2211;"       ,  "id": "mySUM",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
 
     { "kbd": "\\lbrace"        ,    "unicode": "&#x007B;"       ,  "id": "myLB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\rbrace"        ,    "unicode": "&#x007D;"       ,  "id": "myRB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },

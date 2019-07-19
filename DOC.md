@@ -196,7 +196,7 @@ The first row is always assumed as the header row.
     \frac
     \sqrt
     
-# Supported LATEX font variants
+## Supported LATEX font variants
 
     \mathbb{ABab12}  
     \mathscr{ABab12}  
@@ -222,7 +222,7 @@ been styled with double-struck appearance. Unicode does not provide code points 
 mathscr or mathcal style variants. Thus, if digits are detected for mathscr or mathcal
 variants it simply falls back to using regular digits. 
 
-# \sum, \lim and \int           
+## \sum, \lim and \int           
 
 Supports are provided for using these commands for showing the summation, limits, and
 integral equations. 
@@ -238,6 +238,25 @@ Or
     \int_{0}^{100} x dx
 
 So far only the inline-math mode is supported.
+
+
+# The 'outlineonly' and 'sections' flags
+
+The'outlineonly' and 'sections' flags are designed to control the preview
+of contents so that only a selected few are shown. 
+
+~~~
+My Title
+: outlineonly = true
+: sections 1.3 
+
+~~~
+
+This configuration will only show the entire content of section 1.3, and leave
+everything else as showing as outlines only. You can list additional sections
+numbers that are separated by spaces such that the 'sections' flag would look
+like the following: '1.3 1.5 1.6', and in this case the sections of 1.3, 1.5 and 1.6 
+are showing its entire content and everything else is shown as outline only.
 
 # Work still needs to be done
 

@@ -1,56 +1,42 @@
 {
   "configSchema": {
-    "outlineOnly": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set to true to translate headings only."
-    },
-    "step": {
+    "stepspaces": {
       "type": "integer",
       "default": 2,
       "minimum": 1,
       "maximum": 8,
-      "description": "Number of spaces count as an indentation."
+      "description": "Number of spaces count as an indentation level. Must be set between 1 and 8. Default is 2."
     },
-    "stepMargin": {
+    "stepmargin": {
       "type": "number",
       "default": 0.85,
       "minimum": 0,
       "maximum": 10,
-      "description": "Left margin increment (in centimeters) for each indentation."
-    },
-    "liveUpdate": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true if you want the preview to be updated whenever document is updated. Set to false if you only want the preview to be updated when the document is saved."
-    },
-    "autoScroll": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true if you want the preview to scroll to the highlighted part whenever it refreshes."
+      "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
     },
     "parskip": {
       "type": "boolean",
       "default": true,
-      "description": "Set it to true if you want to simulate the effect of the 'parskip' package. When enabled, each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
+      "description": "Set it to true to simulate the effect of the 'parskip' package, that each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
     },
-    "texFamily": {
+    "outlineonly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true to show only headings."
+    },
+    "showlabels": {
+      "type": "string",
+      "default": true,
+      "description": "Set it to a list of strings for which its contents will be shown in *outline* mode."
+    },
+    "texfamily": {
       "type": "string",
       "default": "lualatex",
       "enum": [
         "lualatex",
         "pdflatex"
       ],
-      "description": ""
-    },
-    "grammars": {
-      "type": "array",
-      "default": [
-        "text.md",
-        "text.plain",
-        "text.plain.null-grammar"
-      ],
-      "description": "List of scopes for languages for which previewing is enabled. See [this README](https://github.com/atom/spell-check#spell-check-package-) for more information on finding the correct scope for a specific language."
+      "description": "Set to either *lualatex* or *pdflatex*. "
     }
   }
 }

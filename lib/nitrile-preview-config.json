@@ -31,7 +31,7 @@
     },
     "showlabels": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures and listings."
     },
     "texfamily": {

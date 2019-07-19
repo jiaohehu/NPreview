@@ -184,7 +184,9 @@
     { "kbd": "\\aleph"         ,    "unicode": "&#x2135;"       ,  "id": "my2135",        "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 7    },
     { "kbd": "\\lim"           ,    "unicode": "lim"            ,  "id": "myLIM" ,        "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 16   },
 
-    { "kbd": " "               ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":".75em",   "op": 0    ,  "width": 6    },
+    { "kbd": "\\?"             ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":".75em",   "op": 0    ,  "width": 6    },
+    { "kbd": " "               ,    "unicode": ""               ,  "id": "mySPACE",       "dx":"0",      "dy":".75em",   "op": 0    ,  "width": 4    },
+
     { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQRT",        "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\int"           ,    "unicode": "&#x222B;"       ,  "id": "myINT",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\sum"           ,    "unicode": "&#x2211;"       ,  "id": "mySUM",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },

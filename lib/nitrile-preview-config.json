@@ -24,10 +24,15 @@
       "default": false,
       "description": "Set it to true to show only headings."
     },
-    "showsections": {
-      "type": "string",
+    "sections": {
+      "type": "list",
+      "default": "",
+      "description": "Set it to one or more heading numbers (separated by spaces) for which its contents will be shown in when *outlineonly* mode is on."
+    },
+    "showlabels": {
+      "type": "boolean",
       "default": true,
-      "description": "Set it to a list of heading numbers for which its contents will be shown in when *outlineonly* mode is on."
+      "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures and listings."
     },
     "texfamily": {
       "type": "string",

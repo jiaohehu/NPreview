@@ -16,10 +16,6 @@
         "command": "nitrile-preview:show-highlight"
       },
       {
-        "label": "Show/Hide Contents",
-        "command": "nitrile-preview:toggle-section-contents"
-      },
-      {
         "label": "Open Linked File",
         "command": "nitrile-preview:open-linked-file"
       },

@@ -1,5 +1,15 @@
 {
   "configSchema": {
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Specify a string that would be used for document title."
+    },
+    "author": {
+      "type": "string",
+      "default": "",
+      "description": "Specify a string that would be used for document author."
+    },
     "documentclass": {
       "type": "string",
       "default": "",

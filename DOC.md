@@ -312,6 +312,48 @@ appear as indented for this paragraph.
 
 The default setting for this flag is true.
 
+# A sample block
+
+A sample block is a block that shows an sample or example of something for 
+illustration purpose, such as for showing a piece of code snippet. 
+
+A sample block is recognized by the setting up of a flag that is "sample", 
+and a block that is indented at least to the number of spaces required.
+
+~~~
+My Article Title
+: sample = 4
+
+Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua.
+
+    #include <stdio>
+    int main() {
+      printf("Hello world\n");
+      return 0;
+    }
+
+Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua.
+~~~
+
+In the previous example the C-program code snippet is being detected to
+have an indentation of its first line that is 4 spaces, and thus is being
+recognized as an sample block. 
+
+The sample block is typically typeset using monospace fonts. In addition, 
+the extra spaces that occurs after the required number of blanks (in this
+case, 4) is also preserved. However, multiple inter-word spaces are collapsed 
+to only a single space. 
+
+Line breaks within a sample block is preserved, such that each line in the source
+document is at its own line in the translated LATEX/HTML. For both HTML and LATEX t
+translation, long lines are soft-wrapped. For LATEX the wrapped portion of the line
+does have an additional left margin being added that is harded coded to 0.5cm. For
+HTML the wrapped portion of the line does not have this margin.
+
 
 
 

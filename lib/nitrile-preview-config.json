@@ -62,6 +62,11 @@
         "pdflatex"
       ],
       "description": "Set to either *lualatex* or *pdflatex*. "
+    },
+    "previewimages": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set to either *lualatex* or *pdflatex*. "
     }
   }
 }

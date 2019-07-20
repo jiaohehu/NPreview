@@ -271,6 +271,47 @@ will be styled and scaled differently than those of inline-math mode.
 - Need to add an "formula" block that will turn into either an equation or display
 math. 
 
+# Lists items
+
+For a list item there are special processing to be done.   
+
+Especially, if a colon is found to have followed the first word of the list
+item text and the colon is tself proceeded immediately by at least one blank
+space and followed immediately by another blank, then the first word of the
+list item text is considered an emphasized word and will be styled differently.
+
+The styling will be different depending on the choice of the symbol character
+that leads the list item.  Especially, for a list item that starts with a
+hyphen-minus character then that word will be styled as italic. For a list item
+that starts with a asterisk character then that word will be styled as bold.
+For a list item that starts with a plus-sign character then that word will be
+styled as typewriter fonts. 
+
+For example for the following list 
+
+~~~
+- Apple : the word "apple" will be italic
+* Apple : the word "apple" will be bold
++ Apple : the word "apple" will be monospaced
+~~~
+
+# The parskip flag
+
+The 'parskip' flag, when set to true, is to constrol the formatting of normal
+paragraphs such that they each appear as a block with no indentation at the first line of the paragraph.
+When set to false then a normal paragraph except for the one immediately
+follows the heading is being indented as LATEX normally does. 
+
+In reality, when this flag is set, Nitrile will insert a begin/end flushleft
+environment around the normal paragraph when translating it to a LATEX document
+so that these paragraphs will be styled as a non-indent block by a LATEX
+engine. When this flag is set to false, each normal paragraph will simply be
+left as is, with an empty line inserted between itself and the paragraph
+proceeding it, such that when processed by LATEX the produced PDF will
+appear as indented for this paragraph. 
+
+The default setting for this flag is true.
+
 
 
 

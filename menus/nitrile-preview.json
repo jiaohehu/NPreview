@@ -12,6 +12,10 @@
         "command": "nitrile-preview:jump-to-editor"
       },
       {
+        "label": "Switch to new Editor",
+        "command": "nitrile-preview:switch-to-new-editor"
+      },
+      {
         "label": "Scroll to Highlight",
         "command": "nitrile-preview:show-highlight"
       },

@@ -67,6 +67,13 @@
       "type": "boolean",
       "default": false,
       "description": "Set to either *lualatex* or *pdflatex*. "
+    },
+    "outlinelevel": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 6,
+      "description": "Set it to a number between 0-6 to include chapters, sections, subsections, subsubsections, and others."
     }
   }
 }

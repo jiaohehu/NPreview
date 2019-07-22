@@ -15,7 +15,7 @@
       "default": "",
       "description": "Specify the document class that is for LATEX translation, such as *report*. The default is empty, in which case *article* is chosen for non-book generation and *book* is chosen for book generation."
     },
-    "documentclassoptions": {
+    "documentclassopts": {
       "type": "list",
       "default": "",
       "description": "Specify a list of options separated by spaces that would be attached to the \\documentclass command of LATEX, such as *twocolumn*."

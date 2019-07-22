@@ -312,17 +312,17 @@ appear as indented for this paragraph.
 
 The default setting for this flag is true.
 
-# A sample block
+# A excerpt block
 
-A sample block is a block that shows an sample or example of something for 
+A experpt block is a block that shows an provides an excerpt or example of something for 
 illustration purpose, such as for showing a piece of code snippet. 
 
-A sample block is recognized by the setting up of a flag that is "sample", 
+A excerpt block is recognized by the setting up of a flag that is "excerpt", 
 and a block that is indented at least to the number of spaces required.
 
 ~~~
-My Article Title
-: sample = 4
+My Title
+: excerpt = 4
 
 Lorem ipsum dolor sit amet, consectetur 
 adipiscing elit, sed do eiusmod tempor 
@@ -341,18 +341,35 @@ incididunt ut labore et dolore magna aliqua.
 
 In the previous example the C-program code snippet is being detected to
 have an indentation of its first line that is 4 spaces, and thus is being
-recognized as an sample block. 
+recognized as an excerpt block. 
 
-The sample block is typically typeset using monospace fonts. In addition, 
+The excerpt block is typically typeset using monospace fonts. In addition, 
 the extra spaces that occurs after the required number of blanks (in this
 case, 4) is also preserved. However, multiple inter-word spaces are collapsed 
 to only a single space. 
 
-Line breaks within a sample block is preserved, such that each line in the source
+Line breaks within a excerpt block is preserved, such that each line in the source
 document is at its own line in the translated LATEX/HTML. For both HTML and LATEX t
 translation, long lines are soft-wrapped. For LATEX the wrapped portion of the line
 does have an additional left margin being added that is harded coded to 0.5cm. For
 HTML the wrapped portion of the line does not have this margin.
+
+# The documentclass and documentclassopts flags
+
+The 'documentclass' and 'documentclassopts' flags are for setting up a
+different document class other than the default one provided and supplying
+optional options for the document class.
+
+~~~
+My Title
+: documentclass = scrartcl
+: documentclassopts = twocolumn
+
+Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua.
+~~~
+
 
 
 

@@ -88,6 +88,11 @@
       "minimum": 0,
       "maximum": 10,
       "description": "Set it to a positive number expressing the right margin in centimeters."
+    },
+    "twocolumn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true if two column is to be shown for a page."
     }
   }
 }

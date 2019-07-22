@@ -74,6 +74,20 @@
       "minimum": 0,
       "maximum": 6,
       "description": "Set it to a number between 0-6 to include chapters, sections, subsections, subsubsections, and others."
+    },
+    "leftmargin": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the left margin in centimeters."
+    },
+    "rightmargin": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the right margin in centimeters."
     }
   }
 }

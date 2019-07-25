@@ -93,6 +93,18 @@
       "type": "boolean",
       "default": false,
       "description": "Set it to true if two column is to be shown for a page."
+    },
+    "samplewrap": {
+      "type": "integer",
+      "default": 80,
+      "minimum": 20,
+      "description": "Set it to an integer for which lines longer than this will be wrapped."
+    },
+    "samplewrapTC": {
+      "type": "integer",
+      "default": 41,
+      "minimum": 10,
+      "description": "Set it to an integer for which lines longer than this will be wrapped (in twocolumn mode)."
     }
   }
 }

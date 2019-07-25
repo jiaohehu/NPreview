@@ -77,17 +77,45 @@
     },
     "leftmargin": {
       "type": "number",
-      "default": 4,
+      "default": 4.45,
       "minimum": 0,
       "maximum": 10,
       "description": "Set it to a positive number expressing the left margin in centimeters."
     },
     "rightmargin": {
       "type": "number",
-      "default": 4,
+      "default": 4.45,
       "minimum": 0,
       "maximum": 10,
       "description": "Set it to a positive number expressing the right margin in centimeters."
+    },
+    "topmargin": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the top margin in centimeters."
+    },
+    "leftmarginTC": {
+      "type": "number",
+      "default": 2.5,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the left margin in centimeters."
+    },
+    "rightmarginTC": {
+      "type": "number",
+      "default": 2.5,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the right margin in centimeters."
+    },
+    "topmarginTC": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the top margin in centimeters."
     },
     "twocolumn": {
       "type": "boolean",
@@ -96,7 +124,7 @@
     },
     "samplewrap": {
       "type": "integer",
-      "default": 80,
+      "default": 70,
       "minimum": 20,
       "description": "Set it to an integer for which lines longer than this will be wrapped."
     },

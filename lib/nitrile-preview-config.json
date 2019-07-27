@@ -148,6 +148,11 @@
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *twoside* is going to be specified as part of the option to *geometry* package."
+    },
+    "samplestyle": {
+      "type": "string",
+      "default": "code",
+      "description": "Set it to 'text' for example text. Set it to 'code' for example code. Default to 'code'."
     }
   }
 }

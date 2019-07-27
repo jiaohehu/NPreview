@@ -52,7 +52,12 @@
     "showlabels": {
       "type": "boolean",
       "default": false,
-      "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures and listings."
+      "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures, tables, and listings."
+    },
+    "showids": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true to show the CSS ID that is assigned to each sectional headings as well as to figures, tables, and listings."
     },
     "texfamily": {
       "type": "string",

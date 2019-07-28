@@ -77,8 +77,8 @@
       "type": "integer",
       "default": 0,
       "minimum": 0,
-      "maximum": 6,
-      "description": "Set it to a number between 0-6 to include chapters, sections, subsections, subsubsections, and others."
+      "maximum": 4,
+      "description": "Set it to a number between 0-3 where 0 is for showing all headings, 1 for chapters, 2 will include section, 3 will include subsection, and 4 will include subsubsection."
     },
     "leftmargin": {
       "type": "number",

@@ -27,6 +27,13 @@
       "maximum": 10,
       "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
     },
+    "sampmargin": {
+      "type": "number",
+      "default": 0.85,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Left margin for sample block. Must be set between 0 and 10. Default is 0.85"
+    },
     "parskip": {
       "type": "boolean",
       "default": true,

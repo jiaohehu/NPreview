@@ -20,13 +20,6 @@
       "default": "",
       "description": "Specify a list of options separated by spaces that would be attached to the \\documentclass command of LATEX, such as *twocolumn*."
     },
-    "stepspaces": {
-      "type": "integer",
-      "default": 2,
-      "minimum": 1,
-      "maximum": 8,
-      "description": "Number of spaces count as an indentation level. Must be set between 1 and 8. Default is 2."
-    },
     "stepmargin": {
       "type": "number",
       "default": 0.85,
@@ -122,11 +115,6 @@
       "maximum": 10,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     },
-    "twocolumn": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true if two column is to be shown for a page."
-    },
     "samplewrap": {
       "type": "integer",
       "default": 70,
@@ -138,6 +126,11 @@
       "default": 41,
       "minimum": 10,
       "description": "Set it to an integer for which lines longer than this will be wrapped (in twocolumn mode)."
+    },
+    "twocolumn": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true if two column is to be shown for a page."
     },
     "a4paper": {
       "type": "boolean",

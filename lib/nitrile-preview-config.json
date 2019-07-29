@@ -134,6 +134,12 @@
       "minimum": 10,
       "description": "Set it to an integer for which lines longer than this will be wrapped (in twocolumn mode)."
     },
+    "verbmin": {
+      "type": "integer",
+      "default": 65,
+      "minimum": 10,
+      "description": "Set it to an integer that it is the minimum width for a VERB block."
+    },
     "twocolumn": {
       "type": "boolean",
       "default": false,

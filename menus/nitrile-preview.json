@@ -48,6 +48,10 @@
       {
         "label": "Export to LATEX as a Chapter\u2026",
         "command": "nitrile-preview:to-latex-chapter"
+      },
+      {
+        "label": "Export to EPUB",
+        "command": "nitrile-preview:to-epub"
       }
     ]
   },

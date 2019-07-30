@@ -20,6 +20,10 @@
         "command": "nitrile-preview:open-linked-file"
       },
       {
+        "label": "Reload",
+        "command": "nitrile-preview:reload"
+      },
+      {
         "type": "separator"
       },
       {

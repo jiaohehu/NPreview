@@ -373,8 +373,8 @@ incididunt ut labore et dolore magna aliqua.
 
 # LATEX-only options
 
-Following are configuration options that are related to LATEX document generation only. 
-It does not affects PREVIEW.
+Following are configuration options that are related to LATEX document
+generation only.  It does not affects PREVIEW.
 
 - latexlatexfamily
 - latexdocumentclass
@@ -391,5 +391,65 @@ It does not affects PREVIEW.
 - latexleftmarginTC
 - latexrightmarginTC
 - latextopmarginTC
+
+# EPUB splitting chapters
+
+When HTML translation is being done to it there are two kind of outputs:
+The HTMLS array and CHAPS array.                 
+
+~~~
+<h1>PART I - Basi...         
+<h2>Chap 1. Intro...         
+...                          
+...                          
+<h2>1.1 Welcome to...        
+...
+...
+~~~
+
+There could be two or more elements that make up for a single block. 
+
+The CHAPS array looks like the following:
+
+~~~
+['PART',   'nitri....1',''        ,'   ','PART I..',0  ]
+['CHAPTER','nitri...12','my:intro','1  ','Intro...',1  ]
+['SECTION','nitri...24',''        ,'1.1','Welco...',225]
+['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300]
+~~~
+
+Each element is itself an array of four, with the first one being a string such
+as 'PART', 'CHAPTER', 'SECTION', etc; the second one being the CSS ID of that
+part, chapter, section; the third one being the label for that part, chapter,
+sections, etc.; the fourth one being the dept that is assigned to that chapter,
+section, such as "1", "1.1", etc., the fifth one being the actual title for the
+part, chapter, section; and the sixth one being the index into the HTMLS array
+that the first line of that part, section, etc. started. Each element of the
+CHAPS array express the first line in the HTMLS array that starts that part,
+chapter, section, etc.
+
+This, in order to find all the contents of the chapter within the HTMLS array
+that is that chapter and its contents, find the next entry in CHAPS array that
+says 'CHAPTER' and see what index that is. The index of the current 'CHAPTER'
+and the index of the next 'CHAPTER' forms the range of elements for the
+contents of that chapter. 
+
+NOTE: The length of HTMLS and CHAPS array are not the same and will not be the
+same.
+
+The CHAPS array can then be expanded to have another column that would be
+assigned an integer that expresses the split of the content file such that '0'
+would have entailed the file of content0.xhtml, '1' would have entailed the
+file "content1.xhtml", etc.  etc.
+
+~~~
+['PART',   'nitri....1',''        ,'   ','PART I..',0,  '0']
+['CHAPTER','nitri...12','my:intro','1  ','Intro...',1,  '1']
+['SECTION','nitri...24',''        ,'1.1','Welco...',225,'1']
+['CHAPTER','nitri...34',''        ,'2  ','Regexp..',300.'2']
+~~~
+
+
+
 
 

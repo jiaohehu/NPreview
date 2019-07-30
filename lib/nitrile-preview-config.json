@@ -122,17 +122,11 @@
       "maximum": 10,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     },
-    "samplewrap": {
+    "sampwrap": {
       "type": "integer",
-      "default": 70,
-      "minimum": 20,
-      "description": "Set it to an integer for which lines longer than this will be wrapped."
-    },
-    "samplewrapTC": {
-      "type": "integer",
-      "default": 41,
+      "default": 65,
       "minimum": 10,
-      "description": "Set it to an integer for which lines longer than this will be wrapped (in twocolumn mode)."
+      "description": "Set it to an integer for which lines longer than this will be wrapped."
     },
     "verbmin": {
       "type": "integer",

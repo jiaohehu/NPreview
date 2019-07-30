@@ -10,16 +10,6 @@
       "default": "",
       "description": "Specify a string that would be used for document author."
     },
-    "documentclass": {
-      "type": "string",
-      "default": "",
-      "description": "Specify the document class that is for LATEX translation, such as *report*. The default is empty, in which case *article* is chosen for non-book generation and *book* is chosen for book generation."
-    },
-    "documentclassopts": {
-      "type": "list",
-      "default": "",
-      "description": "Specify a list of options separated by spaces that would be attached to the \\documentclass command of LATEX, such as *twocolumn*."
-    },
     "stepmargin": {
       "type": "number",
       "default": 0.85,
@@ -27,17 +17,18 @@
       "maximum": 10,
       "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
     },
+    "sampwrap": {
+      "type": "integer",
+      "default": 60,
+      "minimum": 10,
+      "description": "Set it to an integer for which lines longer than this will be wrapped."
+    },
     "sampmargin": {
       "type": "number",
       "default": 0.85,
       "minimum": 0,
       "maximum": 10,
       "description": "Left margin for sample block. Must be set between 0 and 10. Default is 0.85"
-    },
-    "parskip": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true to simulate the effect of the 'parskip' package, that each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
     },
     "outlineonly": {
       "type": "boolean",
@@ -59,15 +50,6 @@
       "default": false,
       "description": "Set it to true to show the CSS ID that is assigned to each sectional headings as well as to figures, tables, and listings."
     },
-    "texfamily": {
-      "type": "string",
-      "default": "lualatex",
-      "enum": [
-        "lualatex",
-        "pdflatex"
-      ],
-      "description": "Set to either *lualatex* or *pdflatex*. "
-    },
     "previewimages": {
       "type": "boolean",
       "default": false,
@@ -80,74 +62,106 @@
       "maximum": 4,
       "description": "Set it to a number between 0-3 where 0 is for showing all headings, 1 for chapters, 2 will include section, 3 will include subsection, and 4 will include subsubsection."
     },
-    "leftmargin": {
-      "type": "number",
-      "default": 4.45,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the left margin in centimeters."
-    },
-    "rightmargin": {
-      "type": "number",
-      "default": 4.45,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the right margin in centimeters."
-    },
-    "topmargin": {
-      "type": "number",
-      "default": 4,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the top margin in centimeters."
-    },
-    "leftmarginTC": {
-      "type": "number",
-      "default": 2.5,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the left margin in centimeters."
-    },
-    "rightmarginTC": {
-      "type": "number",
-      "default": 2.5,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the right margin in centimeters."
-    },
-    "topmarginTC": {
-      "type": "number",
-      "default": 4,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Set it to a positive number expressing the top margin in centimeters."
-    },
-    "sampwrap": {
-      "type": "integer",
-      "default": 60,
-      "minimum": 10,
-      "description": "Set it to an integer for which lines longer than this will be wrapped."
-    },
-    "verbmin": {
+    "verbminwidth": {
       "type": "integer",
       "default": 65,
       "minimum": 10,
       "description": "Set it to an integer that it is the minimum width for a VERB block."
     },
-    "twocolumn": {
+    "latexfamily": {
+      "type": "string",
+      "default": "lualatex",
+      "enum": [
+        "lualatex",
+        "pdflatex"
+      ],
+      "description": "Set to either *lualatex* or *pdflatex*. "
+    },
+    "latexdocumentclass": {
+      "type": "string",
+      "default": "",
+      "description": "Specify the document class that is for LATEX translation, such as *report*. The default is empty, in which case *article* is chosen for non-book generation and *book* is chosen for book generation."
+    },
+    "latextwocolumn": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if two column is to be shown for a page."
     },
-    "a4paper": {
+    "latexa4paper": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *a4paper* is going to be specified as part of the option to *geometry* package."
     },
-    "twoside": {
+    "latextwoside": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *twoside* is going to be specified as part of the option to *geometry* package."
+    },
+    "latexparskip": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true to simulate the effect of the 'parskip' package, that each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
+    },
+    "latexstepmargin": {
+      "type": "number",
+      "default": 0.85,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
+    },
+    "latexsampwrap": {
+      "type": "integer",
+      "default": 60,
+      "minimum": 10,
+      "description": "Set it to an integer for which lines longer than this will be wrapped."
+    },
+    "latexsampmargin": {
+      "type": "integer",
+      "default": 60,
+      "minimum": 10,
+      "description": "Set it to an integer for which lines longer than this will be wrapped."
+    },
+    "latexleftmargin": {
+      "type": "number",
+      "default": 4.45,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the left margin in centimeters."
+    },
+    "latexrightmargin": {
+      "type": "number",
+      "default": 4.45,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the right margin in centimeters."
+    },
+    "latextopmargin": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the top margin in centimeters."
+    },
+    "latexleftmarginTC": {
+      "type": "number",
+      "default": 2.5,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the left margin in centimeters."
+    },
+    "latexrightmarginTC": {
+      "type": "number",
+      "default": 2.5,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the right margin in centimeters."
+    },
+    "latextopmarginTC": {
+      "type": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Set it to a positive number expressing the top margin in centimeters."
     }
   }
 }

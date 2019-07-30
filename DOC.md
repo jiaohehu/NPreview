@@ -371,6 +371,25 @@ incididunt ut labore et dolore magna aliqua.
 ~~~
 
 
+# LATEX-only options
 
+Following are configuration options that are related to LATEX document generation only. 
+It does not affects PREVIEW.
+
+- latexlatexfamily
+- latexdocumentclass
+- latextwocolumn
+- latexa4paper
+- latextwoside
+- latexparskip
+- latexstepmagin
+- latexsampwrap
+- latexsampmargin
+- latexleftmargin
+- latexrightmargin
+- latextopmargin
+- latexleftmarginTC
+- latexrightmarginTC
+- latextopmarginTC
 
 

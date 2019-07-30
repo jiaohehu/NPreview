@@ -124,7 +124,7 @@
     },
     "sampwrap": {
       "type": "integer",
-      "default": 65,
+      "default": 60,
       "minimum": 10,
       "description": "Set it to an integer for which lines longer than this will be wrapped."
     },

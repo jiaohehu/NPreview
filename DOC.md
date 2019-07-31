@@ -526,4 +526,64 @@ NOTE: only PNG files are supported, and they will always be treated as PNG
 files even if their file names might appear as tree.jpg, tree.pdf, etc.,
 regardless.
 
+# Required LATEX packages 
+
+~~~ term
+
+\usepackage{luatexja-fontspec}
+\usepackage{luatexja-ruby}
+  For allowing CJK characters to show up in LuaLaTeX. 
+\usepackage{geometry}
+  For setting left margins, right margins, and top margins of the
+  generated PDF page.
+\usepackage{graphicx}
+  For \includegraphics command.
+\usepackage{subcaption}
+  For \begin{subfigure} environment.
+\usepackage{caption}
+  For \caption*{...} 
+\usepackage{enumitem}
+  Improvements version of the classic \begin{itemize}, \begin{enumerate}, 
+  and \begin{description} environments.
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+  Defines many math symbols.
+\usepackage{changepage}
+  Deprecated.
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{textcomp}
+  Defines many symbols used in text mode such as \textrightarrow.
+\usepackage{xfrac}
+  Defines \sfrac macro that used in math. (Deprecated)
+\usepackage[unicode]{hyperref}
+  Defines \href, \url, and others. Also allows for generating of PDF 
+  bookmarks.
+\usepackage{anyfontsize}
+  Defines \selectfont{}
+\usepackage{fancyvrb}
+  Deprecated
+\usepackage{tikz}
+  For \begin{pgfpicture} and \begin{tikzpicture}
+\usepackage[normalem]{ulem}
+  For \underline.
+\usepackage{listings}
+  For \begin{lstlisting}
+\usepackage{quoting}
+  For \begin{quote} environment.
+\usepackage{csquotes}
+  Deprecated.
+\usepackage{booktabs}
+  For \toprule, \midrule, and \bottomrule.
+\usepackage{xtab}
+\usepackage{ltablex}
+  For \begin{xtabular} environment.
+\usepackage{xifthen}`
+  For \ifthenelse command.
+
+~~~
+
+
 

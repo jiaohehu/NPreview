@@ -418,18 +418,20 @@ The CHAPS array looks like the following:
 ['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300,'']
 ~~~
 
-Each element is itself an array of four, with the first one being a string such
-as 'PART', 'CHAPTER', 'SECTION', etc; the second one being the CSS ID of that
-part, chapter, section; the third one being the label for that part, chapter,
-sections, etc.; the fourth one being the dept that is assigned to that chapter,
-section, such as "1", "1.1", etc., the fifth one being the actual title for the
-part, chapter, section; and the sixth one being the index into the HTMLS array
-that the first line of that part, section, etc. started. 
+Each element is itself an array of seven part. 
 
-The seventh one is being left empty, it expresses the name of the file 
-that is to be saved under, and thus should be used when, not empty to construct
-the Href-attribute of the A-element such as when exporting to a EPUB 
-archive.
+The first part is a string such as 'PART', 'CHAPTER', 'SECTION', etc; the
+second one being the CSS ID of that part, chapter, section; the third one being
+the label for that part, chapter, sections, etc.; the fourth one being the dept
+that is assigned to that chapter, section, such as "1", "1.1", etc., the fifth
+one being the actual title for the part, chapter, section; and the sixth one
+being the index into the HTMLS array that the first line of that part, section,
+etc. started. 
+
+The seventh part is being left empty by translateHtml call, it expresses the
+name of the file that is to be saved under, and thus should be used when, not
+empty to construct the Href-attribute of the A-element such as when exporting
+to a EPUB archive.
 
 For 'PART', 'CHAPTER', 'SECTION', 'SUBSECTION', 'SUBSUBSECTION', each element
 of the CHAPS array express the first line in the HTMLS array that starts that

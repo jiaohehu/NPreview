@@ -52,8 +52,8 @@
     },
     "previewimages": {
       "type": "boolean",
-      "default": false,
-      "description": "Set to either *lualatex* or *pdflatex*. "
+      "default": true,
+      "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
     },
     "outlinelevel": {
       "type": "integer",

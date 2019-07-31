@@ -68,6 +68,16 @@
       "minimum": 10,
       "description": "Set it to an integer that it is the minimum width for a VERB block."
     },
+    "pictframe": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true if a frame is to be added around the entire PICT block or a figure. Set it to false if no frame should be added. The default is false."
+    },
+    "verbframe": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if a frame is to be added around the entire VERB block. Set it to false if no frame should be added. The default is true."
+    },
     "latexfamily": {
       "type": "string",
       "default": "lualatex",

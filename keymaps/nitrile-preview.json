@@ -1,5 +1,8 @@
 {
   "atom-workspace": {
     "ctrl-alt-o": "nitrile-preview:toggle"
+  },
+  ".platform-darwin .nitrile-preview": {
+    "cmd-c": "nitrile-preview:copy-text"
   }
 }

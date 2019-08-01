@@ -21,6 +21,12 @@
       "default": true,
       "description": "Set it to true if you want the preview to scroll to the highlighted part whenever it refreshes."
     },
+    "viewMode": {
+      "type": "string",
+      "default": "normal",
+      "enum" : ["normal","headings"],
+      "description": "Set it to *normal* if the preview is shown in the center. Set it to *headings* to allow for additional headings to be shown at the right"
+    },
     "grammars": {
       "type": "array",
       "default": [

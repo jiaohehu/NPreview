@@ -631,5 +631,94 @@ and others have been replaced.
 
 ~~~
 
+# Specifying images   
+
+The images are specified within a PICT block. 
+
+    /// 
+    image tree.png
+    ///
+
+By default an image is always displayed in the full width of the page. In LATEX
+it is \linewidth.
+
+    \includegraphics[width=\linewidth](tree.png)
+
+However, you can override this specification by providing a fixed width.
+
+    /// 
+    image [width:4cm] tree.png
+    ///
+
+In this case the image will be set to a width of 4cm.
+
+    \includegraphics[width=4cm](tree.png)
+
+If you say width:auto then the width= option is to be left out and thus the
+natural width of the image is to be shown.
+
+    /// 
+    image [width:auto] tree.png
+    ///
+
+    \includegraphics[](tree.png)
+
+If you need to set the image to a different proportion other than 100% of the
+page width, do not provide a width option with the image itself but provide an
+"adjust" line before the image. 
+
+    /// 
+    adjust .50
+    image tree.png
+    ///
+
+    \includegraphics[width=.50\linewidth](tree.png)
+
+The "adjust" line allows you to adjust the widthes of multiple images:
+
+    /// 
+    adjust .50 .45
+    image tree.png
+    image fish.png
+    ///
+
+    \includegraphics[width=.50\linewidth](tree.png)~\includegraphics[width=.45\linewidth](fish.png)
+
+Using "adjust" line width two numbers also automatically assumes that the
+following two images should be placed in the same row with the given
+proportions specified. For LATEX the translation has to ensure that there are
+no blanks or line brakes inserted between the two \includegraphics commands for
+tree.png and fish.png files, when the goal is to typeset two images right next 
+to each other side-by-side.
+
+However, if the widthes of the image are also provided as part of the image
+options, then the width of that images will be used instead, overriding the
+proportion provided by "adjust". In the following example the actual width
+of 2cm and 3cm is used instead of the percentage of the \linewidth.
+
+    /// 
+    adjust .50 .45
+    image [width:2cm] tree.png
+    image [width:3cm] fish.png
+    ///
+
+    \includegraphics[width=2cm](tree.png)~\includegraphics[width=3cm](fish.png)
+
+By default a non-breakable space character that is tilde will be inserted
+between any two \includegraphics commands when two images are supposed to be
+placed side-by-side. Otherwise, the \includegraphics command will be placed
+at the next line, and which gives LATEX the opportunity to place the image
+in the next line if necessary.
+
+    /// 
+    adjust .50 
+    image tree.png
+    adjust .45
+    image fish.png
+    ///
+
+    \includegraphics[width=.50\linewidth](tree.png)
+    \includegraphics[width=.45\linewidth](fish.png)
+
 
 

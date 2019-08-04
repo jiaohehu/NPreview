@@ -83,6 +83,11 @@
       "default": true,
       "description": "Set it to true if line numbering should also be shown for code listing. Set it to false if no line numbering is shown. Default is true."
     },
+    "quotquotation": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set it to true if quotation marks are to be added to the entire quoted block. Set it to false if no quotation marks should be added. Default is true."
+    },
     "latexfamily": {
       "type": "string",
       "default": "lualatex",

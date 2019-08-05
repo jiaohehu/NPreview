@@ -720,5 +720,14 @@ in the next line if necessary.
     \includegraphics[width=.50\linewidth](tree.png)
     \includegraphics[width=.45\linewidth](fish.png)
 
+# Enabling/disabling quotation marks for the entire quot-block
+
+By default, a QUOT block is set up so that quotation marks are placed at the 
+beginning of the block as well as end. This can be controlled by setting
+the following global-option to false.
+
+    quotquotation = false
+
+
 
 

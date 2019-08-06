@@ -54,7 +54,7 @@
         "command": "nitrile-preview:to-latex-chapter"
       },
       {
-        "label": "Export to EPUB",
+        "label": "Export to EPUB\u2026",
         "command": "nitrile-preview:to-epub"
       }
     ]

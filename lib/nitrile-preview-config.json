@@ -141,7 +141,7 @@
       "description": "Set it to an integer for which lines longer than this will be wrapped."
     },
     "latexsampmargin": {
-      "type": "integer",
+      "type": "number",
       "default": 0.85,
       "minimum": 0,
       "maximum": 2.0,
@@ -158,35 +158,35 @@
       "type": "number",
       "default": 4.45,
       "minimum": 0,
-      "maximum": 10,
+      "maximum": 10.0,
       "description": "Set it to a positive number expressing the right margin in centimeters."
     },
     "latextopmargin": {
       "type": "number",
-      "default": 4,
+      "default": 4.0,
       "minimum": 0,
-      "maximum": 10,
+      "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     },
     "latexleftmarginTC": {
       "type": "number",
       "default": 2.5,
       "minimum": 0,
-      "maximum": 10,
+      "maximum": 10.0,
       "description": "Set it to a positive number expressing the left margin in centimeters."
     },
     "latexrightmarginTC": {
       "type": "number",
       "default": 2.5,
       "minimum": 0,
-      "maximum": 10,
+      "maximum": 10.0,
       "description": "Set it to a positive number expressing the right margin in centimeters."
     },
     "latextopmarginTC": {
       "type": "number",
-      "default": 4,
+      "default": 4.0,
       "minimum": 0,
-      "maximum": 10,
+      "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     }
   }

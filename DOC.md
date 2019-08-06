@@ -728,6 +728,26 @@ the following global-option to false.
 
     quotquotation = false
 
+# Enabling auto-rubification for Japanese Kanji Characters
+
+Nitrile comes with a limited set of Japanese Kanji Character vocabulary 
+and its phonetic pronunciation in Hiragana. It will allow for auto rubification
+of Kanji characters in the following blocks: VRSE, QUOT and TABB. 
+
+You would have to specifically turned this feature by setting the 'autoruby' 
+config parameter to a list of the block names:
+
+    My Title
+    : autoruby = VRSE TABU
+
+This will enable auto-rubification for the block that is VRSE and TABU.
+You could also elect to express it using the type of fence that is associated
+with each block for expressing that block. Following would have had the
+same affect as the one above.
+
+    My Title
+    : autoruby = --- +++
+
 
 
 

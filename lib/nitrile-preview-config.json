@@ -88,6 +88,11 @@
       "default": true,
       "description": "Set it to true if quotation marks are to be added to the entire quoted block. Set it to false if no quotation marks should be added. Default is true."
     },
+    "autoruby": {
+      "type": "list",
+      "default": "",
+      "description": "Set to a list of block types for which automatic rubification should be done"
+    },
     "latexfamily": {
       "type": "string",
       "default": "lualatex",

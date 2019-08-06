@@ -269,6 +269,14 @@
     { "kbd": "\\rightharpoondown",  "unicode": "&#x21C1;"       ,  "id": "myx21C1",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\rightleftharpoons", "unicode": "&#x21CC;"       ,  "id": "myx21CC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
+    { "kbd": "\\mapsto"        ,    "unicode": "&#x21A6;"       ,  "id": "myx21A6",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+    { "kbd": "\\longmapsto"    ,    "unicode": "&#x27FC;"       ,  "id": "myx27FC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 12   },
+
+    { "kbd": "\\nwarrow"       ,    "unicode": "&#x2196;"       ,  "id": "myx2196",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+    { "kbd": "\\nearrow"       ,    "unicode": "&#x2197;"       ,  "id": "myx2197",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+    { "kbd": "\\searrow"       ,    "unicode": "&#x2198;"       ,  "id": "myx2198",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+    { "kbd": "\\swarrow"       ,    "unicode": "&#x2199;"       ,  "id": "myx2199",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+
     { "kbd": "\\triangle"      ,    "unicode": "&#x25B3;"       ,  "id": "myx25B3",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\surd"          ,    "unicode": "&#x2713;"       ,  "id": "myx2713",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\cdots"         ,    "unicode": "&#x22EF;"       ,  "id": "myx22EF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },

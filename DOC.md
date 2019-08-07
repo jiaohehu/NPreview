@@ -26,32 +26,12 @@ A tabular can be constructed by constructing a fenced block using === fences.
 The result is either a "tabulary" or a "tabularx" environment. The first is
 provided by package "tabulary" and the second "ltablex".
 
-~~~
-===
-Node Type      Value   Example
-ELEMENT_NODE   1       The <body> element
-TEXT_NODE      3       Text that is not part of an element
-COMMENT_NODE   8       <!-- an HTML comment -->
-===
-~~~
-
-Followig is the translation of this block.
-
-~~~
-\begin{tabulary}{\textwidth}{|L|L|L|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Node Type}} &
-\multicolumn{1}{c|}{\textbf{Value}} &
-\multicolumn{1}{c|}{\textbf{Example}} \\
-\hline
-ELEMENT\_NODE & 1 & The {$<$}body{$>$} element \\
-\hline
-TEXT\_NODE & 3 & Text that is not part of an element \\
-\hline
-COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
-\hline
-\end{tabulary}
-~~~
+    ===
+    Node Type      Value   Example
+    ELEMENT_NODE   1       The <body> element
+    TEXT_NODE      3       Text that is not part of an element
+    COMMENT_NODE   8       <!-- an HTML comment -->
+    ===
 
 Each line is recognized as a row to a table. Cells are recognized by splittting
 the line into multiple segments separated by two or more spaces.
@@ -62,110 +42,33 @@ line is for the second cell of the first row, and so on. A second row is
 started when a blank line is encountered. Thus, the previous table can be rewritten
 as follows.
 
-===
-Node Type
-Value
-Example
+    ===
+    Node Type
+    Value
+    Example
 
-ELEMENT_NODE
-1
-The <body> element
+    ELEMENT_NODE
+    1
+    The <body> element
 
-TEXT_NODE
-3
-Text that is not part of an element
+    TEXT_NODE
+    3
+    Text that is not part of an element
 
-COMMENT_NODE
-8
-<!-- an HTML comment -->
-===
+    COMMENT_NODE
+    8
+    <!-- an HTML comment -->
+    ===
 
-The "tabulary" package is used by default. By default all columns are assumed
+The "xtabular" package is used by default. By default all columns are assumed
 the type of "L", as is recognized in "tabulary" as a "balanced" column, whose
 width is automatically determiend by "tabulary" based on the content of the column
 and also those of other "L" columns.
-
-You can change the column type by using the option of "columns" and then list
-the type of the columns separated by spaces.
-
-~~~
-===[columns:l L L]
-Node Type      Value   Example
-ELEMENT_NODE   1       The <body> element
-TEXT_NODE      3       Text that is not part of an element
-COMMENT_NODE   8       <!-- an HTML comment -->
-===
-~~~
-
-~~~
-\begin{tabulary}{\textwidth}{|l|L|L|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Node Type}} &
-\multicolumn{1}{c|}{\textbf{Value}} &
-\multicolumn{1}{c|}{\textbf{Example}} \\
-\hline
-ELEMENT\_NODE & 1 & The {$<$}body{$>$} element \\
-\hline
-TEXT\_NODE & 3 & Text that is not part of an element \\
-\hline
-COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
-\hline
-\end{tabulary}
-~~~
-
-One thing to remember is that "tabulary" does not split a table over two pages.
-Thus, for a table with many rows a different LATEX table would be needed.
-In this case you can specify a "longtable" option such as the following.
-
-~~~
-===[longtable;columns:l L L]
-Node Type      Value   Example
-ELEMENT_NODE   1       The <body> element
-TEXT_NODE      3       Text that is not part of an element
-COMMENT_NODE   8       <!-- an HTML comment -->
-===
-~~~
-
-In this case any column that is "L" is automatically converted to a "X" column
-as is recognized by "tabularx".
-
-~~~
-\begin{tabularx}{\textwidth}{|l|X|X|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Node Type}} &
-\multicolumn{1}{c|}{\textbf{Value}} &
-\multicolumn{1}{c|}{\textbf{Example}} \\
-\hline
-ELEMENT\_NODE & 1 & The {$<$}body{$>$} element \\
-\hline
-TEXT\_NODE & 3 & Text that is not part of an element \\
-\hline
-COMMENT\_NODE & 8 & {$<$}!-- an HTML comment --{$>$} \\
-\hline
-\end{tabularx}
-~~~
-
-A "X" column in "tabularx" is almost the same as that of a "L" column in
-"tabulary", except that "tabularx" does not try to "balance" the width of "X"
-columns the same way as "tabulary" does; so by default all "X" columns are the
-same width. However, "tabularx" does have a provision that allows you to ajust
-the relative widths of all "X" columns so that one column is wider than the
-other. To do that, you can use the "adjust" option such as follows.
-
-~~~
-===[longtable;columns:l L L;adjust:0.4 0.6]
-Node Type      Value   Example
-ELEMENT_NODE   1       The <body> element
-TEXT_NODE      3       Text that is not part of an element
-COMMENT_NODE   8       <!-- an HTML comment -->
-===
-~~~
 
 By default, Nitrile uses the \toprule, \midrule to draw horizontal lines
 on top of the header row and underneath the header row. It also uses
 \bottomrule to draw a horizontal line after the last row of the table.
 The first row is always assumed as the header row.
-
 
 ## Supported LATEX left/right fences
 
@@ -242,15 +145,11 @@ So far only the inline-math mode is supported.
 
 # The 'outlineonly' and 'sections' flags
 
-The'outlineonly' and 'sections' flags are designed to control the preview
+The 'outlineonly' and 'sections' flags are designed to control the preview
 of contents so that only a selected few are shown.
 
-~~~
-My Title
-: outlineonly = true
-: sections 1.3
-
-~~~
+    % !NTR outlineonly = true
+    % !NTR sections 1.3
 
 This configuration will only show the entire content of section 1.3, and leave
 everything else as showing as outlines only. You can list additional sections
@@ -289,11 +188,9 @@ styled as typewriter fonts.
 
 For example for the following list
 
-~~~
-- Apple : the word "apple" will be italic
-* Apple : the word "apple" will be bold
-+ Apple : the word "apple" will be monospaced
-~~~
+    - Apple : the word "apple" will be italic
+    * Apple : the word "apple" will be bold
+    + Apple : the word "apple" will be monospaced
 
 # The parskip flag
 
@@ -312,111 +209,101 @@ appear as indented for this paragraph.
 
 The default setting for this flag is true.
 
-# A excerpt block
+# A sample block
 
-A experpt block is a block that shows an provides an excerpt or example of something for
+A sample block is a block that shows an provides an sample or example of something for
 illustration purpose, such as for showing a piece of code snippet.
 
-A excerpt block is recognized by the setting up of a flag that is "excerpt",
+A sample block is recognized by the setting up of a flag that is "sample",
 and a block that is indented at least to the number of spaces required.
 
-~~~
-My Title
-: excerpt = 4
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua.
 
-Lorem ipsum dolor sit amet, consectetur
-adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua.
+        #include <stdio>
+        int main() {
+          printf("Hello world\n");
+          return 0;
+        }
 
-    #include <stdio>
-    int main() {
-      printf("Hello world\n");
-      return 0;
-    }
-
-Lorem ipsum dolor sit amet, consectetur
-adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua.
-~~~
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua.
 
 In the previous example the C-program code snippet is being detected to
 have an indentation of its first line that is 4 spaces, and thus is being
-recognized as an excerpt block.
+recognized as an sample block.
 
-The excerpt block is typically typeset using monospace fonts. In addition,
-the extra spaces that occurs after the required number of blanks (in this
-case, 4) is also preserved. However, multiple inter-word spaces are collapsed
-to only a single space.
+The sample block is typeset using monospace fonts. All spaces after the initial
+4-spaces are preserved, as well as line breaks. Long lines are wrapped into
+multiple lines. The length at which the line is wrapped is set by the following
+configuration parameters and by default it is set at 60.
 
-Line breaks within a excerpt block is preserved, such that each line in the source
-document is at its own line in the translated LATEX/HTML. For both HTML and LATEX t
-translation, long lines are soft-wrapped. For LATEX the wrapped portion of the line
-does have an additional left margin being added that is harded coded to 0.5cm. For
-HTML the wrapped portion of the line does not have this margin.
+    % !NTR sampwrap = 60
 
-# The documentclass and documentclassopts flags
+This setting instructs that if a line in a sample block is detected to be
+longer than 60, then an algorithm will be employed to find an optimal
+place so that it will be split at that point.
 
-The 'documentclass' and 'documentclassopts' flags are for setting up a
-different document class other than the default one provided and supplying
-optional options for the document class.
+For LATEX translation it observes instead the following configuration
+parameters, and it is set to 60 by default.
 
-~~~
-My Title
-: documentclass = scrartcl
-: documentclassopts = twocolumn
+    % !NTR latexsampwrap = 60
 
-Lorem ipsum dolor sit amet, consectetur
-adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua.
-~~~
-
+You may choose to set it to be a smaller number, if for example,
+you have changed the page left/right margins, or have chosen to 
+typeset it using a different font, or having decided to typeset
+in a twocolumn mode.
 
 # LATEX-only options
 
 Following are configuration options that are related to LATEX document
 generation only.  It does not affects PREVIEW.
 
-- latexlatexfamily
-- latexdocumentclass
-- latextwocolumn
-- latexa4paper
-- latextwoside
-- latexparskip
-- latexstepmagin
-- latexsampwrap
-- latexsampmargin
-- latexleftmargin
-- latexrightmargin
-- latextopmargin
-- latexleftmarginTC
-- latexrightmarginTC
-- latextopmarginTC
+    latexlatexfamily
+    latexdocumentclass
+    latextwocolumn
+    latexa4paper
+    latextwoside
+    latexparskip
+    latexstepmagin
+    latexsampwrap
+    latexsampmargin
+    latexleftmargin
+    latexrightmargin
+    latextopmargin
+    latexleftmarginTC
+    latexrightmarginTC
+    latextopmarginTC
+
+For example, if we would like to change the document class to
+be *scrartcl* then we will include the following configuration
+parameters.
+
+    % !NTR latexdocumentclass = scrartcl
 
 # EPUB splitting chapters
 
 When HTML translation is being done to it there are two kind of outputs:
 The HTMLS array and CHAPS array.
 
-~~~
-<h1>PART I - Basi...
-<h2>Chap 1. Intro...
-...
-...
-<h2>1.1 Welcome to...
-...
-...
-~~~
+    <h1>PART I - Basi...
+    <h2>Chap 1. Intro...
+    ...
+    ...
+    <h2>1.1 Welcome to...
+    ...
+    ...
 
 There could be two or more elements that make up for a single block.
 
 The CHAPS array looks like the following:
 
-~~~
-['PART',   'nitri....1',''        ,'   ','PART I..',0  ,'']
-['CHAPTER','nitri...12','my:intro','1  ','Intro...',1  ,'']
-['SECTION','nitri...24',''        ,'1.1','Welco...',225,'']
-['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300,'']
-~~~
+  ['PART',   'nitri....1',''        ,'   ','PART I..',0  ,'']
+  ['CHAPTER','nitri...12','my:intro','1  ','Intro...',1  ,'']
+  ['SECTION','nitri...24',''        ,'1.1','Welco...',225,'']
+  ['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300,'']
 
 Each element is itself an array of seven part.
 
@@ -439,12 +326,10 @@ part, chapter, section, etc.
 
 Following is the likely output after being modified by EPUB generator.
 
-~~~
-['PART',   'nitri....1',''        ,'   ','PART I..',0,  'content0.xhtml']
-['CHAPTER','nitri...12','my:intro','1  ','Intro...',1,  'content1.xhtml']
-['SECTION','nitri...24',''        ,'1.1','Welco...',225,'content2.xhtml']
-['CHAPTER','nitri...34',''        ,'2  ','Regexp..',300.'content3.xhtml']
-~~~
+    ['PART',   'nitri....1',''        ,'   ','PART I..',0,  'content0.xhtml']
+    ['CHAPTER','nitri...12','my:intro','1  ','Intro...',1,  'content1.xhtml']
+    ['SECTION','nitri...24',''        ,'1.1','Welco...',225,'content2.xhtml']
+    ['CHAPTER','nitri...34',''        ,'2  ','Regexp..',300.'content3.xhtml']
 
 This, in order to find all the contents of the chapter within the HTMLS array
 that is that chapter and its contents, find the next entry in CHAPS array that
@@ -499,13 +384,11 @@ The *this.imagemap* is cleared when a new file has been asked to be previewed.
 During the translation of HTML, all images encountered will left with a trace
 in the *chaps* array. It's entry starts with the string 'image':
 
-~~~
-['PART',   'nitri....1',''        ,'   ','PART I..',0  ,'']
-['CHAPTER','nitri...12','my:intro','1  ','Intro...',1  ,'']
-['image'  ,''          ,''        ,''   ,'tree.png','' ,'']
-['SECTION','nitri...24',''        ,'1.1','Welco...',225,'']
-['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300,'']
-~~~
+    ['PART',   'nitri....1',''        ,'   ','PART I..',0  ,'']
+    ['CHAPTER','nitri...12','my:intro','1  ','Intro...',1  ,'']
+    ['image'  ,''          ,''        ,''   ,'tree.png','' ,'']
+    ['SECTION','nitri...24',''        ,'1.1','Welco...',225,'']
+    ['CHAPTER','nitri...34',''        ,'2  ','regexp  ',300,'']
 
 In the previous example the third line is an 'image' entry. The fifth column is
 filled with the name of the image file and other columns are irrelevant and
@@ -551,85 +434,81 @@ and others have been replaced.
 
 # Required LATEX packages 
 
-~~~ term
+    \usepackage{luatexja-fontspec}
+    \usepackage{luatexja-ruby}
+      For allowing CJK characters to show up in LuaLaTeX. 
 
-\usepackage{luatexja-fontspec}
-\usepackage{luatexja-ruby}
-  For allowing CJK characters to show up in LuaLaTeX. 
+    \usepackage{geometry}
+      For setting left margins, right margins, and top margins 
+      of the generated PDF page.
 
-\usepackage{geometry}
-  For setting left margins, right margins, and top margins of the
-  generated PDF page.
+    \usepackage{graphicx}
+      For \includegraphics command.
 
-\usepackage{graphicx}
-  For \includegraphics command.
+    \usepackage{subcaption}
+      For \begin{subfigure} environment.
 
-\usepackage{subcaption}
-  For \begin{subfigure} environment.
+    \usepackage{caption}
+      For \caption*{...} 
 
-\usepackage{caption}
-  For \caption*{...} 
+    \usepackage{enumitem}
+      Improvements version of the classic \begin{itemize}, 
+      \begin{enumerate}, and \begin{description} environments.
 
-\usepackage{enumitem}
-  Improvements version of the classic \begin{itemize}, \begin{enumerate}, 
-  and \begin{description} environments.
+    \usepackage{mathtools}
+    \usepackage{amsfonts}
+    \usepackage{amssymb}
+    \usepackage{unicode-math}
+      Defines many math symbols.
 
-\usepackage{mathtools}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{unicode-math}
-  Defines many math symbols.
+    \usepackage{changepage}
+      Deprecated.
 
-\usepackage{changepage}
-  Deprecated.
+    \usepackage{stmaryrd}
+    \usepackage{wasysym}
+    \usepackage{textcomp}
+      Defines many symbols used in text mode such as \textrightarrow.
 
-\usepackage{stmaryrd}
-\usepackage{wasysym}
-\usepackage{textcomp}
-  Defines many symbols used in text mode such as \textrightarrow.
+    \usepackage{xfrac}
+      Defines \sfrac macro that used in math. (Deprecated)
 
-\usepackage{xfrac}
-  Defines \sfrac macro that used in math. (Deprecated)
+    \usepackage[unicode]{hyperref}
+      Defines \href, \url, and others. Also allows for generating 
+      of PDF bookmarks.
 
-\usepackage[unicode]{hyperref}
-  Defines \href, \url, and others. Also allows for generating of PDF 
-  bookmarks.
+    \usepackage{anyfontsize}
+      Defines \selectfont{}
 
-\usepackage{anyfontsize}
-  Defines \selectfont{}
+    \usepackage{fancyvrb}
+      Deprecated
 
-\usepackage{fancyvrb}
-  Deprecated
+    \usepackage{tikz}
+      For \begin{pgfpicture} and \begin{tikzpicture}
 
-\usepackage{tikz}
-  For \begin{pgfpicture} and \begin{tikzpicture}
+    \usepackage[normalem]{ulem}
+      For \underline.
 
-\usepackage[normalem]{ulem}
-  For \underline.
+    \usepackage{listings}
+      For \begin{lstlisting}
 
-\usepackage{listings}
-  For \begin{lstlisting}
+    \usepackage{quoting}
+      Deprecated. 
 
-\usepackage{quoting}
-  Deprecated. 
+    \usepackage{csquotes}
+      Deprecated.
 
-\usepackage{csquotes}
-  Deprecated.
+    \usepackage{booktabs}
+      For \toprule, \midrule, and \bottomrule.
 
-\usepackage{booktabs}
-  For \toprule, \midrule, and \bottomrule.
+    \usepackage{xtab}
+    \usepackage{ltablex}
+      For \begin{xtabular} environment. It turns out that if 
+      *ltablex* package is not included there are some weired 
+      compilation errors from lualatex. Including this package 
+      seems to make it goes away.
 
-\usepackage{xtab}
-\usepackage{ltablex}
-  For \begin{xtabular} environment. It turns out that if 
-  *ltablex* package is not included there are some weired compilation
-  errors from lualatex. Including this package seems to make it
-  goes away.
-
-\usepackage{xifthen}
-  For \ifthenelse command.
-
-~~~
+    \usepackage{xifthen}
+      For \ifthenelse command.
 
 # Specifying images   
 
@@ -726,7 +605,7 @@ By default, a QUOT block is set up so that quotation marks are placed at the
 beginning of the block as well as end. This can be controlled by setting
 the following global-option to false.
 
-    quotquotation = false
+    % !NTR quotquotation = false
 
 # Enabling auto-rubification for Japanese Kanji Characters
 
@@ -737,16 +616,14 @@ of Kanji characters in the following blocks: VRSE, QUOT and TABB.
 You would have to specifically turned this feature by setting the 'autoruby' 
 config parameter to a list of the block names:
 
-    My Title
-    : autoruby = VRSE TABU
+    % !NTR autoruby = VRSE TABU
 
 This will enable auto-rubification for the block that is VRSE and TABU.
 You could also elect to express it using the type of fence that is associated
 with each block for expressing that block. Following would have had the
 same affect as the one above.
 
-    My Title
-    : autoruby = --- +++
+    % !NTR autoruby = --- +++
 
 
 

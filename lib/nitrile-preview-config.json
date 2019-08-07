@@ -19,7 +19,7 @@
     },
     "sampwrap": {
       "type": "integer",
-      "default": 60,
+      "default": 65,
       "minimum": 10,
       "description": "Set it to an integer for which lines longer than this will be wrapped."
     },
@@ -136,7 +136,7 @@
     },
     "latexsampwrap": {
       "type": "integer",
-      "default": 60,
+      "default": 65,
       "minimum": 10,
       "description": "Set it to an integer for which lines longer than this will be wrapped."
     },

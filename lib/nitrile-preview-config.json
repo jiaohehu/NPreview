@@ -28,9 +28,8 @@
     },
     "sampwrap": {
       "type": "integer",
-      "default": 65,
-      "minimum": 10,
-      "description": "Set it to an integer for which lines longer than this will be wrapped."
+      "default": 0,
+      "description": "Set it to an integer for which lines longer than this will be wrapped. Set it to 0 will turn the feature off."
     },
     "sampmargin": {
       "type": "number",
@@ -145,9 +144,8 @@
     },
     "latexsampwrap": {
       "type": "integer",
-      "default": 65,
-      "minimum": 10,
-      "description": "Set it to an integer for which lines longer than this will be wrapped."
+      "default": 0,
+      "description": "Set it to an integer for which lines longer than this will be wrapped. Set it to 0 will turn the feature off."
     },
     "latexsampmargin": {
       "type": "number",

@@ -17,6 +17,15 @@
       "maximum": 10,
       "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
     },
+    "sampstyle": {
+      "type": "string",
+      "default": "code",
+      "enum": [
+        "code",
+        "verse"
+      ],
+      "description": "Set it to *code* for showing code samples, set to *verse* for showing verse samples."
+    },
     "sampwrap": {
       "type": "integer",
       "default": 65,

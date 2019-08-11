@@ -22,9 +22,9 @@
       "default": "code",
       "enum": [
         "code",
-        "verse"
+        "line"
       ],
-      "description": "Set it to *code* for showing code samples, set to *verse* for showing verse samples."
+      "description": "Set it to *code* for showing code samples, set to *line* for showing normal samples."
     },
     "sampwrap": {
       "type": "integer",

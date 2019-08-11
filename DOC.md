@@ -236,25 +236,49 @@ have an indentation of its first line that is 4 spaces, and thus is being
 recognized as an sample block.
 
 The sample block is typeset using monospace fonts. All spaces after the initial
-4-spaces are preserved, as well as line breaks. Long lines are wrapped into
-multiple lines. The length at which the line is wrapped is set by the following
-configuration parameters and by default it is set at 60.
+4-spaces are preserved, as well as line breaks. Long lines are automatic
+wrapped into multiple lines. 
+
+You can set the global option sampstyle= to either 'code' or 'line'.
+
+    % !NTR sampstyle = code
+    % !NTR sampstyle = line
+
+When 'code' is set, it is treated that the sample block contains computer
+code, in which case the white spaces are respected will not collapse
+into a single one for multiple consecutive blanks.  If set to 'line',
+then it is treated as normal texts where only line-breaks are respected,
+and multiple consecutive blanks are collapsed into a single one.
+
+For 'code' and 'line', they are typeset as a single line and thus will be 
+automatically wrapped by LATEX when a line is long enough, and the continuation
+line will start at column 1. However, you can change this behavior by
+enabling the sampwrap= option.
 
     % !NTR sampwrap = 60
-
-This setting instructs that if a line in a sample block is detected to be
-longer than 60, then an algorithm will be employed to find an optimal
-place so that it will be split at that point.
-
-For LATEX translation it observes instead the following configuration
-parameters, and it is set to 60 by default.
-
     % !NTR latexsampwrap = 60
 
-You may choose to set it to be a smaller number, if for example,
-you have changed the page left/right margins, or have chosen to 
-typeset it using a different font, or having decided to typeset
-in a twocolumn mode.
+By setting it to 60, then sampwrap= flag will perform a manual wrap so that
+the line will never exceed the total lenght of 60. The continuation lines
+will be marked by the start of a "rightarrow" unicode character, placed
+at the beginning of the continuation line. The "rightarrow" will typically
+be placed at the first column, unless the long line starts with empty spaces,
+in which case the right arrow will be placed one position after the last
+blank. 
+
+The 'sampwrap=' parameter sets the wrap length for PREVIEW/HTML/EPUB
+generation; the 'latexsampwrap=' parameters sets the wrap length for
+LATEX generation. 
+
+The reason for a separate parameters for LATEX generation is that
+in cases where a 'twocolumn=' parameters is specified then 'latexsampwrap='
+parameter can be used to shorten the wrap length of all the sample blocks
+for LATEX generation, while leaving the preview intact where the 'sampwrap='
+parameter still continues to take effect for PREVIEW/HTML/EPUB generation
+as usually.
+
+By default, 'sampwrap=' and 'latexsampwrap=' parameters are both set to
+0, which will turn off the manual wrap completely.
 
 # LATEX-only options
 

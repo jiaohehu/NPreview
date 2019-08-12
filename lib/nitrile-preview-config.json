@@ -96,6 +96,16 @@
       "default": true,
       "description": "Set it to true if quotation marks are to be added to the entire quoted block. Set it to false if no quotation marks should be added. Default is true."
     },
+    "sbjtalign": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "description": "Set it to *left*, *center*, *right* for the text-alignment of the subject text."
+    },
     "autoruby": {
       "type": "list",
       "default": "",

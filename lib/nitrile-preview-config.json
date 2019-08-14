@@ -111,6 +111,11 @@
       "default": "",
       "description": "Set to a list of block types for which automatic rubification should be done"
     },
+    "descbullet": {
+      "type": "string",
+      "default": "",
+      "description": "Set to a Unicode code point string such as 0x23 that is to be placed in front of each description items."
+    },
     "latexfamily": {
       "type": "string",
       "default": "lualatex",

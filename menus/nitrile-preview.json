@@ -46,8 +46,12 @@
         "command": "nitrile-preview:to-xhtml"
       },
       {
-        "label": "Export to LATEX\u2026",
+        "label": "Export to LATEX as\u2026",
         "command": "nitrile-preview:to-latex"
+      },
+      {
+        "label": "Export to LATEX",
+        "command": "nitrile-preview:to-latex-no-prompt"
       },
       {
         "label": "Export to LATEX as a Chapter\u2026",

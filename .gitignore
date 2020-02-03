@@ -9,5 +9,5 @@ node_modules
 *.tex
 *.png
 *.swp
-lib/.nitrile-preview-html.js.un~
-lib/nitrile-preview-html.js~
+*~
+*~

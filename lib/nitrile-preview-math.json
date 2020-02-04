@@ -179,6 +179,7 @@
     { "kbd": "\\not\\supset"   ,    "unicode": "&#x2285;"       ,  "id": "my2285",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7    },
     { "kbd": "\\nsupseteq"     ,    "unicode": "&#x2289;"       ,  "id": "my2289",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7    },
     { "kbd": "\\times"         ,    "unicode": "&#x00D7;"       ,  "id": "my00D7",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7    },
+    { "kbd": "\\div"           ,    "unicode": "&#x00F7;"       ,  "id": "myx00F7",       "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7    },
     { "kbd": "\\pm"            ,    "unicode": "&#x00B1;"       ,  "id": "my00B1",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7    },
     { "kbd": "\\bmod"          ,    "unicode": "mod"            ,  "id": "myMOD",         "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 21   },
 
@@ -295,7 +296,7 @@
     { "kbd": "\\Im"            ,    "unicode": "&#x211C;"       ,  "id": "myx211C",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
     { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
-    { "kbd": "\\div"           ,    "unicode": "&#x00F7;"       ,  "id": "myx00F7",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
+    { "kbd": "\\cdot"          ,    "unicode": "&#x00B7;"       ,  "id": "myx00B7",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\Square"        ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\oplus"         ,    "unicode": "&#x2295;"       ,  "id": "myx2295",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },

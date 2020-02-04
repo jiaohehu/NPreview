@@ -309,6 +309,7 @@
   "mathCommands": [
     { "name": "\\text",        "count": 1 },
     { "name": "\\overline",    "count": 1 },
+    { "name": "\\overleftrightarrow", "count": 1},
     { "name": "\\sqrt",        "count": 1 },
     { "name": "\\frac",        "count": 2 },
     { "name": "\\binom",       "count": 2 }

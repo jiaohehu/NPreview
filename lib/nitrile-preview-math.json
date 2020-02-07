@@ -312,6 +312,7 @@
     { "name": "\\overline",    "count": 1 },
     { "name": "\\overleftrightarrow", "count": 1},
     { "name": "\\overrightarrow", "count": 1},
+    { "name": "\\dot",         "count": 1},
     { "name": "\\sqrt",        "count": 1 },
     { "name": "\\frac",        "count": 2 },
     { "name": "\\binom",       "count": 2 }

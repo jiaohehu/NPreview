@@ -121,9 +121,9 @@
     { "kbd": "\\omega"         ,    "unicode": "&#969;"         ,  "id": "myi969"    ,    "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 6    },
     { "kbd": "\\varepsilon"    ,    "unicode": "&#x03F5;"       ,  "id": "my03F5"    ,    "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 6    },
 
-    { "kbd": ","               ,    "unicode": ","              ,  "id": "myCOMMA",       "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 4    },
+    { "kbd": ","               ,    "unicode": ","              ,  "id": "myCOMMA",       "dx":"0",      "dy":".8em",    "op": 2    ,  "width": 4    },
     { "kbd": ":"               ,    "unicode": ":"              ,  "id": "myCOLON",       "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 4    },
-    { "kbd": ";"               ,    "unicode": ";"              ,  "id": "mySEMIC",       "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 4    },
+    { "kbd": ";"               ,    "unicode": ";"              ,  "id": "mySEMIC",       "dx":"0",      "dy":".8em",    "op": 2    ,  "width": 4    },
     { "kbd": "/"               ,    "unicode": "/"              ,  "id": "mySLASH",       "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 4    },
 
     { "kbd": "+"               ,    "unicode": "+"              ,  "id": "myPLUS",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7     },

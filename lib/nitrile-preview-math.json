@@ -309,9 +309,12 @@
   ],
   "mathCommands": [
     { "name": "\\text",        "count": 1 },
+
+    { "name": "\\widehat",     "count": 1 },
     { "name": "\\overline",    "count": 1 },
     { "name": "\\overleftrightarrow", "count": 1},
     { "name": "\\overrightarrow", "count": 1},
+
     { "name": "\\dot",         "count": 1},
     { "name": "\\ddot",        "count": 1},
     { "name": "\\dddot",       "count": 1},
@@ -325,6 +328,7 @@
     { "name": "\\acute",       "count": 1},
     { "name": "\\breve",       "count": 1},
     { "name": "\\tilde",       "count": 1},
+
     { "name": "\\sqrt",        "count": 1 },
     { "name": "\\frac",        "count": 2 },
     { "name": "\\binom",       "count": 2 }

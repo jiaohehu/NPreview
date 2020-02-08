@@ -211,7 +211,7 @@
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     },
-    "latexlongtablestyle": {
+    "latextablestyle": {
       "type": "string",
       "default": "standard",
       "enum": [

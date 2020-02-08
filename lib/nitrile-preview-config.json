@@ -210,6 +210,17 @@
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
+    },
+    "latexlongtablestyle": {
+      "type": "string",
+      "default": "standard",
+      "enum": [
+        "plain",
+        "standard",
+        "boxed",
+        "full"
+      ],
+      "description": "Specify a style for all longtables."
     }
   }
 }

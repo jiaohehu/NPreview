@@ -315,6 +315,7 @@
     { "name": "\\dot",         "count": 1},
     { "name": "\\ddot",        "count": 1},
     { "name": "\\dddot",       "count": 1},
+    { "name": "\\ddddot",      "count": 1},
     { "name": "\\bar",         "count": 1},
     { "name": "\\vec",         "count": 1},
     { "name": "\\mathring",    "count": 1},

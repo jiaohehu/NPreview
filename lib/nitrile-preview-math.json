@@ -239,7 +239,7 @@
     { "kbd": "\\cot"           ,    "unicode": "cot"            ,  "id": "myCOT",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },
     { "kbd": "\\det"           ,    "unicode": "det"            ,  "id": "myDET",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },
     { "kbd": "\\hom"           ,    "unicode": "hom"            ,  "id": "myHOM",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 18   },
-    { "kbd": "\\log"           ,    "unicode": "log"            ,  "id": "myLOG",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },
+    { "kbd": "\\log"           ,    "unicode": "log"            ,  "id": "myLOG",         "dx":"0",      "dy":"0.75em",  "op": 2    ,  "width": 14   },
     { "kbd": "\\sec"           ,    "unicode": "sec"            ,  "id": "mySEC",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },
     { "kbd": "\\tan"           ,    "unicode": "tan"            ,  "id": "myTAN",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },
     { "kbd": "\\arg"           ,    "unicode": "arg"            ,  "id": "myARG",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 14   },

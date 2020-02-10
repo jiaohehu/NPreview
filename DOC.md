@@ -650,5 +650,12 @@ same affect as the one above.
     % !NTR autoruby = --- +++
 
 
+# The content of executable 'nitrile' bash file 
+
+    #!/bin/bash
+    #echo $1
+    #node -e "console.log($1)"
+    node -e "const { NitrilePreviewNode } = require ('/Users/james/github/nitrile-preview/lib/nitrile-preview-node'); new NitrilePreviewNode().toLatex('$1').then(f => { console.log(f); const lualatex = require('child_process').spawn('lualatex',['--interaction=nonstopmode', f]); lualatex.stdout.on('data',(data) => process.stdout.write(data)); lualatex.on('close',(code) => console.log('lualatex process finished')); } ).catch(err => console.log(err))"
+
 
 

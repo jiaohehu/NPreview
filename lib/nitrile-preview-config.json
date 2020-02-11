@@ -45,7 +45,7 @@
     },
     "outlineonly": {
       "type": "boolean",
-      "default": true,
+      "default": false,
       "description": "Set it to true to show only headings."
     },
     "sections": {

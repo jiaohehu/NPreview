@@ -38,6 +38,11 @@
       "maximum": 10,
       "description": "Left margin for sample block. Must be set between 0 and 10. Default is 0.85"
     },
+    "sampruby": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true to allow rubification of Japanese text in SAMP blocks."
+    },
     "outlineonly": {
       "type": "boolean",
       "default": false,

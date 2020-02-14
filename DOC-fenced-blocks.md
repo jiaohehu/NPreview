@@ -2,7 +2,7 @@
 
 
 
-## The TABB, TABL, TABF, and LONG
+## The TABB, TABL, TABF, and LONG blocks   
 
 The TABB fenced block is to create a LATEX tabular block where each column
 is a "l".
@@ -66,7 +66,7 @@ must be exactly the same as the first one.
 
 ## The IMGS block
 
-Images can only be included in a special block called IMGS.
+The IMGS block is used to typeset images.
 
     ``` imgs
     image (tree.png) A tree.
@@ -78,7 +78,7 @@ All images are by default set to be the width of the entire page.
 When two images are specified, they will appear on top of each other.
 
 If you want two images laid out side-by-side, you need to use the '.column'
-fence command.
+fence option.
 
     .column 2
     ``` imgs
@@ -92,7 +92,7 @@ aspect ratio of the image file and auto adjusted by LATEX and/or HTML.
 
 You can override the width of the image. For example, you can specify that
 one image takes up 40-percent of the width of the page and the other 60-percent.
-You can do that by using the '.adjust' fence command.
+You can do that by using the '.adjust' fence option.
 
     .column 2
     .adjust 4 6
@@ -101,15 +101,15 @@ You can do that by using the '.adjust' fence command.
     image (flog.png) A flog.
     ```
 
-The '.adjust' expect a list of numbers for the table columns. These numbers
-will always be treated as relative length to each other. You can consider
-the previous width specification to be 4 : 6 in terms of the ratio between the
-first image and the second image. Setting it to "2 3" would have achieved the
-same goal.
+The '.adjust' option expect a list of numbers for the table columns. These
+numbers will always be treated as relative length to each other. You can
+consider the previous width specification to be 4 : 6 in terms of the ratio
+between the first image and the second image. Setting it to "2 3" would have
+achieved the same goal.
 
-If you do not what the image to be the width of the page, you can specify to
-add some left and right margins. You will use the '.margin' command to specify
-a margin. Such as following:
+If you do not what the image to be the width of the page, you can specify to add
+some left and right margins. You will use the '.margin' option to specify a
+margin. Such as following:
 
     .margin .1
     .column 2
@@ -129,7 +129,7 @@ width, The first image will share 40-percent of the space, and the second image
 will share 60-percent  of the space.
 
 Usually, there is no gap between the images. You can specify that they have
-some gaps. The '.gap' command specifies a number for the gap to be placed
+some gaps. The '.gap' option specifies a number for the gap to be placed
 between images.
 
     .gap .1
@@ -142,16 +142,15 @@ between images.
     ```
 
 The number for the '.gap' is also a number between 0-1 that specifies the
-percentage of the page width reserved for the gap. So the previous setting
-would have only left 70-percent of the page width for the images themselves.
-Sinces the first image is 40-percent of the total, it would end up occupying
-the page width of 40% x 70% which is 28% of the screen width. And the second
-image would have occupied a width of 60% x 70% which is 42%.
-
-You can add a short description text for each image. This text will be replaced
-at the bottom of each page. The width of the text box for this short text will
-be the same width as the image itself. If you need to break the text into
-two or more lines, place a backslash at the end of each line of text.
+percentage of the page width reserved for the gap. So the previous setting would
+have only left 70-percent of the page width for the images themselves. Sinces
+the first image is 40-percent of the total, it would end up occupying the page
+width of 40% x 70% which is 28% of the screen width. And the second image would
+have occupied a width of 60% x 70% which is 42%. You can add a short description
+text for each image. This text will be replaced at the bottom of each page. The
+width of the text box for this short text will be the same width as the image
+itself. If you need to break the text into two or more lines, place a backslash
+at the end of each line of text.
 
     .gap .1
     .margin .1

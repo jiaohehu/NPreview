@@ -112,6 +112,10 @@ So far only the inline-math mode is supported.
   \begin{matrix} will not show up in the PDF file. In PREVIEW math, the
   ampersand is shown as an ampersand.
 
+## Known problems
+
+- For math such as ``\cos(x)`` there will be a visible gap between the word "cos"
+  and the left parenthesis. The LATEX math does not have this gap.
 
 
 

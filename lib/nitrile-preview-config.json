@@ -22,15 +22,15 @@
       "default": false,
       "description": "Set it to true to allow rubification of Japanese text in SAMP blocks."
     },
-    "outlineonly": {
+    "previewOutlineEnabled": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true to show only headings."
     },
-    "sections": {
+    "previewOutlineSections": {
       "type": "list",
       "default": "",
-      "description": "Set it to one or more heading numbers (separated by spaces) for which its contents will be shown in when *outlineonly* mode is on."
+      "description": "Set it to one or more heading numbers (separated by spaces) for which its contents will be shown in when *previewOutlineEnabled* flag is set to true."
     },
     "showlabels": {
       "type": "boolean",

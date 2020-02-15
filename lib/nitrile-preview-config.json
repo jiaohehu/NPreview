@@ -111,11 +111,6 @@
       ],
       "description": "Set it to *left*, *center*, *right* for the text-alignment of the subject text."
     },
-    "autoruby": {
-      "type": "list",
-      "default": "",
-      "description": "Set to a list of block types for which automatic rubification should be done"
-    },
     "descbullet": {
       "type": "string",
       "default": "",

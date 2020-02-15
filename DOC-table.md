@@ -132,6 +132,97 @@ into multiple lines and still expect them to be put together as a single cell.
 
 Currently, this paragraph is recognized as expressing a TABL fenced block.
 
+For TABB, TABL, TABF, and LONG blocks a table cell can also be split into multiple 
+input lines, by placing a single backslash (`\`) immediately after the cell.
+When that happens, subsequent lines are to be considered continuation lines of the
+previous line. Thus, the next table is to be considered equivalent as far
+as the content of the table goes.
+
+    ``` tabl
+      Names          Value          Example            
+
+      ELEMENT_NODE    1             The <body>\         
+                                    element            
+
+      TEXT_NODE       3             Text that is not\ 
+                                    part of an\        
+                                    element            
+
+      COMMENT_NODE    8             <!-- an HTML\      
+                                    comment ->         
+                                                       
+    ```
+
+However, for TABB, TABL, TABF, and LONG there is an added benefit to allow for
+texts within a table cell to be split into multiple lines. It is expressed by
+placing two backslashes (`\\`) immediate after the text of a cell. The text for
+the table cell is thus to be split using (`\newline`) command when it is in
+(`p{}`) format. For TABB where the (`l`) format is used, two or more separate
+rows are inserted to simulate the affect.
+
+    ``` tabl
+      Names          Value          Example            
+
+      ELEMENT_NODE    1             The <body>\\        
+                                    element            
+
+      TEXT_NODE       3             Text that is not\\
+                                    part of an\\       
+                                    element            
+
+      COMMENT_NODE    8             <!-- an HTML\\     
+                                    comment ->         
+                                                       
+    ```
+
+For TABL, TABF, and LONG blocks, the initial column width for each column is
+automatically determined so that each column gets the equal width.  However,
+you can manually adjust the width of the columns using the '.adjust' fence
+option.
+
+    .adjust 3 4 5
+
+The numbers for this options are interpreted as relative widths of each column, 
+thus, the first column will get a fraction of 3/12 width of the page, and the second
+column get 4/12 width of the page, and the third column get 5/12 width of the page.
+The page width is assumed to be (`\linewidth`) for LATEX.
+
+    .adjust 3 4 5
+    ``` tabl
+      Names          Value          Example            
+
+      ELEMENT_NODE    1             The <body>\\        
+                                    element            
+
+      TEXT_NODE       3             Text that is not\\
+                                    part of an\\       
+                                    element            
+
+      COMMENT_NODE    8             <!-- an HTML\\     
+                                    comment ->         
+                                                       
+    ```
+
+For paragraph that uses the vertical-bar and hyphen-minus format for expressing
+the content of the table, the initial value for each column width is set according
+to the number of hyphen-minus for each column in the separate line. You can also 
+override this by providing a '.adjust' option before the paragraph.
+
+    .adjust 2 3 4
+    |--------------|--------------|-------------------|
+    | Names        | Value        | Example           |
+    |--------------|--------------|-------------------|
+    | ELEMENT_NODE |  1           | The <body>        |
+    |              |              | element           |
+    |--------------|--------------|-------------------|
+    | TEXT_NODE    |  3           | Text that is not  |
+    |              |              | part of an        |
+    |              |              | element           |
+    |--------------|--------------|-------------------|
+    | COMMENT_NODE |  8           | <!-- an HTML      |
+    |              |              | comment ->        |
+    |              |              |                   |
+    |--------------|--------------|-------------------|
 
 
 

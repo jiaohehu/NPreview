@@ -96,8 +96,8 @@ For TABL, TABF, and LONG blocks, the first row of the table is always assumed
 to be the header row and rest as data rows.  For TABB all rows are considered
 data rows.
 
-In addition, following paragraph will be recognized as expressing a TABL fenced
-block. 
+Alternatively, following formations of a paragraph will be recognized as
+expressing a TABB, TABL, TABF, or a LONG block. 
 
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
@@ -114,9 +114,10 @@ block.
     |              |              |                   |
     |--------------|--------------|-------------------|
 
-This paragraph is recognized when the first and last line is detected to be
-exactly the same, and they each only contains nothing but vertical bars and
-hyphen-minus characters. 
+This paragraph is recognized as a "tabular block" when the first and last line
+is detected to be exactly the same, and they each only contains nothing but
+vertical bars and hyphen-minus characters. In addition, the first and
+last character of each line is also a vertical bar.
 
 When a paragraph like this is recognized, all subsequent lines that are exactly
 the same as the first/last line are considered the "separator lines".  Lines
@@ -130,7 +131,62 @@ splitted table cells of which are treated as if the text of each cell is the
 "continuation text".  This allows you to split long texts of a table cell text
 into multiple lines and still expect them to be put together as a single cell. 
 
-Currently, this paragraph is recognized as expressing a TABL fenced block.
+By default, this paragraph is to be recognized as a TABL fenced block.
+But you can change it by setting the '.table' option to one of the following strings: 
+'TABB', 'TABL', 'TABF', and 'LONG'.
+
+    .table TABB
+    .table TABL
+    .table TABF
+    .table LONG
+
+The column width for such a paragraph formation is to be deduced by noticing
+the relative number of hyphen-minus characters for each column, and the use
+these numbers as bases for adjusting the column. The effect is similar to
+setting the '.adjust' option to a list of numbers each of which equals
+to one of the hyphen-minus counts. 
+
+However, you can still override the initial table width with the adding of a
+'.adjust' option in front of it.
+
+    .adjust 2 3 4
+    |--------------|--------------|-------------------|
+    | Names        | Value        | Example           |
+    |--------------|--------------|-------------------|
+    | ELEMENT_NODE |  1           | The <body>        |
+    |              |              | element           |
+    |--------------|--------------|-------------------|
+    | TEXT_NODE    |  3           | Text that is not  |
+    |              |              | part of an        |
+    |              |              | element           |
+    |--------------|--------------|-------------------|
+    | COMMENT_NODE |  8           | <!-- an HTML      |
+    |              |              | comment ->        |
+    |              |              |                   |
+    |--------------|--------------|-------------------|
+
+Note that if it is detected that the first and last line does not start and end
+with a vertical bar character, such as the following paragraph shows, it is
+still recognized as a valid "tabular block".  However, if this is the case then
+all other lines between the first and last lines must all follow the same
+pattern, which is to not have a vertical bar at the beginning and ending of the
+line. Thus, following tabular is going to be recognized.
+
+    .adjust 2 3 4
+     --------------|--------------|------------------- 
+      Names        | Value        | Example            
+     --------------|--------------|------------------- 
+      ELEMENT_NODE |  1           | The <body>         
+                   |              | element            
+     --------------|--------------|------------------- 
+      TEXT_NODE    |  3           | Text that is not   
+                   |              | part of an         
+                   |              | element            
+     --------------|--------------|------------------- 
+      COMMENT_NODE |  8           | <!-- an HTML       
+                   |              | comment ->         
+                   |              |                    
+     --------------|--------------|------------------- 
 
 For TABB, TABL, TABF, and LONG blocks a table cell can also be split into multiple 
 input lines, by placing a single backslash (`\`) immediately after the cell.
@@ -202,28 +258,6 @@ The page width is assumed to be (`\linewidth`) for LATEX.
                                     comment ->         
                                                        
     ```
-
-For paragraph that uses the vertical-bar and hyphen-minus format for expressing
-the content of the table, the initial value for each column width is set according
-to the number of hyphen-minus for each column in the separate line. You can also 
-override this by providing a '.adjust' option before the paragraph.
-
-    .adjust 2 3 4
-    |--------------|--------------|-------------------|
-    | Names        | Value        | Example           |
-    |--------------|--------------|-------------------|
-    | ELEMENT_NODE |  1           | The <body>        |
-    |              |              | element           |
-    |--------------|--------------|-------------------|
-    | TEXT_NODE    |  3           | Text that is not  |
-    |              |              | part of an        |
-    |              |              | element           |
-    |--------------|--------------|-------------------|
-    | COMMENT_NODE |  8           | <!-- an HTML      |
-    |              |              | comment ->        |
-    |              |              |                   |
-    |--------------|--------------|-------------------|
-
 
 
 

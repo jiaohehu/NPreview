@@ -94,7 +94,7 @@ So far only the inline-math mode is supported.
 
 ## Special notes
 
-- A matching \begin{somename} and \end{somename} environment for which the 
+- A matching \begin{somename} and \end{somename} environment for which the
   name of the environment is not one of the recognized one will simply be
   treated as a braced expression.
 
@@ -114,8 +114,5 @@ So far only the inline-math mode is supported.
 
 ## Known problems
 
-- For math such as ``\cos(x)`` there will be a visible gap between the word "cos"
-  and the left parenthesis. The LATEX math does not have this gap.
-
-
-
+- The `\bar{x}` has left a larger gap between the top bar and the letter x
+  then the one done by LATEX.

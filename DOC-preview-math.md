@@ -83,9 +83,7 @@ Or
 
 So far only the inline-math mode is supported.
 
-## Supported LATEX \begin{matrix} ... \end{matrix}
-
-Following are supported:
+## Following matrix are supported:
 
     \begin{matrix} ... \end{matrix}
     \begin{pmatrix} ... \end{pmatrix}
@@ -93,5 +91,27 @@ Following are supported:
     \begin{Bmatrix} ... \end{Bmatrix}
     \begin{vmatrix} ... \end{vmatrix}
     \begin{Vmatrix} ... \end{Vmatrix}
+
+## Special notes
+
+- A matching \begin{somename} and \end{somename} environment for which the 
+  name of the environment is not one of the recognized one will simply be
+  treated as a braced expression.
+
+- If a \begin{name1} is found for which there is no matching \end{name1}
+  then the rest of the expression after \begin{name1} is treated as part
+  of that environment.
+
+## Behavior that is different than LATEX:      
+
+- In LATEX, The double-backslash (`\\`) in a inline math will actually cause a
+  line break in PDF file. In PREVIEW math, a double-backslash is shown
+  as a double-backslash.
+
+- In LATEX, the ampersand (`&`) in a inline math that is not part of a
+  \begin{matrix} will not show up in the PDF file. In PREVIEW math, the
+  ampersand is shown as an ampersand.
+
+
 
 

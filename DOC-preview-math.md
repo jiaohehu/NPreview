@@ -9,42 +9,68 @@ the syntax that is supported by Nitrile.
 
 ## Supported LATEX left/right fences
 
-    "\\left\\lbrace"
-    "\\left\\lbrack"
-    "\\left\\llbracket"
-    "\\left\\langle"
-    "\\left("
-    "\\left\\lVert"
-    "\\left\\lvert"
-    "\\left\\lceil"
-    "\\left\\lfloor"
+    \left\lbrace
+    \left\lbrack
+    \left\llbracket
+    \left\langle
+    \left(
+    \left[
+    \left\lVert
+    \left\lvert
+    \left\lceil
+    \left\lfloor
     \left.
 
-    "\\right\\lbrace"
-    "\\right\\lbrack"
-    "\\right\\llbracket"
-    "\\right\\langle"
-    "\\right)"
-    "\\right\\lVert"
-    "\\right\\lvert"
-    "\\right\\lceil"
-    "\\right\\lfloor"
+    \right\rbrace
+    \right\rbrack
+    \right\rlbracket
+    \right\rangle
+    \right)
+    \right]
+    \right\rVert
+    \right\rvert
+    \right\rceil
+    \right\rfloor
     \right.
 
 ## Supported LATEX commands
 
-    \text
-    \binom
-    \frac
-    \sqrt
+    \text{Hello world}
+    \binom{5}{2}
+    \frac{1}{4}
+    \sqrt{x + y}
+    \sqrt[3]{x + y}
+
+## Supported LATEX stretchable overhead symbols
+
+    \widehat     
+    \overline    
+    \overleftrightarrow 
+    \overrightarrow 
+
+## Supported LATEX non-stretchable overhead symbols
+
+    \dot         
+    \ddot        
+    \dddot       
+    \ddddot      
+    \bar         
+    \vec         
+    \mathring    
+    \hat         
+    \check       
+    \grave       
+    \acute       
+    \breve       
+    \tilde       
 
 ## Supported LATEX font variants
 
     \mathbb{ABab12}
     \mathscr{ABab12}
     \mathcal{ABab12}
-    \mathit{}
-    \mathrm{}
+    \mathit{ABab12}
+    \mathrm{ABab12}
 
 NOTE: only the upper-case letter, lower-case letter, and digits are supported.
 No spaces are allowed.
@@ -66,7 +92,15 @@ been styled with double-struck appearance. Unicode does not provide code points 
 mathscr or mathcal style variants. Thus, if digits are detected for mathscr or mathcal
 variants it simply falls back to using regular digits.
 
-## \sum, \lim and \int
+## Supported LATEX spaces
+
+    \; 
+    \, 
+    \:
+    \quad
+    \qquad
+
+## Subscript and superscript for \sum, \lim and \int
 
 Supports are provided for using these commands for showing the summation, limits, and
 integral equations.
@@ -81,7 +115,14 @@ Or
 
     \int_{0}^{100} x dx
 
-So far only the inline-math mode is supported.
+## Display math mode for \sum, \lim and \int
+
+Note that when `\sum`, `\lim` and `\int` are paired with subscript and/or
+superscript then there will be distinction made whether it is a 'inlinemath'
+mode or a 'displaymath' mode. The displaying of summation symbol, the lettering
+of "Lim", and/or the integration symbol will depends on choice of these two
+display modes. In particular, when the 'displaymath' mode is detected efforts
+are made to make these symbols appear larger.
 
 ## Following matrix are supported:
 
@@ -102,9 +143,148 @@ up less space horizontally.
 ## The matrix element
 
 Matrix elements always appear as 'inlinemath' style, even though the matrix
-itself is shown in 'displaymath' style.
+itself might be shown as 'displaymath' style.
 
-## Special notes
+## Greek letters
+
+Greek letters are going to presented using the following symbols in LATEX.
+
+By default, LATEX uses the following English letters for expressing certain 
+Greek letters. They are listed below:
+
+    o    \omicron
+    A    \Alpha
+    B    \Beta
+    E    \Epsilon
+    Z    \Zeta
+    H    \Eta
+    I    \Iota
+    K    \Kappa
+    M    \Mu
+    N    \Nu
+    O    \Omicron
+    P    \Rho
+    T    \Tau
+    X    \Chi
+
+With Nitrile, the equivalent symbols on the right hand side column of the
+previous list are made available by adding the following definition to the
+preamble of the generated LATEX file, allowing you to use it instead of the
+English letter on the left hand side column. 
+
+Following is copied from mathspec.sty's Greek-letter definition to allow for
+the new commands to be made available:
+
+    \DeclareMathSymbol{\omicron}{\mathord}{letters}{"6F}
+    \DeclareMathSymbol{\Alpha}{\mathalpha}{operators}{"41}
+    \DeclareMathSymbol{\Beta}{\mathalpha}{operators}{"42}
+    \DeclareMathSymbol{\Epsilon}{\mathalpha}{operators}{"45}
+    \DeclareMathSymbol{\Zeta}{\mathalpha}{operators}{"5A}
+    \DeclareMathSymbol{\Eta}{\mathalpha}{operators}{"48}
+    \DeclareMathSymbol{\Iota}{\mathalpha}{operators}{"49}
+    \DeclareMathSymbol{\Kappa}{\mathalpha}{operators}{"4B}
+    \DeclareMathSymbol{\Mu}{\mathalpha}{operators}{"4D}
+    \DeclareMathSymbol{\Nu}{\mathalpha}{operators}{"4E}
+    \DeclareMathSymbol{\Omicron}{\mathalpha}{operators}{"4F}
+    \DeclareMathSymbol{\Rho}{\mathalpha}{operators}{"50}
+    \DeclareMathSymbol{\Tau}{\mathalpha}{operators}{"54}
+    \DeclareMathSymbol{\Chi}{\mathalpha}{operators}{"58}
+
+Another benefit of using these commands for the Greek letters is to allow for
+PREVIEW to choose Greek letter UNICODE for the previous command, while at the
+same time remain commited to using the ASCII UNICODE characters for regular
+English letters detected in its math expression.
+
+Following table shows the UNICODE code point that would be used for each
+Greek letters:
+
+    "\Alpha"          "&#913;"         
+    "\Beta"           "&#914;"         
+    "\Gamma"          "&#915;"         
+    "\Delta"          "&#916;"         
+    "\Epsilon"        "&#917;"         
+    "\Zeta"           "&#918;"         
+    "\Eta"            "&#919;"         
+    "\Theta"          "&#920;"         
+    "\Iota"           "&#921;"         
+    "\Kappa"          "&#922;"         
+    "\Lambda"         "&#923;"         
+    "\Mu"             "&#924;"         
+    "\Nu"             "&#925;"         
+    "\Xi"             "&#926;"         
+    "\Omicron"        "&#927;"         
+    "\Pi"             "&#928;"         
+    "\Rho"            "&#929;"         
+    "\Sigma"          "&#931;"         
+    "\Tau"            "&#932;"         
+    "\Upsilon"        "&#933;"         
+    "\Phi"            "&#934;"         
+    "\Chi"            "&#935;"         
+    "\Psi"            "&#936;"         
+    "\Omega"          "&#937;"         
+
+    "\alpha"          "&#945;"         
+    "\beta"           "&#946;"         
+    "\gamma"          "&#947;"         
+    "\delta"          "&#948;"         
+    "\epsilon"        "&#949;"         
+    "\zeta"           "&#950;"         
+    "\eta"            "&#951;"         
+    "\theta"          "&#952;"         
+    "\vartheta"       "&#x03D1;"       
+    "\iota"           "&#953;"         
+    "\kappa"          "&#954;"         
+    "\lambda"         "&#955;"         
+    "\mu"             "&#956;"         
+    "\nu"             "&#957;"         
+    "\xi"             "&#958;"         
+    "\o"              "&#959;"         
+    "\pi"             "&#960;"         
+    "\rho"            "&#961;"         
+    "\varrho"         "&#x03F1;"       
+    "\varsigma"       "&#962;"         
+    "\sigma"          "&#963;"         
+    "\tau"            "&#964;"         
+    "\upsilon"        "&#965;"         
+    "\phi"            "&#x03D5;"       
+    "\varphi"         "&#x03C6;"       
+    "\chi"            "&#967;"         
+    "\psi"            "&#968;"         
+    "\omega"          "&#969;"         
+    "\varepsilon"     "&#x03F5;"       
+
+
+Following are the commands for entering Greek letter in a Math expression that
+will be supported in the generated LATEX document as well as in PREVIEW:
+
+    Alpha     \Alpha        Iota      \Iota           Rho       \Rho       
+    Beta      \Beta         Kappa     \Kappa          Sigma     \Sigma     
+    Gamma     \Gamma        Lambda    \Lambda         Tau       \Tau       
+    Delta     \Delta        Mu        \Mu             Upsilon   \Upsilon   
+    Epsilon   \Epsilon      Nu        \Nu             Phi       \Phi       
+    Zeta      \Zeta         Xi        \Xi             Chi       \Chi       
+    Eta       \Eta          Omicron   \Omicron        Psi       \Psi       
+    Theta     \Theta        Pi        \Pi             Omega     \Omega     
+
+    alpha    \alpha         iota      \iota           rho       \rho            
+    beta     \beta          kappa     \kappa          sigma     \sigma   
+    gamma    \gamma         lambda    \lambda         tau       \tau         
+    delta    \delta         mu        \mu             upsilon   \upsilon       
+    epsilon  \epsilon       nu        \nu             phi       \phi      
+    zeta     \zeta          xi        \xi             chi       \chi       
+    eta      \eta           omicron   \omicron        psi       \psi        
+    theta    \theta         pi        \pi             omega     \omega    
+
+Following are additional commands for the Greek letter that are supported in
+the generated LATEX document as well as in PREVIEW:
+
+    vartheta     \vartheta
+    varrho       \varrho          
+    varsigma     \varsigma             
+    varphi       \varphi          
+    varepsilon   \varepsilon           
+
+## Special behaviors
 
 - A matching \begin{somename} and \end{somename} environment for which the
   name of the environment is not one of the recognized one will simply be
@@ -128,3 +308,13 @@ itself is shown in 'displaymath' style.
 
 - The `\bar{x}` has left a larger gap between the top bar and the letter x
   then the one done by LATEX.
+
+- The font used as integral symbol `\int` on MaxOS X have been observed to have
+  over shifted to the right and downwards, thus overlaying part of the text on
+  the right hand side of it, making it appear that they are overlapping.  This
+  behavior was observed when viewing exported HTML using Safari, Firefox,
+  and/or Chrome. 
+
+
+
+

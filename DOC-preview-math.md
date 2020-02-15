@@ -92,6 +92,18 @@ So far only the inline-math mode is supported.
     \begin{vmatrix} ... \end{vmatrix}
     \begin{Vmatrix} ... \end{Vmatrix}
 
+## The compact layout mode 
+
+The compact layout mode is entered for subscript and superscript, in which case
+certain gaps such as those that are added around operators such as plus and
+minus will be suppressed, thus the expression will appear more compact and take
+up less space horizontally.
+
+## The matrix element
+
+Matrix elements always appear as 'inlinemath' style, even though the matrix
+itself is shown in 'displaymath' style.
+
 ## Special notes
 
 - A matching \begin{somename} and \end{somename} environment for which the

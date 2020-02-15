@@ -82,3 +82,16 @@ Or
     \int_{0}^{100} x dx
 
 So far only the inline-math mode is supported.
+
+## Supported LATEX \begin{matrix} ... \end{matrix}
+
+Following are supported:
+
+    \begin{matrix} ... \end{matrix}
+    \begin{pmatrix} ... \end{pmatrix}
+    \begin{bmatrix} ... \end{bmatrix}
+    \begin{Bmatrix} ... \end{Bmatrix}
+    \begin{vmatrix} ... \end{vmatrix}
+    \begin{Vmatrix} ... \end{Vmatrix}
+
+

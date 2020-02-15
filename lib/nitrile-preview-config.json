@@ -17,6 +17,11 @@
       "maximum": 10,
       "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
     },
+    "bullet": {
+      "type": "string",
+      "default": "",
+      "description": "Set to a Unicode code point string such as 0x23 that is to be placed in front of each description items."
+    },
     "autoruby": {
       "type": "boolean",
       "default": false,
@@ -46,18 +51,6 @@
       "type": "boolean",
       "default": true,
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
-    },
-    "outlinelevel": {
-      "type": "integer",
-      "default": 0,
-      "minimum": 0,
-      "maximum": 4,
-      "description": "Set it to a number between 0-3 where 0 is for showing all headings, 1 for chapters, 2 will include section, 3 will include subsection, and 4 will include subsubsection."
-    },
-    "bullet": {
-      "type": "string",
-      "default": "",
-      "description": "Set to a Unicode code point string such as 0x23 that is to be placed in front of each description items."
     },
     "latexfamily": {
       "type": "string",

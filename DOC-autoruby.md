@@ -6,7 +6,7 @@ of Kanji characters in the SAMP block only. Since this process is expensive,
 it needs to be enabled. To enable it, set the 'rubify' config flag to
 'true'.
 
-    % !NTR rubify = true
+    % !TEX nitrile autoruby = true
 
 Auto rubifying is done by placing the phonetic component as the ruby text for
 some Japanese kanji characters.  Nitrile has some limit set of vocabularies each

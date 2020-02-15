@@ -42,7 +42,7 @@
       "default": false,
       "description": "Set it to true to show the CSS ID that is assigned to each sectional headings as well as to figures, tables, and listings."
     },
-    "previewimages": {
+    "previewImageEnabled": {
       "type": "boolean",
       "default": true,
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."

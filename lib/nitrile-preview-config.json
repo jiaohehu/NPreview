@@ -32,15 +32,15 @@
       "default": "",
       "description": "Set it to one or more heading numbers (separated by spaces) for which its contents will be shown in when *previewOutlineEnabled* flag is set to true."
     },
-    "showlabels": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures, tables, and listings."
-    },
-    "showids": {
+    "previewShowIdEnabled": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true to show the CSS ID that is assigned to each sectional headings as well as to figures, tables, and listings."
+    },
+    "previewShowLabelEnabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true to show a label that is assigned to each sectional headings as well as to figures, tables, and listings."
     },
     "previewImageEnabled": {
       "type": "boolean",

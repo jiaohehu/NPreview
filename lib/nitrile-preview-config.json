@@ -54,43 +54,7 @@
       "maximum": 4,
       "description": "Set it to a number between 0-3 where 0 is for showing all headings, 1 for chapters, 2 will include section, 3 will include subsection, and 4 will include subsubsection."
     },
-    "verbminwidth": {
-      "type": "integer",
-      "default": 65,
-      "minimum": 10,
-      "description": "Set it to an integer that it is the minimum width for a VERB block."
-    },
-    "pictframe": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true if a frame is to be added around the entire PICT block or a figure. Set it to false if no frame should be added. The default is false."
-    },
-    "verbframe": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true if a frame is to be added around the entire VERB block. Set it to false if no frame should be added. The default is true."
-    },
-    "codenumbers": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true if line numbering should also be shown for code listing. Set it to false if no line numbering is shown. Default is true."
-    },
-    "quotquotation": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true if quotation marks are to be added to the entire quoted block. Set it to false if no quotation marks should be added. Default is true."
-    },
-    "sbjtalign": {
-      "type": "string",
-      "default": "left",
-      "enum": [
-        "left",
-        "center",
-        "right"
-      ],
-      "description": "Set it to *left*, *center*, *right* for the text-alignment of the subject text."
-    },
-    "descbullet": {
+    "bullet": {
       "type": "string",
       "default": "",
       "description": "Set to a Unicode code point string such as 0x23 that is to be placed in front of each description items."

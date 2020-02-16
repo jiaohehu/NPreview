@@ -10,13 +10,6 @@
       "default": "",
       "description": "Specify a string that would be used for document author."
     },
-    "stepmargin": {
-      "type": "number",
-      "default": 0.85,
-      "minimum": 0,
-      "maximum": 10,
-      "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 10. Default is 0.85"
-    },
     "bullet": {
       "type": "string",
       "default": "",
@@ -52,7 +45,7 @@
       "default": true,
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
     },
-    "latexfamily": {
+    "latexFamily": {
       "type": "string",
       "default": "lualatex",
       "enum": [
@@ -61,36 +54,26 @@
       ],
       "description": "Set to either *lualatex* or *pdflatex*. "
     },
-    "latexdocumentclass": {
+    "latexDocumentClass": {
       "type": "string",
       "default": "",
       "description": "Specify the document class that is for LATEX translation, such as *report*. The default is empty, in which case *article* is chosen for non-book generation and *book* is chosen for book generation."
     },
-    "latextwocolumn": {
+    "latexTwoColumn": {
       "type": "boolean",
       "default": false,
-      "description": "Set it to true if two column is to be shown for a page."
+      "description": "Set it to true if *twocolumn* is going to be specified as part of the option to the LATEX *documentclass* command."
     },
-    "latexa4paper": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true if *a4paper* is going to be specified as part of the option to *geometry* package."
-    },
-    "latextwoside": {
+    "latexTwoSide": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *twoside* is going to be specified as part of the option to *geometry* package."
     },
-    "latexparskip": {
-      "type": "boolean",
-      "default": true,
-      "description": "Set it to true to simulate the effect of the 'parskip' package, that each paragraph is visibly separated by extra vertical spaces inserted and no indentation is produced. Set it to false to disable this behavior."
-    },
-    "latexstepmargin": {
+    "latexStepMargin": {
       "type": "number",
       "default": 0.85,
       "minimum": 0,
-      "maximum": 2.0,
+      "maximum": 8.5,
       "description": "Left margin increment (in centimeters) for each indentation. Must be set between 0 and 2.0. Default is 0.85"
     },
     "latexWrapSampleEnabled": {

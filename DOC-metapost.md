@@ -54,4 +54,53 @@
     \end{mplibcode}
     \end{document}
 
+## Scaling in ConTEXT
+
+For ConTEXT you can scale the entire drawing
+
+    \scale[width=\textwidth]{
+      \startMPcode
+        draw (0,0)--(100,0)--(100,100)--(0,100)--(0,0);
+      \stopMPcode
+    }
+
+Or you can just scale the units:
+
+    \showframe
+    \starttext
+    \startMPcode
+        pickup pencircle scaled .5bp ; % defaultpen
+        numeric u ; u := (\the\textwidth - .5bp)/1400 ;
+        for i = 0 upto 13:
+            label(decimal i, ((i + .5) * 100u, 50u)) ;
+            draw unitsquare scaled (100u) xshifted (i*100u) ;
+        endfor ;
+    \stopMPcode
+    \stoptext
+
+## Processing with mpost program
+
+You can run the program 'mpost' to process a 'myfile.mp' file such as the
+following:
+
+    outputtemplate := "%j-%c.svg";
+    outputformat   := "svg";
+    beginfig (1);
+      % draw a line
+      draw (1cm,2cm) -- (3cm,5cm);
+    endfig;
+    end.
+
+The command line will look like:
+
+    mpost myfile.mp
+
+This will produce a file named 'myfile-1.svg'. The '1' corresponds to the
+`beginfig(1)` in the MP file. The top two lines specifies that it should
+generate a SVG output instead. And the first line changes the output file
+naming so that the output file will be saved as `myfile-1.svg`. 
+
+Without these two lines the output is a PS file, and the PS file is saved
+under the name of `myfile.1`.
+
 

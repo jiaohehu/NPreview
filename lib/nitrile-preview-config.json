@@ -37,7 +37,7 @@
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
     },
 
-    "latexFamily": {
+    "latexEngine": {
       "type": "string",
       "default": "lualatex",
       "enum": [

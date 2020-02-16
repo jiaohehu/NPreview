@@ -5,21 +5,23 @@
 Following are configuration options that are related to LATEX document
 generation only.  It does not affects PREVIEW.
 
-    latexlatexfamily
-    latexdocumentclass
-    latextwocolumn
-    latexa4paper
-    latextwoside
+    latexEngine
+    latexDocumentClass
+    latexTwoColumnEnabled
+    latexTwoSideEnabled
+    latexA4PaperEnabled
     latexTableStyle
-    latexstepmagin
-    latexsampwrap
-    latexsampmargin
-    latexleftmargin
-    latexrightmargin
-    latextopmargin
-    latexleftmarginTC
-    latexrightmarginTC
-    latextopmarginTC
+    latexAutoRubyEnabled
+    latexDescriptionItemBullet
+    latexStepMargin
+    latexWrapSampleEnabled
+    latexWrapSampleLength
+    latexLeftMargin
+    latexRightMargin
+    latexTopMargin
+    latexLeftMarginForTwoColumn
+    latexRightMarginForTwoColumn
+    latexTopMarginForTwoColumn
 
 ## Required LATEX Packages
 

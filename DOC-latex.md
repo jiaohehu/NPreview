@@ -69,7 +69,9 @@ Following are required LATEX packages that must be included:
     \usepackage{changepage}
       Used to change the orientation of the page for example from
       portrait to landscape. Good for typesetting a wide table on a
-      page by itself. Currently not utilized but might be in the future.
+      page by itself. The \adjustwidth command this package provides
+      is also used extensively
+      by Nitrile.
 
     \usepackage[unicode]{hyperref}
       Defines \href, \url, and others. Also allows for generating

@@ -55,3 +55,5 @@ non-fenced blocks:
 -   tabular block
 -   description block
 -   list block
+-   heading block
+-   part block 

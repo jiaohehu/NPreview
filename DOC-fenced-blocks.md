@@ -1,6 +1,6 @@
 # Fenced blocks
 
-Nitrile support fenced blocks. 
+Nitrile support fenced blocks.
 
 The fenced blocks are those that must be started by the appearence of triple
 grave-accent at the beginning of a line, followed by a single word and nothing
@@ -17,13 +17,13 @@ in tabular formations, etc.
 
     ```
 
-or 
+or
 
     ``` code
     num1 = 15
     num2 = 12
-    sum = num1 + num2 
-    print("Sum of {0} and {1} is {2}" .format(num1, num2, sum)) 
+    sum = num1 + num2
+    print("Sum of {0} and {1} is {2}" .format(num1, num2, sum))
     ```
 
 The single word after the triple grave-accent symbols describes the name of the
@@ -31,21 +31,27 @@ block.  When absent, it is assumed to be MATH. The name is case insensitive.
 
 Following fenced blocks are recognized:
 
-    IMGS
-    LINE
-    LONG
-    TABL
-    TABF
-    TABB
-    TERM
-    QUOT
-    CENTER
-    FLUSHRIGHT
-    FLUSHLEFT
-    EQTN
-    MATH
-    VERB
-    CODE
+-   imgs block
+-   line block
+-   long block
+-   tabl block
+-   tabf block
+-   tabb block
+-   term block
+-   quot block
+-   center block
+-   flushright block
+-   flushleft block
+-   eqtn block
+-   math block
+-   verb block
+-   code block
 
+Note that following block names are reserved internally that are assigned to
+non-fenced blocks:
 
-
+-   text block
+-   sample block
+-   tabular block
+-   description block
+-   list block

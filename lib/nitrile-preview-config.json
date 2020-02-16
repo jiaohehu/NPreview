@@ -59,15 +59,20 @@
       "default": "",
       "description": "Specify the document class that is for LATEX translation, such as *report*. The default is empty, in which case *article* is chosen for non-book generation and *book* is chosen for book generation."
     },
-    "latexTwoColumn": {
+    "latexTwoColumnEnabled": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *twocolumn* is going to be specified as part of the option to the LATEX *documentclass* command."
     },
-    "latexTwoSide": {
+    "latexTwoSideEnabled": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *twoside* is going to be specified as part of the option to *geometry* package."
+    },
+    "latexA4PaperEnabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set it to true if *a4paper* is going to be specified as part of the option to *geometry* package."
     },
     "latexStepMargin": {
       "type": "number",
@@ -86,42 +91,42 @@
       "default": 0,
       "description": "Set it to an integer for which lines longer than this will be wrapped. Set it to 0 will turn the feature off."
     },
-    "latexleftmargin": {
+    "latexLeftMargin": {
       "type": "number",
       "default": 4.45,
       "minimum": 0,
       "maximum": 10,
       "description": "Set it to a positive number expressing the left margin in centimeters."
     },
-    "latexrightmargin": {
+    "latexRightMargin": {
       "type": "number",
       "default": 4.45,
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the right margin in centimeters."
     },
-    "latextopmargin": {
+    "latexTopMargin": {
       "type": "number",
       "default": 4.0,
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
     },
-    "latexleftmarginTC": {
+    "latexLeftMarginForTwoColumn": {
       "type": "number",
       "default": 2.5,
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the left margin in centimeters."
     },
-    "latexrightmarginTC": {
+    "latexRightMarginForTwoColumn": {
       "type": "number",
       "default": 2.5,
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the right margin in centimeters."
     },
-    "latextopmarginTC": {
+    "latexTopMarginForTwoColumn": {
       "type": "number",
       "default": 4.0,
       "minimum": 0,

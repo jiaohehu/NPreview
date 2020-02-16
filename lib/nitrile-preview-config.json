@@ -11,15 +11,15 @@
       "description": "Specify a string that would be used for document author."
     },
 
-    "previewOutlineEnabled": {
+    "previewOutlineViewEnabled": {
       "type": "boolean",
       "default": false,
       "description": "Set it to true to show only headings."
     },
-    "previewOutlineSections": {
+    "previewExpandSections": {
       "type": "list",
       "default": "",
-      "description": "Set it to one or more heading numbers (separated by spaces) for which its contents will be shown in when *previewOutlineEnabled* flag is set to true."
+      "description": "Set it to one or more heading numbers separated by spaces, i.e., *4 3.1 4.12* for which the contents of these sections will be expanded in case outline view mode is enabled."
     },
     "previewShowIdEnabled": {
       "type": "boolean",

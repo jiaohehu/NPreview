@@ -10,11 +10,6 @@
       "default": "",
       "description": "Specify a string that would be used for document author."
     },
-    "bullet": {
-      "type": "string",
-      "default": "",
-      "description": "Set to a Unicode code point string such as 0x23 that is to be placed in front of each description items."
-    },
     "autoruby": {
       "type": "boolean",
       "default": false,
@@ -73,6 +68,11 @@
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *a4paper* is going to be specified as part of the option to *geometry* package."
+    },
+    "latexItemBullet": {
+      "type": "string",
+      "default": "",
+      "description": "Set to a Unicode code point string such as *0xA7* that denotes a special character to be placed in front of each item in a description block."
     },
     "latexStepMargin": {
       "type": "number",

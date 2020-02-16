@@ -10,7 +10,7 @@ generation only.  It does not affects PREVIEW.
     latextwocolumn
     latexa4paper
     latextwoside
-    latextablestyle
+    latexTableStyle
     latexstepmagin
     latexsampwrap
     latexsampmargin

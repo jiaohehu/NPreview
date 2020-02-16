@@ -23,9 +23,13 @@ generation only.  It does not affects PREVIEW.
     latexRightMarginForTwoColumn
     latexTopMarginForTwoColumn
 
-## Required LATEX Packages
+## Required LATEX Packages For LuaLaTeX
 
 Following are required LATEX packages that must be included:
+
+    \usepackage{microtype}
+      A typesetting enhancement that improves the interspacing
+      of words.
 
     \usepackage{luatexja-fontspec}
     \usepackage{luatexja-ruby}
@@ -47,6 +51,8 @@ Following are required LATEX packages that must be included:
     \usepackage{enumitem}
       Improvements version of the classic \begin{itemize},
       \begin{enumerate}, and \begin{description} environments.
+      Needed because Nitrile makes extensive use of the options
+      of these environments provided by this package.
 
     \usepackage{mathtools}
     \usepackage{amsfonts}
@@ -54,26 +60,23 @@ Following are required LATEX packages that must be included:
     \usepackage{unicode-math}
       Defines many math symbols.
 
-    \usepackage{changepage}
-      Deprecated.
-
     \usepackage{stmaryrd}
     \usepackage{wasysym}
     \usepackage{textcomp}
-      Defines many symbols used in text mode such as \textrightarrow.
+      Addition math symbols and text symbols such as \textrightarrow.
+      Currently not utilized but will be in the future.
 
-    \usepackage{xfrac}
-      Defines \sfrac macro that used in math. (Deprecated)
+    \usepackage{changepage}
+      Used to change the orientation of the page for example from
+      portrait to landscape. Good for typesetting a wide table on a
+      page by itself. Currently not utilized but might be in the future.
 
     \usepackage[unicode]{hyperref}
       Defines \href, \url, and others. Also allows for generating
       of PDF bookmarks.
 
     \usepackage{anyfontsize}
-      Defines \selectfont{}
-
-    \usepackage{fancyvrb}
-      Deprecated
+      Defines \selectfont{} used in typesetting of a verb block.
 
     \usepackage{tikz}
       For \begin{pgfpicture} and \begin{tikzpicture}
@@ -82,23 +85,11 @@ Following are required LATEX packages that must be included:
       For \underline.
 
     \usepackage{listings}
-      For \begin{lstlisting}
+      For \begin{lstlisting} used for typesetting code block.
 
-    \usepackage{quoting}
-      Deprecated.
-
-    \usepackage{csquotes}
-      Deprecated.
-
-    \usepackage{booktabs}
-      For \toprule, \midrule, and \bottomrule.
-
-    \usepackage{xtab}
     \usepackage{ltablex}
-      For \begin{xtabular} environment. It turns out that if
-      *ltablex* package is not included there are some weired
-      compilation errors from lualatex. Including this package
-      seems to make it goes away.
+      Needed to make 'tabular' environment happy. If not include there
+      are some unexplained compilation errors.ßßß
 
-    \usepackage{xifthen}
-      For \ifthenelse command.
+    \usepackage[export]{adjustbox}
+      For \resizebox command that is used for typesetting verb block.

@@ -10,6 +10,7 @@
       "default": "",
       "description": "Specify a string that would be used for document author."
     },
+
     "previewOutlineEnabled": {
       "type": "boolean",
       "default": false,
@@ -35,6 +36,7 @@
       "default": true,
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
     },
+
     "latexFamily": {
       "type": "string",
       "default": "lualatex",
@@ -63,6 +65,17 @@
       "type": "boolean",
       "default": false,
       "description": "Set it to true if *a4paper* is going to be specified as part of the option to *geometry* package."
+    },
+    "latexTableStyle": {
+      "type": "string",
+      "default": "standard",
+      "enum": [
+        "standard",
+        "plain",
+        "boxed",
+        "full"
+      ],
+      "description": "Specify a style for all longtables."
     },
     "latexAutoRubyEnabled": {
       "type": "boolean",
@@ -132,17 +145,6 @@
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
-    },
-    "latexTableStyle": {
-      "type": "string",
-      "default": "standard",
-      "enum": [
-        "standard",
-        "plain",
-        "boxed",
-        "full"
-      ],
-      "description": "Specify a style for all longtables."
     }
   }
 }

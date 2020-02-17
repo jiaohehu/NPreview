@@ -68,8 +68,8 @@ brief descriptions for each one of them.
 |                |0 and the total number of grids in the height.       | 
 |----------------|-----------------------------------------------------|
 |fontsize        |Set to a font size specification such as '14pt'      |
-|                |to be used for 'drawtext' command. Without the       |
-|                |option not specific font size is to be set.          | 
+|                |to be used for 'drawtext' command.                   |
+|                |                                                     | 
 |----------------|-----------------------------------------------------|
 |slant           |Set to a floating point number between 0.1 and 0.9   |
 |                |expressing the fraction of the width that will be    |

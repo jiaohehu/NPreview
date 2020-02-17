@@ -22,6 +22,7 @@ drawtext (10,1) 簡単 Triangle
 
 ## Command options
 
+``` tabl
 |----------------|-----------------------------------------------------|
 |Command option  |Description                                          |
 |----------------|-----------------------------------------------------|
@@ -51,13 +52,14 @@ drawtext (10,1) 簡単 Triangle
 |----------------|-----------------------------------------------------|
 |slant           |Set to a floating point number between 0.1 and 0.9   |
 |                |expressing the fraction of the width that will be    |
-|                |considered the slanted part of the parallelgram.     | 
+|                |reserved for the slanted part of the parallelgram.   | 
+|                |Default is 0.3.                                      | 
 |----------------|-----------------------------------------------------|
 |anglearcradius  |Set to a number between 0.1 to 1 to specify the      |
 |                |radius of the arc for the 'drawanglearc' command.    |
 |                |Default is 0.5.                                      |
 |----------------|-----------------------------------------------------|
-
+``` 
 
 
 

@@ -19,3 +19,18 @@ drawlowerhalfcircle (20,4) (21,4)
 fontsize 14pt
 drawtext (10,1) 簡単 Triangle
 ```
+
+# drawanglearc
+
+This command allows you to draw a small arc describing the span of an angle.
+It expects three coords: the vertex of the angle, one point on the first ray,
+and one on the second ray. 
+
+    drawanglearc (0,0) (5,0) (5,5) 
+
+This will draw an arc that shows a 45-degree angle spanning from 0 to 45 degree
+where the vertex of the angle is at (0,0).
+
+Note that the radius of the arc is always set at 0.5 grid unit. 
+
+

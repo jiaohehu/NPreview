@@ -55,13 +55,13 @@ included.
   - It is known to generate the following error message when 
     two column setting is on.
 
-    ---
+    ```
     ! Package longtable Error: longtable not in 1-column mode.
     See the longtable package documentation for explanation.
     Type  H <return>  for immediate help.
      ...
     l.23883 \end{tabularx}
-    ---
+    ```
  
     It is still possible to finish compiling the document 
     by using: `--interaction=nonstopmode`. However the output PDF

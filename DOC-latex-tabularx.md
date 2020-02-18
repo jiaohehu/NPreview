@@ -50,3 +50,32 @@ included.
     \end{tabularx}
     \end{flushleft}
 
+## Known problems with tabularx table
+
+  - It is known to generate the following error message when 
+    two column setting is on.
+
+    ---
+    ! Package longtable Error: longtable not in 1-column mode.
+    See the longtable package documentation for explanation.
+    Type  H <return>  for immediate help.
+     ...
+    l.23883 \end{tabularx}
+    ---
+ 
+    It is still possible to finish compiling the document 
+    by using: `--interaction=nonstopmode`. However the output PDF
+    might look a little strange in some section of the document.
+    Ie., is a tabularx table is to be broken into two parts 
+    and the first part is at the bottom of the first column
+    of a page, the second part of the table is supposed to start
+    at the second column of the same page. However, it has been
+    observed that it actually started at the first column of the
+    next page.
+
+  - A tabularx table does not need to placed inside a flushleft
+    environment to add additional margin space top and bottom.
+    It produces its own the top and bottom margins.
+
+
+    

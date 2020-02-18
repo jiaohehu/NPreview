@@ -1,12 +1,17 @@
+% !TEX nitrile latexTwoColumnEnabled = true
 # Supporting Diagram
 
 
 ```diagram
 drawtriangle (1,1) (5,5) (5,1.5)
-label (6,6) A
-labelright  (5,5) ``C_0``
-labelright  (5,1.5) ``B_0``
-labelleft  (1,1) ``A_0``
+set text A
+labeltop (6,6) 
+set text ``C_0``
+labelright  (5,5) 
+set text ``B_0``
+labelright  (5,1.5) 
+set text ``A_0``
+labelleft  (1,1) 
 drawdot (0,0) (1,1) \
         (2,2) (3,3) \
         (4,4) (5,5) 

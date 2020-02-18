@@ -26,14 +26,13 @@ The `\raggedright` means left-justified, `\centering` means center-justified,
 and `\raggedleft` means right-justified. The `tabularx` package must be
 included.
 
+    %%%
     \usepackage{tabularx}
-
-    \begin{flushleft}
+    %%%
     \begin{tabularx}{\linewidth}{
      | >{\hsize=0.5\hsize\raggedright\arraybackslash}X 
       | >{\hsize=0.5\hsize\centering\arraybackslash}X 
       | >{\hsize=2.0\hsize\raggedleft\arraybackslash}X | }
-
     \hline
     \textbf{Type} & \textbf{Filter} & \textbf{Predicted Value}\\
     \hline
@@ -45,10 +44,10 @@ included.
     \hline
     3 &  Average  & Mean of bytes A and B, rounded down \\
     \hline
-    4 &  Paeth  & A, B, or C, whichever is closest to p = A + B \jp{−} C \\
+    4 &  Paeth  & A, B, or C, whichever is closest to p = A + B - C \\
     \hline
     \end{tabularx}
-    \end{flushleft}
+    %%%
 
 ## Known problems with tabularx table
 
@@ -66,12 +65,12 @@ included.
     It is still possible to finish compiling the document 
     by using: `--interaction=nonstopmode`. However the output PDF
     might look a little strange in some section of the document.
-    Ie., is a tabularx table is to be broken into two parts 
+    Ie., if a tabularx table is to be broken into two parts 
     and the first part is at the bottom of the first column
-    of a page, the second part of the table is supposed to start
-    at the second column of the same page. However, it has been
-    observed that it actually started at the first column of the
-    next page.
+    of a page, the second part of the table is supposed to appear
+    at the beginning of second column of the same page. 
+    However, it has been observed that it actually started 
+    at the first column of the next page.
 
   - A tabularx table does not need to placed inside a flushleft
     environment to add additional margin space top and bottom.

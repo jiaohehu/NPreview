@@ -182,6 +182,31 @@ for each one of them.
 |                |display with the label command and its variants.     |
 |                |It is also used by the drawtext command.             |
 |----------------|-----------------------------------------------------|
+|align           |Set the alignment for the text to be drawn.          |
+|                |It is used by the drawtext command.                  |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|linecolor       |Set the color used when drawing lines, such as "red".|
+|                |It is used by the drawline command.                  |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|linewidth       |Set the width of the line when drawing lines,        |
+|                |such as "4pt".                                       |
+|                |It is used by the drawline command.                  |
+|----------------|-----------------------------------------------------|
+|dotcolor        |Set the color used for drawing dots, such as "red".  |
+|                |It is used by the drawdot command.                   |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|curve           |To be set when drawing a curve.                      |
+|                |(To be deprecated so that a more rebust way of       |
+|                |specifying curves and lines can be devised)          |
+|----------------|-----------------------------------------------------|
+|arrow           |Set to one of the predefined strings for expressing  |
+|                |that an end arrow or double arrow should be drawn    |
+|                |either at the end of the path or both.               |
+|                |The valid values are: "arrow" and "dblarrow"         |
+|----------------|-----------------------------------------------------|
 ``` 
 
 
@@ -260,5 +285,44 @@ clockwise for a degree span of 45 degrees.
 The radius of the arc is determined by the 'anglearcradius' option. 
 The default is set to be 0.5 unit length.
 
+## The drawshape command
+
+This command is to put a shape in each one of the locations that is a point in
+a path. The shape must be one of the built-in shape defined by Diagram.
+
+The shape can only be draw at the predefined size and there is no provision
+to scale it. The origin of the shape is to be aligned with the point specified.
+Typically the origin is at the lower-left hand corner, but it can also be
+different for each shape. Some might even be at the center, depending on 
+how the shape is intended to be used. Typically the shape is 1x1 but that
+is not the intent to keep it that way. For example, for the radical4 shape
+its width is 4 and its height is 2. It is designed to be used with a 
+long division illustraton that can be used for a dividend of 3 digit long.
+
+The drawshape command only takes path expression as its arguments. It
+can be used to draw one or more shapes. The name of the shape must be 
+specified by the `set text` command. Following example draws two shapes:
+one for the brick and one for the radical4, each one at a different
+location of the path.
+
+    set text brick \\ radical4
+    drawshape (5,5) (10,5)
+
+As of writing, following shape exists:
+
+``` tabl
+|--------------|------------------------------------------------------------|
+|Shape         |Description                                                 |
+|              |                                                            |
+|--------------|------------------------------------------------------------|
+|brick         |This is a rectangle with a width of 1 and a height of 0.5;  |
+|              |It is origin is at the lower-left hand corner.              |
+|              |                                                            |
+|--------------|------------------------------------------------------------|
+|radical4      |This is a radical sign. The length of the top bar is 4 and  |
+|              |the height of the left vertical bar is 2.                   |
+|              |The origin is at the top-left hand corner.                  |
+|--------------|------------------------------------------------------------|
+```
 
 

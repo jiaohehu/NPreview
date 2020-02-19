@@ -153,14 +153,15 @@ for each one of them.
 |                |                                                     |
 |                |                                                     | 
 |----------------|-----------------------------------------------------|
-|refscalarx      |Set a scalar number to scale coordinate in x-axis.   |
-|                |Ex. if refx is set to 6 and refscalarx is set to 3,  |
-|                |then a coordinate (2,0) will map to (12,0).          | 
-|                |It is first scaled three times to be (6,0) before    | 
-|                |being shifted 6   grid units to the right.           | 
+|refsx           |Set a scalar number to scale coordinate in x-axis.   |
+|                |Ex. if refx is set to 6 and refsx      is set to 3,  |
+|                |For a coord that is specified as (2,0),              | 
+|                |it is first scaled three times which puts it at (6,0)| 
+|                |before being shifted 6 grids to the right which puts | 
+|                |it at (12,0), which is its final displayed position. | 
 |                |Must be set to a number between 0.1 and 10.          | 
 |----------------|-----------------------------------------------------|
-|refscalary      |Same as refscalarx but does it in y-axis.            |
+|refsy           |Same as refsx      but does it in y-axis.            |
 |                |                                                     |
 |                |                                                     | 
 |----------------|-----------------------------------------------------|

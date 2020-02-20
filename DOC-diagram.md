@@ -207,6 +207,29 @@ for each one of them.
 |                |either at the end of the path or both.               |
 |                |The valid values are: "arrow" and "dblarrow"         |
 |----------------|-----------------------------------------------------|
+|rectw           |Set to a number that is the width of the rectangle.  |
+|                |This is to be used with the drawrect command.        |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|recth           |Set to a number that is the height of the rectangle. |
+|                |This is to be used with the drawrect command.        |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|diameter        |Set to a number that is the diameter of the circle.  |
+|                |This is to be used with the drawfullcircle, and      |
+|                |variants of draw*halfcircle, and                     |
+|                |variants of drawquadrant*dircle commands.            |
+|----------------|-----------------------------------------------------|
+|angle1          |Set to a number that expresses the angle in degrees. |
+|                |This is used by the drawcirclechord method, which    |
+|                |draws a chord from two points on a circle. The       |
+|                |first point measures angle1 degrees, and the second  |
+|                |point measures angle2 degrees.                       |
+|----------------|-----------------------------------------------------|
+|angle2          |Set to a number that expresses the angle in degrees. |
+|                |This is used by the drawcirclechord method.          |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
 ``` 
 
 

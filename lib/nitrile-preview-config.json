@@ -68,12 +68,10 @@
     },
     "latexTableStyle": {
       "type": "string",
-      "default": "full",
+      "default": "standard",
       "enum": [
-        "full",
-        "boxed",
-        "header",
-        "plain"
+        "standard",
+        "full"
       ],
       "description": "Specify a style for all longtables."
     },

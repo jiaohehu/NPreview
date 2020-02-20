@@ -315,6 +315,6 @@ the generated LATEX document as well as in PREVIEW:
   behavior was observed when viewing exported HTML using Safari, Firefox,
   and/or Chrome. 
 
-
+- The \displaystyle is not yet recognized by PREVIEW
 
 

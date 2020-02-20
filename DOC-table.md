@@ -3,73 +3,132 @@
 Nitrile recognize following fenced blocks as expressing tabular
 information.
 
-    TABB, TABL, TABF, LONG 
+    tabular 
+    tabulary 
+    tabularx
+    longtabu 
 
+Tabular is a LATEX `tabular` environment  that cannot be broken into separate
+pages.  Tabulary is an extension of `tabular*` environment that its column
+widths are automatically adjusted by the package so that you do not have 
+to specify it directly. Both tabular and tabulary only supports single
+line table cell.
 
-The TABB fenced block is to create a LATEX tabular block such that each column
-is styled as a "l". As a result the table is tightly packed and each column is
-only as wide as the longest text of that column As a result, the overall table
-width varies, and is the sum of the width of individual columns.
+For the `tabularx` and `longtabu` blocks, each table column is a paragraph
+style, and they would both be able to split across page boundaries.  Both
+`tabularx` blocks will attempt to set the table width using relative width of
+each column, obtained either by the `.adjust` option or some other means.
+However, the LATEX `tabularx` environment will also shrink the overall table
+width to a smaller value if the combine width of the columns are small.  On the
+other hand, the `longtabu` environment will always extend the overall width of
+the table to the desired one. Current this is always set to `\linewidth`.
 
-    \begin{tabular}{lll}
-      ....
+For `tabular` block it is to treat all table rows as data rows, thus no rule
+lines are added. This block also does not respond to latexTableStyle config
+flag. The intend of this block is to typeset tabular data that is
+self-explanatory. Note that since LATEX `tabular` environment does not come
+with vertical margins a \begin{center} environment is inserted.
+
+    \begin{center}
+    \begin{tabular}{ll}
+    \( 1 \) & \( 1 \) \\
+    \noalign{\medskip}
+    \( 2 \) & \( \displaystyle \frac{1}{2} \) \\
+    \noalign{\medskip}
+    \( 3 \) & \( \displaystyle \frac{1}{3} \) \\
+    \noalign{\medskip}
+    \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
+    \noalign{\medskip}
+    \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
     \end{tabular}
+    \end{center}
 
-The TABL fenced block is to create a LATEX tabular block where each column
-is a "p{}". The width of the table is always set to be the same as the page
-(\linewidth). The width of individual column depends on the total width 
-of the page, and the relative column width with respect to other columns.
-On the other hand, text within each column is going to appear as a paragraph.
+Following is an example of a `tabulary` environment. Note that a \begin{center}
+environment is also placed around it as this environment does not come with
+vertical space before and after it.
 
-    \begin{tabular}{p{...}p{...}{...}}
-      ....
-    \end{tabular}
+    \begin{center}
+    \begin{tabulary}{\linewidth}{LL}
+    \toprule
+    \textbf{Number} & \textbf{Reciprocal}\\
+    \midrule
+    \( 1 \) & \( 1 \) \\
+    \noalign{\medskip}
+    \( 2 \) & \( \displaystyle \frac{1}{2} \) \\
+    \noalign{\medskip}
+    \( 3 \) & \( \displaystyle \frac{1}{3} \) \\
+    \noalign{\medskip}
+    \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
+    \noalign{\medskip}
+    \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
+    \bottomrule
+    \end{tabulary}
+    \end{center}
 
-The TABF fenced block is the same as that of a TABL block except for the fact
-that it is to be made a float by the presence of the "table" environment.
+Following is an example of a `tabularx` environment. This environment allocates
+extra vertical space before and after it.
 
-    \begin{table} 
-      \begin{tabular}{p{...}p{...}{...}}
-      ....
-      \end{tabular}
-    \end{table} 
+    \begin{tabularx}{\linewidth}{>{\hsize=1\hsize\raggedright\arraybackslash}X>{\hsize=1\hsize\raggedright\arraybackslash}X}
+    \toprule
+    \textbf{Number} & \textbf{Reciprocal}\\
+    \midrule
+    \( 1 \) & \( 1 \) \\
+    \noalign{\medskip}
+    \( 2 \) & \( \displaystyle \frac{1}{2} \) \\
+    \noalign{\medskip}
+    \( 3 \) & \( \displaystyle \frac{1}{3} \) \\
+    \noalign{\medskip}
+    \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
+    \noalign{\medskip}
+    \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
+    \bottomrule
+    \end{tabularx}
 
-The LONG fenced block is to create a \begin{longtable} block.
-The format for each column is the same as that of the TABL or TABF blocks,
-such that each column is a paragraph (p{}).
+Following is an example of a `longtabu` environment.
 
-    \begin{longtable}{p{...}p{...}{...}}
-    ....
-    \end{longtable}
+    \begin{longtabu} to \linewidth {X[0.5]X[0.5]}
+    \toprule
+    \textbf{Number} & \textbf{Reciprocal}\\
+    \midrule
+    \endhead
+    \bottomrule
+    \endfoot
+    \( 1 \) & \( 1 \) \\
+    \noalign{\medskip}
+    \( 2 \) & \( \displaystyle \frac{1}{2} \) \\
+    \noalign{\medskip}
+    \( 3 \) & \( \displaystyle \frac{1}{3} \) \\
+    \noalign{\medskip}
+    \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
+    \noalign{\medskip}
+    \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
+    \end{longtabu}
 
-For fenced blocks of TABB, TABL, TABF and LONG, the content of the table is to
-be extracted from the arrangement of the text within the block.
 
-There are two arrangements that will be recognized. In the first arrangement,
-each line expresses the entire content of a row, and data cells within that row
-are detected by the presence of two or more consecutive white spaces, each of
-which marks the boundaries of two data cells.  For example, in the following
-TABL block it is detected that there are four rows and for each row three
-columns.
+Each line in a Markdown file expresses the entire content of a row, and data
+cells within that row are detected by the presence of two or more consecutive
+white spaces.  For example, in the following block it is detected that there
+are four rows and for each row three columns.
 
-    ```  tabl
+    ```  tabular
     Name           Value   Example
     ELEMENT_NODE   1       The <body> element
     TEXT_NODE      3       Text that is not part of an element
     COMMENT_NODE   8       <!-- an HTML comment -->
     ```
 
-The second arrangement is that data cells in a table row is to be placed in its
-own line and all data cells of the same table row is to occupy as a cluster of
-lines separated by one or more blank lines.
+The following arrangement is also recognized in a Markdown file such that data
+cells in a table row is to be placed in its own line and all data cells of a
+table row is to occupy as a cluster of lines separated by one or more blank
+lines.
 
-For example, in the following TABL block the first three lines are recognized
-as expressing the three data cells for the first table row, and next three
-lines after the the blank line are considered to be expressing the three data
-cells for the second table row, and so on.
+For example, in the following block the first three lines are recognized as
+expressing the three data cells for the first table row, and next three lines
+after the the blank line are considered to be expressing the three data cells
+for the second table row, and so on.
 
 
-    ``` tabl
+    ``` tabular
     Name
     Value
     Example
@@ -92,13 +151,10 @@ first text line only yields a single table cell and there are at least one
 empty lines within the rest of the block.  In this case the second
 arrangement is assumed.
 
-For TABL, TABF, and LONG blocks, the first row of the table is always assumed
-to be the header row and rest as data rows.  For TABB all rows are considered
-data rows.
-
 Alternatively, following formations of a paragraph will be recognized as
-expressing a TABB, TABL, TABF, or a LONG block. 
+well.
 
+    ``` tabularx
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -113,11 +169,11 @@ expressing a TABB, TABL, TABF, or a LONG block.
     |              |              | comment ->        |
     |              |              |                   |
     |--------------|--------------|-------------------|
+    ```
 
-This paragraph is recognized as a "tabular block" when the first and last line
-is detected to be exactly the same, and they each only contains nothing but
-vertical bars and hyphen-minus characters. In addition, the first and
-last character of each line is also a vertical bar.
+When the first and last line is detected to be exactly the same, and they each
+only contains nothing but vertical bars and hyphen-minus characters. In
+addition, the first and last character of each line is also a vertical bar.
 
 When a paragraph like this is recognized, all subsequent lines that are exactly
 the same as the first/last line are considered the "separator lines".  Lines
@@ -131,15 +187,6 @@ splitted table cells of which are treated as if the text of each cell is the
 "continuation text".  This allows you to split long texts of a table cell text
 into multiple lines and still expect them to be put together as a single cell. 
 
-By default, this paragraph is to be recognized as a TABL fenced block.
-But you can change it by setting the '.table' option to one of the following strings: 
-'TABB', 'TABL', 'TABF', and 'LONG'.
-
-    .table TABB
-    .table TABL
-    .table TABF
-    .table LONG
-
 The column width for such a paragraph formation is to be deduced by noticing
 the relative number of hyphen-minus characters for each column, and the use
 these numbers as bases for adjusting the column. The effect is similar to
@@ -150,6 +197,7 @@ However, you can still override the initial table width with the adding of a
 '.adjust' option in front of it.
 
     .adjust 2 3 4
+    ``` tabularx
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -164,6 +212,7 @@ However, you can still override the initial table width with the adding of a
     |              |              | comment ->        |
     |              |              |                   |
     |--------------|--------------|-------------------|
+    ```
 
 Note that if it is detected that the first and last line does not start and end
 with a vertical bar character, such as the following paragraph shows, it is
@@ -173,91 +222,62 @@ pattern, which is to not have a vertical bar at the beginning and ending of the
 line. Thus, following tabular is going to be recognized.
 
     .adjust 2 3 4
-     --------------|--------------|------------------- 
-      Names        | Value        | Example            
-     --------------|--------------|------------------- 
-      ELEMENT_NODE |  1           | The <body>         
-                   |              | element            
-     --------------|--------------|------------------- 
-      TEXT_NODE    |  3           | Text that is not   
-                   |              | part of an         
-                   |              | element            
-     --------------|--------------|------------------- 
-      COMMENT_NODE |  8           | <!-- an HTML       
-                   |              | comment ->         
-                   |              |                    
-     --------------|--------------|------------------- 
-
-For TABB, TABL, TABF, and LONG blocks a table cell can also be split into multiple 
-input lines, by placing a single backslash (`\`) immediately after the cell.
-When that happens, subsequent lines are to be considered continuation lines of the
-previous line. Thus, the next table is to be considered equivalent as far
-as the content of the table goes.
-
-    ``` tabl
-      Names          Value          Example            
-
-      ELEMENT_NODE    1             The <body>\         
-                                    element            
-
-      TEXT_NODE       3             Text that is not\ 
-                                    part of an\        
-                                    element            
-
-      COMMENT_NODE    8             <!-- an HTML\      
-                                    comment ->         
-                                                       
+    ``` tabularx
+    --------------|--------------|------------------- 
+    Names         | Value        | Example            
+    --------------|--------------|------------------- 
+    ELEMENT_NODE  |  1           | The <body>         
+                  |              | element            
+    --------------|--------------|------------------- 
+    TEXT_NODE     |  3           | Text that is not   
+                  |              | part of an         
+                  |              | element            
+    --------------|--------------|------------------- 
+    COMMENT_NODE  |  8           | <!-- an HTML       
+                  |              | comment ->         
+                  |              |                    
+    --------------|--------------|------------------- 
     ```
 
-However, for TABB, TABL, TABF, and LONG there is an added benefit to allow for
-texts within a table cell to be split into multiple lines. It is expressed by
-placing two backslashes (`\\`) immediate after the text of a cell. The text for
-the table cell is thus to be split using (`\newline`) command when it is in
-(`p{}`) format. For TABB where the (`l`) format is used, two or more separate
-rows are inserted to simulate the affect.
+Each table cell can also be split into multiple input lines, by placing a
+single backslash (`\`) immediately after the cell.  When that happens,
+subsequent lines are to be considered continuation lines of the previous line.
+Thus, the next table is to be considered equivalent as far as the content of
+the table goes.
 
-    ``` tabl
-      Names          Value          Example            
+    ``` tabularx
+    Names          Value          Example            
 
-      ELEMENT_NODE    1             The <body>\\        
-                                    element            
+    ELEMENT_NODE    1             The <body>\         
+                                  element            
 
-      TEXT_NODE       3             Text that is not\\
-                                    part of an\\       
-                                    element            
+    TEXT_NODE       3             Text that is not\ 
+                                  part of an\        
+                                  element            
 
-      COMMENT_NODE    8             <!-- an HTML\\     
-                                    comment ->         
-                                                       
+    COMMENT_NODE    8             <!-- an HTML\      
+                                  comment ->         
     ```
 
-For TABL, TABF, and LONG blocks, the initial column width for each column is
-automatically determined so that each column gets the equal width.  However,
-you can manually adjust the width of the columns using the '.adjust' fence
-option.
+For `tabulary`, `tabularx`, and `longtabu` block, it is also possible to allow
+for a table cell to be split into multiply lines, thanks to the availability of
+LATEX macro `\newline`.  It is expressed by placing two backslashes (`\\`)
+immediate after the text of a cell. 
 
-    .adjust 3 4 5
+    ``` tabulary
+    Names          Value          Example            
 
-The numbers for this options are interpreted as relative widths of each column, 
-thus, the first column will get a fraction of 3/12 width of the page, and the second
-column get 4/12 width of the page, and the third column get 5/12 width of the page.
-The page width is assumed to be (`\linewidth`) for LATEX.
+    ELEMENT_NODE    1             The <body>\\        
+                                  element            
 
-    .adjust 3 4 5
-    ``` tabl
-      Names          Value          Example            
+    TEXT_NODE       3             Text that is not\\
+                                  part of an\\       
+                                  element            
 
-      ELEMENT_NODE    1             The <body>\\        
-                                    element            
-
-      TEXT_NODE       3             Text that is not\\
-                                    part of an\\       
-                                    element            
-
-      COMMENT_NODE    8             <!-- an HTML\\     
-                                    comment ->         
-                                                       
+    COMMENT_NODE    8             <!-- an HTML\\     
+                                  comment ->         
     ```
+
 
 
 

@@ -1,4 +1,3 @@
-% !TEX nitrile latexTwoColumnEnabled = true
 # Supporting Diagram
 
 
@@ -63,6 +62,8 @@ what actions to take.  Following is a list of all commands:
     set    
     save    
 
+    <var> := <path-expression>
+
     label
     labelrt
     labellft
@@ -72,7 +73,7 @@ what actions to take.  Following is a list of all commands:
     labelulft
     labellrt
     labelllft
-
+    
     drawrect
     drawparallelgram
     drawfullcircle
@@ -93,60 +94,199 @@ what actions to take.  Following is a list of all commands:
     drawuvdot
     drawhdot
     drawshape
-    drawtext
+    drawlabel
 
 The commands can be classified into three groups. The first group consists of
-only two commands: `set` and `save`. The `set` command is used to set 
-the command properties. Command properties are set of key-value pairs that 
-are used by various commands when it runs. The most famous one is the 'text'
-property, which is used by the `drawtext` command as well as the `label`
-command and its variants.  Other properties, such as 'diameter', is used by
-many commands including the `drawfullcircle`, `drawupperhalfcircle`,
-`drawlowerhalfcircle`, etc.
+two commands: `set` and `save`. The `set` command is used to set all
+configuration parameters. Configuration parameters are set of key-value pairs
+that are used by various commands when it runs. The most famous one is the
+'label' property, which is used by the `drawlabel` command as well as the
+`label` command and its variants.  Other properties, such as 'diameter', is
+used by many commands including the `drawfullcircle`, `drawupperhalfcircle`,
+`drawlowerhalfcircle`, and others. There are also 'fillcolor' and 'color'
+properties, that supplies a different fill color of line color if they are set.
 
-Look at the section titled "Command properties" for detail.
+Look at the section titled "Configuration parameters" for detail.
 
-The `save` command saves the last coordinates encountered to a list of 
-variables, each of which will be assigned the same set of coordinates.
+The `save` command saves the last path expression to a list of user
+supplied variables so that these variables can be used directly.
+Note that variables are only designed to hold path expressions and
+nothing else.
 
-The second group is the `label` command and its variants. These commands
-will put a label text at the given position. Each one only differs at 
-how the label were positioned relative to the point given.
+The second group is the "assignment" statement, in which a new variable
+is assigned a particular path expression. This kind of command 
+always takes the form as follows.
 
-The third group of command all starts with the word "draw", such as
-`drawdot`, `drawline`, `drawfullcircle`, etc. The only allowed argument
-after the initial command name is a list of coordinates, or simply known
-as "path expression".
+    <variable> := <path-expression>
+
+For example, we can assign a new path consisting of two points (0,0)
+to (1,1) to a variable named 'a' as follows.
+
+    a := (0,0) (1,1)
+
+The path expression can come in many syntax other than the one shown, in which
+case a number of coordinates are written literally.  Diagram also provide path
+manipulation functions to extra, add, or create new paths.  For example, the
+`$somepoints()` function would extra part of an existing path and return a new
+path. For example, the following example we will create a new variable named
+'b' that would hold the points of an existing path that was assigned to 'a'.
+
+    b := $somepoints(a,5,10)
+ 
+The path manipulation function always starts with a dollar sign.
+The path manipulation function `$shiftpoints()` would take an existing
+path, and return a new path such that all the points of the original
+path are shifted in a given x-direction or y-direction.
+In the following example the path points in 'a' is returned and assigned to
+'b' after all the points have been shifted one unit position to the right 
+and one unit position down.
+
+    b := $shiftpoints(a,1,-1)
+
+Note that in Diagram all path points are specified in grid units. The grid
+is always shown as part of the diagram, thus it should be easy to see where
+if a shape has been drawn at the position specified.
+
+See the section "Path manipulation functions" for more information.
+
+The third group is the `label` command and its variants. Each command in
+this group is designed to place a text label onto the diagram. Their only
+differ in how the coordinates would be interpreted as to position the text.
+By default, a label label is centered at the coordinate point. But if the
+command `labelrt` is used, then the label is placed at the right-hand
+side of the coorindate.
+
+The forth group consists of the "draw" command. For example, the
+`drawdot`, `drawline`, `drawfullcircle`, `drawrect`, `drawshape`, etc. 
+The arguments for these commands are all the same, which is a
+path expression.
 
     drawdot (1,1) (2,3) (4,3) (5,6) 
     drawline (1,1) (2,3) (4,3) (5,6) 
     drawfullcircle (1,1) (2,3) 
     drawrect (1,1) (2,3) 
+    drawshape (1,1) (2,3)
 
-Usually the path expression is list of points in a Cartesian coordinate frame.
-Each point is expressed using a set of parenthesis, where the first number within
-the parenthesis is the x-coordinate and the second one is the y-coordinate.
-
-Each command is to interpret the path expression slightly differently. But most
+Each command might interpret the path expression slightly differently. But most
 of the command except for the `drawline` is to treat each point in the path
 expression as a single point to which a shape is to be drawn. For example, for
-`drawdot` command each point in the path expression is to express the position
-of a dot to be drawn.
+`drawdot` command each point in the path expression is to express a position
+of a dot to be drawn. Thus, for a command such as the following there will
+be three dots at the location (1,1), (2,2), and (3,4).
+
+    drawdot (1,1) (2,2) (3,4)
+
+The size of the dot and the color of the dot is expresses as part 
+of the command configuration option. For example, to change the size of the dot
+to 8pt, you would set the configuation option of 'fillcolor' to '8pt' first
+before calling `drawdot` command.
+
+    set dotsize 8pt
+    drawdot (1,1) (2,2) (3,4)
+
+Similar, to simultanous change the color and the size of the dot, you would configure
+both options such as below before calling `drawdot`.
+
+    set dotsize 8pt
+    set dotcolor 0.5[red,white]
+
+Note that you do not need to place any quoting when calling the `set` command.
+Everything after the configuration name is considered the value that is to be
+assigned to the parameter. However, some parameter will expect a string, and
+some will expect a float.  Thus, for parameters that expectes a float, validity
+checks will be performed and out-of-range data will be ignored. 
+
+Even the `drawfullcircle` command is to behave the same way. For example, 
+the following command will draw three circles at the given location. 
+
+    drawfullcircle (1,1) (2,2) (3,4)
+
+By default, the circle to be drawn has a diameter equal to one grid unit. 
+However, you can ask to draw a circle of a different diameter by setting
+the 'diameter' configuration parameter.
+
+The only command that might behave a little differently is the `drawpath`
+command, in which case all points of the path is to be drawn as a path.
+This command is probably the most flexible, take advantage of the straight
+line and curve line drawing capabilities of the MetaPost. As of writing,
+it can only draw either a straight line or a curved line. For example, following
+will draw two line segments connecting three path points.
+
+    drawpath (1,1) (2,2) (3,4)
+
+You can close a path by including a "null" point using the notation of "()".
+
+    drawpath (1,1) (2,2) ()
+
+However, MetaPost allows for the flexibility to draw a mixed of straight lines
+and curved lines, and also allows for specifying individual Bezier curve points
+by its ownn control points. These features are currently not supported by
+Diagram.
+
+The configuration parameter can also be specified as a list of parameters 
+one for each points in the path. For example, you can specify that three
+circles to be drawn at three different location each with a different diameter
+such as follows.
+
+    set diameter 5 \\ 10 \\ 15
+    drawfullcircle (1,1) (2,2) (3,4)
+
+If only a single diameter is set, then all three circles will share the same diameter.
+
+    set diameter 5 
+    drawfullcircle (1,1) (2,2) (3,4)
+
+If two diameters are provided, then the third circle will use the diameter for the 
+second circle, which is 10.
+
+    set diameter 5 \\ 10
+    drawfullcircle (1,1) (2,2) (3,4)
+
+Almost all configuration parameters are to be treated this way. Thus, when setting 
+to a single value,  it will be repeated for all coordinates. However, if a list
+is specified, then they will each be assigned the next one in the same order. If the
+list is shorted, the last item on the list will be used. If the list is longer than
+the coordinates themselves, extra values are disregarded.
+
+Even the `drawlabel` command is to behave the same way. Unlike the `label` command
+and its variants, which only draw a single text label, the `drawlabel` command is
+designed to draw multiple labels just like `drawdot` command. Each point in the path
+is to be interpreted as a separate location for the label. As usual, the same 
+text label is to be used for all points,  unless the text label is specified as a list.
+For example, following will place the label "A" at (1,1), "B" at (2,2), and "C"
+at (3,4).
+
+    set label A\\B\\C
+    drawlabel (1,1) (2,2) (3,4)
+
+Without exception, the appearance of a double-backslash sequence is always to
+be interpreted as a "magic string" in a configuration parameter.  This will not
+be a problem for all configuration parameters except for the label. In the rare
+case where a double-backslash needs to be included as part of the text itself,
+you will then need to use the `label` command and its variants. The `label`
+command and its variants will interpret all letters of the `label` parameter
+literally, thus allowing you to display a text label with double-backslash
+characters. In addition, the `label` command and its variants will only
+interpret the first point of a path expression.  Thus, in the following example
+the label text is shown literally as "A\\B\\C", and it is only to be shown at
+location (1,1).
+
+    set label A\\B\\C
+    label (1,1) (2,2) (3,4)
+
+As of late, all "draw" commands will also allow for a label to be specified as
+part of the parameters. However, if the label is to appear, it MUST appear at
+the beginning of before all coordinates. In addition, it must also be placed inside
+a set of curly braces. For example, following can be considered a short cut
+for running the `set label` command followed by `drawlabel` command.
+
+    drawlabel {A\\B\\C} (1,1) (2,2) (3,4)
+
+Note that when a label is specified in this way, the 'label' parameter WILL
+be modified and set to the new value.
 
 
-
-
-
-
-There is no limit to how many points that are allowed for a command.  However,
-each command does have requirement that a certain minimum number of points that
-must be present before that command is considered meaningful. Some commands,
-for example, like drawdot and drawline, would utilize all points. Other
-commands, such as drawrect, or drawcircle, would only require the first two and
-promptly ignores all future points.
-
-
-## The set command
+# The set command
 
 The set command is used to configure and also provides information that
 aides or otherwise provides critical information for other commands. 
@@ -166,9 +306,9 @@ spaces to be constructed without needing for any quoting.
 
     set text A short example
 
-## Command properties
+## Configuration parameters
 
-Following is a list of command properties.
+Following is a list of configuration parameters.
 
 ``` tabularx
 |----------------|-----------------------------------------------------|
@@ -243,6 +383,10 @@ Following is a list of command properties.
 |                |It is used by the drawdot command.                   |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
+|dotsize         |Configure the size of the dot to be drawn, such as   |
+|                |"8pt". Used by the drawdot command.                  |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
 |curve           |To be set when drawing a curve.                      |
 |                |(To be deprecated so that a more rebust way of       |
 |                |specifying curves and lines can be devised)          |
@@ -279,6 +423,97 @@ Following is a list of command properties.
 
 
 ## Path manipulation functions        
+
+Note that all path manipulation functions will either take a path expressio
+variable, integers, or a floating point number. It can not be passed
+an path expression literal. 
+
+In the following description, letter 'a', 'b', 'c' are used to express
+an existing path variable.
+
+  + midpoint(a)     
+  + midpoint(a,0.2)     
+
+    This function returns the mid point of the first two points in a path 
+    expression if a single argument is given. 
+
+    ```
+    a := (1,1) (2,3) (3,4)
+    b := $midpoint(a)
+    ```
+
+    This will return a path with a single point: (1.5,2)
+    
+    If two arguments are given, it does a linear interpolation alone the 
+    line segment of the first two points, and return a point that corresponds
+    to the percentage of the path traveled from the first point to the second.
+    The second argument is an floating point number between 0-1.
+    For example, if 0.5 is given as the second parameters, it should return the
+    same path as that with a single argument. Thus, following example will return
+    the same result as the one before.
+
+    ```
+    a := (1,1) (2,3) (3,4)
+    b := $midpoint(a,0.5)
+    ```
+
+    Following will return the a point that is one-third the way from the first
+    point to the second point.
+
+    ```
+    a := (1,1) (2,3) (3,4)
+    b := $midpoint(a,0.333333)
+    ```
+
+  + somepoints(a,2)
+  + somepoints(a,2,2)
+  + somepoints(a,2,5)
+  + somepoints(a,5,2)
+    
+    This function can be called with 2 arguments or 3. If called with 2, it is
+    to return a new path containing a single point at the index location
+    of its original path. The first argument is always a path variable. The
+    second argument is always interpreted as an integer.
+
+    If called with three arguments, the last argument is also to be treated as 
+    an integers. The returned path is to contain all points between the 
+    index locations specified by the last two arguments. The order
+    of the points will be so arranged so that the index location of the first
+    integer is to appear first, followed by a point moving towards the 
+    second index location. Thus, this function can be used to return an inverse
+    order of the points of the original path.
+
+  + shiftpoints(a,-1,2)
+   
+    This function is always needed to be provided with three arguments. The
+    first argument is always interpreted as a path variable. The second
+    and the third arguments are to be interpreted as expressing length
+    in grid unit. This function is to return a new path with exact the same
+    number of points, except for that all the points will have been shifted
+    by the number of grid units specified in the argument. For example,
+    following would have shifted all the points in the original path 
+    one position to the left and two positions up.
+
+    ```
+    b := shiftpoints(a,-1,2)
+    ````
+
+  + scatterpoints(1,0,10,0,10)
+
+    This function is to create new path with the number of points evenly distributed
+    beteen the two end points. In the previous example there will be 10 points created
+    in a path such that the first point is (1,0), and the last point is (10,0), 
+    and the rest of the points will be spaced evenly between the first and the last.
+
+  + rectpoints(0,2,4,3)  
+    
+    Returns new a path that describes the rectangle with its lower left at (0,2)
+    and with a width of 4 and a height of 3; the path is closed with the last
+    point a null point. In this case, the return point is equivalent to the following.
+
+    ```
+    a := (0,2) (4,2) (4,5) (0,5) ()
+    ```
 
 
 

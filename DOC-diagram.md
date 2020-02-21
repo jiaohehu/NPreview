@@ -2,27 +2,33 @@
 
 
 ```diagram
-drawtriangle (1,1) (5,5) (5,1.5)
-set text A
+drawline (1,1) (5,5) (5,1) ()
+set label A
 labeltop (6,6) 
-set text ``C_0``
-labelright  (5,5) 
-set text ``B_0``
-labelright  (5,1.5) 
-set text ``A_0``
-labelleft  (1,1) 
+set label ``C_0``
+labelrt  (5,5) 
+set label ``B_0``
+labelrt  (5,1.5) 
+set label ``A_0``
+labellft  (1,1) 
 drawdot (0,0) (1,1) \
         (2,2) (3,3) \
         (4,4) (5,5) 
-drawarrow (10,5) (12,6)
-drawdblarrow (10,2) (12,3)
+set arrow arrow
+drawline (10,5) (12,6)
+set arrow dblarrow
+drawline (10,2) (12,3)
+set arrow
 drawline (14,2) (15,3) (14,4) (15,5)
-drawfullcircle (20,8) (21,8)
-drawupperhalfcircle (20,6) (21,6)
-drawlowerhalfcircle (20,4) (21,4)
+set diameter 2
+drawfullcircle (20,8) 
+drawupperhalfcircle (20,6) 
+drawlowerhalfcircle (20,4) 
 set fontsize 14pt
-set text  簡単 Triangle
+set label  簡単 Triangle
 label (10,1) 
+set curve up
+drawline (1,1) (2,2) (3,4) ()
 ```
 
 ## The unit length and grid lines
@@ -205,97 +211,62 @@ By default, the circle to be drawn has a diameter equal to one grid unit.
 However, you can ask to draw a circle of a different diameter by setting
 the 'diameter' configuration parameter.
 
-The only command that might behave a little differently is the `drawpath`
-command, in which case all points of the path is to be drawn as a path.
-This command is probably the most flexible, take advantage of the straight
-line and curve line drawing capabilities of the MetaPost. As of writing,
-it can only draw either a straight line or a curved line. For example, following
-will draw two line segments connecting three path points.
+The only command that might behave a little differently is the `drawline`
+command, in which case all points of the path is to be drawn as part of line
+segments, which connect two neighboring points.  
 
-    drawpath (1,1) (2,2) (3,4)
+    drawline (1,1) (2,2) (3,4)
 
 You can close a path by including a "null" point using the notation of "()".
 
-    drawpath (1,1) (2,2) ()
+    drawline (1,1) (2,2) (3,4) ()
 
-However, MetaPost allows for the flexibility to draw a mixed of straight lines
-and curved lines, and also allows for specifying individual Bezier curve points
-by its ownn control points. These features are currently not supported by
-Diagram.
+If the 'curve' property is also set, which is a string such as 'up'
+or 'down', then the entire path is considered to represent a curve, 
+where the text of the 'curve' property is to set the initial direction
+of the curve. Thus, following command will draw a curved line that go
+through all the points of this path.
 
-The configuration parameter can also be specified as a list of parameters 
-one for each points in the path. For example, you can specify that three
-circles to be drawn at three different location each with a different diameter
-such as follows.
+    set curve up
+    drawline (1,1) (2,2) (3,4) ()
 
-    set diameter 5 \\ 10 \\ 15
-    drawfullcircle (1,1) (2,2) (3,4)
+When drawing label text, the 'label' and 'align' parameter can have
+multiple entries separated by double-backslash such as following:
 
-If only a single diameter is set, then all three circles will share the same diameter.
-
-    set diameter 5 
-    drawfullcircle (1,1) (2,2) (3,4)
-
-If two diameters are provided, then the third circle will use the diameter for the 
-second circle, which is 10.
-
-    set diameter 5 \\ 10
-    drawfullcircle (1,1) (2,2) (3,4)
-
-Almost all configuration parameters are to be treated this way. Thus, when setting 
-to a single value,  it will be repeated for all coordinates. However, if a list
-is specified, then they will each be assigned the next one in the same order. If the
-list is shorted, the last item on the list will be used. If the list is longer than
-the coordinates themselves, extra values are disregarded.
-
-Even the `drawlabel` command is to behave the same way. Unlike the `label` command
-and its variants, which only draw a single text label, the `drawlabel` command is
-designed to draw multiple labels just like `drawdot` command. Each point in the path
-is to be interpreted as a separate location for the label. As usual, the same 
-text label is to be used for all points,  unless the text label is specified as a list.
-For example, following will place the label "A" at (1,1), "B" at (2,2), and "C"
-at (3,4).
-
-    set label A\\B\\C
+    set label A \\ B \\ C
+    set align rt \\ lft \\ top
     drawlabel (1,1) (2,2) (3,4)
 
-Without exception, the appearance of a double-backslash sequence is always to
-be interpreted as a "magic string" in a configuration parameter.  This will not
-be a problem for all configuration parameters except for the label. In the rare
-case where a double-backslash needs to be included as part of the text itself,
-you will then need to use the `label` command and its variants. The `label`
-command and its variants will interpret all letters of the `label` parameter
-literally, thus allowing you to display a text label with double-backslash
-characters. In addition, the `label` command and its variants will only
-interpret the first point of a path expression.  Thus, in the following example
-the label text is shown literally as "A\\B\\C", and it is only to be shown at
-location (1,1).
+This will draw the label "A", "B", and "C" respectly each at a different
+point that is (1,1), (2,2), (3,4), and each with a different alignment
+that is right, left, and top.
 
-    set label A\\B\\C
-    label (1,1) (2,2) (3,4)
+Note that only the 'label' and 'align' parameters are to be treated
+this way and only by the `drawlabel` command. All other parameters
+will always be treated as a single value.
 
-As of late, all "draw" commands will also allow for a label to be specified as
-part of the parameters. However, if the label is to appear, it MUST appear at
-the beginning of before all coordinates. In addition, it must also be placed inside
-a set of curly braces. For example, following can be considered a short cut
-for running the `set label` command followed by `drawlabel` command.
+For this reason, the `drawlabel` command allows an optional parameter
+before the coordinates to be used to specify the text to be drawn,
+such that the text does not always have to be specified by the 
+`set label` command. However, it will still use the 'align' parameter
+that was previously set.
 
     drawlabel {A\\B\\C} (1,1) (2,2) (3,4)
 
-Note that when a label is specified in this way, the 'label' parameter WILL
-be modified and set to the new value.
+In addition, when a text label is provided by the `drawlabel` command,
+it is then set as the latest value of the 'label' parameter..
 
 
 # The set command
 
 The set command is used to configure and also provides information that
 aides or otherwise provides critical information for other commands. 
-For example, the drawtext and label command uses the 'text' option
+For example, the `drawlabel` and label command uses the 'text' option
 to fetch the actual text to be drawn.
 
 Following are examples of using this command for setting the options.  
 
-    set text  Points
+    set label  Points
     set width  29
     set height  12
 
@@ -304,7 +275,7 @@ it must consists of only word characters. All texts after the option name is
 considered the value of the option. This allows a long text string with
 spaces to be constructed without needing for any quoting.
 
-    set text A short example
+    set label A short example
 
 ## Configuration parameters
 
@@ -351,7 +322,7 @@ Following is a list of configuration parameters.
 |                |                                                     | 
 |----------------|-----------------------------------------------------|
 |fontsize        |Set to a font size specification such as '14pt'      |
-|                |to be used for 'drawtext' command.                   |
+|                |to be used for 'drawlabel' command.                   |
 |                |                                                     | 
 |----------------|-----------------------------------------------------|
 |slant           |Set to a floating point number between 0.1 and 0.9   |
@@ -365,10 +336,10 @@ Following is a list of configuration parameters.
 |----------------|-----------------------------------------------------|
 |text            |Set to a string that is       the text label for     |
 |                |display with the label command and its variants.     |
-|                |It is also used by the drawtext command.             |
+|                |It is also used by the drawlabel command.             |
 |----------------|-----------------------------------------------------|
 |align           |Set the alignment for the text to be drawn.          |
-|                |It is used by the drawtext command.                  |
+|                |It is used by the drawlabel command.                  |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |linecolor       |Set the color used when drawing lines, such as "red".|
@@ -523,7 +494,7 @@ The 'label' command shows a text label on the screen. The label text itself is
 set by setting 'label' option.  The following example draw a text label on the
 location that is (10,10) with the label text that is 'An example'.
 
-    set text  An example
+    set label  An example
     label (10,10)
 
 The label command only requires a single point.  The text label will be
@@ -543,18 +514,18 @@ Other variants of the label command is follows:
 Each of the variants is designed to position the text differently but otherwise
 it behaves exactly as the label command.
 
-## The drawtext command
+## The drawlabel command
 
-The drawtext command is designed to draw multiple text labels each one
+The drawlabel command is designed to draw multiple text labels each one
 corresponding to one of the points in the path. The label text itself must be
-specified using 'set text' command. Multiple text labels are recognized by the
+specified using 'set label' command. Multiple text labels are recognized by the
 presence of the double-backslash in the "text" option.  Following example shows
 how to draw three text labels each at the location specified.
 
-    set text A \\ B \\ C
-    drawtext (1,1) (2,2) (3,3)
+    set label A \\ B \\ C
+    drawlabel (1,1) (2,2) (3,3)
 
-The drawtext command is to utilize each one of the points in the command line.
+The drawlabel command is to utilize each one of the points in the command line.
 If there isn't any text available for the given point then a string such as
 "(empty)" will be shown at that location.
 
@@ -563,8 +534,8 @@ text label is to be position relative to the point location. The offset
 information is to be attached with each label text in the form of a set of
 curly brackets and a string that describes the offset.
 
-    set text A{top} \\ B{bot} \\ C{lft}
-    drawtext (1,1) (2,2) (3,3)
+    set label A{top} \\ B{bot} \\ C{lft}
+    drawlabel (1,1) (2,2) (3,3)
 
 Following is the available options for describing the offset:
 
@@ -607,11 +578,11 @@ long division illustraton that can be used for a dividend of 3 digit long.
 
 The drawshape command only takes path expression as its arguments. It
 can be used to draw one or more shapes. The name of the shape must be 
-specified by the `set text` command. Following example draws two shapes:
+specified by the `set label` command. Following example draws two shapes:
 one for the brick and one for the radical4, each one at a different
 location of the path.
 
-    set text brick \\ radical4
+    set label brick \\ radical4
     drawshape (5,5) (10,5)
 
 As of writing, following shape exists:

@@ -454,6 +454,14 @@ an existing path variable.
     second index location. Thus, this function can be used to return an inverse
     order of the points of the original path.
 
+  + allpoints(a)    
+  + allpoints(a,b)    
+  + allpoints(a,b,c)    
+  + allpoints(a,b,c,...)    
+    
+    This function can be called with 0 arguments to infinitely numbered.
+    It is to return a new path with all the point in the variable.
+
   + shiftpoints(a,-1,2)
    
     This function is always needed to be provided with three arguments. The

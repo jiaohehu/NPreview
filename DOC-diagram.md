@@ -62,37 +62,81 @@ what actions to take.  Following is a list of all commands:
 
     set    
     save    
-    drawarrow
-    drawdblarrow
-    drawtriangle
+
+    label
+    labelrt
+    labellft
+    labeltop
+    labelbot
+    labelurt
+    labelulft
+    labellrt
+    labelllft
+
     drawrect
     drawparallelgram
+    drawfullcircle
     drawupperhalfcircle
     drawlowerhalfcircle
     drawlefthalfcircle
     drawrighthalfcircle
-    drawfullcircle
+    drawquadrantonecircle
+    drawquadranttwocircle
+    drawquadrantthreecircle
+    drawquadrantfourcircle
+    drawcirclechord
     drawanglearc
-    drawline
     drawdot
+    drawline
+    drawvdot
+    drawlvdot
+    drawuvdot
+    drawhdot
+    drawshape
     drawtext
-    label
-    labelrigh
-    labelleft
-    labeltop
-    labelbot
-    labeltopleft
-    labeltopright
-    labelbotleft
-    labelbotright
 
-All commands, aside from 'set' and 'save' will be accompanied by a list of
-points after the command name.
+The commands can be classified into three groups. The first group consists of
+only two commands: `set` and `save`. The `set` command is used to set 
+the command properties. Command properties are set of key-value pairs that 
+are used by various commands when it runs. The most famous one is the 'text'
+property, which is used by the `drawtext` command as well as the `label`
+command and its variants.  Other properties, such as 'diameter', is used by
+many commands including the `drawfullcircle`, `drawupperhalfcircle`,
+`drawlowerhalfcircle`, etc.
+
+Look at the section titled "Command properties" for detail.
+
+The `save` command saves the last coordinates encountered to a list of 
+variables, each of which will be assigned the same set of coordinates.
+
+The second group is the `label` command and its variants. These commands
+will put a label text at the given position. Each one only differs at 
+how the label were positioned relative to the point given.
+
+The third group of command all starts with the word "draw", such as
+`drawdot`, `drawline`, `drawfullcircle`, etc. The only allowed argument
+after the initial command name is a list of coordinates, or simply known
+as "path expression".
 
     drawdot (1,1) (2,3) (4,3) (5,6) 
     drawline (1,1) (2,3) (4,3) (5,6) 
     drawfullcircle (1,1) (2,3) 
     drawrect (1,1) (2,3) 
+
+Usually the path expression is list of points in a Cartesian coordinate frame.
+Each point is expressed using a set of parenthesis, where the first number within
+the parenthesis is the x-coordinate and the second one is the y-coordinate.
+
+Each command is to interpret the path expression slightly differently. But most
+of the command except for the `drawline` is to treat each point in the path
+expression as a single point to which a shape is to be drawn. For example, for
+`drawdot` command each point in the path expression is to express the position
+of a dot to be drawn.
+
+
+
+
+
 
 There is no limit to how many points that are allowed for a command.  However,
 each command does have requirement that a certain minimum number of points that
@@ -122,10 +166,11 @@ spaces to be constructed without needing for any quoting.
 
     set text A short example
 
-Following table presents a list of all options and provides brief descriptions
-for each one of them.
+## Command properties
 
-``` tabl
+Following is a list of command properties.
+
+``` tabularx
 |----------------|-----------------------------------------------------|
 |Command option  |Description                                          |
 |----------------|-----------------------------------------------------|
@@ -233,6 +278,9 @@ for each one of them.
 ``` 
 
 
+## Path manipulation functions        
+
+
 
 ## The label command and its variants
 
@@ -333,7 +381,7 @@ location of the path.
 
 As of writing, following shape exists:
 
-``` tabl
+``` tabularx
 |--------------|------------------------------------------------------------|
 |Shape         |Description                                                 |
 |              |                                                            |

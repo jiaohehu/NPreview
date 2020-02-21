@@ -570,6 +570,15 @@ clockwise for a degree span of 45 degrees.
 The radius of the arc is determined by the 'anglearcradius' option. 
 The default is set to be 0.5 unit length.
 
+## The drawrightanglearc command
+
+This command is designed to draw a small square shape describing the span of a 
+right angle.
+
+    drawrightanglearc (0,0) (5,0) (5,5) 
+
+It has the same expectations for the arguments as the drawanglearc command.
+
 ## The drawshape command
 
 This command is to put a shape in each one of the locations that is a point in

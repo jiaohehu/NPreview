@@ -59,27 +59,27 @@ then the entire line is considered a comment and will be ignored.
 The first word of each instruction is considered the instruction name that tells
 what actions to take.  Following is a list of all instruction names:
 
-  + set    
+  + `set`
 
     Set or clear a setting.
 
-  + save    
+  + `save`   
 
     Save the last path to one or more variables.
 
-  + (var) := (path-expression)
+  + `(var) := (path-expression)`
 
     Create or modify a path variable.
         
-  + label
-  + label.rt
-  + label.lft
-  + label.top
-  + label.bot
-  + label.urt
-  + label.ulft
-  + label.lrt
-  + label.llft
+  + `label`
+  + `label.rt`
+  + `label.lft`
+  + `label.top`
+  + `label.bot`
+  + `label.urt`
+  + `label.ulft`
+  + `label.lrt`
+  + `label.llft`
 
     Draw a text label at each path point.
     
@@ -87,9 +87,14 @@ what actions to take.  Following is a list of all instruction names:
 
     Draw a shape at each path point.
 
-  + draw - draw/fill a given path.
-  + draw.dblarrow - draw/only draw a double-arrow     
-  + draw.arrow - draw/only draw a forward arrow     
+    ```
+    shape {brick} (0,12)
+    shape {brick\\radical4} (0,12) (12,12)
+    ```
+
+  + `draw` - draw/fill a given path.
+  + `draw.dblarrow` - draw/only draw a double-arrow     
+  + `draw.arrow` - draw/only draw a forward arrow     
 
     This instruction will draw lines or curves depending on the specification of
     the path. Each line or curve is to appear between two path points.  The
@@ -106,26 +111,26 @@ what actions to take.  Following is a list of all instruction names:
     arrow line, or double arrow line. It will not respond to the (filldraw)
     setting.
 
-  + circle - draw/fill the half circle area at the top
-  + circle.top - draw/fill the half circle area at the top
-  + circle.bot - draw/fill the half circle area at the bottom
-  + circle.rt - draw/fill the half circle area on the right hand side
-  + circle.lft - draw/fill the half circle area on the left hand side
-  + circle.q1 - draw/fill the 1st quadrant area
-  + circle.q2 - draw/fill the 2nd quadrant area
-  + circle.q3 - draw/fill the 3rd quadrant area
-  + circle.q4 - draw/fill the 4th quadrant area
-  + circle.o1 - draw/fill the 1st octant area
-  + circle.o2 - draw/fill the 2nd octant area
-  + circle.o3 - draw/fill the 3rd octant area
-  + circle.o4 - draw/fill the 4th octant area
-  + circle.o5 - draw/fill the 5th octant area
-  + circle.o6 - draw/fill the 6th octant area
-  + circle.o7 - draw/fill the 7th octant area
-  + circle.o8 - draw/fill the 8th octant area
-  + circle.chord - draw/only a chord line
-  + circle.arc - draw/only an arc line
-  + circle.cseg - draw/fill a circular segment area
+  + `circle       ` - draw/fill the half circle area at the top
+  + `circle.top   ` - draw/fill the half circle area at the top
+  + `circle.bot   ` - draw/fill the half circle area at the bottom
+  + `circle.rt    ` - draw/fill the half circle area on the right hand side
+  + `circle.lft   ` - draw/fill the half circle area on the left hand side
+  + `circle.q1    ` - draw/fill the 1st quadrant area
+  + `circle.q2    ` - draw/fill the 2nd quadrant area
+  + `circle.q3    ` - draw/fill the 3rd quadrant area
+  + `circle.q4    ` - draw/fill the 4th quadrant area
+  + `circle.o1    ` - draw/fill the 1st octant area
+  + `circle.o2    ` - draw/fill the 2nd octant area
+  + `circle.o3    ` - draw/fill the 3rd octant area
+  + `circle.o4    ` - draw/fill the 4th octant area
+  + `circle.o5    ` - draw/fill the 5th octant area
+  + `circle.o6    ` - draw/fill the 6th octant area
+  + `circle.o7    ` - draw/fill the 7th octant area
+  + `circle.o8    ` - draw/fill the 8th octant area
+  + `circle.chord ` - draw/only a chord line
+  + `circle.arc   ` - draw/only an arc line
+  + `circle.cseg  ` - draw/fill a circular segment area
 
     This instruction is designed to draw, fill, or fill/draw an area of a circle or
     part of a circle. However, if the (filldraw) setting is set to
@@ -145,9 +150,9 @@ what actions to take.  Following is a list of all instruction names:
     Each circle, half circle, quarter circle, or actant is to be positioned
     so that their center aligns with the path point.
 
-  + angle - draw an angle for each path point
-  + angle.arc  - draw an small arc denoting the interior of an angle 
-  + angle.sq - draw an small square denoting the interior of an angle
+  + `angle    ` - draw an angle for each path point
+  + `angle.arc` - draw an small arc denoting the interior of an angle 
+  + `angle.sq ` - draw an small square denoting the interior of an angle
 
     Note that for drawing an angle additional information is needed besides the
     vertex location: start angle in degrees (angle1), stop angle in degrees
@@ -165,8 +170,8 @@ what actions to take.  Following is a list of all instruction names:
     The `angle.sq` draws the marker in the shape of a square. It should
     only be used for a known right angle.
 
-  + rect - draw/fill a rectangle area
-  + rect.parallelgram - draw/fill a parallelgram area
+  + `rect` - draw/fill a rectangle area
+  + `rect.parallelgram` - draw/fill a parallelgram area
 
     The `rect` instruction would draw/fill a rectangle area. The width of the area
     is provided by (rectw). The height of the rectangle is (recth). 
@@ -189,11 +194,11 @@ what actions to take.  Following is a list of all instruction names:
     overall width from the topleft and 30 percent of the overall width from the
     bottomright.
 
-  + dot - draw a dot at each path point 
-  + dot.tvbar - draw a vertical bar above the point.
-  + dot.bvbar - draw a vertical bar below the point
-  + dot.rhbar - draw a horizontal bar to the right hand side of the point
-  + dot.lhbar - draw a horizontal bar to the left hand side of the point
+  + `dot` - draw a dot at each path point 
+  + `dot.tvbar` - draw a vertical bar above the point.
+  + `dot.bvbar` - draw a vertical bar below the point
+  + `dot.rhbar` - draw a horizontal bar to the right hand side of the point
+  + `dot.lhbar` - draw a horizontal bar to the left hand side of the point
 
     These instructions are to mark a point, i.e., to identify the location of a
     point in a plane by showing a visible round black dot.  The `dot` instruction

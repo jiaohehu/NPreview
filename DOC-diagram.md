@@ -15,9 +15,9 @@ draw.arrow (10,5) (12,6)
 draw.dblarrow (10,2) (12,3)
 draw (14,2) (15,3) (14,4) (15,5)
 set diameter 2
-drawfullcircle (20,8) 
-drawupperhalfcircle (20,6) 
-drawlowerhalfcircle (20,4) 
+drawfullcircle      (22,8) 
+drawupperhalfcircle (22,6) 
+drawlowerhalfcircle (22,4) 
 set fontsize 14pt
 label { 簡単 Triangle } (10,1) 
 set curve up
@@ -47,6 +47,7 @@ set angle1 0
 set angle2 90
 circle.chord (20,1)
 circle.arc (20,1)
+circle.cseg (20,3)
 ```
 
 ## The unit length and grid lines

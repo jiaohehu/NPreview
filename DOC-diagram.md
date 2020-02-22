@@ -56,12 +56,12 @@ Blank lines are ignored.
 Also, if a percent sign (`%`) is detected as the first character of the line
 then the entire line is considered a comment and will be ignored.
 
-The first word of each instruction is considered the command that tells
-what actions to take.  Following is a list of all commands:
+The first word of each instruction is considered the instruction name that tells
+what actions to take.  Following is a list of all instruction names:
 
   + set    
 
-    Set or clear a command setting.
+    Set or clear a setting.
 
   + save    
 
@@ -91,18 +91,18 @@ what actions to take.  Following is a list of all commands:
   + draw.dblarrow - draw/only draw a double-arrow     
   + draw.arrow - draw/only draw a forward arrow     
 
-    This command will draw lines or curves depending on the specification of
+    This instruction will draw lines or curves depending on the specification of
     the path. Each line or curve is to appear between two path points.  The
     '.dblarrow' and '.arrow' variant will place arrow head at the one end or
     either ends of the line segment. 
 
-    The `draw` command  will either draw the outline of an area given by the
+    The `draw` instruction  will either draw the outline of an area given by the
     path points, or if the (filldraw) setting is set to a 'fill' or 'filldraw',
     also fill them and/or draw the outline again.  If it is to fill or filldraw,
     the last point of the path should be a cycle. If not then the path will be 
     made cycle by manually inserting a cycle at the end.
 
-    However, the `draw.dblarrow` and `draw.arrow` command will only draw an
+    However, the `draw.dblarrow` and `draw.arrow` instruction will only draw an
     arrow line, or double arrow line. It will not respond to the (filldraw)
     setting.
 
@@ -127,11 +127,11 @@ what actions to take.  Following is a list of all commands:
   + circle.arc - draw/only an arc line
   + circle.cseg - draw/fill a circular segment area
 
-    This command is designed to draw, fill, or fill/draw an area of a circle or
-    part of a circle. However, if the (filldraw) command setting is set to
+    This instruction is designed to draw, fill, or fill/draw an area of a circle or
+    part of a circle. However, if the (filldraw) setting is set to
     'filldraw' or 'fill' then for some it will be treated as an area and
-    attempted to be filled. However, command `circle.chord` or `circle.arc` is
-    always a line command and will not result in a fill or filldraw.
+    attempted to be filled. However, the instruction `circle.chord` or `circle.arc` is
+    always a line operation and will not result in a fill or filldraw.
 
     The (diameter) setting controls the diameter of the circle, whether it is
     full circle, half circle, or an octant of the circle. For drawing chord,
@@ -155,7 +155,7 @@ what actions to take.  Following is a list of all commands:
     second side in grid units (side2).  An angle is to be drawn at each path
     point with the start/ending angle and the length of the sides specified.
 
-    The `angle.arc` command draw a marker that is identifies an angle, in the
+    The `angle.arc` instruction draw a marker that is identifies an angle, in the
     interior of an angle between the first and second side. The arc is draw
     close to the vertex with a radius of 1/2 of the grid unit.  When the angle
     becomes 60-deg or less the radius of the arc will start to increase to
@@ -168,7 +168,7 @@ what actions to take.  Following is a list of all commands:
   + rect - draw/fill a rectangle area
   + rect.parallelgram - draw/fill a parallelgram area
 
-    The `rect` command would draw/fill a rectangle area. The width of the area
+    The `rect` instruction would draw/fill a rectangle area. The width of the area
     is provided by (rectw). The height of the rectangle is (recth). 
 
     The default operation is to draw the outline of the rectangle. However, if
@@ -195,8 +195,8 @@ what actions to take.  Following is a list of all commands:
   + dot.rhbar - draw a horizontal bar to the right hand side of the point
   + dot.lhbar - draw a horizontal bar to the left hand side of the point
 
-    These commands are to mark a point, i.e., to identify the location of a
-    point in a plane by showing a visible round black dot.  The `dot` command
+    These instructions are to mark a point, i.e., to identify the location of a
+    point in a plane by showing a visible round black dot.  The `dot` instruction
     will draw a circular dot. The default size of the dot is '4pt', but can be
     changed by the (dotsize) setting, for example to set to a string of '5pt'. 
 
@@ -229,7 +229,7 @@ what actions to take.  Following is a list of all commands:
   + drawuvdot
   + drawhdot
 
-    These commands are being deprecated. 
+    These instructions are being deprecated. 
 
 
 ## Path expression
@@ -260,16 +260,16 @@ coordinates), and will return a new path. Thus, the points taken after
 
 ## Drawing text Labels
 
-Drawing text labels are done by using the `label` command.
-For example, the following `label` command will each draw a label
+Drawing text labels are done by using the `label` instruction.
+For example, the following `label` instruction will each draw a label
 at the given location.
 
     label.rt {A} (1,1)
     label.lft {B} (2,2)
     label.top {C} (3,4)
 
-The default `label` command will position the text so that it is centered
-at the path point. Other variants of the `label` command is to allow the 
+The default `label` instruction will position the text so that it is centered
+at the path point. Other variants of the `label` instruction is to allow the 
 text to be positioned around the location of the point.
 
     label.top   -  top
@@ -281,7 +281,7 @@ text to be positioned around the location of the point.
     label.urt   -  upper right
     label.lrt   -  lower right
 
-All `label` commands are designed to draw the same label at multiple
+All `label` instructions are designed to draw the same label at multiple
 locations. For example, we can draw the same letter A three times
 each at three different locations such as follows.
 
@@ -294,12 +294,12 @@ location by writing the text label like the following:
 
 This will draw the label "A", "B", and "C" respectly each at a different
 location that is (1,1), (2,2), and (3,4). Note that all the labels will be
-centered at the location because the command is `label`.
+centered at the location because the instruction is `label`.
 
 
-# The set command
+# The set instruction
 
-The `set` command is used to modify the command setting so that
+The `set` instruction is used to modify one of the  settings so that
 it can be changed to a new value. 
 
     set rectw  29
@@ -307,7 +307,7 @@ it can be changed to a new value.
 
 The first word after the word set is recognized as the name of the setting.
 All texts after the setting name is considered the value of the setting. 
-To restore the setting to its default value call the `set` command 
+To restore the setting to its default value call the `set` instruction 
 with a setting name but do not provide an actual value.
 
     set rectw
@@ -315,9 +315,9 @@ with a setting name but do not provide an actual value.
 
 
 
-## Command settings
+## The settings
 
-Following is a list of command settings.
+Following is a list of all settings.
 
 ``` tabularx
 |----------------|-----------------------------------------------------|
@@ -369,7 +369,7 @@ Following is a list of command settings.
 |                |Default is 0.3.                                      | 
 |----------------|-----------------------------------------------------|
 |linecolor       |Set the color used when drawing lines, such as "red".|
-|                |It is used by the drawline command.                  |
+|                |It is used by the drawline instruction.              |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |linewidth       |Set the width of the line when drawing lines,        |
@@ -381,19 +381,19 @@ Following is a list of command settings.
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |dotcolor        |Set the color used for drawing dots, such as "red".  |
-|                |It is used by the drawdot command.                   |
+|                |It is used by the drawdot instruction.               |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |dotsize         |Configure the size of the dot to be drawn, such as   |
-|                |"8pt". Used by the drawdot command.                  |
+|                |"8pt". Used by the drawdot instruction.              |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |rectw           |Set to a number that is the width of the rectangle.  |
-|                |This is to be used with the drawrect command.        |
+|                |This is to be used with the drawrect instruction.    |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |recth           |Set to a number that is the height of the rectangle. |
-|                |This is to be used with the drawrect command.        |
+|                |This is to be used with the drawrect instruction.    |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |diameter        |This is to express the length of the diameter for    |
@@ -419,14 +419,11 @@ Following is a list of command settings.
 ``` 
 
 
-## Path manipulation functions        
+## Path functions        
 
-Note that all path manipulation functions will either take a path expressio
-variable, integers, or a floating point number. It can not be passed
-an path expression literal. 
-
-In the following description, letter 'a', 'b', 'c' are used to express
-an existing path variable.
+Note that for a path function all its arguments must be either a path variable
+or a number. Coordinate list is not valid. In the following examples all
+letters a, b, c are path variables.
 
   + midpoint(a)     
   + midpoint(a,0.2)     
@@ -528,12 +525,21 @@ Following are built-in path variables that can be used.
   + all 
 
     This path variable is automatically assigned to the path used by the
-    last command.
+    last instruction.
+
+  + last
+
+    A single point that is the last point of variable 'all'. Note that
+    the return value is still a path but it only contains a single point.
+
+  + first
+
+    A single point that is the first point of variable 'all'.
 
 
-## The shape command
+## The shape instruction
 
-This command is designed to draw a shape at each one of the path points.
+This instruction is designed to draw a shape at each one of the path points.
 
 Note that each shape can only be draw at its natural size and shape. There
 is no provision to scale it. 

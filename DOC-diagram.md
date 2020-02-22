@@ -90,18 +90,22 @@ what actions to take.  Following is a list of all commands:
   + draw - draw an existing path   
   + draw.dblarrow - draw a double-arrow     
   + draw.arrow - draw a forward arrow     
-  + draw.fill - do a fill for an existing path
-  + draw.filldraw - do a filldraw for an existing path
 
-    This command will either draw, filldraw, fill, 
-    drawdblarrow, or drawarrow depending on the 
-    command option for it.
+    This command will draw lines or curves depending on the specification of
+    the path. Each line or curve is to appear between two path points.  The
+    '.dblarrow' and '.arrow' option will place arrow head at the one end or
+    either ends of the line segment. 
 
-  + circle - draw/fill the full circle area
-  + circle.ht - draw/fill the half circle area at the top
-  + circle.hb - draw/fill the half circle area at the bottom
-  + circle.hr - draw/fill the half circle area on the right hand side
-  + circle.hl - draw/fill the half circle area on the left hand side
+  + area - draw an area outline.
+
+    This command will draw the outline of an area given by the path points.
+    If the last point is not a cycle then a manual cycle will be generated.
+
+  + circle - draw/fill the half circle area at the top
+  + circle.top - draw/fill the half circle area at the top
+  + circle.bot - draw/fill the half circle area at the bottom
+  + circle.rt - draw/fill the half circle area on the right hand side
+  + circle.lft - draw/fill the half circle area on the left hand side
   + circle.q1 - draw/fill the 1st quadrant area
   + circle.q2 - draw/fill the 2nd quadrant area
   + circle.q3 - draw/fill the 3rd quadrant area
@@ -118,61 +122,81 @@ what actions to take.  Following is a list of all commands:
   + circle.arc - draw/only an arc line
   + circle.cseg - draw/fill a circular segment area
 
-    These are circle related operations. Note that for an area the path
-    will be a closed path, thus suitable for filling. Each of these
-    operations will also generate a path which can be retrieved and
-    saved using the `save` command.
+    This command is designed to draw, fill, or fill/draw an area of a circle or
+    part of a circle. However, if the (filldraw) command option is set to
+    'filldraw' or 'fill' then for some it will be treated as an area and
+    attempted to be filled. However, command `circle.chord` or `circle.arc` is
+    always a line command and will not result in a fill or filldraw.
+
+    The (diameter) option controls the diameter of the circle, whether it is
+    full circle, half circle, or an octant of the circle. For drawing chord,
+    arc, or cseg, (angle1) and (angle2) options will be used to determine
+    the starting and ending angles.
+
+    The exact number of circles drawn is determined by the number points in a
+    path.  If there are two path points in a path then two circles will be
+    draw, or two half circles, two quarter circles or two octants.
+
+    Each circle, half circle, quarter circle, or actant is to be positioned
+    so that their center aligns with the path point.
 
   + angle - draw an angle for each path point
-  + angle.marker  - draw an angle marker 
-  + angle.rmarker - draw an angle marker that is for the right angle
+  + angle.arc  - draw an small arc denoting the interior of an angle 
+  + angle.sq - draw an small square denoting the interior of an angle
 
-    Note that for drawing an angle additional information is needed besides
-    the vertex location: start angle in degrees (ang1), stop angle in
-    degrees (ang2), length of the first side in grid units (side1), and
-    length of the second side in grid units (side2).  An angle is to be
-    drawn at each path point with the start/ending angle and the length
-    of the sides specified.
+    Note that for drawing an angle additional information is needed besides the
+    vertex location: start angle in degrees (angle1), stop angle in degrees
+    (angle2), length of the first side in grid units (side1), and length of the
+    second side in grid units (side2).  An angle is to be drawn at each path
+    point with the start/ending angle and the length of the sides specified.
 
-    The `angle.marker` command draw a marker that is identifies an angle,
-    in the interior of an angle between the first and second side. The 
-    arc is draw close to the vertex with a radius of 1/2 of the grid unit.
-    When the angle is less than 60-deg its radius started to increase
-    graduately and eventually tappered off at the radius of 2+1/2.
+    The `angle.arc` command draw a marker that is identifies an angle, in the
+    interior of an angle between the first and second side. The arc is draw
+    close to the vertex with a radius of 1/2 of the grid unit.  When the angle
+    becomes 60-deg or less the radius of the arc will start to increase to
+    accommodate for the lack of visible spaces between two sides of the angle.
+    The maximum radius is capped at 2+1/2 grid unit.
     
-    The `angle.rmarker` draws the marker in the shape of a square. It
-    should only be used for a known right angle.
+    The `angle.sq` draws the marker in the shape of a square. It should
+    only be used for a known right angle.
 
   + rect - draw/fill a rectangle area
   + rect.parallelgram - draw/fill a parallelgram area
 
-    The `rect` command would draw/fill a rectangle area. The width of the
-    area is provided by (rectw). The height of the rectangle is (recth). 
+    The `rect` command would draw/fill a rectangle area. The width of the area
+    is provided by (rectw). The height of the rectangle is (recth). 
 
-    The `rect.parallelgram` will draw/fill a parallelgram. The overall
-    width and height of the parallelgram is set in accordance with the
-    (rectw) and (recth) options.  This means that the distance between its
-    lower-left and upper-right hand corner is always equal to (rectw), and
-    the height difference of them is always equal to (recth).  However,
-    some part of the rect area will be sliced off to make the shape of a
-    parallelgram.  The amount of area is determined by the (slant) option.
-    If it is set to "0.3" which is default, 30 percent at top will be
-    removed starting at the left hand side, and 30 percent of the bottom
-    will be removed starting at the right hand side.
-    
+    The default operation is to draw the outline of the rectangle. However, if
+    the (filldraw) option is set to 'fill' or 'filldraw' then an attemp is made
+    to color the entire area using the (fillcolor) option. If the 'filldraw'
+    value is set then the outline of the rectangle is also to be drawn using
+    either black or a designated color specified by the (linecolor) option.
+
+    The `rect.parallelgram` will draw/fill a parallelgram. The overall width
+    and height of the parallelgram is set in accordance with the (rectw) and
+    (recth) options.  This means that the horizontal difference between its
+    lower-left and upper-right hand corner is always equal to (rectw), and the
+    height difference between the upper parallel line and lower parallel line
+    is always equal to (recth).  However, the topleft and bottomright part of
+    the rect area will be sliced off to make the shape of a parallelgram.  The
+    amount of incursion is determined by the (slant) option.  If it is set to
+    "0.3" which is default, then the incursion is to be 30 percent of the
+    overall width from the topleft and 30 percent of the overall width from the
+    bottomright.
+
   + dot - draw a dot at each path point 
   + dot.tvbar - draw a vertical bar above the point.
   + dot.bvbar - draw a vertical bar below the point
   + dot.rhbar - draw a horizontal bar to the right hand side of the point
   + dot.lhbar - draw a horizontal bar to the left hand side of the point
 
-    These commands are used to make a particular point, for example to show
-    a point in a plane. The `dot` command will draw a circular dot. The
-    default size of the dot is '4pt', but can be changed by the (dotsize) 
-    option, for example to set to a string of '5pt'. 
+    These commands are to mark a point, i.e., to identify the location of a
+    point in a plane by showing a visible round black dot.  The `dot` command
+    will draw a circular dot. The default size of the dot is '4pt', but can be
+    changed by the (dotsize) option, for example to set to a string of '5pt'. 
 
     The color of the dot is set to black, unless changed by the (dotcolor)
-    option, which is used to specify a color following in MetaPost syntax:
+    option, which must follow a MetaPost syntax for colors, i.e.,
     "0.5[red,white]" , etc.
 
     The other variants can be used to draw ticker markers for an X-axis or
@@ -200,8 +224,7 @@ what actions to take.  Following is a list of all commands:
   + drawuvdot
   + drawhdot
 
-    These are old command syntax that are being phased out and be replaced
-    by the counterparts.
+    These commands are being deprecated. 
 
 
 ## Path expression
@@ -331,8 +354,8 @@ Following is a list of configuration parameters.
 |                |                                                     |
 |                |                                                     | 
 |----------------|-----------------------------------------------------|
-|fontsize        |Set to a font size specification such as '14pt'      |
-|                |to be used for 'drawlabel' command.                   |
+|fontsize        |Set to a font size specification such as '14pt'.     |
+|                |Used when drawing text labels.                       |
 |                |                                                     | 
 |----------------|-----------------------------------------------------|
 |slant           |Set to a floating point number between 0.1 and 0.9   |
@@ -340,25 +363,17 @@ Following is a list of configuration parameters.
 |                |width reserved for the slanted part of the shape.    | 
 |                |Default is 0.3.                                      | 
 |----------------|-----------------------------------------------------|
-|anglearcradius  |Set to a number between 0.1 to 1 to specify the      |
-|                |radius of the arc for the 'drawanglearc' command.    |
-|                |Default is 0.5.                                      |
-|----------------|-----------------------------------------------------|
-|text            |Set to a string that is       the text label for     |
-|                |display with the label command and its variants.     |
-|                |It is also used by the drawlabel command.             |
-|----------------|-----------------------------------------------------|
-|align           |Set the alignment for the text to be drawn.          |
-|                |It is used by the drawlabel command.                  |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
 |linecolor       |Set the color used when drawing lines, such as "red".|
 |                |It is used by the drawline command.                  |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |linewidth       |Set the width of the line when drawing lines,        |
 |                |such as "4pt".                                       |
-|                |It is used by the drawline command.                  |
+|                |It is used when drawing lines.                       |
+|----------------|-----------------------------------------------------|
+|fillcolor       |Set the color used when filling an area, i.e., "red".|
+|                |It is used when drawing an area.                     |
+|                |                                                     |
 |----------------|-----------------------------------------------------|
 |dotcolor        |Set the color used for drawing dots, such as "red".  |
 |                |It is used by the drawdot command.                   |
@@ -368,15 +383,6 @@ Following is a list of configuration parameters.
 |                |"8pt". Used by the drawdot command.                  |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
-|curve           |To be set when drawing a curve.                      |
-|                |(To be deprecated so that a more rebust way of       |
-|                |specifying curves and lines can be devised)          |
-|----------------|-----------------------------------------------------|
-|arrow           |Set to one of the predefined strings for expressing  |
-|                |that an end arrow or double arrow should be drawn    |
-|                |either at the end of the path or both.               |
-|                |The valid values are: "arrow" and "dblarrow"         |
-|----------------|-----------------------------------------------------|
 |rectw           |Set to a number that is the width of the rectangle.  |
 |                |This is to be used with the drawrect command.        |
 |                |                                                     |
@@ -385,19 +391,24 @@ Following is a list of configuration parameters.
 |                |This is to be used with the drawrect command.        |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
-|diameter        |Set to a number that is the diameter of the circle.  |
-|                |This is to be used with the drawfullcircle, and      |
-|                |variants of draw*halfcircle, and                     |
-|                |variants of drawquadrant*dircle commands.            |
+|diameter        |This is to express the length of the diameter for    |
+|                |an circle.                                           |
+|                |                                                     |
 |----------------|-----------------------------------------------------|
-|angle1          |Set to a number that expresses the angle in degrees. |
-|                |This is used by the drawcirclechord method, which    |
-|                |draws a chord from two points on a circle. The       |
-|                |first point measures angle1 degrees, and the second  |
-|                |point measures angle2 degrees.                       |
+|angle1          |This is to express the measurement of the first      |
+|                |angle.                                               |
+|                |                                                     |
 |----------------|-----------------------------------------------------|
-|angle2          |Set to a number that expresses the angle in degrees. |
-|                |This is used by the drawcirclechord method.          |
+|angle2          |This is to express the measurement of the second     |
+|                |angle.                                               |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|side1           |This is to express the length measurement            |
+|                |the first side when drawing an angle.                |
+|                |                                                     |
+|----------------|-----------------------------------------------------|
+|side2           |This is to express the length measurement            |
+|                |the second side when drawing an angle.               |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 ``` 

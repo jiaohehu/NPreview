@@ -28,6 +28,8 @@ set fillcolor 0.8[red,white]
 circle (16,1)
 circle.top (16,3)
 circle.bot (16,5)
+circle.rt  (16,7)
+circle.lft (16,9)
 ```
 
 ## The unit length and grid lines

@@ -30,6 +30,10 @@ circle.top (16,3)
 circle.bot (16,5)
 circle.rt  (16,7)
 circle.lft (16,9)
+circle.q1  (18,1)
+circle.q2  (18,1)
+circle.q3  (18,1)
+circle.q4  (18,1)
 ```
 
 ## The unit length and grid lines

@@ -2,7 +2,7 @@
 
 
 ```diagram
-drawline (1,1) (5,5) (5,1) ()
+drawline (1,1) -- (5,5) -- (5,1) -- ()
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
 label.rt  {``B_0``} (5,1.5) 

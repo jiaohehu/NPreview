@@ -65,219 +65,225 @@ then the entire line is considered a comment and will be ignored.
 The first word of each instruction is considered the command that tells
 what actions to take.  Following is a list of all commands:
 
-    set    
-    save    
+  + set    
 
-    <var> := <path-expression>
+    Set or clear a command option.
 
-    label
-    labelrt
-    labellft
-    labeltop
-    labelbot
-    labelurt
-    labelulft
-    labellrt
-    labelllft
+  + save    
+
+    Save the last path to one or more variables.
+
+  + (var) := (path-expression)
+
+    Create or modify a path variable.
+        
+  + label
+  + label.rt
+  + label.lft
+  + label.top
+  + label.bot
+  + label.urt
+  + label.ulft
+  + label.lrt
+  + label.llft
+
+    Draw a text label at each path point.
     
-    drawrect
-    drawparallelgram
-    drawfullcircle
-    drawupperhalfcircle
-    drawlowerhalfcircle
-    drawlefthalfcircle
-    drawrighthalfcircle
-    drawquadrantonecircle
-    drawquadranttwocircle
-    drawquadrantthreecircle
-    drawquadrantfourcircle
-    drawcirclechord
-    drawanglearc
-    drawdot
-    drawline
-    drawvdot
-    drawlvdot
-    drawuvdot
-    drawhdot
-    drawshape
-    drawlabel
+  + shape   
 
-The commands can be classified into three groups. The first group consists of
-two commands: `set` and `save`. The `set` command is used to set all
-configuration parameters. Configuration parameters are set of key-value pairs
-that are used by various commands when it runs. The most famous one is the
-'label' property, which is used by the `drawlabel` command as well as the
-`label` command and its variants.  Other properties, such as 'diameter', is
-used by many commands including the `drawfullcircle`, `drawupperhalfcircle`,
-`drawlowerhalfcircle`, and others. There are also 'fillcolor' and 'color'
-properties, that supplies a different fill color of line color if they are set.
+    Draw a shape at each path point.
 
-Look at the section titled "Configuration parameters" for detail.
+  + circle - draw/fill the full circle area
+  + circle.ht - draw/fill the half circle area at the top
+  + circle.hb - draw/fill the half circle area at the bottom
+  + circle.hr - draw/fill the half circle area on the right hand side
+  + circle.hl - draw/fill the half circle area on the left hand side
+  + circle.q1 - draw/fill the 1st quadrant area
+  + circle.q2 - draw/fill the 2nd quadrant area
+  + circle.q3 - draw/fill the 3rd quadrant area
+  + circle.q4 - draw/fill the 4th quadrant area
+  + circle.o1 - draw/fill the 1st octant area
+  + circle.o2 - draw/fill the 2nd octant area
+  + circle.o3 - draw/fill the 3rd octant area
+  + circle.o4 - draw/fill the 4th octant area
+  + circle.o5 - draw/fill the 5th octant area
+  + circle.o6 - draw/fill the 6th octant area
+  + circle.o7 - draw/fill the 7th octant area
+  + circle.o8 - draw/fill the 8th octant area
+  + circle.chord - draw/only a chord line
+  + circle.arc - draw/only an arc line
+  + circle.cseg - draw/fill a circular segment area
 
-The `save` command saves the last path expression to a list of user
-supplied variables so that these variables can be used directly.
-Note that variables are only designed to hold path expressions and
-nothing else.
+    These are circle related operations. Note that for an area the path
+    will be a closed path, thus suitable for filling. Each of these
+    operations will also generate a path which can be retrieved and
+    saved using the `save` command.
 
-The second group is the "assignment" statement, in which a new variable
-is assigned a particular path expression. This kind of command 
-always takes the form as follows.
+  + angle - draw an angle for each path point
+  + angle.marker  - draw an angle marker 
+  + angle.rmarker - draw an angle marker that is for the right angle
 
-    <variable> := <path-expression>
+    Note that for drawing an angle additional information is needed besides
+    the vertex location: start angle in degrees (ang1), stop angle in
+    degrees (ang2), length of the first side in grid units (side1), and
+    length of the second side in grid units (side2).  An angle is to be
+    drawn at each path point with the start/ending angle and the length
+    of the sides specified.
 
-For example, we can assign a new path consisting of two points (0,0)
-to (1,1) to a variable named 'a' as follows.
+    The `angle.marker` command draw a marker that is identifies an angle,
+    in the interior of an angle between the first and second side. The 
+    arc is draw close to the vertex with a radius of 1/2 of the grid unit.
+    When the angle is less than 60-deg its radius started to increase
+    graduately and eventually tappered off at the radius of 2+1/2.
+    
+    The `angle.rmarker` draws the marker in the shape of a square. It
+    should only be used for a known right angle.
+
+  + rect - draw/fill a rectangle area
+  + rect.parallelgram - draw/fill a parallelgram area
+
+    The `rect` command would draw/fill a rectangle area. The width of the
+    area is provided by (rectw). The height of the rectangle is (recth). 
+
+    The `rect.parallelgram` will draw/fill a parallelgram. The overall
+    width and height of the parallelgram is set in accordance with the
+    (rectw) and (recth) options.  This means that the distance between its
+    lower-left and upper-right hand corner is always equal to (rectw), and
+    the height difference of them is always equal to (recth).  However,
+    some part of the rect area will be sliced off to make the shape of a
+    parallelgram.  The amount of area is determined by the (slant) option.
+    If it is set to "0.3" which is default, 30 percent at top will be
+    removed starting at the left hand side, and 30 percent of the bottom
+    will be removed starting at the right hand side.
+    
+  + dot - draw a dot at each path point 
+  + dot.tvbar - draw a vertical bar above the point.
+  + dot.bvbar - draw a vertical bar below the point
+  + dot.rhbar - draw a horizontal bar to the right hand side of the point
+  + dot.lhbar - draw a horizontal bar to the left hand side of the point
+
+    These commands are used to make a particular point, for example to show
+    a point in a plane. The `dot` command will draw a circular dot. The
+    default size of the dot is '4pt', but can be changed by the (dotsize) 
+    option, for example to set to a string of '5pt'. 
+
+    The color of the dot is set to black, unless changed by the (dotcolor)
+    option, which is used to specify a color following in MetaPost syntax:
+    "0.5[red,white]" , etc.
+
+    The other variants can be used to draw ticker markers for an X-axis or
+    Y-axis line, allowing for the tick marks to be either drawn above the
+    X-axis or below, or left/right of a Y-axis.
+
+  + drawrect
+  + drawparallelgram
+  + drawfullcircle
+  + drawupperhalfcircle
+  + drawlowerhalfcircle
+  + drawlefthalfcircle
+  + drawrighthalfcircle
+  + drawquadrantonecircle
+  + drawquadranttwocircle
+  + drawquadrantthreecircle
+  + drawquadrantfourcircle
+  + drawcirclechord
+  + drawanglearc
+  + drawrightanglearc
+  + drawdot
+  + drawline
+  + drawvdot
+  + drawlvdot
+  + drawuvdot
+  + drawhdot
+
+    These are old command syntax that are being phased out and be replaced
+    by the counterparts.
+
+
+## Path expression
+
+The syntax for creating a new variable is shown as follows.  For example,
+we can assign a new path consisting of two points (0,0) to (1,1) to a
+variable named 'a' as follows.
 
     a := (0,0) (1,1)
 
-The path expression can come in many syntax other than the one shown, in which
-case a number of coordinates are written literally.  Diagram also provide path
-manipulation functions to extra, add, or create new paths.  For example, the
-`$somepoints()` function would extra part of an existing path and return a new
-path. For example, the following example we will create a new variable named
-'b' that would hold the points of an existing path that was assigned to 'a'.
+What follows the `:=` is the path expression.  A path expression can
+contain literal coordinates, path variables, path functions, and
+combinations of all of them.
 
-    b := $somepoints(a,5,10)
- 
-The path manipulation function always starts with a dollar sign.
-The path manipulation function `$shiftpoints()` would take an existing
-path, and return a new path such that all the points of the original
-path are shifted in a given x-direction or y-direction.
-In the following example the path points in 'a' is returned and assigned to
-'b' after all the points have been shifted one unit position to the right 
-and one unit position down.
+    a := (0,0) b (1,1) c (2,2) $somepoints(d,3,5)
 
-    b := $shiftpoints(a,1,-1)
+In the previous example a new path variable is to be created and assigned a
+new path containing a new set of path points. The first point will be
+(0,0). Its second point will be copied path variable b, assuming b is not
+empty. If b is empty, then no points are copied, and the second point of a
+becomes (1,1).
 
-Note that in Diagram all path points are specified in grid units. The grid
-is always shown as part of the diagram, thus it should be easy to see where
-if a shape has been drawn at the position specified.
+The $somepoints(d,3,5) syntax expresses a path function. A path function
+will take as its parameters either path variables or numbers (no literal
+coordinates), and will return a new path. Thus, the points taken after
+(2,2) are going to be whatever returned by the $somepoints() function.
 
-See the section "Path manipulation functions" for more information.
 
-The third group is the `label` command and its variants. Each command in
-this group is designed to place a text label onto the diagram. Their only
-differ in how the coordinates would be interpreted as to position the text.
-By default, a label label is centered at the coordinate point. But if the
-command `labelrt` is used, then the label is placed at the right-hand
-side of the coorindate.
+## Drawing text Labels
 
-The forth group consists of the "draw" command. For example, the
-`drawdot`, `drawline`, `drawfullcircle`, `drawrect`, `drawshape`, etc. 
-The arguments for these commands are all the same, which is a
-path expression.
+Drawing text labels are done by using the `label` command.
+For example, the following `label` command will each draw a label
+at the given location.
 
-    drawdot (1,1) (2,3) (4,3) (5,6) 
-    drawline (1,1) (2,3) (4,3) (5,6) 
-    drawfullcircle (1,1) (2,3) 
-    drawrect (1,1) (2,3) 
-    drawshape (1,1) (2,3)
+    label.rt {A} (1,1)
+    label.lft {B} (2,2)
+    label.top {C} (3,4)
 
-Each command might interpret the path expression slightly differently. But most
-of the command except for the `drawline` is to treat each point in the path
-expression as a single point to which a shape is to be drawn. For example, for
-`drawdot` command each point in the path expression is to express a position
-of a dot to be drawn. Thus, for a command such as the following there will
-be three dots at the location (1,1), (2,2), and (3,4).
+The default `label` command will position the text so that it is centered
+at the path point. Other variants of the `label` command is to allow the 
+text to be positioned around the location of the point.
 
-    drawdot (1,1) (2,2) (3,4)
+    label.top   -  top
+    label.bot   -  bottom
+    label.lft   -  left    
+    label.rt    -  right   
+    label.ulft  -  upper left
+    label.llft  -  lower left
+    label.urt   -  upper right
+    label.lrt   -  lower right
 
-The size of the dot and the color of the dot is expresses as part 
-of the command configuration option. For example, to change the size of the dot
-to 8pt, you would set the configuation option of 'fillcolor' to '8pt' first
-before calling `drawdot` command.
+All `label` commands are designed to draw the same label at multiple
+locations. For example, we can draw the same letter A three times
+each at three different locations such as follows.
 
-    set dotsize 8pt
-    drawdot (1,1) (2,2) (3,4)
+    label {A} (1,1) (2,2) (3,4) 
 
-Similar, to simultanous change the color and the size of the dot, you would configure
-both options such as below before calling `drawdot`.
+We can also ask a differet label to be drawn at a different 
+location by writing the text label like the following:
 
-    set dotsize 8pt
-    set dotcolor 0.5[red,white]
-
-Note that you do not need to place any quoting when calling the `set` command.
-Everything after the configuration name is considered the value that is to be
-assigned to the parameter. However, some parameter will expect a string, and
-some will expect a float.  Thus, for parameters that expectes a float, validity
-checks will be performed and out-of-range data will be ignored. 
-
-Even the `drawfullcircle` command is to behave the same way. For example, 
-the following command will draw three circles at the given location. 
-
-    drawfullcircle (1,1) (2,2) (3,4)
-
-By default, the circle to be drawn has a diameter equal to one grid unit. 
-However, you can ask to draw a circle of a different diameter by setting
-the 'diameter' configuration parameter.
-
-The only command that might behave a little differently is the `drawline`
-command, in which case all points of the path is to be drawn as part of line
-segments, which connect two neighboring points.  
-
-    drawline (1,1) (2,2) (3,4)
-
-You can close a path by including a "null" point using the notation of "()".
-
-    drawline (1,1) (2,2) (3,4) ()
-
-If the 'curve' property is also set, which is a string such as 'up'
-or 'down', then the entire path is considered to represent a curve, 
-where the text of the 'curve' property is to set the initial direction
-of the curve. Thus, following command will draw a curved line that go
-through all the points of this path.
-
-    set curve up
-    drawline (1,1) (2,2) (3,4) ()
-
-When drawing label text, the 'label' and 'align' parameter can have
-multiple entries separated by double-backslash such as following:
-
-    set label A \\ B \\ C
-    set align rt \\ lft \\ top
-    drawlabel (1,1) (2,2) (3,4)
+    label {A\\B\\C} (1,1) (2,2) (3,4) 
 
 This will draw the label "A", "B", and "C" respectly each at a different
-point that is (1,1), (2,2), (3,4), and each with a different alignment
-that is right, left, and top.
-
-Note that only the 'label' and 'align' parameters are to be treated
-this way and only by the `drawlabel` command. All other parameters
-will always be treated as a single value.
-
-For this reason, the `drawlabel` command allows an optional parameter
-before the coordinates to be used to specify the text to be drawn,
-such that the text does not always have to be specified by the 
-`set label` command. However, it will still use the 'align' parameter
-that was previously set.
-
-    drawlabel {A\\B\\C} (1,1) (2,2) (3,4)
-
-In addition, when a text label is provided by the `drawlabel` command,
-it is then set as the latest value of the 'label' parameter..
+location that is (1,1), (2,2), and (3,4). Note that all the labels will be
+centered at the location because the command is `label`.
 
 
 # The set command
 
-The set command is used to configure and also provides information that
-aides or otherwise provides critical information for other commands. 
-For example, the `drawlabel` and label command uses the 'text' option
-to fetch the actual text to be drawn.
+The `set` command is used to modify the command option so that
+it can be changed to a new value. 
 
-Following are examples of using this command for setting the options.  
+    set rectw  29
+    set recth  12
 
-    set label  Points
-    set width  29
-    set height  12
+The first word after the word set is recognized as the name of the option.
+All texts after the option name is considered the value of the option. 
+To restore the option to its default value call the `set` command 
+with a option name but do not provide an actual value.
 
-The first word after the word set is recognized as the name of the option, and
-it must consists of only word characters. All texts after the option name is
-considered the value of the option. This allows a long text string with
-spaces to be constructed without needing for any quoting.
+    set rectw
+    set recth
 
-    set label A short example
 
-## Configuration parameters
+
+## Command options
 
 Following is a list of configuration parameters.
 
@@ -495,112 +501,28 @@ an existing path variable.
     ```
 
 
+## Built-in path variables
 
-## The label command and its variants
+Following are built-in path variables that can be used.
 
-The 'label' command shows a text label on the screen. The label text itself is
-set by setting 'label' option.  The following example draw a text label on the
-location that is (10,10) with the label text that is 'An example'.
+  + all 
 
-    set label  An example
-    label (10,10)
+    This path variable is automatically assigned to the path used by the
+    last command.
 
-The label command only requires a single point.  The text label will be
-displayed and centered at the location described by the first point.  
 
-Other variants of the label command is follows:
+## The shape command
 
-    labelleft
-    labelright
-    labeltop
-    labelbot
-    labeltopleft
-    labelbotleft
-    labeltopright
-    labelbotright
+This command is designed to draw a shape at each one of the path points.
 
-Each of the variants is designed to position the text differently but otherwise
-it behaves exactly as the label command.
+Note that each shape can only be draw at its natural size and shape. There
+is no provision to scale it. 
 
-## The drawlabel command
-
-The drawlabel command is designed to draw multiple text labels each one
-corresponding to one of the points in the path. The label text itself must be
-specified using 'set label' command. Multiple text labels are recognized by the
-presence of the double-backslash in the "text" option.  Following example shows
-how to draw three text labels each at the location specified.
-
-    set label A \\ B \\ C
-    drawlabel (1,1) (2,2) (3,3)
-
-The drawlabel command is to utilize each one of the points in the command line.
-If there isn't any text available for the given point then a string such as
-"(empty)" will be shown at that location.
-
-Each text label is also able to attach a meta information regarding how the
-text label is to be position relative to the point location. The offset
-information is to be attached with each label text in the form of a set of
-curly brackets and a string that describes the offset.
-
-    set label A{top} \\ B{bot} \\ C{lft}
-    drawlabel (1,1) (2,2) (3,3)
-
-Following is the available options for describing the offset:
-
-    {top}   -  top
-    {bot}   -  bottom
-    {lft}   -  left    
-    {rt}    -  right   
-    {ulft}  -  upper left
-    {llft}  -  lower left
-    {urt}   -  upper right
-    {lrt}   -  lower right
-
-## The drawanglearc command
-
-This command is designed to draw a small arc describing the span of an angle.
-It expects three coords: the vertex of the angle, a point on the side of the
-ray, and a point on the second side of the ray. 
-
-    drawanglearc (0,0) (5,0) (5,5) 
-
-In the previous example the small arc will start at 0 degree and run counter
-clockwise for a degree span of 45 degrees.
-
-The radius of the arc is determined by the 'anglearcradius' option. 
-The default is set to be 0.5 unit length.
-
-## The drawrightanglearc command
-
-This command is designed to draw a small square shape describing the span of a 
-right angle.
-
-    drawrightanglearc (0,0) (5,0) (5,5) 
-
-It has the same expectations for the arguments as the drawanglearc command.
-
-## The drawshape command
-
-This command is to put a shape in each one of the locations that is a point in
-a path. The shape must be one of the built-in shape defined by Diagram.
-
-The shape can only be draw at the predefined size and there is no provision
-to scale it. The origin of the shape is to be aligned with the point specified.
-Typically the origin is at the lower-left hand corner, but it can also be
-different for each shape. Some might even be at the center, depending on 
-how the shape is intended to be used. Typically the shape is 1x1 but that
-is not the intent to keep it that way. For example, for the radical4 shape
-its width is 4 and its height is 2. It is designed to be used with a 
-long division illustraton that can be used for a dividend of 3 digit long.
-
-The drawshape command only takes path expression as its arguments. It
-can be used to draw one or more shapes. The name of the shape must be 
-specified by the `set label` command. Following example draws two shapes:
-one for the brick and one for the radical4, each one at a different
-location of the path.
-
-    set label brick \\ radical4
-    drawshape (5,5) (10,5)
+The origin of the shape is determined by each shape itself.  For example,
+for 'brick' shape the origin is at its lower-left hand corner.  For
+'radical4' it is at the top-left hand corner.  For 'protractor7' it is the
+mid point between the lower-left and lower-right points. When asked to draw
+a shape the orgin of the shape is to be aligned with the path point.
 
 As of writing, following shape exists:
 
@@ -616,6 +538,11 @@ As of writing, following shape exists:
 |radical4      |This is a radical sign. The length of the top bar is 4 and  |
 |              |the height of the left vertical bar is 2.                   |
 |              |The origin is at the top-left hand corner.                  |
+|--------------|------------------------------------------------------------|
+|protractor7   |This draws a protractor that is 7 grid units in diameter,   |
+|              |and the entire protractor is an upper half circle.          |
+|              |The center of the shape is at the center of the bottom      |
+|              |where the small hold is for aligning with the angle vertex. |
 |--------------|------------------------------------------------------------|
 ```
 

@@ -25,7 +25,7 @@ draw (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
 set filldraw filldraw
 set fillcolor 0.8[red,white]
-circle (16,1)
+circle     (16,1)
 circle.top (16,3)
 circle.bot (16,5)
 circle.rt  (16,7)
@@ -42,6 +42,11 @@ circle.o5  (18,3)
 circle.o6  (18,3)
 circle.o7  (18,3)
 circle.o8  (18,3)
+
+set angle1 0
+set angle2 90
+circle.chord (20,1)
+circle.arc (20,1)
 ```
 
 ## The unit length and grid lines

@@ -36,6 +36,12 @@ circle.q3  (18,1)
 circle.q4  (18,1)
 circle.o1  (18,3)
 circle.o2  (18,3)
+circle.o3  (18,3)
+circle.o4  (18,3)
+circle.o5  (18,3)
+circle.o6  (18,3)
+circle.o7  (18,3)
+circle.o8  (18,3)
 ```
 
 ## The unit length and grid lines

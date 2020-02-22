@@ -22,6 +22,7 @@ set fontsize 14pt
 label { 簡単 Triangle } (10,1) 
 set curve up
 draw (1,1){up}.. (2,2).. (3,4).. ()
+shape {brick} (17,8) (17,7)
 ```
 
 ## The unit length and grid lines

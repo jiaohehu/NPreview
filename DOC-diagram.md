@@ -3,14 +3,10 @@
 
 ```diagram
 drawline (1,1) (5,5) (5,1) ()
-set label A
-labeltop (6,6) 
-set label ``C_0``
-labelrt  (5,5) 
-set label ``B_0``
-labelrt  (5,1.5) 
-set label ``A_0``
-labellft  (1,1) 
+label.top {A}       (6,6) 
+label.rt  {``C_0``} (5,5) 
+label.rt  {``B_0``} (5,1.5) 
+label.lft {``A_0``} (1,1) 
 drawdot (0,0) (1,1) \
         (2,2) (3,3) \
         (4,4) (5,5) 
@@ -25,8 +21,7 @@ drawfullcircle (20,8)
 drawupperhalfcircle (20,6) 
 drawlowerhalfcircle (20,4) 
 set fontsize 14pt
-set label  簡単 Triangle
-label (10,1) 
+label { 簡単 Triangle } (10,1) 
 set curve up
 drawline (1,1) (2,2) (3,4) ()
 ```

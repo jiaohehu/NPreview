@@ -88,6 +88,16 @@ what actions to take.  Following is a list of all commands:
 
     Draw a shape at each path point.
 
+  + draw - draw an existing path   
+  + draw.dblarrow - draw a double-arrow     
+  + draw.arrow - draw a forward arrow     
+  + draw.fill - do a fill for an existing path
+  + draw.filldraw - do a filldraw for an existing path
+
+    This command will either draw, filldraw, fill, 
+    drawdblarrow, or drawarrow depending on the 
+    command option for it.
+
   + circle - draw/fill the full circle area
   + circle.ht - draw/fill the half circle area at the top
   + circle.hb - draw/fill the half circle area at the bottom

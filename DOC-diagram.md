@@ -31,18 +31,18 @@ In Diagram, the length is always specified in the unit length. A unit length is
 described as an abstract length on a graphing paper for which a length of 1
 corresponds to the width of a single grid.
 
-The 'width' and 'height' option specifies how many total unit length it has 
+The 'width' and 'height' setting specifies how many total unit length it has 
 reserved for the width and height. These two parameters also determines the
 total size of the graph that will appear in the PDF file. When translating
 to MetaPost, each unit length is abstracted using a variable named 'u' that
-is preset to be of '4mm'. You can also change it by setting the 'unit' 
-option such as the following:
+is preset to be of '4mm'. You can also change it by setting the (unit) 
+setting such as the following:
 
     set unit 6mm
 
 A grid line is always shown as part of the diagram. The total number of
-horizontal grids depends on the 'width' option.  The total number of vertical
-grids depends on the 'height' option. The color of the grid is set to be 10
+horizontal grids depends on the (width) setting.  The total number of vertical
+grids depends on the (height) setting. The color of the grid is set to be 10
 percent of the white.  Currently there is no provision to turn off the showing
 of the grid or to change the color of the grid line.
 
@@ -51,7 +51,7 @@ of the grid or to change the color of the grid line.
 
 Each instruction must start its own line. If a line is too long to fit side
 a single source paragraph then a ending backslash is to be placed.
-Blank lines are optional and will be ignored.
+Blank lines are ignored.
 
 Also, if a percent sign (`%`) is detected as the first character of the line
 then the entire line is considered a comment and will be ignored.
@@ -61,7 +61,7 @@ what actions to take.  Following is a list of all commands:
 
   + set    
 
-    Set or clear a command option.
+    Set or clear a command setting.
 
   + save    
 
@@ -87,19 +87,24 @@ what actions to take.  Following is a list of all commands:
 
     Draw a shape at each path point.
 
-  + draw - draw an existing path   
-  + draw.dblarrow - draw a double-arrow     
-  + draw.arrow - draw a forward arrow     
+  + draw - draw/fill a given path.
+  + draw.dblarrow - draw/only draw a double-arrow     
+  + draw.arrow - draw/only draw a forward arrow     
 
     This command will draw lines or curves depending on the specification of
     the path. Each line or curve is to appear between two path points.  The
-    '.dblarrow' and '.arrow' option will place arrow head at the one end or
+    '.dblarrow' and '.arrow' variant will place arrow head at the one end or
     either ends of the line segment. 
 
-  + area - draw an area outline.
+    The `draw` command  will either draw the outline of an area given by the
+    path points, or if the (filldraw) setting is set to a 'fill' or 'filldraw',
+    also fill them and/or draw the outline again.  If it is to fill or filldraw,
+    the last point of the path should be a cycle. If not then the path will be 
+    made cycle by manually inserting a cycle at the end.
 
-    This command will draw the outline of an area given by the path points.
-    If the last point is not a cycle then a manual cycle will be generated.
+    However, the `draw.dblarrow` and `draw.arrow` command will only draw an
+    arrow line, or double arrow line. It will not respond to the (filldraw)
+    setting.
 
   + circle - draw/fill the half circle area at the top
   + circle.top - draw/fill the half circle area at the top
@@ -123,14 +128,14 @@ what actions to take.  Following is a list of all commands:
   + circle.cseg - draw/fill a circular segment area
 
     This command is designed to draw, fill, or fill/draw an area of a circle or
-    part of a circle. However, if the (filldraw) command option is set to
+    part of a circle. However, if the (filldraw) command setting is set to
     'filldraw' or 'fill' then for some it will be treated as an area and
     attempted to be filled. However, command `circle.chord` or `circle.arc` is
     always a line command and will not result in a fill or filldraw.
 
-    The (diameter) option controls the diameter of the circle, whether it is
+    The (diameter) setting controls the diameter of the circle, whether it is
     full circle, half circle, or an octant of the circle. For drawing chord,
-    arc, or cseg, (angle1) and (angle2) options will be used to determine
+    arc, or cseg, (angle1) and (angle2) settings will be used to determine
     the starting and ending angles.
 
     The exact number of circles drawn is determined by the number points in a
@@ -167,19 +172,19 @@ what actions to take.  Following is a list of all commands:
     is provided by (rectw). The height of the rectangle is (recth). 
 
     The default operation is to draw the outline of the rectangle. However, if
-    the (filldraw) option is set to 'fill' or 'filldraw' then an attemp is made
-    to color the entire area using the (fillcolor) option. If the 'filldraw'
+    the (filldraw) setting is set to 'fill' or 'filldraw' then an attemp is made
+    to color the entire area using the (fillcolor) settings. If the 'filldraw'
     value is set then the outline of the rectangle is also to be drawn using
-    either black or a designated color specified by the (linecolor) option.
+    either black or a designated color specified by the (linecolor) setting.
 
     The `rect.parallelgram` will draw/fill a parallelgram. The overall width
     and height of the parallelgram is set in accordance with the (rectw) and
-    (recth) options.  This means that the horizontal difference between its
+    (recth) settings.  This means that the horizontal difference between its
     lower-left and upper-right hand corner is always equal to (rectw), and the
     height difference between the upper parallel line and lower parallel line
     is always equal to (recth).  However, the topleft and bottomright part of
     the rect area will be sliced off to make the shape of a parallelgram.  The
-    amount of incursion is determined by the (slant) option.  If it is set to
+    amount of incursion is determined by the (slant) setting.  If it is set to
     "0.3" which is default, then the incursion is to be 30 percent of the
     overall width from the topleft and 30 percent of the overall width from the
     bottomright.
@@ -193,10 +198,10 @@ what actions to take.  Following is a list of all commands:
     These commands are to mark a point, i.e., to identify the location of a
     point in a plane by showing a visible round black dot.  The `dot` command
     will draw a circular dot. The default size of the dot is '4pt', but can be
-    changed by the (dotsize) option, for example to set to a string of '5pt'. 
+    changed by the (dotsize) setting, for example to set to a string of '5pt'. 
 
     The color of the dot is set to black, unless changed by the (dotcolor)
-    option, which must follow a MetaPost syntax for colors, i.e.,
+    setting, which must follow a MetaPost syntax for colors, i.e.,
     "0.5[red,white]" , etc.
 
     The other variants can be used to draw ticker markers for an X-axis or
@@ -294,29 +299,29 @@ centered at the location because the command is `label`.
 
 # The set command
 
-The `set` command is used to modify the command option so that
+The `set` command is used to modify the command setting so that
 it can be changed to a new value. 
 
     set rectw  29
     set recth  12
 
-The first word after the word set is recognized as the name of the option.
-All texts after the option name is considered the value of the option. 
-To restore the option to its default value call the `set` command 
-with a option name but do not provide an actual value.
+The first word after the word set is recognized as the name of the setting.
+All texts after the setting name is considered the value of the setting. 
+To restore the setting to its default value call the `set` command 
+with a setting name but do not provide an actual value.
 
     set rectw
     set recth
 
 
 
-## Command options
+## Command settings
 
-Following is a list of configuration parameters.
+Following is a list of command settings.
 
 ``` tabularx
 |----------------|-----------------------------------------------------|
-|Command option  |Description                                          |
+|Command setting |Description                                          |
 |----------------|-----------------------------------------------------|
 |width           |Specifies the total number of grids in the width.    |
 |                |Minimum is 10 and maximum is 100.                    |

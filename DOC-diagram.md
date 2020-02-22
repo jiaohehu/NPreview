@@ -3,6 +3,7 @@
 
 ```diagram
 draw (1,1) -- (5,5) -- (5,1) -- ()
+showall
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
 label.rt  {``B_0``} (5,1.5) 

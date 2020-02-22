@@ -23,7 +23,11 @@ label { 簡単 Triangle } (10,1)
 set curve up
 draw (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
-circle (16,5)
+set filldraw filldraw
+set fillcolor 0.8[red,white]
+circle (16,1)
+circle.top (16,3)
+circle.bot (16,5)
 ```
 
 ## The unit length and grid lines

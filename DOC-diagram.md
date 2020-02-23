@@ -64,6 +64,10 @@ tick.lft (26,1)
 stroke (28,1)--(31,1)
 stroke (28,1)--(31,5)
 angle.arc (28,1) (31,1) (31,5)
+
+p := (-2,0)..(0,-2)..(2,0)
+stroke.fill p{up}..(0,0){-1,-2}..{up}cycle
+stroke p..(0,2)..cycle
 ```
 
 ## The unit length and grid lines
@@ -133,24 +137,22 @@ what actions to take.  Following is a list of all instruction names:
     shape {brick\\radical4} (0,12) (12,12)
     ```
 
-  + `draw` - draw/fill a given path.
-  + `draw.dblarrow` - draw/only draw a double-arrow     
-  + `draw.arrow` - draw/only draw a forward arrow     
+  + `stroke` - stroke a given path.
+  + `stroke.fill`  - fill a path  
+  + `stroke.dblarrow` - stroke a given path and place an arrow head at the beginning and end
+  + `stroke.arrow` - stroke a given path and place an arrow at the end
 
-    This instruction will draw lines or curves depending on the specification of
-    the path. Each line or curve is to appear between two path points.  The
-    '.dblarrow' and '.arrow' variant will place arrow head at the one end or
-    either ends of the line segment. 
+    The `stroken` instruction  without option draws the outline of a path.
+    The (linecolor) and (linewidth) settings will be pulled to see if a line width
+    or line color has be specified. Otherwise it uses the system default
+    of MetaPost.
 
-    The `draw` instruction  will either draw the outline of an area given by the
-    path points, or if the (filldraw) setting is set to a 'fill' or 'filldraw',
-    also fill them and/or draw the outline again.  If it is to fill or filldraw,
-    the last point of the path should be a cycle. If not then the path will be 
-    made cycle by manually inserting a cycle at the end.
+    The `stroke.fill` instruction fills the area of a path.
+    The (fillcolor) setting will be pulled to see if a fill color has
+    been specified. Otherwise it uses the system default of MetaPost.
 
-    However, the `draw.dblarrow` and `draw.arrow` instruction will only draw an
-    arrow line, or double arrow line. It will not respond to the (filldraw)
-    setting.
+    The 'stroke.dblarrow' and 'stroke.arrow' instructions will place arrow head
+    at either end of the line segments or just at the end.
 
   + `circle       ` - draw/fill the half circle area at the top
   + `circle.top   ` - draw/fill the half circle area at the top
@@ -191,25 +193,18 @@ what actions to take.  Following is a list of all instruction names:
     Each circle, half circle, quarter circle, or actant is to be positioned
     so that their center aligns with the path point.
 
-  + `angle    ` - draw an angle for each path point
   + `angle.arc` - draw an small arc denoting the interior of an angle 
   + `angle.sq ` - draw an small square denoting the interior of an angle
 
-    Note that for drawing an angle additional information is needed besides the
-    vertex location: start angle in degrees (angle1), stop angle in degrees
-    (angle2), length of the first side in grid units (side1), and length of the
-    second side in grid units (side2).  An angle is to be drawn at each path
-    point with the start/ending angle and the length of the sides specified.
-
-    The `angle.arc` instruction draw a marker that is identifies an angle, in the
-    interior of an angle between the first and second side. The arc is draw
-    close to the vertex with a radius of 1/2 of the grid unit.  When the angle
-    becomes 60-deg or less the radius of the arc will start to increase to
-    accommodate for the lack of visible spaces between two sides of the angle.
-    The maximum radius is capped at 2+1/2 grid unit.
+    The `angle.arc` instruction draw a small arc in the interior of an angle.
+    The arc is draw close to the vertex with a radius of 1/2 of
+    the grid unit.  When the angle becomes 60-deg or less the radius of the arc
+    will start to increase to accommodate for the lack of visible spaces
+    between two sides of the angle.  The maximum radius is capped at 2+1/2 grid
+    unit.
     
-    The `angle.sq` draws the marker in the shape of a square. It should
-    only be used for a known right angle.
+    The `angle.sq` draws the marker in the shape of a square. It should only be
+    used for a known right angle. The square is always at a size of 1/2-by-1/2.
 
   + `rect` - draw/fill a rectangle area
   + `rect.parallelgram` - draw/fill a parallelgram area

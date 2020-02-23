@@ -55,15 +55,15 @@ tick.lft (26,1)
 
 % angle
 stroke (28,1)--(31,1)
-save a
+a := $somepoints(all,0)
 showvar a
-showvar all
-a := $somepoints(james,0)
-showvar all
 b := $somepoints(all,1)
-showvar all
+showvar b
 stroke (28,1)--(31,5)
-angle.arc (28,1) (31,1) (31,5)
+b := $somepoints(all,1)
+showvar b
+%angle.arc (28,1) (31,1) (31,5)
+angle.arc a b c
 
 exit
 label.top {A}       (6,6) 

@@ -8,6 +8,7 @@ a := (1,1) -- (5,5) -- (5,1) -- ()
 showvar a
 showvar all
 stroke a
+circle.lft a
 exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 

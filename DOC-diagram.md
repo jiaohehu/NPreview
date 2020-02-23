@@ -4,7 +4,7 @@
 ```diagram
 set width 32
 set height 12
-a := (1,1) -- (5,5) -- (5,1) -- ()
+var a = (1,1) -- (5,5) -- (5,1) -- ()
 showvar a
 showvar all
 % stroke 
@@ -132,17 +132,18 @@ what actions to take.  Following is a list of all instruction names:
     path c; c := (1,1) (2,2) (3,4)
     ```
 
-  + `path a := (1,1) (2,2) (3,4)`
-  + `path b := (a){up} .. (5,5) .. (6,7)`
+  + `var a = (1,1) (2,2) (3,4)`
+  + `var b = a{up} .. (5,5) .. (6,7)`
 
-    Create a new path variable or modify an existing path variable.
-    Note that a path could also hold other variable as a subpath.
+    Create a new path variable or modify an existing path variable
+    and assign it a new path description.
+    Note that a path could also hold other variables as a subpath.
     Following entries will be generated as a result of the previous
     two instructions.
 
     ```
     path a; a := (1,1) -- (2,2) -- (3,4)
-    path b; b := (a){up} .. (5,5) .. (6,7)
+    path b; b := a{up} .. (5,5) .. (6,7)
     ```
 
   + `label`

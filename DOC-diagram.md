@@ -4,8 +4,11 @@
 ```diagram
 set width 32
 set height 12
-stroke (1,1) -- (5,5) -- (5,1) -- ()
-showall
+a := (1,1) -- (5,5) -- (5,1) -- ()
+showvar a
+showvar all
+stroke a
+exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
 label.rt  {``B_0``} (5,1.5) 
@@ -110,12 +113,36 @@ what actions to take.  Following is a list of all instruction names:
 
   + `save`   
 
-    Save the last path to one or more variables.
+    Save the last path to one or more path variables.
+    This will create or modify a list path variable and generate an entry 
+    in the MetaPost output. For example, such as the following.
 
-  + `(var) := (path-expression)`
+    ```
+    save a b c                  
+    ```
 
-    Create or modify a path variable.
-        
+    This will generate as a MetaPost output as the following assumeing
+    (1,1) (2,2) (3,4) is the last path that was being used.
+
+    ```
+    path a; a := (1,1) (2,2) (3,4)
+    path b; b := (1,1) (2,2) (3,4)
+    path c; c := (1,1) (2,2) (3,4)
+    ```
+
+  + `path a := (1,1) (2,2) (3,4)`
+  + `path b := (a){up} .. (5,5) .. (6,7)`
+
+    Create a new path variable or modify an existing path variable.
+    Note that a path could also hold other variable as a subpath.
+    Following entries will be generated as a result of the previous
+    two instructions.
+
+    ```
+    path a; a := (1,1) -- (2,2) -- (3,4)
+    path b; b := (a){up} .. (5,5) .. (6,7)
+    ```
+
   + `label`
   + `label.rt`
   + `label.lft`

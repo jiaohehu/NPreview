@@ -5,13 +5,27 @@
 set width 32
 set height 12
 
+% tichi
+set refx 3
+set refy 9
+set refsx 2
+set refsy 2
+p := (-1,0)..(0,-1)..(1,0)
+stroke.fill p{up}..(0,0){-1,-2}..{up}cycle
+stroke p..(0,1)..cycle
+
+set refx 
+set refy 
+set refsx 
+set refsy 
+
 % variables
 a := (1,1) -- (5,5) -- (5,1) -- ()
-showvar a
-showvar all
+b := (1,1){up} .. (5,5) .. (5,1) .. ()
 
 % stroke 
 stroke a
+stroke b
 
 % circles
 set filldraw filldraw

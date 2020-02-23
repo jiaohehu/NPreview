@@ -60,9 +60,9 @@ showvar a
 b := $somepoints(all,1)
 showvar b
 stroke (28,1)--(31,5)
-b := $somepoints(all,1)
+c := $somepoints(all,1)
 showvar b
-%angle.arc (28,1) (31,1) (31,5)
+showvar c
 angle.arc a b c
 
 exit

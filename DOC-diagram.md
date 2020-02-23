@@ -50,8 +50,16 @@ circle.chord (20,1)
 circle.arc (20,1)
 circle.cseg (20,3)
 
+set slant 0.9
 rect (24,2)
 rect.parallelgram (24,6)
+
+dot (22,1)
+
+tick.top (23,1)
+tick.bot (24,1)
+tick.rt  (25,1)
+tick.lft (26,1)
 ```
 
 ## The unit length and grid lines
@@ -224,10 +232,6 @@ what actions to take.  Following is a list of all instruction names:
     bottomright.
 
   + `dot` - draw a dot at each path point 
-  + `dot.tvbar` - draw a vertical bar above the point.
-  + `dot.bvbar` - draw a vertical bar below the point
-  + `dot.rhbar` - draw a horizontal bar to the right hand side of the point
-  + `dot.lhbar` - draw a horizontal bar to the left hand side of the point
 
     These instructions are to mark a point, i.e., to identify the location of a
     point in a plane by showing a visible round black dot.  The `dot` instruction
@@ -238,9 +242,24 @@ what actions to take.  Following is a list of all instruction names:
     setting, which must follow a MetaPost syntax for colors, i.e.,
     "0.5[red,white]" , etc.
 
-    The other variants can be used to draw ticker markers for an X-axis or
-    Y-axis line, allowing for the tick marks to be either drawn above the
-    X-axis or below, or left/right of a Y-axis.
+  + `tick.top` - draw a vertical tick above the point.
+  + `tick.bot` - draw a vertical tick below the point
+  + `tick.rt ` - draw a horizontal tick to the right hand side of the point
+  + `tick.lft` - draw a horizontal tick to the left hand side of the point
+
+    These instructions can be used to draw tick markers, i.e., the one that
+    can be found along a number line.
+
+    The length of the tick is default to 0.33 grid unit. This is how far 
+    it will extend itself away from the point. But it can be changed
+    changed by the (ticklength) setting, for example to set to a string of '0.75'
+    will make a 0.75 grid unit long. 
+
+    The color of the grid is set to black, unless changed by the (tickcolor)
+    setting, which must follow a MetaPost syntax for colors, i.e.,
+    "0.5[red,white]" , etc. The thickness of the line can be changed by setting
+    the (ticksize). The default is "1pt".
+
 
   + drawrect
   + drawparallelgram
@@ -419,8 +438,21 @@ Following is a list of all settings.
 |                |                                                     |
 |----------------|-----------------------------------------------------|
 |dotsize         |Configure the size of the dot to be drawn, such as   |
-|                |"8pt". Used by the drawdot instruction.              |
+|                |"8pt". Used by the `dot` instruction. The default    |
+|                |is "4pt".                                            |
+|----------------|-----------------------------------------------------|
+|tickcolor       |Set the color used for drawing ticks, i.e.,  "red".  |
+|                |It is used by the `tick`  instruction.               |
+|                |The default is empty, which MetaPost assume as black.|
+|----------------|-----------------------------------------------------|
+|ticksize        |Configure the thickness of the line for ticks.       |
+|                |i.e, "2pt". The default is "1pt".                    |
+|                |It is used by the `tick` instruction.                |
 |                |                                                     |
+|----------------|-----------------------------------------------------|
+|ticklength      |Configure how far away the end point is from the     |
+|                |axis line. The default is 0.33 grid unit.            |
+|                |The maximum is "1.0", the minimum is "0.1".          |
 |----------------|-----------------------------------------------------|
 |rectw           |Set to a number that is the width of the rectangle.  |
 |                |This is to be used with the drawrect instruction.    |

@@ -6,7 +6,7 @@ set width 32
 set height 12
 
 % variables
-var a = (1,1) -- (5,5) -- (5,1) -- ()
+a := (1,1) -- (5,5) -- (5,1) -- ()
 showvar a
 showvar all
 
@@ -58,9 +58,9 @@ stroke (28,1)--(31,1)
 save a
 showvar a
 showvar all
-var a = $somepoints(all,0)
+a := $somepoints(james,0)
 showvar all
-var b = $somepoints(all,1)
+b := $somepoints(all,1)
 showvar all
 stroke (28,1)--(31,5)
 angle.arc (28,1) (31,1) (31,5)

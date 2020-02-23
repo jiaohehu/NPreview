@@ -53,6 +53,18 @@ tick.bot (24,1)
 tick.rt  (25,1)
 tick.lft (26,1)
 
+% angle
+stroke (28,1)--(31,1)
+save a
+showvar a
+showvar all
+var a = $somepoints(all,0)
+showvar all
+var b = $somepoints(all,1)
+showvar all
+stroke (28,1)--(31,5)
+angle.arc (28,1) (31,1) (31,5)
+
 exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
@@ -73,10 +85,6 @@ label { 簡単 Triangle } (10,1)
 set curve up
 stroke (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
-
-stroke (28,1)--(31,1)
-stroke (28,1)--(31,5)
-angle.arc (28,1) (31,1) (31,5)
 
 p := (-2,0)..(0,-2)..(2,0)
 stroke.fill p{up}..(0,0){-1,-2}..{up}cycle

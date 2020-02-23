@@ -44,6 +44,15 @@ set slant 0.9
 rect (24,2)
 rect.parallelgram (24,6)
 
+% dot
+dot (22,1)
+
+% tick
+tick.top (23,1)
+tick.bot (24,1)
+tick.rt  (25,1)
+tick.lft (26,1)
+
 exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
@@ -64,13 +73,6 @@ label { 簡単 Triangle } (10,1)
 set curve up
 stroke (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
-
-dot (22,1)
-
-tick.top (23,1)
-tick.bot (24,1)
-tick.rt  (25,1)
-tick.lft (26,1)
 
 stroke (28,1)--(31,1)
 stroke (28,1)--(31,5)

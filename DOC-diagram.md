@@ -56,8 +56,8 @@ tick.lft (26,1)
 % angle
 stroke (28,1)--(31,1)
 save a;b
-stroke (28,1)--(31,5)
-save ;c
+stroke (28,1)--(31,5)--(31,7)--cycle
+save ;c;;e
 angle.arc a b c
 
 exit

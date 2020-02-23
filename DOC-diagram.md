@@ -4,7 +4,7 @@
 ```diagram
 set width 32
 set height 12
-draw (1,1) -- (5,5) -- (5,1) -- ()
+stroke (1,1) -- (5,5) -- (5,1) -- ()
 showall
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
@@ -15,7 +15,7 @@ drawdot (0,0) (1,1) \
         (4,4) (5,5) 
 draw.arrow (10,5) (12,6)
 draw.dblarrow (10,2) (12,3)
-draw (14,2) (15,3) (14,4) (15,5)
+stroke (14,2) (15,3) (14,4) (15,5)
 set diameter 2
 drawfullcircle      (22,8) 
 drawupperhalfcircle (22,6) 
@@ -23,7 +23,7 @@ drawlowerhalfcircle (22,4)
 set fontsize 14pt
 label { 簡単 Triangle } (10,1) 
 set curve up
-draw (1,1){up}.. (2,2).. (3,4).. ()
+stroke (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
 set filldraw filldraw
 set fillcolor 0.8[red,white]
@@ -60,6 +60,10 @@ tick.top (23,1)
 tick.bot (24,1)
 tick.rt  (25,1)
 tick.lft (26,1)
+
+stroke (28,1)--(31,1)
+stroke (28,1)--(31,5)
+angle.arc (28,1) (31,1) (31,5)
 ```
 
 ## The unit length and grid lines

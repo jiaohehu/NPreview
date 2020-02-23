@@ -56,11 +56,8 @@ tick.lft (26,1)
 % angle
 stroke (28,1)--(31,1)
 save a;b
-showvar a b
 stroke (28,1)--(31,5)
-save ;;b
-showvar b
-showvar c
+save ;c
 angle.arc a b c
 
 exit

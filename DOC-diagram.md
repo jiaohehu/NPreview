@@ -51,6 +51,7 @@ circle.arc (20,1)
 circle.cseg (20,3)
 
 rect (24,2)
+rect.parallelgram (24,6)
 ```
 
 ## The unit length and grid lines

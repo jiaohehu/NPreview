@@ -4,11 +4,15 @@
 ```diagram
 set width 32
 set height 12
+
+% variables
 var a = (1,1) -- (5,5) -- (5,1) -- ()
 showvar a
 showvar all
+
 % stroke 
 stroke a
+
 % circles
 set filldraw filldraw
 set fillcolor 0.8[red,white]
@@ -34,6 +38,12 @@ circle.o8  (18,3)
 circle.chord (20,1)
 circle.arc   (20,3)
 circle.cseg  (20,5)
+
+% rect 
+set slant 0.9
+rect (24,2)
+rect.parallelgram (24,6)
+
 exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
@@ -54,10 +64,6 @@ label { 簡単 Triangle } (10,1)
 set curve up
 stroke (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
-
-set slant 0.9
-rect (24,2)
-rect.parallelgram (24,6)
 
 dot (22,1)
 

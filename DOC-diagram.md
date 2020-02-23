@@ -2,6 +2,8 @@
 
 
 ```diagram
+set width 32
+set height 12
 draw (1,1) -- (5,5) -- (5,1) -- ()
 showall
 label.top {A}       (6,6) 
@@ -42,12 +44,13 @@ circle.o5  (18,3)
 circle.o6  (18,3)
 circle.o7  (18,3)
 circle.o8  (18,3)
-
 set angle1 0
 set angle2 90
 circle.chord (20,1)
 circle.arc (20,1)
 circle.cseg (20,3)
+
+rect (24,2)
 ```
 
 ## The unit length and grid lines

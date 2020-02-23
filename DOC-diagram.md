@@ -55,12 +55,10 @@ tick.lft (26,1)
 
 % angle
 stroke (28,1)--(31,1)
-a := $somepoints(all,0)
-showvar a
-b := $somepoints(all,1)
-showvar b
+save a;b
+showvar a b
 stroke (28,1)--(31,5)
-c := $somepoints(all,1)
+save ;;b
 showvar b
 showvar c
 angle.arc a b c

@@ -12,6 +12,8 @@ stroke a
 % circles
 set filldraw filldraw
 set fillcolor 0.8[red,white]
+set angle1 0
+set angle2 90
 circle     (16,1)
 circle.top (16,3)
 circle.bot (16,5)
@@ -29,6 +31,9 @@ circle.o5  (18,3)
 circle.o6  (18,3)
 circle.o7  (18,3)
 circle.o8  (18,3)
+circle.chord (20,1)
+circle.arc   (20,3)
+circle.cseg  (20,5)
 exit
 label.top {A}       (6,6) 
 label.rt  {``C_0``} (5,5) 
@@ -49,11 +54,6 @@ label { 簡単 Triangle } (10,1)
 set curve up
 stroke (1,1){up}.. (2,2).. (3,4).. ()
 shape {brick} (17,8) (17,7)
-set angle1 0
-set angle2 90
-circle.chord (20,1)
-circle.arc (20,1)
-circle.cseg (20,3)
 
 set slant 0.9
 rect (24,2)

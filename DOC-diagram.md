@@ -94,24 +94,15 @@ tick.rt  (5,2) (5,3) (5,4)
 tick.lft (5,2) (5,3) (5,4)
 
 % arrow & dblarrow
-drawarrow (7,1) (9,3)
-drawdblarrow (9,1) (11,3)
+drawarrow (7,3) (9,5)
+drawdblarrow (9,3) (11,5)
 
-exit
-stroke (14,2) (15,3) (14,4) (15,5)
-set diameter 2
-drawfullcircle      (22,8) 
-drawupperhalfcircle (22,6) 
-drawlowerhalfcircle (22,4) 
+% text of a different fontsize
 set fontsize 14pt
 label { 簡単 Triangle } (10,1) 
-set curve up
-stroke (1,1){up}.. (2,2).. (3,4).. ()
-shape {brick} (17,8) (17,7)
 
-p := (-2,0)..(0,-2)..(2,0)
-stroke.fill p{up}..(0,0){-1,-2}..{up}cycle
-stroke p..(0,2)..cycle
+% shape
+shape {brick} (7,8) (7,7)
 ```
 
 ## The unit length and grid lines

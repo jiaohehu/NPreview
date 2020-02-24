@@ -71,7 +71,7 @@ stroke (28,1)--(31,1)
 save a:b
 stroke (28,1)--(31,5)--(31,7)--cycle
 save :c::e
-ray.arc a b c
+drawanglearc a b c
 
 % fill/filldraw
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
@@ -352,27 +352,34 @@ what actions to take.  Following is a list of all instruction names:
     Each circle, half circle, quarter circle, or actant is to be positioned
     so that their center aligns with the path point.
 
-  + `ray.arc` - draw a small arc denoting the interior of an angle formed by two rays
-  + `ray.sq ` - draw a small square denoting the interior of an angleformed by two rays
+  + `drawanglearc` - draw a small arc denoting the interior of an angle 
+  + `drawanglearc.sq ` - draw a small square denoting the interior of a right angle
 
-    These two instructions both need three coordinates and only takes first three
-    coordinates.  The first point is assumed to be the vertex of the angle. The
-    second is a point on the first ray, and third a point on the second ray.
-    In the following example it will draw an arc for an angle such that its
-    vertex is at (3,4) and its starting side goes through the point of (4,4)
-    and its second side goes through the point (4,5). This is a 45-degree
-    angle spanning from 0 to 45.
-    
-    ``` ray.arc (3,4) (4,4) (4,5) ```
+    These two instructions are designed to an interior arc denoting the span of an angle.
+    The first draws the the arc and the second one draws a square. 
 
-    The `ray.arc` instruction draw a small arc in the interior of an angle.
+    Both of these instructions need three coordinates and only takes first
+    three coordinates.  The first point is assumed to be the vertex of the
+    angle. The second coordinate denotes any point on the first side that forms
+    the angle, and third coordinate denotes a arbitrary point on the second
+    side of the angle.  In the following example it will draw an arc for an
+    angle such that its vertex is at (3,4) and its starting side goes through
+    the point of (4,4) and its second side goes through the point (4,5). This
+    is a 45-degree angle spanning from 0 to 45.
+
+    ``` 
+    drawanglearc (3,4) (4,4) (4,5) 
+    drawanglearc.sq (3,4) (4,4) (4,5) 
+    ```
+
+    The `drawanglearc` instruction draw a small arc in the interior of an angle.
     The arc is draw close to the vertex with a radius of 1/2 of
     the grid unit.  When the angle becomes 60-deg or less the radius of the arc
     will start to increase to accommodate for the lack of visible spaces
     between two sides of the angle.  The maximum radius is capped at 2+1/2 grid
     unit.
     
-    The `ray.sq` draws the square marker for denoting a right angle. Note that
+    The `drawanglearc.sq` draws the square marker for denoting a right angle. Note that
     it should only be used for a known right angle.  The measurement of the
     side of the square is always that of 1/2 unit length.
 

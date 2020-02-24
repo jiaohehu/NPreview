@@ -2,8 +2,7 @@
 
 
 ```diagram
-set width 32
-set height 12
+viewport 32 12
 
 % tichi
 set refx 3
@@ -14,10 +13,8 @@ p := (-1,0)..(0,-1)..(1,0)
 stroke.fill p{up}..(0,0){-1,-2}..{up}cycle
 stroke p..(0,1)..cycle
 
-set refx 
-set refy 
-set refsx 
-set refsy 
+% reset
+reset
 
 % variables
 a := (1,1) -- (5,5) -- (5,1) -- ()

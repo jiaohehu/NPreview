@@ -161,6 +161,17 @@ what actions to take.  Following is a list of all instruction names:
     unit 5mm
     ```
 
+  + `config`
+
+    This command is to configure the viewport such as adjusting the grid drawing
+    so that it has five'th and ten'th lines drawn a little darker.
+
+    ```
+    config grid 1
+    ```
+
+    So far this is the only config option. 
+
   + `set`
 
     Set or clear a setting.

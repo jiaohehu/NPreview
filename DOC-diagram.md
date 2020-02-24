@@ -77,14 +77,23 @@ gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
 fill ff
 filldraw gg
 
-exit
-label.top {A}       (6,6) 
+% label
 label.rt  {``C_0``} (5,5) 
-label.rt  {``B_0``} (5,1.5) 
+label.rt  {``B_0``} (5,1) 
 label.lft {``A_0``} (1,1) 
-drawdot (0,0) (1,1) \
+
+% dots
+drawdot (1,1) \
         (2,2) (3,3) \
         (4,4) (5,5) 
+
+% ticks
+tick.top (2,1) (3,1) (4,1)
+tick.bot (2,1) (3,1) (4,1)
+tick.rt  (5,2) (5,3) (5,4)
+tick.lft (5,2) (5,3) (5,4)
+
+exit
 draw.arrow (10,5) (12,6)
 draw.dblarrow (10,2) (12,3)
 stroke (14,2) (15,3) (14,4) (15,5)

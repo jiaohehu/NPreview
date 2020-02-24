@@ -56,7 +56,9 @@ rect (24,2)
 rect.parallelgram (24,6)
 
 % dot
+sq := (22,3) (23,3) (23,2) (22,2)
 dot (22,1)
+dot $somepoints(sq,0) $somepoints(sq,1) $somepoints(sq,2) $somepoints(sq,3) (22,4) (23,4)
 
 % tick
 tick.top (23,1)

@@ -224,15 +224,55 @@ what actions to take.  Following is a list of all instruction names:
   + `b := a{up} .. (5,5) .. (6,7)`
 
     Create a new path variable or modify an existing path variable
-    and assign it a new path description.
+    to a new path description.
     Note that a path could also hold other variables as a subpath.
-    Following entries will be generated as a result of the previous
-    two instructions.
+    Each variable will be held internally as an individual point
+    and written down as a 'path variable' when exporting as a MetaPost
+    statement. In addition, each variable assigned this way will
+    result in a `path` statement exported as part of a MetaPost
+    statement. Thus, the previous two instructions will result in
+    generating of MetaPost statements as follows.
 
     ```
     path a; a := (1,1) -- (2,2) -- (3,4)
     path b; b := a{up} .. (5,5) .. (6,7)
     ```
+
+    There is an internal variable named 'all' that serves as a temporary place
+    to hold a path description that was used by the last instruction. It is
+    also to be used by the 'save' instruction when creating new variables.
+    This variable can be referred to in a path function such as
+
+    ```
+    a := $somepoints(all,2,5)
+    ```
+
+    However, it cannot appear as part of a path description such as the following:
+
+    ```
+    % ***ERROR***
+    stroke all
+    ```
+
+    Note that the 'all' variable will be modified everytime a new path
+    description is created, such as by statement 'stroke', 'fill', 'drawarrow',
+    'dot', 'label', 'circle', etc. However, the content of 'all'  will not
+    change as part of an variable assignment statement, or 'save' statement,
+    nor will it change for a 'set', 'reset' that does not involve creating a
+    new path description. This arrangement allows an existing 'all' to be used
+    many times by 'save' or assignment statement to extract part of the content 
+    from 'all' to create other variables.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    save a:b:c
+    ab := $somepoints(all,0,1)
+    ```
+
+    Also note that when extracing contents of an existing path, the actual
+    coordinates are the original ones that were in the coords. This means that
+    these numbers will be subjected to interpretation depending on the settings
+    of 'refx', 'refy', 'refsx', and 'refsy' at the time of operation.
 
   + `label`
   + `label.rt`

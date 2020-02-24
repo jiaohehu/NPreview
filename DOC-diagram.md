@@ -25,7 +25,7 @@ stroke a
 stroke b
 
 % circles
-set filldraw filldraw
+set areaop filldraw
 set fillcolor 0.8[red,white]
 set angle1 0
 set angle2 90

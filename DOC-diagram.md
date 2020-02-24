@@ -10,7 +10,7 @@ set refy 9
 set refsx 2
 set refsy 2
 p := (-1,0)..(0,-1)..(1,0)
-stroke.fill p{up}..(0,0){-1,-2}..{up}cycle
+fill p{up}..(0,0){-1,-2}..{up}cycle
 stroke p..(0,1)..cycle
 
 % reset
@@ -69,6 +69,7 @@ stroke (28,1)--(31,1)
 save a;b
 stroke (28,1)--(31,5)--(31,7)--cycle
 save ;c;;e
+fill a b c
 angle.arc a b c
 
 exit

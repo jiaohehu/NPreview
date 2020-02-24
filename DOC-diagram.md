@@ -69,8 +69,13 @@ stroke (28,1)--(31,1)
 save a;b
 stroke (28,1)--(31,5)--(31,7)--cycle
 save ;c;;e
-fill a b c
 angle.arc a b c
+
+% fill/filldraw
+ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
+gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
+fill ff
+filldraw gg
 
 exit
 label.top {A}       (6,6) 

@@ -93,9 +93,11 @@ tick.bot (2,1) (3,1) (4,1)
 tick.rt  (5,2) (5,3) (5,4)
 tick.lft (5,2) (5,3) (5,4)
 
+% arrow & dblarrow
+drawarrow (7,1) (9,3)
+drawdblarrow (9,1) (11,3)
+
 exit
-draw.arrow (10,5) (12,6)
-draw.dblarrow (10,2) (12,3)
 stroke (14,2) (15,3) (14,4) (15,5)
 set diameter 2
 drawfullcircle      (22,8) 

@@ -66,10 +66,10 @@ tick.lft (26,1)
 
 % angle
 stroke (28,1)--(31,1)
-save a;b
+save a:b
 stroke (28,1)--(31,5)--(31,7)--cycle
-save ;c;;e
-angle.arc a b c
+save :c::e
+ray.arc a b c
 
 % fill/filldraw
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
@@ -139,9 +139,47 @@ then the entire line is considered a comment and will be ignored.
 The first word of each instruction is considered the instruction name that tells
 what actions to take.  Following is a list of all instruction names:
 
+  + `viewport`
+
+    This command sets the width/height of the diagram viewport size.
+    There is a minimum and maximum limit to the width is (10 <= width <= 100).
+    For height it is (4 <= height <= 100)
+
+    ```
+    viewport 32 14
+    ```
+
+  + `unit`
+
+    This command sets the unit length for each grid. Input will be checked 
+    such that it must be an integer followed by a unit that must be
+    "in", "mm", or "cm".
+
+    ```
+    unit 5mm
+    ```
+
   + `set`
 
     Set or clear a setting.
+
+    ```
+    set linewidth 2pt
+    ```
+
+    To clear a setting, simply call `set` without any value.
+
+    ```
+    set linewidth
+    ```
+
+  + `reset`
+
+    Clear all settings to its initial value.
+
+    ```
+    reset
+    ```
 
   + `save`   
 
@@ -162,8 +200,26 @@ what actions to take.  Following is a list of all instruction names:
     path c; c := (1,1) (2,2) (3,4)
     ```
 
-  + `var a = (1,1) (2,2) (3,4)`
-  + `var b = a{up} .. (5,5) .. (6,7)`
+    This instruction can also be used to decompose the individual
+    points of an existing path. Following will extract the first
+    point from the last path and assign it to variable 'a'
+    and the second point to a variable 'b'.
+
+    ```
+    save a:b
+    ```
+
+  + `showvar` - send the output of a particular variable 
+
+    This command can be used anytime to send the value of a particular
+    path to the generated mplibcode block. 
+
+  + `exit` - this command will halt the processing of the rest
+    of the instruction.  It can be used to temporary avoiding
+    some instruction to aid debugging.
+
+  + `a := (1,1) (2,2) (3,4)`
+  + `b := a{up} .. (5,5) .. (6,7)`
 
     Create a new path variable or modify an existing path variable
     and assign it a new path description.
@@ -198,20 +254,21 @@ what actions to take.  Following is a list of all instruction names:
     ```
 
   + `stroke` - stroke a given path.
-  + `stroke.fill`  - fill a path  
-  + `stroke.dblarrow` - stroke a given path and place an arrow head at the beginning and end
-  + `stroke.arrow` - stroke a given path and place an arrow at the end
+  + `fill`  - fill a path  
+  + `filldraw`  - fill a path with fillcolor and then stroke the path with the linecolor
+  + `drawdblarrow` - stroke a given path and place an arrow head at the beginning and end
+  + `drawarrow` - stroke a given path and place an arrow at the end
 
-    The `stroken` instruction  without option draws the outline of a path.
+    The `stroke` instruction  without option draws the outline of a path.
     The (linecolor) and (linewidth) settings will be pulled to see if a line width
     or line color has be specified. Otherwise it uses the system default
     of MetaPost.
 
-    The `stroke.fill` instruction fills the area of a path.
+    The `fill` instruction fills the area of a path.
     The (fillcolor) setting will be pulled to see if a fill color has
     been specified. Otherwise it uses the system default of MetaPost.
 
-    The 'stroke.dblarrow' and 'stroke.arrow' instructions will place arrow head
+    The 'drawdblarrow' and 'drawarrow' instructions will place arrow head
     at either end of the line segments or just at the end.
 
   + `circle       ` - draw/fill the half circle area at the top
@@ -253,18 +310,29 @@ what actions to take.  Following is a list of all instruction names:
     Each circle, half circle, quarter circle, or actant is to be positioned
     so that their center aligns with the path point.
 
-  + `angle.arc` - draw an small arc denoting the interior of an angle 
-  + `angle.sq ` - draw an small square denoting the interior of an angle
+  + `ray.arc` - draw a small arc denoting the interior of an angle formed by two rays
+  + `ray.sq ` - draw a small square denoting the interior of an angleformed by two rays
 
-    The `angle.arc` instruction draw a small arc in the interior of an angle.
+    These two instructions both need three coordinates and only takes first three
+    coordinates.  The first point is assumed to be the vertex of the angle. The
+    second is a point on the first ray, and third a point on the second ray.
+    In the following example it will draw an arc for an angle such that its
+    vertex is at (3,4) and its starting side goes through the point of (4,4)
+    and its second side goes through the point (4,5). This is a 45-degree
+    angle spanning from 0 to 45.
+    
+    ``` ray.arc (3,4) (4,4) (4,5) ```
+
+    The `ray.arc` instruction draw a small arc in the interior of an angle.
     The arc is draw close to the vertex with a radius of 1/2 of
     the grid unit.  When the angle becomes 60-deg or less the radius of the arc
     will start to increase to accommodate for the lack of visible spaces
     between two sides of the angle.  The maximum radius is capped at 2+1/2 grid
     unit.
     
-    The `angle.sq` draws the marker in the shape of a square. It should only be
-    used for a known right angle. The square is always at a size of 1/2-by-1/2.
+    The `ray.sq` draws the square marker for denoting a right angle. Note that
+    it should only be used for a known right angle.  The measurement of the
+    side of the square is always that of 1/2 unit length.
 
   + `rect` - draw/fill a rectangle area
   + `rect.parallelgram` - draw/fill a parallelgram area
@@ -435,18 +503,6 @@ Following is a list of all settings.
 |----------------|-----------------------------------------------------|
 |Command setting |Description                                          |
 |----------------|-----------------------------------------------------|
-|width           |Specifies the total number of grids in the width.    |
-|                |Minimum is 10 and maximum is 100.                    |
-|                |Default is 25.                                       |
-|----------------|-----------------------------------------------------|
-|height          |Specifies the total number of grids in the height.   |
-|                |Minimum is 4  and maximum is 100.                    |
-|                |Default is 10.                                       |
-|----------------|-----------------------------------------------------|
-|unit            |Specifies the length for each grid unit.             |
-|                |Default is '4mm'.                                    |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
 |refx            |Set an offset number to offset coordinate in x-axis. |
 |                |Ex. if refx is set to 4 a source coordinate of       | 
 |                |(2,0) will map to (6,0).                             | 
@@ -533,13 +589,10 @@ Following is a list of all settings.
 |                |angle.                                               |
 |                |                                                     |
 |----------------|-----------------------------------------------------|
-|side1           |This is to express the length measurement            |
-|                |the first side when drawing an angle.                |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|side2           |This is to express the length measurement            |
-|                |the second side when drawing an angle.               |
-|                |                                                     |
+|areaop          |This is to express how an area operation such as     |
+|                |`circle`, `circle.cseg` is going to do just drawing, |
+|                |filling, or filling/drawing at the same time.        |
+|                |The arguments are: 'draw', 'fill', or 'filldraw'     |
 |----------------|-----------------------------------------------------|
 ``` 
 
@@ -623,7 +676,7 @@ letters a, b, c are path variables.
 
     ```
     b := shiftpoints(a,-1,2)
-    ````
+    ```
 
   + scatterpoints(1,0,10,0,10)
 

@@ -71,6 +71,7 @@
       "default": "standard",
       "enum": [
         "standard",
+        "minimum",
         "full"
       ],
       "description": "Specify a style for all longtables."

@@ -20,7 +20,7 @@ reset
 a := (1,1) -- (5,5) -- (5,1) -- ()
 b := (1,1){up} .. (5,5) .. (5,1) .. ()
 
-% stroke 
+% stroke
 stroke a
 stroke b
 
@@ -50,7 +50,7 @@ circle.chord (20,1)
 circle.arc   (20,3)
 circle.cseg  (20,5)
 
-% rect 
+% rect
 set slant 0.9
 rect (24,2)
 rect.parallelgram (24,6)
@@ -80,14 +80,14 @@ fill ff
 filldraw gg
 
 % label
-label.rt  {``C_0``} (5,5) 
-label.rt  {``B_0``} (5,1) 
-label.lft {``A_0``} (1,1) 
+label.rt  {``C_0``} (5,5)
+label.rt  {``B_0``} (5,1)
+label.lft {``A_0``} (1,1)
 
 % dots
 drawdot (1,1) \
         (2,2) (3,3) \
-        (4,4) (5,5) 
+        (4,4) (5,5)
 
 % ticks
 tick.top (2,1) (3,1) (4,1)
@@ -101,7 +101,7 @@ drawdblarrow (9,3) (11,5)
 
 % text of a different fontsize
 set fontsize 14pt
-label { 簡単 Triangle } (10,1) 
+label { 簡単 Triangle } (10,1)
 
 % shape
 shape {brick} (7,8) (7,7)
@@ -113,11 +113,11 @@ In Diagram, the length is always specified in the unit length. A unit length is
 described as an abstract length on a graphing paper for which a length of 1
 corresponds to the width of a single grid.
 
-The 'width' and 'height' setting specifies how many total unit length it has 
+The 'width' and 'height' setting specifies how many total unit length it has
 reserved for the width and height. These two parameters also determines the
 total size of the graph that will appear in the PDF file. When translating
 to MetaPost, each unit length is abstracted using a variable named 'u' that
-is preset to be of '4mm'. You can also change it by setting the (unit) 
+is preset to be of '4mm'. You can also change it by setting the (unit)
 setting such as the following:
 
     set unit 6mm
@@ -153,7 +153,7 @@ what actions to take.  Following is a list of all instruction names:
 
   + `unit`
 
-    This command sets the unit length for each grid. Input will be checked 
+    This command sets the unit length for each grid. Input will be checked
     such that it must be an integer followed by a unit that must be
     "in", "mm", or "cm".
 
@@ -170,7 +170,7 @@ what actions to take.  Following is a list of all instruction names:
     config grid 1
     ```
 
-    So far this is the only config option. 
+    So far this is the only config option.
 
   + `set`
 
@@ -197,7 +197,7 @@ what actions to take.  Following is a list of all instruction names:
   + `save`   
 
     Save the last path to one or more path variables.
-    This will create or modify a list path variable and generate an entry 
+    This will create or modify a list path variable and generate an entry
     in the MetaPost output. For example, such as the following.
 
     ```
@@ -222,10 +222,10 @@ what actions to take.  Following is a list of all instruction names:
     save a:b
     ```
 
-  + `showvar` - send the output of a particular variable 
+  + `showvar` - send the output of a particular variable
 
     This command can be used anytime to send the value of a particular
-    path to the generated mplibcode block. 
+    path to the generated mplibcode block.
 
   + `exit` - this command will halt the processing of the rest
     of the instruction.  It can be used to temporary avoiding
@@ -271,7 +271,7 @@ what actions to take.  Following is a list of all instruction names:
     change as part of an variable assignment statement, or 'save' statement,
     nor will it change for a 'set', 'reset' that does not involve creating a
     new path description. This arrangement allows an existing 'all' to be used
-    many times by 'save' or assignment statement to extract part of the content 
+    many times by 'save' or assignment statement to extract part of the content
     from 'all' to create other variables.
 
     ```
@@ -296,7 +296,7 @@ what actions to take.  Following is a list of all instruction names:
   + `label.llft`
 
     Draw a text label at each path point.
-    
+
   + shape   
 
     Draw a shape at each path point.
@@ -363,11 +363,11 @@ what actions to take.  Following is a list of all instruction names:
     Each circle, half circle, quarter circle, or actant is to be positioned
     so that their center aligns with the path point.
 
-  + `drawanglearc` - draw a small arc denoting the interior of an angle 
+  + `drawanglearc` - draw a small arc denoting the interior of an angle
   + `drawanglearc.sq ` - draw a small square denoting the interior of a right angle
 
     These two instructions are designed to an interior arc denoting the span of an angle.
-    The first draws the the arc and the second one draws a square. 
+    The first draws the the arc and the second one draws a square.
 
     Both of these instructions need three coordinates and only takes first
     three coordinates.  The first point is assumed to be the vertex of the
@@ -378,9 +378,9 @@ what actions to take.  Following is a list of all instruction names:
     the point of (4,4) and its second side goes through the point (4,5). This
     is a 45-degree angle spanning from 0 to 45.
 
-    ``` 
-    drawanglearc (3,4) (4,4) (4,5) 
-    drawanglearc.sq (3,4) (4,4) (4,5) 
+    ```
+    drawanglearc (3,4) (4,4) (4,5)
+    drawanglearc.sq (3,4) (4,4) (4,5)
     ```
 
     The `drawanglearc` instruction draw a small arc in the interior of an angle.
@@ -389,7 +389,7 @@ what actions to take.  Following is a list of all instruction names:
     will start to increase to accommodate for the lack of visible spaces
     between two sides of the angle.  The maximum radius is capped at 2+1/2 grid
     unit.
-    
+
     The `drawanglearc.sq` draws the square marker for denoting a right angle. Note that
     it should only be used for a known right angle.  The measurement of the
     side of the square is always that of 1/2 unit length.
@@ -398,7 +398,7 @@ what actions to take.  Following is a list of all instruction names:
   + `rect.parallelgram` - draw/fill a parallelgram area
 
     The `rect` instruction would draw/fill a rectangle area. The width of the area
-    is provided by (rectw). The height of the rectangle is (recth). 
+    is provided by (rectw). The height of the rectangle is (recth).
 
     The default operation is to draw the outline of the rectangle. However, if
     the (filldraw) setting is set to 'fill' or 'filldraw' then an attemp is made
@@ -418,12 +418,12 @@ what actions to take.  Following is a list of all instruction names:
     overall width from the topleft and 30 percent of the overall width from the
     bottomright.
 
-  + `dot` - draw a dot at each path point 
+  + `dot` - draw a dot at each path point
 
     These instructions are to mark a point, i.e., to identify the location of a
     point in a plane by showing a visible round black dot.  The `dot` instruction
     will draw a circular dot. The default size of the dot is '4pt', but can be
-    changed by the (dotsize) setting, for example to set to a string of '5pt'. 
+    changed by the (dotsize) setting, for example to set to a string of '5pt'.
 
     The color of the dot is set to black, unless changed by the (dotcolor)
     setting, which must follow a MetaPost syntax for colors, i.e.,
@@ -437,39 +437,15 @@ what actions to take.  Following is a list of all instruction names:
     These instructions can be used to draw tick markers, i.e., the one that
     can be found along a number line.
 
-    The length of the tick is default to 0.33 grid unit. This is how far 
+    The length of the tick is default to 0.33 grid unit. This is how far
     it will extend itself away from the point. But it can be changed
     changed by the (ticklength) setting, for example to set to a string of '0.75'
-    will make a 0.75 grid unit long. 
+    will make a 0.75 grid unit long.
 
     The color of the grid is set to black, unless changed by the (tickcolor)
     setting, which must follow a MetaPost syntax for colors, i.e.,
     "0.5[red,white]" , etc. The thickness of the line can be changed by setting
     the (ticksize). The default is "1pt".
-
-
-  + drawrect
-  + drawparallelgram
-  + drawfullcircle
-  + drawupperhalfcircle
-  + drawlowerhalfcircle
-  + drawlefthalfcircle
-  + drawrighthalfcircle
-  + drawquadrantonecircle
-  + drawquadranttwocircle
-  + drawquadrantthreecircle
-  + drawquadrantfourcircle
-  + drawcirclechord
-  + drawanglearc
-  + drawrightanglearc
-  + drawdot
-  + drawline
-  + drawvdot
-  + drawlvdot
-  + drawuvdot
-  + drawhdot
-
-    These instructions are being deprecated. 
 
 
 ## Path expression
@@ -509,7 +485,7 @@ at the given location.
     label.top {C} (3,4)
 
 The default `label` instruction will position the text so that it is centered
-at the path point. Other variants of the `label` instruction is to allow the 
+at the path point. Other variants of the `label` instruction is to allow the
 text to be positioned around the location of the point.
 
     label.top   -  top
@@ -525,12 +501,12 @@ All `label` instructions are designed to draw the same label at multiple
 locations. For example, we can draw the same letter A three times
 each at three different locations such as follows.
 
-    label {A} (1,1) (2,2) (3,4) 
+    label {A} (1,1) (2,2) (3,4)
 
-We can also ask a differet label to be drawn at a different 
+We can also ask a differet label to be drawn at a different
 location by writing the text label like the following:
 
-    label {A\\B\\C} (1,1) (2,2) (3,4) 
+    label {A\\B\\C} (1,1) (2,2) (3,4)
 
 This will draw the label "A", "B", and "C" respectly each at a different
 location that is (1,1), (2,2), and (3,4). Note that all the labels will be
@@ -540,14 +516,14 @@ centered at the location because the instruction is `label`.
 # The set instruction
 
 The `set` instruction is used to modify one of the  settings so that
-it can be changed to a new value. 
+it can be changed to a new value.
 
     set rectw  29
     set recth  12
 
 The first word after the word set is recognized as the name of the setting.
-All texts after the setting name is considered the value of the setting. 
-To restore the setting to its default value call the `set` instruction 
+All texts after the setting name is considered the value of the setting.
+To restore the setting to its default value call the `set` instruction
 with a setting name but do not provide an actual value.
 
     set rectw
@@ -564,37 +540,37 @@ Following is a list of all settings.
 |Command setting |Description                                          |
 |----------------|-----------------------------------------------------|
 |refx            |Set an offset number to offset coordinate in x-axis. |
-|                |Ex. if refx is set to 4 a source coordinate of       | 
-|                |(2,0) will map to (6,0).                             | 
+|                |Ex. if refx is set to 4 a source coordinate of       |
+|                |(2,0) will map to (6,0).                             |
 |                |Must be set to a number zero or greater, and no more |
-|                |than the total number of grids in the horizontal.    | 
+|                |than the total number of grids in the horizontal.    |
 |----------------|-----------------------------------------------------|
 |refy            |Same as refx bug does it for its y-coordinate.       |
 |                |Must be set to a number zero or greater, and no more |
-|                |than the total number of grids in the vertical.      | 
+|                |than the total number of grids in the vertical.      |
 |                |                                                     |
-|                |                                                     | 
+|                |                                                     |
 |----------------|-----------------------------------------------------|
 |refsx           |Set a scalar number to scale coordinate in x-axis.   |
 |                |Ex. if refx is set to 6 and refsx      is set to 3,  |
-|                |For a coord that is specified as (2,0),              | 
-|                |it is first scaled three times which puts it at (6,0)| 
-|                |before being shifted 6 grids to the right which puts | 
-|                |it at (12,0), which is its final displayed position. | 
-|                |Must be set to a number between 0.1 and 10.          | 
+|                |For a coord that is specified as (2,0),              |
+|                |it is first scaled three times which puts it at (6,0)|
+|                |before being shifted 6 grids to the right which puts |
+|                |it at (12,0), which is its final displayed position. |
+|                |Must be set to a number between 0.1 and 10.          |
 |----------------|-----------------------------------------------------|
 |refsy           |Same as refsx      but does it in y-axis.            |
 |                |                                                     |
-|                |                                                     | 
+|                |                                                     |
 |----------------|-----------------------------------------------------|
 |fontsize        |Set to a font size specification such as '14pt'.     |
 |                |Used when drawing text labels.                       |
-|                |                                                     | 
+|                |                                                     |
 |----------------|-----------------------------------------------------|
 |slant           |Set to a floating point number between 0.1 and 0.9   |
 |                |expressing the proportion of the overall parallelgram|
-|                |width reserved for the slanted part of the shape.    | 
-|                |Default is 0.3.                                      | 
+|                |width reserved for the slanted part of the shape.    |
+|                |Default is 0.3.                                      |
 |----------------|-----------------------------------------------------|
 |linecolor       |Set the color used when drawing lines, such as "red".|
 |                |It is used by the drawline instruction.              |
@@ -654,7 +630,7 @@ Following is a list of all settings.
 |                |filling, or filling/drawing at the same time.        |
 |                |The arguments are: 'draw', 'fill', or 'filldraw'     |
 |----------------|-----------------------------------------------------|
-``` 
+```
 
 
 ## Path functions        
@@ -666,8 +642,8 @@ letters a, b, c are path variables.
   + midpoint(a)     
   + midpoint(a,0.2)     
 
-    This function returns the mid point of the first two points in a path 
-    expression if a single argument is given. 
+    This function returns the mid point of the first two points in a path
+    expression if a single argument is given.
 
     ```
     a := (1,1) (2,3) (3,4)
@@ -675,8 +651,8 @@ letters a, b, c are path variables.
     ```
 
     This will return a path with a single point: (1.5,2)
-    
-    If two arguments are given, it does a linear interpolation alone the 
+
+    If two arguments are given, it does a linear interpolation alone the
     line segment of the first two points, and return a point that corresponds
     to the percentage of the path traveled from the first point to the second.
     The second argument is an floating point number between 0-1.
@@ -701,17 +677,17 @@ letters a, b, c are path variables.
   + somepoints(a,2,2)
   + somepoints(a,2,5)
   + somepoints(a,5,2)
-    
+
     This function can be called with 2 arguments or 3. If called with 2, it is
     to return a new path containing a single point at the index location
     of its original path. The first argument is always a path variable. The
     second argument is always interpreted as an integer.
 
-    If called with three arguments, the last argument is also to be treated as 
-    an integers. The returned path is to contain all points between the 
+    If called with three arguments, the last argument is also to be treated as
+    an integers. The returned path is to contain all points between the
     index locations specified by the last two arguments. The order
     of the points will be so arranged so that the index location of the first
-    integer is to appear first, followed by a point moving towards the 
+    integer is to appear first, followed by a point moving towards the
     second index location. Thus, this function can be used to return an inverse
     order of the points of the original path.
 
@@ -719,19 +695,19 @@ letters a, b, c are path variables.
   + allpoints(a,b)    
   + allpoints(a,b,c)    
   + allpoints(a,b,c,...)    
-    
+
     This function can be called with 0 arguments to infinitely numbered.
     It is to return a new path with all the point in the variable.
 
   + shiftpoints(a,-1,2)
-   
+
     This function is always needed to be provided with three arguments. The
     first argument is always interpreted as a path variable. The second
     and the third arguments are to be interpreted as expressing length
     in grid unit. This function is to return a new path with exact the same
     number of points, except for that all the points will have been shifted
     by the number of grid units specified in the argument. For example,
-    following would have shifted all the points in the original path 
+    following would have shifted all the points in the original path
     one position to the left and two positions up.
 
     ```
@@ -742,11 +718,11 @@ letters a, b, c are path variables.
 
     This function is to create new path with the number of points evenly distributed
     beteen the two end points. In the previous example there will be 10 points created
-    in a path such that the first point is (1,0), and the last point is (10,0), 
+    in a path such that the first point is (1,0), and the last point is (10,0),
     and the rest of the points will be spaced evenly between the first and the last.
 
   + rectpoints(0,2,4,3)  
-    
+
     Returns new a path that describes the rectangle with its lower left at (0,2)
     and with a width of 4 and a height of 3; the path is closed with the last
     point a null point. In this case, the return point is equivalent to the following.
@@ -760,7 +736,7 @@ letters a, b, c are path variables.
 
 Following are built-in path variables that can be used.
 
-  + all 
+  + all
 
     This path variable is automatically assigned to the path used by the
     last instruction.
@@ -780,7 +756,7 @@ Following are built-in path variables that can be used.
 This instruction is designed to draw a shape at each one of the path points.
 
 Note that each shape can only be draw at its natural size and shape. There
-is no provision to scale it. 
+is no provision to scale it.
 
 The origin of the shape is determined by each shape itself.  For example,
 for 'brick' shape the origin is at its lower-left hand corner.  For
@@ -809,5 +785,3 @@ As of writing, following shape exists:
 |              |where the small hold is for aligning with the angle vertex. |
 |--------------|------------------------------------------------------------|
 ```
-
-

@@ -68,9 +68,9 @@ tick.lft (26,1)
 
 % angle
 stroke (28,1)--(31,1)
-save a:b
+a/b := *
 stroke (28,1)--(31,5)--(31,7)--cycle
-save :c::e
+/c//e := *
 drawanglearc a b c
 
 % fill/filldraw
@@ -194,39 +194,6 @@ what actions to take.  Following is a list of all instruction names:
     reset
     ```
 
-  + `save`   
-
-    Save the last path to one or more path variables.
-    This will create or modify a list path variable and generate an entry
-    in the MetaPost output. For example, such as the following.
-
-    ```
-    save a b c                  
-    ```
-
-    This will generate as a MetaPost output as the following assumeing
-    (1,1) (2,2) (3,4) is the last path that was being used.
-
-    ```
-    path a; a := (1,1) (2,2) (3,4)
-    path b; b := (1,1) (2,2) (3,4)
-    path c; c := (1,1) (2,2) (3,4)
-    ```
-
-    This instruction can also be used to decompose the individual
-    points of an existing path. Following will extract the first
-    point from the last path and assign it to variable 'a'
-    and the second point to a variable 'b'.
-
-    ```
-    save a:b
-    ```
-
-  + `showvar` - send the output of a particular variable
-
-    This command can be used anytime to send the value of a particular
-    path to the generated mplibcode block.
-
   + `exit` - this command will halt the processing of the rest
     of the instruction.  It can be used to temporary avoiding
     some instruction to aid debugging.
@@ -234,56 +201,108 @@ what actions to take.  Following is a list of all instruction names:
   + `a := (1,1) (2,2) (3,4)`
   + `b := a{up} .. (5,5) .. (6,7)`
 
-    Create a new path variable or modify an existing path variable
-    to a new path description.
-    Note that a path could also hold other variables as a subpath.
-    Each variable will be held internally as an individual point
-    and written down as a 'path variable' when exporting as a MetaPost
-    statement. In addition, each variable assigned this way will
-    result in a `path` statement exported as part of a MetaPost
-    statement. Thus, the previous two instructions will result in
-    generating of MetaPost statements as follows.
+    This is what is called an "assignment statement."
+
+    This statement is to create a new path description that is assigned
+    to a new variable. This variable is also to appear as part of the MP
+    'path' statement. Following is the OUTPUT in the translated LATEX  
+    document between '\begin{mplibcode}' and '\end{mplibcode}'.
 
     ```
     path a; a := (1,1) -- (2,2) -- (3,4)
     path b; b := a{up} .. (5,5) .. (6,7)
     ```
 
-    There is an internal variable named 'all' that serves as a temporary place
-    to hold a path description that was used by the last instruction. It is
-    also to be used by the 'save' instruction when creating new variables.
-    This variable can be referred to in a path function such as
+    A assignment statement can include path functions, other variables,
+    and the wildcard variable. 
 
     ```
-    a := $somepoints(all,2,5)
+    a := $somepoints(*,2,5)
+    a := * (4,5) (6,7)
     ```
 
-    However, it cannot appear as part of a path description such as the following:
-
-    ```
-    % ***ERROR***
-    stroke all
-    ```
-
-    Note that the 'all' variable will be modified everytime a new path
-    description is created, such as by statement 'stroke', 'fill', 'drawarrow',
-    'dot', 'label', 'circle', etc. However, the content of 'all'  will not
-    change as part of an variable assignment statement, or 'save' statement,
-    nor will it change for a 'set', 'reset' that does not involve creating a
-    new path description. This arrangement allows an existing 'all' to be used
-    many times by 'save' or assignment statement to extract part of the content
-    from 'all' to create other variables.
+    Note the wildcard variable '*' will be modified everytime a new path
+    description is created, such as with a statement that 'stroke', 'fill',
+    'drawarrow', 'dot', 'label', 'circle', etc. The wildcard variable of '*'
+    will not be modifed by an assignment statement using ':=', nor will it
+    change for a 'set', 'reset' that does not involve creating a new path
+    description.  This allows you to invoke a "draw" command such as 'stroke'
+    then followed by one or more assignment statement to extract part of the
+    points in the path description described by the 'stroke' statement.
 
     ```
     stroke (1,1) (2,2) (3,4) ()
-    save a:b:c
-    ab := $somepoints(all,0,1)
+    a := *
     ```
 
-    Also note that when extracing contents of an existing path, the actual
-    coordinates are the original ones that were in the coords. This means that
-    these numbers will be subjected to interpretation depending on the settings
-    of 'refx', 'refy', 'refsx', and 'refsy' at the time of operation.
+    Here, a new path variable 'a' will be created that would have been assigned
+    the same path points as that of the 'stroke' command.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    a := $somepoints(*,0,1)
+    ```
+
+    Here, a new path variable 'a' will be created that would have been assigned
+    the first two points which are: (1,1) and (2,2).
+
+    Also note that all points assigned to a path variable will be reinterpreted
+    based on the latest values of 'refx', 'refy', 'refsx', and/or 'refsy'
+    settings, and thus could be mapped to a different set points.
+
+    The assignment statement also has provision to allow for something akin to
+    JavaScript "array destructuring" statement. In such such a case you would
+    provide two or more variables separated by the slash (/) character, and the
+    variables inbetween them will each be assigned one of the points in the
+    path.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    a/b/c := *
+    ```
+
+    In the previous example, the first two points are each assigned to variable
+    'a' and 'b', and the last two points assigned to variable 'c'.  The
+    "destructuring" allows you to create multiple variables such as 'a', 'b',
+    and 'c' immediately without having to call the path function such as
+    `$somepoints()` to extract invidual points.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    a := $somepoints(*,0,0)
+    b := $somepoints(*,1,1)
+    c := $somepoints(*,2,3)
+    ```
+
+    You can skip certain points by not including any variables in between
+    slashes. For example, you can choose to assign the first point to variable
+    'a' and the third point to variable 'b' as follows.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    a//b := *
+    ```
+
+    Note that the last variable always gets all the remaining points.  In the
+    previous example, variable 'b' will get the last two points, which are
+    (3,4) and (1,1) because () means 'cycle', or the first point.  However, you
+    can choose to allow only a single point to be assigned to the last variable
+    by including an additional slash after this variable.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    a//b/ := *
+    ```
+
+    Similarly you can also add slashes at the beginning to skip
+    first points. Following example will skip the first two 
+    points and assign the third point to variable 'a'.
+
+    ```
+    stroke (1,1) (2,2) (3,4) ()
+    //a/ := *
+    ```
+  
 
   + `label`
   + `label.rt`

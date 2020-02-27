@@ -361,7 +361,7 @@ A packed list block is also know as a PLST block.
 A "description block" is the one that starts with one or more at-signs at the beginning of the first line of a paragraph. It is to be followed with a space and then more texts. The texts of the rest of the first line is the term to be described. The second line of the paragraph and the line afterwards are treated as the description for this term.
 
 ```
-@ Apple
++ Apple
   A great fruit.
 ```
 
@@ -370,9 +370,9 @@ Each description block is designed to provide description text for one or more t
 If two or more terms are to be placed one following another they are to be recognized, for as long as they both start at the left-most of the column with each line having the exact same number of leading at-signs.
 
 ~~~
-@ Apple
-@ Pear
-@ Banana
++ Apple
++ Pear
++ Banana
   These are all great fruits.
 ~~~
 

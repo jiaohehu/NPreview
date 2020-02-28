@@ -342,6 +342,41 @@ what actions to take.  Following is a list of all instruction names:
     ```
  
     In such a case three dots will be drawn in three locations that are: (1,2), (2,3), and (3,4).
+    You can also include an addition integer after the symbol to express a particular point
+    at that index location. Following example will draw only two dots at (2,3) and (3,4), while
+    skipping the first one. 
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    dot *p1 *p2
+    ```
+
+    This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the same as
+    `$somepoints(p,2)`. You can even use the following syntax to construct a new path.
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    drawarrow *p1{up}..*p2
+    ```
+
+    This will draw a curved arrow coming out of the second point of 'p' going up and then
+    coming down passing through the third point of 'p'. Following example draw a dot on 
+    all internal points of a path that is both 'p' and 'q'.
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    q := (7,8) (8,9) (9,10)
+    dot *p *q
+    ```
+
+    This is equivalent to the following.
+ 
+    ```
+    p := (1,2) (2,3) (3,4)
+    q := (7,8) (8,9) (9,10)
+    dot $allpoints(p,q)
+    ```
+
 
   + `label`
   + `label.rt`

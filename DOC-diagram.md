@@ -25,7 +25,7 @@ drawline a
 drawline b
 
 % circles
-set areaop filldraw
+
 set fillcolor 0.8[red,white]
 set angle1 0
 set angle2 90
@@ -213,7 +213,7 @@ what actions to take.  Following is a list of all instruction names:
     path b; b := a{up} .. (5,5) .. (6,7)
     ```
 
-    A assignment statement can include path functions, other variables,
+    A assignment statement can include path functions, path variables,
     and the wildcard variable. 
 
     ```
@@ -221,34 +221,39 @@ what actions to take.  Following is a list of all instruction names:
     a := * (4,5) (6,7)
     ```
 
-    Note the wildcard variable '*' will be modified everytime a new path
-    description is created, such as with a statement that 'drawline', 'fill',
-    'drawarrow', 'dot', 'label', 'circle', etc. The wildcard variable of '*'
-    will not be modifed by an assignment statement using ':=', nor will it
-    change for a 'set', 'reset' that does not involve creating a new path
-    description.  This allows you to invoke a "draw" command such as 'drawline'
-    then followed by one or more assignment statement to extract part of the
-    points in the path description described by the 'drawline' statement.
+    Note that the wildcard variable '*' will be modified everytime a new path
+    description is created with a statement such as 'drawline', 'fill',
+    'drawarrow', 'dot', 'label', 'circle', etc. The wildcard variable of '*' will
+    not be modifed by an assignment statement with ':=', nor will it be modified by
+    a 'set', 'reset' statement that does not involve a path description.  This
+    allows for extracting information from the wildcard variable multiple times.
 
     ```
     drawline (1,1) (2,2) (3,4) ()
     a := *
+    b := *
+    c := *
     ```
 
-    Here, a new path variable 'a' will be created that would have been assigned
-    the same path points as that of the 'drawline' command.
+    Here, a new path variable 'a', 'b', and 'c' will all be created that would
+    have been assigned the same path points as that of the 'drawline' command.
+    You can also use a wildcard variable any where inside a path function where
+    a symbol is to be expected.
 
     ```
     drawline (1,1) (2,2) (3,4) ()
     a := $somepoints(*,0,1)
     ```
 
-    Here, a new path variable 'a' will be created that would have been assigned
-    the first two points which are: (1,1) and (2,2).
+    In the previous example the same path that was being used for 'drawline'
+    is now pulled to extract its first and second element to be assigned
+    to the 'a' variable. The 'a' variable will be a path of two points
+    after the assignment statement returns.
 
-    Also note that all points assigned to a path variable will be reinterpreted
-    based on the latest values of 'refx', 'refy', 'refsx', and/or 'refsy'
-    settings, and thus could be mapped to a different set points.
+    Also note that all the coordinates of a path corresponds directly to the    
+    value entered. If there are value of 'refx', 'refy', 'refsx', and/or 'refsy',
+    the original points stored with a path variable is always the same regardless
+    the current values of the 'refx', 'refy', 'refsx', and 'refsy'.
 
     The assignment statement also has provision to allow for something akin to
     JavaScript "array destructuring" statement. In such such a case you would
@@ -302,7 +307,41 @@ what actions to take.  Following is a list of all instruction names:
     drawline (1,1) (2,2) (3,4) ()
     //a/ := *
     ```
-  
+
+    For a regular path variable, if you use it directly, then it is being treated
+    as a subpath. In the case of 'drawline', 'fill', 'filldraw', 'drawarrow', 'drawdblarrow',
+    the path is being considered as a whole, and the subpath points will be considered part
+    of the main path.
+
+    However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
+    is just another point. Thus, if you have a path 'p' that contains three points, and then 
+    you pass it to 'dot' command which is designed to draw dots. The followign statement will
+    only draw one dot which is at (1,2).
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    dot p
+    ```
+
+    This is because the entire 'p' is considered a single point by the 'dot' command, rather than three
+    points such as the following. 
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    dot (1,2) (2,3) (3,4)
+    ```
+
+    When being considered as a single point, only the first point of the path is extracted. Because the
+    first point of 'p' is (1,2), the dot is drawn at that position and that position only.
+    Now to allow dot to be drawn for *all* positions of a path, you would need to place a asterisk in 
+    front of it such as:
+
+    ```
+    p := (1,2) (2,3) (3,4)
+    dot *p
+    ```
+ 
+    In such a case three dots will be drawn in three locations that are: (1,2), (2,3), and (3,4).
 
   + `label`
   + `label.rt`
@@ -325,8 +364,8 @@ what actions to take.  Following is a list of all instruction names:
     shape {brick\\radical4} (0,12) (12,12)
     ```
 
-  + `drawline` - drawline a given path.
-  + `fill`  - fill a path  
+  + `drawline` - draw straight line or curves described by a path
+  + `fill`  - fill a path that might have straight or curved lines
   + `filldraw`  - fill a path with fillcolor and then drawline the path with the linecolor
   + `drawdblarrow` - drawline a given path and place an arrow head at the beginning and end
   + `drawarrow` - drawline a given path and place an arrow at the end
@@ -403,18 +442,27 @@ what actions to take.  Following is a list of all instruction names:
     ```
 
     The `drawanglearc` instruction draw a small arc in the interior of an angle.
-    The arc is draw close to the vertex with a radius of 1/2 of
-    the grid unit.  When the angle becomes 60-deg or less the radius of the arc
-    will start to increase to accommodate for the lack of visible spaces
-    between two sides of the angle.  The maximum radius is capped at 2+1/2 grid
-    unit.
+    The arc is draw close to the vertex with a radius that is controlled by
+    the 'anglearcradius' option. Default is set to 1/2 grid unit length.
 
     The `drawanglearc.sq` draws the square marker for denoting a right angle. Note that
     it should only be used for a known right angle.  The measurement of the
-    side of the square is always that of 1/2 unit length.
+    side of the square is controlled by the 'anglearcradius' option.
+
+    Latest addition also allows for a text label to be positioned relative to the 
+    arc or sq. The amount of distances from the angle vertex is controled by
+    the 'anglearclabelradius' which is always in grid unit length.  To specify
+    text label, includes it as the first argument before any coordinates.
+
+    ```
+    drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
+    drawanglearc.sq {1} (3,4) (4,4) (4,5)
+    ```
 
   + `rect` - draw/fill a rectangle area
   + `rect.parallelgram` - draw/fill a parallelgram area
+  + `rect.rhombus`      - draw/fill a rhombus shape     
+  + `rect.trapezoid`    - draw/fill a trapezoid shape   
 
     The `rect` instruction would draw/fill a rectangle area. The width of the area
     is provided by (rectw). The height of the rectangle is (recth).
@@ -436,6 +484,16 @@ what actions to take.  Following is a list of all instruction names:
     "0.3" which is default, then the incursion is to be 30 percent of the
     overall width from the topleft and 30 percent of the overall width from the
     bottomright.
+
+    The `rect.rhombus` shape is drawn with diamond head and tail pointing 
+    to the left and right. There is currently no provision to change
+    its size so it will be the same size for now.
+
+    The `rect.trapezoid` shape is drawn with a base larger than the top.    
+    Also, the encroachmentment from the left at the top is 20 percent of the
+    total width. The encroachment from the right at the top is 40 percent of
+    the total width.  Currently these numbers are fixed but future improvement
+    will likely to provide options to allow for adjustments.
 
   + `dot` - draw a dot at each path point
 
@@ -555,100 +613,112 @@ with a setting name but do not provide an actual value.
 Following is a list of all settings.
 
 ``` tabularx
-|----------------|-----------------------------------------------------|
-|Command setting |Description                                          |
-|----------------|-----------------------------------------------------|
-|refx            |Set an offset number to offset coordinate in x-axis. |
-|                |Ex. if refx is set to 4 a source coordinate of       |
-|                |(2,0) will map to (6,0).                             |
-|                |Must be set to a number zero or greater, and no more |
-|                |than the total number of grids in the horizontal.    |
-|----------------|-----------------------------------------------------|
-|refy            |Same as refx bug does it for its y-coordinate.       |
-|                |Must be set to a number zero or greater, and no more |
-|                |than the total number of grids in the vertical.      |
-|                |                                                     |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|refsx           |Set a scalar number to scale coordinate in x-axis.   |
-|                |Ex. if refx is set to 6 and refsx      is set to 3,  |
-|                |For a coord that is specified as (2,0),              |
-|                |it is first scaled three times which puts it at (6,0)|
-|                |before being shifted 6 grids to the right which puts |
-|                |it at (12,0), which is its final displayed position. |
-|                |Must be set to a number between 0.1 and 10.          |
-|----------------|-----------------------------------------------------|
-|refsy           |Same as refsx      but does it in y-axis.            |
-|                |                                                     |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|fontsize        |Set to a font size specification such as '14pt'.     |
-|                |Used when drawing text labels.                       |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|slant           |Set to a floating point number between 0.1 and 0.9   |
-|                |expressing the proportion of the overall parallelgram|
-|                |width reserved for the slanted part of the shape.    |
-|                |Default is 0.3.                                      |
-|----------------|-----------------------------------------------------|
-|linecolor       |Set the color used when drawing lines, such as "red".|
-|                |It is used by the drawline instruction.              |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|linewidth       |Set the width of the line when drawing lines,        |
-|                |such as "4pt".                                       |
-|                |It is used when drawing lines.                       |
-|----------------|-----------------------------------------------------|
-|fillcolor       |Set the color used when filling an area, i.e., "red".|
-|                |It is used when drawing an area.                     |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|dotcolor        |Set the color used for drawing dots, such as "red".  |
-|                |It is used by the drawdot instruction.               |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|dotsize         |Configure the size of the dot to be drawn, such as   |
-|                |"8pt". Used by the `dot` instruction. The default    |
-|                |is "4pt".                                            |
-|----------------|-----------------------------------------------------|
-|tickcolor       |Set the color used for drawing ticks, i.e.,  "red".  |
-|                |It is used by the `tick`  instruction.               |
-|                |The default is empty, which MetaPost assume as black.|
-|----------------|-----------------------------------------------------|
-|ticksize        |Configure the thickness of the line for ticks.       |
-|                |i.e, "2pt". The default is "1pt".                    |
-|                |It is used by the `tick` instruction.                |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|ticklength      |Configure how far away the end point is from the     |
-|                |axis line. The default is 0.33 grid unit.            |
-|                |The maximum is "1.0", the minimum is "0.1".          |
-|----------------|-----------------------------------------------------|
-|rectw           |Set to a number that is the width of the rectangle.  |
-|                |This is to be used with the drawrect instruction.    |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|recth           |Set to a number that is the height of the rectangle. |
-|                |This is to be used with the drawrect instruction.    |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|diameter        |This is to express the length of the diameter for    |
-|                |an circle.                                           |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|angle1          |This is to express the measurement of the first      |
-|                |angle.                                               |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|angle2          |This is to express the measurement of the second     |
-|                |angle.                                               |
-|                |                                                     |
-|----------------|-----------------------------------------------------|
-|areaop          |This is to express how an area operation such as     |
-|                |`circle`, `circle.cseg` is going to do just drawing, |
-|                |filling, or filling/drawing at the same time.        |
-|                |The arguments are: 'draw', 'fill', or 'filldraw'     |
-|----------------|-----------------------------------------------------|
+|--------------------|-----------------------------------------------------|
+|Command setting     |Description                                          |
+|--------------------|-----------------------------------------------------|
+|refx                |Set an offset number to offset coordinate in x-axis. |
+|                    |Ex. if refx is set to 4 a source coordinate of       |
+|                    |(2,0) will map to (6,0).                             |
+|                    |Must be set to a number zero or greater, and no more |
+|                    |than the total number of grids in the horizontal.    |
+|--------------------|-----------------------------------------------------|
+|refy                |Same as refx bug does it for its y-coordinate.       |
+|                    |Must be set to a number zero or greater, and no more |
+|                    |than the total number of grids in the vertical.      |
+|                    |                                                     |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|refsx               |Set a scalar number to scale coordinate in x-axis.   |
+|                    |Ex. if refx is set to 6 and refsx      is set to 3,  |
+|                    |For a coord that is specified as (2,0),              |
+|                    |it is first scaled three times which puts it at (6,0)|
+|                    |before being shifted 6 grids to the right which puts |
+|                    |it at (12,0), which is its final displayed position. |
+|                    |Must be set to a number between 0.1 and 10.          |
+|--------------------|-----------------------------------------------------|
+|refsy               |Same as refsx      but does it in y-axis.            |
+|                    |                                                     |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|fontcolor           |Set a string that describes the color, such as       |
+|                    |'green', 'red', 'blue', 'black', and 'white'.        |
+|                    |Only the five colors are supported.                  |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|fontsize            |Set to a font size specification such as '14pt'.     |
+|                    |Used when drawing text labels.                       |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|slant               |Set to a floating point number between 0.1 and 0.9   |
+|                    |expressing the proportion of the overall parallelgram|
+|                    |width reserved for the slanted part of the shape.    |
+|                    |Default is 0.3.                                      |
+|--------------------|-----------------------------------------------------|
+|linedashed          |Set a string that is either 'evenly', or 'withdots'  |
+|                    |that is to control the appearances of the dashes.    |
+|                    |Default is empty, that a solid line is to be drawn.  |
+|--------------------|-----------------------------------------------------|
+|linecolor           |Set the color used when drawing lines, such as "red".|
+|                    |It is used by the drawline instruction.              |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|linewidth           |Set the width of the line when drawing lines,        |
+|                    |such as "4pt".                                       |
+|                    |It is used when drawing lines.                       |
+|--------------------|-----------------------------------------------------|
+|fillcolor           |Set the color used when filling an area, i.e., "red".|
+|                    |It is used when drawing an area.                     |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|dotcolor            |Set the color used for drawing dots, such as "red".  |
+|                    |It is used by the drawdot instruction.               |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|dotsize             |Configure the size of the dot to be drawn, such as   |
+|                    |"8pt". Used by the `dot` instruction. The default    |
+|                    |is "4pt".                                            |
+|--------------------|-----------------------------------------------------|
+|tickcolor           |Set the color used for drawing ticks, i.e.,  "red".  |
+|                    |It is used by the `tick`  instruction.               |
+|                    |The default is empty, which MetaPost assume as black.|
+|--------------------|-----------------------------------------------------|
+|ticksize            |Configure the thickness of the line for ticks.       |
+|                    |i.e, "2pt". The default is "1pt".                    |
+|                    |It is used by the `tick` instruction.                |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|ticklength          |Configure how far away the end point is from the     |
+|                    |axis line. The default is 0.33 grid unit.            |
+|                    |The maximum is "1.0", the minimum is "0.1".          |
+|--------------------|-----------------------------------------------------|
+|rectw               |Set to a number that is the width of the rectangle.  |
+|                    |This is to be used with the drawrect instruction.    |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|recth               |Set to a number that is the height of the rectangle. |
+|                    |This is to be used with the drawrect instruction.    |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|diameter            |This is to express the length of the diameter for    |
+|                    |an circle.                                           |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|angle1              |This is to express the measurement of the first      |
+|                    |angle.                                               |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|angle2              |This is to express the measurement of the second     |
+|                    |angle.                                               |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|anglearcradius      |This is to provide the radius that will be used when |
+|                    |drawing an small arc for an angle.                   |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|anglearclabelradius |This is to provide the radius that will be used when |
+|                    |drawing a text label next to the arc.                |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
 ```
 
 

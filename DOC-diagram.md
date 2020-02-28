@@ -120,7 +120,7 @@ to MetaPost, each unit length is abstracted using a variable named 'u' that
 is preset to be of '4mm'. You can also change it by setting the (unit)
 setting such as the following:
 
-    set unit 6mm
+    unit 6mm
 
 A grid line is always shown as part of the diagram. The total number of
 horizontal grids depends on the (width) setting.  The total number of vertical
@@ -625,23 +625,6 @@ location that is (1,1), (2,2), and (3,4). Note that all the labels will be
 centered at the location because the instruction is `label`.
 
 
-# The set instruction
-
-The `set` instruction is used to modify one of the  settings so that
-it can be changed to a new value.
-
-    set rectw  29
-    set recth  12
-
-The first word after the word set is recognized as the name of the setting.
-All texts after the setting name is considered the value of the setting.
-To restore the setting to its default value call the `set` instruction
-with a setting name but do not provide an actual value.
-
-    set rectw
-    set recth
-
-
 
 ## The settings
 
@@ -854,44 +837,27 @@ letters a, b, c are path variables.
     considered. The rest of the points of 'a' and 'b' are ignored.
     
     Note that the returned point might have Infinity or NaN due to the nature 
-    of parallelness. 
+    of parallelness.  In the following example the path variable 'c' will hold
+    one point: (2,2)
 
 
     ```
     a := (0,2) (4,2) 
-    b := (2,0) (6,0) 
+    b := (2,0) (2,6) 
     c := $lineintersect(a,b)
     ```
 
   + linecircleintersect(a,c,diameter)
 
     Returns new a path that contains two points for the line and circle intersection.
+    In the following diagram the pts variable 'pts' will hold two points: (6,4) and
+    (3.6, 2.8).
 
     ```
     a := (2,2) (6,2) 
     c := (5,3) 
-    pts := $linecircleintersect(a,c,3)
+    pts := $linecircleintersect(a,c,2.8284)
     ```
-
-
-## Built-in path variables
-
-Following are built-in path variables that can be used.
-
-  + all
-
-    This path variable is automatically assigned to the path used by the
-    last instruction.
-
-  + last
-
-    A single point that is the last point of variable 'all'. Note that
-    the return value is still a path but it only contains a single point.
-
-  + first
-
-    A single point that is the first point of variable 'all'.
-
 
 ## The shape instruction
 

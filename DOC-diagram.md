@@ -11,7 +11,7 @@ set refsx 2
 set refsy 2
 p := (-1,0)..(0,-1)..(1,0)
 fill p{up}..(0,0){-1,-2}..{up}cycle
-stroke p..(0,1)..cycle
+drawline p..(0,1)..cycle
 
 % reset
 reset
@@ -20,9 +20,9 @@ reset
 a := (1,1) -- (5,5) -- (5,1) -- ()
 b := (1,1){up} .. (5,5) .. (5,1) .. ()
 
-% stroke
-stroke a
-stroke b
+% drawline
+drawline a
+drawline b
 
 % circles
 set areaop filldraw
@@ -67,9 +67,9 @@ tick.rt  (25,1)
 tick.lft (26,1)
 
 % angle
-stroke (28,1)--(31,1)
+drawline (28,1)--(31,1)
 a/b := *
-stroke (28,1)--(31,5)--(31,7)--cycle
+drawline (28,1)--(31,5)--(31,7)--cycle
 /c//e := *
 drawanglearc a b c
 
@@ -222,24 +222,24 @@ what actions to take.  Following is a list of all instruction names:
     ```
 
     Note the wildcard variable '*' will be modified everytime a new path
-    description is created, such as with a statement that 'stroke', 'fill',
+    description is created, such as with a statement that 'drawline', 'fill',
     'drawarrow', 'dot', 'label', 'circle', etc. The wildcard variable of '*'
     will not be modifed by an assignment statement using ':=', nor will it
     change for a 'set', 'reset' that does not involve creating a new path
-    description.  This allows you to invoke a "draw" command such as 'stroke'
+    description.  This allows you to invoke a "draw" command such as 'drawline'
     then followed by one or more assignment statement to extract part of the
-    points in the path description described by the 'stroke' statement.
+    points in the path description described by the 'drawline' statement.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a := *
     ```
 
     Here, a new path variable 'a' will be created that would have been assigned
-    the same path points as that of the 'stroke' command.
+    the same path points as that of the 'drawline' command.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a := $somepoints(*,0,1)
     ```
 
@@ -257,7 +257,7 @@ what actions to take.  Following is a list of all instruction names:
     path.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a/b/c := *
     ```
 
@@ -268,7 +268,7 @@ what actions to take.  Following is a list of all instruction names:
     `$somepoints()` to extract invidual points.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a := $somepoints(*,0,0)
     b := $somepoints(*,1,1)
     c := $somepoints(*,2,3)
@@ -279,7 +279,7 @@ what actions to take.  Following is a list of all instruction names:
     'a' and the third point to variable 'b' as follows.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a//b := *
     ```
 
@@ -290,7 +290,7 @@ what actions to take.  Following is a list of all instruction names:
     by including an additional slash after this variable.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     a//b/ := *
     ```
 
@@ -299,7 +299,7 @@ what actions to take.  Following is a list of all instruction names:
     points and assign the third point to variable 'a'.
 
     ```
-    stroke (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) ()
     //a/ := *
     ```
   
@@ -325,13 +325,13 @@ what actions to take.  Following is a list of all instruction names:
     shape {brick\\radical4} (0,12) (12,12)
     ```
 
-  + `stroke` - stroke a given path.
+  + `drawline` - drawline a given path.
   + `fill`  - fill a path  
-  + `filldraw`  - fill a path with fillcolor and then stroke the path with the linecolor
-  + `drawdblarrow` - stroke a given path and place an arrow head at the beginning and end
-  + `drawarrow` - stroke a given path and place an arrow at the end
+  + `filldraw`  - fill a path with fillcolor and then drawline the path with the linecolor
+  + `drawdblarrow` - drawline a given path and place an arrow head at the beginning and end
+  + `drawarrow` - drawline a given path and place an arrow at the end
 
-    The `stroke` instruction  without option draws the outline of a path.
+    The `drawline` instruction  without option draws the outline of a path.
     The (linecolor) and (linewidth) settings will be pulled to see if a line width
     or line color has be specified. Otherwise it uses the system default
     of MetaPost.

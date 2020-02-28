@@ -740,14 +740,32 @@ letters a, b, c are path variables.
     in a path such that the first point is (1,0), and the last point is (10,0),
     and the rest of the points will be spaced evenly between the first and the last.
 
-  + rectpoints(0,2,4,3)  
+  + lineintersect(a,b)  
 
-    Returns new a path that describes the rectangle with its lower left at (0,2)
-    and with a width of 4 and a height of 3; the path is closed with the last
-    point a null point. In this case, the return point is equivalent to the following.
+    Returns new a path that contains a single point which is the point at which the
+    two lines intersect. The first line is described by the symbol 'a', which must
+    have at least two points. The second line is described by the symbol 'b', which
+    must have at least two points. Only the first two points of 'a' and 'b' are 
+    considered. The rest of the points of 'a' and 'b' are ignored.
+    
+    Note that the returned point might have Infinity or NaN due to the nature 
+    of parallelness. 
+
 
     ```
-    a := (0,2) (4,2) (4,5) (0,5) ()
+    a := (0,2) (4,2) 
+    b := (2,0) (6,0) 
+    c := $lineintersect(a,b)
+    ```
+
+  + linecircleintersect(a,c,diameter)
+
+    Returns new a path that contains two points for the line and circle intersection.
+
+    ```
+    a := (2,2) (6,2) 
+    c := (5,3) 
+    pts := $linecircleintersect(a,c,3)
     ```
 
 

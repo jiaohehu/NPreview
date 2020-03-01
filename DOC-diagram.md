@@ -1,5 +1,23 @@
 # Supporting Diagram
 
+A diagram block is to generate a diagram with vector based figures, made up
+with vector based components as lines, circles, rectangles, arrows, dots, etc.
+The goal of using a diagram block versus using an raster based image such as
+PNG or JPEG is that a vector based diagram provides much better resolution
+especially when the diagram is printed on a piece of paper.
+
+A diagram block is to be translated into an inline MetaPost block between
+`\begin{mplibcode}` and `\end{mplibcode}`. This environment is supported by the
+`luamplib` LATEX package.
+
+    \usepackage{luamplib}
+
+
+
+## An example diagram
+
+Following is an example of a diagram block.
+
 
 ```diagram
 viewport 32 12
@@ -123,168 +141,149 @@ shape {brick} (7,8) (7,7)
 
 ## The unit length and grid lines
 
-In Diagram, the length is always specified in the unit length. A unit length is
-described as an abstract length on a graphing paper for which a length of 1
-corresponds to the width of a single grid.
+In Diagram, each figure is always expresses using the grid unit length. A unit
+unit length is considered as a distance between two adjacent grid lines on a
+graphing paper for which a length of 1 corresponds to the width of a single
+grid.
 
-The 'width' and 'height' setting specifies how many total unit length it has
-reserved for the width and height. These two parameters also determines the
-total size of the graph that will appear in the PDF file. When translating
-to MetaPost, each unit length is abstracted using a variable named 'u' that
-is preset to be of '4mm'. You can also change it by setting the (unit)
-setting such as the following:
+In Diagram a grid is always draw as the background. By default the grid is 
+25 grid units length long in the horizontal direction and 10 grid unit length
+long in the vertical directon. You can change that by running the `viewport`
+command as the first statement within the diagram block. In the following example
+a diagram area is set to be 32 grid unit length long in horizontal direction
+and 20 grid unit length in vertical direction.
+
+    viewport 32 20
+
+When generationg MetaPost, each grid is by default considered as 4mm in length.
+Thus, a total grid of 32 in width will give you a total width of 120mm and, a
+total grid of 20 will give a total height of 80mm.  You can change the length
+of each grid by running the `unit` command as follows.
 
     unit 6mm
 
-A grid line is always shown as part of the diagram. The total number of
-horizontal grids depends on the (width) setting.  The total number of vertical
-grids depends on the (height) setting. The color of the grid is set to be 10
-percent of the white.  Currently there is no provision to turn off the showing
-of the grid or to change the color of the grid line.
+The `config` command is designed to configure viewport. So far the only
+available option is to set the 'grid' option to 1. When it is set to 1
+then the grid will be drawn in such a way that the 10th and 5th grid
+will be drawn in a slightly darker color, making it easier to spot
+and count the number of grid lines horizontally and vertically.
+
+    config grid 1
+
+Note that these commands must appear before all other drawing instructions that
+is to be explained later.
 
 
-## Instructions
 
-Each instruction must start its own line. If a line is too long to fit side
-a single source paragraph then a ending backslash is to be placed.
-Blank lines are ignored.
+## Drawing instructions
 
-Also, if a percent sign (`%`) is detected as the first character of the line
+Aside from `viewport` and `unit`, the rest of diagram commands are considered
+drawing instructions. Almost all drawing instructions will generate a MetaPost
+output, such as output to draw a line, a circle, a dot, etc. The only
+exceptions are the `set` and `reset` instruction, which is to set and/or clear
+the drawing parameters for other drawing instructions. 
+
+Each instruction must start its own line. If a line is too long to fit side a
+single source paragraph then a backslash can be placed at the end of the line
+to instruct that the next line is a continuation of the current line.
+
+If a percent sign (`%`) is detected as the first character of the line
 then the entire line is considered a comment and will be ignored.
 
 The first word of each instruction is considered the instruction name that tells
 what actions to take.  Following is a list of all instruction names:
 
-  + `viewport`
++   set stroke-width 2pt
++   set fill 0.5[red,green]
++   set stroke 0.5[red,green]
++   set slant 0.44
 
-    This command sets the width/height of the diagram viewport size.
-    There is a minimum and maximum limit to the width is (10 <= width <= 100).
-    For height it is (4 <= height <= 100)
+The `set` instruction is to set or clear a drawing parameter.  When provide
+a setting, simply place the parameter name after the `set` command, followed
+by the value of the parameter.
 
-    ```
-    viewport 32 14
-    ```
+To restore the parameter to its initial value you can call the `set` instruction
+followed by the name of the parameter without any values.
 
-  + `unit`
-
-    This command sets the unit length for each grid. Input will be checked
-    such that it must be an integer followed by a unit that must be
-    "in", "mm", or "cm".
-
-    ```
-    unit 5mm
-    ```
-
-  + `config`
-
-    This command is to configure the viewport such as adjusting the grid drawing
-    so that it has five'th and ten'th lines drawn a little darker.
-
-    ```
-    config grid 1
-    ```
-
-    So far this is the only config option.
-
-  + `set`
-
-    Set or clear a setting.
-
-    ```
-    set stroke-width 2pt
-    set fill 0.5[red,green]
-    set stroke 0.5[red,green]
-    set slant 0.44
-    ```
-
-    To clear a setting, simply call `set` without any value.
-
-    ```
     set stroke-width
-    ```
 
-    When a setting is cleared, it will be restored to its 
-    initial value.
++ reset
 
-  + `reset`
+The `reset` instruction clears *all* drawing parameters to its initial value.
 
-    Clear all settings to its initial value.
-
-    ```
     reset
-    ```
 
-  + `exit` - this command will halt the processing of the rest
-    of the instruction.  It can be used to temporary avoiding
-    some instruction to aid debugging.
++ exit 
 
-  + `a := (1,1) -- (2,2) -- (3,4)`
-  + `b := a{up} .. (5,5) .. (6,7)`
+The `exit` instruction will stop the processing of the rest of the instructions and 
+of the instruction.  It can be used to temporary avoiding
+some instruction to aid debugging.
 
-    This statement is to create a new path variable or path variables.
-    It must be placed in a from such that the left hand side of the ':='
-    is a path variable and the right hand side is a path description.
++ `a := (1,1) -- (2,2) -- (3,4)`
++ `b := a{up} .. (5,5) .. (6,7)`
 
-    After the statement is completed, following output should be observed in
-    the translated LATEX document.
+This statement is to create a new path variable or path variables.
+It must be placed in a from such that the left hand side of the ':='
+is a path variable and the right hand side is a path description.
 
-    ```
+After the statement is completed, following output should be observed in
+the translated LATEX document.
+
     path a; a := (1,1) -- (2,2) -- (3,4)
     path b; b := a{up} .. (5,5) .. (6,7)
-    ```
 
-    The assignment generates MetaPost path variable. These variables expresses
-    a "subpath" such that each "subpath" can be used to make up a "larger" path.
-    In the previous example there are two path variables, the first variable "a"
-    is part of a second path that is "b", where "a" is part of "b".
+The assignment generates MetaPost path variable. These variables expresses
+a "subpath" such that each "subpath" can be used to make up a "larger" path.
+In the previous example there are two path variables, the first variable "a"
+is part of a second path that is "b", where "a" is part of "b".
 
-    Thus, the Diagram path expression syntax allows for a MetaPost path variable to
-    be created by the use of an assignment statement for which the variable in
-    the assignment statement become the path variable within a MetaPost
-    program.
+Thus, the Diagram path expression syntax allows for a MetaPost path variable to
+be created by the use of an assignment statement for which the variable in
+the assignment statement become the path variable within a MetaPost
+program.
 
-    In addition, a path description in Diagram also includes path functions, 
-    and the wildcard variable. A path function typically takes existing path
-    variables as input and returns a new path. For example, the $somepoints()
-    path function would return one or more points of an existing path depending
-    on the arguments. In the following example the path variable 'c' is assigned
-    the first point in path variable 'a' and path variable 'd' is assigned the
-    second point of path variable 'a'.
+In addition, a path description in Diagram also includes path functions, 
+and the wildcard variable. A path function typically takes existing path
+variables as input and returns a new path. For example, the $somepoints()
+path function would return one or more points of an existing path depending
+on the arguments. In the following example the path variable 'c' is assigned
+the first point in path variable 'a' and path variable 'd' is assigned the
+second point of path variable 'a'.
 
     ```
     c := $somepoints(a,0) 
     d := $somepoints(a,1) 
     ```
 
-    Following MetaPost output will be observed as a result of running previous two
-    Diagram statements. 
-    
+Following MetaPost output will be observed as a result of running previous two
+Diagram statements. 
+
     ```
     path c; c := (1,1)
     path d; d := (2,2)
     ```
 
-    Note that the path a path function returns always made
-    up of literal points. A literal point is a point with real numbers such as
-    (1,1), or (2,2). A path variable with a single point is not considered
-    a literal point, although it can be part of a path expression.
+Note that the path a path function returns always made
+up of literal points. A literal point is a point with real numbers such as
+(1,1), or (2,2). A path variable with a single point is not considered
+a literal point, although it can be part of a path expression.
 
-    The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
-    variable".  A wildcard variable holds the path encountered by the last
-    statement that utilizes a path, such as `drawline`, `drawarea`, `circle`,
-    `rect`, `label`, etc. In the following example the path variable will
-    be created and assigned a path that is the same as the one used by
-    the `drawline` statement.
+The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
+variable".  A wildcard variable holds the path encountered by the last
+statement that utilizes a path, such as `drawline`, `drawarea`, `circle`,
+`rect`, `label`, etc. In the following example the path variable will
+be created and assigned a path that is the same as the one used by
+the `drawline` statement.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a := *
     ```
 
-    Note that the wildcard variable will not be changed by an assignment
-    statement such as `a := *`. This is by design and is to allow for
-    situations such as the following so that the same wildcard variable
-    can be used to create many other paths.
+Note that the wildcard variable will not be changed by an assignment
+statement such as `a := *`. This is by design and is to allow for
+situations such as the following so that the same wildcard variable
+can be used to create many other paths.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
@@ -293,12 +292,12 @@ what actions to take.  Following is a list of all instruction names:
     c := $somepoints(*,1,2)
     ```
 
-    The wildcard variable cannot be considered a regular path variable as there
-    is no asterisk path variable being observed in the MetaPost output. You can
-    compare a wildcard variable as a "spread" operator in JavaScript such that
-    it spread the content of the last path as individual points. Thus, in the
-    following example the path variable 'b' and 'c' will hold exacty the same
-    content.
+The wildcard variable cannot be considered a regular path variable as there
+is no asterisk path variable being observed in the MetaPost output. You can
+compare a wildcard variable as a "spread" operator in JavaScript such that
+it spread the content of the last path as individual points. Thus, in the
+following example the path variable 'b' and 'c' will hold exacty the same
+content.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
@@ -306,9 +305,9 @@ what actions to take.  Following is a list of all instruction names:
     c := (1,1) (2,2) (3,4) (4,5) (5,6)
     ```
 
-    When a wildcard variable appears in a path functon, it is treated as a 
-    normal path variable. In the following example path variable 'b' and 'c'
-    will hold exactly the same points.
+When a wildcard variable appears in a path functon, it is treated as a 
+normal path variable. In the following example path variable 'b' and 'c'
+will hold exactly the same points.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
@@ -317,27 +316,27 @@ what actions to take.  Following is a list of all instruction names:
     c := $somepoints(a,2,5)
     ```
 
-    Also note that all points of a path corresponds will be subject to
-    coordinate transformation based on values of 'refx', 'refy', 'refsx',
-    and/or 'refsy'.  If the same path is appears in two different commands
-    under two different context where any of the 'refx', 'refy', 'refsx',
-    and/or 'refsy' settings is different, then they would have resulted in two
-    different shapes.
+Also note that all points of a path corresponds will be subject to
+coordinate transformation based on values of 'refx', 'refy', 'refsx',
+and/or 'refsy'.  If the same path is appears in two different commands
+under two different context where any of the 'refx', 'refy', 'refsx',
+and/or 'refsy' settings is different, then they would have resulted in two
+different shapes.
 
-    The assignment statement also has provision to allow for something akin to
-    JavaScript "array destructuring" statement, in which case individual points
-    of a path are assigned to different path variables at the same time. In the
-    following assignment statement path variables 'a', 'b' and 'c' are created
-    and assigned each one of the three points of the path that was drawn by the
-    `drawline` statement.
+The assignment statement also has provision to allow for something akin to
+JavaScript "array destructuring" statement, in which case individual points
+of a path are assigned to different path variables at the same time. In the
+following assignment statement path variables 'a', 'b' and 'c' are created
+and assigned each one of the three points of the path that was drawn by the
+`drawline` statement.
 
     ```
     drawline (1,1) (2,2) (3,4)(4,5)
     a/b/c := *
     ```
 
-    The previous assignment statement is functionally equivalent to the following
-    three assignment statements using $somepoints() path function.
+The previous assignment statement is functionally equivalent to the following
+three assignment statements using $somepoints() path function.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
@@ -346,92 +345,92 @@ what actions to take.  Following is a list of all instruction names:
     c := $somepoints(*,2,3)
     ```
 
-    Each sub-variable must be separated from other sub-variables by one or more
-    slash character.  You can skip ahead and bypass certain points by not
-    including any variables in between slashes. For example, you can choose to
-    assign the first point to variable 'a' and the third point to variable 'b'
-    as follows.
+Each sub-variable must be separated from other sub-variables by one or more
+slash character.  You can skip ahead and bypass certain points by not
+including any variables in between slashes. For example, you can choose to
+assign the first point to variable 'a' and the third point to variable 'b'
+as follows.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a//b := *
     ```
 
-    Note that the last variable always gets all the remaining points.  In the
-    previous example, variable 'b' will get the last two points, which are
-    (3,4) and (4,5).  However, you can choose to allow only a single point to
-    be assigned to the last variable by including an additional slash after
-    this variable.
+Note that the last variable always gets all the remaining points.  In the
+previous example, variable 'b' will get the last two points, which are
+(3,4) and (4,5).  However, you can choose to allow only a single point to
+be assigned to the last variable by including an additional slash after
+this variable.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a//b/ := *
     ```
 
-    Similarly you can also add slashes at the beginning to skip first few
-    points.  Following example will skip the first two points and assign the
-    remaining two points to variable 'a'.
+Similarly you can also add slashes at the beginning to skip first few
+points.  Following example will skip the first two points and assign the
+remaining two points to variable 'a'.
 
     ```
     drawline (1,1) (2,2) (3,4) (4,5)
     //a := *
     ```
 
-    For a regular path variable, if you use it directly, then it is being treated
-    as a subpath. In the case of 'drawline', 'drawarea', 'drawarrow', 'drawdblarrow',
-    the path is being considered as a whole, and the subpath points will be considered part
-    of the main path.
+For a regular path variable, if you use it directly, then it is being treated
+as a subpath. In the case of 'drawline', 'drawarea', 'drawarrow', 'drawdblarrow',
+the path is being considered as a whole, and the subpath points will be considered part
+of the main path.
 
-    However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
-    is just another point. Thus, if you have a path 'p' that contains three points, and then 
-    you pass it to 'dot' command which is designed to draw dots, the followign statement will
-    only draw one dot which is at (1,2).
+However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
+is just another point. Thus, if you have a path 'p' that contains three points, and then 
+you pass it to 'dot' command which is designed to draw dots, the followign statement will
+only draw one dot which is at (1,2).
 
     ```
     p := (1,2) (2,3) (3,4)
     dot p
     ```
 
-    This is because the entire 'p' is considered a single point by the 'dot'
-    command, rather than three individual points such as the following. 
+This is because the entire 'p' is considered a single point by the 'dot'
+command, rather than three individual points such as the following. 
 
     ```
     dot (1,2) (2,3) (3,4)
     ```
 
-    When being considered as a single point, only the first point of the path
-    is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
-    that position and that position only.  To allow dot to be drawn for
-    *all* positions of a path, you would need to place a asterisk in front of
-    it such as:
+When being considered as a single point, only the first point of the path
+is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
+that position and that position only.  To allow dot to be drawn for
+*all* positions of a path, you would need to place a asterisk in front of
+it such as:
 
     ```
     dot *p
     ```
- 
-    In such a case three dots will be drawn in three locations that are: (1,2),
-    (2,3), and (3,4).  You can also include an addition integer after the
-    symbol to express a particular point at that index location. Following
-    example will draw only two dots at (2,3) and (3,4), while skipping the
-    first one. 
+
+In such a case three dots will be drawn in three locations that are: (1,2),
+(2,3), and (3,4).  You can also include an addition integer after the
+symbol to express a particular point at that index location. Following
+example will draw only two dots at (2,3) and (3,4), while skipping the
+first one. 
 
     ```
     p := (1,2) (2,3) (3,4)
     dot *p1 *p2
     ```
 
-    This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the
-    same as `$somepoints(p,2)`. You can even use the following syntax to draw
-    an arrow going directly from the first point to the last.
+This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the
+same as `$somepoints(p,2)`. You can even use the following syntax to draw
+an arrow going directly from the first point to the last.
 
     ```
     p := (1,2) (1,3) (3,4)
     drawarrow *p0 -- *p2
     ```
 
-    Because of the "spread" nature of `*p` or `*q`, you can combine
-    all points of a path easily. In the following example a single
-    dot statement is to draw all dots from two separate paths.
+Because of the "spread" nature of `*p` or `*q`, you can combine
+all points of a path easily. In the following example a single
+dot statement is to draw all dots from two separate paths.
 
     ```
     p := (1,2) (2,3) (3,4)
@@ -439,8 +438,8 @@ what actions to take.  Following is a list of all instruction names:
     dot *p *q
     ```
 
-    This is equivalent to the following.
- 
+This is equivalent to the following.
+
     ```
     p := (1,2) (2,3) (3,4)
     q := (7,8) (8,9) (9,10)

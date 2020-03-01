@@ -26,7 +26,7 @@ drawline b
 
 % circles
 
-set fillcolor 0.8[red,white]
+set fill 0.8[red,white]
 set angle1 0
 set angle2 90
 circle     (16,1)
@@ -52,8 +52,10 @@ circle.cseg  (20,5)
 
 % rect
 set slant 0.9
+set fill orange
 rect (24,2)
 rect.parallelgram (24,6)
+set fill
 
 % dot
 sq := (22,3) (23,3) (23,2) (22,2)
@@ -66,18 +68,30 @@ tick.bot (24,1)
 tick.rt  (25,1)
 tick.lft (26,1)
 
-% angle
-drawline (28,1)--(31,1)
+% 90-degree angle
+drawline (28,4)--(31,4)
 a/b := *
-drawline (28,1)--(31,5)--(31,7)--cycle
-/c//e := *
+drawline (28,4)--(28,7)
+/c := *
+drawanglearc.sq a b c
+
+% 45-degree angle
+drawline <0,-4> (28,4)--(31,4)
+a/b := *
+drawline <0,-4> (28,4)--(31,7)
+/c := *
 drawanglearc a b c
 
 % fill/filldraw
-ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
 gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
-fill ff
+ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
+set stroke-width 2pt
+set fill orange
 filldraw gg
+set stroke-width 2px
+set fill orange
+filldraw ff
+reset
 
 % label
 label.rt  {``C_0``} (5,5)
@@ -85,7 +99,7 @@ label.rt  {``B_0``} (5,1)
 label.lft {``A_0``} (1,1)
 
 % dots
-drawdot (1,1) \
+dot (1,1) \
         (2,2) (3,3) \
         (4,4) (5,5)
 
@@ -177,13 +191,13 @@ what actions to take.  Following is a list of all instruction names:
     Set or clear a setting.
 
     ```
-    set linewidth 2pt
+    set stroke-width 2pt
     ```
 
     To clear a setting, simply call `set` without any value.
 
     ```
-    set linewidth
+    set stroke-width
     ```
 
   + `reset`
@@ -401,17 +415,17 @@ what actions to take.  Following is a list of all instruction names:
 
   + `drawline` - draw straight line or curves described by a path
   + `fill`  - fill a path that might have straight or curved lines
-  + `filldraw`  - fill a path with fillcolor and then drawline the path with the linecolor
+  + `filldraw`  - fill a path and then draw the outline of the shape
   + `drawdblarrow` - drawline a given path and place an arrow head at the beginning and end
   + `drawarrow` - drawline a given path and place an arrow at the end
 
     The `drawline` instruction  without option draws the outline of a path.
-    The (linecolor) and (linewidth) settings will be pulled to see if a line width
+    The (stroke) and (stroke-width) settings will be pulled to see if a line width
     or line color has be specified. Otherwise it uses the system default
     of MetaPost.
 
     The `fill` instruction fills the area of a path.
-    The (fillcolor) setting will be pulled to see if a fill color has
+    The (fill) setting will be pulled to see if a fill color has
     been specified. Otherwise it uses the system default of MetaPost.
 
     The 'drawdblarrow' and 'drawarrow' instructions will place arrow head
@@ -504,9 +518,9 @@ what actions to take.  Following is a list of all instruction names:
 
     The default operation is to draw the outline of the rectangle. However, if
     the (filldraw) setting is set to 'fill' or 'filldraw' then an attemp is made
-    to color the entire area using the (fillcolor) settings. If the 'filldraw'
+    to color the entire area using the (fill) settings. If the 'filldraw'
     value is set then the outline of the rectangle is also to be drawn using
-    either black or a designated color specified by the (linecolor) setting.
+    either black or a designated color specified by the (stroke) setting.
 
     The `rect.parallelgram` will draw/fill a parallelgram. The overall width
     and height of the parallelgram is set in accordance with the (rectw) and

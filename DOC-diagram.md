@@ -82,7 +82,7 @@ drawline <0,-4> (28,4)--(31,7)
 /c := *
 drawanglearc a b c
 
-% fill/filldraw
+% drawarea      
 gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
 set stroke-width 2pt
@@ -413,23 +413,31 @@ what actions to take.  Following is a list of all instruction names:
     shape {brick\\radical4} (0,12) (12,12)
     ```
 
-  + `drawline` - draw straight line or curves described by a path
-  + `fill`  - fill a path that might have straight or curved lines
-  + `filldraw`  - fill a path and then draw the outline of the shape
-  + `drawdblarrow` - drawline a given path and place an arrow head at the beginning and end
-  + `drawarrow` - drawline a given path and place an arrow at the end
+  + `drawline` - draw the path, which consists of line and/or curve segments
+  + `drawarea` - fill the path, which consists of line and/or curve segments
+  + `drawdblarrow` - drawline a path and place an arrow head at the beginning and end
+  + `drawarrow` - drawline a path and place an arrow at the end
 
-    The `drawline` instruction  without option draws the outline of a path.
-    The (stroke) and (stroke-width) settings will be pulled to see if a line width
-    or line color has be specified. Otherwise it uses the system default
-    of MetaPost.
+    The `drawline` instruction stroke a given path.  The (stroke) and
+    (stroke-width) settings will be pulled to get the stroke width and stroke
+    color.  The (stroke) setting is for specifying the color of the line. This
+    setting is to apply for both `drawline` and `drawarea`.  The (stroke-width)
+    setting is to set the line width when `drawline` and/or `drawarea`.
+    However, there is a difference. If (stroke-width) is set to "0", then
+    `drawline` would still draw the line. However, `drawarea` will not draw the
+    outline of the path.
 
-    The `fill` instruction fills the area of a path.
+    The `drawarea` instruction fills the area described by a path.
     The (fill) setting will be pulled to see if a fill color has
-    been specified. Otherwise it uses the system default of MetaPost.
+    been specified. If not then the default color of black is assume.
+    Otherwise the color specified by (fill) is used. If (stroke-width) is not
+    set to "0" then the path will also be stroked, albeit using the color 
+    described by (stroke). If (stroke-width) is set but not to "0", then
+    it will be interpreted as describing the width of the stroke line.
 
-    The 'drawdblarrow' and 'drawarrow' instructions will place arrow head
-    at either end of the line segments or just at the end.
+    The 'drawdblarrow' and 'drawarrow' instructions are similar to `drawline`
+    except that the first one will place an arrow head at either end of the
+    path while the second will place an arrow head at the end of the path.
 
   + `circle       ` - draw/fill the half circle area at the top
   + `circle.top   ` - draw/fill the half circle area at the top
@@ -452,60 +460,66 @@ what actions to take.  Following is a list of all instruction names:
   + `circle.arc   ` - draw/only an arc line
   + `circle.cseg  ` - draw/fill a circular segment area
 
-    This instruction is designed to draw, fill, or fill/draw an area of a circle or
-    part of a circle. However, if the (filldraw) setting is set to
-    'filldraw' or 'fill' then for some it will be treated as an area and
-    attempted to be filled. However, the instruction `circle.chord` or `circle.arc` is
-    always a line operation and will not result in a fill or filldraw.
+    This instruction is designed to draw or fill an area related to a circle.
+    Some of the operations are area operation such as `circle`, `circle.top`, 
+    `circle.o1`, `circle.cseg`, etc. These operations will either draw the outline
+    of the shape of fill/draw the shape, depending on the combination of settings 
+    of (stroke-width), (stroke), and (fill).
+
+    Other operations such as `circle.chord` or `circle.arc` are stroke operations
+    which serve only to stroke a path.
 
     The (diameter) setting controls the diameter of the circle, whether it is
     full circle, half circle, or an octant of the circle. For drawing chord,
-    arc, or cseg, (angle1) and (angle2) settings will be used to determine
-    the starting and ending angles.
+    arc, or cseg, (angle1) and (angle2) settings will also be used to determine
+    the starting and ending angles. 
 
-    The exact number of circles drawn is determined by the number points in a
-    path.  If there are two path points in a path then two circles will be
-    draw, or two half circles, two quarter circles or two octants.
+    Following draws three circles so that their origins align with (1,1),
+    (2,2), and (3,3). Each circle is to have a diameter of 5 unit length. 
 
-    Each circle, half circle, quarter circle, or actant is to be positioned
-    so that their center aligns with the path point.
+    ```
+    set diameter 5
+    circle (1,1) (2,2) (3,3)
+    ```
 
   + `drawanglearc` - draw a small arc denoting the interior of an angle
   + `drawanglearc.sq ` - draw a small square denoting the interior of a right angle
 
-    These two instructions are designed to an interior arc denoting the span of an angle.
-    The first draws the the arc and the second one draws a square.
+    These two instructions are designed to drawn a small arc that usually
+    appear inside the interior of an angle connecting both sides of the angle. 
+    The first one is to draw a small arc and the second one is to draw 
+    a square. The second one should only be used for a right angle.
 
-    Both of these instructions need three coordinates and only takes first
-    three coordinates.  The first point is assumed to be the vertex of the
-    angle. The second coordinate denotes any point on the first side that forms
-    the angle, and third coordinate denotes a arbitrary point on the second
-    side of the angle.  In the following example it will draw an arc for an
-    angle such that its vertex is at (3,4) and its starting side goes through
-    the point of (4,4) and its second side goes through the point (4,5). This
-    is a 45-degree angle spanning from 0 to 45.
+    The `drawanglearc` instruction is similar to `circle.arc` except for the
+    interpretation of the arguments. the `drawanglearc` instruction expectes
+    three points in the arguments to be interpreted as the origin, a point on
+    the starting side of the angle, and a point at the ending side of the
+    angle. Following will draw a 45 degree angle arc assuming angle vertex is
+    at (0,0), the starting side is a line from (0,0) to (1,0), and the ending
+    side is a line from (0,0) to (1,1).
 
     ```
-    drawanglearc (3,4) (4,4) (4,5)
-    drawanglearc.sq (3,4) (4,4) (4,5)
+    drawanglearc (0,0) (1,0) (1,1)
     ```
 
-    The `drawanglearc` instruction draw a small arc in the interior of an angle.
-    The arc is draw close to the vertex with a radius that is controlled by
-    the 'anglearcradius' option. Default is set to 1/2 grid unit length.
+    The amount of distance of the arc is controled by the setting (anglearcradius)
+    which expresses the radius of the arc from the angle vertex. The default 
+    setting is 0.5 grid unit length. You can set it to a larger value if the angle
+    is small.
 
-    The `drawanglearc.sq` draws the square marker for denoting a right angle. Note that
-    it should only be used for a known right angle.  The measurement of the
-    side of the square is controlled by the 'anglearcradius' option.
+    ```
+    set anglearcradius 1.5
+    drawanglearc (0,0) (1,0) (1,0.5)
+    ```
 
-    Latest addition also allows for a text label to be positioned relative to the 
-    arc or sq. The amount of distances from the angle vertex is controled by
-    the 'anglearclabelradius' which is always in grid unit length.  To specify
-    text label, includes it as the first argument before any coordinates.
+    Latest addition also allows for a text label to be positioned relative to
+    the arc or sq. The amount of distances from the angle vertex is controled
+    by the (anglearclabelradius) setting which is expressing as a number in
+    grid unit length.  To specify text label, includes it as the first argument
+    before any coordinates.
 
     ```
     drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
-    drawanglearc.sq {1} (3,4) (4,4) (4,5)
     ```
 
   + `rect` - draw/fill a rectangle area
@@ -513,26 +527,33 @@ what actions to take.  Following is a list of all instruction names:
   + `rect.rhombus`      - draw/fill a rhombus shape     
   + `rect.trapezoid`    - draw/fill a trapezoid shape   
 
-    The `rect` instruction would draw/fill a rectangle area. The width of the area
-    is provided by (rectw). The height of the rectangle is (recth).
+    The `rect` instruction draws a rectangle,
+    `rect.parallelgram` draws a parallelgram, `rect.rhombus` draws a rhombus,
+    and `rect.trapezoid` draws a trapezoid shape.
 
-    The default operation is to draw the outline of the rectangle. However, if
-    the (filldraw) setting is set to 'fill' or 'filldraw' then an attemp is made
-    to color the entire area using the (fill) settings. If the 'filldraw'
-    value is set then the outline of the rectangle is also to be drawn using
-    either black or a designated color specified by the (stroke) setting.
+    These instructions are all area operations. By default it draws the outline
+    of the shape, but if (fill) is set, then it also fills the area using the
+    fill color specified by (fill). It always draw the outline of the shape
+    even when (fill) is set, unless (stroke-width) is specifically set to "0". 
 
-    The `rect.parallelgram` will draw/fill a parallelgram. The overall width
-    and height of the parallelgram is set in accordance with the (rectw) and
-    (recth) settings.  This means that the horizontal difference between its
+    The overall size of the quadrilateral is controlled by the (rectw) and
+    (recth) setting, which specifies the width and height of the shape in grid
+    unit length.  These settings apples to all shapes, even parallelgrams.  For
+    a parallelgram, this means that the horizontal difference between its
     lower-left and upper-right hand corner is always equal to (rectw), and the
     height difference between the upper parallel line and lower parallel line
-    is always equal to (recth).  However, the topleft and bottomright part of
-    the rect area will be sliced off to make the shape of a parallelgram.  The
-    amount of incursion is determined by the (slant) setting.  If it is set to
-    "0.3" which is default, then the incursion is to be 30 percent of the
-    overall width from the topleft and 30 percent of the overall width from the
-    bottomright.
+    is always equal to (recth).  
+    
+    However, for a parallelgram, the topleft and bottomright part of the rect
+    area will be sliced off to make the shape of a parallelgram.  The amount of
+    incursion is determined by the (slant) setting.  This setting is a number
+    between 0.1 and 0.9.  It describes the portion of the total width that is
+    to make up the "slanting" part of the parallelgram.  For example, if it is
+    set to "0.3" which is default, it means that 30 percent of the overall
+    width will be used for slanting. This means 30 percent of the distance of
+    the overall width from top left corner moving towards the right, and 30
+    percent of the overall width from the bottom right corner moving towards
+    the left, will be the "slanting" part of the parallelgram.
 
     The `rect.rhombus` shape is drawn with diamond head and tail pointing 
     to the left and right. There is currently no provision to change
@@ -549,11 +570,23 @@ what actions to take.  Following is a list of all instruction names:
     These instructions are to mark a point, i.e., to identify the location of a
     point in a plane by showing a visible round black dot.  The `dot` instruction
     will draw a circular dot. The default size of the dot is '4pt', but can be
-    changed by the (dotsize) setting, for example to set to a string of '5pt'.
+    changed by the (dot-size) setting, for example to set to a string of '5pt'.
+    Following example draw three dots at location of (1,1), (2,2) and (3,3)
+    where each dot is at a size of "5pt".
 
-    The color of the dot is set to black, unless changed by the (dotcolor)
-    setting, which must follow a MetaPost syntax for colors, i.e.,
-    "0.5[red,white]" , etc.
+    ```
+    set dot-size 5pt
+    dot (1,1) (2,2) (3,3)
+    ```
+
+    The color of the dot is by default set to black, unless changed by the
+    (dot) setting, which describes a color such as "orange".
+
+    ```
+    set dot orange
+    set dot-size 5pt
+    dot (1,1) (2,2) (3,3)
+    ```
 
   + `tick.top` - draw a vertical tick above the point.
   + `tick.bot` - draw a vertical tick below the point
@@ -563,41 +596,15 @@ what actions to take.  Following is a list of all instruction names:
     These instructions can be used to draw tick markers, i.e., the one that
     can be found along a number line.
 
-    The length of the tick is default to 0.33 grid unit. This is how far
-    it will extend itself away from the point. But it can be changed
-    changed by the (ticklength) setting, for example to set to a string of '0.75'
-    will make a 0.75 grid unit long.
+    The protrusion of the tick is default to 0.33 grid unit. This is length of
+    the line it will protrude away from the point. It is controlled
+    by the (tick-protrude) setting. It is always in the grid unit length.
+    The default is '0.33'.
 
-    The color of the grid is set to black, unless changed by the (tickcolor)
-    setting, which must follow a MetaPost syntax for colors, i.e.,
-    "0.5[red,white]" , etc. The thickness of the line can be changed by setting
-    the (ticksize). The default is "1pt".
-
-
-## Path expression
-
-The syntax for creating a new variable is shown as follows.  For example,
-we can assign a new path consisting of two points (0,0) to (1,1) to a
-variable named 'a' as follows.
-
-    a := (0,0) (1,1)
-
-What follows the `:=` is the path expression.  A path expression can
-contain literal coordinates, path variables, path functions, and
-combinations of all of them.
-
-    a := (0,0) b (1,1) c (2,2) $somepoints(d,3,5)
-
-In the previous example a new path variable is to be created and assigned a
-new path containing a new set of path points. The first point will be
-(0,0). Its second point will be copied path variable b, assuming b is not
-empty. If b is empty, then no points are copied, and the second point of a
-becomes (1,1).
-
-The $somepoints(d,3,5) syntax expresses a path function. A path function
-will take as its parameters either path variables or numbers (no literal
-coordinates), and will return a new path. Thus, the points taken after
-(2,2) are going to be whatever returned by the $somepoints() function.
+    The color of the tick is set to black, unless changed by the (tick)
+    setting, which describes the color of the tick, such as "0.5[red,white]".
+    The thickness of the tick line is controlled by the setting (tick-width).
+    The default is "1pt".
 
 
 ## Drawing text Labels
@@ -714,7 +721,7 @@ Following is a list of all settings.
 |                    |It is used by the `tick`  instruction.               |
 |                    |The default is empty, which MetaPost assume as black.|
 |--------------------|-----------------------------------------------------|
-|tick-size           |Configure the thickness of the line for ticks.       |
+|tick-width          |Configure the thickness of the line for ticks.       |
 |                    |i.e, "2pt". The default is "1pt".                    |
 |                    |It is used by the `tick` instruction.                |
 |                    |                                                     |

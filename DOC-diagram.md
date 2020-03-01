@@ -658,12 +658,12 @@ Following is a list of all settings.
 |                    |                                                     |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|fontcolor           |Set a string that describes the color, such as       |
+|font-color          |Set a string that describes the color, such as       |
 |                    |'green', 'red', 'blue', 'black', and 'white'.        |
 |                    |Only the five colors are supported.                  |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|fontsize            |Set to a font size specification such as '14pt'.     |
+|font-size           |Set to a font size specification such as '14pt'.     |
 |                    |Used when drawing text labels.                       |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
@@ -676,36 +676,36 @@ Following is a list of all settings.
 |                    |that is to control the appearances of the dashes.    |
 |                    |Default is empty, that a solid line is to be drawn.  |
 |--------------------|-----------------------------------------------------|
-|linecolor           |Set the color used when drawing lines, such as "red".|
+|stroke              |Set the color used when drawing lines, such as "red".|
 |                    |It is used by the drawline instruction.              |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|linewidth           |Set the width of the line when drawing lines,        |
+|stroke-width        |Set the width of the line when drawing lines,        |
 |                    |such as "4pt".                                       |
 |                    |It is used when drawing lines.                       |
 |--------------------|-----------------------------------------------------|
-|fillcolor           |Set the color used when filling an area, i.e., "red".|
+|fill                |Set the color used when filling an area, i.e., "red".|
 |                    |It is used when drawing an area.                     |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|dotcolor            |Set the color used for drawing dots, such as "red".  |
+|dot                 |Set the color used for drawing dots, such as "red".  |
 |                    |It is used by the drawdot instruction.               |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|dotsize             |Configure the size of the dot to be drawn, such as   |
+|dot-size            |Configure the size of the dot to be drawn, such as   |
 |                    |"8pt". Used by the `dot` instruction. The default    |
 |                    |is "4pt".                                            |
 |--------------------|-----------------------------------------------------|
-|tickcolor           |Set the color used for drawing ticks, i.e.,  "red".  |
+|tick                |Set the color used for drawing ticks, i.e.,  "red".  |
 |                    |It is used by the `tick`  instruction.               |
 |                    |The default is empty, which MetaPost assume as black.|
 |--------------------|-----------------------------------------------------|
-|ticksize            |Configure the thickness of the line for ticks.       |
+|tick-size           |Configure the thickness of the line for ticks.       |
 |                    |i.e, "2pt". The default is "1pt".                    |
 |                    |It is used by the `tick` instruction.                |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|ticklength          |Configure how far away the end point is from the     |
+|tick-protrude       |Configure how far away the end point is from the     |
 |                    |axis line. The default is 0.33 grid unit.            |
 |                    |The maximum is "1.0", the minimum is "0.1".          |
 |--------------------|-----------------------------------------------------|

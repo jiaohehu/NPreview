@@ -10,7 +10,7 @@ set refy 9
 set refsx 2
 set refsy 2
 p := (-1,0)..(0,-1)..(1,0)
-fill p{up}..(0,0){-1,-2}..{up}cycle
+drawarea p{up}..(0,0){-1,-2}..{up}cycle
 drawline p..(0,1)..cycle
 
 % reset
@@ -87,10 +87,10 @@ gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
 set stroke-width 2pt
 set fill orange
-filldraw gg
+drawarea gg
 set stroke-width 2px
 set fill orange
-filldraw ff
+drawarea ff
 reset
 
 % label

@@ -192,6 +192,9 @@ what actions to take.  Following is a list of all instruction names:
 
     ```
     set stroke-width 2pt
+    set fill 0.5[red,green]
+    set stroke 0.5[red,green]
+    set slant 0.44
     ```
 
     To clear a setting, simply call `set` without any value.
@@ -199,6 +202,9 @@ what actions to take.  Following is a list of all instruction names:
     ```
     set stroke-width
     ```
+
+    When a setting is cleared, it will be restored to its 
+    initial value.
 
   + `reset`
 
@@ -212,124 +218,173 @@ what actions to take.  Following is a list of all instruction names:
     of the instruction.  It can be used to temporary avoiding
     some instruction to aid debugging.
 
-  + `a := (1,1) (2,2) (3,4)`
+  + `a := (1,1) -- (2,2) -- (3,4)`
   + `b := a{up} .. (5,5) .. (6,7)`
 
-    This is what is called an "assignment statement."
+    This statement is to create a new path variable or path variables.
+    It must be placed in a from such that the left hand side of the ':='
+    is a path variable and the right hand side is a path description.
 
-    This statement is to create a new path description that is assigned
-    to a new variable. This variable is also to appear as part of the MP
-    'path' statement. Following is the OUTPUT in the translated LATEX  
-    document between '\begin{mplibcode}' and '\end{mplibcode}'.
+    After the statement is completed, following output should be observed in
+    the translated LATEX document.
 
     ```
     path a; a := (1,1) -- (2,2) -- (3,4)
     path b; b := a{up} .. (5,5) .. (6,7)
     ```
 
-    A assignment statement can include path functions, path variables,
-    and the wildcard variable. 
+    The assignment generates MetaPost path variable. These variables expresses
+    a "subpath" such that each "subpath" can be used to make up a "larger" path.
+    In the previous example there are two path variables, the first variable "a"
+    is part of a second path that is "b", where "a" is part of "b".
+
+    Thus, the Diagram path expression syntax allows for a MetaPost path variable to
+    be created by the use of an assignment statement for which the variable in
+    the assignment statement become the path variable within a MetaPost
+    program.
+
+    In addition, a path description in Diagram also includes path functions, 
+    and the wildcard variable. A path function typically takes existing path
+    variables as input and returns a new path. For example, the $somepoints()
+    path function would return one or more points of an existing path depending
+    on the arguments. In the following example the path variable 'c' is assigned
+    the first point in path variable 'a' and path variable 'd' is assigned the
+    second point of path variable 'a'.
 
     ```
-    a := $somepoints(*,2,5)
-    a := * (4,5) (6,7)
+    c := $somepoints(a,0) 
+    d := $somepoints(a,1) 
     ```
 
-    Note that the wildcard variable '*' will be modified everytime a new path
-    description is created with a statement such as 'drawline', 'fill',
-    'drawarrow', 'dot', 'label', 'circle', etc. The wildcard variable of '*' will
-    not be modifed by an assignment statement with ':=', nor will it be modified by
-    a 'set', 'reset' statement that does not involve a path description.  This
-    allows for extracting information from the wildcard variable multiple times.
+    Following MetaPost output will be observed as a result of running previous two
+    Diagram statements. 
+    
+    ```
+    path c; c := (1,1)
+    path d; d := (2,2)
+    ```
+
+    Note that the path a path function returns always made
+    up of literal points. A literal point is a point with real numbers such as
+    (1,1), or (2,2). A path variable with a single point is not considered
+    a literal point, although it can be part of a path expression.
+
+    The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
+    variable".  A wildcard variable holds the path encountered by the last
+    statement that utilizes a path, such as `drawline`, `drawarea`, `circle`,
+    `rect`, `label`, etc. In the following example the path variable will
+    be created and assigned a path that is the same as the one used by
+    the `drawline` statement.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) (4,5)
     a := *
-    b := *
-    c := *
     ```
 
-    Here, a new path variable 'a', 'b', and 'c' will all be created that would
-    have been assigned the same path points as that of the 'drawline' command.
-    You can also use a wildcard variable any where inside a path function where
-    a symbol is to be expected.
+    Note that the wildcard variable will not be changed by an assignment
+    statement such as `a := *`. This is by design and is to allow for
+    situations such as the following so that the same wildcard variable
+    can be used to create many other paths.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
-    a := $somepoints(*,0,1)
+    drawline (1,1) (2,2) (3,4) (4,5)
+    a := * 
+    b := * (5,6)
+    c := $somepoints(*,1,2)
     ```
 
-    In the previous example the same path that was being used for 'drawline'
-    is now pulled to extract its first and second element to be assigned
-    to the 'a' variable. The 'a' variable will be a path of two points
-    after the assignment statement returns.
+    The wildcard variable cannot be considered a regular path variable as there
+    is no asterisk path variable being observed in the MetaPost output. You can
+    compare a wildcard variable as a "spread" operator in JavaScript such that
+    it spread the content of the last path as individual points. Thus, in the
+    following example the path variable 'b' and 'c' will hold exacty the same
+    content.
 
-    Also note that all the coordinates of a path corresponds directly to the    
-    value entered. If there are value of 'refx', 'refy', 'refsx', and/or 'refsy',
-    the original points stored with a path variable is always the same regardless
-    the current values of the 'refx', 'refy', 'refsx', and 'refsy'.
+    ```
+    drawline (1,1) (2,2) (3,4) (4,5)
+    b := * (5,6)
+    c := (1,1) (2,2) (3,4) (4,5) (5,6)
+    ```
+
+    When a wildcard variable appears in a path functon, it is treated as a 
+    normal path variable. In the following example path variable 'b' and 'c'
+    will hold exactly the same points.
+
+    ```
+    drawline (1,1) (2,2) (3,4) (4,5)
+    a := *
+    b := $somepoints(*,2,5)
+    c := $somepoints(a,2,5)
+    ```
+
+    Also note that all points of a path corresponds will be subject to
+    coordinate transformation based on values of 'refx', 'refy', 'refsx',
+    and/or 'refsy'.  If the same path is appears in two different commands
+    under two different context where any of the 'refx', 'refy', 'refsx',
+    and/or 'refsy' settings is different, then they would have resulted in two
+    different shapes.
 
     The assignment statement also has provision to allow for something akin to
-    JavaScript "array destructuring" statement. In such such a case you would
-    provide two or more variables separated by the slash (/) character, and the
-    variables inbetween them will each be assigned one of the points in the
-    path.
+    JavaScript "array destructuring" statement, in which case individual points
+    of a path are assigned to different path variables at the same time. In the
+    following assignment statement path variables 'a', 'b' and 'c' are created
+    and assigned each one of the three points of the path that was drawn by the
+    `drawline` statement.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4)(4,5)
     a/b/c := *
     ```
 
-    In the previous example, the first two points are each assigned to variable
-    'a' and 'b', and the last two points assigned to variable 'c'.  The
-    "destructuring" allows you to create multiple variables such as 'a', 'b',
-    and 'c' immediately without having to call the path function such as
-    `$somepoints()` to extract invidual points.
+    The previous assignment statement is functionally equivalent to the following
+    three assignment statements using $somepoints() path function.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) (4,5)
     a := $somepoints(*,0,0)
     b := $somepoints(*,1,1)
     c := $somepoints(*,2,3)
     ```
 
-    You can skip certain points by not including any variables in between
-    slashes. For example, you can choose to assign the first point to variable
-    'a' and the third point to variable 'b' as follows.
+    Each sub-variable must be separated from other sub-variables by one or more
+    slash character.  You can skip ahead and bypass certain points by not
+    including any variables in between slashes. For example, you can choose to
+    assign the first point to variable 'a' and the third point to variable 'b'
+    as follows.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) (4,5)
     a//b := *
     ```
 
     Note that the last variable always gets all the remaining points.  In the
     previous example, variable 'b' will get the last two points, which are
-    (3,4) and (1,1) because () means 'cycle', or the first point.  However, you
-    can choose to allow only a single point to be assigned to the last variable
-    by including an additional slash after this variable.
+    (3,4) and (4,5).  However, you can choose to allow only a single point to
+    be assigned to the last variable by including an additional slash after
+    this variable.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
+    drawline (1,1) (2,2) (3,4) (4,5)
     a//b/ := *
     ```
 
-    Similarly you can also add slashes at the beginning to skip
-    first points. Following example will skip the first two 
-    points and assign the third point to variable 'a'.
+    Similarly you can also add slashes at the beginning to skip first few
+    points.  Following example will skip the first two points and assign the
+    remaining two points to variable 'a'.
 
     ```
-    drawline (1,1) (2,2) (3,4) ()
-    //a/ := *
+    drawline (1,1) (2,2) (3,4) (4,5)
+    //a := *
     ```
 
     For a regular path variable, if you use it directly, then it is being treated
-    as a subpath. In the case of 'drawline', 'fill', 'filldraw', 'drawarrow', 'drawdblarrow',
+    as a subpath. In the case of 'drawline', 'drawarea', 'drawarrow', 'drawdblarrow',
     the path is being considered as a whole, and the subpath points will be considered part
     of the main path.
 
     However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
     is just another point. Thus, if you have a path 'p' that contains three points, and then 
-    you pass it to 'dot' command which is designed to draw dots. The followign statement will
+    you pass it to 'dot' command which is designed to draw dots, the followign statement will
     only draw one dot which is at (1,2).
 
     ```
@@ -337,45 +392,46 @@ what actions to take.  Following is a list of all instruction names:
     dot p
     ```
 
-    This is because the entire 'p' is considered a single point by the 'dot' command, rather than three
-    points such as the following. 
+    This is because the entire 'p' is considered a single point by the 'dot'
+    command, rather than three individual points such as the following. 
 
     ```
-    p := (1,2) (2,3) (3,4)
     dot (1,2) (2,3) (3,4)
     ```
 
-    When being considered as a single point, only the first point of the path is extracted. Because the
-    first point of 'p' is (1,2), the dot is drawn at that position and that position only.
-    Now to allow dot to be drawn for *all* positions of a path, you would need to place a asterisk in 
-    front of it such as:
+    When being considered as a single point, only the first point of the path
+    is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
+    that position and that position only.  To allow dot to be drawn for
+    *all* positions of a path, you would need to place a asterisk in front of
+    it such as:
 
     ```
-    p := (1,2) (2,3) (3,4)
     dot *p
     ```
  
-    In such a case three dots will be drawn in three locations that are: (1,2), (2,3), and (3,4).
-    You can also include an addition integer after the symbol to express a particular point
-    at that index location. Following example will draw only two dots at (2,3) and (3,4), while
-    skipping the first one. 
+    In such a case three dots will be drawn in three locations that are: (1,2),
+    (2,3), and (3,4).  You can also include an addition integer after the
+    symbol to express a particular point at that index location. Following
+    example will draw only two dots at (2,3) and (3,4), while skipping the
+    first one. 
 
     ```
     p := (1,2) (2,3) (3,4)
     dot *p1 *p2
     ```
 
-    This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the same as
-    `$somepoints(p,2)`. You can even use the following syntax to construct a new path.
+    This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the
+    same as `$somepoints(p,2)`. You can even use the following syntax to draw
+    an arrow going directly from the first point to the last.
 
     ```
-    p := (1,2) (2,3) (3,4)
-    drawarrow *p1{up}..*p2
+    p := (1,2) (1,3) (3,4)
+    drawarrow *p0 -- *p2
     ```
 
-    This will draw a curved arrow coming out of the second point of 'p' going up and then
-    coming down passing through the third point of 'p'. Following example draw a dot on 
-    all internal points of a path that is both 'p' and 'q'.
+    Because of the "spread" nature of `*p` or `*q`, you can combine
+    all points of a path easily. In the following example a single
+    dot statement is to draw all dots from two separate paths.
 
     ```
     p := (1,2) (2,3) (3,4)
@@ -390,7 +446,6 @@ what actions to take.  Following is a list of all instruction names:
     q := (7,8) (8,9) (9,10)
     dot $allpoints(p,q)
     ```
-
 
   + `label`
   + `label.rt`
@@ -758,6 +813,112 @@ Following is a list of all settings.
 |                    |drawing a text label next to the arc.                |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
+```
+
+## Path expression       
+
+As can be seen, a path expression is used by an assignment statement, as well
+as other statements that also expectes a path.  A path expression consists of
+literal points, path variables, path functions, wildcard spreads, or path
+variable spreads.
+
+All the previous constructs are for a single goal, which is to create a path.
+A path can be considered collection of single points, where each point
+describes its location and how it supposes to join the previous point (line, or
+curve).  It also includes additional information such as '{up}', '{down}' that
+describes the direction of the curvature if a curve is to be formed between the
+two points.  The syntax of a Diagram path expression is very similar to that of
+MetaPost and models it closely, allowing it take advantage of the MetaPost's
+strong path description capability.
+
+```
+a := (1,1) -- (2,2) -- (3,4)
+b := a{up} .. (5,5) .. (6,7)
+```
+
+However, Diagram have added a few more syntax designed to allow for specifying
+points in a few more different ways. For example, it offers a "relative point" syntax
+that allows you to specify a point that is relative to the point before it.
+
+```
+a := (1,1) [up:1] [rt:2] [down:1]
+```
+
+This allows you to create a four point path where the first point is (1,1),
+and the rest points being at (1,2), (3,2), and (3,1).
+Following are all relative points.
+
+    up:1
+    down:1
+    top:1
+    bot:1
+    rt:1
+    lft:1
+    urt:1
+    ulft:1
+    lrt:1
+    llft:1
+    angledist:1,30
+    turnrt:1,30
+    turnlft:1,30
+    flip:5,5
+
+The [angledist:1,30] allows you to construct a new point that is to travel at a
+angle of 30 degrees counterclockwise from due east for 1 unit length, starting
+from the current point.
+
+The [turnrt:1,30] is to create a new point that is equivalent to making a right
+turn of 30 degrees from the direction you have arrived at the current point, and
+then travel for one more unit length.
+
+The [turnlft:1,30] is similar to [turnrt:1,30] except that you will be making 
+a left turn instead of right turn.
+
+The [flip:5,5] is to construct a new point that is the mirror image of the
+current point. The mirror is the line segment that is made up by the current
+point and the point before that. This operations allows you to figure out where
+an existing point will land as if you were folding a paper along some existing
+line.
+
+Aside from relative points, path expression can also include "offsets". An offset
+allows you to do "psudo translation" for the points of the same path. For example, 
+if were to draw one horizontal line and one vertical line that meets
+at (10,0) such as the following.
+
+```
+drawline (10,0) (15,0)
+drawline (10,0) (10,5)
+```
+
+You can do that using the offset as follows.
+
+```
+drawline <10,0> (0,0) (5,0)
+drawline <10,0> (0,0) (0,5)
+```
+
+The offset <10,0> is to set it so that the all future points will be considered
+an offset to the point that is (10,0).  Thus, the point of (0,0) is considered
+as (10,0), and (5,0) is considered (15,0). The offset always appears between a
+set of angle brackets. The first number is the offset in the horizontal
+direction, and the second one in vertical direction. 
+
+The offset is only going to be valid for the current path. It will affect all
+future points after it. Thus, if you have placed an offset in the middle of two
+points, such as the following, then the first point is to be considered
+as (0,0) while the second one as (15,0).
+
+```
+drawline (0,0) <10,0> (5,0)
+```
+
+If two offset appears in a path expression, then the second offset is
+considered to be offset to the first. This allows you to construct more points
+simply by moving offsets. For example, you can construct a path with four
+points (11,0), (12,0), (13,0) and (14,0) as follows.
+
+```
+drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 ```
 
 

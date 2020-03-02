@@ -525,11 +525,27 @@ mannor as that of the `circle`.
 
 The instructions of `circle.chord` or `circle.arc` are stroke operations only.
 They will not attempt to fill an area.  They drawing behavior will only respond
-to changes in *stroke* and *stroke-width*.
+to changes in *stroke* and *stroke-width*. The `circle.chord` is to draw a
+chord connecting to points on the circumference of the circle. The two points
+are defined by the *angle1* and *angle2* parameter, each of which expresses an
+angle that is in degrees. The circle is of a diameter that is expressed by the
+*diameter* parameter.  The location of the circle is given by a point that is
+part of a path expression.
 
-The `circle.cseg` is to draw a circular segment made up of chord and arc. It is
-an area operation that will subject to the drawing or filling operation
-depending on the same set of settings as those of the `circle` instruction.
+    circle.chord (1,1)
+
+The `circle.arc` instruction works the same way and is controlled by the same
+set of parameters as that of the `circle.chord`.
+
+    circle.chord (1,1)
+
+The `circle.cseg` is to draw a circular segment bound by the chord and arc.
+Therefore it is controlled by the same set of parameters as those of
+`circle.chord` and `circle.arc`. It is an area operation that will subject to
+the drawing or filling operation depending on the same set of settings as those
+of the `circle` instruction.
+
+    circle.chord (1,1)
 
 The `drawanglearc` instruction is to draw a small arc denoting the interior
 of an angle.  The `drawanglearc.sq` is to do the same thing but will draw a
@@ -577,26 +593,43 @@ color specified. It always draw the outline of the shape unless the
 
 The overall size of the quadrilateral is controlled by the *rectw* and *recth*
 parameter, which specifies the width and height of the shape in grid unit
-length.  These settings apples to all quadrilaterals.  For
-a parallelgram, this means that the horizontal difference between its
-lower-left and upper-right hand corner is always equal to (rectw), and the
-height difference between the upper parallel line and lower parallel line is
-always equal to (recth).  
+length.  The following example draws a rectangle with a width of 5 and height
+of 3, and its lower-left position is aligned with (1,1).
+
+    set rectw 5
+    set recth 3
+    rect (1,1)
     
-However, for a parallelgram, the topleft and bottomright part of the rect
-area will be sliced off to make the shape of a parallelgram.  The amount of
-incursion is determined by the (slant) setting.  This setting is a number
-between 0.1 and 0.9.  It describes the portion of the total width that is
-to make up the "slanting" part of the parallelgram.  For example, if it is
-set to "0.3" which is default, it means that 30 percent of the overall
-width will be used for slanting. This means 30 percent of the distance of
-the overall width from top left corner moving towards the right, and 30
-percent of the overall width from the bottom right corner moving towards
-the left, will be the "slanting" part of the parallelgram.
+These settings apples to all quadrilaterals.  For a parallelgram, this means
+that the horizontal difference between its lower-left and upper-right hand
+corner is always equal to *rectw*, and the height difference between the upper
+parallel line and lower parallel line is always equal to *recth*.  
+
+However, for a parallelgram, the topleft and bottomright part of the rect area
+will be sliced off to make the shape of a parallelgram.  The amount of
+incursion is determined by the *slant* setting.  This setting is a number
+between 0.1 and 0.9.  It describes the portion of the total width that is to
+make up the "slanting" part of the parallelgram.  For example, if it is set to
+"0.3" which is the default, it means that 30 percent of the overall width will be
+used for slanting. This means 30 percent of the distance of the overall width
+from top left corner moving towards the right, and 30 percent of the overall
+width from the bottom right corner moving towards the left, will be the
+"slanting" part of the parallelgram. The following example will draw a
+parallelgram such that its slanted part is half the width of the overall
+parallgram.
+
+    set rectw 5
+    set recth 3
+    set slant 0.5
+    rect.parallelgram (1,1)
 
 The `rect.rhombus` shape is drawn with diamond head and tail pointing 
 to the left and right. There is currently no provision to change
 its size so it will be the same size for now.
+
+    set rectw 5
+    set recth 3
+    rect.rhombus (1,1)
 
 The `rect.trapezoid` shape is drawn with a base larger than the top.    
 Also, the encroachmentment from the left at the top is 20 percent of the
@@ -604,18 +637,22 @@ total width. The encroachment from the right at the top is 40 percent of
 the total width.  Currently these numbers are fixed but future improvement
 will likely to provide options to allow for adjustments.
 
+    set rectw 5
+    set recth 3
+    rect.trapezoid (1,1)
+
 The `dot` instruction is to draw a dot at each path point.  It is typically
 used to identify the location of a point in a plane by showing a visible round
 black dot.  The `dot` instruction will draw a circular dot. The default size of
-the dot is '4pt', but can be changed by the (dot-size) setting, for example to
-set to a string of '5pt'.  Following example draw three dots at location of
-(1,1), (2,2) and (3,3) where each dot is at a size of "5pt".
+the dot is '4pt', but can be changed by the *dot-size* setting, i.e., to set it
+to a string of '5pt'.  Following example draw three dots at location of (1,1),
+(2,2) and (3,3) where each dot is at a size of "5pt".
 
     set dot-size 5pt
     dot (1,1) (2,2) (3,3)
 
 The color of the dot is by default set to black, unless changed by the
-(dot) setting, which describes a color such as "orange".
+*dot* setting, which describes a color such as "orange".
 
     set dot orange
     set dot-size 5pt
@@ -628,10 +665,10 @@ point The `tick.rt ` instruction draws a horizontal tick to the right hand side
 of the point The `tick.lft` instruction draws a horizontal tick to the left
 hand side of the point
 
-The protrusion of the tick is default to 0.33 grid unit. This is length of
-the line it will protrude away from the point. It is controlled
-by the *tick-protrude* setting. It is always in the grid unit length.
-The default is '0.33'.
+The protrusion of the tick is by default set to 0.33 grid unit. This is length
+of the line it will protrude away from the point. It is controlled by the
+*tick-protrude* setting. It is always in the grid unit length.  The default is
+'0.33'.
 
 The color of the tick is set to black, unless changed by the *tick*
 setting, which describes the color of the tick, such as "0.5[red,white]".
@@ -1025,3 +1062,35 @@ As of writing, following shape exists:
 |              |where the small hold is for aligning with the angle vertex. |
 |--------------|------------------------------------------------------------|
 ```
+
+
+## Specifying the color
+
+When setting the color it follows the following form. The Diagram will attempt
+to interpret and convert to "xcolor" syntax such as "red!80|white|20!".  The
+output MP code is to wrap the "xcolor" name within the `\mpcolor` macro that is
+offered by the "luamplib" LATEX package.
+
+``` tabulary
+|------------------|--------------------------------------------------------|
+|Diagram Color     | MP output                                              |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+|   white          | \mpcolor{white}                                        |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+|   green          | \mpcolor{green}                                        |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+|0.8green          | \mpcolor{green!80}                                     |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+|0.8[green,white]  | \mpcolor{green!80!white!20}                            |
+|                  |                                                        |
+|------------------|--------------------------------------------------------|
+```
+
+
+
+
+

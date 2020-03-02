@@ -180,8 +180,9 @@ is to be explained later.
 Aside from `viewport` and `unit`, the rest of diagram commands are considered
 drawing instructions. Almost all drawing instructions will generate a MetaPost
 output, such as output to draw a line, a circle, a dot, etc. The only
-exceptions are the `set` and `reset` instruction, which is to set and/or clear
-the drawing parameters for other drawing instructions. 
+exceptions are the `set`, `reset` and `exit` instructions. The first two is to
+set and/or clear the drawing parameters for other drawing instructions, and the
+last one is to stop the processing of the rest of the instruction prematurely.
 
 Each instruction must start its own line. If a line is too long to fit side a
 single source paragraph then a backslash can be placed at the end of the line
@@ -193,10 +194,10 @@ then the entire line is considered a comment and will be ignored.
 The first word of each instruction is considered the instruction name that tells
 what actions to take.  Following is a list of all instruction names:
 
-+   set stroke-width 2pt
-+   set fill 0.5[red,green]
-+   set stroke 0.5[red,green]
-+   set slant 0.44
+    set stroke-width 2pt
+    set fill 0.5[red,green]
+    set stroke 0.5[red,green]
+    set slant 0.44
 
 The `set` instruction is to set or clear a drawing parameter.  When provide
 a setting, simply place the parameter name after the `set` command, followed
@@ -207,143 +208,133 @@ followed by the name of the parameter without any values.
 
     set stroke-width
 
-+ reset
-
 The `reset` instruction clears *all* drawing parameters to its initial value.
 
     reset
-
-+ exit 
 
 The `exit` instruction will stop the processing of the rest of the instructions and 
 of the instruction.  It can be used to temporary avoiding
 some instruction to aid debugging.
 
-+ `a := (1,1) -- (2,2) -- (3,4)`
-+ `b := a{up} .. (5,5) .. (6,7)`
+    exit 
 
-This statement is to create a new path variable or path variables.
-It must be placed in a from such that the left hand side of the ':='
-is a path variable and the right hand side is a path description.
+The statement is to create a new path variable or several new path variables,
+or to modify exsiting variables. A path variable is a symbol using uppercase or lowcase
+letters to express a path or part of a path.
 
-After the statement is completed, following output should be observed in
-the translated LATEX document.
+An assignment must appear in the form where the variable or variables
+are to appear on the left hand side of the ':=' and the path expression
+on the right hand side of it. In the following two path variables are created:
+the 'a' and 'b'.
+
+    a := (1,1) -- (2,2) -- (3,4)
+    b := a{up} .. (5,5) .. (6,7)
+
+Each assignment instruction is to generate a MetaPost output. Thus, the previous
+two instructions would have allowed the following two MetaPost instructions
+to appear in the LATEX document.
 
     path a; a := (1,1) -- (2,2) -- (3,4)
     path b; b := a{up} .. (5,5) .. (6,7)
 
-The assignment generates MetaPost path variable. These variables expresses
-a "subpath" such that each "subpath" can be used to make up a "larger" path.
-In the previous example there are two path variables, the first variable "a"
-is part of a second path that is "b", where "a" is part of "b".
+As for the MetaPost statement, the 'path a' statement is to create a MetaPost
+path variable named 'a', and the 'path b' statement is to create a MetaPost
+path variable named 'b'.  These variables, with MetaPost, each expresses a
+"subpath" such that each "subpath" can be used to make up a "larger" path.  In
+the previous example there are two path variables, the first variable "a" is
+part of a second path that is "b", where "a" is part of "b".
 
 Thus, the Diagram path expression syntax allows for a MetaPost path variable to
-be created by the use of an assignment statement for which the variable in
-the assignment statement become the path variable within a MetaPost
+be created by the use of an assignment instruction in Diagram for which the
+variable in the assignment instruction become the path variable within a MetaPost
 program.
 
-In addition, a path description in Diagram also includes path functions, 
-and the wildcard variable. A path function typically takes existing path
-variables as input and returns a new path. For example, the $somepoints()
-path function would return one or more points of an existing path depending
-on the arguments. In the following example the path variable 'c' is assigned
-the first point in path variable 'a' and path variable 'd' is assigned the
-second point of path variable 'a'.
+Aside from path variables, a path description in Diagram allows for more
+components to be used in a path expression.  For example, the path function,
+and the wildcard variable. A path function typically takes an existing path
+variable as input and returns a new path. For example, the $somepoints() path
+function would return a new path consists of one or more points of an existing
+path.  In the following example the path variable 'c' is assigned the first
+point in path variable 'a' and path variable 'd' is assigned the second point
+of path variable 'a'.
 
-    ```
     c := $somepoints(a,0) 
     d := $somepoints(a,1) 
-    ```
 
 Following MetaPost output will be observed as a result of running previous two
 Diagram statements. 
 
-    ```
     path c; c := (1,1)
     path d; d := (2,2)
-    ```
 
-Note that the path a path function returns always made
-up of literal points. A literal point is a point with real numbers such as
-(1,1), or (2,2). A path variable with a single point is not considered
-a literal point, although it can be part of a path expression.
+Note that a path function always returns points of literal coordinates, even
+though the input might have been a subpath expressed using by a symbol. 
 
 The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
-variable".  A wildcard variable holds the path encountered by the last
-statement that utilizes a path, such as `drawline`, `drawarea`, `circle`,
-`rect`, `label`, etc. In the following example the path variable will
-be created and assigned a path that is the same as the one used by
-the `drawline` statement.
+variable".  A wildcard variable always holds the path encountered by the last
+draw instruction except for the assignment instruction.  In the following
+example the path variable will be created and assigned a path that is the same
+as the one used by the `drawline` statement.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a := *
-    ```
 
-Note that the wildcard variable will not be changed by an assignment
-statement such as `a := *`. This is by design and is to allow for
-situations such as the following so that the same wildcard variable
-can be used to create many other paths.
+The wildcard variable is assigned a new path every time a new drawing
+instruction is run.  However, it will not be changed by an assignment instruction
+such as `a := *`. This is by design and is to allow for the same wildcard
+variable to be used multiple times to create other path variables.  Following
+example shows how to create path variable 'a', 'b', and 'c' by extracting
+points and amending points from the same path that was used by the `drawline`
+instruction.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a := * 
     b := * (5,6)
     c := $somepoints(*,1,2)
-    ```
 
-The wildcard variable cannot be considered a regular path variable as there
-is no asterisk path variable being observed in the MetaPost output. You can
-compare a wildcard variable as a "spread" operator in JavaScript such that
-it spread the content of the last path as individual points. Thus, in the
-following example the path variable 'b' and 'c' will hold exacty the same
-content.
+The wildcard variable cannot be considered a regular path variable in the sense
+as expressing a subpath. When used inside a path, it will simply
+spread all its contents. Therefore, in the following example the second `drawline`
+instruction would simply draw the same path as before with an additional point 
+at the end.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
-    b := * (5,6)
-    c := (1,1) (2,2) (3,4) (4,5) (5,6)
-    ```
+    drawline * (5,6)
 
-When a wildcard variable appears in a path functon, it is treated as a 
-normal path variable. In the following example path variable 'b' and 'c'
-will hold exactly the same points.
+Therefore, a wildcard variable can be considered analogously as the "spread"
+operator in JavaScript. You can think of it as "spreading" the content of a
+path onto an new path.  A wildcard variable can also appear in a path function.
+In the following example the wildcard variable is used analogously to the
+effect of 'a'.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a := *
     b := $somepoints(*,2,5)
     c := $somepoints(a,2,5)
-    ```
 
-Also note that all points of a path corresponds will be subject to
-coordinate transformation based on values of 'refx', 'refy', 'refsx',
-and/or 'refsy'.  If the same path is appears in two different commands
-under two different context where any of the 'refx', 'refy', 'refsx',
-and/or 'refsy' settings is different, then they would have resulted in two
-different shapes.
+For a path variable, as well as a wildcard variable, all its content points
+will be subject to coordinate transformation based on values of 'refx', 'refy',
+'refsx', and/or 'refsy' at the time.  If any of these values change, even if
+the same path variale is encountered, the resulting points might be in a
+different location.
 
-The assignment statement also has provision to allow for something akin to
-JavaScript "array destructuring" statement, in which case individual points
-of a path are assigned to different path variables at the same time. In the
-following assignment statement path variables 'a', 'b' and 'c' are created
-and assigned each one of the three points of the path that was drawn by the
-`drawline` statement.
+The assignment instruction also has provision to allow for something akin to
+JavaScript "array destructuring" statement, in which case individual points of
+a path are assigned to different path variables at the same time by the same
+assignment instruction. In the following assignment instruction path variables
+'a', 'b' and 'c' are each created and assigned three different points of the
+same path that was drawn by the `drawline` statement.
 
-    ```
     drawline (1,1) (2,2) (3,4)(4,5)
     a/b/c := *
-    ```
 
-The previous assignment statement is functionally equivalent to the following
-three assignment statements using $somepoints() path function.
+The previous assignment instruction is functionally equivalent to the following
+three assignment instructions using $somepoints() path function.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a := $somepoints(*,0,0)
     b := $somepoints(*,1,1)
     c := $somepoints(*,2,3)
-    ```
 
 Each sub-variable must be separated from other sub-variables by one or more
 slash character.  You can skip ahead and bypass certain points by not
@@ -351,10 +342,8 @@ including any variables in between slashes. For example, you can choose to
 assign the first point to variable 'a' and the third point to variable 'b'
 as follows.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a//b := *
-    ```
 
 Note that the last variable always gets all the remaining points.  In the
 previous example, variable 'b' will get the last two points, which are
@@ -362,19 +351,15 @@ previous example, variable 'b' will get the last two points, which are
 be assigned to the last variable by including an additional slash after
 this variable.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     a//b/ := *
-    ```
 
 Similarly you can also add slashes at the beginning to skip first few
 points.  Following example will skip the first two points and assign the
 remaining two points to variable 'a'.
 
-    ```
     drawline (1,1) (2,2) (3,4) (4,5)
     //a := *
-    ```
 
 For a regular path variable, if you use it directly, then it is being treated
 as a subpath. In the case of 'drawline', 'drawarea', 'drawarrow', 'drawdblarrow',
@@ -386,17 +371,13 @@ is just another point. Thus, if you have a path 'p' that contains three points, 
 you pass it to 'dot' command which is designed to draw dots, the followign statement will
 only draw one dot which is at (1,2).
 
-    ```
     p := (1,2) (2,3) (3,4)
     dot p
-    ```
 
 This is because the entire 'p' is considered a single point by the 'dot'
 command, rather than three individual points such as the following. 
 
-    ```
     dot (1,2) (2,3) (3,4)
-    ```
 
 When being considered as a single point, only the first point of the path
 is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
@@ -404,9 +385,7 @@ that position and that position only.  To allow dot to be drawn for
 *all* positions of a path, you would need to place a asterisk in front of
 it such as:
 
-    ```
     dot *p
-    ```
 
 In such a case three dots will be drawn in three locations that are: (1,2),
 (2,3), and (3,4).  You can also include an addition integer after the
@@ -414,254 +393,250 @@ symbol to express a particular point at that index location. Following
 example will draw only two dots at (2,3) and (3,4), while skipping the
 first one. 
 
-    ```
     p := (1,2) (2,3) (3,4)
     dot *p1 *p2
-    ```
 
 This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the
 same as `$somepoints(p,2)`. You can even use the following syntax to draw
 an arrow going directly from the first point to the last.
 
-    ```
     p := (1,2) (1,3) (3,4)
     drawarrow *p0 -- *p2
-    ```
 
 Because of the "spread" nature of `*p` or `*q`, you can combine
 all points of a path easily. In the following example a single
 dot statement is to draw all dots from two separate paths.
 
-    ```
     p := (1,2) (2,3) (3,4)
     q := (7,8) (8,9) (9,10)
     dot *p *q
-    ```
 
 This is equivalent to the following.
 
-    ```
     p := (1,2) (2,3) (3,4)
     q := (7,8) (8,9) (9,10)
     dot $allpoints(p,q)
-    ```
 
-  + `label`
-  + `label.rt`
-  + `label.lft`
-  + `label.top`
-  + `label.bot`
-  + `label.urt`
-  + `label.ulft`
-  + `label.lrt`
-  + `label.llft`
+The `shape` command is to draw one of the buit-in shapes.  The following
+`shape` command place a buit-in shape at the point (0,12).  Note that the point
+is going to be aligned with one of the point of the shape, and that point could
+be anywhere in the shape.
 
-    Draw a text label at each path point.
-
-  + shape   
-
-    Draw a shape at each path point.
-
-    ```
     shape {brick} (0,12)
+
+You can express to have more than one shape each placed at a different location
+by the following syntax, such as the name of the shape is to be separated by a
+double-backslashes.
+
     shape {brick\\radical4} (0,12) (12,12)
-    ```
 
-  + `drawline` - draw the path, which consists of line and/or curve segments
-  + `drawarea` - fill the path, which consists of line and/or curve segments
-  + `drawdblarrow` - drawline a path and place an arrow head at the beginning and end
-  + `drawarrow` - drawline a path and place an arrow at the end
+The `drawline`, `drawarea`, `drawdblarrow`, `drawarrow` instructions
+are designed to stroke a path or fill in the area desginated by the path.
 
-    The `drawline` instruction stroke a given path.  The (stroke) and
-    (stroke-width) settings will be pulled to get the stroke width and stroke
-    color.  The (stroke) setting is for specifying the color of the line. This
-    setting is to apply for both `drawline` and `drawarea`.  The (stroke-width)
-    setting is to set the line width when `drawline` and/or `drawarea`.
-    However, there is a difference. If (stroke-width) is set to "0", then
-    `drawline` would still draw the line. However, `drawarea` will not draw the
-    outline of the path.
+    drawline 
+    drawarea 
+    drawdblarrow 
+    drawarrow 
 
-    The `drawarea` instruction fills the area described by a path.
-    The (fill) setting will be pulled to see if a fill color has
-    been specified. If not then the default color of black is assume.
-    Otherwise the color specified by (fill) is used. If (stroke-width) is not
-    set to "0" then the path will also be stroked, albeit using the color 
-    described by (stroke). If (stroke-width) is set but not to "0", then
-    it will be interpreted as describing the width of the stroke line.
+The `drawline` instruction strokes the path, which many consists of multiple
+straight line segments and/or curved segments. The `drawarea` instruction is to
+fill the area designated by the path.  The `drawdblarrow` instruction is to do
+the same thing as `drawline` except to place arrow at the beginning of the
+first line segment and the end of the last line segment. The `drawarrow` is
+similar to `drawdblarrow` except that the arrow head is to appear on at the end
+of the last line segment.
 
-    The 'drawdblarrow' and 'drawarrow' instructions are similar to `drawline`
-    except that the first one will place an arrow head at either end of the
-    path while the second will place an arrow head at the end of the path.
+The `drawline` instruction stroke a given path.  The (stroke) and
+(stroke-width) settings will be pulled to get the stroke width and stroke
+color.  The (stroke) setting is for specifying the color of the line. This
+setting is to apply for both `drawline` and `drawarea`.  The (stroke-width)
+setting is to set the line width when `drawline` and/or `drawarea`.
+However, there is a difference. If (stroke-width) is set to "0", then
+`drawline` would still draw the line. However, `drawarea` will not draw the
+outline of the path.
 
-  + `circle       ` - draw/fill the half circle area at the top
-  + `circle.top   ` - draw/fill the half circle area at the top
-  + `circle.bot   ` - draw/fill the half circle area at the bottom
-  + `circle.rt    ` - draw/fill the half circle area on the right hand side
-  + `circle.lft   ` - draw/fill the half circle area on the left hand side
-  + `circle.q1    ` - draw/fill the 1st quadrant area
-  + `circle.q2    ` - draw/fill the 2nd quadrant area
-  + `circle.q3    ` - draw/fill the 3rd quadrant area
-  + `circle.q4    ` - draw/fill the 4th quadrant area
-  + `circle.o1    ` - draw/fill the 1st octant area
-  + `circle.o2    ` - draw/fill the 2nd octant area
-  + `circle.o3    ` - draw/fill the 3rd octant area
-  + `circle.o4    ` - draw/fill the 4th octant area
-  + `circle.o5    ` - draw/fill the 5th octant area
-  + `circle.o6    ` - draw/fill the 6th octant area
-  + `circle.o7    ` - draw/fill the 7th octant area
-  + `circle.o8    ` - draw/fill the 8th octant area
-  + `circle.chord ` - draw/only a chord line
-  + `circle.arc   ` - draw/only an arc line
-  + `circle.cseg  ` - draw/fill a circular segment area
+Note that for drawing lines, such as `drawline`, `drawdblarrow`, and
+`drawarrow` instructions, the line color is controlled by the *stroke* 
+parameter.  The *stroke-width* would have constrolled the line width, which could
+be set to something like "2pt". 
 
-    This instruction is designed to draw or fill an area related to a circle.
-    Some of the operations are area operation such as `circle`, `circle.top`, 
-    `circle.o1`, `circle.cseg`, etc. These operations will either draw the outline
-    of the shape of fill/draw the shape, depending on the combination of settings 
-    of (stroke-width), (stroke), and (fill).
+For the `drawarea` instruction, the *fill* parameter constrols the color that
+is used to fill the area.  If it is not set the area will be filled as black.
+If it is set then the fill color it sets to will be color used for
+filling the area.  When calling `drawarea`, if the *stroke-width* is set to "0",
+then the outline of the path is not drawn. Otherwise, the outline of the area
+will be drawn using the settings from *stroke* and *stroke-width*.
 
-    Other operations such as `circle.chord` or `circle.arc` are stroke operations
-    which serve only to stroke a path.
+The `circle` instruction is to draw a full circle, or part of a circle.
+It also has variants that would draw only a part of a circle as an arc, or to draw
+a chord, or the circular segment described by the arc and chord,
 
-    The (diameter) setting controls the diameter of the circle, whether it is
-    full circle, half circle, or an octant of the circle. For drawing chord,
-    arc, or cseg, (angle1) and (angle2) settings will also be used to determine
-    the starting and ending angles. 
+    circle        (1,1)
+    circle.top    (1,1)
+    circle.bot    (1,1)
+    circle.rt     (1,1)
+    circle.lft    (1,1)
+    circle.q1     (1,1)
+    circle.q2     (1,1)
+    circle.q3     (1,1)
+    circle.q4     (1,1)
+    circle.o1     (1,1)
+    circle.o2     (1,1)
+    circle.o3     (1,1)
+    circle.o4     (1,1)
+    circle.o5     (1,1)
+    circle.o6     (1,1)
+    circle.o7     (1,1)
+    circle.o8     (1,1)
+    circle.chord  (1,1)
+    circle.arc    (1,1)
+    circle.cseg   (1,1)
 
-    Following draws three circles so that their origins align with (1,1),
-    (2,2), and (3,3). Each circle is to have a diameter of 5 unit length. 
+Each instruction is to accept a path expression where each point on the path
+is to be interpreted as a point to place the circle. The center of the circle
+is to be aligned with the point.  The following example draws the same circle
+twice, once at (1,1) and another at (2,2).
 
-    ```
-    set diameter 5
-    circle (1,1) (2,2) (3,3)
-    ```
+    circle (1,1) (2,2)
 
-  + `drawanglearc` - draw a small arc denoting the interior of an angle
-  + `drawanglearc.sq ` - draw a small square denoting the interior of a right angle
+The `circle` instruction is designed to either draw or fill in the area of the 
+circle. If it is to fill in the area of the circle, you must set the *fill* 
+parameter to a non-empty value, such as "orange", etc.
+In this case, the circle will first be filled with black or orange, and then
+drawn the outline using the normal line color. If not drawing is to happen, 
+set the *stroke-width* parameter to "0".
 
-    These two instructions are designed to drawn a small arc that usually
-    appear inside the interior of an angle connecting both sides of the angle. 
-    The first one is to draw a small arc and the second one is to draw 
-    a square. The second one should only be used for a right angle.
+The size of the circle is to be controlled by the *diameter* parameter, which default
+to 1. If set to "5", then the circle drawn will have a diameter of 5.
 
-    The `drawanglearc` instruction is similar to `circle.arc` except for the
-    interpretation of the arguments. the `drawanglearc` instruction expectes
-    three points in the arguments to be interpreted as the origin, a point on
-    the starting side of the angle, and a point at the ending side of the
-    angle. Following will draw a 45 degree angle arc assuming angle vertex is
-    at (0,0), the starting side is a line from (0,0) to (1,0), and the ending
-    side is a line from (0,0) to (1,1).
+Variants of `circle.top`, `circle.bot`, `circle.rt`, `circle.lft` are to draw
+half circle at the designed location. For example, `circle.top` is to draw a
+half circle that appear on top of the point. These instructions can also be
+used for draw, filling, or draw/fill, depending on the settings of *fill*
+and/or *stroke-width*, in the same mannor as that of the `circle` instruction.
 
-    ```
+The variants of `circle.q1`, `circle.q2`, `circle.q3`, and `circle.q4` are designed
+to draw a quadrand of the circle. Their drawing and filling behavior can be controlled
+in the same mannor as that of the `circle`.
+
+The variants of `circle.o1` to `circle.o8` are designed to draw octant of a
+circle.  Their drawing and filling behavior can be controlled in the same
+mannor as that of the `circle`.
+
+The instructions of `circle.chord` or `circle.arc` are stroke operations only.
+They will not attempt to fill an area.  They drawing behavior will only respond
+to changes in *stroke* and *stroke-width*.
+
+The `circle.cseg` is to draw a circular segment made up of chord and arc. It is
+an area operation that will subject to the drawing or filling operation
+depending on the same set of settings as those of the `circle` instruction.
+
+The `drawanglearc` instruction is to draw a small arc denoting the interior
+of an angle.  The `drawanglearc.sq` is to do the same thing but will draw a
+square instead of the arc.  It should only be used for a right angle.
+
+The `drawanglearc` instruction is similar to `circle.arc` except for the
+interpretation of the arguments. the `drawanglearc` instruction expectes
+three points in the arguments to be interpreted as the origin, a point on
+the starting side of the angle, and a point at the ending side of the
+angle. Following will draw a 45 degree angle arc assuming angle vertex is
+at (0,0), the starting side is a line from (0,0) to (1,0), and the ending
+side is a line from (0,0) to (1,1).
+
     drawanglearc (0,0) (1,0) (1,1)
-    ```
 
-    The amount of distance of the arc is controled by the setting (anglearcradius)
-    which expresses the radius of the arc from the angle vertex. The default 
-    setting is 0.5 grid unit length. You can set it to a larger value if the angle
-    is small.
+The amount of distance of the arc is controled by the setting (anglearcradius)
+which expresses the radius of the arc from the angle vertex. The default 
+setting is 0.5 grid unit length. You can set it to a larger value if the angle
+is small.
 
-    ```
     set anglearcradius 1.5
     drawanglearc (0,0) (1,0) (1,0.5)
-    ```
 
-    Latest addition also allows for a text label to be positioned relative to
-    the arc or sq. The amount of distances from the angle vertex is controled
-    by the (anglearclabelradius) setting which is expressing as a number in
-    grid unit length.  To specify text label, includes it as the first argument
-    before any coordinates.
+Latest addition also allows for a text label to be positioned relative to
+the arc or sq. The amount of distances from the angle vertex is controled
+by the (anglearclabelradius) setting which is expressing as a number in
+grid unit length.  To specify text label, includes it as the first argument
+before any coordinates.
 
-    ```
     drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
-    ```
 
-  + `rect` - draw/fill a rectangle area
-  + `rect.parallelgram` - draw/fill a parallelgram area
-  + `rect.rhombus`      - draw/fill a rhombus shape     
-  + `rect.trapezoid`    - draw/fill a trapezoid shape   
+The `rect` instruction draws a rectangle, `rect.parallelgram` draws a
+parallelgram, `rect.rhombus` draws a rhombus, and `rect.trapezoid` draws a
+trapezoid shape.
 
-    The `rect` instruction draws a rectangle,
-    `rect.parallelgram` draws a parallelgram, `rect.rhombus` draws a rhombus,
-    and `rect.trapezoid` draws a trapezoid shape.
+    rect                (1,1)
+    rect.parallelgram   (1,1)
+    rect.rhombus        (1,1)
+    rect.trapezoid      (1,1)
 
-    These instructions are all area operations. By default it draws the outline
-    of the shape, but if (fill) is set, then it also fills the area using the
-    fill color specified by (fill). It always draw the outline of the shape
-    even when (fill) is set, unless (stroke-width) is specifically set to "0". 
+These instructions are all area operations. By default it draws the outline of
+the shape, but if *fill* is set, then it also fills the area using the fill
+color specified. It always draw the outline of the shape unless the
+*stroke-width* is specifically set to "0" when filling an area.
 
-    The overall size of the quadrilateral is controlled by the (rectw) and
-    (recth) setting, which specifies the width and height of the shape in grid
-    unit length.  These settings apples to all shapes, even parallelgrams.  For
-    a parallelgram, this means that the horizontal difference between its
-    lower-left and upper-right hand corner is always equal to (rectw), and the
-    height difference between the upper parallel line and lower parallel line
-    is always equal to (recth).  
+The overall size of the quadrilateral is controlled by the *rectw* and *recth*
+parameter, which specifies the width and height of the shape in grid unit
+length.  These settings apples to all quadrilaterals.  For
+a parallelgram, this means that the horizontal difference between its
+lower-left and upper-right hand corner is always equal to (rectw), and the
+height difference between the upper parallel line and lower parallel line is
+always equal to (recth).  
     
-    However, for a parallelgram, the topleft and bottomright part of the rect
-    area will be sliced off to make the shape of a parallelgram.  The amount of
-    incursion is determined by the (slant) setting.  This setting is a number
-    between 0.1 and 0.9.  It describes the portion of the total width that is
-    to make up the "slanting" part of the parallelgram.  For example, if it is
-    set to "0.3" which is default, it means that 30 percent of the overall
-    width will be used for slanting. This means 30 percent of the distance of
-    the overall width from top left corner moving towards the right, and 30
-    percent of the overall width from the bottom right corner moving towards
-    the left, will be the "slanting" part of the parallelgram.
+However, for a parallelgram, the topleft and bottomright part of the rect
+area will be sliced off to make the shape of a parallelgram.  The amount of
+incursion is determined by the (slant) setting.  This setting is a number
+between 0.1 and 0.9.  It describes the portion of the total width that is
+to make up the "slanting" part of the parallelgram.  For example, if it is
+set to "0.3" which is default, it means that 30 percent of the overall
+width will be used for slanting. This means 30 percent of the distance of
+the overall width from top left corner moving towards the right, and 30
+percent of the overall width from the bottom right corner moving towards
+the left, will be the "slanting" part of the parallelgram.
 
-    The `rect.rhombus` shape is drawn with diamond head and tail pointing 
-    to the left and right. There is currently no provision to change
-    its size so it will be the same size for now.
+The `rect.rhombus` shape is drawn with diamond head and tail pointing 
+to the left and right. There is currently no provision to change
+its size so it will be the same size for now.
 
-    The `rect.trapezoid` shape is drawn with a base larger than the top.    
-    Also, the encroachmentment from the left at the top is 20 percent of the
-    total width. The encroachment from the right at the top is 40 percent of
-    the total width.  Currently these numbers are fixed but future improvement
-    will likely to provide options to allow for adjustments.
+The `rect.trapezoid` shape is drawn with a base larger than the top.    
+Also, the encroachmentment from the left at the top is 20 percent of the
+total width. The encroachment from the right at the top is 40 percent of
+the total width.  Currently these numbers are fixed but future improvement
+will likely to provide options to allow for adjustments.
 
-  + `dot` - draw a dot at each path point
+The `dot` instruction is to draw a dot at each path point.  It is typically
+used to identify the location of a point in a plane by showing a visible round
+black dot.  The `dot` instruction will draw a circular dot. The default size of
+the dot is '4pt', but can be changed by the (dot-size) setting, for example to
+set to a string of '5pt'.  Following example draw three dots at location of
+(1,1), (2,2) and (3,3) where each dot is at a size of "5pt".
 
-    These instructions are to mark a point, i.e., to identify the location of a
-    point in a plane by showing a visible round black dot.  The `dot` instruction
-    will draw a circular dot. The default size of the dot is '4pt', but can be
-    changed by the (dot-size) setting, for example to set to a string of '5pt'.
-    Following example draw three dots at location of (1,1), (2,2) and (3,3)
-    where each dot is at a size of "5pt".
-
-    ```
     set dot-size 5pt
     dot (1,1) (2,2) (3,3)
-    ```
 
-    The color of the dot is by default set to black, unless changed by the
-    (dot) setting, which describes a color such as "orange".
+The color of the dot is by default set to black, unless changed by the
+(dot) setting, which describes a color such as "orange".
 
-    ```
     set dot orange
     set dot-size 5pt
     dot (1,1) (2,2) (3,3)
-    ```
 
-  + `tick.top` - draw a vertical tick above the point.
-  + `tick.bot` - draw a vertical tick below the point
-  + `tick.rt ` - draw a horizontal tick to the right hand side of the point
-  + `tick.lft` - draw a horizontal tick to the left hand side of the point
+The `tick` instruction is designed to draw ticks along a number line, or x-axis
+or y-axis.  Specifically, the `tick.top` instruction draws a vertical tick
+above the point.  The `tick.bot` instruction draws a vertical tick below the
+point The `tick.rt ` instruction draws a horizontal tick to the right hand side
+of the point The `tick.lft` instruction draws a horizontal tick to the left
+hand side of the point
 
-    These instructions can be used to draw tick markers, i.e., the one that
-    can be found along a number line.
+The protrusion of the tick is default to 0.33 grid unit. This is length of
+the line it will protrude away from the point. It is controlled
+by the *tick-protrude* setting. It is always in the grid unit length.
+The default is '0.33'.
 
-    The protrusion of the tick is default to 0.33 grid unit. This is length of
-    the line it will protrude away from the point. It is controlled
-    by the (tick-protrude) setting. It is always in the grid unit length.
-    The default is '0.33'.
-
-    The color of the tick is set to black, unless changed by the (tick)
-    setting, which describes the color of the tick, such as "0.5[red,white]".
-    The thickness of the tick line is controlled by the setting (tick-width).
-    The default is "1pt".
-
-
-## Drawing text Labels
+The color of the tick is set to black, unless changed by the *tick*
+setting, which describes the color of the tick, such as "0.5[red,white]".
+The thickness of the tick line is controlled by the setting *tick-width*.
+The default is "1pt".
 
 Drawing text labels are done by using the `label` instruction.
 For example, the following `label` instruction will each draw a label
@@ -816,7 +791,7 @@ Following is a list of all settings.
 
 ## Path expression       
 
-As can be seen, a path expression is used by an assignment statement, as well
+As can be seen, a path expression is used by an assignment instruction, as well
 as other statements that also expectes a path.  A path expression consists of
 literal points, path variables, path functions, wildcard spreads, or path
 variable spreads.
@@ -830,18 +805,14 @@ two points.  The syntax of a Diagram path expression is very similar to that of
 MetaPost and models it closely, allowing it take advantage of the MetaPost's
 strong path description capability.
 
-```
-a := (1,1) -- (2,2) -- (3,4)
-b := a{up} .. (5,5) .. (6,7)
-```
+    a := (1,1) -- (2,2) -- (3,4)
+    b := a{up} .. (5,5) .. (6,7)
 
 However, Diagram have added a few more syntax designed to allow for specifying
 points in a few more different ways. For example, it offers a "relative point" syntax
 that allows you to specify a point that is relative to the point before it.
 
-```
-a := (1,1) [up:1] [rt:2] [down:1]
-```
+    a := (1,1) [up:1] [rt:2] [down:1]
 
 This allows you to create a four point path where the first point is (1,1),
 and the rest points being at (1,2), (3,2), and (3,1).
@@ -884,17 +855,13 @@ allows you to do "psudo translation" for the points of the same path. For exampl
 if were to draw one horizontal line and one vertical line that meets
 at (10,0) such as the following.
 
-```
-drawline (10,0) (15,0)
-drawline (10,0) (10,5)
-```
+    drawline (10,0) (15,0)
+    drawline (10,0) (10,5)
 
 You can do that using the offset as follows.
 
-```
-drawline <10,0> (0,0) (5,0)
-drawline <10,0> (0,0) (0,5)
-```
+    drawline <10,0> (0,0) (5,0)
+    drawline <10,0> (0,0) (0,5)
 
 The offset <10,0> is to set it so that the all future points will be considered
 an offset to the point that is (10,0).  Thus, the point of (0,0) is considered
@@ -907,18 +874,14 @@ future points after it. Thus, if you have placed an offset in the middle of two
 points, such as the following, then the first point is to be considered
 as (0,0) while the second one as (15,0).
 
-```
-drawline (0,0) <10,0> (5,0)
-```
+    drawline (0,0) <10,0> (5,0)
 
 If two offset appears in a path expression, then the second offset is
 considered to be offset to the first. This allows you to construct more points
 simply by moving offsets. For example, you can construct a path with four
 points (11,0), (12,0), (13,0) and (14,0) as follows.
 
-```
-drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
-```
+    drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
 
 ## Path functions        
@@ -927,118 +890,106 @@ Note that for a path function all its arguments must be either a path variable
 or a number. Coordinate list is not valid. In the following examples all
 letters a, b, c are path variables.
 
-  + midpoint(a)     
-  + midpoint(a,0.2)     
++ midpoint(a)     
++ midpoint(a,0.2)     
 
-    This function returns the mid point of the first two points in a path
-    expression if a single argument is given.
+This function returns the mid point of the first two points in a path
+expression if a single argument is given.
 
-    ```
     a := (1,1) (2,3) (3,4)
     b := $midpoint(a)
-    ```
 
-    This will return a path with a single point: (1.5,2)
+This will return a path with a single point: (1.5,2)
 
-    If two arguments are given, it does a linear interpolation alone the
-    line segment of the first two points, and return a point that corresponds
-    to the percentage of the path traveled from the first point to the second.
-    The second argument is an floating point number between 0-1.
-    For example, if 0.5 is given as the second parameters, it should return the
-    same path as that with a single argument. Thus, following example will return
-    the same result as the one before.
+If two arguments are given, it does a linear interpolation alone the
+line segment of the first two points, and return a point that corresponds
+to the percentage of the path traveled from the first point to the second.
+The second argument is an floating point number between 0-1.
+For example, if 0.5 is given as the second parameters, it should return the
+same path as that with a single argument. Thus, following example will return
+the same result as the one before.
 
-    ```
     a := (1,1) (2,3) (3,4)
     b := $midpoint(a,0.5)
-    ```
 
     Following will return the a point that is one-third the way from the first
     point to the second point.
 
-    ```
     a := (1,1) (2,3) (3,4)
     b := $midpoint(a,0.333333)
-    ```
 
-  + somepoints(a,2)
-  + somepoints(a,2,2)
-  + somepoints(a,2,5)
-  + somepoints(a,5,2)
++ somepoints(a,2)
++ somepoints(a,2,2)
++ somepoints(a,2,5)
++ somepoints(a,5,2)
 
-    This function can be called with 2 arguments or 3. If called with 2, it is
-    to return a new path containing a single point at the index location
-    of its original path. The first argument is always a path variable. The
-    second argument is always interpreted as an integer.
+This function can be called with 2 arguments or 3. If called with 2, it is
+to return a new path containing a single point at the index location
+of its original path. The first argument is always a path variable. The
+second argument is always interpreted as an integer.
 
-    If called with three arguments, the last argument is also to be treated as
-    an integers. The returned path is to contain all points between the
-    index locations specified by the last two arguments. The order
-    of the points will be so arranged so that the index location of the first
-    integer is to appear first, followed by a point moving towards the
-    second index location. Thus, this function can be used to return an inverse
-    order of the points of the original path.
+If called with three arguments, the last argument is also to be treated as
+an integers. The returned path is to contain all points between the
+index locations specified by the last two arguments. The order
+of the points will be so arranged so that the index location of the first
+integer is to appear first, followed by a point moving towards the
+second index location. Thus, this function can be used to return an inverse
+order of the points of the original path.
 
-  + allpoints(a)    
-  + allpoints(a,b)    
-  + allpoints(a,b,c)    
-  + allpoints(a,b,c,...)    
++ allpoints(a)    
++ allpoints(a,b)    
++ allpoints(a,b,c)    
++ allpoints(a,b,c,...)    
 
-    This function can be called with 0 arguments to infinitely numbered.
-    It is to return a new path with all the point in the variable.
+This function can be called with 0 arguments to infinitely numbered.
+It is to return a new path with all the point in the variable.
 
-  + shiftpoints(a,-1,2)
++ shiftpoints(a,-1,2)
 
-    This function is always needed to be provided with three arguments. The
-    first argument is always interpreted as a path variable. The second
-    and the third arguments are to be interpreted as expressing length
-    in grid unit. This function is to return a new path with exact the same
-    number of points, except for that all the points will have been shifted
-    by the number of grid units specified in the argument. For example,
-    following would have shifted all the points in the original path
-    one position to the left and two positions up.
+This function is always needed to be provided with three arguments. The
+first argument is always interpreted as a path variable. The second
+and the third arguments are to be interpreted as expressing length
+in grid unit. This function is to return a new path with exact the same
+number of points, except for that all the points will have been shifted
+by the number of grid units specified in the argument. For example,
+following would have shifted all the points in the original path
+one position to the left and two positions up.
 
-    ```
     b := shiftpoints(a,-1,2)
-    ```
 
-  + scatterpoints(1,0,10,0,10)
++ scatterpoints(1,0,10,0,10)
 
-    This function is to create new path with the number of points evenly distributed
-    beteen the two end points. In the previous example there will be 10 points created
-    in a path such that the first point is (1,0), and the last point is (10,0),
-    and the rest of the points will be spaced evenly between the first and the last.
+This function is to create new path with the number of points evenly distributed
+beteen the two end points. In the previous example there will be 10 points created
+in a path such that the first point is (1,0), and the last point is (10,0),
+and the rest of the points will be spaced evenly between the first and the last.
 
-  + lineintersect(a,b)  
++ lineintersect(a,b)  
 
-    Returns new a path that contains a single point which is the point at which the
-    two lines intersect. The first line is described by the symbol 'a', which must
-    have at least two points. The second line is described by the symbol 'b', which
-    must have at least two points. Only the first two points of 'a' and 'b' are 
-    considered. The rest of the points of 'a' and 'b' are ignored.
+Returns new a path that contains a single point which is the point at which the
+two lines intersect. The first line is described by the symbol 'a', which must
+have at least two points. The second line is described by the symbol 'b', which
+must have at least two points. Only the first two points of 'a' and 'b' are 
+considered. The rest of the points of 'a' and 'b' are ignored.
     
-    Note that the returned point might have Infinity or NaN due to the nature 
-    of parallelness.  In the following example the path variable 'c' will hold
-    one point: (2,2)
+Note that the returned point might have Infinity or NaN due to the nature 
+of parallelness.  In the following example the path variable 'c' will hold
+one point: (2,2)
 
-
-    ```
     a := (0,2) (4,2) 
     b := (2,0) (2,6) 
     c := $lineintersect(a,b)
-    ```
 
-  + linecircleintersect(a,c,diameter)
++ linecircleintersect(a,c,diameter)
 
-    Returns new a path that contains two points for the line and circle intersection.
-    In the following diagram the pts variable 'pts' will hold two points: (6,4) and
-    (3.6, 2.8).
+Returns new a path that contains two points for the line and circle intersection.
+In the following diagram the pts variable 'pts' will hold two points: (6,4) and
+(3.6, 2.8).
 
-    ```
     a := (2,2) (6,2) 
     c := (5,3) 
     pts := $linecircleintersect(a,c,2.8284)
-    ```
+
 
 ## The shape instruction
 

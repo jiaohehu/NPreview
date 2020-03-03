@@ -11,3 +11,5 @@
   so that the vertical bar character is only treated as a column separator
   when it is proceeded and followed by a space at the same time, or as the last
   character of the line, or as the first character of the line.
+- Need to place all configuration flags in the output of LUALATEX, with
+  leading percent-sign character so that it does not get processed by LATEX.

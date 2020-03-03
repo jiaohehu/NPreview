@@ -26,4 +26,9 @@ input line at which point it will be broken into two separate lines. A
 backslash character will be inserted at the end of the first line and a small
 arrow will be inserted at the beginning of the new line.
 
++ latexSampSize
+
+Specifies the font size for the sample block. Must be one of the options
+that is 'normalsize', 'small', 'footnotesize', 'scriptsize', or 'tiny'.
+
 

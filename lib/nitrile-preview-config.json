@@ -112,12 +112,7 @@
       ],
       "description": "The font size for each sample block. Must be *normalsize*, *small*, *footnotesize*, *scriptsize*, or *tiny*."
     },
-    "latexWrapSampleEnabled": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true to allow for wrapping lines of SAMPLE block that exceeds the maximum length."
-    },
-    "latexWrapSampleLength": {
+    "latexSampleWrap": {
       "type": "integer",
       "default": 0,
       "description": "Set it to an integer for which lines longer than this will be wrapped. Set it to 0 will turn the feature off."

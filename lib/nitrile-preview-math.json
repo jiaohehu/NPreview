@@ -334,6 +334,9 @@
     { "name": "\\frac",        "count": 2 },
     { "name": "\\binom",       "count": 2 }
   ],
+  "smallLetters": {
+    "myi945": 2.5
+  },
   "fontVariants": {
     "mathscr": {
       "A": { "unicode": "&#x1D49C;" ,    "width": 10.0     ,   "dy": ".8em"     ,  "dx": "0"       },

@@ -136,7 +136,7 @@ set fontsize 14pt
 label { 簡単 Triangle } (10,1)
 
 % shape
-shape {brick} (7,8) (7,7)
+brick (7,8) (7,7)
 ```
 
 ## The unit length and grid lines
@@ -146,7 +146,7 @@ unit length is considered as a distance between two adjacent grid lines on a
 graphing paper for which a length of 1 corresponds to the width of a single
 grid.
 
-In Diagram a grid is always draw as the background. By default the grid is 
+In Diagram a grid is always draw as the background. By default the grid is
 25 grid units length long in the horizontal direction and 10 grid unit length
 long in the vertical directon. You can change that by running the `viewport`
 command as the first statement within the diagram block. In the following example
@@ -212,11 +212,11 @@ The `reset` instruction clears *all* drawing parameters to its initial value.
 
     reset
 
-The `exit` instruction will stop the processing of the rest of the instructions and 
+The `exit` instruction will stop the processing of the rest of the instructions and
 of the instruction.  It can be used to temporary avoiding
 some instruction to aid debugging.
 
-    exit 
+    exit
 
 The statement is to create a new path variable or several new path variables,
 or to modify exsiting variables. A path variable is a symbol using uppercase or lowcase
@@ -258,17 +258,17 @@ path.  In the following example the path variable 'c' is assigned the first
 point in path variable 'a' and path variable 'd' is assigned the second point
 of path variable 'a'.
 
-    c := $somepoints(a,0) 
-    d := $somepoints(a,1) 
+    c := $somepoints(a,0)
+    d := $somepoints(a,1)
 
 Following MetaPost output will be observed as a result of running previous two
-Diagram statements. 
+Diagram statements.
 
     path c; c := (1,1)
     path d; d := (2,2)
 
 Note that a path function always returns points of literal coordinates, even
-though the input might have been a subpath expressed using by a symbol. 
+though the input might have been a subpath expressed using by a symbol.
 
 The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
 variable".  A wildcard variable always holds the path encountered by the last
@@ -288,14 +288,14 @@ points and amending points from the same path that was used by the `drawline`
 instruction.
 
     drawline (1,1) (2,2) (3,4) (4,5)
-    a := * 
+    a := *
     b := * (5,6)
     c := $somepoints(*,1,2)
 
 The wildcard variable cannot be considered a regular path variable in the sense
 as expressing a subpath. When used inside a path, it will simply
 spread all its contents. Therefore, in the following example the second `drawline`
-instruction would simply draw the same path as before with an additional point 
+instruction would simply draw the same path as before with an additional point
 at the end.
 
     drawline (1,1) (2,2) (3,4) (4,5)
@@ -367,7 +367,7 @@ the path is being considered as a whole, and the subpath points will be consider
 of the main path.
 
 However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
-is just another point. Thus, if you have a path 'p' that contains three points, and then 
+is just another point. Thus, if you have a path 'p' that contains three points, and then
 you pass it to 'dot' command which is designed to draw dots, the followign statement will
 only draw one dot which is at (1,2).
 
@@ -375,7 +375,7 @@ only draw one dot which is at (1,2).
     dot p
 
 This is because the entire 'p' is considered a single point by the 'dot'
-command, rather than three individual points such as the following. 
+command, rather than three individual points such as the following.
 
     dot (1,2) (2,3) (3,4)
 
@@ -391,7 +391,7 @@ In such a case three dots will be drawn in three locations that are: (1,2),
 (2,3), and (3,4).  You can also include an addition integer after the
 symbol to express a particular point at that index location. Following
 example will draw only two dots at (2,3) and (3,4), while skipping the
-first one. 
+first one.
 
     p := (1,2) (2,3) (3,4)
     dot *p1 *p2
@@ -417,26 +417,47 @@ This is equivalent to the following.
     q := (7,8) (8,9) (9,10)
     dot $allpoints(p,q)
 
-The `shape` command is to draw one of the buit-in shapes.  The following
-`shape` command place a buit-in shape at the point (0,12).  Note that the point
-is going to be aligned with one of the point of the shape, and that point could
-be anywhere in the shape.
+The `brick` command is to draw a brick. The brick is a a width of 1
+and height of 0.5. Its lower-left corner aligns with the point.
 
-    shape {brick} (0,12)
+    brick (0,12)
 
-You can express to have more than one shape each placed at a different location
-by the following syntax, such as the name of the shape is to be separated by a
-double-backslashes.
+The `radical` command draws a radical shape suitable for presetting
+a long division worksheet. The topleft corner aligns with the point.
 
-    shape {brick\\radical4} (0,12) (12,12)
+    radical (0,12)
+
+By default, the length of the radical symbol is 4 grid units long. You
+can change it by setting the 'radical-length' parameter.
+
+    set radical-length 7
+    radical (0,12)
+
+The `protractor` command draws a protractor. The protractor is defined
+to be having a width of 7 and height of 3.5. It is a half-circle
+shape. The center of the protractor which is the center of the half
+circle aligns with the point. Currently there is no provision to change
+the size of the protractor.
+
+    protractor (0,12)
+
+The `basket` command draws a basket shape that is 3-by-2. The lower-left corner
+of the basket aligns with the point.
+
+    basket (0,12)
+
+The `crate` command draws a crate shape that is 4-by-4. The lower-left corner
+of the shape aligns with the point.
+
+    crate (0,12)
 
 The `drawline`, `drawarea`, `drawdblarrow`, `drawarrow` instructions
 are designed to stroke a path or fill in the area desginated by the path.
 
-    drawline 
-    drawarea 
-    drawdblarrow 
-    drawarrow 
+    drawline
+    drawarea
+    drawdblarrow
+    drawarrow
 
 The `drawline` instruction strokes the path, which many consists of multiple
 straight line segments and/or curved segments. The `drawarea` instruction is to
@@ -456,9 +477,9 @@ However, there is a difference. If (stroke-width) is set to "0", then
 outline of the path.
 
 Note that for drawing lines, such as `drawline`, `drawdblarrow`, and
-`drawarrow` instructions, the line color is controlled by the *stroke* 
+`drawarrow` instructions, the line color is controlled by the *stroke*
 parameter.  The *stroke-width* would have constrolled the line width, which could
-be set to something like "2pt". 
+be set to something like "2pt".
 
 For the `drawarea` instruction, the *fill* parameter constrols the color that
 is used to fill the area.  If it is not set the area will be filled as black.
@@ -499,11 +520,11 @@ twice, once at (1,1) and another at (2,2).
 
     circle (1,1) (2,2)
 
-The `circle` instruction is designed to either draw or fill in the area of the 
-circle. If it is to fill in the area of the circle, you must set the *fill* 
+The `circle` instruction is designed to either draw or fill in the area of the
+circle. If it is to fill in the area of the circle, you must set the *fill*
 parameter to a non-empty value, such as "orange", etc.
 In this case, the circle will first be filled with black or orange, and then
-drawn the outline using the normal line color. If not drawing is to happen, 
+drawn the outline using the normal line color. If not drawing is to happen,
 set the *stroke-width* parameter to "0".
 
 The size of the circle is to be controlled by the *diameter* parameter, which default
@@ -562,7 +583,7 @@ side is a line from (0,0) to (1,1).
     drawanglearc (0,0) (1,0) (1,1)
 
 The amount of distance of the arc is controled by the setting (anglearcradius)
-which expresses the radius of the arc from the angle vertex. The default 
+which expresses the radius of the arc from the angle vertex. The default
 setting is 0.5 grid unit length. You can set it to a larger value if the angle
 is small.
 
@@ -599,7 +620,7 @@ of 3, and its lower-left position is aligned with (1,1).
     set rectw 5
     set recth 3
     rect (1,1)
-    
+
 These settings apples to all quadrilaterals.  For a parallelgram, this means
 that the horizontal difference between its lower-left and upper-right hand
 corner is always equal to *rectw*, and the height difference between the upper
@@ -623,7 +644,7 @@ parallgram.
     set slant 0.5
     rect.parallelgram (1,1)
 
-The `rect.rhombus` shape is drawn with diamond head and tail pointing 
+The `rect.rhombus` shape is drawn with diamond head and tail pointing
 to the left and right. There is currently no provision to change
 its size so it will be the same size for now.
 
@@ -878,7 +899,7 @@ The [turnrt:1,30] is to create a new point that is equivalent to making a right
 turn of 30 degrees from the direction you have arrived at the current point, and
 then travel for one more unit length.
 
-The [turnlft:1,30] is similar to [turnrt:1,30] except that you will be making 
+The [turnlft:1,30] is similar to [turnrt:1,30] except that you will be making
 a left turn instead of right turn.
 
 The [flip:5,5] is to construct a new point that is the mirror image of the
@@ -888,7 +909,7 @@ an existing point will land as if you were folding a paper along some existing
 line.
 
 Aside from relative points, path expression can also include "offsets". An offset
-allows you to do "psudo translation" for the points of the same path. For example, 
+allows you to do "psudo translation" for the points of the same path. For example,
 if were to draw one horizontal line and one vertical line that meets
 at (10,0) such as the following.
 
@@ -904,7 +925,7 @@ The offset <10,0> is to set it so that the all future points will be considered
 an offset to the point that is (10,0).  Thus, the point of (0,0) is considered
 as (10,0), and (5,0) is considered (15,0). The offset always appears between a
 set of angle brackets. The first number is the offset in the horizontal
-direction, and the second one in vertical direction. 
+direction, and the second one in vertical direction.
 
 The offset is only going to be valid for the current path. It will affect all
 future points after it. Thus, if you have placed an offset in the middle of two
@@ -1006,15 +1027,15 @@ and the rest of the points will be spaced evenly between the first and the last.
 Returns new a path that contains a single point which is the point at which the
 two lines intersect. The first line is described by the symbol 'a', which must
 have at least two points. The second line is described by the symbol 'b', which
-must have at least two points. Only the first two points of 'a' and 'b' are 
+must have at least two points. Only the first two points of 'a' and 'b' are
 considered. The rest of the points of 'a' and 'b' are ignored.
-    
-Note that the returned point might have Infinity or NaN due to the nature 
+
+Note that the returned point might have Infinity or NaN due to the nature
 of parallelness.  In the following example the path variable 'c' will hold
 one point: (2,2)
 
-    a := (0,2) (4,2) 
-    b := (2,0) (2,6) 
+    a := (0,2) (4,2)
+    b := (2,0) (2,6)
     c := $lineintersect(a,b)
 
 + linecircleintersect(a,c,diameter)
@@ -1023,8 +1044,8 @@ Returns new a path that contains two points for the line and circle intersection
 In the following diagram the pts variable 'pts' will hold two points: (6,4) and
 (3.6, 2.8).
 
-    a := (2,2) (6,2) 
-    c := (5,3) 
+    a := (2,2) (6,2)
+    c := (5,3)
     pts := $linecircleintersect(a,c,2.8284)
 
 
@@ -1089,8 +1110,3 @@ offered by the "luamplib" LATEX package.
 |                  |                                                        |
 |------------------|--------------------------------------------------------|
 ```
-
-
-
-
-

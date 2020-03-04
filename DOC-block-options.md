@@ -13,6 +13,7 @@ As of writting, following block options are supported:
     .margin .15
     .gap .10
     .column 2
+    .alignequalsign 1
 
 
 The names of the block options are chosen so that each option tends to convey
@@ -81,6 +82,15 @@ as the one before without the presence of any empty lines:
     Banana  A fruit         3.88     
     ```
 
+The '.alignequalsign' option is used for the 'math' block so that the
+first equal sign of each equation is to be vertical aligned.
+
+    .alignequalsign
+    ``` math
+    a = b + c
+
+    a = b + c + d
+    ```
 
 
 

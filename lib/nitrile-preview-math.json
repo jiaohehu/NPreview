@@ -205,7 +205,7 @@
     { "kbd": "\\langle"        ,    "unicode": "&#x27E8;"       ,  "id": "myLANGLE",      "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\rangle"        ,    "unicode": "&#x27E9;"       ,  "id": "myRANGLE",      "dx":"0.05em", "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "("               ,    "unicode": "&#x0028;"       ,  "id": "myLPAREN",      "dx":"0.10em", "dy":"0.75em",  "op": 0    ,  "width": 5    },
-    { "kbd": ")"               ,    "unicode": "&#x0029;"       ,  "id": "myRPAREN",      "dx":"0.10em", "dy":"0.75em",  "op": 0    ,  "width": 5    },
+    { "kbd": ")"               ,    "unicode": "&#x0029;"       ,  "id": "myRPAREN",      "dx":"0.04em", "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\lvert"         ,    "unicode": "&#x2758;"       ,  "id": "myLVERT",       "dx":"0",      "dy":"0.85em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\rvert"         ,    "unicode": "&#x2758;"       ,  "id": "myRVERT",       "dx":"0.05em", "dy":"0.85em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\lVert"         ,    "unicode": "&#x2016;"       ,  "id": "myLLVERT",      "dx":"0",      "dy":"0.85em",  "op": 0    ,  "width": 7    },

@@ -296,7 +296,7 @@
     { "kbd": "\\Re"            ,    "unicode": "&#x2111;"       ,  "id": "myx2111",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\Im"            ,    "unicode": "&#x211C;"       ,  "id": "myx211C",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
-    { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
+    { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.85em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\cdot"          ,    "unicode": "&#x00B7;"       ,  "id": "myx00B7",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\Square"        ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },

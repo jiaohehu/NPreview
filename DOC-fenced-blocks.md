@@ -31,29 +31,38 @@ block.  When absent, it is assumed to be MATH. The name is case insensitive.
 
 Following fenced blocks are recognized:
 
--   imgs block
--   line block
--   long block
--   tabl block
--   tabf block
--   tabb block
--   term block
--   quot block
--   center block
--   flushright block
--   flushleft block
--   eqtn block
--   math block
--   verb block
--   code block
+-   imgs 
+-   line 
+-   longtabu 
+-   tabbing 
+-   tabular 
+-   tabulary 
+-   tabularx 
+-   dt 
+-   quot 
+-   center 
+-   flushright 
+-   flushleft 
+-   eqtn 
+-   math 
+-   verb 
+-   code 
 
 Note that following block names are reserved internally that are assigned to
 non-fenced blocks:
 
--   text block
--   sample block
--   tabular block
--   description block
--   list block
--   heading block
--   part block 
+-   TEXT 
+-   SAMP 
+-   DESC 
+-   LIST 
+-   HDGS 
+-   PART 
+-   PARA 
+-   PRIM 
+-   SECO 
+-   PLST 
+-   ITEM 
+-   CITE 
+
+
+

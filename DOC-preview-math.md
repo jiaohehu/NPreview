@@ -66,16 +66,17 @@ the syntax that is supported by Nitrile.
 
 ## Supported LATEX font variants
 
-    \mathbb{ABab12}
-    \mathscr{ABab12}
-    \mathcal{ABab12}
-    \mathit{ABab12}
-    \mathrm{ABab12}
+    \mathbb{ABab12}       Double-struck
+    \mathbf{ABab12}       Bold-face
+    \mathscr{ABab12}      Scr
+    \mathcal{ABab12}      Cal
+    \mathit{ABab12}       Italic (default for single-letter variable)
+    \mathrm{ABab12}       Roman (regular letter or digit)
 
 NOTE: only the upper-case letter, lower-case letter, and digits are supported.
 No spaces are allowed.
 
-NOTE: for mathbb variant, which is for double-strike variant,
+NOTE: for mathbb-variant, which is for double-strike variant,
 the following letters in Unicode are having a "different" appearance
 than the other ones:
 
@@ -87,10 +88,10 @@ than the other ones:
     R  - field of all real numbers, including integers and floating point numbers
     Z  - field of all integers, including negative integers and zeros.
 
-NOTE: Unicode only provide code points for mathbb-variant digits, which would have
-been styled with double-struck appearance. Unicode does not provide code points for
-mathscr or mathcal style variants. Thus, if digits are detected for mathscr or mathcal
-variants it simply falls back to using regular digits.
+NOTE: Unicode only provide code points for mathbb-variant digits, which would
+have a double-struck style appearance. Unicode does not provide code points for
+mathscr-variant or mathcal-variant digits. Thus, if digits are detected for
+mathscr or mathcal variants it simply falls back to using regular digits.
 
 ## Supported LATEX spaces
 
@@ -306,8 +307,9 @@ the generated LATEX document as well as in PREVIEW:
 
 ## Known problems
 
-- The `\bar{x}` has left a larger gap between the top bar and the letter x
-  then the one done by LATEX.
+- The `\bar{a}`, `\vec{a}`, and all other variant seems to have left a larger
+  gap between the top edge of the letter 'a' and the bar, then the appearance
+  done by LATEX. Do not know if this is a problem.
 
 - The font used as integral symbol `\int` on MaxOS X have been observed to have
   over shifted to the right and downwards, thus overlaying part of the text on
@@ -315,6 +317,5 @@ the generated LATEX document as well as in PREVIEW:
   behavior was observed when viewing exported HTML using Safari, Firefox,
   and/or Chrome. 
 
-- The \displaystyle is not yet recognized by PREVIEW
 
 

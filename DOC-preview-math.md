@@ -317,5 +317,9 @@ the generated LATEX document as well as in PREVIEW:
   behavior was observed when viewing exported HTML using Safari, Firefox,
   and/or Chrome. 
 
+- The fraction, such as \frac{1}{3} when previewed in HTML, appeared to be a
+  little too tall relative to the surrounding text, especailly when 
+  LATEX have made it appear a little smaller comparing with the surrounding
+  text.
 
 

@@ -30,7 +30,6 @@ Following is a list of fenced blocks NITRILE supports.
   - center 
   - flushright 
   - flushleft 
-  - eqtn 
   - math 
   - verb 
   - code 

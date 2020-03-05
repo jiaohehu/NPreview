@@ -232,10 +232,10 @@ Nitrile.
     ```
     ~~~
 
-The resulting LATEX translation is a \begin{lstlisting} environment where fixed
-font is used for typesetting the software code.  If a '.label' or '.caption' is
-present then the label and caption is to be used as part of an option for the
-\begin{lstlisting} environment.
+    The resulting LATEX translation is a \begin{lstlisting} environment where fixed
+    font is used for typesetting the software code.  If a '.label' or '.caption' is
+    present then the label and caption is to be used as part of an option for the
+    \begin{lstlisting} environment.
 
 
 ## Paragraph blocks

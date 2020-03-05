@@ -109,7 +109,7 @@ inside Nitrile.
 
     This block is to simulate a LATEX \begin{description} paragraph.
 
-    ~~~
+    ~~~~
     ``` dt       
     Apple 
       This is a great fruit.
@@ -121,7 +121,7 @@ inside Nitrile.
       These are fruits from tropical
       regions.
     ```
-    ~~~
+    ~~~~
 
     Each data term is to start at the first column. More than one data terms
     are allowed that share a single description text. Description texts
@@ -139,7 +139,7 @@ inside Nitrile.
     ```
 
 
-+ The center fenced block
+  + The center fenced block
 
     This block is to simulate a LATEX \begin{center} paragraph.
 

@@ -1,23 +1,59 @@
 # Fenced blocks
 
-Nitrile support fenced blocks.
+## The imgs fenced block
 
-The fenced blocks are those that must be started by the appearence of triple
-grave-accent at the beginning of a line, followed by a single word and nothing
-else.
+## The line fenced block
 
-Nitrile utilizes the idea of a fenced block to allow for showing contents of a
-varieties of structures. For example, a MATH block is to show LATEX
-display-math expressions, a EQTN block is to show LATEX equations, a CODE block
-is to show computer software codes, and a TABL block is to show texts arranged
-in tabular formations, etc.  
+## The longtabu fenced block
+
+## The tabbing fenced block
+
+## The tabular fenced block
+
+## The tabulary fenced block
+
+## The tabularx fenced block
+
+## The dt fenced block
+
+## The quot fenced block
+
+## The center fenced block
+
+## The flushright fenced block
+
+## The flushleft fenced block
+
+## The math fenced block
+
+The 'math' fenced block is typeset a block of display math in LATEX.
+
+    ``` math
+    a^2 + b^2 = c^2
+    ```
+
+If more than one math expression is to be listed, each one should be
+separated by at least one empty line.
 
     ``` math
     a^2 + b^2 = c^2
 
+    \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{c^2}
     ```
 
-or
+## The verb fenced block
+
+The 'verb' fenced block is to typset a block of verbatim text. The generated
+LATEX translation is a \begin{picture} environment that a picture is made with
+all the text lines in there. The picture is made in such a way to assume that
+the minimum width of the text is 80 columns. If the longest text line is longer
+than 80 then the column is expanded to covert that line. The picture is placed
+inside a \resizebox{} so that it's width is made the same as the width of the
+page. It is then placed inside a \fbox{} so that it will have a border.
+
+## The code fenced block
+
+The 'code' fenced block allows for listing of software codes.
 
     ``` code
     num1 = 15
@@ -26,43 +62,6 @@ or
     print("Sum of {0} and {1} is {2}" .format(num1, num2, sum))
     ```
 
-The single word after the triple grave-accent symbols describes the name of the
-block.  When absent, it is assumed to be MATH. The name is case insensitive.
-
-Following fenced blocks are recognized:
-
--   imgs 
--   line 
--   longtabu 
--   tabbing 
--   tabular 
--   tabulary 
--   tabularx 
--   dt 
--   quot 
--   center 
--   flushright 
--   flushleft 
--   eqtn 
--   math 
--   verb 
--   code 
-
-Note that following block names are reserved internally that are assigned to
-non-fenced blocks:
-
--   TEXT 
--   SAMP 
--   DESC 
--   LIST 
--   HDGS 
--   PART 
--   PARA 
--   PRIM 
--   SECO 
--   PLST 
--   ITEM 
--   CITE 
-
-
+The resulting LATEX translation is a \begin{lstlisting} environment where
+fixed font is used for typesetting the software code.
 

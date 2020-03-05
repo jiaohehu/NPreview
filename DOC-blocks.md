@@ -3,25 +3,29 @@
 In general a paragraph in a MD file is considered a block.
 Following are two paragraphs in a MD file each of which is a block.
 
-    Introductory to triangle mesh
+    Introductory to Pythagoream Theorem
 
-    A triangle mesh is a type of polygon mesh in computer 
-    graphics. It comprises a set of triangles (typically 
-    in three dimensions) that are connected by their common 
-    edges or corners.
-
-Besides a paragraph, a block can also be a Fenced Block. A fenced block is
-considered a composite block made up of one or more paragraphs. It is started
-by the appearance of triple backquotes in its own line, and ended by another
-triple backquotes in its own line.
+    Pythagorean Theorem is one of the most fundamental
+    theorems in mathematics and it defines the relationship
+    between the three sides of a right-angled triangle.  ...
+    Or, the sum of the squares of the two legs of a right
+    triangle is equal to the square of its hypotenuse.
 
     ``` math
     a^2 + b^2 = c^2
+
+    \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{h^2}
     ```
 
-A word is typically placed to the right of the first triple backquotes to 
-express the specific fenced block. As of writing, following fenced blocks
-are recognized by Nitrile.
+Besides a normal paragraph, a block can also be a __fenced block__. A fenced
+block is considered a composite block made up of one or more paragraphs. It
+must be started by a triple backquotes that is in its own line, after one or
+more empty lines, and ended by another triple backquotes in its own line,
+that may or may not be followed by empty lines.
+
+The first triple backquotes might be followed by a word that describes the type
+of fenced block.  As of writing, following fenced block types are supported by
+Nitrile.
 
   - imgs 
   - line 
@@ -38,25 +42,6 @@ are recognized by Nitrile.
   - math 
   - verb 
   - code 
-
-As opposed to fenced block, each normal paragraph would also be recognized as 
-expressing a different block depending on its location in the MD document, and
-by the arrangement of some of its texts.  In order for a non-fenced block
-to be referred to, each non-fenced block is also assigned a special name
-inside Nitrile. 
-
-  - TEXT 
-  - SAMP 
-  - DESC 
-  - LIST 
-  - HDGS 
-  - PART 
-  - PARA 
-  - PRIM 
-  - SECO 
-  - PLST 
-  - ITEM 
-  - CITE 
 
 ## Fenced blocks
 
@@ -143,27 +128,33 @@ inside Nitrile.
 
     This block is to simulate a LATEX \begin{center} paragraph.
 
+    ~~~
     ``` center     
 
     ```
+    ~~~
 
 
   + The flushright fenced block
 
     This block is to simulate a LATEX \begin{flushright} paragraph.
 
+    ~~~
     ``` flushright 
 
     ```
+    ~~~
 
 
   + The flushleft fenced block
 
     This block is to simulate a LATEX \begin{flushleft} paragraph.
 
+    ~~~
     ``` flushleft
 
     ```
+    ~~~
 
 
   + The math fenced block
@@ -223,27 +214,50 @@ inside Nitrile.
     ```
     ~~~
 
-In addition, the picture is placed inside a \resizebox{} so that it's width is
-made the same as the width of the page. The \resizebox{} is then placed inside
-a \fbox{} so that it will have a border.
+    In addition, the picture is placed inside a \resizebox{} so that it's width is
+    made the same as the width of the page. The \resizebox{} is then placed inside
+    a \fbox{} so that it will have a border.
 
 
-## The code fenced block
+  + The code fenced block
 
-The 'code' fenced block allows for listing of software codes.
+    The 'code' fenced block allows for listing of software codes.
 
+    ~~~
     ``` code
     num1 = 15
     num2 = 12
     sum = num1 + num2
     print("Sum of {0} and {1} is {2}" .format(num1, num2, sum))
     ```
+    ~~~
 
 The resulting LATEX translation is a \begin{lstlisting} environment where fixed
 font is used for typesetting the software code.  If a '.label' or '.caption' is
 present then the label and caption is to be used as part of an option for the
 \begin{lstlisting} environment.
 
+
+## Paragraph blocks
+
+As opposed to fenced block, a paragraph block consists of a single paragraph in
+a MD file.  However, each paragraph block is to be recognized and processed
+differently depending on its location within the MD document, as well as the
+arrangement of some of its texts.  For ease of differentiation, each paragraph
+block is also given a name.
+
+  - TEXT 
+  - SAMP 
+  - DESC 
+  - LIST 
+  - HDGS 
+  - PART 
+  - PARA 
+  - PRIM 
+  - SECO 
+  - PLST 
+  - ITEM 
+  - CITE 
 
 
 

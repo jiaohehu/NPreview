@@ -9,7 +9,7 @@
     "pound":   { "html": "&#163;"    ,    "latex": "\\textlira{}"      },
     "curren":  { "html": "&#164;"    ,    "latex": "\\textcurrency{}"  },
     "yen":     { "html": "&#165;"    ,    "latex": "\\textyen{}"       },
-    "brvbar":  { "html": "&#166;"    ,    "latex": "?`"                },
+    "brvbar":  { "html": "&#166;"    ,    "latex": "&#166;"            },
     "sect":    { "html": "&#167;"    ,    "latex": "&#167;"            },
     "uml":     { "html": "&#168;"    ,    "latex": "&#168;"            },
     "copy":    { "html": "&#169;"    ,    "latex": "&#169;"                },

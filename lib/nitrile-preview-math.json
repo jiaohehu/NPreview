@@ -126,6 +126,10 @@
     { "kbd": ";"               ,    "unicode": ";"              ,  "id": "mySEMIC",       "dx":"0",      "dy":".8em",    "op": 2    ,  "width": 4    },
     { "kbd": "/"               ,    "unicode": "/"              ,  "id": "mySLASH",       "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 4    },
 
+    { "kbd": "&"               ,    "unicode": "&#38;"          ,  "id": "myAMPERSAND",   "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 7    },
+    { "kbd": "\""              ,    "unicode": "&#34;"          ,  "id": "myQUOTATION",   "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 4    },
+    { "kbd": "'"               ,    "unicode": "&#39;"          ,  "id": "myAPOSTROPHE",  "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 4    },
+
     { "kbd": "+"               ,    "unicode": "+"              ,  "id": "myPLUS",        "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7     },
     { "kbd": "_"               ,    "unicode": "_"              ,  "id": "myUS",          "dx":"0",      "dy":".8em",    "op": 1    ,  "width": 7     },
     { "kbd": "^"               ,    "unicode": "^"              ,  "id": "myCR",          "dx":"0",      "dy":".8em",    "op": 0    ,  "width": 7     },

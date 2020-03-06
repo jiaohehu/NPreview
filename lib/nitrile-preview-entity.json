@@ -1,7 +1,7 @@
 {
   "entities": {
     "amp":     { "html": "&#038;"    ,    "latex": "\\&"               },
-    "grave"    { "html": "&#096;"    ,    "latex": "\`"                },
+    "grave":   { "html": "&#096;"    ,    "latex": "\\char96{}"        },
     "deg":     { "html": "&#176;"    ,    "latex": "\\textdegree{}"    },
     "quot":    { "html": "&#034;"    ,    "latex": "\""                }
   }

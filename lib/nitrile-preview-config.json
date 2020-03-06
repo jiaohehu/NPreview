@@ -1,16 +1,6 @@
 {
   "configSchema": {
-    "title": {
-      "type": "string",
-      "default": "",
-      "description": "Specify a string that would be used for document title."
-    },
-    "author": {
-      "type": "string",
-      "default": "",
-      "description": "Specify a string that would be used for document author."
-    },
-
+    
     "previewOutlineEnabled": {
       "type": "boolean",
       "default": false,
@@ -36,7 +26,17 @@
       "default": true,
       "description": "Set to true to show images inside the PREVIEW. Set to false to not show images inside the PREVIEW. Default is true."
     },
-
+    
+    "latexTitle": {
+      "type": "string",
+      "default": "",
+      "description": "Specify a string that would be used for document title."
+    },
+    "latexAuthor": {
+      "type": "string",
+      "default": "",
+      "description": "Specify a string that would be used for document author."
+    },
     "latexEngine": {
       "type": "string",
       "default": "lualatex",

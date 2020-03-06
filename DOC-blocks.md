@@ -17,33 +17,38 @@ Following are two paragraphs in a MD file each of which is a block.
     \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{h^2}
     ```
 
-Besides a normal paragraph, a block can also be a __fenced block__. A fenced
-block is considered a composite block made up of one or more paragraphs. It
-must be started by a triple backquotes that is in its own line, after one or
-more empty lines, and ended by another triple backquotes in its own line,
-that may or may not be followed by empty lines.
+The first two blocks are paragraph blocks. The third block is a 'math' fenced
+block. A paragraph block typically consists of only a single paragraph.  But a
+fenced block can have multiple paragraphs. It has a familiar appearance as a
+"python" code block in a Markdown document, in which case one or more
+paragraphs are surrounded by a pair of triple backquotes, and a name describing
+the programming language such as "python" is attached to the right of the first
+fence. But Nitrile expands the concept of a "python" code block and allows for
+the contents between the fences to be interpreted in many different ways. 
+For example, when the name 'math' appear next to the first fence, the lines between
+the fences are considered LATEX math expressions.
 
-The first triple backquotes might be followed by a word that describes the type
-of fenced block.  As of writing, following fenced block types are supported by
-Nitrile.
 
-  - imgs 
-  - line 
-  - longtabu 
-  - tabbing 
-  - tabular 
-  - tabulary 
-  - tabularx 
-  - dt 
-  - quot 
-  - center 
-  - flushright 
-  - flushleft 
-  - math 
-  - verb 
-  - code 
 
 ## Fenced blocks
+
+As of writing, following fenced blocks are implemented within Nitrile.
+
+    imgs 
+    verse
+    longtabu 
+    tabbing 
+    tabular 
+    tabulary 
+    tabularx 
+    dt 
+    quot 
+    center 
+    flushright 
+    flushleft 
+    math 
+    verb 
+    code 
 
   + The imgs fenced block
 
@@ -68,6 +73,23 @@ Nitrile.
     setting .margin to a non-zero value reduces the amount of 
     space available for images.
 
+  + The verse fenced block
+
+    The 'verse' fenced block is to typeset a verse like structure, where each
+    line in the source block is to be treated as a line by itself.
+
+    ~~~
+    ``` verse
+    I cannot believe in a personal God,
+    intervening in human affairs, but stand in awe
+    of the terrible force which set the stars and galaxies in motion
+    –strewing them like so much confetti–;
+    the life-force running through each living creature,
+    as straight and true as a ray of light from that galaxy in Andromeda,
+    willing us to live, grow and be fruitful.
+    ```
+    ~~~
+
   + The longtabu fenced block
 
     This block is to typeset a LATEX \begin{longtabu} environement.
@@ -83,7 +105,6 @@ Nitrile.
   + The tabulary fenced block
 
     This block is to typeset a LATEX \begin{tabulary} environement.
-
 
   + The tabularx fenced block
 
@@ -117,16 +138,18 @@ Nitrile.
 
   + The quot fenced block
 
-    This block is to simulate a LATEX \begin{quote} paragraph.
+    This block is to typeset a LATEX \begin{quote} paragraph.
 
+    ~~~
     ``` quot       
 
     ```
+    ~~~
 
 
   + The center fenced block
 
-    This block is to simulate a LATEX \begin{center} paragraph.
+    This block is to typeset a LATEX \begin{center} paragraph.
 
     ~~~
     ``` center     
@@ -137,7 +160,7 @@ Nitrile.
 
   + The flushright fenced block
 
-    This block is to simulate a LATEX \begin{flushright} paragraph.
+    This block is to typeset a LATEX \begin{flushright} paragraph.
 
     ~~~
     ``` flushright 
@@ -148,7 +171,7 @@ Nitrile.
 
   + The flushleft fenced block
 
-    This block is to simulate a LATEX \begin{flushleft} paragraph.
+    This block is to typeset a LATEX \begin{flushleft} paragraph.
 
     ~~~
     ``` flushleft
@@ -246,18 +269,259 @@ differently depending on its location within the MD document, as well as the
 arrangement of some of its texts.  For ease of differentiation, each paragraph
 block is also given a name.
 
-  - TEXT 
-  - SAMP 
-  - DESC 
-  - LIST 
-  - HDGS 
-  - PART 
-  - PARA 
-  - PRIM 
-  - SECO 
-  - PLST 
-  - ITEM 
-  - CITE 
+    TEXT 
+    SAMP 
+    DESC 
+    LIST 
+    ITEM 
+    HDGS 
+    PART 
+    CITE
+    PARA 
+    PRIM 
+    SECO 
+    PLST 
+
+  + The 'TEXT' blocks
+
+    The 'TEXT' block is a normal paragraph block such that its entire content is 
+    treated as a paragraph.
+
+  + The 'SAMP' blocks
+
+    A 'SAMP' block is a paragraph with all lines indented four spaces to the right.
+
+    ~~~
+    In the following example, parameters a and b are
+    positional-only, while c or d can be positional or
+    keyword, and e or f are required to be keywords:
+
+        def f(a, b, /, c, d, *, e, f):
+            print(a, b, c, d, e, f)
+
+    The following is a valid call:
+
+        f(10, 20, 30, d=40, e=50, f=60)
+    ~~~
+
+    In the previous example the second and forth paragraph
+    are considered 'SAMP' blocks.
+
+  + The 'DESC' blocks
+
+    A 'DESC' block is a block that starts with a plus-sign
+    as the first column of the paragraph with no leading 
+    spaces.
+
+    ~~~
+    + pickle
+    Pickle extensions subclassing the C-optimized Pickler
+    can now override the pickling logic of functions and
+    classes by defining the special reducer_override()
+    method. (Contributed by Pierre Glaser and Olivier Grisel
+    in bpo-35900.)
+
+    + plistlib
+    Added new plistlib.UID and enabled support for reading
+    and writing NSKeyedArchiver-encoded binary plists.
+    (Contributed by Jon Janzen in bpo-26707.)
+
+    + pprint
+    The pprint module added a sort_dicts parameter to
+    several functions. By default, those functions continue
+    to sort dictionaries before rendering or printing.
+    However, if sort_dicts is set to false, the dictionaries
+    retain the order that keys were inserted. This can be
+    useful for comparison to JSON inputs during debugging.
+    ~~~
+
+    In the previous example there are three 'DESC' blocks
+    each of which provides desription to a technical term.
+
+  + The 'LIST' and 'ITEM' blocks
+
+    The 'LIST' and 'ITEM' blocks work together to provide
+    an environment for which paragraphs are either a list
+    item or an indented paragraph.
+
+    ~~~~
+    The typing module incorporates several new features:
+
+      + A dictionary type with per-key types. See PEP 589
+        and typing.TypedDict. 
+        
+        TypedDict uses only string keys. By default, every
+        key is required to be present. Specify “total=False”
+        to allow keys to be optional:
+
+        ~~~
+        class Location(TypedDict, total=False):
+            lat_long: tuple
+            grid_square: str
+            xy_coordinate: tuple
+        ~~~
+
+      + “Final” variables, functions, methods and classes.
+        See PEP 591, typing.Final and typing.final(). 
+        
+        The final qualifier instructs a static type checker
+        to restrict subclassing, overriding, or
+        reassignment:
+
+        ~~~
+        pi: Final[float] = 3.1415926536
+        ~~~
+    ~~~~
+
+    In the previous example, the first paragraph is a 'TEXT'
+    paragraph and the second one is a 'LIST' paragraph. The
+    next few paragraphs are 'ITEM', 'ITEM', 'LIST', 'ITEM',
+    and 'ITEM'.
+
+    The 'LIST' paragraph is recognized when a plus-sign is
+    detected as the first character of the first line of the
+    paragraph, and the plus-sign is first followed by one or
+    more spaces first and then followed by additional
+    non-space characters. 
+
+    When a 'LIST' paragraph is detected, subsequent
+    paragraphs immediately following a 'LIST' paragraph are
+    checked to see if they are intended by four spaces, and
+    if they are then they are labeled as 'ITEM' blocks.
+
+    An 'ITEM' block can be considered as "follow on"
+    paragraph that supply additional description that
+    complements the description started out by the 'LIST'
+    block. An 'ITEM' block is to be typeset either as a
+    normal paragraph, with an indentation level the same as
+    the list item, or a code block where each line is
+    respected and the text is shown using a fixed-width
+    font, when the first and last line of that paragraph 
+    is a triple tilde.
+
+  + The 'HDGS' block
+
+    The 'HDGS' block is used to typset a LATEX chapter,
+    section, subsection, and subsubsection. It must start
+    with a hash as the first character of the first line
+    with no leading spaces.
+
+    ~~~
+    # An introductory to Python Programming Language
+    ~~~
+
+    Note that a HDGS block can have an integer attached to it 
+    that expresses the heading level.
+
+    ~~~
+    # An introductory to Python Programming Language
+    ## An introductory to Python Programming Language
+    ### An introductory to Python Programming Language
+    #### An introductory to Python Programming Language
+    ##### An introductory to Python Programming Language
+    ~~~
+
+  + The 'PART' block
+
+    A 'PART' block is recognized when a matching number of
+    hashes are also detected at the end of the text.
+
+    ~~~
+    # An introductory to Python Programming Language #
+    ## An introductory to Python Programming Language ##
+    ### An introductory to Python Programming Language ###
+    #### An introductory to Python Programming Language ####
+    ##### An introductory to Python Programming Language ######
+    ~~~
+ 
+    Different from the 'HDGS' block, all the previus 'PART'
+    blocks are considered equivalent. 
+
+  + The 'CITE' block
+    
+    A 'CITE' block is recognized when its first line is
+    detected to start with a greater-than character '>'.
+    
+    ~~~
+    > ch1.md
+    > ch2.md
+    > ch3.md
+    ~~~
+ 
+    This block is used to "import" other source MD files to
+    fill up the content of this file.
+
+  + The 'PARA' block
+
+    The 'PARA' block is used to typeset a non-indented
+    paragraph with extra "vertical" spaces inserted between
+    this paragraph and the paragraph before it.
+
+    It is recognized when a pair of square brackets are
+    detected at the beginning of the first line with no
+    leading spaces.
+
+    ~~~
+    [] The interpreter loop has been simplified by moving the
+    logic of unrolling the stack of blocks into the
+    compiler. The compiler emits now explicit instructions
+    for adjusting the stack of values and calling the
+    cleaning-up code for break, continue and return.
+    ~~~
+
+  + The 'PRIM' block
+
+    This block is to typeset the LATEX \paragraph{} block.
+
+    ~~~
+    [ venv ] venv now includes an Activate.ps1 script on all
+    platforms for activating virtual environments under
+    PowerShell Core 6.1. (Contributed by Brett Cannon in
+    bpo-32718.)
+
+    [ weakref ] The proxy objects returned by
+    weakref.proxy() now support the matrix multiplication
+    operators @ and @= in addition to the other numeric
+    operators. (Contributed by Mark Dickinson in bpo-36669.)
+    ~~~
+
+  + The 'SECO' block
+
+    This block is to typeset the LATEX \subparagraph{} block.
+
+    ~~~
+    [[ venv ]] venv now includes an Activate.ps1 script on all
+    platforms for activating virtual environments under
+    PowerShell Core 6.1. (Contributed by Brett Cannon in
+    bpo-32718.)
+
+    [[ weakref ]] The proxy objects returned by
+    weakref.proxy() now support the matrix multiplication
+    operators @ and @= in addition to the other numeric
+    operators. (Contributed by Mark Dickinson in bpo-36669.)
+    ~~~
+
+  + The 'PLST' block
+
+    This block is to typeset a paragraph where it might
+    consists of nested lists. Note that all items must
+    start with a hyphen-minus, followed by at least one
+    space before the text.
+
+    ~~~
+    - item 1
+    - item 2
+    - item 3
+    - item 4
+      - sub-item 1
+      - sub-item 2
+      - sub-item 3
+        - sub-sub-item  
+        - sub-sub-item  
+        - sub-sub-item  
+      - sub-item 4
+    - item 5
+    ~~~
 
 
 

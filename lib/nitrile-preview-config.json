@@ -46,6 +46,11 @@
       ],
       "description": "Set to either *lualatex* or *pdflatex*. "
     },
+    "latexIsArticle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Set to true to typeset it as an article rather than a report/book. Default is set to true."
+    },
     "latexDocumentClass": {
       "type": "string",
       "default": "",

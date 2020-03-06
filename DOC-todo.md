@@ -13,3 +13,8 @@
   character of the line, or as the first character of the line.
 - Need to place all configuration flags in the output of LUALATEX, with
   leading percent-sign character so that it does not get processed by LATEX.
+- When 'math' block is detected to have labels and turned
+  into an equation block for latex and html, it does not
+  quite work when 'alignequalsign' is set.
+- The replaceREF() function might not have worked for EPUB because of the
+  ID might have been in different files.

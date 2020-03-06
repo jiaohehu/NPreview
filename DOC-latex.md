@@ -5,23 +5,32 @@
 Following are configuration options that are related to LATEX document
 generation only.  It does not affects PREVIEW.
 
-    latexEngine
-    latexDocumentClass
-    latexTwoColumnEnabled
-    latexTwoSideEnabled
-    latexA4PaperEnabled
-    latexTableStyle
-    latexAutoRubyEnabled
-    latexDescriptionItemBullet
-    latexStepMargin
-    latexWrapSampleEnabled
-    latexWrapSampleLength
-    latexLeftMargin
-    latexRightMargin
-    latexTopMargin
-    latexLeftMarginForTwoColumn
-    latexRightMarginForTwoColumn
-    latexTopMarginForTwoColumn
+``` tabbing
+
+    latexTitle                       The title 
+    latexAuthor                      The author
+    latexEngine                      LATEX engine, either pdflatex or lualatex
+    latexIsArticle                   Whether it is a article (no chapters)
+    latexDocumentClass               Custom document class
+    latexTwoColumnEnabled            Whether twocolumn option should benabled
+    latexTwoSideEnabled              Whethter twoside option should be enabled
+    latexA4PaperEnabled              Whether A4 paper should be enabled
+    latexTableStyle                  Table style for 'tabular','tabulary','tabularx'
+    latexAutoRubyEnabled             Auto ruby enabled for SAMP block
+    latexDescriptionItemBullet       Customized bullet for DESC
+    latexStepMargin                  Left margin for all indented text and list items
+    latexSampleSize                  Font size for SAMP block
+    latexSampleMargin                Left margin for SAMP block
+    latexSampleWrap                  Set to non-zero for wrapping lines of SAMP block
+    latexLeftMargin                  Left margin for the entire document
+    latexRightMargin                 Right margin for the entire document
+    latexTopMargin                   Top margin for the entire document
+    latexLeftMarginForTwoColumn      Left margin for the entire document when in twocolumn mode
+    latexRightMarginForTwoColumn     Right margin for the entire document when in twocolumn mode
+    latexTopMarginForTwoColumn       Top margin for the entire document when in twocolumn mode
+
+```
+
 
 ## Required LATEX Packages For LuaLaTeX
 
@@ -58,13 +67,11 @@ Following are required LATEX packages that must be included:
     \usepackage{amsfonts}
     \usepackage{amssymb}
     \usepackage{unicode-math}
-      Defines many math symbols.
-
     \usepackage{stmaryrd}
     \usepackage{wasysym}
     \usepackage{textcomp}
-      Addition math symbols and text symbols such as \textrightarrow.
-      Currently not utilized but will be in the future.
+      AMS math and addition math symbols and text symbols such as
+      \textrightarrow.  Currently not utilized but will be in the future.
 
     \usepackage{changepage}
       Used to change the orientation of the page for example from
@@ -83,6 +90,9 @@ Following are required LATEX packages that must be included:
     \usepackage{tikz}
       For \begin{pgfpicture} and \begin{tikzpicture}
 
+    \usepackage{luamplib}
+      For \begin{mplibcode}
+
     \usepackage[normalem]{ulem}
       For \underline.
 
@@ -92,6 +102,21 @@ Following are required LATEX packages that must be included:
     \usepackage{ltablex}
       Needed to make 'tabular' environment happy. If not include there
       are some unexplained compilation errors.ßßß
+
+    \usepackage{tabularx}
+      For \begin{tabularx} 
+
+    \usepackage{tabulary}
+      For \begin{tabulary} 
+
+    \usepackage{tabu}
+      For \begin{longtabu} 
+
+    \usepackage{booktabs}
+      For \toprule, \midrule, and \bottomrule
+
+    \usepackage{xcolor}
+      Needed to use color such as \xcolor{...}
 
     \usepackage[export]{adjustbox}
       For \resizebox command that is used for typesetting verb block.

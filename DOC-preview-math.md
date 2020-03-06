@@ -125,6 +125,11 @@ of "Lim", and/or the integration symbol will depends on choice of these two
 display modes. In particular, when the 'displaymath' mode is detected efforts
 are made to make these symbols appear larger.
 
+## The \displaystyle 
+
+The `\displaystyle` command is supported. When encountered, the result of the 
+math is shown as display mode.
+
 ## Following matrix are supported:
 
     \begin{matrix} ... \end{matrix}

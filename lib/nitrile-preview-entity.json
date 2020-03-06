@@ -3,6 +3,9 @@
     "amp":     { "html": "&#038;"    ,    "latex": "\\&"               },
     "grave":   { "html": "&#096;"    ,    "latex": "\\char96{}"        },
     "deg":     { "html": "&#176;"    ,    "latex": "\\textdegree{}"    },
+    "nbsp":    { "html": "&#160;"    ,    "latex": "~"                 },
+    "iexcl":   { "html": "&#161;"    ,    "latex": "!`"                },
+    "iquest":  { "html": "&#191;"    ,    "latex": "?`"                },
     "quot":    { "html": "&#034;"    ,    "latex": "\""                }
   }
 }

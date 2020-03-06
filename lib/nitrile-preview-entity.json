@@ -1,0 +1,7 @@
+{
+  "entities": {
+    "amp":     { "html": "&#038;"    ,    "latex": "    "  },
+    "quot":    { "html": "&#034;"    ,    "latex": "    "  },
+    "deg":     { "html": "&#176;"    ,    "latex": "    "  }
+  }
+}

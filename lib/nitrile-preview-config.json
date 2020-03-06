@@ -16,10 +16,10 @@
       "default": false,
       "description": "Set it to true to show only headings."
     },
-    "previewExpandSections": {
-      "type": "list",
+    "previewOutlineViewSection": {
+      "type": "string",
       "default": "",
-      "description": "Set it to one or more heading numbers separated by spaces, i.e., *4 3.1 4.12* for which the contents of these sections will be expanded in case outline view mode is enabled."
+      "description": "Set it a section number such as 1, 2, 1.1, or 5.2."
     },
     "previewShowIdEnabled": {
       "type": "boolean",

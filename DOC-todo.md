@@ -18,3 +18,4 @@
   quite work when 'alignequalsign' is set.
 - The replaceREF() function might not have worked for EPUB because of the
   ID might have been in different files.
+- The highlighting of yellow on the PREVIEW is not working for SUBs

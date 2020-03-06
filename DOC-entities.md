@@ -1,5 +1,17 @@
 Entities
 
+
+Entities are special names that will translate to special characters
+that will be inserted directly into the LATEX document. It is designed
+to be a portable ways to insert special character for both LATEX and
+HTML. For example, to insert the quotation mark, you can simply use
+`[[&quot;]]`.
+
+All supported entities are listed with the
+`nitrile-preview-entity.json` file.
+
+
+
 ``` tabbing
 
 `[[&quot;]]`      [[&quot;]]    

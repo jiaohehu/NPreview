@@ -19,3 +19,5 @@
 - The replaceREF() function might not have worked for EPUB because of the
   ID might have been in different files.
 - The highlighting of yellow on the PREVIEW is not working for SUBs
+- Establish a database for mapping HTML named entity to its numeric entity
+  because XHTML does not support named entity.

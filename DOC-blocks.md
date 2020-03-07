@@ -20,10 +20,19 @@ Following are two paragraphs in a MD file each of which is a block.
 The first two blocks are paragraph blocks. The third block is a 'math' fenced
 block. A paragraph block typically consists of only a single paragraph.  But a
 fenced block can have multiple paragraphs. It has a familiar appearance as a
-"python" code block in a Markdown document, in which case one or more
+"python" block in a Markdown document, in which case one or more
 paragraphs are surrounded by a pair of triple backquotes, and a name describing
 the programming language such as "python" is attached to the right of the first
-fence. But Nitrile expands the concept of a "python" code block and allows for
+fence. 
+
+    ``` python
+    import whois
+    data = raw_input("Enter a domain: ")
+    w = whois.whois(data)
+    print w
+    ```
+
+But Nitrile expands the concept of a "python" block and allows for
 the contents between the fences to be interpreted in many different ways. 
 For example, when the name 'math' appear next to the first fence, the lines between
 the fences are considered LATEX math expressions.
@@ -48,7 +57,7 @@ As of writing, following fenced blocks are implemented within Nitrile.
     flushleft 
     math 
     verb 
-    code 
+    listing 
 
   + The imgs fenced block
 
@@ -242,12 +251,12 @@ As of writing, following fenced blocks are implemented within Nitrile.
     a \fbox{} so that it will have a border.
 
 
-  + The code fenced block
+  + The listing fenced block
 
-    The 'code' fenced block allows for listing of software codes.
+    The 'listing' fenced block allows for listing of software codes.
 
     ~~~
-    ``` code
+    ``` listing
     num1 = 15
     num2 = 12
     sum = num1 + num2
@@ -394,7 +403,7 @@ block is also given a name.
     complements the description started out by the 'LIST'
     block. An 'ITEM' block is to be typeset either as a
     normal paragraph, with an indentation level the same as
-    the list item, or a code block where each line is
+    the list item, or a pre-formatted block where each line is
     respected and the text is shown using a fixed-width
     font, when the first and last line of that paragraph 
     is a triple tilde.

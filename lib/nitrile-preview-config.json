@@ -107,7 +107,7 @@
     },
     "latexSampleSize": {
       "type": "string",
-      "default": "normalsize",
+      "default": "small",
       "enum": [
         "normalsize",
         "small",

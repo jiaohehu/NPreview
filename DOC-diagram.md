@@ -218,105 +218,60 @@ some instruction to aid debugging.
 
     exit
 
-The statement is to create a new path variable or several new path variables,
-or to modify exsiting variables. A path variable is a symbol using uppercase or lowcase
-letters to express a path or part of a path.
-
+An assignment is to create a new path variable or several new path variables,
+or to modify exsiting variables. A path variable must be consists of only
+upper case or lower case letters. Digits are not allowed.
 An assignment must appear in the form where the variable or variables
 are to appear on the left hand side of the ':=' and the path expression
-on the right hand side of it. In the following two path variables are created:
-the 'a' and 'b'.
+on the right hand side of it. 
 
     a := (1,1) -- (2,2) -- (3,4)
-    b := a{up} .. (5,5) .. (6,7)
+    b := a .. (5,5) .. (6,7)
 
-Each assignment instruction is to generate a MetaPost output. Thus, the previous
-two instructions would have allowed the following two MetaPost instructions
-to appear in the LATEX document.
-
-    path a; a := (1,1) -- (2,2) -- (3,4)
-    path b; b := a{up} .. (5,5) .. (6,7)
-
-As for the MetaPost statement, the 'path a' statement is to create a MetaPost
-path variable named 'a', and the 'path b' statement is to create a MetaPost
-path variable named 'b'.  These variables, with MetaPost, each expresses a
-"subpath" such that each "subpath" can be used to make up a "larger" path.  In
-the previous example there are two path variables, the first variable "a" is
-part of a second path that is "b", where "a" is part of "b".
-
-Thus, the Diagram path expression syntax allows for a MetaPost path variable to
-be created by the use of an assignment instruction in Diagram for which the
-variable in the assignment instruction become the path variable within a MetaPost
-program.
-
-Aside from path variables, a path description in Diagram allows for more
-components to be used in a path expression.  For example, the path function,
-and the wildcard variable. A path function typically takes an existing path
-variable as input and returns a new path. For example, the $somepoints() path
-function would return a new path consists of one or more points of an existing
-path.  In the following example the path variable 'c' is assigned the first
-point in path variable 'a' and path variable 'd' is assigned the second point
-of path variable 'a'.
+Typically, a path expression consists of one or more coordinates (points),
+and join types. A join type can only be '--' or '..'. The '--' join type is
+to express a 'lineto' operation between the last point and the next point. 
+A '..' join type is to express a 'curveto' operation between the last point
+and the next point. A point should always be expressed between a set of 
+parentheses, such as `(1,1)`, `(2,2)`, `(3,4)`, etc.
+However, Diagram also has something called 'path function'. It's main purpose
+is to allow for new coordinates to be created from existing path variables.
+For example, in the following example the variable 'c' is to be assigned the
+the first point of the path 'a'.
 
     c := $somepoints(a,0)
+
+Similarly, following statement will assign the second point of path 'a' to 
+variable 'd'.
+
     d := $somepoints(a,1)
 
-Following MetaPost output will be observed as a result of running previous two
-Diagram statements.
-
-    path c; c := (1,1)
-    path d; d := (2,2)
-
-Note that a path function always returns points of literal coordinates, even
-though the input might have been a subpath expressed using by a symbol.
-
-The asterisk (`*`) is called a "wildcard path variable" or simply "wildcard
-variable".  A wildcard variable always holds the path encountered by the last
-draw instruction except for the assignment instruction.  In the following
-example the path variable will be created and assigned a path that is the same
-as the one used by the `drawline` statement.
+Besides the user created variable, the asterisk (`*`) is called a "wildcard
+path variable" A wildcard variable is a  built-in variable that is designed to
+holds the path encountered by the last draw instruction.  This variable can be
+used to recall the last path encountered. In the following example the same
+path that was used for drawing the line is assigned to variable 'a'.
 
     drawline (1,1) (2,2) (3,4) (4,5)
     a := *
 
-The wildcard variable is assigned a new path every time a new drawing
-instruction is run.  However, it will not be changed by an assignment instruction
-such as `a := *`. This is by design and is to allow for the same wildcard
-variable to be used multiple times to create other path variables.  Following
-example shows how to create path variable 'a', 'b', and 'c' by extracting
-points and amending points from the same path that was used by the `drawline`
-instruction.
+The wildcard variable is updated each time a new drawing instruction is
+encountered.  However, it will not be changed by an assignment instruction such
+as `a := *`.  This is by design and is to allow for the same wildcard variable
+to be used multiple times to create other path variables.  Following example
+shows how to create path variable 'a', 'b', and 'c' by extracting points and
+amending points from the same path that was used by the `drawline` instruction.
 
     drawline (1,1) (2,2) (3,4) (4,5)
     a := *
     b := * (5,6)
     c := $somepoints(*,1,2)
 
-The wildcard variable cannot be considered a regular path variable in the sense
-as expressing a subpath. When used inside a path, it will simply
-spread all its contents. Therefore, in the following example the second `drawline`
-instruction would simply draw the same path as before with an additional point
-at the end.
-
-    drawline (1,1) (2,2) (3,4) (4,5)
-    drawline * (5,6)
-
-Therefore, a wildcard variable can be considered analogously as the "spread"
-operator in JavaScript. You can think of it as "spreading" the content of a
-path onto an new path.  A wildcard variable can also appear in a path function.
-In the following example the wildcard variable is used analogously to the
-effect of 'a'.
-
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a := *
-    b := $somepoints(*,2,5)
-    c := $somepoints(a,2,5)
-
 For a path variable, as well as a wildcard variable, all its content points
 will be subject to coordinate transformation based on values of 'refx', 'refy',
-'refsx', and/or 'refsy' at the time.  If any of these values change, even if
-the same path variale is encountered, the resulting points might be in a
-different location.
+'refsx', and/or 'refsy' at the time.  Thus, the same path variable might 
+be used to draw different lines and curves under a different setting 
+of 'refx', 'refy', 'refsx' and 'refsy'.
 
 The assignment instruction also has provision to allow for something akin to
 JavaScript "array destructuring" statement, in which case individual points of
@@ -361,23 +316,12 @@ remaining two points to variable 'a'.
     drawline (1,1) (2,2) (3,4) (4,5)
     //a := *
 
-For a regular path variable, if you use it directly, then it is being treated
-as a subpath. In the case of 'drawline', 'drawarea', 'drawarrow', 'drawdblarrow',
-the path is being considered as a whole, and the subpath points will be considered part
-of the main path.
-
-However, when used with 'label', 'circle', 'dot', 'rect', 'drawanglearc', etc., a subpath
-is just another point. Thus, if you have a path 'p' that contains three points, and then
-you pass it to 'dot' command which is designed to draw dots, the followign statement will
-only draw one dot which is at (1,2).
+Note that for commands such as 'label', 'circle', 'dot', 'rect',
+'drawanglearc', etc., a path variable such as 'p' below will only express
+a single point which is the first point of the path. 
 
     p := (1,2) (2,3) (3,4)
     dot p
-
-This is because the entire 'p' is considered a single point by the 'dot'
-command, rather than three individual points such as the following.
-
-    dot (1,2) (2,3) (3,4)
 
 When being considered as a single point, only the first point of the path
 is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
@@ -385,6 +329,7 @@ that position and that position only.  To allow dot to be drawn for
 *all* positions of a path, you would need to place a asterisk in front of
 it such as:
 
+    p := (1,2) (2,3) (3,4)
     dot *p
 
 In such a case three dots will be drawn in three locations that are: (1,2),

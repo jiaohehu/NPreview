@@ -598,6 +598,22 @@ before any coordinates.
 
     drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
 
+The `drawarc` instruction would draw an arc from point a to point b.
+
+    drawarc (6,10) (10,10) (14,10)
+
+The arc to be drawn will be understood to have a x-radius of 2 and y-radius
+of 1, and a rotation of 0. To change it you can set the 'x-radius', 'y-radius'
+and 'rotation'.
+
+    set x-radius 6
+    set y-radius 4
+    set rotation 30
+    drawarc (6,10) (10,10) (14,10)
+
+Note that the 'rotation' setting is in the unit of degrees and
+counterclockwise direction is the positive direction.
+
 The `rect` instruction draws a rectangle, `rect.parallelgram` draws a
 parallelgram, `rect.rhombus` draws a rhombus, and `rect.trapezoid` draws a
 trapezoid shape.
@@ -843,6 +859,18 @@ Following is a list of all settings.
 |--------------------|-----------------------------------------------------|
 |anglearclabelradius |This is to provide the radius that will be used when |
 |                    |drawing a text label next to the arc.                |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|x-radius            |This is to provide the radius that will be used when |
+|                    |drawing an arc.                                      |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|y-radius            |This is to provide the radius that will be used when |
+|                    |drawing an arc.                                      |
+|                    |                                                     |
+|--------------------|-----------------------------------------------------|
+|rotation            |This is to provide the rotation when drawing an      |
+|                    |arc.                                                 |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
 ```

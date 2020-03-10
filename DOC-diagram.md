@@ -316,51 +316,34 @@ remaining two points to variable 'a'.
     drawline (1,1) (2,2) (3,4) (4,5)
     //a := *
 
-Note that for commands such as 'label', 'circle', 'dot', 'rect',
-'drawanglearc', etc., a path variable such as 'p' below will only express
-a single point which is the first point of the path. 
-
-    p := (1,2) (2,3) (3,4)
-    dot p
-
-When being considered as a single point, only the first point of the path
-is extracted. Because the first point of 'p' is (1,2), the dot is drawn at
-that position and that position only.  To allow dot to be drawn for
-*all* positions of a path, you would need to place a asterisk in front of
-it such as:
+To use a variable inside another path expression, place an asterisk
+in front of it such as `*p`.
 
     p := (1,2) (2,3) (3,4)
     dot *p
 
 In such a case three dots will be drawn in three locations that are: (1,2),
-(2,3), and (3,4).  You can also include an addition integer after the
-symbol to express a particular point at that index location. Following
-example will draw only two dots at (2,3) and (3,4), while skipping the
-first one.
+(2,3), and (3,4).  You can also freely mix variables and coordinates.
 
-    p := (1,2) (2,3) (3,4)
-    dot *p1 *p2
+    p1 := (1,2) (2,3) (3,4)
+    p2 := (5,6) (7,8) 
+    dot *p1 *p2 (9,9)
 
-This is because `*p1` is equivalent to `$somepoints(p,1)`, and `*p2` is the
-same as `$somepoints(p,2)`. You can even use the following syntax to draw
-an arrow going directly from the first point to the last.
+You can narrow down the range of the points by including a scription
+such as the following, for example, if you only interested in printing
+out the dot for the first point of a path 'p'.
 
     p := (1,2) (1,3) (3,4)
-    drawarrow *p0 -- *p2
+    dot *p[0] 
 
-Because of the "spread" nature of `*p` or `*q`, you can combine
-all points of a path easily. In the following example a single
-dot statement is to draw all dots from two separate paths.
+Similarly, you can specify a range of subscriptions.
 
-    p := (1,2) (2,3) (3,4)
-    q := (7,8) (8,9) (9,10)
-    dot *p *q
-
-This is equivalent to the following.
-
-    p := (1,2) (2,3) (3,4)
-    q := (7,8) (8,9) (9,10)
-    dot $allpoints(p,q)
+    p := (1,2) (1,3) (3,4) (4,5) (5,6) (6,7)
+    dot *p[0] 
+    dot *p[0-1] 
+    dot *p[0-2] 
+    dot *p[0,1,2] 
+    dot *p[0,1,2,4-5] 
 
 The `brick` command is to draw a brick. The brick is a a width of 1
 and height of 0.5. Its lower-left corner aligns with the point.

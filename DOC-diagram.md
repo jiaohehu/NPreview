@@ -380,6 +380,7 @@ are designed to stroke a path or fill in the area desginated by the path.
     drawarea
     drawdblarrow
     drawarrow
+    drawrevarrow
 
 The `drawline` instruction strokes the path, which many consists of multiple
 straight line segments and/or curved segments. The `drawarea` instruction is to
@@ -403,37 +404,33 @@ Note that for drawing lines, such as `drawline`, `drawdblarrow`, and
 parameter.  The *stroke-width* would have constrolled the line width, which could
 be set to something like "2pt".
 
-For the `drawarea` instruction, the *fill* parameter constrols the color that
-is used to fill the area.  If it is not set the area will be filled as black.
-If it is set then the fill color it sets to will be color used for
-filling the area.  When calling `drawarea`, if the *stroke-width* is set to "0",
-then the outline of the path is not drawn. Otherwise, the outline of the area
-will be drawn using the settings from *stroke* and *stroke-width*.
-
 The `circle` instruction is to draw a full circle, or part of a circle.
 It also has variants that would draw only a part of a circle as an arc, or to draw
 a chord, or the circular segment described by the arc and chord,
 
     circle        (1,1)
-    circle.top    (1,1)
-    circle.bot    (1,1)
-    circle.rt     (1,1)
-    circle.lft    (1,1)
-    circle.q1     (1,1)
-    circle.q2     (1,1)
-    circle.q3     (1,1)
-    circle.q4     (1,1)
-    circle.o1     (1,1)
-    circle.o2     (1,1)
-    circle.o3     (1,1)
-    circle.o4     (1,1)
-    circle.o5     (1,1)
-    circle.o6     (1,1)
-    circle.o7     (1,1)
-    circle.o8     (1,1)
     circle.chord  (1,1)
     circle.arc    (1,1)
     circle.cseg   (1,1)
+
+    halfcircle.top    (1,1)
+    halfcircle.bot    (1,1)
+    halfcircle.rt     (1,1)
+    halfcircle.lft    (1,1)
+
+    quadrant.q1     (1,1)
+    quadrant.q2     (1,1)
+    quadrant.q3     (1,1)
+    quadrant.q4     (1,1)
+
+    octant.o1     (1,1)
+    octant.o2     (1,1)
+    octant.o3     (1,1)
+    octant.o4     (1,1)
+    octant.o5     (1,1)
+    octant.o6     (1,1)
+    octant.o7     (1,1)
+    octant.o8     (1,1)
 
 Each instruction is to accept a path expression where each point on the path
 is to be interpreted as a point to place the circle. The center of the circle
@@ -512,11 +509,9 @@ is small.
     set anglearcradius 1.5
     drawanglearc (0,0) (1,0) (1,0.5)
 
-Latest addition also allows for a text label to be positioned relative to
-the arc or sq. The amount of distances from the angle vertex is controled
-by the (anglearclabelradius) setting which is expressing as a number in
-grid unit length.  To specify text label, includes it as the first argument
-before any coordinates.
+Latest addition also allows for a text label to be positioned relative to the
+arc or sq.  To specify text label, includes it as the first argument before any
+coordinates.
 
     drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
 
@@ -580,7 +575,7 @@ parallgram.
     set rectw 5
     set recth 3
     set slant 0.5
-    rect.parallelgram (1,1)
+    parallelgram (1,1)
 
 The `rect.rhombus` shape is drawn with diamond head and tail pointing
 to the left and right. There is currently no provision to change
@@ -588,7 +583,7 @@ its size so it will be the same size for now.
 
     set rectw 5
     set recth 3
-    rect.rhombus (1,1)
+    rhombus (1,1)
 
 The `rect.trapezoid` shape is drawn with a base larger than the top.    
 Also, the encroachmentment from the left at the top is 20 percent of the
@@ -598,7 +593,7 @@ will likely to provide options to allow for adjustments.
 
     set rectw 5
     set recth 3
-    rect.trapezoid (1,1)
+    trapezoid (1,1)
 
 The `dot` instruction is to draw a dot at each path point.  It is typically
 used to identify the location of a point in a plane by showing a visible round
@@ -777,10 +772,6 @@ Following is a list of all settings.
 |--------------------|-----------------------------------------------------|
 |anglearcradius      |This is to provide the radius that will be used when |
 |                    |drawing an small arc for an angle.                   |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|anglearclabelradius |This is to provide the radius that will be used when |
-|                    |drawing a text label next to the arc.                |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
 |x-radius            |This is to provide the radius that will be used when |

@@ -1041,28 +1041,54 @@ As of writing, following shape exists:
 ```
 
 
-## Specifying the color
+## Specifying the color for MetaPost
 
-When setting the color it follows the following form. The Diagram will attempt
-to interpret and convert to "xcolor" syntax such as "red!80|white|20!".  The
-output MP code is to wrap the "xcolor" name within the `\mpcolor` macro that is
-offered by the "luamplib" LATEX package.
+The color syntax is either the color name, such as "red", "green", 
+or RGB such as "rgb(200,100,25)". 
 
-``` tabulary
-|------------------|--------------------------------------------------------|
-|Diagram Color     | MP output                                              |
-|                  |                                                        |
-|------------------|--------------------------------------------------------|
-|   white          | \mpcolor{white}                                        |
-|                  |                                                        |
-|------------------|--------------------------------------------------------|
-|   green          | \mpcolor{green}                                        |
-|                  |                                                        |
-|------------------|--------------------------------------------------------|
-|0.8green          | \mpcolor{green!80}                                     |
-|                  |                                                        |
-|------------------|--------------------------------------------------------|
-|0.8[green,white]  | \mpcolor{green!80!white!20}                            |
-|                  |                                                        |
-|------------------|--------------------------------------------------------|
-```
+The MetaPost code has the provision to allow for a "xcolor" provided
+by the "xcolor" package, such as using the \mpcolor macro. Thus, 
+the MetaPost command can be set up as
+
+    drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(gray)
+
+The xcolor package has also expanded the avialble color names to more than
+what's provided by MetaPost, including "gray", "orange", etc. Following 
+additional color names are always provided by the xcolor package:
+
+    red, green, blue, cyan, magenta, yellow, black, gray, white, 
+    darkgray, lightgray, brown, lime, olive, orange, pink, 
+    purple, teal, violet
+
+SVG also allows for a color to be specified directly using RGB, such as
+
+    <line x1='0' y1='1' x2='2' y2='3' stroke='rgb(200,100,25)'/>
+
+However, MetaPost does not allow for expressing a color using three integers 
+as RGB values of a color. It insists that a name is to be used for \mpcolor 
+macro. However, it does not have provision such that you can *create* a new
+color name with a customized RGB values in it, such as
+
+    \definecolor{ultramarine}{RGB}{0,32,96}
+    \definecolor{wrongultramarine}{rgb}{0.07, 0.04, 0.56}
+
+The \definecolor is a macro provided by xcolor package. This means if a
+color is specified as "rgb(200,100,25)" then a \definecolor command must
+first be called to create a "unique" color name, such as "mycolor003"
+which is to be placed outside of the "mplibcode" environment, in order
+for this particular color to be referenced inside "mplibcode" environment.
+Therefore, currently MetaPost translation does not support specifying
+color using RGB directly.
+
+Note that MetaPost does allow for a color mixing using existing color names
+such as 
+
+    drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
+
+
+## Known problems
+
+- The arrow head in HTML is done using <marker> element. And for SVG 1.1
+  the limitation is that its coloring and filling is not changed to 
+  the line element it attaches to. It is a browser problem and currently
+  there is no fix.

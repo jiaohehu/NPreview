@@ -34,4 +34,14 @@ The colour models that only xcolor support are:
   -   Gray Grey scale, a number between 1 and 15.
   -   wave Wave length. Between 363 and 814.
 
+Following is an example of defining a new color ultramarine with RGB.
+
+    \documentclass{article}
+    \usepackage{xcolor}
+    \definecolor{ultramarine}{RGB}{0,32,96}
+    \definecolor{wrongultramarine}{rgb}{0.07, 0.04, 0.56}
+    \begin{document}
+    \textcolor{ultramarine}{Ultramarine \rule{1cm}{1cm}}
+    \textcolor{wrongultramarine}{Wrong Ultramarine \rule{1cm}{1cm}}
+    \end{document}
 

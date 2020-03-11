@@ -22,48 +22,36 @@ Following is an example of a diagram block.
 ```diagram
 viewport 32 12
 
-% tichi
-set refx 3
-set refy 9
-set refsx 2
-set refsy 2
-p := (-1,0)..(0,-1)..(1,0)
-drawarea p{up}..(0,0){-1,-2}..{up}cycle
-drawline p..(0,1)..cycle
-
-% reset
-reset
-
 % variables
-a := (1,1) -- (5,5) -- (5,1) -- ()
-b := (1,1){up} .. (5,5) .. (5,1) .. ()
+a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
+b := (1,1) .. (5,5) .. (5,1) .. (1,1) ()
 
 % drawline
-drawline a
-drawline b
+drawline *a
+drawline *b
 
 % circles
 
-set fill 0.8[red,white]
+set fill pink
 set angle1 0
 set angle2 90
 circle     (16,1)
-circle.top (16,3)
-circle.bot (16,5)
-circle.rt  (16,7)
-circle.lft (16,9)
-circle.q1  (18,1)
-circle.q2  (18,1)
-circle.q3  (18,1)
-circle.q4  (18,1)
-circle.o1  (18,3)
-circle.o2  (18,3)
-circle.o3  (18,3)
-circle.o4  (18,3)
-circle.o5  (18,3)
-circle.o6  (18,3)
-circle.o7  (18,3)
-circle.o8  (18,3)
+halfcircle.top (16,3)
+halfcircle.bot (16,5)
+halfcircle.rt  (16,7)
+halfcircle.lft (16,9)
+quadrant.q1  (18,1)
+quadrant.q2  (18,1)
+quadrant.q3  (18,1)
+quadrant.q4  (18,1)
+octant.o1  (18,3)
+octant.o2  (18,3)
+octant.o3  (18,3)
+octant.o4  (18,3)
+octant.o5  (18,3)
+octant.o6  (18,3)
+octant.o7  (18,3)
+octant.o8  (18,3)
 circle.chord (20,1)
 circle.arc   (20,3)
 circle.cseg  (20,5)
@@ -100,21 +88,21 @@ drawline <0,-4> (28,4)--(31,7)
 /c := *
 drawanglearc a b c
 
-% drawarea      
+% drawline will fill      
 gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
 set stroke-width 2pt
 set fill orange
-drawarea gg
+drawline *gg
 set stroke-width 2px
 set fill orange
-drawarea ff
+drawline *ff
 reset
 
 % label
 label.rt  {``C_0``} (5,5)
 label.rt  {``B_0``} (5,1)
-label.lft {``A_0``} (1,1)
+label.top {``A_0``} (1,1)
 
 % dots
 dot (1,1) \

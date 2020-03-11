@@ -57,11 +57,15 @@ circle.arc   (20,3)
 circle.cseg  (20,5)
 
 % rect
-set slant 0.9
 set fill orange
 rect (24,2)
-rect.parallelgram (24,6)
-set fill
+reset
+
+% parallelgram
+set slant 0.9
+set fill orange
+parallelgram (24,6)
+reset
 
 % dot
 sq := (22,3) (23,3) (23,2) (22,2)
@@ -118,6 +122,7 @@ tick.lft (5,2) (5,3) (5,4)
 % arrow & dblarrow
 drawarrow (7,3) (9,5)
 drawdblarrow (9,3) (11,5)
+drawrevarrow (11,3) (13,5)
 
 % text of a different fontsize
 set fontsize 14pt

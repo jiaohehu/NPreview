@@ -83,14 +83,14 @@ drawline (28,4)--(31,4)
 a/b := *
 drawline (28,4)--(28,7)
 /c := *
-drawanglearc.sq a b c
+drawanglearc.sq *a *b *c
 
 % 45-degree angle
 drawline <0,-4> (28,4)--(31,4)
 a/b := *
 drawline <0,-4> (28,4)--(31,7)
 /c := *
-drawanglearc a b c
+drawanglearc *a *b *c
 
 % drawline will fill      
 gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle

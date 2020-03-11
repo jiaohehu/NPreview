@@ -131,6 +131,9 @@ label { 簡単 Triangle } (10,1)
 % shape
 brick (7,7) [h:1] [h:1]
 brick (7,8) [h:1] [h:1]
+
+% trapezoid
+trapezoid (2,10)
 ```
 
 ## The unit length and grid lines

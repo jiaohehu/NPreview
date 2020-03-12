@@ -1127,7 +1127,15 @@ You can also provide a unit directly, such as pt.
   
       label {See the angle ``\alpha``} (1,2)
 
-  
+- Since the font-size, dot-size, and line-size are now changed to 
+  be using SVG user units, the MetaPost generation would need to watch
+  out for to see if this affects the actual line size, font size, etc.,
+  and see whether it would need to convert it back to pt.
+
+- The text-aligmnents are default to 'urt' and not 'centered', thus
+  we need to ensure previous auto choices of text alignment which
+  asssumes the center are now being shown as 'urt' and thus we need
+  to make some adjustments where necessary.
 
 
 ## TODO

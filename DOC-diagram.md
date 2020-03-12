@@ -20,7 +20,7 @@ Following is an example of a diagram block.
 
 
 ```diagram
-viewport 32 12
+viewport 32 20
 
 % variables
 a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
@@ -55,17 +55,6 @@ octant.o8  (18,3)
 circle.chord (20,1)
 circle.arc   (20,3)
 circle.cseg  (20,5)
-
-% rect
-set fill orange
-rect (24,2)
-reset
-
-% parallelgram
-set slant 0.9
-set fill orange
-parallelgram (24,6)
-reset
 
 % dot
 sq := (22,3) (23,3) (23,2) (22,2)
@@ -134,6 +123,27 @@ brick (7,8) [h:1] [h:1]
 
 % trapezoid
 trapezoid (2,10)
+
+% thombus
+rhombus (5,10)
+
+% rect
+rect (8,10)
+
+% parallelgram
+parallelgram (11,10)
+
+% apple
+apple (15,11)
+
+% basket
+basket (17,11)
+
+% crate
+crate (21,11)
+
+% protractor
+protractor (8,16)
 ```
 
 ## The unit length and grid lines
@@ -220,16 +230,16 @@ or to modify exsiting variables. A path variable must be consists of only
 upper case or lower case letters. Digits are not allowed.
 An assignment must appear in the form where the variable or variables
 are to appear on the left hand side of the ':=' and the path expression
-on the right hand side of it. 
+on the right hand side of it.
 
     a := (1,1) -- (2,2) -- (3,4)
     b := a .. (5,5) .. (6,7)
 
 Typically, a path expression consists of one or more coordinates (points),
 and join types. A join type can only be '--' or '..'. The '--' join type is
-to express a 'lineto' operation between the last point and the next point. 
+to express a 'lineto' operation between the last point and the next point.
 A '..' join type is to express a 'curveto' operation between the last point
-and the next point. A point should always be expressed between a set of 
+and the next point. A point should always be expressed between a set of
 parentheses, such as `(1,1)`, `(2,2)`, `(3,4)`, etc.
 However, Diagram also has something called 'path function'. It's main purpose
 is to allow for new coordinates to be created from existing path variables.
@@ -238,7 +248,7 @@ the first point of the path 'a'.
 
     c := $somepoints(a,0)
 
-Similarly, following statement will assign the second point of path 'a' to 
+Similarly, following statement will assign the second point of path 'a' to
 variable 'd'.
 
     d := $somepoints(a,1)
@@ -266,8 +276,8 @@ amending points from the same path that was used by the `drawline` instruction.
 
 For a path variable, as well as a wildcard variable, all its content points
 will be subject to coordinate transformation based on values of 'refx', 'refy',
-'refsx', and/or 'refsy' at the time.  Thus, the same path variable might 
-be used to draw different lines and curves under a different setting 
+'refsx', and/or 'refsy' at the time.  Thus, the same path variable might
+be used to draw different lines and curves under a different setting
 of 'refx', 'refy', 'refsx' and 'refsy'.
 
 The assignment instruction also has provision to allow for something akin to
@@ -323,7 +333,7 @@ In such a case three dots will be drawn in three locations that are: (1,2),
 (2,3), and (3,4).  You can also freely mix variables and coordinates.
 
     p1 := (1,2) (2,3) (3,4)
-    p2 := (5,6) (7,8) 
+    p2 := (5,6) (7,8)
     dot *p1 *p2 (9,9)
 
 You can narrow down the range of the points by including a scription
@@ -331,16 +341,16 @@ such as the following, for example, if you only interested in printing
 out the dot for the first point of a path 'p'.
 
     p := (1,2) (1,3) (3,4)
-    dot *p[0] 
+    dot *p[0]
 
 Similarly, you can specify a range of subscriptions.
 
     p := (1,2) (1,3) (3,4) (4,5) (5,6) (6,7)
-    dot *p[0] 
-    dot *p[0-1] 
-    dot *p[0-2] 
-    dot *p[0,1,2] 
-    dot *p[0,1,2,4-5] 
+    dot *p[0]
+    dot *p[0-1]
+    dot *p[0-2]
+    dot *p[0,1,2]
+    dot *p[0,1,2,4-5]
 
 The `brick` command is to draw a brick. The brick is a a width of 1
 and height of 0.5. Its lower-left corner aligns with the point.
@@ -738,7 +748,7 @@ Following is a list of all settings.
 |--------------------|-----------------------------------------------------|
 |dot-size            |Configure the size of the dot to be drawn, such as   |
 |                    |"8pt". Used by the `dot` instruction. The default    |
-|                    |is "4pt".                                            |
+|                    |is "5" user unit.                                    |
 |--------------------|-----------------------------------------------------|
 |tick                |Set the color used for drawing ticks, i.e.,  "red".  |
 |                    |It is used by the `tick`  instruction.               |
@@ -1031,29 +1041,29 @@ As of writing, following shape exists:
 
 ## Specifying the color for MetaPost
 
-The color syntax is either the color name, such as "red", "green", 
-or RGB such as "rgb(200,100,25)". 
+The color syntax is either the color name, such as "red", "green",
+or RGB such as "rgb(200,100,25)".
 
 The MetaPost code has the provision to allow for a "xcolor" provided
-by the "xcolor" package, such as using the \mpcolor macro. Thus, 
+by the "xcolor" package, such as using the \mpcolor macro. Thus,
 the MetaPost command can be set up as
 
     drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(gray)
 
 The xcolor package has also expanded the avialble color names to more than
-what's provided by MetaPost, including "gray", "orange", etc. Following 
+what's provided by MetaPost, including "gray", "orange", etc. Following
 additional color names are always provided by the xcolor package:
 
-    red, green, blue, cyan, magenta, yellow, black, gray, white, 
-    darkgray, lightgray, brown, lime, olive, orange, pink, 
+    red, green, blue, cyan, magenta, yellow, black, gray, white,
+    darkgray, lightgray, brown, lime, olive, orange, pink,
     purple, teal, violet
 
 SVG also allows for a color to be specified directly using RGB, such as
 
     <line x1='0' y1='1' x2='2' y2='3' stroke='rgb(200,100,25)'/>
 
-However, MetaPost does not allow for expressing a color using three integers 
-as RGB values of a color. It insists that a name is to be used for \mpcolor 
+However, MetaPost does not allow for expressing a color using three integers
+as RGB values of a color. It insists that a name is to be used for \mpcolor
 macro. However, it does not have provision such that you can *create* a new
 color name with a customized RGB values in it, such as
 
@@ -1069,14 +1079,49 @@ Therefore, currently MetaPost translation does not support specifying
 color using RGB directly.
 
 Note that MetaPost does allow for a color mixing using existing color names
-such as 
+such as
 
     drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
+
+
+## The line size or dot size unit
+
+Note that for units such as line width, dot size, etc, is maintained internally
+by Diagram as the SVG user unit. One user unit is exactly 1/96 of an inch.
+Following is the conversion of SVG units.
+
+    1in = 96px
+    1in = 72pt
+    1in = 2.54cm
+
+It seems that MetaPost allows for a line length or dot size to be
+expressed without a specific unit attached to it. For example, you
+can ask to draw a dot by MetaPost with the following command.
+The "withpen pencircle scaled 5" is part of a configuration to
+the "drawdot" command that is to tell it to use a pen size of 5.
+Note that the size of 5 is interpreted as the size of the pen,
+therefore, the diameter of the dot as the pen is a circle pen.
+
+    drawdot (22*u,3*u) withpen pencircle scaled 5 ;
+
+You can also provide a unit directly, such as pt.
+
+    drawdot (22*u,3*u) withpen pencircle scaled 5pt ;
+
 
 
 ## Known problems
 
 - The arrow head in HTML is done using <marker> element. And for SVG 1.1
-  the limitation is that its coloring and filling is not changed to 
+  the limitation is that its coloring and filling is not changed to
   the line element it attaches to. It is a browser problem and currently
   there is no fix.
+
+
+## TODO
+
+- Need to make the aligment of objects consistant. By default labels
+are aligned at the center, crate and basket and apples are aligned at the
+center, but rect, trapezoid, rhombus, and parallelgram are aligned
+at the lower left corner. Need to change is so that besides text,
+other objects are by default aligned at the lower-left corner.

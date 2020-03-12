@@ -115,7 +115,7 @@ drawrevarrow (11,3) (13,5)
 
 % text of a different fontsize
 set fontsize 14pt
-label { 簡単 Triangle } (10,1)
+label.ctr { 簡単 Triangle } (10,1)
 
 % shape
 brick (7,7) [h:1] [h:1]

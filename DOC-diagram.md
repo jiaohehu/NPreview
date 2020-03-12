@@ -122,16 +122,16 @@ brick (7,7) [h:1] [h:1]
 brick (7,8) [h:1] [h:1]
 
 % trapezoid
-trapezoid (2,10)
+trapezoid (2,11)
 
-% thombus
-rhombus (5,10)
+% rhombus
+rhombus (5,11)
 
 % rect
-rect (8,10)
+rect (8,11)
 
 % parallelgram
-parallelgram (11,10)
+parallelgram (11,11)
 
 % apple
 apple (15,11)
@@ -148,7 +148,8 @@ rrect (26,11)
 % protractor
 protractor (8,16)
 
-
+% radical
+radical (10,16)
 ```
 
 ## The unit length and grid lines

@@ -25,13 +25,13 @@ drawline (18,4)--(21,4)
 a/b := *
 drawline (18,4)--(18,7)
 /c := *
-drawanglearc.sq {``\theta``} *a *b *c
+drawanglearc.sq {W} *a *b *c
 
 % 45-degree angle
 drawline <0,-4> (18,4)--(21,4)
 a/b := *
 drawline <0,-4> (18,4)--(21,7)
 /c := *
-drawanglearc {``\theta``} *a *b *c
+drawanglearc {W} *a *b *c
 
 ```

@@ -20,4 +20,18 @@ drawline <0,-4> (28,4)--(31,7)
 /c := *
 drawanglearc *a *b *c
 
+% 90-degree angle
+drawline (18,4)--(21,4)
+a/b := *
+drawline (18,4)--(18,7)
+/c := *
+drawanglearc.sq {``\theta``} *a *b *c
+
+% 45-degree angle
+drawline <0,-4> (18,4)--(21,4)
+a/b := *
+drawline <0,-4> (18,4)--(21,7)
+/c := *
+drawanglearc {``\theta``} *a *b *c
+
 ```

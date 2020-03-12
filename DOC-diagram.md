@@ -142,8 +142,13 @@ basket (17,11)
 % crate
 crate (21,11)
 
+% rrect
+rrect (26,11)
+
 % protractor
 protractor (8,16)
+
+
 ```
 
 ## The unit length and grid lines

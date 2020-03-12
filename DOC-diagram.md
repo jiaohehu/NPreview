@@ -82,11 +82,7 @@ drawline <0,-4> (28,4)--(31,7)
 drawanglearc *a *b *c
 
 % drawline will fill      
-gg := (28,10)--(31,10)--(31,11)--(28,11)--cycle
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
-set stroke-width 2pt
-set fill orange
-drawline *gg
 set stroke-width 2px
 set fill orange
 drawline *ff

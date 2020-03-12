@@ -14,6 +14,6 @@ label.lrt {LRT} (0,10)
 label.llft {LLFT} (25,10)
 label.urt {URT} (0,0)
 label.ulft {ULFT} (25,0)
-label {CENTER} (12,5)
+label.ctr {CENTER} (12,5)
 
 ```

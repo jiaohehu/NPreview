@@ -35,3 +35,5 @@ node_modules
 *.yaml
 *.html
 *.xhtml
+lib/test.md
+test.md

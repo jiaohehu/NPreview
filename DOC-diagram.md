@@ -1137,11 +1137,17 @@ You can also provide a unit directly, such as pt.
   asssumes the center are now being shown as 'urt' and thus we need
   to make some adjustments where necessary.
 
-
-## TODO
-
 - Need to make the aligment of objects consistant. By default labels
-are aligned at the center, crate and basket and apples are aligned at the
-center, but rect, trapezoid, rhombus, and parallelgram are aligned
-at the lower left corner. Need to change is so that besides text,
-other objects are by default aligned at the lower-left corner.
+  are aligned at the center, crate and basket and apples are aligned at the
+  center, but rect, trapezoid, rhombus, and parallelgram are aligned
+  at the lower left corner. Need to change is so that besides text,
+  other objects are by default aligned at the lower-left corner.
+
+- For shapes such as apple, brick and radical cannot be scaled, although
+  the radical has a configuration option. We need to create a scale factor
+  for each of the shape. Even though each shape has a natural size, but
+  we should also be able to specify a scaling factor to allow it to enlarge
+  or shrink beyond its natural size.
+
+
+

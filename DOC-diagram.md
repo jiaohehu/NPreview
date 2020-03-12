@@ -142,10 +142,10 @@ crate (21,11)
 rrect (26,11)
 
 % protractor
-protractor (8,16)
+protractor (10,15)
 
 % radical
-radical (10,16)
+radical (1,17)
 ```
 
 ## The unit length and grid lines

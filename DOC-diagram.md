@@ -1119,6 +1119,16 @@ You can also provide a unit directly, such as pt.
   the line element it attaches to. It is a browser problem and currently
   there is no fix.
 
+- For SVG we *had* to make a choice to either show a plaintext, using <text>
+  element or math text  using <svg> element, there is currently a lot of grief 
+  as prevously we were freely mixing normal and math text as this was not 
+  a problem for MetaPost, as it supports TeX text between btex and etex
+  constructs. But for us following is a problem for SVG.
+  
+      label {See the angle ``\alpha``} (1,2)
+
+  
+
 
 ## TODO
 

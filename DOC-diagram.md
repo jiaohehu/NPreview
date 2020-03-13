@@ -901,6 +901,22 @@ points (11,0), (12,0), (13,0) and (14,0) as follows.
 
     drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
+The 'cycle' keyword will instroduce a cycled point to the path and then
+terminate it. This will essentially add a *new* point at the end of the
+current path that is the same point of the first, followed by a 'cycle'
+point. These two additional points will appear at the end of the 
+current path. The process will also terminate and stop processing all
+future points in the input line. 
+
+On the other hand, if a '()' is encountered, such as the following, then
+a new 'nan' point will be instroduced and the processing continue on
+without interruption. This feature allows for multiple 'nan' points to be
+introduced to the path, simulating multiple broken "line segments."
+In the following example two line segments will be drawn, one between
+(0,0) and (2,3), and another between (4,5) and (6,7).
+
+    drawline (0,0) (2,3) () (4,5) (6,7)
+
 
 ## Path functions        
 

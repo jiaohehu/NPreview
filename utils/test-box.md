@@ -4,7 +4,7 @@ This is a box that tests various part of the text alignment.
 
 ``` diagram
 viewport 25 10
-set font-size 7pt
+set font-size 10pt
 
 label.top {TOP} (12,0);
 label.bot {BOT} (12,10);

@@ -773,9 +773,9 @@ Following is a list of all settings.
 |                    |This is to be used with the drawrect instruction.    |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|diameter            |This is to express the length of the diameter for    |
-|                    |an circle.                                           |
-|                    |                                                     |
+|radius              |This is to express the length of the radius for      |
+|                    |an circle, halfcircle, quadrant circle, or octant    |
+|                    |circle.                                              |
 |--------------------|-----------------------------------------------------|
 |angle1              |This is to express the measurement of the first      |
 |                    |angle.                                               |
@@ -994,15 +994,15 @@ one point: (2,2)
     b := (2,0) (2,6)
     c := $lineintersect(a,b)
 
-+ linecircleintersect(a,c,diameter)
++ linecircleintersect(a,c,radius)
 
 Returns new a path that contains two points for the line and circle intersection.
-In the following diagram the pts variable 'pts' will hold two points: (6,4) and
-(3.6, 2.8).
+In the following diagram the pts variable 'pts' will hold two points: (6,2) and
+(4,2).
 
     a := (2,2) (6,2)
     c := (5,3)
-    pts := $linecircleintersect(a,c,2.8284)
+    pts := $linecircleintersect(a,c,1.4142)
 
 
 ## The shape instruction

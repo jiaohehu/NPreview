@@ -1159,5 +1159,11 @@ You can also provide a unit directly, such as pt.
   at 12-pt, which makes the text look big. The problem has been corrected
   by shrinking the size of the SVG.    
 
+- It is not currently possible to specify line segments in a drawline method.
+  Such that it allows a line to be terminated and the next point will start
+  a new line segment. The proposed method is to repurpose the () operator
+  to insert a 'nan' point. This point will be interpreted to mean the interruption
+  of the current line segment, and the next point will be the start of a new
+  line segment. 
 
 

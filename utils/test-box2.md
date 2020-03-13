@@ -16,6 +16,6 @@ label.bot {``\beta``} (16,14)
 label.rt {``\beta``} (0,7)
 label.lft {``\beta``} (32,7)
 
-label.ctr {``\beta``} (16,7) 
+label.ctr {``\beta``} (16,7)
 
 ```

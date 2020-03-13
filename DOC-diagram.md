@@ -33,8 +33,8 @@ drawline *b
 % circles
 
 set fill pink
-set angle1 0
-set angle2 90
+set start-angle 0
+set end-angle 90
 circle     (16,1)
 halfcircle.top (16,3)
 halfcircle.bot (16,5)
@@ -766,40 +766,44 @@ Following is a list of all settings.
 |                    |The maximum is "1.0", the minimum is "0.1".          |
 |--------------------|-----------------------------------------------------|
 |rectw               |Set to a number that is the width of the rectangle.  |
-|                    |This is to be used with the drawrect instruction.    |
-|                    |                                                     |
+|                    |Used by rect, rrect, rhombus, trapezoid,             |
+|                    |and parallelgram.                                    |
 |--------------------|-----------------------------------------------------|
 |recth               |Set to a number that is the height of the rectangle. |
-|                    |This is to be used with the drawrect instruction.    |
-|                    |                                                     |
+|                    |Used by rect, rrect, rhombus, trapezoid,             |
+|                    |and parallelgram.                                    |
 |--------------------|-----------------------------------------------------|
 |radius              |This is to express the length of the radius for      |
 |                    |an circle, halfcircle, quadrant circle, or octant    |
 |                    |circle.                                              |
 |--------------------|-----------------------------------------------------|
-|angle1              |This is to express the measurement of the first      |
-|                    |angle.                                               |
+|start-angle         |This is to express the measurement of the first      |
+|                    |angle. It is used by circle.arc, circle.chord,       |
+|                    |and circle.cseg                                      |
+|--------------------|-----------------------------------------------------|
+|end-angle           |This is to express the measurement of the second     |
+|                    |angle. It is used by circle.arc, circle.chord,       |
+|                    |and circle.cseg                                      |
+|--------------------|-----------------------------------------------------|
+|angle-arc-radius    |This is to provide the radius for the angle arc.     |
+|                    |Used by drawanglearc command                         |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|angle2              |This is to express the measurement of the second     |
-|                    |angle.                                               |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|anglearcradius      |This is to provide the radius that will be used when |
-|                    |drawing an small arc for an angle.                   |
+|angle-arc-label-    |This is the additional distance between the angle    |
+|offset              |arc and the label text.                              |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
 |x-radius            |This is to provide the radius that will be used when |
 |                    |drawing an arc.                                      |
-|                    |                                                     |
+|                    |Used by drawarc command.                             |
 |--------------------|-----------------------------------------------------|
 |y-radius            |This is to provide the radius that will be used when |
 |                    |drawing an arc.                                      |
-|                    |                                                     |
+|                    |Used by drawarc command.                             |
 |--------------------|-----------------------------------------------------|
 |rotation            |This is to provide the rotation when drawing an      |
 |                    |arc.                                                 |
-|                    |                                                     |
+|                    |Used by drawarc command.                             |
 |--------------------|-----------------------------------------------------|
 ```
 

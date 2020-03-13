@@ -12,7 +12,7 @@ set x-radius 5
 set y-radius 3
 set sweepflag 1
 set bigarcflag 0
-set rotation 0
+set rotation 45
 drawarc (6,0) (6,10)
 
 reset

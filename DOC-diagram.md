@@ -901,21 +901,25 @@ points (11,0), (12,0), (13,0) and (14,0) as follows.
 
     drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
-The 'cycle' keyword will instroduce a cycled point to the path and then
-terminate it. This will essentially add a *new* point at the end of the
-current path that is the same point of the first, followed by a 'cycle'
-point. These two additional points will appear at the end of the 
-current path. The process will also terminate and stop processing all
-future points in the input line. 
+The 'cycle' keyword will introduce two points to the path: a duplicate point
+that is the same as the first point, and an additional 'cycle' point
+equivalent to the 'z' operator of a 'path' element of SVG.
 
-On the other hand, if a '()' is encountered, such as the following, then
-a new 'nan' point will be instroduced and the processing continue on
-without interruption. This feature allows for multiple 'nan' points to be
-introduced to the path, simulating multiple broken "line segments."
-In the following example two line segments will be drawn, one between
-(0,0) and (2,3), and another between (4,5) and (6,7).
+In addition, if 'cycle' is encountered the reset of the path expression
+will be ignore.
 
-    drawline (0,0) (2,3) () (4,5) (6,7)
+On the other hand, if a 'movept' operator is encountered, such as '@(2,3)',
+then it means that the current polyline should be terminated and a new
+polyline started. This is essentially a 'M' operator in the 'path' element
+of the SVG. However, when generating MetaPost or SVG outputs, the entire
+path will be broken down into multiple paths so that multiple <path> elements
+will be seen in SVG output, as well as multiple 'draw' or 'fill' commands
+seen in MetaPost output.
+
+In the following example there will be two distinct polylines: one
+goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
+
+    drawline (0,0) (2,3) @(4,5) (6,7)
 
 
 ## Path functions        
@@ -1140,11 +1144,11 @@ You can also provide a unit directly, such as pt.
   there is no fix.
 
 - For SVG we *had* to make a choice to either show a plaintext, using <text>
-  element or math text  using <svg> element, there is currently a lot of grief 
-  as prevously we were freely mixing normal and math text as this was not 
+  element or math text  using <svg> element, there is currently a lot of grief
+  as prevously we were freely mixing normal and math text as this was not
   a problem for MetaPost, as it supports TeX text between btex and etex
   constructs. But for us following is a problem for SVG.
-  
+
       label {See the angle ``\alpha``} (1,2)
 
 - The generation of font-size is always done to convert a user unit
@@ -1171,7 +1175,7 @@ You can also provide a unit directly, such as pt.
   we should also be able to specify a scaling factor to allow it to enlarge
   or shrink beyond its natural size.
 
-- When mathtext is generated for the label, since the font size is always set 
+- When mathtext is generated for the label, since the font size is always set
   at 12-pt, which makes the text look big. The problem has been corrected
   by shrinking the size of the SVG.    
 
@@ -1180,6 +1184,4 @@ You can also provide a unit directly, such as pt.
   a new line segment. The proposed method is to repurpose the () operator
   to insert a 'nan' point. This point will be interpreted to mean the interruption
   of the current line segment, and the next point will be the start of a new
-  line segment. 
-
-
+  line segment.

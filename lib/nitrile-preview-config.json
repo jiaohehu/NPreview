@@ -1,16 +1,6 @@
 {
   "configSchema": {
     
-    "previewOutlineEnabled": {
-      "type": "boolean",
-      "default": false,
-      "description": "Set it to true to show only headings."
-    },
-    "previewOutlineSection": {
-      "type": "string",
-      "default": "",
-      "description": "Set it a section number such as 1, 2, 1.1, or 5.2."
-    },
     "previewShowIdEnabled": {
       "type": "boolean",
       "default": false,

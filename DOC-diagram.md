@@ -1155,5 +1155,9 @@ You can also provide a unit directly, such as pt.
   we should also be able to specify a scaling factor to allow it to enlarge
   or shrink beyond its natural size.
 
+- When mathtext is generated for the label, since the font size is always set 
+  at 12-pt, which makes the text look big. The problem has been corrected
+  by shrinking the size of the SVG.    
+
 
 

@@ -736,7 +736,7 @@ Following is a list of all settings.
 |                    |It is used by the drawline instruction.              |
 |                    |                                                     |
 |--------------------|-----------------------------------------------------|
-|stroke-width        |Set the width of the line when drawing lines,        |
+|line-size           |Set the thickness of the line when drawing lines,    |
 |                    |such as "4pt".                                       |
 |                    |It is used when drawing lines.                       |
 |--------------------|-----------------------------------------------------|
@@ -756,7 +756,7 @@ Following is a list of all settings.
 |                    |It is used by the `tick`  instruction.               |
 |                    |The default is empty, which MetaPost assume as black.|
 |--------------------|-----------------------------------------------------|
-|tick-width          |Configure the thickness of the line for ticks.       |
+|tick-size           |Configure the thickness of the line for ticks.       |
 |                    |i.e, "2pt". The default is "1pt".                    |
 |                    |It is used by the `tick` instruction.                |
 |                    |                                                     |
@@ -1127,10 +1127,12 @@ You can also provide a unit directly, such as pt.
   
       label {See the angle ``\alpha``} (1,2)
 
-- Since the font-size, dot-size, and line-size are now changed to 
-  be using SVG user units, the MetaPost generation would need to watch
-  out for to see if this affects the actual line size, font size, etc.,
-  and see whether it would need to convert it back to pt.
+- The generation of font-size is always done to convert a user unit
+  to pt.
+
+- It has been observed that for MP generation if the symbol were part
+  of a math such as between \( and \), then it appears smaller than
+  those that are not.
 
 - The text-aligmnents are default to 'urt' and not 'centered', thus
   we need to ensure previous auto choices of text alignment which

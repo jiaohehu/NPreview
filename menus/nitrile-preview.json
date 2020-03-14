@@ -8,20 +8,23 @@
     ],
     "div.nitrile-preview": [
       {
-        "label": "Jump to Editor",
+        "label": "Jump to Document",
         "command": "nitrile-preview:jump-to-editor"
+      },
+      {
+        "label": "Jump to Child Document",
+        "command": "nitrile-preview:open-linked-file"
       },
       {
         "label": "Scroll to Highlight",
         "command": "nitrile-preview:show-highlight"
       },
       {
-        "label": "Open Linked File",
-        "command": "nitrile-preview:open-linked-file"
+        "type": "separator"
       },
       {
-        "label": "Reload",
-        "command": "nitrile-preview:reload"
+        "label": "Switch to Current Document",
+        "command": "nitrile-preview:do-reload"
       },
       {
         "type": "separator"
@@ -48,14 +51,6 @@
       {
         "label": "Export to LATEX as\u2026",
         "command": "nitrile-preview:to-latex"
-      },
-      {
-        "label": "Export to LATEX",
-        "command": "nitrile-preview:to-latex-no-prompt"
-      },
-      {
-        "label": "Export to LATEX as a Chapter\u2026",
-        "command": "nitrile-preview:to-latex-chapter"
       },
       {
         "label": "Export to EPUB\u2026",

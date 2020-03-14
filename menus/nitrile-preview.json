@@ -8,11 +8,11 @@
     ],
     "div.nitrile-preview": [
       {
-        "label": "Jump to Document",
+        "label": "Jump to Source Document",
         "command": "nitrile-preview:jump-to-editor"
       },
       {
-        "label": "Jump to Child Document",
+        "label": "Open Child Document",
         "command": "nitrile-preview:open-linked-file"
       },
       {
@@ -23,7 +23,7 @@
         "type": "separator"
       },
       {
-        "label": "Switch to Current Document",
+        "label": "Reload Preview",
         "command": "nitrile-preview:do-reload"
       },
       {
@@ -34,27 +34,30 @@
         "command": "nitrile-preview:copy-text"
       },
       {
-        "label": "Copy Source HTML",
+        "label": "Copy Preview HTML",
         "command": "nitrile-preview:copy-html"
       },
       {
         "type": "separator"
       },
       {
-        "label": "Export to HTML\u2026",
+        "label": "Export to HTML As\u2026",
         "command": "nitrile-preview:to-html"
       },
       {
-        "label": "Export to XHTML\u2026",
+        "label": "Export to XHTML As\u2026",
         "command": "nitrile-preview:to-xhtml"
       },
       {
-        "label": "Export to LATEX as\u2026",
+        "label": "Export to LATEX As\u2026",
         "command": "nitrile-preview:to-latex"
       },
       {
-        "label": "Export to EPUB\u2026",
+        "label": "Export to EPUB As\u2026",
         "command": "nitrile-preview:to-epub"
+      },
+      {
+        "type": "separator"
       }
     ]
   },

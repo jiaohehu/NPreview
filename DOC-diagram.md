@@ -1185,3 +1185,12 @@ You can also provide a unit directly, such as pt.
   to a new position so that the last point becomes the "last point of a 
   polyline" and the new moved point is the "first point of a new polyline".
 
+- Note that for MetaPost translation, it is very sensitive to backslashes. 
+  Even for texts that exists in comments, if a backslash is encountered
+  that is not followed by another backslash, it is processed as a backslash
+  sequence for which, it will consume a brace which will likely cause
+  an unmatched brace compile error in LATEX engine. For this reason, 
+  all texts translated as a comment line are also "escaped".
+
+
+

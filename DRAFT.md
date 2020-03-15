@@ -511,10 +511,10 @@ A Unicode character literal markup is to physically insert a Unicode character i
 
 ## Cross reference phrase markup
 
-A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[#](tutorial:15)` is to generate a LATEX `\ref{}` command such as the following:
+A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[[#tutorial:15#]]` is to generate a LATEX `\ref{}` command such as the following:
 
 ~~~
-Please see section [#](tutorial:15).
+Please see section [[#tutorial:15#]].
 ~~~
 
 The translated LATEX document would look like:

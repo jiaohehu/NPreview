@@ -23,7 +23,7 @@
         "type": "separator"
       },
       {
-        "label": "Reload Preview",
+        "label": "Switch Preview",
         "command": "nitrile-preview:do-reload"
       },
       {

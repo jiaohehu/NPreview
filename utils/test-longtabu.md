@@ -3,8 +3,8 @@ Test tabu
 
 Test tabu
 
-.hlines t m b
-.booktab 1
+.vlines 0 1 2 3
+.hlines t m b *
 ```longtabu
 Name       Phone Number    Description
 John       222-222-2222    This is a City from the future

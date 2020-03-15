@@ -189,6 +189,11 @@
       "minimum": 0,
       "maximum": 10.0,
       "description": "Set it to a positive number expressing the top margin in centimeters."
+    },
+    "fenceopt.tabular.hlines": {
+      "type": "string",
+      "default": "",
+      "description": "Specify the default value for tabular block."
     }
   }
 }

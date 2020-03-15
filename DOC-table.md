@@ -3,14 +3,14 @@
 Nitrile recognize following fenced blocks as expressing tabular
 information.
 
-    tabular 
-    tabulary 
+    tabular
+    tabulary
     tabularx
-    longtabu 
+    longtabu
 
 Tabular is a LATEX `tabular` environment  that cannot be broken into separate
 pages.  Tabulary is an extension of `tabular*` environment that its column
-widths are automatically adjusted by the package so that you do not have 
+widths are automatically adjusted by the package so that you do not have
 to specify it directly. Both tabular and tabulary only supports single
 line table cell.
 
@@ -161,7 +161,7 @@ arrangement is assumed.
 Alternatively, following formations of a paragraph will be recognized as
 well.
 
-    ``` tabularx
+    ``` longtable
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -186,25 +186,25 @@ When a paragraph like this is recognized, all subsequent lines that are exactly
 the same as the first/last line are considered the "separator lines".  Lines
 that are not separator lines are considered expressing the contents of table
 rows.  As can be seen, each table row is to be scanned for the presence of a
-vertical bar, and texts between vertical bars are table cells. 
+vertical bar, and texts between vertical bars are table cells.
 
 There could be more than one lines expressing the contents of the same table
 row.  Each additional line for the same table row is first split, and then the
 splitted table cells of which are treated as if the text of each cell is the
 "continuation text".  This allows you to split long texts of a table cell text
-into multiple lines and still expect them to be put together as a single cell. 
+into multiple lines and still expect them to be put together as a single cell.
 
 The column width for such a paragraph formation is to be deduced by noticing
 the relative number of hyphen-minus characters for each column, and the use
 these numbers as bases for adjusting the column. The effect is similar to
 setting the '.adjust' option to a list of numbers each of which equals
-to one of the hyphen-minus counts. 
+to one of the hyphen-minus counts.
 
 However, you can still override the initial table width with the adding of a
 '.adjust' option in front of it.
 
     .adjust 2 3 4
-    ``` tabularx
+    ``` longtable
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -229,49 +229,53 @@ pattern, which is to not have a vertical bar at the beginning and ending of the
 line. Thus, following tabular is going to be recognized.
 
     .adjust 2 3 4
-    ``` tabularx
-    --------------|--------------|------------------- 
+    ``` longtable
+    --------------|--------------|-------------------
     Names         | Value        | Example            
-    --------------|--------------|------------------- 
+    --------------|--------------|-------------------
     ELEMENT_NODE  |  1           | The <body>         
                   |              | element            
-    --------------|--------------|------------------- 
+    --------------|--------------|-------------------
     TEXT_NODE     |  3           | Text that is not   
                   |              | part of an         
                   |              | element            
-    --------------|--------------|------------------- 
+    --------------|--------------|-------------------
     COMMENT_NODE  |  8           | <!-- an HTML       
                   |              | comment ->         
                   |              |                    
-    --------------|--------------|------------------- 
+    --------------|--------------|-------------------
     ```
 
 Each table cell can also be split into multiple input lines, by placing a
 single backslash (`\`) immediately after the cell.  When that happens,
-subsequent lines are to be considered continuation lines of the previous line.
-Thus, the next table is to be considered equivalent as far as the content of
-the table goes.
+subsequent lines are considered continuation lines of the previous line.
+And each column of data will be matched only to the columns with an ending
+backslash. Continuation will be terminated when an
+empty line is encountered.
 
-    ``` tabularx
+    ``` tabular
     Names          Value          Example            
 
     ELEMENT_NODE    1             The <body>\         
                                   element            
 
-    TEXT_NODE       3             Text that is not\ 
-                                  part of an\        
+    TEXT_NODE       3             Text that is not\
+                                  part of an\       
                                   element            
 
     COMMENT_NODE    8             <!-- an HTML\      
                                   comment ->         
     ```
 
-For `tabulary`, `tabularx`, and `longtabu` block, it is also possible to allow
+For all continuation lines, the ending backslash for each cell
+is considered optional.
+
+It is also possible to allow
 for a table cell to be split into multiply lines, thanks to the availability of
 LATEX macro `\newline`.  It is expressed by placing two backslashes (`\\`)
-immediate after the text of a cell. 
+immediate after the text of a cell.
 
-    ``` tabulary
+    ``` tabular
     Names          Value          Example            
 
     ELEMENT_NODE    1             The <body>\\        
@@ -284,7 +288,3 @@ immediate after the text of a cell.
     COMMENT_NODE    8             <!-- an HTML\\     
                                   comment ->         
     ```
-
-
-
-

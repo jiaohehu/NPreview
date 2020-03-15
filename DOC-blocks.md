@@ -571,7 +571,7 @@ three lines:
        tree and\
        a flog.
     .label mypic
-    ``` tabularx
+    ``` tabular
     Name    Description     Cost
     Apple   A fruit         1.88     
     Pear    A fruit         2.88     

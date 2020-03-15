@@ -642,6 +642,14 @@ is to be inserted in the form of `\noalign{\smallskip}`.
 If no '*', '*1', '*2', or '*3' appears, then no visible spaces nor horizontal
 lines will appear between two data rows.
 
+The .booktabs option is to be followed by a number that is 1. This is a flag
+to express the fact that instead of inserting `\hline`, as LATEX normally
+would have expected, it would instead insert the `\toprule`, `\medrule`, 
+and `\bottomrule` which are provided by the 'booktabs' LATEX package.
+
+    \usepackage{booktabs}
+
+
 
 
 ## History

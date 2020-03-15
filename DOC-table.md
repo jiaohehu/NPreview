@@ -104,6 +104,13 @@ Following is an example of a `longtabu` environment.
     \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
     \end{longtabu}
 
+The <xltabular> package is the latest package that replaces <ltablex> package. It
+claims to have restored to the original tabularx package while allows for a
+table to be broken into multiple pages. It has been observed that if column X
+is used, it will always set the table width to the one specified. Unlike
+<ltablex> package, which shortens the width of the table if not enough content
+is at the table.
+
 
 Each line in a Markdown file expresses the entire content of a row, and data
 cells within that row are detected by the presence of two or more consecutive

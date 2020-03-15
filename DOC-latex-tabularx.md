@@ -49,6 +49,57 @@ included.
     \end{tabularx}
     %%%
 
+## The <ltablex> package
+
+The ltablex package, is a extension of longtable to tabularx. Hence the caption
+shouldn't be separated from the table body, and the table doesn't float.
+Moreover, komascript has a footref  command that works withhyperef`. So it
+suffices to add a label when the footnote appears first.
+
+    \documentclass[a4paper]{scrartcl}
+    \usepackage[utf8]{inputenc}
+    \usepackage{fourier, heuristica}
+    \usepackage[colorlinks=true]{hyperref}
+    \usepackage{array, ltablex, multirow} % tabularx: auf Textbreite vergrößern
+
+    \usepackage{makecell}
+    \setcellgapes{5pt}
+    \makegapedcells
+    \renewcommand\theadfont{\bfseries}
+    \renewcommand\cellalign{rc}
+
+    \begin{document}
+
+    \section{BLA}
+
+    Text text text text text text text text text text text text text text
+    text text textt text text text text text text text text text text text
+    text text text text text\footnote{A footnote in main text.}.
+
+    \begin{tabularx}{\textwidth}{|X|X|}
+    \caption{A Table}\label{tab:1}\\
+    \hline
+    \thead{\large one} & \thead{\large two}
+    \endfirsthead
+    \hline
+    three & \makecell{four\,\footnote{Seven.\label{fn:3}}} \\
+    \hline
+    five & \makecell{six\,\footnote{Eight.}} \\
+    \hline
+    nine & \makecell{ten\,\footref{fn:3}} \\
+    \hline
+    \end{tabularx}
+    %\end{center}
+
+    Text text text text text text text text text text text text text text
+    text text textt text text text text text text text text text text text
+    text text text text text\footnote{Another footnote in main text.}.
+
+    \end{document} 
+
+
+
+
 ## Known problems with tabularx table
 
   - It is known to generate the following error message when 
@@ -77,4 +128,21 @@ included.
     It produces its own the top and bottom margins.
 
 
+
+## Following are copy and paste from the internet
     
+  - tabularx, awesome for column formatting but not for multi-page
+    tables
+
+  - ltablex, awesome for combining tabularx with longtable but not
+    well matching with double-column documents (at least I haven't
+    managed to get around the changes ltablex does to the tabularx
+    package)
+
+  - xtab (enhancement of supertabular), awesome features but without
+    supporting tabularx-style column formatting (at least I haven't
+    managed)
+
+  - tabulary, which nicely automates column formatting but is not the
+    right thing to do multi-page tables
+

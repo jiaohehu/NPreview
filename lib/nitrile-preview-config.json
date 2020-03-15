@@ -107,6 +107,30 @@
       ],
       "description": "The font size for each sample block. Must be *normalsize*, *small*, *footnotesize*, *scriptsize*, or *tiny*."
     },
+    "latexTabularFontsize": {
+      "type": "string",
+      "default": "small",
+      "enum": [
+        "normalsize",
+        "small",
+        "footnotesize",
+        "scriptsize",
+        "tiny"
+      ],
+      "description": "The font size for each sample block. Must be *normalsize*, *small*, *footnotesize*, *scriptsize*, or *tiny*."
+    },
+    "latexLongtableFontsize": {
+      "type": "string",
+      "default": "small",
+      "enum": [
+        "normalsize",
+        "small",
+        "footnotesize",
+        "scriptsize",
+        "tiny"
+      ],
+      "description": "The font size for each sample block. Must be *normalsize*, *small*, *footnotesize*, *scriptsize*, or *tiny*."
+    },
     "latexSampleWrap": {
       "type": "integer",
       "default": 0,

@@ -550,6 +550,9 @@ As of writting, following block options are supported:
     .gap .10
     .column 2
     .alignequalsign 1
+    .vlines 0 1 2 3 4
+    .hlines t m b * *1 *2 *3
+    .booktabs 1
 
 
 The names of the block options are chosen so that each option tends to convey
@@ -598,6 +601,47 @@ first equal sign of each equation is to be vertical aligned.
 
     a = b + c + d
     ```
+
+The .vlines, .hlines, and .booktabs are used for adjusting the appearance
+of a table, such as adding horizontal and vertical lines and/or adjusting
+row spacinng or adding horizontal lines to inbetween rows.
+In particular, the .vlines controls whether vertical lines should appear
+between columns. It is to be followed by a list of integers, and each integer
+is to express whether a 'left-border' is to appear for that column, with
+the first column being '0', second column being '1', third column being
+'2', etc. For example, the following .vlines setting cause a vertical
+line to be drawn between the first and second column
+
+    .vlines 1
+
+To draw the right border of the table, use the integer that is the same as the
+total number of columns of the table.
+Following example asks to draw a vertical line that is the left border of the
+table and the right border of table, assuming the table is 5 columns wide.
+
+    .vlines 0 5
+
+The .hlines option configures the horizontal line drawing of the table. It is 
+to be followed by one or more of the following values: t, m, b, *, *1, *2, or *3.
+Each value expresses which horizontal lines is to be drawn. The letter 't' 
+expresses that the top border of the table is drawn. The letter 'b' instructs
+that the bottom border of the table is to be drawn. The 'm' letter instructs
+that the line immediately below the header of the table is to be drawn. 
+
+The '*', '*1', '*2', and '*3' controls whether a line should be drawn between
+two data rows or if there should be visible vertical spaces inserted between
+two data rows. In particular, if '*' is specified, then a horizontal border
+between two data rows is to be drawn. If '*1' is specified, then no horizontal
+line is to be drawn between two data rows, but instead a small vertical space
+is to be inserted in the form of `\noalign{\smallskip}`. 
+
+    *1      \noalign{\smallskip}
+    *2      \noalign{\medskip}
+    *3      \noalign{\bigskip}
+
+If no '*', '*1', '*2', or '*3' appears, then no visible spaces nor horizontal
+lines will appear between two data rows.
+
 
 
 ## History

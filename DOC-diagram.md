@@ -686,7 +686,7 @@ centered at the location because the instruction is `label`.
 
 Following is a list of all settings.
 
-``` tabularx
+``` longtable
 |--------------------|-----------------------------------------------------|
 |Command setting     |Description                                          |
 |--------------------|-----------------------------------------------------|
@@ -1044,7 +1044,7 @@ a shape the orgin of the shape is to be aligned with the path point.
 
 As of writing, following shape exists:
 
-``` tabularx
+```longtable
 |--------------|------------------------------------------------------------|
 |Shape         |Description                                                 |
 |              |                                                            |
@@ -1182,15 +1182,12 @@ You can also provide a unit directly, such as pt.
 - It is not currently possible to specify multiple line segments such that
   the line drawing is to terminate at one point and restart at another.
   The newly proposed form of @(5,6) is to make it possible to "move a point"
-  to a new position so that the last point becomes the "last point of a 
+  to a new position so that the last point becomes the "last point of a
   polyline" and the new moved point is the "first point of a new polyline".
 
-- Note that for MetaPost translation, it is very sensitive to backslashes. 
+- Note that for MetaPost translation, it is very sensitive to backslashes.
   Even for texts that exists in comments, if a backslash is encountered
   that is not followed by another backslash, it is processed as a backslash
   sequence for which, it will consume a brace which will likely cause
-  an unmatched brace compile error in LATEX engine. For this reason, 
+  an unmatched brace compile error in LATEX engine. For this reason,
   all texts translated as a comment line are also "escaped".
-
-
-

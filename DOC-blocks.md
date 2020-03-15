@@ -45,11 +45,9 @@ As of writing, following fenced blocks are implemented within Nitrile.
 
     imgs
     verse
-    longtabu
     tabbing
     tabular
-    tabulary
-    tabularx
+    longtable
     dt
     quot
     center
@@ -99,26 +97,17 @@ As of writing, following fenced blocks are implemented within Nitrile.
     ```
     ~~~
 
-  + The longtabu fenced block
-
-    This block is to typeset a LATEX \begin{longtabu} environement.
-
   + The tabbing fenced block
 
     This block is to typeset a LATEX \begin{tabbing} environement.
 
   + The tabular fenced block
 
-    This block is to typeset a LATEX \begin{tabular} environement.
-
-  + The tabulary fenced block
-
     This block is to typeset a LATEX \begin{tabulary} environement.
 
-  + The tabularx fenced block
+  + The longtable fenced block
 
-    This block is to typeset a LATEX \begin{tabularx} environement.
-
+    This block is to typeset a LATEX \begin{xltabular} environement.
 
   + The dt fenced block
 
@@ -621,19 +610,19 @@ table and the right border of table, assuming the table is 5 columns wide.
 
     .vlines 0 5
 
-The .hlines option configures the horizontal line drawing of the table. It is 
+The .hlines option configures the horizontal line drawing of the table. It is
 to be followed by one or more of the following values: t, m, b, *, *1, *2, or *3.
-Each value expresses which horizontal lines is to be drawn. The letter 't' 
+Each value expresses which horizontal lines is to be drawn. The letter 't'
 expresses that the top border of the table is drawn. The letter 'b' instructs
 that the bottom border of the table is to be drawn. The 'm' letter instructs
-that the line immediately below the header of the table is to be drawn. 
+that the line immediately below the header of the table is to be drawn.
 
 The '*', '*1', '*2', and '*3' controls whether a line should be drawn between
 two data rows or if there should be visible vertical spaces inserted between
 two data rows. In particular, if '*' is specified, then a horizontal border
 between two data rows is to be drawn. If '*1' is specified, then no horizontal
 line is to be drawn between two data rows, but instead a small vertical space
-is to be inserted in the form of `\noalign{\smallskip}`. 
+is to be inserted in the form of `\noalign{\smallskip}`.
 
     *1      \noalign{\smallskip}
     *2      \noalign{\medskip}
@@ -644,7 +633,7 @@ lines will appear between two data rows.
 
 The .booktabs option is to be followed by a number that is 1. This is a flag
 to express the fact that instead of inserting `\hline`, as LATEX normally
-would have expected, it would instead insert the `\toprule`, `\medrule`, 
+would have expected, it would instead insert the `\toprule`, `\medrule`,
 and `\bottomrule` which are provided by the 'booktabs' LATEX package.
 
     \usepackage{booktabs}

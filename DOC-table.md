@@ -3,49 +3,56 @@
 Nitrile recognize following fenced blocks as expressing tabular
 information.
 
-    tabular
-    tabulary
-    tabularx
-    longtabu
+-    'tabular'
+-    'longtable'
 
-Tabular is a LATEX `tabular` environment  that cannot be broken into separate
-pages.  Tabulary is an extension of `tabular*` environment that its column
-widths are automatically adjusted by the package so that you do not have
-to specify it directly. Both tabular and tabulary only supports single
-line table cell.
+The purpose for a 'tabular' block the goal is to typeset a short, tight table
+that is centered, and for which the table should not have been broken up into
+multiple pages.  In addition, each data cell is to appear as a single line. Thus
+the table will be able to expand and shrink each column to fit the longest line
+of that column.
 
-For the `tabularx` and `longtabu` blocks, each table column is a paragraph
-style, and they would both be able to split across page boundaries.  Both
-`tabularx` blocks will attempt to set the table width using relative width of
-each column, obtained either by the `.adjust` option or some other means.
-However, the LATEX `tabularx` environment will also shrink the overall table
-width to a smaller value if the combine width of the columns are small.  On the
-other hand, the `longtabu` environment will always extend the overall width of
-the table to the desired one. Current this is always set to `\linewidth`.
+This effect can be achieved using several LATEX packages: tabular, xtabular,
+tabulary, tabularx. etc. Currently the tabulary package is chosen because it
+offers the capability to automatically balance the width of column in the event
+of an extremely tight space, such as when the table is placed at a column in a
+two-column layout document, in which case the tabulary environment is able to
+shrink the overall width of the table while tabular environment won't.  Tabulary
+is an extension of `tabular*` environment that its column widths are
+automatically adjusted by the package so that you do not have to specify it
+directly. Both tabular and tabulary only supports single line table cell.
 
-For `tabular` block it is to treat all table rows as data rows, thus no rule
-lines are added. This block also does not respond to latexTableStyle config
-flag. The intend of this block is to typeset tabular data that is
-self-explanatory. Note that since LATEX `tabular` environment does not come
-with vertical margins a \begin{center} environment is inserted.
+The purpose for a 'longtable' block is to typeset a fullwidth table and that its
+rows can split across page boundaries.   In addition, each data cell is a
+paragraph rather than a single line.
 
-    \begin{center}
-    \begin{tabular}{ll}
-    \( 1 \) & \( 1 \) \\
-    \noalign{\medskip}
-    \( 2 \) & \( \displaystyle \frac{1}{2} \) \\
-    \noalign{\medskip}
-    \( 3 \) & \( \displaystyle \frac{1}{3} \) \\
-    \noalign{\medskip}
-    \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
-    \noalign{\medskip}
-    \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
-    \end{tabular}
-    \end{center}
+There are several LATEX packages: supertabular, xtabular, ltablex, longtable,
+longtabu, and xltabular packages. Currently, the xltabular package was chosen
+for three reasons. First it always typeset the table in full page width, and
+second it is able to split the content into multiple pages. The third reason is
+that it allows for the width of each column to be expressed as a "relative
+width". For example, if a table has three columns and the columns are expressed
+as 1, 2 and 2, then the first column will take up 20% of the table width, while
+the second and third column taking up 40% and 40% of the table width.
 
-Following is an example of a `tabulary` environment. Note that a \begin{center}
-environment is also placed around it as this environment does not come with
-vertical space before and after it.
+Besides xltabular, the longtabu environment is also a viable candidate. However,
+the ltablex environment is not a good choice because it will not always typeset
+the table in full page width, especially when there isn't enough text to fill
+the entire width of the column. The supertabular, longtable and xtabular
+packages are capable of splitting rows across page boundaries, but they are not
+good candidates because none of them offers the capability to express relative
+column width.
+
+The `xltabular` package has provision to allow the same header and/or footer to
+be repeated in all separate tables that are to appear in each page. It utilizes
+the `\endhead` and `\endfoot` construct that allow you to configure the
+appearance of the repeating header and footer.
+
+# A LATEX tabulary example
+
+Following is an example of a LATEX `tabulary` environment. Note that a
+`\begin{center}` environment is needed because `tabulary`  environment does not
+come with vertical space before and after it.
 
     \begin{center}
     \begin{tabulary}{\linewidth}{LL}
@@ -65,10 +72,14 @@ vertical space before and after it.
     \end{tabulary}
     \end{center}
 
-Following is an example of a `tabularx` environment. This environment allocates
-extra vertical space before and after it.
+# A LATEX xltabular example
 
-    \begin{tabularx}{\linewidth}{>{\hsize=1\hsize\raggedright\arraybackslash}X>{\hsize=1\hsize\raggedright\arraybackslash}X}
+The `xltabular` package is based on `tabularx` package. It has a perculiar
+way of specifying the column width.  Following is an example of a
+`xltabular` environment. This environment allocates extra vertical
+space before and after it.
+
+    \begin{xltabular}{\linewidth}{>{\hsize=1\hsize\raggedright\arraybackslash}X>{\hsize=1\hsize\raggedright\arraybackslash}X}
     \toprule
     \textbf{Number} & \textbf{Reciprocal}\\
     \midrule
@@ -82,11 +93,12 @@ extra vertical space before and after it.
     \noalign{\medskip}
     \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
     \bottomrule
-    \end{tabularx}
+    \end{xltabular}
 
-Following is an example of a `longtabu` environment.
+Following is an example of a `xltabular` environment that configures a
+repeating header and footer.
 
-    \begin{longtabu} to \linewidth {X[0.5]X[0.5]}
+    \begin{xltabular}{\linewidth}{>{\hsize=1\hsize\raggedright\arraybackslash}X>{\hsize=1\hsize\raggedright\arraybackslash}X}
     \toprule
     \textbf{Number} & \textbf{Reciprocal}\\
     \midrule
@@ -102,20 +114,16 @@ Following is an example of a `longtabu` environment.
     \( 10 \) & \( \displaystyle \frac{1}{10} \) \\
     \noalign{\medskip}
     \( 20 \) & \( \displaystyle \frac{1}{20} \) \\
-    \end{longtabu}
-
-The <xltabular> package is the latest package that replaces <ltablex> package. It
-claims to have restored to the original tabularx package while allows for a
-table to be broken into multiple pages. It has been observed that if column X
-is used, it will always set the table width to the one specified. Unlike
-<ltablex> package, which shortens the width of the table if not enough content
-is at the table.
+    \end{xltabular}
 
 
-Each line in a Markdown file expresses the entire content of a row, and data
-cells within that row are detected by the presence of two or more consecutive
-white spaces.  For example, in the following block it is detected that there
-are four rows and for each row three columns.
+# Inside a tabular or longtable block
+
+The `tabular` and `longtable` fenced blocks share the same content format.
+Currently, there are a total of five different ways to express the content of
+the table. The first format, which is also the simplest, each line expresses a
+table row. Table cells are found to be within that line that are separated
+by two or more spaces. In the following table there are a total of four table rows and within each row there are a total of three table cells.
 
     ```  tabular
     Name           Value   Example
@@ -124,16 +132,13 @@ are four rows and for each row three columns.
     COMMENT_NODE   8       <!-- an HTML comment -->
     ```
 
-The following arrangement is also recognized in a Markdown file such that data
-cells in a table row is to be placed in its own line and all data cells of a
-table row is to occupy as a cluster of lines separated by one or more blank
-lines.
+For `tabular` and/or `longtable`, the first table row is always treated
+as the table header.
 
-For example, in the following block the first three lines are recognized as
-expressing the three data cells for the first table row, and next three lines
-after the the blank line are considered to be expressing the three data cells
-for the second table row, and so on.
-
+The second format requires each data cell to appear in its own line. A clusters
+of lines without empty lines in them forms a single table row. An empty line
+starts a new table row. Thus, following tabular block would have expressed the
+same table content as the previous one.
 
     ``` tabular
     Name
@@ -153,15 +158,59 @@ for the second table row, and so on.
     <!-- an HTML comment -->
     ```
 
-Usually, the first arrangement is assumed, unless it is detected that the very
-first text line only yields a single table cell and there are at least one
-empty lines within the rest of the block.  In this case the second
-arrangement is assumed.
+This format is detected and assumed when the very first line of the
+fenced block expresses only a single column, and there is at least one
+empty line detected inside the entire fenced block.
 
-Alternatively, following formations of a paragraph will be recognized as
-well.
+The third format also requires an empty line to start a new table row. However,
+each line is to express all the table cells of that row. However, a cluster of
+lines without empty lines in them are to supply additional content for the table
+cells of the same table row. In the following example the content of the second
+row of the second column is found to be split between two consecutive lines.
+Likewise, the content of the second column of the third row is found to be
+split across a total of four consecutive lines.
 
-    ``` longtable
+
+
+    ``` tabular
+    Type of angle                      Examples                              
+
+    Vertical angles                    ``\angle 1`` and ``\angle 3``\     
+                                       ``\angle 2`` and ``\angle 4``        
+
+
+    Linear pair of angles              ``\angle 1`` and ``\angle 2``\
+                                       ``\angle 2`` and ``\angle 3``\
+                                       ``\angle 3`` and ``\angle 4``\
+                                       ``\angle 4`` and ``\angle 1``
+    ```
+
+In order for the content of a particular data cell to be split and then
+merged back, an ending backslash must be placed at the end of the cell.
+In addition, if a double-backslash is to be found that ends a cell,
+the additional content of the cell is assumed to want to start in a
+new line. This is equivalent to inserting <br/> element into the middle of
+a text content while the entire text content is part of a <td> element.
+
+    ``` tabular
+    Type of angle                      Examples                              
+
+    Vertical angles                    ``\angle 1`` and ``\angle 3``\\     
+                                       ``\angle 2`` and ``\angle 4``        
+
+
+    Linear pair of angles              ``\angle 1`` and ``\angle 2``\\
+                                       ``\angle 2`` and ``\angle 3``\\
+                                       ``\angle 3`` and ``\angle 4``\\
+                                       ``\angle 4`` and ``\angle 1``
+    ```
+
+
+The forth format is to use a combination of hyphen-minus and vertical-bar
+characters to "draw" the boundaries of a table.
+
+
+    ``` tabular
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -178,58 +227,10 @@ well.
     |--------------|--------------|-------------------|
     ```
 
-When the first and last line is detected to be exactly the same, and they each
-only contains nothing but vertical bars and hyphen-minus characters. In
-addition, the first and last character of each line is also a vertical bar.
+The fifty format is similar two the forth one except that the beginning
+and ending of the vertical-bar character must not be placed.
 
-When a paragraph like this is recognized, all subsequent lines that are exactly
-the same as the first/last line are considered the "separator lines".  Lines
-that are not separator lines are considered expressing the contents of table
-rows.  As can be seen, each table row is to be scanned for the presence of a
-vertical bar, and texts between vertical bars are table cells.
-
-There could be more than one lines expressing the contents of the same table
-row.  Each additional line for the same table row is first split, and then the
-splitted table cells of which are treated as if the text of each cell is the
-"continuation text".  This allows you to split long texts of a table cell text
-into multiple lines and still expect them to be put together as a single cell.
-
-The column width for such a paragraph formation is to be deduced by noticing
-the relative number of hyphen-minus characters for each column, and the use
-these numbers as bases for adjusting the column. The effect is similar to
-setting the '.adjust' option to a list of numbers each of which equals
-to one of the hyphen-minus counts.
-
-However, you can still override the initial table width with the adding of a
-'.adjust' option in front of it.
-
-    .adjust 2 3 4
-    ``` longtable
-    |--------------|--------------|-------------------|
-    | Names        | Value        | Example           |
-    |--------------|--------------|-------------------|
-    | ELEMENT_NODE |  1           | The <body>        |
-    |              |              | element           |
-    |--------------|--------------|-------------------|
-    | TEXT_NODE    |  3           | Text that is not  |
-    |              |              | part of an        |
-    |              |              | element           |
-    |--------------|--------------|-------------------|
-    | COMMENT_NODE |  8           | <!-- an HTML      |
-    |              |              | comment ->        |
-    |              |              |                   |
-    |--------------|--------------|-------------------|
-    ```
-
-Note that if it is detected that the first and last line does not start and end
-with a vertical bar character, such as the following paragraph shows, it is
-still recognized as a valid "tabular block".  However, if this is the case then
-all other lines between the first and last lines must all follow the same
-pattern, which is to not have a vertical bar at the beginning and ending of the
-line. Thus, following tabular is going to be recognized.
-
-    .adjust 2 3 4
-    ``` longtable
+    ``` tabular
     --------------|--------------|-------------------
     Names         | Value        | Example            
     --------------|--------------|-------------------
@@ -246,45 +247,81 @@ line. Thus, following tabular is going to be recognized.
     --------------|--------------|-------------------
     ```
 
-Each table cell can also be split into multiple input lines, by placing a
-single backslash (`\`) immediately after the cell.  When that happens,
-subsequent lines are considered continuation lines of the previous line.
-And each column of data will be matched only to the columns with an ending
-backslash. Continuation will be terminated when an
-empty line is encountered.
+# Block options
 
-    ``` tabular
-    Names          Value          Example            
+Following block options can be used with  `tabular` and/or `longtable`
+blocks:
 
-    ELEMENT_NODE    1             The <body>\         
-                                  element            
+  - `.vlines`
+  - `.hlines`
+  - `.vpadding`
 
-    TEXT_NODE       3             Text that is not\
-                                  part of an\       
-                                  element            
+The .vlines option express the appearances of "vertical lines"
+of the table. In HTML terms, it is for the left/right border of a table cell.
 
-    COMMENT_NODE    8             <!-- an HTML\      
-                                  comment ->         
+    .vlines 0 1 2 3 4
+
+It uses a list of integers, each of which expresses the location of the vertical
+line. In particular, the integer 0 is the left for the first column. The integer
+1 is the left border for the second column, and so on.  For a five-column
+table, the integer 5 expresses the right border for the fifth column.
+
+The .hlines option expresses how horizontal lines are to be drawn for the table.
+It expectes a list of letters that are either t, m, b, or r. In particular, the
+letter t denotes the top horizontal line that is above the table header. The
+letter m denotes the horizontal line between the header row and the first data
+row. The letter b denotes the horizontal line below the last data row. The
+letter r denotes a horizontal line between two data rows.
+
+Thus, following setting would have asked to draw three horizontal lines
+that are before and after the header row, and the one at the very bottom.
+
+    .hlines t m b
+
+The following example will draw only the horizontal line that is between the
+header row and first data row.
+
+    .hlines m
+
+The following example will draw draw horizontal lines between all table rows
+as well as the first line above the table and the last line below the table.
+
+The .vpadding expects an integer such as 1, 2, or 3, to express the padding
+between the border of the table cell and the text. This is equivalent to CSS
+"padding-top" and "padding-bottom". For example, if .vpadding is set to 1,
+for LATEX it is to insert a `\noalign{\vspace{1pt}}` in front of a cell
+and after a cell.
+
+    .vlines 0 1 2 3
+    .hlines t m b r
+    .vpadding 1
+    ```tabular
+    Name       Phone Number    Description
+    John       222-222-2222    Back to the future
+    John       222-222-2222    Back to the future
     ```
 
-For all continuation lines, the ending backslash for each cell
-is considered optional.
+    \begin{center}
+    \begin{tabulary}{\linewidth}{|L|L|L|}
+    \hline
+    \noalign{\vspace{1pt}}
+    \textbf{Name} & \textbf{Phone Number} & \textbf{Description}\\
+    \noalign{\vspace{1pt}}
+    \hline
+    \noalign{\vspace{1pt}}
+    John & 222-{}222-{}2222 & Back to the future \\
+    \noalign{\vspace{1pt}}
+    \hline
+    \noalign{\vspace{1pt}}
+    John & 222-{}222-{}2222 & Back to the future \\
+    \noalign{\vspace{1pt}}
+    \hline
+    \end{tabulary}
+    \end{center}
 
-It is also possible to allow
-for a table cell to be split into multiply lines, thanks to the availability of
-LATEX macro `\newline`.  It is expressed by placing two backslashes (`\\`)
-immediate after the text of a cell.
-
-    ``` tabular
-    Names          Value          Example            
-
-    ELEMENT_NODE    1             The <body>\\        
-                                  element            
-
-    TEXT_NODE       3             Text that is not\\
-                                  part of an\\       
-                                  element            
-
-    COMMENT_NODE    8             <!-- an HTML\\     
-                                  comment ->         
-    ```
+If .vpadding is set to a number 2, then the `\vspace{2pt}` command will
+be used instead. For HTML generation, if .vpadding is set to 1, then  
+"padding-top" and "padding-bottom" will be both set to "1px".
+If it is set to 2, then "padding-top" and "padding-bottom" will be set to
+"2px". For HTML generation, "padding-left" and "padding-right" of each
+cell is always set to "6px".

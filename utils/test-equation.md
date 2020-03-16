@@ -70,8 +70,23 @@ This is `multline` block
 
 ```multline*
 
-x  = \operatorname{min}_{a,b,c}
-  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
-
+x  = \operatorname{min}_{a,b,c}\\
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}\\
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
+
+This is another multiline*
+
+```multline*
+\operatorname{min}_{a,b,c}\\
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
+  C \sum_{i=1}^{l}\xi_{i}\\
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)\\
+
+\operatorname{min}_{a,b,c}\\
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}\\
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)\\
+
+
 ```

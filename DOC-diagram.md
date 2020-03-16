@@ -1136,6 +1136,14 @@ You can also provide a unit directly, such as pt.
 
 
 
+## The Linecap draw parameter
+
+The linecap attribute is defines the shape to be used at the end
+of open subpaths when they are stroked. The SVG has an attribute
+that can used for <line> element. The available values are:
+'butt', 'round', and 'square'. The default value is 'butt'.
+
+
 ## Known problems
 
 - The arrow head in HTML is done using <marker> element. And for SVG 1.1

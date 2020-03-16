@@ -331,3 +331,5 @@ the generated LATEX document as well as in PREVIEW:
 
 - When typesetting a SUM operator, the top part if it is a smaller 
   letter i it is left justified. It needs to be center justified.
+
+- Need to shrink the preview math SVG if the font size is set to small.

@@ -3,7 +3,7 @@ Test equation
 # This is math block with alignequalsign
 
 .alignequalsign 1
-```math
+```equations*
 
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
@@ -14,7 +14,7 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 # This is math block without alignequalsign
 
 
-```math
+```equations*
 
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
@@ -24,7 +24,7 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
 
 
-# equation 
+# equation
 
 ```equation
 
@@ -34,7 +34,7 @@ x = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# equation* 
+# equation*
 
 ```equation*
 
@@ -44,7 +44,7 @@ x = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# subequations 
+# subequations
 
 ```subequations
 
@@ -54,7 +54,7 @@ x = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# subequations* 
+# subequations*
 
 ```subequations*
 
@@ -64,7 +64,7 @@ x = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# equations with .alignequalsign 
+# equations with .alignequalsign
 
 .alignequalsign 1
 ```equations
@@ -75,7 +75,7 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
  y = y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# equations 
+# equations
 
 ```equations
 
@@ -95,7 +95,7 @@ x  = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# multline 
+# multline
 
 
 ```multline
@@ -109,7 +109,7 @@ x  = \operatorname{min}_{a,b,c} \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=
 
 ```multline*
 x = \operatorname{min}_{a,b,c}
-  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} +
   C \sum_{i=1}^{l}\xi_{i}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 

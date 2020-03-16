@@ -11,7 +11,7 @@ Following are two paragraphs in a MD file each of which is a block.
     Or, the sum of the squares of the two legs of a right
     triangle is equal to the square of its hypotenuse.
 
-    ``` math
+    ```equations*
     a^2 + b^2 = c^2
 
     \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{h^2}
@@ -53,9 +53,16 @@ As of writing, following fenced blocks are implemented within Nitrile.
     center
     flushright
     flushleft
-    math
     verb
     listing
+    subequations
+    equations
+    equation
+    multline
+    subequations*
+    equations*
+    equation*
+    multline*
 
   + The imgs fenced block
 
@@ -183,7 +190,7 @@ As of writing, following fenced blocks are implemented within Nitrile.
     The 'math' fenced block is typeset a block of display math in LATEX.
 
     ~~~
-    ``` math
+    ```equations*
     a^2 + b^2 = c^2
     ```
     ~~~
@@ -192,7 +199,7 @@ As of writing, following fenced blocks are implemented within Nitrile.
     separated by at least one empty line.
 
     ~~~
-    ``` math
+    ```equations*
     a^2 + b^2 = c^2
 
     \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{c^2}
@@ -204,7 +211,7 @@ As of writing, following fenced blocks are implemented within Nitrile.
 
     ~~~
     .label myeq1
-    ``` math
+    ```equations*
     a^2 + b^2 = c^2
 
     \frac{1}{a^2} + \frac{1}{b^2} = \frac{1}{c^2}
@@ -585,7 +592,7 @@ The '.alignequalsign' option is used for the 'math' block so that the
 first equal sign of each equation is to be vertical aligned.
 
     .alignequalsign
-    ``` math
+    ```equations*
     a = b + c
 
     a = b + c + d

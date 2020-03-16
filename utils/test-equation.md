@@ -28,40 +28,40 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
 ```equation
 
- \operatorname{min}_{a,b,c}
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
 # equation* 
 
 ```equation*
 
- \operatorname{min}_{a,b,c}
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
 # subequations 
 
 ```subequations
 
- \operatorname{min}_{a,b,c}
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
 # subequations* 
 
 ```subequations*
 
- \operatorname{min}_{a,b,c}
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
 # equations with .alignequalsign 
@@ -108,13 +108,12 @@ x  = \operatorname{min}_{a,b,c} \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=
 # multiline*
 
 ```multline*
-\operatorname{min}_{a,b,c}
-  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
   C \sum_{i=1}^{l}\xi_{i}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
-\operatorname{min}_{a,b,c}
+x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 

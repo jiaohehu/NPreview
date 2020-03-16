@@ -30,12 +30,23 @@ This is `subequations` block
   y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-This is `equations` block
+This is `equations` block with .alignequalsign option set
+
+.alignequalsign 1
+```equations
+
+ x = \operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+
+ y = y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
+
+This is `equations` block without .alignequalsign option
 
 ```equations
 
- \operatorname{min}_{a,b,c}
+x  = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```

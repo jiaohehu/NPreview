@@ -314,6 +314,7 @@
   ],
   "mathCommands": [
     { "name": "\\text",        "count": 1 },
+    { "name": "\\operatorname","count": 1 },
 
     { "name": "\\widehat",     "count": 1 },
     { "name": "\\overline",    "count": 1 },

@@ -327,4 +327,7 @@ the generated LATEX document as well as in PREVIEW:
   LATEX have made it appear a little smaller comparing with the surrounding
   text.
 
+- Need to support \operatorname{}
 
+- When typesetting a SUM operator, the top part if it is a smaller 
+  letter i it is left justified. It needs to be center justified.

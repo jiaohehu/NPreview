@@ -100,23 +100,23 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
 ```multline
 
-x  = \operatorname{min}_{a,b,c}\\
-  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}\\
-y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+x  = \operatorname{min}_{a,b,c} \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+
+      y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
 # multiline*
 
 ```multline*
-\operatorname{min}_{a,b,c}\\
+\operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + 
   C \sum_{i=1}^{l}\xi_{i}\\
-y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)\\
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
-\operatorname{min}_{a,b,c}\\
-  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}\\
-y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)\\
+\operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
 
 ```

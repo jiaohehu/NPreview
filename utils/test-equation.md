@@ -44,6 +44,16 @@ This is `subequations` block
   y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
+This is `subequations*` block
+
+```subequations*
+
+ \operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+
+  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
+
 This is `equations` block with .alignequalsign option set
 
 .alignequalsign 1
@@ -68,7 +78,7 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 This is `multline` block
 
 
-```multline*
+```multline
 
 x  = \operatorname{min}_{a,b,c}\\
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}\\

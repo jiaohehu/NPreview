@@ -26,7 +26,7 @@ more vocabularies, depending on how the verb or Yi-adjective is conjugated.
 The 'Parser::buildRubyMap()' is called once to initialize the database and
 its return value is assigned to 'Parser::rubymap' member.
 
-During translation, if 'config.latexAutoRubyEnabled' flag is set to true, each line of the
+During translation, if 'config.latex.autoRubyEnabled' flag is set to true, each line of the
 SAMP block is scanned for possible appearance of one of the candidate
 vocabularies stored in 'Parser::rubymap'. If a candidate vocabulary is found,
 Nitrile will call the virtual function 'this.extractRubyItems()' for returning a

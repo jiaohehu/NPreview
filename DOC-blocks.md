@@ -59,7 +59,6 @@ As of writing, following fenced blocks are implemented within Nitrile.
     equations
     equation
     multline
-    subequations*
     equations*
     equation*
     multline*

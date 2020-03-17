@@ -830,7 +830,7 @@ However, Diagram have added a few more syntax designed to allow for specifying
 points in a few more different ways. For example, it offers a "relative point" syntax
 that allows you to specify a point that is relative to the point before it.
 
-    a := (1,1) [up:1] [rt:2] [down:1]
+    a := (1,1) [v:1] [h:2] [v:-1]
 
 This allows you to create a four point path where the first point is (1,1),
 and the rest points being at (1,2), (3,2), and (3,1).

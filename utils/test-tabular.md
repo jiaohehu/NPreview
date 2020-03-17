@@ -1,3 +1,5 @@
+% !TEX nitrile tabular fs = tiny
+
 Test tabularx
 
 
@@ -21,6 +23,7 @@ John       222-222-2222    This is a City from the future
 John       222-222-2222    This is a City from the future
 John       222-222-2222    This is a City from the future
 John       222-222-2222    This is a City from the future
+John       222-222-2222    ``\sqrt{2}`` This is a City
 ```
 
 .vlines 0 1 2 3

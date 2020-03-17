@@ -732,5 +732,29 @@
     "10": { "tiny":5,  "scriptsize":7,  "footnotesize":8,  "small":9,  "normalsize":10, "large":12, "Large":14, "LARGE":17, "huge":20, "Huge":25 },
     "11": { "tiny":6,  "scriptsize":8,  "footnotesize":9,  "small":10, "normalsize":11, "large":12, "Large":14, "LARGE":17, "huge":20, "Huge":25 },
     "12": { "tiny":6,  "scriptsize":8,  "footnotesize":10, "small":11, "normalsize":12, "large":14, "Large":17, "LARGE":20, "huge":25, "Huge":25 }
+  },
+  "cssFontsizes": {
+    "tiny": "50%",
+    "scriptsize": "70%",
+    "footnotesize": "80%",
+    "small": "90%",
+    "normalsize": "100%",
+    "large": "120%",
+    "Large": "140%",
+    "LARGE": "170%",
+    "huge": "200%",
+    "Huge": "230%"
+  },
+  "rateFontsizes": {
+    "tiny":         0.5,
+    "scriptsize":   0.7,
+    "footnotesize": 0.8,
+    "small":        0.9,
+    "normalsize":   1.0,
+    "large":        1.2,
+    "Large":        1.4,
+    "LARGE":        1.7,
+    "huge":         2.0,
+    "Huge":         2.3
   }
 }

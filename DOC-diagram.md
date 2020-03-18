@@ -33,28 +33,26 @@ drawline *b
 % circles
 
 set fillcolor pink
-set start-angle 0
-set end-angle 90
-circle     (16,1)
-halfcircle.top (16,3)
-halfcircle.bot (16,5)
-halfcircle.rt  (16,7)
-halfcircle.lft (16,9)
-quadrant.q1  (18,1)
-quadrant.q2  (18,1)
-quadrant.q3  (18,1)
-quadrant.q4  (18,1)
-octant.o1  (18,3)
-octant.o2  (18,3)
-octant.o3  (18,3)
-octant.o4  (18,3)
-octant.o5  (18,3)
-octant.o6  (18,3)
-octant.o7  (18,3)
-octant.o8  (18,3)
-circle.chord (20,1)
-circle.arc   (20,3)
-circle.cseg  (20,5)
+circle    {1} (16,1)
+halfcircle.top {1} (16,3)
+halfcircle.bot {1} (16,5)
+halfcircle.rt  {1} (16,7)
+halfcircle.lft {1} (16,9)
+quadrant.q1  {1} (18,1)
+quadrant.q2  {1} (18,1)
+quadrant.q3  {1} (18,1)
+quadrant.q4  {1} (18,1)
+octant.o1  {1} (18,3)
+octant.o2  {1} (18,3)
+octant.o3  {1} (18,3)
+octant.o4  {1} (18,3)
+octant.o5  {1} (18,3)
+octant.o6  {1} (18,3)
+octant.o7  {1} (18,3)
+octant.o8  {1} (18,3)
+circle.chord {1,0,135} (20,1)
+circle.arc   {1,0,135} (20,3)
+circle.cseg  {1,0,135} (20,5)
 
 % dot
 sq := (22,3) (23,3) (23,2) (22,2)
@@ -83,7 +81,7 @@ drawanglearc *a *b *c
 
 % drawline will fill      
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
-set linecolor-width 2px
+set linesize 2px
 set fillcolor orange
 drawline *ff
 reset

@@ -24,7 +24,7 @@ label.ctr {butt} (2,-1)
 reset 
 set refx 10
 set refy /3
-set linecap rounded
+set linecap round
 set linesize 2pt
 drawline (0,0) [h:4]
 set linesize
@@ -34,12 +34,12 @@ b := (1,0)
 c := $somepoints(*,1)
 set angle-arc-radius 1.5
 drawanglearc *a *b *c
-label.ctr {rounded} (2,-1)
+label.ctr {round} (2,-1)
 
 reset 
 set refx 17
 set refy /3
-set linecap squared
+set linecap square
 set linesize 2pt
 drawline (0,0) [h:4]
 set linesize
@@ -48,7 +48,7 @@ a := $somepoints(*,0)
 b := (1,0)
 c := $somepoints(*,1)
 drawanglearc *a *b *c
-label.ctr {squared} (2,-1)
+label.ctr {square} (2,-1)
 
 reset 
 set refx 3

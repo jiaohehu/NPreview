@@ -10,7 +10,7 @@ basket (5,1)
 crate (10,1) 
 brick (15,1) 
 
-rect (0,10) 
+rect {3,4} (0,10) 
 parallelgram (5,10) 
 rrect (10,10) 
 trapezoid (15,10) 

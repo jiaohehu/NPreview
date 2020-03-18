@@ -682,130 +682,106 @@ centered at the location because the instruction is `label`.
 
 
 
-## The settings
+## The drawing parameters
 
-Following is a list of all settings.
+Following is a list of all drawing parameters
 
-``` longtable
-|--------------------|-----------------------------------------------------|
-|Command setting     |Description                                          |
-|--------------------|-----------------------------------------------------|
-|refx                |Set an offset number to offset coordinate in x-axis. |
-|                    |Ex. if refx is set to 4 a source coordinate of       |
-|                    |(2,0) will map to (6,0).                             |
-|                    |Must be set to a number zero or greater, and no more |
-|                    |than the total number of grids in the horizontal.    |
-|--------------------|-----------------------------------------------------|
-|refy                |Same as refx bug does it for its y-coordinate.       |
-|                    |Must be set to a number zero or greater, and no more |
-|                    |than the total number of grids in the vertical.      |
-|                    |                                                     |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|refsx               |Set a scalar number to scale coordinate in x-axis.   |
-|                    |Ex. if refx is set to 6 and refsx      is set to 3,  |
-|                    |For a coord that is specified as (2,0),              |
-|                    |it is first scaled three times which puts it at (6,0)|
-|                    |before being shifted 6 grids to the right which puts |
-|                    |it at (12,0), which is its final displayed position. |
-|                    |Must be set to a number between 0.1 and 10.          |
-|--------------------|-----------------------------------------------------|
-|refsy               |Same as refsx      but does it in y-axis.            |
-|                    |                                                     |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|font-color          |Set a string that describes the color, such as       |
-|                    |'green', 'red', 'blue', 'black', and 'white'.        |
-|                    |Only the five colors are supported.                  |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|font-size           |Set to a font size specification such as '14pt'.     |
-|                    |Used when drawing text labels.                       |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|slant               |Set to a floating point number between 0.1 and 0.9   |
-|                    |expressing the proportion of the overall parallelgram|
-|                    |width reserved for the slanted part of the shape.    |
-|                    |Default is 0.3.                                      |
-|--------------------|-----------------------------------------------------|
-|linedashed          |Set a string that is either 'evenly', or 'withdots'  |
-|                    |that is to control the appearances of the dashes.    |
-|                    |Default is empty, that a solid line is to be drawn.  |
-|--------------------|-----------------------------------------------------|
-|stroke              |Set the color used when drawing lines, such as "red".|
-|                    |It is used by the drawline instruction.              |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|line-size           |Set the thickness of the line when drawing lines,    |
-|                    |such as "4pt".                                       |
-|                    |It is used when drawing lines.                       |
-|--------------------|-----------------------------------------------------|
-|fill                |Set the color used when filling an area, i.e., "red".|
-|                    |It is used when drawing an area.                     |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|dot                 |Set the color used for drawing dots, such as "red".  |
-|                    |It is used by the drawdot instruction.               |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|dot-size            |Configure the size of the dot to be drawn, such as   |
-|                    |"8pt". Used by the `dot` instruction. The default    |
-|                    |is "5" user unit.                                    |
-|--------------------|-----------------------------------------------------|
-|tick                |Set the color used for drawing ticks, i.e.,  "red".  |
-|                    |It is used by the `tick`  instruction.               |
-|                    |The default is empty, which MetaPost assume as black.|
-|--------------------|-----------------------------------------------------|
-|tick-size           |Configure the thickness of the line for ticks.       |
-|                    |i.e, "2pt". The default is "1pt".                    |
-|                    |It is used by the `tick` instruction.                |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|tick-protrude       |Configure how far away the end point is from the     |
-|                    |axis line. The default is 0.33 grid unit.            |
-|                    |The maximum is "1.0", the minimum is "0.1".          |
-|--------------------|-----------------------------------------------------|
-|rectw               |Set to a number that is the width of the rectangle.  |
-|                    |Used by rect, rrect, rhombus, trapezoid,             |
-|                    |and parallelgram.                                    |
-|--------------------|-----------------------------------------------------|
-|recth               |Set to a number that is the height of the rectangle. |
-|                    |Used by rect, rrect, rhombus, trapezoid,             |
-|                    |and parallelgram.                                    |
-|--------------------|-----------------------------------------------------|
-|radius              |This is to express the length of the radius for      |
-|                    |an circle, halfcircle, quadrant circle, or octant    |
-|                    |circle.                                              |
-|--------------------|-----------------------------------------------------|
-|start-angle         |This is to express the measurement of the first      |
-|                    |angle. It is used by circle.arc, circle.chord,       |
-|                    |and circle.cseg                                      |
-|--------------------|-----------------------------------------------------|
-|end-angle           |This is to express the measurement of the second     |
-|                    |angle. It is used by circle.arc, circle.chord,       |
-|                    |and circle.cseg                                      |
-|--------------------|-----------------------------------------------------|
-|angle-arc-radius    |This is to provide the radius for the angle arc.     |
-|                    |Used by drawanglearc command                         |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|angle-arc-label-    |This is the additional distance between the angle    |
-|offset              |arc and the label text.                              |
-|                    |                                                     |
-|--------------------|-----------------------------------------------------|
-|x-radius            |This is to provide the radius that will be used when |
-|                    |drawing an arc.                                      |
-|                    |Used by drawarc command.                             |
-|--------------------|-----------------------------------------------------|
-|y-radius            |This is to provide the radius that will be used when |
-|                    |drawing an arc.                                      |
-|                    |Used by drawarc command.                             |
-|--------------------|-----------------------------------------------------|
-|rotation            |This is to provide the rotation when drawing an      |
-|                    |arc.                                                 |
-|                    |Used by drawarc command.                             |
-|--------------------|-----------------------------------------------------|
-```
+*   [refx]              - Set an offset number to offset coordinate in x-axis.  
+                          Ex. if refx is set to 4 a source coordinate of        
+                          (2,0) will map to (6,0).                              
+                          Must be set to a number zero or greater, and no more  
+                          than the total number of grids in the horizontal.     
+
+*   [refy]              - Same as refx bug does it for its y-coordinate.        
+                          Must be set to a number zero or greater, and no more  
+                          than the total number of grids in the vertical.       
+                                                                                
+                                                                                
+
+*   [refsx]             - Set a scalar number to scale coordinate in x-axis.    
+                          Ex. if refx is set to 6 and refsx      is set to 3,   
+                          For a coord that is specified as (2,0),               
+                          it is first scaled three times which puts it at (6,0) 
+                          before being shifted 6 grids to the right which puts  
+                          it at (12,0), which is its final displayed position.  
+                          Must be set to a number between 0.1 and 10.           
+
+*   [refsy]             - Same as refsx      but does it in y-axis.             
+                                                                                
+
+*   [font-color]        - Set to a string that describes the color, such as        
+                          'green', 'red', 'blue', 'black', and 'white'.         
+                          Note that expressing using RGB such as "rgb(100,200,50)"
+                          is only supported for SVG generation.
+                                                                                
+
+*   [font-size]         - Set to a font size specification such as '14pt'.      
+                          Used when drawing text labels.                        
+                                                                                
+
+*   [slant]             - Set to a floating point number between 0.1 and 0.9    
+                          expressing the proportion of the overall parallelgram 
+                          width reserved for the slanted part of the shape.     
+                          Default is 0.3.                                       
+
+*   [linedashed]        - Set a string that is either 'evenly', or 'withdots'   
+                          that is to control the appearances of the dashes.     
+                          Default is empty, that a solid line is to be drawn.   
+
+*   [stroke]            - Set the color used when drawing lines, such as "red". 
+                          It is used by the drawline instruction.               
+                                                                                
+
+*   [line-size]         - Set the thickness of the line when drawing lines,     
+                          such as "4pt".                                        
+                          It is used when drawing lines.                        
+
+*   [fill]              - Set the color used when filling an area, i.e., "red". 
+                          It is used when drawing an area.                      
+                                                                                
+
+*   [dot]               - Set the color used for drawing dots, such as "red".   
+                          It is used by the drawdot instruction.                
+                                                                                
+
+*   [dot-size]          - Configure the size of the dot to be drawn, such as    
+                          "8pt". Used by the `dot` instruction. The default     
+                          is "5" user unit.                                     
+
+*   [tick]              - Set the color used for drawing ticks, i.e.,  "red".   
+                          It is used by the `tick`  instruction.                
+                          The default is empty, which MetaPost assume as black. 
+
+*   [tick-size]         - Configure the thickness of the line for ticks.        
+                          i.e, "2pt". The default is "1pt".                     
+                          It is used by the `tick` instruction.                 
+                                                                                
+
+*   [tick-protrude]     - Configure how far away the end point is from the      
+                          axis line. The default is 0.33 grid unit.             
+                          The maximum is "1.0", the minimum is "0.1".           
+
+*   [rectw]             - Set to a number that is the width of the rectangle.   
+                          Used by rect, rrect, rhombus, trapezoid,              
+                          and parallelgram.                                     
+
+*   [recth]             - Set to a number that is the height of the rectangle.  
+                          Used by rect, rrect, rhombus, trapezoid,              
+                          and parallelgram.                                     
+
+*   [radius]            - This is to express the length of the radius for       
+                          an circle, halfcircle, quadrant circle, or octant     
+                          circle.                                               
+
+*   [start-angle]       - This is to express the measurement of the first       
+                          angle. It is used by circle.arc, circle.chord,        
+                          and circle.cseg                                       
+
+*   [end-angle]         - This is to express the measurement of the second      
+                          angle. It is used by circle.arc, circle.chord,        
+                          and circle.cseg                                       
+
+
 
 ## Path expression       
 
@@ -836,37 +812,78 @@ This allows you to create a four point path where the first point is (1,1),
 and the rest points being at (1,2), (3,2), and (3,1).
 Following are all relative points.
 
-    up:1
-    down:1
-    top:1
-    bot:1
-    rt:1
-    lft:1
-    urt:1
-    ulft:1
-    lrt:1
-    llft:1
-    angledist:1,30
-    turnrt:1,30
-    turnlft:1,30
-    flip:5,5
+    [l:dx,dy]
+    [h:dx]
+    [v:dy]
+    [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy]
+    [c:dx1,dy1,dx2,dy2,dx,dy]
+    [s:dx2,dy2,dx,dy]
+    [q:dx1,dy1,dx,dy]
+    [t:dx,dy]
+    [angledist:angle,dist]
+    [turn:angle,dist]
+    [flip:dx,dy]
+
+The [l:dx,dy] is to draw a line from the current point to the new location is
+relative to the current point by dx and dy. Note that dx and dy are specified
+in Cartesian coordinates, thus positive dx is towards the right, and positive
+dy is towards the top.
+
+The [h:dx] is to draw a horizontal line. The [v:dy] is to draw a vertical
+line.
+
+The [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy] is to draw an arc to the end
+point that is dx/dy away from the current point. The arc is assumed to trace
+alone an elliptical arc with x-axis and y-axis each of which having a radius of
+rx and ry. The angle is in the unit of degrees, specifying the rotation of the
+ellipse if any, with position number denoting a counter-clockwise rotation. The
+bigarcflag is set to 1 if the arc to be drawn are the longer of the two
+between the starting point and end point. Otherwise the shorter arc is to be
+drawn. The sweepflag expresses whether the shorter arc or longer is to travel
+counterclockwise or clockwise from the current point to the new point: 0 =
+counterclockwise, 1 = clockwise. Thus, to draw an arc from the last point to a
+new point that is on its right hand side of the last point, and if the
+sweepflag is set to 0, then the arc will always appear below both points.
+
+The [c:dx1,dy1,dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current
+point to the new point that is dx/dy away. The (dx1,dy1), and (dx2,dy2) are
+two control points. Note that all numbers are specified relative to the
+last point.
+
+The [s:dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current point to
+the new point that is dx/dy away. Only the second point of the current Bezier
+curve needs to be provided. The first control point is deduced from the second
+control point of the previous cubic Bezier curve operation. If the previous
+operation is not a cubic Bezier curve drawing, but a quadrilatic Bezier curve
+drawing, then the first control point of the quadrilatic curve is used to
+deduce the first control point of the current operation. If it is neither a
+cubic nor a quadrilatic, then the last point is assumed.
+
+The [q:dx1,dy1,dx,dy] is to draw a quadrilatic Bezier curve. The (dx1,dy1)
+is to set the control point and dx/dy is the new point. All positions
+are expressed relative to the last point.
+
+The [t:dx,dy] is to draw a quadrilatic Bezier curve with the first control
+point deduced from a previous Bezier curve operation. If a previous operation
+is not a Bezier curve operation, then the last point is assumed to be control
+point, in which case the drawn curve will be straight line.
 
 The [angledist:1,30] allows you to construct a new point that is to travel at a
 angle of 30 degrees counterclockwise from due east for 1 unit length, starting
 from the current point.
 
-The [turnrt:1,30] is to create a new point that is equivalent to making a right
+The [turn:30,1] is to create a new point that is equivalent to making a left
 turn of 30 degrees from the direction you have arrived at the current point, and
-then travel for one more unit length.
-
-The [turnlft:1,30] is similar to [turnrt:1,30] except that you will be making
-a left turn instead of right turn.
+then travel for one more unit length. If it is to make a right turn, then set
+the angle to a negative number.
 
 The [flip:5,5] is to construct a new point that is the mirror image of the
-current point. The mirror is the line segment that is made up by the current
-point and the point before that. This operations allows you to figure out where
-an existing point will land as if you were folding a paper along some existing
-line.
+current point. The current point in this case is five unit distance to the
+right and towards the top of the last point.  The mirror is the line segment
+that is made up by the current point and the point before that. This operations
+allows you to figure out where an existing point will land as if you were
+folding a paper along an existing line that is traveled between the last two
+points.
 
 Aside from relative points, path expression can also include "offsets". An offset
 allows you to do "psudo translation" for the points of the same path. For example,
@@ -902,24 +919,24 @@ points (11,0), (12,0), (13,0) and (14,0) as follows.
     drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
 The 'cycle' keyword will introduce two points to the path: a duplicate point
-that is the same as the first point, and an additional 'cycle' point
-equivalent to the 'z' operator of a 'path' element of SVG.
-
-In addition, if 'cycle' is encountered the reset of the path expression
-will be ignore.
+that is the same as the first point, and an additional 'cycle' point.  The
+'cycle' point can be compared to the 'z' operator of a SVG d attribute.  In
+addition, the encounter of a  'cycle' is also to terminate all future
+coordinates processing.
 
 On the other hand, if a 'movept' operator is encountered, such as '@(2,3)',
-then it means that the current polyline should be terminated and a new
-polyline started. This is essentially a 'M' operator in the 'path' element
-of the SVG. However, when generating MetaPost or SVG outputs, the entire
-path will be broken down into multiple paths so that multiple <path> elements
-will be seen in SVG output, as well as multiple 'draw' or 'fill' commands
-seen in MetaPost output.
-
+then it means that the current polyline be terminated and a new polyline
+started, with the first point assumed to be (2,3). This is essentially a 'M'
+operator in the 'path' element of the SVG. However, when generating MetaPost or
+SVG outputs, the entire path will be broken down into two separate paths. This
+translates to two 'draw' operation in MetaPost, and two <path> elements in SVG.
 In the following example there will be two distinct polylines: one
 goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
 
     drawline (0,0) (2,3) @(4,5) (6,7)
+
+Note that the new "movept" point will share the same "offset" as
+all the other coordinate points in the path expression.
 
 
 ## Path functions        
@@ -928,16 +945,16 @@ Note that for a path function all its arguments must be either a path variable
 or a number. Coordinate list is not valid. In the following examples all
 letters a, b, c are path variables.
 
-+ midpoint(a)     
-+ midpoint(a,0.2)     
+The `$midpoint()` function returns the mid point of the first two points in a
+path expression if a single argument is given.  Following returns a path with a
+single point: (1.5,2), which is the mid point of (1,1) and (2,3).
 
-This function returns the mid point of the first two points in a path
-expression if a single argument is given.
-
-    a := (1,1) (2,3) (3,4)
+    a := (1,1) (2,3) 
     b := $midpoint(a)
 
-This will return a path with a single point: (1.5,2)
+Note that only the first two points of a path is used. The other points
+are ignored. Thus if path a has three points, then the third point
+is simply ignored.
 
 If two arguments are given, it does a linear interpolation alone the
 line segment of the first two points, and return a point that corresponds
@@ -947,122 +964,60 @@ For example, if 0.5 is given as the second parameters, it should return the
 same path as that with a single argument. Thus, following example will return
 the same result as the one before.
 
-    a := (1,1) (2,3) (3,4)
+    a := (1,1) (2,3) 
     b := $midpoint(a,0.5)
 
-    Following will return the a point that is one-third the way from the first
-    point to the second point.
+Following will return the a point that is one-third the way from the first
+point to the second point.
 
-    a := (1,1) (2,3) (3,4)
+    a := (1,1) (2,3) 
     b := $midpoint(a,0.333333)
 
-+ somepoints(a,2)
-+ somepoints(a,2,2)
-+ somepoints(a,2,5)
-+ somepoints(a,5,2)
+The `$shiftpoints()` function is always needed to be provided with three
+arguments. The first argument is always interpreted as a path variable. The
+second and the third arguments are to be interpreted as expressing length in
+grid unit. This function is to return a new path with exact the same number of
+points, except for that all the points will have been shifted by the number of
+grid units specified in the argument. For example, following would have shifted
+all the points in the original path one position to the left and two positions
+up.
 
-This function can be called with 2 arguments or 3. If called with 2, it is
-to return a new path containing a single point at the index location
-of its original path. The first argument is always a path variable. The
-second argument is always interpreted as an integer.
+    b := $shiftpoints(a,-1,2)
 
-If called with three arguments, the last argument is also to be treated as
-an integers. The returned path is to contain all points between the
-index locations specified by the last two arguments. The order
-of the points will be so arranged so that the index location of the first
-integer is to appear first, followed by a point moving towards the
-second index location. Thus, this function can be used to return an inverse
-order of the points of the original path.
+The `$scatterpoints()`  function is to create new path with the number of
+points evenly distributed beteen the two end points. In the previous example
+there will be 10 points created in a path such that the first point is (1,0),
+and the last point is (10,0), and the rest of the points will be spaced evenly
+between the first and the last.
 
-+ allpoints(a)    
-+ allpoints(a,b)    
-+ allpoints(a,b,c)    
-+ allpoints(a,b,c,...)    
+    a := $scatterpoints(1,0,10,0,10)
 
-This function can be called with 0 arguments to infinitely numbered.
-It is to return a new path with all the point in the variable.
+The `$lineintersect()` Returns new a path that contains a single point which is
+the point at which the two lines intersect. The first line is described by the
+symbol 'a', which must have at least two points. The second line is described
+by the symbol 'b', which must have at least two points. Only the first two
+points of 'a' and 'b' are considered. The rest of the points of 'a' and 'b' are
+ignored.
 
-+ shiftpoints(a,-1,2)
+    a := $lineintersect(a,b)  
 
-This function is always needed to be provided with three arguments. The
-first argument is always interpreted as a path variable. The second
-and the third arguments are to be interpreted as expressing length
-in grid unit. This function is to return a new path with exact the same
-number of points, except for that all the points will have been shifted
-by the number of grid units specified in the argument. For example,
-following would have shifted all the points in the original path
-one position to the left and two positions up.
-
-    b := shiftpoints(a,-1,2)
-
-+ scatterpoints(1,0,10,0,10)
-
-This function is to create new path with the number of points evenly distributed
-beteen the two end points. In the previous example there will be 10 points created
-in a path such that the first point is (1,0), and the last point is (10,0),
-and the rest of the points will be spaced evenly between the first and the last.
-
-+ lineintersect(a,b)  
-
-Returns new a path that contains a single point which is the point at which the
-two lines intersect. The first line is described by the symbol 'a', which must
-have at least two points. The second line is described by the symbol 'b', which
-must have at least two points. Only the first two points of 'a' and 'b' are
-considered. The rest of the points of 'a' and 'b' are ignored.
-
-Note that the returned point might have Infinity or NaN due to the nature
-of parallelness.  In the following example the path variable 'c' will hold
+Note that the returned point might have Infinity or NaN due to the nature of
+line parallelness.  In the following example the path variable 'c' will hold
 one point: (2,2)
 
     a := (0,2) (4,2)
     b := (2,0) (2,6)
     c := $lineintersect(a,b)
 
-+ linecircleintersect(a,c,radius)
 
-Returns new a path that contains two points for the line and circle intersection.
-In the following diagram the pts variable 'pts' will hold two points: (6,2) and
-(4,2).
+The `$linecircleintersect()` function returns new a path that contains two
+points for the line and circle intersection.  In the following diagram the pts
+variable 'pts' will hold two points: (6,2) and (4,2).
 
     a := (2,2) (6,2)
     c := (5,3)
     pts := $linecircleintersect(a,c,1.4142)
 
-
-## The shape instruction
-
-This instruction is designed to draw a shape at each one of the path points.
-
-Note that each shape can only be draw at its natural size and shape. There
-is no provision to scale it.
-
-The origin of the shape is determined by each shape itself.  For example,
-for 'brick' shape the origin is at its lower-left hand corner.  For
-'radical4' it is at the top-left hand corner.  For 'protractor7' it is the
-mid point between the lower-left and lower-right points. When asked to draw
-a shape the orgin of the shape is to be aligned with the path point.
-
-As of writing, following shape exists:
-
-```longtable
-|--------------|------------------------------------------------------------|
-|Shape         |Description                                                 |
-|              |                                                            |
-|--------------|------------------------------------------------------------|
-|brick         |This is a rectangle with a width of 1 and a height of 0.5;  |
-|              |It is origin is at the lower-left hand corner.              |
-|              |                                                            |
-|--------------|------------------------------------------------------------|
-|radical4      |This is a radical sign. The length of the top bar is 4 and  |
-|              |the height of the left vertical bar is 2.                   |
-|              |The origin is at the top-left hand corner.                  |
-|--------------|------------------------------------------------------------|
-|protractor7   |This draws a protractor that is 7 grid units in diameter,   |
-|              |and the entire protractor is an upper half circle.          |
-|              |The center of the shape is at the center of the bottom      |
-|              |where the small hold is for aligning with the angle vertex. |
-|--------------|------------------------------------------------------------|
-```
 
 
 ## Specifying the color for MetaPost
@@ -1146,56 +1101,57 @@ that can used for <line> element. The available values are:
 
 ## Known problems
 
-- The arrow head in HTML is done using <marker> element. And for SVG 1.1
-  the limitation is that its coloring and filling is not changed to
-  the line element it attaches to. It is a browser problem and currently
-  there is no fix.
+  - The arrow head in HTML is done using <marker> element. And for SVG 1.1
+    the limitation is that its coloring and filling is not changed to
+    the line element it attaches to. It is a browser problem and currently
+    there is no fix.
 
-- For SVG we *had* to make a choice to either show a plaintext, using <text>
-  element or math text  using <svg> element, there is currently a lot of grief
-  as prevously we were freely mixing normal and math text as this was not
-  a problem for MetaPost, as it supports TeX text between btex and etex
-  constructs. But for us following is a problem for SVG.
+  - For SVG we *had* to make a choice to either show a plaintext, using <text>
+    element or math text  using <svg> element, there is currently a lot of grief
+    as prevously we were freely mixing normal and math text as this was not
+    a problem for MetaPost, as it supports TeX text between btex and etex
+    constructs. However, mixing plain text and math text is an issue
+    because math text is translated into SVG and plain text into 
+    <text> SVG element, and there is no way to correctly position
+    the SVG text if it is to appear in the middle of a <text> element.
 
-      label {See the angle ``\alpha``} (1,2)
+  - The generation of font-size is always done to convert a user unit
+    to pt.
 
-- The generation of font-size is always done to convert a user unit
-  to pt.
+  - It has been observed that for MP generation if the symbol were part
+    of a math such as between \( and \), then it appears smaller than
+    those that are not.
 
-- It has been observed that for MP generation if the symbol were part
-  of a math such as between \( and \), then it appears smaller than
-  those that are not.
+  - The text-aligmnents are default to 'urt' and not 'centered', thus
+    we need to ensure previous auto choices of text alignment which
+    asssumes the center are now being shown as 'urt' and thus we need
+    to make some adjustments where necessary.
 
-- The text-aligmnents are default to 'urt' and not 'centered', thus
-  we need to ensure previous auto choices of text alignment which
-  asssumes the center are now being shown as 'urt' and thus we need
-  to make some adjustments where necessary.
+  - Need to make the aligment of objects consistant. By default labels
+    are aligned at the center, crate and basket and apples are aligned at the
+    center, but rect, trapezoid, rhombus, and parallelgram are aligned
+    at the lower left corner. Need to change is so that besides text,
+    other objects are by default aligned at the lower-left corner.
 
-- Need to make the aligment of objects consistant. By default labels
-  are aligned at the center, crate and basket and apples are aligned at the
-  center, but rect, trapezoid, rhombus, and parallelgram are aligned
-  at the lower left corner. Need to change is so that besides text,
-  other objects are by default aligned at the lower-left corner.
+  - For shapes such as apple, brick and radical cannot be scaled, although
+    the radical has a configuration option. We need to create a scale factor
+    for each of the shape. Even though each shape has a natural size, but
+    we should also be able to specify a scaling factor to allow it to enlarge
+    or shrink beyond its natural size.
 
-- For shapes such as apple, brick and radical cannot be scaled, although
-  the radical has a configuration option. We need to create a scale factor
-  for each of the shape. Even though each shape has a natural size, but
-  we should also be able to specify a scaling factor to allow it to enlarge
-  or shrink beyond its natural size.
+  - When mathtext is generated for the label, since the font size is always set
+    at 12-pt, which makes the text look big. The problem has been corrected
+    by shrinking the size of the SVG.    
 
-- When mathtext is generated for the label, since the font size is always set
-  at 12-pt, which makes the text look big. The problem has been corrected
-  by shrinking the size of the SVG.    
+  - It is not currently possible to specify multiple line segments such that
+    the line drawing is to terminate at one point and restart at another.
+    The newly proposed form of @(5,6) is to make it possible to "move a point"
+    to a new position so that the last point becomes the "last point of a
+    polyline" and the new moved point is the "first point of a new polyline".
 
-- It is not currently possible to specify multiple line segments such that
-  the line drawing is to terminate at one point and restart at another.
-  The newly proposed form of @(5,6) is to make it possible to "move a point"
-  to a new position so that the last point becomes the "last point of a
-  polyline" and the new moved point is the "first point of a new polyline".
-
-- Note that for MetaPost translation, it is very sensitive to backslashes.
-  Even for texts that exists in comments, if a backslash is encountered
-  that is not followed by another backslash, it is processed as a backslash
-  sequence for which, it will consume a brace which will likely cause
-  an unmatched brace compile error in LATEX engine. For this reason,
-  all texts translated as a comment line are also "escaped".
+  - Note that for MetaPost translation, it is very sensitive to backslashes.
+    Even for texts that exists in comments, if a backslash is encountered
+    that is not followed by another backslash, it is processed as a backslash
+    sequence for which, it will consume a brace which will likely cause
+    an unmatched brace compile error in LATEX engine. For this reason,
+    all texts translated as a comment line are also "escaped".

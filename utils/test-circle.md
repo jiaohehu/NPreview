@@ -18,7 +18,7 @@ set refx 15
 octant (1,2) (2,3) (3,4)
 
 set refy 5
-set fill orange
+set fillcolor orange
 
 set refx 0
 circle (1,2) (2,3) (3,4)
@@ -33,7 +33,7 @@ set refx 15
 octant (1,2) (2,3) (3,4)
 
 set refy 10
-set fill orange
+set fillcolor orange
 set linesize 0
 
 set refx 0

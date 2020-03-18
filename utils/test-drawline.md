@@ -7,7 +7,7 @@ viewport 32 30
 set fontsize 7pt
 
 set linecolor blue
-set fill orange
+set fillcolor orange
 drawline (0,0)..(2,2)..(4,0) -- (6,0)
 
 reset 
@@ -15,7 +15,7 @@ set refx 5
 set refy 5
 set linesize 0
 set linecolor blue
-set fill orange
+set fillcolor orange
 drawline (0,0)..(2,2)..(4,0) -- (6,0)
 
 reset 

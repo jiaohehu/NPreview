@@ -6,7 +6,7 @@ This test drawline with Hobby curve.
 viewport 32 30
 set fontsize 7pt
 
-set stroke blue
+set linecolor blue
 set fill orange
 drawline (0,0)..(2,2)..(4,0) -- (6,0)
 
@@ -14,7 +14,7 @@ reset
 set refx 5
 set refy 5
 set linesize 0
-set stroke blue
+set linecolor blue
 set fill orange
 drawline (0,0)..(2,2)..(4,0) -- (6,0)
 

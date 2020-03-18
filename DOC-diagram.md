@@ -83,7 +83,7 @@ drawanglearc *a *b *c
 
 % drawline will fill      
 ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
-set stroke-width 2px
+set linecolor-width 2px
 set fill orange
 drawline *ff
 reset

@@ -4,7 +4,7 @@ Test line circle intersect
 
 ```diagram
 viewport 32 30
-set font-size 7pt
+set fontsize 7pt
 
 a := (2,2) (6,2)
 c := (5,3)

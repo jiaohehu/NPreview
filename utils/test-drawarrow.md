@@ -4,7 +4,7 @@ This test drawline with Hobby curve.
 
 ``` diagram
 viewport 32 30
-set font-size 7pt
+set fontsize 7pt
 
 reset 
 set refx 5

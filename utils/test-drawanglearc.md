@@ -4,7 +4,7 @@ This test drawanglearc
 
 ``` diagram
 viewport 32 30
-set font-size 7pt
+set fontsize 7pt
 
 % 90-degree angle
 drawline (28,4)--(31,4)

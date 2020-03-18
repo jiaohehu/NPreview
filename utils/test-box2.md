@@ -4,7 +4,7 @@ Diagram Math
 
 ``` diagram
 viewport 25 10
-set font-size 10pt
+set fontsize 10pt
 
 label.top {``\beta``} (12,0);
 label.bot {``\beta``} (12,10);

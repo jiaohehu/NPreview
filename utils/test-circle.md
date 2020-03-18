@@ -34,7 +34,7 @@ octant (1,2) (2,3) (3,4)
 
 set refy 10
 set fill orange
-set line-size 0
+set linesize 0
 
 set refx 0
 circle (1,2) (2,3) (3,4)

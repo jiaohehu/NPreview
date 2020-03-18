@@ -16,7 +16,7 @@ dot (1,2) (2,3) (3,4) (4,5) (5,6)
 reset 
 set refx 10
 set dot orange
-set dot-size 8
+set dotsize 8
 dot (1,2) (2,3) (3,4) (4,5) (5,6)
 
 ```

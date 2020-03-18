@@ -125,7 +125,7 @@ the table. The first format, which is also the simplest, each line expresses a
 table row. Table cells are found to be within that line that are separated
 by two or more spaces. In the following table there are a total of four table rows and within each row there are a total of three table cells.
 
-    ```  tabular
+    ```  
     Name           Value   Example
     ELEMENT_NODE   1       The <body> element
     TEXT_NODE      3       Text that is not part of an element
@@ -140,7 +140,7 @@ of lines without empty lines in them forms a single table row. An empty line
 starts a new table row. Thus, following tabular block would have expressed the
 same table content as the previous one.
 
-    ``` tabular
+    ```
     Name
     Value
     Example
@@ -172,7 +172,7 @@ split across a total of four consecutive lines.
 
 
 
-    ``` tabular
+    ```
     Type of angle                      Examples                              
 
     Vertical angles                    ``\angle 1`` and ``\angle 3``\     
@@ -192,7 +192,7 @@ the additional content of the cell is assumed to want to start in a
 new line. This is equivalent to inserting <br/> element into the middle of
 a text content while the entire text content is part of a <td> element.
 
-    ``` tabular
+    ```
     Type of angle                      Examples                              
 
     Vertical angles                    ``\angle 1`` and ``\angle 3``\\     
@@ -210,7 +210,7 @@ The forth format is to use a combination of hyphen-minus and vertical-bar
 characters to "draw" the boundaries of a table.
 
 
-    ``` tabular
+    ```
     |--------------|--------------|-------------------|
     | Names        | Value        | Example           |
     |--------------|--------------|-------------------|
@@ -230,7 +230,7 @@ characters to "draw" the boundaries of a table.
 The fifty format is similar two the forth one except that the beginning
 and ending of the vertical-bar character must not be placed.
 
-    ``` tabular
+    ```
     --------------|--------------|-------------------
     Names         | Value        | Example            
     --------------|--------------|-------------------
@@ -292,10 +292,8 @@ between the border of the table cell and the text. This is equivalent to CSS
 for LATEX it is to insert a `\noalign{\vspace{1pt}}` in front of a cell
 and after a cell.
 
-    .vlines 0 1 2 3
-    .hlines t m b r
-    .vpadding 1
-    ```tabular
+
+    ```
     Name       Phone Number    Description
     John       222-222-2222    Back to the future
     John       222-222-2222    Back to the future

@@ -611,18 +611,18 @@ will likely to provide options to allow for adjustments.
 The `dot` instruction is to draw a dot at each path point.  It is typically
 used to identify the location of a point in a plane by showing a visible round
 black dot.  The `dot` instruction will draw a circular dot. The default size of
-the dot is '4pt', but can be changed by the *dot-size* setting, i.e., to set it
+the dot is '4pt', but can be changed by the *dotsize* setting, i.e., to set it
 to a string of '5pt'.  Following example draw three dots at location of (1,1),
 (2,2) and (3,3) where each dot is at a size of "5pt".
 
-    set dot-size 5pt
+    set dotsize 5pt
     dot (1,1) (2,2) (3,3)
 
 The color of the dot is by default set to black, unless changed by the
 *dot* setting, which describes a color such as "orange".
 
     set dot orange
-    set dot-size 5pt
+    set dotsize 5pt
     dot (1,1) (2,2) (3,3)
 
 The `tick` instruction is designed to draw ticks along a number line, or x-axis
@@ -634,7 +634,7 @@ hand side of the point
 
 The protrusion of the tick is by default set to 0.33 grid unit. This is length
 of the line it will protrude away from the point. It is controlled by the
-*tick-protrude* setting. It is always in the grid unit length.  The default is
+*tickprotrude* setting. It is always in the grid unit length.  The default is
 '0.33'.
 
 The color of the tick is set to black, unless changed by the *tick*
@@ -693,91 +693,68 @@ Following is a list of all drawing parameters
 *   [refy]              - Same as refx bug does it for its y-coordinate.        
                           Must be set to a number zero or greater, and no more  
                           than the total number of grids in the vertical.       
-                                                                                
-                                                                                
+
+
 
 *   [refsx]             - Set a scalar number to scale coordinate in x-axis.    
                           Ex. if refx is set to 6 and refsx      is set to 3,   
                           For a coord that is specified as (2,0),               
-                          it is first scaled three times which puts it at (6,0) 
+                          it is first scaled three times which puts it at (6,0)
                           before being shifted 6 grids to the right which puts  
                           it at (12,0), which is its final displayed position.  
                           Must be set to a number between 0.1 and 10.           
 
 *   [refsy]             - Same as refsx      but does it in y-axis.             
-                                                                                
 
-*   [font-color]        - Set to a string that describes the color, such as        
+
+*   [fontcolor]        - Set to a string that describes the color,
+                           such as        
                           'green', 'red', 'blue', 'black', and 'white'.         
                           Note that expressing using RGB such as "rgb(100,200,50)"
                           is only supported for SVG generation.
-                                                                                
 
-*   [font-size]         - Set to a font size specification such as '14pt'.      
+
+*   [fontsize]         - Set to a font size specification such as '14pt'.      
                           Used when drawing text labels.                        
-                                                                                
 
-*   [slant]             - Set to a floating point number between 0.1 and 0.9    
-                          expressing the proportion of the overall parallelgram 
-                          width reserved for the slanted part of the shape.     
-                          Default is 0.3.                                       
 
 *   [linedashed]        - Set a string that is either 'evenly', or 'withdots'   
                           that is to control the appearances of the dashes.     
                           Default is empty, that a solid line is to be drawn.   
 
-*   [stroke]            - Set the color used when drawing lines, such as "red". 
+*   [linecolor]        - Set the color used when drawing lines, such as "red".
                           It is used by the drawline instruction.               
-                                                                                
 
-*   [line-size]         - Set the thickness of the line when drawing lines,     
+
+*   [linesize]         - Set the thickness of the line when drawing lines,     
                           such as "4pt".                                        
                           It is used when drawing lines.                        
 
-*   [fill]              - Set the color used when filling an area, i.e., "red". 
+*   [fillcolor]        - Set the color used when filling an area, i.e., "red".
                           It is used when drawing an area.                      
-                                                                                
 
-*   [dot]               - Set the color used for drawing dots, such as "red".   
+
+*   [dotcolor]         - Set the color used for drawing dots, such as "red".   
                           It is used by the drawdot instruction.                
-                                                                                
 
-*   [dot-size]          - Configure the size of the dot to be drawn, such as    
+
+*   [dotsize]          - Configure the size of the dot to be drawn, such as    
                           "8pt". Used by the `dot` instruction. The default     
                           is "5" user unit.                                     
 
-*   [tick]              - Set the color used for drawing ticks, i.e.,  "red".   
+*   [tickcolor]       - Set the color used for drawing ticks, i.e.,  "red".   
                           It is used by the `tick`  instruction.                
-                          The default is empty, which MetaPost assume as black. 
+                          The default is empty, which MetaPost assume as black.
 
-*   [tick-size]         - Configure the thickness of the line for ticks.        
+*   [ticksize]         - Configure the thickness of the line for ticks.        
                           i.e, "2pt". The default is "1pt".                     
                           It is used by the `tick` instruction.                 
-                                                                                
 
-*   [tick-protrude]     - Configure how far away the end point is from the      
+
+*   [tickprotrude]     - Configure how far away the end point is from the      
                           axis line. The default is 0.33 grid unit.             
                           The maximum is "1.0", the minimum is "0.1".           
 
-*   [rectw]             - Set to a number that is the width of the rectangle.   
-                          Used by rect, rrect, rhombus, trapezoid,              
-                          and parallelgram.                                     
-
-*   [recth]             - Set to a number that is the height of the rectangle.  
-                          Used by rect, rrect, rhombus, trapezoid,              
-                          and parallelgram.                                     
-
-*   [radius]            - This is to express the length of the radius for       
-                          an circle, halfcircle, quadrant circle, or octant     
-                          circle.                                               
-
-*   [start-angle]       - This is to express the measurement of the first       
-                          angle. It is used by circle.arc, circle.chord,        
-                          and circle.cseg                                       
-
-*   [end-angle]         - This is to express the measurement of the second      
-                          angle. It is used by circle.arc, circle.chord,        
-                          and circle.cseg                                       
 
 
 
@@ -947,7 +924,7 @@ The `$midpoint()` function returns the mid point of the first two points in a
 path expression if a single argument is given.  Following returns a path with a
 single point: (1.5,2), which is the mid point of (1,1) and (2,3).
 
-    a := (1,1) (2,3) 
+    a := (1,1) (2,3)
     b := $midpoint(a)
 
 Note that only the first two points of a path is used. The other points
@@ -962,13 +939,13 @@ For example, if 0.5 is given as the second parameters, it should return the
 same path as that with a single argument. Thus, following example will return
 the same result as the one before.
 
-    a := (1,1) (2,3) 
+    a := (1,1) (2,3)
     b := $midpoint(a,0.5)
 
 Following will return the a point that is one-third the way from the first
 point to the second point.
 
-    a := (1,1) (2,3) 
+    a := (1,1) (2,3)
     b := $midpoint(a,0.333333)
 
 The `$shiftpoints()` function is always needed to be provided with three
@@ -1109,11 +1086,11 @@ that can used for <line> element. The available values are:
     as prevously we were freely mixing normal and math text as this was not
     a problem for MetaPost, as it supports TeX text between btex and etex
     constructs. However, mixing plain text and math text is an issue
-    because math text is translated into SVG and plain text into 
+    because math text is translated into SVG and plain text into
     <text> SVG element, and there is no way to correctly position
     the SVG text if it is to appear in the middle of a <text> element.
 
-  - The generation of font-size is always done to convert a user unit
+  - The generation of fontsize is always done to convert a user unit
     to pt.
 
   - It has been observed that for MP generation if the symbol were part

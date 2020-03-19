@@ -778,8 +778,9 @@ strong path description capability.
     b := a{up} .. (5,5) .. (6,7)
 
 However, Diagram have added a few more syntax designed to allow for specifying
-points in a few more different ways. For example, it offers a "relative point" syntax
-that allows you to specify a point that is relative to the point before it.
+points in a few more different ways. For example, it offers a "relative point"
+syntax that allows you to specify a point that is relative to the point before
+it.
 
     a := (1,1) [v:1] [h:2] [v:-1]
 
@@ -829,16 +830,16 @@ The [s:dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current point to
 the new point that is dx/dy away. Only the second point of the current Bezier
 curve needs to be provided. The first control point is deduced from the second
 control point of the previous cubic Bezier curve operation. If the previous
-operation is not a cubic Bezier curve drawing, but a quadrilatic Bezier curve
-drawing, then the first control point of the quadrilatic curve is used to
+operation is not a cubic Bezier curve drawing, but a quadratic Bezier curve
+drawing, then the first control point of the quadratic curve is used to
 deduce the first control point of the current operation. If it is neither a
 cubic nor a quadrilatic, then the last point is assumed.
 
-The [q:dx1,dy1,dx,dy] is to draw a quadrilatic Bezier curve. The (dx1,dy1)
-is to set the control point and dx/dy is the new point. All positions
+The [q:dx1,dy1,dx,dy] is to draw a quadrilatic Bezier curve. The dx1/dy1
+is the only control point. The dx/dy is the new point. All positions
 are expressed relative to the last point.
 
-The [t:dx,dy] is to draw a quadrilatic Bezier curve with the first control
+The [t:dx,dy] is to draw a quadratic Bezier curve with the first control
 point deduced from a previous Bezier curve operation. If a previous operation
 is not a Bezier curve operation, then the last point is assumed to be control
 point, in which case the drawn curve will be straight line.
@@ -860,58 +861,62 @@ allows you to figure out where an existing point will land as if you were
 folding a paper along an existing line that is traveled between the last two
 points.
 
-Aside from relative points, path expression can also include "offsets". An offset
-allows you to do "psudo translation" for the points of the same path. For example,
-if were to draw one horizontal line and one vertical line that meets
-at (10,0) such as the following.
+Path expression can also include "offsets". An offset is expressed
+as <x,y>. The presence of them will not cause a real points to be inserted
+into the path. Rather, it serves to provide an "offset" such that all
+future points will be computed as relative to this offset.
+For example, let's suppose we have the following two draw line program.
 
     drawline (10,0) (15,0)
     drawline (10,0) (10,5)
 
-You can do that using the offset as follows.
+However, by using "offsets" we can rewrite them as follows.
 
     drawline <10,0> (0,0) (5,0)
     drawline <10,0> (0,0) (0,5)
 
-The offset <10,0> is to set it so that the all future points will be considered
-an offset to the point that is (10,0).  Thus, the point of (0,0) is considered
-as (10,0), and (5,0) is considered (15,0). The offset always appears between a
-set of angle brackets. The first number is the offset in the horizontal
-direction, and the second one in vertical direction.
+Here, <10,0> are considered an offset. An offset <10,0> is to set it so that the
+all future points will be considered an offset to the point that is (10,0).
+Thus, the point of (0,0) is considered as (10,0), and (5,0) is considered
+(15,0). The offset always appears between a set of angle brackets. The first
+number is the offset in the horizontal direction, and the second one in vertical
+direction.
 
-The offset is only going to be valid for the current path. It will affect all
-future points after it. Thus, if you have placed an offset in the middle of two
+The offset is only going to be valid for the current path, and it only
+takes affect after it is encountered, and will only affect the points
+that follow it. Thus, if you have placed an offset in the middle of two
 points, such as the following, then the first point is to be considered
 as (0,0) while the second one as (15,0).
 
     drawline (0,0) <10,0> (5,0)
 
-If two offset appears in a path expression, then the second offset is
-considered to be offset to the first. This allows you to construct more points
-simply by moving offsets. For example, you can construct a path with four
-points (11,0), (12,0), (13,0) and (14,0) as follows.
+Offsets are also accumulative. Thus, if two offset appears in a path expression,
+then the second offset is considered to be offset to the first. This allows you
+to construct more points simply by moving offsets. For example, you can
+construct a path with four points (11,0), (12,0), (13,0) and (14,0) as follows.
 
     drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
-The 'cycle' keyword will introduce two points to the path: a duplicate point
-that is the same as the first point, and an additional 'cycle' point.  The
-'cycle' point can be compared to the 'z' operator of a SVG d attribute.  In
-addition, the encounter of a  'cycle' is also to terminate all future
-coordinates processing.
+The 'cycle' point, when encountered, will introduce two new points to the path:
+a duplicate point that is the same as the first point, and an additional 'cycle'
+point.  The 'cycle' point can be compared to a 'z' operator of a SVG d
+attribute.  For this reason, when a 'cycle' point is encountered, all addition
+points after the cycle point are ignored.
 
-On the other hand, if a 'movept' operator is encountered, such as '@(2,3)',
-then it means that the current polyline be terminated and a new polyline
-started, with the first point assumed to be (2,3). This is essentially a 'M'
-operator in the 'path' element of the SVG. However, when generating MetaPost or
-SVG outputs, the entire path will be broken down into two separate paths. This
-translates to two 'draw' operation in MetaPost, and two <path> elements in SVG.
-In the following example there will be two distinct polylines: one
-goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
+    drawline (0,0) (1,2) (3,4) cycle
+
+A 'move' point allows an existing path to be broken into multiple line
+segment. It always takes the form of @(x,y).
 
     drawline (0,0) (2,3) @(4,5) (6,7)
 
-Note that the new "movept" point will share the same "offset" as
-all the other coordinate points in the path expression.
+In the following example there will be two distinct polylines: one
+goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
+
+When generating MetaPost output, the entire path will be broken down into two
+separate "draw" commands.  For SVG, two <path> elements will be generated. Note
+that a "move" point will still be affected by the current settings of the
+"offset" as all the other coordinate points in the path expression.
 
 
 ## Path functions        

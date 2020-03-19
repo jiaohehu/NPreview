@@ -3,7 +3,7 @@ Test cartesian
 ```diagram
 viewport 25 10
 unit 8
-cartesian.a setup 2 2 0.75 0.75
+cartesian.a setup 2 2 0.5 0.75
 cartesian.a xaxis -1 6 
 cartesian.a yaxis -1 5 
 cartesian.a xticks 1 2 3 4 5 

@@ -290,46 +290,72 @@ the generated LATEX document as well as in PREVIEW:
     varphi       \varphi          
     varepsilon   \varepsilon           
 
+## The commath package
+
+Following commands are supported that are provided by the 'commath' package.
+
+    \usepackage{commath}
+
+  - The `\od` command: 
+
+    ~~~
+    ``\od{x^2}{x}``
+    ``\od[2]{x^2}{x}``
+    ~~~
+
+  - The `\pd` command:
+
+    ~~~
+    ``\pd{x^2}{x}``
+    ``\pd[2]{x^2}{x}``
+    ~~~
+
+  - The `\dif` command:
+
+    ~~~
+    ``\dif{x}``
+    ~~~
+
 ## Special behaviors
 
-- A matching \begin{somename} and \end{somename} environment for which the
-  name of the environment is not one of the recognized one will simply be
-  treated as a braced expression.
+  - A matching \begin{somename} and \end{somename} environment for which the
+    name of the environment is not one of the recognized one will simply be
+    treated as a braced expression.
 
-- If a \begin{name1} is found for which there is no matching \end{name1}
-  then the rest of the expression after \begin{name1} is treated as part
-  of that environment.
+  - If a \begin{name1} is found for which there is no matching \end{name1}
+    then the rest of the expression after \begin{name1} is treated as part
+    of that environment.
 
 ## Behavior that is different than LATEX:      
 
-- In LATEX, The double-backslash (`\\`) in a inline math will actually cause a
-  line break in PDF file. In PREVIEW math, a double-backslash is shown
-  as a double-backslash.
+  - In LATEX, The double-backslash (`\\`) in a inline math will actually cause a
+    line break in PDF file. In PREVIEW math, a double-backslash is shown
+    as a double-backslash.
 
-- In LATEX, the ampersand (`&`) in a inline math that is not part of a
-  \begin{matrix} will not show up in the PDF file. In PREVIEW math, the
-  ampersand is shown as an ampersand.
+  - In LATEX, the ampersand (`&`) in a inline math that is not part of a
+    \begin{matrix} will not show up in the PDF file. In PREVIEW math, the
+    ampersand is shown as an ampersand.
 
 ## Known problems
 
-- The `\bar{a}`, `\vec{a}`, and all other variant seems to have left a larger
-  gap between the top edge of the letter 'a' and the bar, then the appearance
-  done by LATEX. Do not know if this is a problem.
+  - The `\bar{a}`, `\vec{a}`, and all other variant seems to have left a larger
+    gap between the top edge of the letter 'a' and the bar, then the appearance
+    done by LATEX. Do not know if this is a problem.
 
-- The font used as integral symbol `\int` on MaxOS X have been observed to have
-  over shifted to the right and downwards, thus overlaying part of the text on
-  the right hand side of it, making it appear that they are overlapping.  This
-  behavior was observed when viewing exported HTML using Safari, Firefox,
-  and/or Chrome. 
+  - The font used as integral symbol `\int` on MaxOS X have been observed to have
+    over shifted to the right and downwards, thus overlaying part of the text on
+    the right hand side of it, making it appear that they are overlapping.  This
+    behavior was observed when viewing exported HTML using Safari, Firefox,
+    and/or Chrome. 
 
-- The fraction, such as \frac{1}{3} when previewed in HTML, appeared to be a
-  little too tall relative to the surrounding text, especailly when 
-  LATEX have made it appear a little smaller comparing with the surrounding
-  text.
+  - The fraction, such as \frac{1}{3} when previewed in HTML, appeared to be a
+    little too tall relative to the surrounding text, especailly when 
+    LATEX have made it appear a little smaller comparing with the surrounding
+    text.
 
-- Need to support \operatorname{}
+  - Need to support \operatorname{}
 
-- When typesetting a SUM operator, the top part if it is a smaller 
-  letter i it is left justified. It needs to be center justified.
+  - When typesetting a SUM operator, the top part if it is a smaller 
+    letter i it is left justified. It needs to be center justified.
 
-- Need to shrink the preview math SVG if the font size is set to small.
+  - Need to shrink the preview math SVG if the font size is set to small.

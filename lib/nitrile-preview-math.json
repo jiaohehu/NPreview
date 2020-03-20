@@ -335,6 +335,8 @@
     { "name": "\\breve",       "count": 1},
     { "name": "\\tilde",       "count": 1},
 
+    { "name": "\\od",          "count": 2 },
+
     { "name": "\\sqrt",        "count": 1 },
     { "name": "\\frac",        "count": 2 },
     { "name": "\\binom",       "count": 2 }

@@ -337,7 +337,7 @@
 
     { "name": "\\dif",         "count": 1 },
     { "name": "\\od",          "count": 2, "option": 1 },
-    { "name": "\\pd",          "count": 2 },
+    { "name": "\\pd",          "count": 2, "option": 1 },
 
     { "name": "\\sqrt",        "count": 1, "option": 1 },
     { "name": "\\frac",        "count": 2 },

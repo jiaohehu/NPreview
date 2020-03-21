@@ -1,7 +1,7 @@
 const { NitrilePreviewLatex } = require('/Users/james/github/nitrile-preview/lib/nitrile-preview-latex');
 const utils = require('/Users/james/github/nitrile-preview/lib/nitrile-preview-utils');
 
-const fname = '/Users/james/github/nitrile-preview/utils/test-bezier2.md';
+const fname = '/Users/james/github/nitrile-preview/tests/test-bezier2.md';
 
 utils.readFileAsync(fname).then(
      out => {

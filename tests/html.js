@@ -1,7 +1,7 @@
 const { NitrilePreviewHtml } = require('/Users/james/github/nitrile-preview/lib/nitrile-preview-html');
 const utils = require('/Users/james/github/nitrile-preview/lib/nitrile-preview-utils');
 
-const fname = '/Users/james/github/nitrile-preview/utils/test-od.md';
+const fname = '/Users/james/github/nitrile-preview/tests/test-od.md';
 
 utils.readFileAsync(fname).then(
      out => {

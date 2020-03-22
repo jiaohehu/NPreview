@@ -1,6 +1,6 @@
 #!/bin/bash
 #echo $1
 #node -e "console.log($1)"
-node -e "const { NitrilePreviewTokenizer } = require ('/home/james/github/nitrile-preview/lib/nitrile-preview-tokenizer'); new NitrilePreviewTokenizer().svgize('$1').then(f => { console.log('James '); console.log(f); console.log(' yu'); })"
+node -e "const { NitrilePreviewTokenizer } = require ('../lib/nitrile-preview-tokenizer'); new NitrilePreviewTokenizer().svgize('$1').then(f => { console.log('James '); console.log(f); console.log(' yu'); })"
 
 

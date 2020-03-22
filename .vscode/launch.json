@@ -12,7 +12,7 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/lib",
-      "program": "${workspaceFolder}/lib/test.js"
+      "program": "${workspaceFolder}/lib/testlatex.js"
     }
   ]
 }

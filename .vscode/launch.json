@@ -12,8 +12,8 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/lib",
-      "program": "${workspaceFolder}/lib/testhtml.js",
-      "args":["../tests/test-equation.md"]
+      "program": "${workspaceFolder}/lib/testepub.js",
+      "args":["../tests/test-epub.md"]
     }
   ]
 }

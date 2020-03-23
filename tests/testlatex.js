@@ -1,5 +1,5 @@
-const { NitrilePreviewLatex } = require('./nitrile-preview-latex');
-const utils = require('./nitrile-preview-utils');
+const { NitrilePreviewLatex } = require('../lib/nitrile-preview-latex');
+const utils = require('../lib/nitrile-preview-utils');
 
 console.log(process.argv);
 const fname = process.argv[2];

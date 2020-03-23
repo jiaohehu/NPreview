@@ -1,5 +1,5 @@
-const { NitrilePreviewHtml } = require('./nitrile-preview-html');
-const utils = require('./nitrile-preview-utils');
+const { NitrilePreviewHtml } = require('../lib/nitrile-preview-html');
+const utils = require('../lib/nitrile-preview-utils');
 
 console.log(process.argv);
 const fname = process.argv[2];
@@ -14,4 +14,5 @@ utils.readFileAsync(fname).then(
           console.log(all);
           console.log(config);
           var o = parser.translateHtml(main,config);
+          console.log(o);
      });

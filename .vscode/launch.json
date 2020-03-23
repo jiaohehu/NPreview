@@ -11,9 +11,9 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "cwd": "${workspaceRoot}/lib",
-      "program": "${workspaceFolder}/lib/testepub.js",
-      "args":["../tests/test-epub.md"]
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/testhtml.js",
+      "args":["test-label.md"]
     }
   ]
 }

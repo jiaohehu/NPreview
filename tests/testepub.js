@@ -1,6 +1,6 @@
-const { NitrilePreviewHtml } = require('./nitrile-preview-html');
-const { NitrilePreviewEpub } = require('./nitrile-preview-epub');
-const utils = require('./nitrile-preview-utils');
+const { NitrilePreviewHtml } = require('../lib/nitrile-preview-html');
+const { NitrilePreviewEpub } = require('../lib/nitrile-preview-epub');
+const utils = require('../lib/nitrile-preview-utils');
 const path = require('path');
 
 console.log(process.argv);

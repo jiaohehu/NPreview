@@ -1,21 +1,32 @@
 Test equation
 
-# Aligns::
+# aligns and aligns*
 
-Aligns::
-
-``` math
+``` aligns
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Gathers::
+``` aligns*
+x = \operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
-Gathers::
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
 
-``` math
+
+# gathers and gathers*
+
+``` gathers
+x = \operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
+
+``` gathers*
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
@@ -24,77 +35,58 @@ y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 
 
 
-# Equation::
+# equation and equation*
 
-Equation::
-
-```math
+```equation
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Equation*::
-
-Equation*::
-
-```math
+```equation*
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Equationsplit::
+# split and split*
 
-Equationsplit::
-
-```math
+```split
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Equationsplit*::
-
-Equationsplit*::
-
-```math
+```split*
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Subequations::
+# Subequations and subequations*
 
-Subequations::
-
-```math
+```subequations
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Subequations*::
-
-Subequations*::
-
-```math
+```subequations*
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
 
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Multline::
 
-Multline::
+# multline and multline*
 
-```math
+```multline
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} +
   C \sum_{i=1}^{l}\xi_{i}
@@ -105,11 +97,7 @@ x = \operatorname{min}_{a,b,c}
 y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
 ```
 
-# Multline*::
-
-Multline*::
-
-```math
+```multline*
 x = \operatorname{min}_{a,b,c}
   \frac{1}{2}\mathbf{w}^{T}\mathbf{w} +
   C \sum_{i=1}^{l}\xi_{i}

@@ -1,19 +1,7 @@
-Box
+Test box
 
-This is a box that tests various part of the text alignment.
-
-``` diagram
-viewport 25 10
-set fontsize 10pt
-
-label.top {TOP} (12,0);
-label.bot {BOT} (12,10);
-label.rt {RT} (0,5);
-label.lft {LFT} (25,5);
-label.lrt {LRT} (0,10)
-label.llft {LLFT} (25,10)
-label.urt {URT} (0,0)
-label.ulft {ULFT} (25,0)
-label.ctr {CENTER} (12,5)
-
+```diagram
+set refx 5
+set refy 5
+box (2,2)
 ```

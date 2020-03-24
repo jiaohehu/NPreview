@@ -14,5 +14,6 @@ utils.readFileAsync(fname).then(
           console.log(all);
           console.log(config);
           var o = parser.translateHtml(main,config);
-          console.log(o);
+          var out = o.join('\n');
+          console.log(out);
      });

@@ -8,4 +8,4 @@ This is content.
 
 This is content
 
-Please see [[#mychap1#]] and [[#mysec1#]].
+Please see [[#mychap1]] and [[#mysec1]].

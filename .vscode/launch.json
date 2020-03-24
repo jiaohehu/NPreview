@@ -12,8 +12,8 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/testlatex.js",
-      "args":["test-label.md"]
+      "program": "${workspaceFolder}/tests/testhtml.js",
+      "args":["test-equation.md"]
     }
   ]
 }

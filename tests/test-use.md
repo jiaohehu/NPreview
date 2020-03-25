@@ -5,3 +5,5 @@ Test use
 ``\text{for} \; \mathrm{Re}(x)``
 
 This is great: ``\int_2^5``
+
+The beta symbol ``\Beta``

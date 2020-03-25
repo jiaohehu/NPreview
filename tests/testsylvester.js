@@ -1,4 +1,4 @@
-const {$M,$V} = require('./nitrile-preview-sylvester.js');
+const {$M,$V} = require('../lib/nitrile-preview-sylvester.js');
 
 var V = $V( [1,1] );
 var V2 = $V( [4,2] );

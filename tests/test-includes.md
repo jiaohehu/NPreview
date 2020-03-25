@@ -3,6 +3,6 @@ Test includes
 Hello world!
 
 ```includes
->test-child1.md
->test-child2.md
+>test-sub1.md
+>test-sub2.md
 ```

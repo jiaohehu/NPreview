@@ -37,3 +37,4 @@ node_modules
 *.xhtml
 lib/test.md
 test.md
+*.epub

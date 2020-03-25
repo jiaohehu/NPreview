@@ -1,17 +1,26 @@
 Test tabbing
 
-Test tabbing
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-```tabbing
-``0 \: \leftrightarrow \: 9``
-``1 \: \leftrightarrow \: 8``
-``2 \: \leftrightarrow \: 7``
-``3 \: \leftrightarrow \: 6``
-``4 \: \leftrightarrow \: 5``
 
-``5 \: \leftrightarrow \: 4``
-``6 \: \leftrightarrow \: 3``
-``7 \: \leftrightarrow \: 2``
-``8 \: \leftrightarrow \: 1``
-``9 \: \leftrightarrow \: 0``
-```
+<> Apple
+<> Pear
+<> Banana
+<> Strawberry
+<> Melon
+
+<> Cow
+<> Tiger
+<> Horse
+<> Cat
+<> Fish
+
+<> Flower
+<> Plant
+<> Orchard
+<> Tree
+<> Grass
+
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+

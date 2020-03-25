@@ -12,8 +12,8 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/testhtml.js",
-      "args":["test-label.md"]
+      "program": "${workspaceFolder}/tests/testepub.js",
+      "args":["test-betafunc.md"]
     }
   ]
 }

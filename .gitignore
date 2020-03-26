@@ -1,17 +1,6 @@
 .DS_Store
 npm-debug.log
 node_modules
-*.aux
-*.log
-*.ltjruby
-*.out
-*.pdf
-*.tex
-*.png
-*.swp
-*~
-*~
-.DS_Store
 makefile
 npm-debug.log
 node_modules
@@ -30,7 +19,6 @@ node_modules
 *.synctex(busy)
 *.synctex.gz
 *.fdb_latexmk
-*~
 *~
 *.yaml
 *.html

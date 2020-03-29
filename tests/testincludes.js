@@ -22,7 +22,6 @@ var dolatex = async () => {
   parser.idenBlocks(main, config);
   parser.translateBlocks(main,config);
   var texlines = main.map(x => x.latex);
-  console.log(texlines);
   return texlines;
 };
 
@@ -41,10 +40,9 @@ var dohtml = async () => {
   parser.idenBlocks(main, config);
   parser.translateBlocks(main, config);
   var htmllines = main.map(x => x.html);
-  console.log(htmllines);
   return htmllines;
 };
           
 dohtml().then( lines => {
-
+  console.log(lines.join('\n'));
 });

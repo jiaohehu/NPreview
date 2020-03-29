@@ -11,8 +11,7 @@ utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewHtml();
           parser.isepub = 1;
-          const [main, flags] = parser.toFlow(out.split('\n'), 0, fname);
-          const config = parser.toConfig(flags);
+          const [main, config] = parser.toFlow(out.split('\n'), 0, fname);
           const all = parser.idenBlocks(main,config);
           console.log(all);
           console.log(config);

@@ -8,7 +8,7 @@ console.log(fname);
 utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewHtml();
-          const [main, config] = parser.toFlow(out.split('\n'), 0, fname);
+          const [main, config] = parser.toFlow(out.split('\n'), fname);
           parser.idenBlocks(main,config);
           parser.translateBlocks(main,config);
           var htmls = main.map(x=>x.html);

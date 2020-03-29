@@ -11,7 +11,7 @@ utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewHtml();
           parser.isepub = 1;
-          const [main, config] = parser.toFlow(out.split('\n'), 0, fname);
+          const [main, config] = parser.toFlow(out.split('\n'), fname);
           parser.idenBlocks(main,config);
           parser.translateHtml(main,config);
           let title = config.ALL.title ? config.ALL.title : 'Untitled';

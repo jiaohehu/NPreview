@@ -2,7 +2,8 @@ Test Listing
 
 Hello!
 
-Listing:: 
+Listing:: Hello world!
+(#mylisting)
 
 ```
 printf('\n');
@@ -10,3 +11,5 @@ printf('\n');
 printf('\n');
 printf('\n');
 ```
+
+Please see Listing [[#mylisting]] for more information.

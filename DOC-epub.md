@@ -79,7 +79,8 @@ line number to the second line number minus one.
     For listing and/or verb block, the <table> is to be used
     in the similar style.
 
-
+  - In HTML generating of reference to equations are not yet 
+    implemented.
 
 
 

@@ -12,7 +12,7 @@ utils.readFileAsync(fname).then(
           const all = parser.idenBlocks(main,config);
           console.log(all);
           console.log(config);
-          var o = parser.translateHtml(main,config);
-          var out = o.join('\n');
-          console.log(out);
+          parser.translateHtml(main,config);
+          var htmls = main.map(x=>x.html);
+          console.log(htmls.join('\n'));
      });

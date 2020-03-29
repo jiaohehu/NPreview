@@ -1,4 +1,4 @@
-Test math
+test-math.md
 
 # Plain math
 

@@ -1,4 +1,4 @@
-Test math
+test-alignedmath.md
 
 # Plain Math
 

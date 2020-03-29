@@ -8,7 +8,7 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 y = \sqrt{2} 
 ```
 
-# A Equation 
+# Equation 
 
 Equation::
 
@@ -18,7 +18,7 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 y = \sqrt{2} 
 ```
 
-# A Equations
+# Equations
 
 Equations::
 
@@ -28,7 +28,7 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 y = \sqrt{2} 
 ```
 
-# A Subequations
+# Subequations
 
 Subequations::
 

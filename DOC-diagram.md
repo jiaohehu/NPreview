@@ -684,76 +684,67 @@ centered at the location because the instruction is `label`.
 
 Following is a list of all drawing parameters
 
-*   [refx]                Set an offset number to offset coordinate in x-axis.  
-                          Ex. if refx is set to 4 a source coordinate of        
-                          (2,0) will map to (6,0).                              
-                          Must be set to a number zero or greater, and no more  
-                          than the total number of grids in the horizontal.     
+* refx                Set an offset number to offset coordinate in x-axis.  
+                      Ex. if refx is set to 4 a source coordinate of        
+                      (2,0) will map to (6,0).                              
+                      Must be set to a number zero or greater, and no more  
+                      than the total number of grids in the horizontal.     
 
-*   [refy]                Same as refx bug does it for its y-coordinate.        
-                          Must be set to a number zero or greater, and no more  
-                          than the total number of grids in the vertical.       
+* refy                Same as refx bug does it for its y-coordinate.        
+                      Must be set to a number zero or greater, and no more  
+                      than the total number of grids in the vertical.       
 
+* refsx               Set a scalar number to scale coordinate in x-axis.    
+                      Ex. if refx is set to 6 and refsx      is set to 3,   
+                      For a coord that is specified as (2,0),               
+                      it is first scaled three times which puts it at (6,0)
+                      before being shifted 6 grids to the right which puts  
+                      it at (12,0), which is its final displayed position.  
+                      Must be set to a number between 0.1 and 10.           
 
+* refsy               Same as refsx      but does it in y-axis.             
 
-*   [refsx]               Set a scalar number to scale coordinate in x-axis.    
-                          Ex. if refx is set to 6 and refsx      is set to 3,   
-                          For a coord that is specified as (2,0),               
-                          it is first scaled three times which puts it at (6,0)
-                          before being shifted 6 grids to the right which puts  
-                          it at (12,0), which is its final displayed position.  
-                          Must be set to a number between 0.1 and 10.           
+* fontcolor           Set to a string that describes the color,
+                      such as        
+                      'green', 'red', 'blue', 'black', and 'white'.         
+                      Note that expressing using RGB such as "rgb(100,200,50)"
+                      is only supported for SVG generation.
 
-*   [refsy]               Same as refsx      but does it in y-axis.             
+* fontsize            Set to a font size specification such as '14pt'.      
+                      Used when drawing text labels.                        
 
+* linedashed          Set a string that is either 'evenly', or 'withdots'   
+                      that is to control the appearances of the dashes.     
+                      Default is empty, that a solid line is to be drawn.   
 
-*   [fontcolor]          Set to a string that describes the color,
-                           such as        
-                          'green', 'red', 'blue', 'black', and 'white'.         
-                          Note that expressing using RGB such as "rgb(100,200,50)"
-                          is only supported for SVG generation.
+* linecolor           Set the color used when drawing lines, such as "red".
+                      It is used by the drawline instruction.               
 
+* linesize            Set the thickness of the line when drawing lines,     
+                      such as "4pt".                                        
+                      It is used when drawing lines.                        
 
-*   [fontsize]           Set to a font size specification such as '14pt'.      
-                          Used when drawing text labels.                        
+* fillcolor           Set the color used when filling an area, i.e., "red".
+                      It is used when drawing an area.                      
 
+* dotcolor            Set the color used for drawing dots, such as "red".   
+                      It is used by the drawdot instruction.                
 
-*   [linedashed]          Set a string that is either 'evenly', or 'withdots'   
-                          that is to control the appearances of the dashes.     
-                          Default is empty, that a solid line is to be drawn.   
+* dotsize             Configure the size of the dot to be drawn, such as    
+                      "8pt". Used by the `dot` instruction. The default     
+                      is "5" user unit.                                     
 
-*   [linecolor]          Set the color used when drawing lines, such as "red".
-                          It is used by the drawline instruction.               
+* tickcolor           Set the color used for drawing ticks, i.e.,  "red".   
+                      It is used by the `tick`  instruction.                
+                      The default is empty, which MetaPost assume as black.
 
+* ticksize            Configure the thickness of the line for ticks.        
+                      i.e, "2pt". The default is "1pt".                     
+                      It is used by the `tick` instruction.                 
 
-*   [linesize]           Set the thickness of the line when drawing lines,     
-                          such as "4pt".                                        
-                          It is used when drawing lines.                        
-
-*   [fillcolor]          Set the color used when filling an area, i.e., "red".
-                          It is used when drawing an area.                      
-
-
-*   [dotcolor]           Set the color used for drawing dots, such as "red".   
-                          It is used by the drawdot instruction.                
-
-
-*   [dotsize]            Configure the size of the dot to be drawn, such as    
-                          "8pt". Used by the `dot` instruction. The default     
-                          is "5" user unit.                                     
-
-*   [tickcolor]         Set the color used for drawing ticks, i.e.,  "red".   
-                          It is used by the `tick`  instruction.                
-                          The default is empty, which MetaPost assume as black.
-
-*   [ticksize]           Configure the thickness of the line for ticks.        
-                          i.e, "2pt". The default is "1pt".                     
-                          It is used by the `tick` instruction.                 
-
-
-*   [tickprotrude]       Configure how far away the end point is from the      
-                          axis line. The default is 0.33 grid unit.             
-                          The maximum is "1.0", the minimum is "0.1".           
+* tickprotrude        Configure how far away the end point is from the      
+                      axis line. The default is 0.33 grid unit.             
+                      The maximum is "1.0", the minimum is "0.1".           
 
 
 

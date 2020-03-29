@@ -1,5 +1,14 @@
 Test equation
 
+# math
+
+``` math  
+x = \operatorname{min}_{a,b,c}
+  \frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{i=1}^{l}\xi_{i}
+
+y =  y_{i}\left(\mathbf{w}^{T}\phi(x_{i})+b\right)
+```
+
 # aligns and aligns*
 
 ``` aligns

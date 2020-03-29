@@ -9,9 +9,7 @@ utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewHtml();
           const [main, config] = parser.toFlow(out.split('\n'), 0, fname);
-          const all = parser.idenBlocks(main,config);
-          console.log(all);
-          console.log(config);
+          parser.idenBlocks(main,config);
           parser.translateHtml(main,config);
           var htmls = main.map(x=>x.html);
           console.log(htmls.join('\n'));

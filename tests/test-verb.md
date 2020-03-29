@@ -1,5 +1,10 @@
-Test verb
+% !TEX nitrile VERB numbers = ''
+test-verb.md
 
 ```
-Hello world
+printf('helloworld\n');
+printf('helloworld\n');
+printf('helloworld\n');
+printf('helloworld\n');
+printf('helloworld\n');
 ```

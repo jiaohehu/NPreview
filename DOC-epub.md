@@ -1,6 +1,6 @@
-EPUB Generation
+# EPUB Generation
 
-# EPUB splitting chapters
+## EPUB splitting chapters
 
 One of the difficult part of generating EPUB document is to
 find a way to split a long document into multiple XHTML files.
@@ -67,3 +67,21 @@ to chapters, we will simply skip to the entry where it says 'CHAPTER', and
 the write down the line number, and then move to the next 'CHAPTER', and
 write down its line number. The range of the first chapter will be the first
 line number to the second line number minus one.
+
+## Known problems
+
+  - The iBook does not render EPUB well when it is styled with
+    position:absolute.
+    Thus, for equation numbering and line numbering for listing blocks,
+    it has been deliberately changed to not relying on this kind
+    of technique to typeset line number. Instead the <table> is used
+    and the leftmost table cell is used for inserting the numbering text.
+    For listing and/or verb block, the <ol> is to be used
+    so that it automatically number each line using the default 
+    way of nubmering by the <ol> list.
+
+
+
+
+
+

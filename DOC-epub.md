@@ -76,9 +76,8 @@ line number to the second line number minus one.
     it has been deliberately changed to not relying on this kind
     of technique to typeset line number. Instead the <table> is used
     and the leftmost table cell is used for inserting the numbering text.
-    For listing and/or verb block, the <ol> is to be used
-    so that it automatically number each line using the default 
-    way of nubmering by the <ol> list.
+    For listing and/or verb block, the <table> is to be used
+    in the similar style.
 
 
 

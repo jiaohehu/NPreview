@@ -2,7 +2,7 @@ Test math
 
 Equation::
 
-```mathalign
+```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 
@@ -10,7 +10,7 @@ y = \sqrt{2}
 
 Equations::
 
-```mathalign
+```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 
@@ -18,7 +18,7 @@ y = \sqrt{2}
 
 Subequations::
 
-```mathalign
+```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 

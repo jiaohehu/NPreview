@@ -10,7 +10,7 @@ utils.readFileAsync(fname).then(
           const parser = new NitrilePreviewLatex();
           const [main, config] = parser.toFlow(out.split('\n'), 0, fname);
           parser.idenBlocks(main,config);
-          parser.translateLatex(main,config);
-          var texlines = o.map(x=>x.latex);
+          parser.translateBlocks(main,config);
+          var texlines = main.map(x=>x.latex);
           console.log(texlines.join('\n'));
      });

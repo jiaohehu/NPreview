@@ -17,7 +17,6 @@ utils.readFileAsync(fname).then(
           let title = config.ALL.title ? config.ALL.title : 'Untitled';
           let author = config.ALL.author ? config.ALL.author : '';
           var epub = new NitrilePreviewEpub();
-          var imagemap = new Map();///empty imagemap
           var dirname = path.dirname(fname);
           var stylesheet = parser.stylesheet;
           epub.generateAsync(all,config,stylesheet,dirname).then( x => {

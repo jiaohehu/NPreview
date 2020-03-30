@@ -1,4 +1,4 @@
-% !TEX nitrile VERB wraplines = 50
+% !TEX nitrile VERB fs = normalsize
 Test Listing
 
 Hello!

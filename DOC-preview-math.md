@@ -359,3 +359,6 @@ Following commands are supported that are provided by the 'commath' package.
     letter i it is left justified. It needs to be center justified.
 
   - Need to shrink the preview math SVG if the font size is set to small.
+
+  - For (-a,0) the minus sign should be placed immediate in front of a but
+    right now there seems to be a gap between the minus sign and a

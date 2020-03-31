@@ -18,5 +18,7 @@ cartesian.a curve  0.2 4.11 \
                    5   0.81   
 cartesian.a plot   3   1
 cartesian.a ellipse   0  0  30 2 1
+set linedashed withdots 
+cartesian.a line 1 4 2 4 3 3 4 3
 
 ```

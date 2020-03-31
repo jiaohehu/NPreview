@@ -8,8 +8,8 @@ set refy 5
 cartesian.a setup 7 0 2 2
 cartesian.a xaxis -6 6 
 cartesian.a yaxis -5 5 
-cartesian.a xticks 1 2 3 4 5 
-cartesian.a yticks 1 2 3 4 
+cartesian.a xtick 1 2 3 4 5 
+cartesian.a ytick 1 2 3 4 
 cartesian.a curve  0.2 4.11 \
                    0.5 2.67 \
                    0.8 2.05 \

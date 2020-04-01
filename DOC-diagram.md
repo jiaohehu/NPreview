@@ -1126,3 +1126,13 @@ that can used for <line> element. The available values are:
     sequence for which, it will consume a brace which will likely cause
     an unmatched brace compile error in LATEX engine. For this reason,
     all texts translated as a comment line are also "escaped".
+
+  - The "dashed withdots" option for "drawline" will not show any visible
+    dotted lines in the PDF file when linecap:=butt. The linecap:=rounded will
+    has to be set in order to produce dotted-lines. Thus, currently the 
+    "set linedashed withdots" option is considered broken for MP generation.
+    Do not use it for now. Use "set linedashed evenly" instead.
+
+
+
+

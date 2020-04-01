@@ -25,6 +25,6 @@ cartesian.a line 1 4 2 4 3 3 4 3
 set label a\\b\\c
 set justi top\\top\\top
 cartesian.a text 1 4 2 4 3 3 4 3
-cartesian.a line 1 rad(45)
+cartesian.a arc 0 0 1 0 45
 
 ```

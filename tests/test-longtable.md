@@ -61,11 +61,6 @@ Test longtable
   messaging or chat apps.
 
 
-This is another long table without the header.
-
-1) 
-2) 
-
 1) Node.js will be an ideal option for the real-time collaborative
   drawing/editing-type apps, where the user can see the document being
   modify live by another user like Dropbox or Google Docs.
@@ -78,12 +73,6 @@ This is another long table without the header.
   scalable is needed.
 2) Angular is useful in creating real time applications like instant
   messaging or chat apps.
-
-This is another long table without the header but the 
-proprotion.
-
-1) (1fr)
-2) (2fr)
 
 1) Node.js will be an ideal option for the real-time collaborative
   drawing/editing-type apps, where the user can see the document being

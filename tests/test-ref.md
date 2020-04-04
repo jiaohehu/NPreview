@@ -1,10 +1,9 @@
 Test ref
 
 
-# The info patchlevel command (#the-info-patchlevel-command)
+# The info patchlevel command (#mycommand)
 
-Please refer to
-[[#the-info-patchlevel-command]] for details of the ` info
+Please refer to section [[#mycommand]] for details of the ` info
 patchlevel ` command.
 
 

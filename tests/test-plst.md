@@ -13,9 +13,8 @@ test-plst.md
   - Apple
   - Pear
   - Banana
-    -) James
-    -) James
-    -) James
-       -)) 
+    - James
+    - James
+    - James
 
 

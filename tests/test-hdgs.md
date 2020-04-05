@@ -1,3 +1,4 @@
+% !TEX nitrile ALL haschapter = 1
 Test hdgs
 
 Hello world

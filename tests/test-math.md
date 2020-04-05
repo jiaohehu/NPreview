@@ -8,11 +8,25 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 y = \sqrt{2} 
 ```
 
+```alignedmath
+x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+y = \sqrt{2} 
+```
+
 # Equation
 
 Equation::
 
 ```math
+x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+y = \sqrt{2} 
+```
+
+Equation::
+
+```alignedmath
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 
@@ -28,12 +42,11 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 y = \sqrt{2} 
 ```
 
-# Subequations
+Equations::
 
-Subequations::
-
-```math
+```alignedmath
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 
 ```
+

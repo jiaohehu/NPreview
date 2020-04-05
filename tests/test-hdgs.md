@@ -19,6 +19,14 @@ Some text
 
 Some text
 
+### Third heading
+
+Some text
+
+### Third heading
+
+Some text
+
 #### Forth heading
 
 Some text
@@ -34,3 +42,28 @@ Some text
 ####### Seventh heading
 
 Some text
+
+### Third heading
+
+Some text
+
+### Third heading
+
+Some text
+
+#### Forth heading
+
+Some text
+
+##### Fifth heading
+
+Some text
+
+###### Sixth heading
+
+Some text
+
+####### Seventh heading
+
+Some text
+

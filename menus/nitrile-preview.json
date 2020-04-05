@@ -53,6 +53,10 @@
         "command": "nitrile-preview:to-xhtml"
       },
       {
+        "label": "Export to CONTEX As\u2026",
+        "command": "nitrile-preview:to-contex"
+      },
+      {
         "label": "Export to LATEX As\u2026",
         "command": "nitrile-preview:to-latex"
       },

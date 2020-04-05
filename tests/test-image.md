@@ -2,6 +2,47 @@ Test image
 
 Please see the following figure ([[#james]])
 
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+The combination of \bTABLEhead and \eTABLEhead commands is to designate a row
+that is treated as the table head, and will be repeated on each page the table is
+to appear. If an alternative table head is to be used for the second portion
+and beyond, then \bTABLEnext and \eTABLEnext command combination is to be used.
+Otherwise, the same table head is to be repeated.
+
+
+
+
+
+
 figure:: GIMP images
 (#james)
 

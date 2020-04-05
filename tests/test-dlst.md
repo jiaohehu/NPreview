@@ -16,10 +16,10 @@ A normal paragraph.
 * Banana  Another wonderful fruit
 * Banana  Another wonderful fruit
 
-    An sample paragraph.
-    An sample paragraph.
-    An sample paragraph.
-    An sample paragraph.
+  An sample paragraph.
+  An sample paragraph.
+  An sample paragraph.
+  An sample paragraph.
 
 A normal paragraph.
 
@@ -32,37 +32,13 @@ A normal paragraph.
 + Grapes 
   Good choice
 
-    This is the next paragraph.
-    This is the next paragraph.
+  This is the next paragraph.
+  This is the next paragraph.
 
-    ~~~
-    This is the next paragraph.
-    This is the next paragraph.
-    ~~~
+    This is code block          
+    This is code block          
 
-    This is the next paragraph.
-    This is the next paragraph.
+  This is the next paragraph.
+  This is the next paragraph.
 
-    - This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-    - This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-      This is an item
-    - This is an item
-
-    This is the next paragraph.
-    This is the next paragraph.
 

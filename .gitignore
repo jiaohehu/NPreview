@@ -26,3 +26,5 @@ node_modules
 lib/test.md
 test.md
 *.epub
+*.pgf
+*.tuc

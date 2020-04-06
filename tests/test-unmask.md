@@ -13,6 +13,8 @@ This is code: `code`
 
 This is entity: [[&amp]]
 
+This is entity: [[&#x4f60]]
+
 This is ref: [[#james]]
 
 This is ruby: [[簡単・かんたん]]

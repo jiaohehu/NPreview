@@ -3,13 +3,19 @@ test-unmask.md
 
 This is math: ``\sqrt{2}``
 
-This is strong: __strong__
+This is strong: ~~{strong}~~
 
-This is em: _em_
+This is em: ~{em}~
 
 This is URL: [Yahoo](www.yahoo.com)
 
 This is code: `code`
+
+This is entity: [[&amp]]
+
+This is ref: [[#james]]
+
+This is ruby: [[簡単・かんたん]]
 
 Following is a single math formular
 

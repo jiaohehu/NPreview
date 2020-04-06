@@ -4,7 +4,7 @@ Nitrile comes with a limited set of Japanese Kanji Character vocabulary
 and its phonetic pronunciation in Hiragana. It will allow for auto rubifying
 of Kanji characters in the SAMP block only. Since this process is expensive,
 it needs to be enabled. To enable it, set the 'rubify' config flag to
-'true'.
+'true'. The command is known as ~~{complimentary angles}~~.  
 
     % !TEX nitrile latexAutoRubyEnabled = true
 

@@ -166,5 +166,15 @@ Letter|Symbol
 
  ``\begin{Vmatrix} a & b \\ c & d \end{Vmatrix}``
 
+ ``\begin{pmatrix} a^2 & b^3 \\ \cos c & \sin d \end{pmatrix}``
 
+ ``\dif{x}``
+
+ ``\od{x^2}{x}``
+
+ ``\pd{x^2}{x}``
+
+ ``\od[2]{x^2}{x}``
+
+ ``\pd[2]{x^2}{x}``
 

@@ -1,8 +1,8 @@
 test-item.md
 
-(+) Apple   
-(+) Apple   
-(+) Apple   
++ Apple   
++ Apple   
++ Apple   
   A wonderful fruit
 
   An sample paragraph.

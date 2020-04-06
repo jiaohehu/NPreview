@@ -1,20 +1,20 @@
 Test DLST
 
-(+) Apple   
-(+) Apple   
-(+) Apple   
++ Apple   
++ Apple   
++ Apple   
   A wonderful fruit
 
-(*) Pear    A wonderful fruit
-(*) Pear    A wonderful fruit
-(*) Pear    A wonderful fruit
+* Pear    A wonderful fruit
+* Pear    A wonderful fruit
+* Pear    A wonderful fruit
 
-(+) Banana 
-(+) Strawberry 
++ Banana 
++ Strawberry 
   Another 
   wonderful fruit is here.
-(+) Melon 
++ Melon 
   Another good choice
-(+) Grapes 
++ Grapes 
   Good choice
 

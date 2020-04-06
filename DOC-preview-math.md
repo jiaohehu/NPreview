@@ -362,3 +362,14 @@ Following commands are supported that are provided by the 'commath' package.
 
   - For (-a,0) the minus sign should be placed immediate in front of a but
     right now there seems to be a gap between the minus sign and a
+
+## LATEX math commands not supported on CONTEX
+
+  - operatorname{a} 
+    This is simulated as: {\:\mathrm{a}\:}
+
+  - ddddot{a} 
+    This is currently not supported on CONTEX
+
+
+

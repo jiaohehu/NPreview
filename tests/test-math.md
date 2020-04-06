@@ -68,4 +68,67 @@ Letter|Symbol
  P    |``\Rho``
  T    |``\Tau``
  X    |``\Chi``
+ X    |``\sqrt{2}``
+
+# Comands
+
+ ``\sqrt{2}``
+
+ ``\sqrt[3]{2}``
+
+ ``\binom{a}{b}``
+
+ ``\frac{a}{b}``
+
+ ``\text{abc}``
+
+ ``\operatorname{abc}``
+
+ ``\dot{a}``
+
+ ``\ddot{a}``
+
+ ``\dddot{a}``
+
+ ``\bar{a}``
+
+ ``\vec{a}``
+
+ ``\mathring{a}``
+
+ ``\hat{a}``
+
+ ``\check{a}``
+
+ ``\grave{a}``
+
+ ``\acute{a}``
+
+ ``\breve{a}``
+
+ ``\tilde{a}``
+
+ ``\widehat{abcdef}``
+
+ ``\overline{abcdef}``
+
+ ``\overleftrightarrow{abcdef}``
+
+ ``\overrightarrow{abcdef}``
+
+ ``a^2``
+
+ ``a_i``
+
+ ``a_i^2``
+
+ ``{a + b}``
+
+ ``{a + b}^2``
+
+ ``{a + b}_i``
+
+ ``a^{1+2}``
+
+ ``a_{1+2}``
 

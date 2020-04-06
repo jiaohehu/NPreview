@@ -3,9 +3,11 @@ test-unmask.md
 
 This is math: ``\sqrt{2}``
 
-This is strong: ~~{strong}~~
+This is strong: ~~{strike-through-text}~~
 
-This is em: ~{em}~
+This is strong: **{strong-text}**
+
+This is em: *{emph-text}*
 
 This is URL: [Yahoo](www.yahoo.com)
 

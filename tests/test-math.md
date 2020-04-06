@@ -142,4 +142,16 @@ Letter|Symbol
 
  ``\left\lVert a \right\rVert``
 
+ ``\begin{matrix} a \end{matrix}``
+
+ ``\begin{pmatrix} a \end{pmatrix}``
+
+ ``\begin{bmatrix} a \end{bmatrix}``
+
+ ``\begin{Bmatrix} a \end{Bmatrix}``
+
+ ``\begin{vmatrix} a \end{vmatrix}``
+
+ ``\begin{Vmatrix} a \end{Vmatrix}``
+
 

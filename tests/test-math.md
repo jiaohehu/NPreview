@@ -132,3 +132,14 @@ Letter|Symbol
 
  ``a_{1+2}``
 
+ ``\left\{ a \right\}``
+
+ ``\left[ a \right]``
+
+ ``\left( a \right)``
+
+ ``\left\lvert a \right\rvert``
+
+ ``\left\lVert a \right\rVert``
+
+

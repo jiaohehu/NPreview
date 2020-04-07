@@ -1,4 +1,3 @@
-% !TEX nitrile VERB numbers = left
 test-verb.md
 
 ```

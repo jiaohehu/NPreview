@@ -8,9 +8,10 @@ console.log(fname);
 utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewContex();
-          const [main, config] = parser.toFlow(out.split('\n'),fname);
-          parser.idenBlocks(main,config);
-          parser.translateBlocks(main,config);
+          parser.readFromFile(fname);
+          parser.idenBlocks();
+          parser.translateBlocks();
+          var main = parser.blocks;
           var texlines = main.map(x=>x.latex);
           console.log(texlines.join('\n'));
      });

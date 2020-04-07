@@ -1,21 +1,9 @@
-% !TEX nitrile VERB fs = normalsize
 Test Listing
 
-Hello!
-
-Listing:: Hello world!
-(#mylisting)
-
-```
-printf('\n');
-printf('\n');
-printf('\n');
-printf('\n');
-```
-
-Please see Listing [[#mylisting]] for more information.
+Please see listing ([[#mylisting]]) for more information.
 
 Listing:: PNG.TCL
+(#mylisting)
 
 ```
 ### "PNG.tcl"

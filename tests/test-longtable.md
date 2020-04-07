@@ -7,11 +7,11 @@ Test longtable
 (=) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language.
 (=) AnglarJS is an open source web application development framework
-  developed by Google.
+  developed by Google (谷歌)
 
 (=) You need to install Node.js on the computer system.
 (=) You just need to add AngularJS file just like any other JavaScript
-  file to use it in applications.
+  file to use it in applications. (簡単)
 
 (=) It is written in C, C++ and JavaScript languages. Node.js supports
   non-blocking input/output API and an event-driven architecture.

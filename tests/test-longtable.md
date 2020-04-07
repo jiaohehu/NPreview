@@ -1,5 +1,6 @@
 Test longtable
 
+This is the normal text. 谷歌 簡単 ``\sqrt{2}``
 
 (=) Node.JS
 (=) AngularJS
@@ -7,7 +8,7 @@ Test longtable
 (=) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language.
 (=) AnglarJS is an open source web application development framework
-  developed by Google (谷歌)
+  developed by Google (谷歌) ``\sqrt{2}``
 
 (=) You need to install Node.js on the computer system.
 (=) You just need to add AngularJS file just like any other JavaScript

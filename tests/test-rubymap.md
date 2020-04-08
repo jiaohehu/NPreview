@@ -1,7 +1,7 @@
 test-rubymap.md
 
-|大本(たいほん)
-|一切(いっさい)
+|大本(おおもと)the root
+|一切(いっさい)all; everything
     
     大本 
     一切

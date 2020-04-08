@@ -1,10 +1,7 @@
-% !TEX nitrile SAMP autoruby = 1
-Test rubyitesm
+test-rubymap.md
 
-```rubymap
-大本 たいほん
-一切 いっさい
-```
+|大本(たいほん)
+|一切(いっさい)
     
     大本 
     一切

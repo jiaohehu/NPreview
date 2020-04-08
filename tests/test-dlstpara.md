@@ -18,3 +18,6 @@ Test DLST
 + Grapes 
   Good choice
 
+* {<h1>, <h2>, <h3>, <h4>, <h5>, <h6>} These elements represents headings.
+* <addr> This elements represents contact information.
+

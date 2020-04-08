@@ -8,7 +8,7 @@ console.log(fname);
 utils.readFileAsync(fname).then(
      out => {
           const parser = new NitrilePreviewContex();
-          parser.readFromFile(fname);
+          parser.readFromFileAsync(fname);
           parser.idenBlocks();
           parser.translateBlocks();
           var main = parser.blocks;

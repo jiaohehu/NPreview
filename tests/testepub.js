@@ -5,22 +5,24 @@ const path = require('path');
 
 console.log(process.argv);
 const fname = process.argv[2];
-console.log(fname);
+const dirname = path.dirname(fname);
+const parser = new NitrilePreviewHtml();
+const epub = new NitrilePreviewEpub();
 
-utils.readFileAsync(fname).then(
-     out => {
-          const parser = new NitrilePreviewHtml();
-          parser.isepub = 1;
-          const [main, config] = parser.toFlow(out.split('\n'), fname);
-          parser.idenBlocks(main,config);
-          parser.translateHtml(main,config);
-          let title = config.ALL.title ? config.ALL.title : 'Untitled';
-          let author = config.ALL.author ? config.ALL.author : '';
-          var epub = new NitrilePreviewEpub();
-          var dirname = path.dirname(fname);
-          var stylesheet = parser.stylesheet;
-          epub.generateAsync(all,config,stylesheet,dirname).then( x => {
-            console.log('finished');
-          }).catch( x => console.log(x) );
-          
-     });
+var work = async () => {
+     
+     console.log(fname);
+     var out = await utils.readFileAsync(fname);
+     var lines = out.split('\n');
+     parser.isepub = 1;
+     parser.fname = fname;
+     parser.readFromLines(lines);
+     parser.idenBlocks();
+     parser.translateBlocks();
+     var blocks = parser.blocks;
+     var htmls = blocks.map(x => x.html);
+     console.log(htmls.join('\n'));
+     await epub.generateAsync(parser,dirname);
+};
+
+work();

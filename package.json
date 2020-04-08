@@ -19,6 +19,8 @@
     "fontSizePt": {
       "type": "number",
       "default": 16,
+      "minimum": 6,
+      "maximum": 26,
       "description": "Set it to a numeric value that is interpreted as the point size for the base font of the entire preview HTML."
     },
     "autoScroll": {

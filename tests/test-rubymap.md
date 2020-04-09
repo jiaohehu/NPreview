@@ -2,6 +2,7 @@ test-rubymap.md
 
 % 大本/おおもと the root
 % 一切/いっさい all; everything
+% 避ける・さける [v1] to avoid
     
     大本 
     一切
@@ -14,6 +15,7 @@ test-rubymap.md
     一切種智
     一切智
     一切法
+    避けて
 
     
 

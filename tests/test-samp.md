@@ -9,7 +9,7 @@ are articulating a movement in a physical space.
   @ 東京まで、何で、行きますか。
     By what means of transportation will we get to Tokyo?
 
-  > 東京まで、何で、行きますか。
+  - 東京まで、何で、行きますか。
     By what means of transportation will we get to Tokyo?
 
 If an action does not involve a movement in physical space, then で would
@@ -21,7 +21,7 @@ imply the physical location of the action.
   @ 奥さんは、台所で、食器を、洗います。
     My wife washes dishes in the kitchen.
 
-  > 奥さんは、台所で、食器を、洗います。
+  - 奥さんは、台所で、食器を、洗います。
     My wife washes dishes in the kitchen.
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

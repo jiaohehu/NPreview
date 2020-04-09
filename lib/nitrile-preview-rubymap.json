@@ -497,9 +497,9 @@
     [ "来ませんでした","きませんでした" ]
   ],
   "vsuru": [
-    [ "節約する","せつやくする" ], 
-    [ "直行する","ちょっこうする" ], 
-    [ "包装する","ほうそうする" ], 
+    [ "節約する","せつやくする","to be thrifty in spending"], 
+    [ "直行する","ちょっこうする","to go straight to"], 
+    [ "包装する","ほうそうする","to gift wrap"], 
     [ "提供する","ていきょうする","to supply provision"], 
     [ "削減する","さくげんする","to make reduction; to curtail"], 
     [ "イライラする","","to get irritated"], 

@@ -2444,6 +2444,7 @@
     [ "関西","かんさい" ]
   ],
   "single": [
+    ["後","あと","back; backward; later; afterward;"],
     ["面","つら","a person's face"],
     ["時","とき","time; a time; an hour; a moment; an occasion; a case;"],
     ["人","ひと","people;"],
@@ -2529,7 +2530,7 @@
     [ "船","ふね" ],
     [ "音","おと" ],
     [ "茶","ちゃ" ],
-    [ "昼","ひる" ],
+    [ "昼","ひる","day; daytime; noon; midday;"],
     [ "味","あじ" ],
     [ "水","みず" ],
     [ "夜","よる" ],

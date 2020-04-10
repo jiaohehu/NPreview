@@ -499,6 +499,7 @@
     [ "来ませんでした","きませんでした" ]
   ],
   "vsuru": [
+    ["判断する","はんだんする","for a person to make a judgment/decision/conclusion/interpretation;"],
     [ "起因する","きいんする","of an event is to stem, be caused by, or arise from sth."],
     [ "節約する","せつやくする","to be thrifty in spending"], 
     [ "直行する","ちょっこうする","to go straight to"], 
@@ -905,6 +906,7 @@
     [ "傾く","かたむく","of a tower/building/boat to lean to one side; of a idea to lean towards one opinion; of the Sun/Moon to be set (go down); of one's fortune to decline"]
   ],
   "v5r": [
+    ["巡る","めぐる","for a person to go around a pound, travel around a country (を); for a season to come around (が);"],
     [ "因る","よる","of a success/failure to depend on; of a earthquake/accident to be caused by; of a conclusion/story to be based on; of an action to have had the recourse to"],
     [ "帰る","かえる","of a person to return to one's home or to go back to where it came from"], 
     [ "混じる","まじる","of a person to be mixed with others; of a oil/water to be mixed; of a white/black hair to have had both; of a person to have had a mixed ethnicity"], 
@@ -1006,6 +1008,11 @@
     [ "生まれ育つ","うまれそだつ","of a person to be born and raised"]
   ],
   "v5u": [
+    ["会う","あう","for a person to meet another person (に); for a person to encounter an incident, a traffic jam, a rain fall (に);"],
+    ["合う","あう","for clothes to be fitting for sb. (は); for an opinion/expression to be in agreeement with others (は); for an answer to be correct (は); for key/dress/idea to be in harmony with a subject (に);"],
+    [ "間に合う","まにあう","of a occation to be just in time for; of an object to be just the right tool for"],
+    [ "似合う","にあう","of a clothes to be fitting"],
+    [ "話し合う","はなしあう","of a person to have had a proper conversation regarding an important subject"],
     [ "担う","になう","of a person to accept/take a responsibility"], 
     [ "願う","ねがう","of a person to wish/desire"],
     [ "洗う","あらう","of a person to wash"],
@@ -1018,17 +1025,14 @@
     [ "歌う","うたう","of a person to sing"],
     [ "吸う","すう","of a person to inhale"],
     [ "思う","おもう","of a person to have an idea"],
-    [ "間に合う","まにあう","of a occation to be just in time for; of an object to be just the right tool for"],
     [ "笑う","わらう","of a person to laugh out loud"],
     [ "迷う","まよう","of a person to be unable to make a decision"],
     [ "雇う","やとう","of a person to hire sb."],
     [ "祝う","いわう","of a person to congratulate sb. else"],
-    [ "似合う","にあう","of a clothes to be fitting"],
     [ "通う","かよう","of a person to commute to and from a place"],
     [ "間違う","まちがう","of a person to make a mistake"],
     [ "手伝う","てつだう","of a person to offer help to sb. else"],
     [ "行なう","おこなう","of a person to carry out a business/performance, to conduct an experiment/investigation/task"],
-    [ "話し合う","はなしあう","of a person to have had a proper conversation regarding an important subject"],
     [ "払う","はらう","of a person to pay for an expense"],
     [ "遭う","あう","see 会う"],
     [ "向かう","むかう","of a person to face sb.; of a wind to blow at certain direction; of a trip to have a certain destination"],
@@ -1146,6 +1150,9 @@
     [ "面白い","おもしろい" ]
   ],
   "exp": [
+    ["印象","いんしょう","an impression"],
+    ["音節","おんせつ","a syllable"],
+    ["強勢","強勢","a stress/accent within a word/sentence;"],
     ["詩人","しじん","poet"],
     ["借金","しゃっきん","payment"],
     ["美人","びじん","beauty"],
@@ -2434,6 +2441,7 @@
     [ "関西","かんさい" ]
   ],
   "single": [
+    ["事","こと","a matter; a thing;"],
     ["底","そこ","bottom"],
     [ "暇","ひま" ],
     [ "約","やく" ],
@@ -2443,7 +2451,6 @@
     [ "歯","は" ],
     [ "市","し" ],
     [ "火","ひ" ],
-    [ "音","ね" ],
     [ "字","じ" ],
     [ "日","ひ" ],
     [ "絵","え" ],
@@ -2514,7 +2521,6 @@
     [ "親","おや" ],
     [ "塩","しお" ],
     [ "船","ふね" ],
-    [ "音","おと" ],
     [ "音","おと" ],
     [ "茶","ちゃ" ],
     [ "昼","ひる" ],
@@ -2652,6 +2658,7 @@
     [ "血","ち" ],
     [ "涙","なみだ" ],
     [ "損","そん" ],
+    ["意","い","one's volition"],
     [ "天","てん" ]
   ]
 }

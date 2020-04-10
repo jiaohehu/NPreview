@@ -331,7 +331,7 @@
     [ "一度","いちど" ],
     [ "以前","いぜん" ],
     [ "今後","こんご" ],
-    [ "何度","なんど" ],
+    [ "何度","なんど","of frequency several times;"],
     [ "昨年","さくねん" ],
     [ "何台","なんだい" ],
     [ "１時","いちじ" ],
@@ -499,6 +499,7 @@
     [ "来ませんでした","きませんでした" ]
   ],
   "vsuru": [
+    ["気がする","きがする","I think so!"],
     ["判断する","はんだんする","for a person to make a judgment/decision/conclusion/interpretation;"],
     [ "起因する","きいんする","of an event is to stem, be caused by, or arise from sth."],
     [ "節約する","せつやくする","to be thrifty in spending"], 
@@ -1150,6 +1151,7 @@
     [ "面白い","おもしろい" ]
   ],
   "exp": [
+    ["更に","さらに","once again"],
     ["印象","いんしょう","an impression"],
     ["音節","おんせつ","a syllable"],
     ["強勢","強勢","a stress/accent within a word/sentence;"],
@@ -1248,7 +1250,6 @@
     [ "一生懸命","いっしょうけんめい" ],
     [ "優秀","ゆうしゅう" ],
     [ "多々","たた" ], 
-    [ "更に","さらに" ], 
     [ "専ら","もっぱら" ], 
     [ "半ば","なかば" ],
     [ "全然","ぜんぜん" ],
@@ -1838,7 +1839,7 @@
     [ "学費","がくひ" ], 
     [ "貧乏","びんぼう" ],
     [ "傾向","けいこう" ], 
-    [ "必死","ひっし" ], 
+    [ "必死","ひっし","desperate; frantic;"], 
     [ "都内","とない" ], 
     [ "受験","じゅけん" ], 
     [ "義務","ぎむ" ], 
@@ -2384,6 +2385,8 @@
     [ "教育","きょういく" ],
     [ "生徒","せいと" ],
     ["不況","ふきょう","recession"],
+    ["その為","そのため","hence; for that reason;"],
+    ["紙袋","かみぶくろ","a paper bag;"],
     [ "乱れ","みだれ","(of one's mind) confusion; (of a situation) disorder" ]
   ],
   "name": [
@@ -2441,6 +2444,9 @@
     [ "関西","かんさい" ]
   ],
   "single": [
+    ["面","つら","a person's face"],
+    ["時","とき","time; a time; an hour; a moment; an occasion; a case;"],
+    ["人","ひと","people;"],
     ["事","こと","a matter; a thing;"],
     ["底","そこ","bottom"],
     [ "暇","ひま" ],

@@ -499,6 +499,7 @@
     [ "来ませんでした","きませんでした" ]
   ],
   "vsuru": [
+    ["応援する","おうえんする","to come to the rescue;"],
     ["気がする","きがする","I think so!"],
     ["判断する","はんだんする","for a person to make a judgment/decision/conclusion/interpretation;"],
     [ "起因する","きいんする","of an event is to stem, be caused by, or arise from sth."],
@@ -768,6 +769,7 @@
     [ "掲げる","かかげる","to put up (a flag, slogen, notice on wall, article on a front page)"]
   ],
   "v5m": [
+    ["突き進む","つきすすむ","to push on;"],
     [ "包む", "つつむ","to wrap"],
     [ "読む", "よむ","to read"],
     [ "飲む", "のむ","to drink"],
@@ -790,6 +792,7 @@
     [ "済む", "すむ", "to be finished"]
   ],
   "v5b": [
+    ["吹っ飛ぶ","ふっとぶ","to dispel"],
     [ "遊ぶ", "あそぶ", "to play; to have a good time with self"],
     [ "呼ぶ", "よぶ", "to callout"],
     [ "叫ぶ", "さけぶ", "to shout"],
@@ -1009,6 +1012,7 @@
     [ "生まれ育つ","うまれそだつ","of a person to be born and raised"]
   ],
   "v5u": [
+    ["狂う","くるう","to become mad; to become insane;"],
     ["会う","あう","for a person to meet another person (に); for a person to encounter an incident, a traffic jam, a rain fall (に);"],
     ["合う","あう","for clothes to be fitting for sb. (は); for an opinion/expression to be in agreeement with others (は); for an answer to be correct (は); for key/dress/idea to be in harmony with a subject (に);"],
     [ "間に合う","まにあう","of a occation to be just in time for; of an object to be just the right tool for"],
@@ -1151,6 +1155,12 @@
     [ "面白い","おもしろい" ]
   ],
   "exp": [
+    ["絶品","ぜっぴん","superb piece of work; masterpiece; exquisite item; perfection;"],
+    ["偉そう","えらそう","self-importance;"],
+    ["肝心","かんじん","essential; important; crucial; vital; main;"],
+    ["足りない","たりない","not enough"],
+    ["悶々","もんもん","anguished; distressed; worried; discontented;"],
+    ["終電","しゅうでん","the last train"],
     ["更に","さらに","once again"],
     ["印象","いんしょう","an impression"],
     ["音節","おんせつ","a syllable"],

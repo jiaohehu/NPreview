@@ -1,6 +1,6 @@
 test-samp2.md
 
-%#builtin
+%#rubymap
 
   @ ９月
     手伝い

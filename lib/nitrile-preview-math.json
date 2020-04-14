@@ -154,7 +154,7 @@
     { "kbd": "\\propto"        ,    "unicode": "&#x221D;"       ,  "id": "my221D",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\parallel"      ,    "unicode": "&#x2225;"       ,  "id": "my2225",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\perp"          ,    "unicode": "&#x22A5;"       ,  "id": "my22A5",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
-    { "kbd": "\\mid"           ,    "unicode": "&#x2223;"       ,  "id": "my2223",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
+    { "kbd": "\\mid"           ,    "unicode": "&#x23D0;"       ,  "id": "my23D0",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\nmid"          ,    "unicode": "&#x2224;"       ,  "id": "my2224",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\to"            ,    "unicode": "&#x2192;"       ,  "id": "my2192",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 12    },
     { "kbd": "\\Leftarrow"     ,    "unicode": "&#x21D0;"       ,  "id": "my21D0",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },

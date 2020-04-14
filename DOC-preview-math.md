@@ -378,5 +378,8 @@ Following commands are supported that are provided by the 'commath' package.
 - ddddot{a} 
   This is currently not supported on CONTEX
 
+- \not\equiv 
+  This is not rendered correct on CONTEX
+
 
 

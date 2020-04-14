@@ -381,5 +381,11 @@ Following commands are supported that are provided by the 'commath' package.
 - \not\equiv 
   This is not rendered correct on CONTEX
 
+## LATEX math problems
+
+- For unicode characters such as ℤ (U+2124), it cannot be shown
+  on LATEX yet because there is no suitable font found to show
+  this glyph.
+
 
 

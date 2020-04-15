@@ -181,3 +181,5 @@ Letter|Symbol
  ``\{ a \}``
 
  ``[ a ]``
+
+ ``a \not\equiv b``

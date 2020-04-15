@@ -204,6 +204,11 @@
     { "kbd": "\\inttop"        ,    "unicode": "&#x2320;"       ,  "id": "myINTTOP",      "dx":"0",      "dy":"0.00em",  "op": 3    ,  "width": 6    },
     { "kbd": "\\intbot"        ,    "unicode": "&#x2321;"       ,  "id": "myINTBOT",      "dx":"0",      "dy":"0.00em",  "op": 3    ,  "width": 6    },
 
+    { "kbd": "\\{"             ,    "unicode": "&#x007B;"       ,  "id": "myLB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
+    { "kbd": "\\}"             ,    "unicode": "&#x007D;"       ,  "id": "myRB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
+    { "kbd": "["               ,    "unicode": "&#x005B;"       ,  "id": "myLBR",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
+    { "kbd": "]"               ,    "unicode": "&#x005D;"       ,  "id": "myRBR",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
+
     { "kbd": "\\lbrace"        ,    "unicode": "&#x007B;"       ,  "id": "myLB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\rbrace"        ,    "unicode": "&#x007D;"       ,  "id": "myRB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\lbrack"        ,    "unicode": "&#x005B;"       ,  "id": "myLBR",         "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },

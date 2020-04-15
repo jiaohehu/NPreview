@@ -6,7 +6,7 @@ Figure: This is a great figure.
 (#myfigure)
 
 ```imgs
-image (tree.png)
+(tree.png)
 ```
 
 See figure [[#myfigure#]].

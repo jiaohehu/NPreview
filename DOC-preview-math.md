@@ -370,6 +370,11 @@ Following commands are supported that are provided by the 'commath' package.
 - For (-a,0) the minus sign should be placed immediate in front of a but
   right now there seems to be a gap between the minus sign and a
 
+- If a unicode math symbol is entered, such as U+2262 NOT IDENTICAL TO, 
+  then MATH PREVIEW will display it. However, it will display it without
+  treating it as an operator. It is treating it as a text. Thus, this
+  symbol gets no extra spacing before and after it.
+
 ## LATEX math commands not supported on CONTEX
 
 - operatorname{a} 

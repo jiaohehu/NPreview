@@ -150,7 +150,7 @@
     { "kbd": "\\sim"           ,    "unicode": "&#x223C;"       ,  "id": "my223C",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\simeq"         ,    "unicode": "&#x2245;"       ,  "id": "my2245",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\equiv"         ,    "unicode": "&#x2261;"       ,  "id": "my2261",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
-    { "kbd": "\\not\\equiv"    ,    "unicode": "&#x2262;"       ,  "id": "my2262",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
+    { "kbd": "\\nequiv"        ,    "unicode": "&#x2262;"       ,  "id": "my2262",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\propto"        ,    "unicode": "&#x221D;"       ,  "id": "my221D",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\parallel"      ,    "unicode": "&#x2225;"       ,  "id": "my2225",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\perp"          ,    "unicode": "&#x22A5;"       ,  "id": "my22A5",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },

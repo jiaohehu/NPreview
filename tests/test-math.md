@@ -182,4 +182,4 @@ Letter|Symbol
 
  ``[ a ]``
 
- ``a \not\equiv b``
+ ``a \nequiv b``

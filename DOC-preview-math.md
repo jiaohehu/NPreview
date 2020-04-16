@@ -379,7 +379,10 @@ Following commands are supported that are provided by the 'commath' package.
   This is currently not supported on CONTEX
 
 - \not\equiv 
-  This is not rendered correct on CONTEX
+  This is not rendered correct on CONTEX; it is rendered
+  as a \not followed by \equiv. The solution to get the
+  "not congruent" symbol to work on CONTEX is to simply
+  enter the Unicode U+2262 symbol (≢)
 
 ## LATEX math problems
 

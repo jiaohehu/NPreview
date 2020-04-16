@@ -4,6 +4,10 @@ test-math.md
 
 ```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+```
+
+```math
+x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 y = \sqrt{2} 
 ```

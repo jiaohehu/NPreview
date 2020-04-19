@@ -2,7 +2,7 @@ Test longtable
 
 This is the normal text. 谷歌 簡単 ``\sqrt{2}``
 
-(&) Node.JS (4fr)
+(&) Node.JS (3fr)
 (&) AngularJS (5fr)
 
 (&) Node.js is a cross-platform run-time environment for applications

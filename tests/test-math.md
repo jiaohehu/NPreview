@@ -56,23 +56,24 @@ y = \sqrt{2}
 
 # Greek Symbols
 
-Letter|Symbol
-------|-----------
- o    |``\omicron``
- A    |``\Alpha``
- B    |``\Beta``
- E    |``\Epsilon``
- Z    |``\Zeta``
- H    |``\Eta``
- I    |``\Iota``
- K    |``\Kappa``
- M    |``\Mu``
- N    |``\Nu``
- O    |``\Omicron``
- P    |``\Rho``
- T    |``\Tau``
- X    |``\Chi``
- X    |``\sqrt{2}``
+& Letter|Symbol
+  ------|-----------
+   o    |``\omicron``
+   A    |``\Alpha``
+   B    |``\Beta``
+   E    |``\Epsilon``
+   Z    |``\Zeta``
+   H    |``\Eta``
+   I    |``\Iota``
+   K    |``\Kappa``
+   M    |``\Mu``
+   N    |``\Nu``
+   O    |``\Omicron``
+   P    |``\Rho``
+   T    |``\Tau``
+   X    |``\Chi``
+
+
 
 # Comands
 

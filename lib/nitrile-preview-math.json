@@ -264,6 +264,7 @@
     { "kbd": "\\sin"           ,    "unicode": "sin"            ,  "id": "mySIN",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 14   },
     { "kbd": "\\tanh"          ,    "unicode": "tanh"           ,  "id": "myTANH",        "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 18   },
 
+    { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\leftarrow"     ,    "unicode": "&#x2190;"       ,  "id": "myx2190",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\uparrow"       ,    "unicode": "&#x2191;"       ,  "id": "myx2191",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\rightarrow"    ,    "unicode": "&#x2192;"       ,  "id": "myx2192",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },

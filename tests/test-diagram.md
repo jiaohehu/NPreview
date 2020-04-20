@@ -131,6 +131,9 @@ rrect (26,11)
 % protractor
 protractor (10,15)
 
+% updnprotractor
+updnprotractor (10,15)
+
 % radical
 radical (1,17)
 ```

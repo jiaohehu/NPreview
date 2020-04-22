@@ -1,4 +1,3 @@
-% !TEX nitrile.haschapter = 1
 test-math.md
 
 

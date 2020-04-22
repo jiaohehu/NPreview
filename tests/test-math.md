@@ -38,36 +38,6 @@ $ y + 7 &= \sqrt{2}
 
 
 
-# Equations
-
-Equations::
-
-```math
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
-
-Equations::
-
-```alignedmath
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
-
-# Subequations
-
-Subequations::
-
-```alignedmath
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
 
 # Greek Symbols
 

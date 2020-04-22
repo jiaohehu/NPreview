@@ -1,3 +1,4 @@
+% !TEX nitrile.haschapter = 1
 test-math.md
 
 # Plain math
@@ -8,13 +9,15 @@ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 ```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
+```
+```
 y = \sqrt{2} 
 ```
 
 ```alignedmath
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
+```
+```
 y = \sqrt{2} 
 ```
 
@@ -24,7 +27,8 @@ Equation::
 
 ```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
+```
+```
 y = \sqrt{2} 
 ```
 
@@ -32,7 +36,8 @@ Equation::
 
 ```alignedmath
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
+```
+```
 y = \sqrt{2} 
 ```
 
@@ -42,7 +47,8 @@ Equations::
 
 ```math
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
+```
+```
 y = \sqrt{2} 
 ```
 
@@ -50,7 +56,19 @@ Equations::
 
 ```alignedmath
 x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+```
+```
+y = \sqrt{2} 
+```
 
+# Subequations
+
+Subequations::
+
+```alignedmath
+x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+```
+```
 y = \sqrt{2} 
 ```
 

@@ -1,25 +1,24 @@
 % !TEX nitrile.haschapter = 1
 test-math.md
 
+
+
 # Plain math
 
-```math
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
 
-```math
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
+$ x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
-```alignedmath
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
+$ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y = \sqrt{2} 
+
+Another:
+
+$ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y = \sqrt{2} 
+
+
 
 # Equation
 

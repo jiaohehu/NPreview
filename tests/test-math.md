@@ -8,9 +8,9 @@ test-math.md
 
 $ x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
-$ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ x + 7 &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
-$ y = \sqrt{2} 
+$ y + 7 + 8 &= \sqrt{2} 
 
 Another:
 
@@ -20,25 +20,24 @@ $ y = \sqrt{2}
 
 
 
-# Equation
+# Equation (unaligned)
 
 Equation::
 
-```math
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
+$ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y = \sqrt{2} 
+
+
+# Equation (aligned)
 
 Equation::
 
-```alignedmath
-x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-```
-```
-y = \sqrt{2} 
-```
+$ x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y + 7 &= \sqrt{2} 
+
+
 
 # Equations
 

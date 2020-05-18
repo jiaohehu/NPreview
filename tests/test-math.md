@@ -4,6 +4,7 @@ test-math.md
 
 # Plain math
 
+Aligned:
 
 $ x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
@@ -11,12 +12,13 @@ $ x + 7 &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y + 7 + 8 &= \sqrt{2} 
 
-Another:
+Note Aligned:
 
 $ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
-$ y = \sqrt{2} 
+$ x + 7 = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
+$ y + 7 + 8 = \sqrt{2} 
 
 
 # Equation (unaligned)

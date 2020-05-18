@@ -62,114 +62,130 @@ $ y + 7 &= \sqrt{2}
 
 # Comands
 
- ``\sqrt{2}``
+``\sqrt{2}``
 
- ``\sqrt[3]{2}``
+``\sqrt[3]{2}``
 
- ``\binom{a}{b}``
+``\binom{a}{b}``
 
- ``\frac{a}{b}``
+``\frac{a}{b}``
 
- ``\text{abc}``
+``\text{abc}``
 
- ``\operatorname{abc}``
+``\operatorname{abc}``
 
- ``\dot{a}``
+``\dot{a}``
 
- ``\ddot{a}``
+``\ddot{a}``
 
- ``\dddot{a}``
+``\dddot{a}``
 
- ``\bar{a}``
+``\bar{a}``
 
- ``\vec{a}``
+``\vec{a}``
 
- ``\mathring{a}``
+``\mathring{a}``
 
- ``\hat{a}``
+``\hat{a}``
 
- ``\check{a}``
+``\check{a}``
 
- ``\grave{a}``
+``\grave{a}``
 
- ``\acute{a}``
+``\acute{a}``
 
- ``\breve{a}``
+``\breve{a}``
 
- ``\tilde{a}``
+``\tilde{a}``
 
- ``\widehat{abcdef}``
+``\widehat{abcdef}``
 
- ``\overline{abcdef}``
+``\overline{abcdef}``
 
- ``\overleftrightarrow{abcdef}``
+``\overleftrightarrow{abcdef}``
 
- ``\overrightarrow{abcdef}``
+``\overrightarrow{abcdef}``
 
- ``a^2``
+``a^2``
 
- ``a_i``
+``a_i``
 
- ``a_i^2``
+``a_i^2``
 
- ``{a + b}``
+``{a + b}``
 
- ``{a + b}^2``
+``{a + b}^2``
 
- ``{a + b}_i``
+``{a + b}_i``
 
- ``a^{1+2}``
+``a^{1+2}``
 
- ``a_{1+2}``
+``a_{1+2}``
 
- ``\left\{ a \right\}``
+``\left\{ a \right\}``
 
- ``\left[ a \right]``
+``\left[ a \right]``
 
- ``\left( a \right)``
+``\left( a \right)``
 
- ``\left\lvert a \right\rvert``
+``\left\lvert a \right\rvert``
 
- ``\left\lVert a \right\rVert``
+``\left\lVert a \right\rVert``
 
- ``\begin{matrix} a \end{matrix}``
+``\left\{ \frac 1 a \right\}``
 
- ``\begin{pmatrix} a \end{pmatrix}``
+``\left[ \frac 1 a \right]``
 
- ``\begin{bmatrix} a \end{bmatrix}``
+``\left( \frac 1 a \right)``
 
- ``\begin{Bmatrix} a \end{Bmatrix}``
+``\left\lvert \frac 1 a \right\rvert``
 
- ``\begin{vmatrix} a \end{vmatrix}``
+``\left\lVert \frac 1 a \right\rVert``
 
- ``\begin{Vmatrix} a \end{Vmatrix}``
+``\begin{matrix} a \end{matrix}``
 
- ``\begin{matrix} a & b \\ c & d \end{matrix}``
+``\begin{pmatrix} a \end{pmatrix}``
 
- ``\begin{pmatrix} a & b \\ c & d \end{pmatrix}``
+``\begin{bmatrix} a \end{bmatrix}``
 
- ``\begin{bmatrix} a & b \\ c & d \end{bmatrix}``
+``\begin{Bmatrix} a \end{Bmatrix}``
 
- ``\begin{Bmatrix} a & b \\ c & d \end{Bmatrix}``
+``\begin{vmatrix} a \end{vmatrix}``
 
- ``\begin{vmatrix} a & b \\ c & d \end{vmatrix}``
+``\begin{Vmatrix} a \end{Vmatrix}``
 
- ``\begin{Vmatrix} a & b \\ c & d \end{Vmatrix}``
+``\begin{matrix} a & b \\ c & d \end{matrix}``
 
- ``\begin{pmatrix} a^2 & b^3 \\ \cos c & \sin d \end{pmatrix}``
+``\begin{pmatrix} a & b \\ c & d \end{pmatrix}``
 
- ``\dif{x}``
+``\begin{bmatrix} a & b \\ c & d \end{bmatrix}``
 
- ``\od{x^2}{x}``
+``\begin{Bmatrix} a & b \\ c & d \end{Bmatrix}``
 
- ``\pd{x^2}{x}``
+``\begin{vmatrix} a & b \\ c & d \end{vmatrix}``
 
- ``\od[2]{x^2}{x}``
+``\begin{Vmatrix} a & b \\ c & d \end{Vmatrix}``
 
- ``\pd[2]{x^2}{x}``
+``\begin{pmatrix} a^2 & b^3 \\ \cos c & \sin d \end{pmatrix}``
 
- ``\{ a \}``
+``\dif{x}``
 
- ``[ a ]``
+``\od{x^2}{x}``
 
- ``a \nequiv b``
+``\pd{x^2}{x}``
+
+``\od[2]{x^2}{x}``
+
+``\pd[2]{x^2}{x}``
+
+``\{ a \}``
+
+``[ a ]``
+
+``a \nequiv b``
+
+$ e = \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n
+
+$ {\displaystyle e=\sum _{n=0}^{\infty }{\frac {1}{n!}}={\frac {1}{1}}+{\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots }
+
+

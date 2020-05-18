@@ -132,6 +132,8 @@ $ y + 7 &= \sqrt{2}
 
 ``\left\lVert a \right\rVert``
 
+``\left\langle a \right\rangle``
+
 ``\left\{ \frac 1 a \right\}``
 
 ``\left[ \frac 1 a \right]``
@@ -141,6 +143,8 @@ $ y + 7 &= \sqrt{2}
 ``\left\lvert \frac 1 a \right\rvert``
 
 ``\left\lVert \frac 1 a \right\rVert``
+
+``\left\langle \frac 1 a \right\rangle``
 
 ``\begin{matrix} a \end{matrix}``
 

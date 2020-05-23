@@ -1,7 +1,7 @@
 % !TEX nitrile.LATEX.coverpage = 1
 % !TEX nitrile.CONTEX.coverpage = 1
 
-Test includes
+Test includes 日本語
 
 Hello world!
 

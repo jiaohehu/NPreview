@@ -1,3 +1,3 @@
-test-jp.md
+日本語
 
 James くれる yu

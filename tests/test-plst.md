@@ -26,6 +26,9 @@ culpa qui officia deserunt mollit anim id est laborum.
 ー　気楽
 ー　嫌い
 
+ーー　気楽
+ーー　嫌い
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut

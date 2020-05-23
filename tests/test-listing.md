@@ -1,6 +1,6 @@
 Test Listing
 
-Please see listing ([[#mylisting]]) for more information.
+Please see listing (${#mylisting}) for more information.
 
 Listing:: PNG.TCL
 (#mylisting)

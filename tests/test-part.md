@@ -1,6 +1,6 @@
 test-part
 
-# Basic 簡単 # 
+# Part:: Basic 簡単  
 
 # Introduction 簡単
 
@@ -10,7 +10,7 @@ text
 
 text
 
-# Advanced #
+# Part:: Advanced 
 
 # Introduction
 

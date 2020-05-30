@@ -6,11 +6,11 @@ another tabular at the bottom.
 table:: This is a simple table.
 (#james)
   
-Names|ages
------|----
-John |18  
-Jane |20  
-James|18  
+& Names|ages
+  -----|----
+  John |18  
+  Jane |20  
+  James|18  
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

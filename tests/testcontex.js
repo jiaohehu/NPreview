@@ -12,6 +12,7 @@ var work = async ()=>{
   console.log(lines);
   const parser = new NitrilePreviewContex();
   parser.readFromLines(lines);
+  await parser.readModeAsync();
   parser.idenBlocks();
   parser.translateBlocks();
   var main = parser.blocks;

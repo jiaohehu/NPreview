@@ -1,5 +1,3 @@
-% !TEX nitrile.SAMP.ttfamily = 1
-
 test-samp.md
 
 The で particle can be used to express the mean of a transportation if we

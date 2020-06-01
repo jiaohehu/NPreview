@@ -20,7 +20,26 @@ culpa qui officia deserunt mollit anim id est laborum.
 # script is sourced, the variable $dir must contain the
 # full path name of this file's directory.
 
-package ifneeded myfruits 1.0 [list source [file join $dir myfruits.tcl]]
+package ifneeded myfruits 1.0 [list source [file join $dir myfruits.tcl]]xxxxxxx
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+
+``` framed
+# Tcl package index file, version 1.1
+# and sourced either when an application starts up or
+# The newline char \n is great
+# "package ifneeded" command to set up package-related
+# information so that packages will be loaded automatically
+# in response to "package require" commands.
+
+package ifneeded myfruits 1.0 [list source [file join $dir myfruits.tcl]]xxxxxxx
 ```
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -42,7 +61,14 @@ culpa qui officia deserunt mollit anim id est laborum.
 package ifneeded myfruits 1.0 [list source [file join $dir myfruits.tcl]]
 ```
 
-James
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+
 
 ``` framed
 set palette {FFFFFF 000000 FF0000 00FF00 0000FF FFFF00 FF00FF}

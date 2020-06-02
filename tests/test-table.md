@@ -1,4 +1,4 @@
-Test table
+test-table.md
 
 There is a tabular at the top, a long table in the middle, and
 another tabular at the bottom.
@@ -28,4 +28,4 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-Please see table ([[#james]])
+Please see table ${#james}

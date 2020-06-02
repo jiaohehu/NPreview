@@ -1,6 +1,7 @@
 Test longtable
 
-This is the normal text. 谷歌 簡単 ``\sqrt{2}``
+Table:: This is the normal text. 谷歌 簡単 ``\sqrt{2}``
+(#tab:a)
 
 (&) Node.JS (3fr)
 (&) AngularJS (5fr)
@@ -88,3 +89,4 @@ This is the normal text. 谷歌 簡単 ``\sqrt{2}``
 (&) Angular is useful in creating real time applications like instant
   messaging or chat apps.
 
+This is the table: ${#tab:a}

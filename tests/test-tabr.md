@@ -8,8 +8,8 @@ test-tabr.md
   Temperature        
   Luminous intensity 
   Amount of substance
-
-& Unit          
+  ---
+  Unit          
   meter         
   kilogram      
   second        
@@ -17,8 +17,8 @@ test-tabr.md
   kelvin        
   candela       
   mole          
-
-& Symbol
+  ---
+  Symbol
   m
   kg
   s  

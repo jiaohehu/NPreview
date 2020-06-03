@@ -1,5 +1,13 @@
 test-samp.md
 
+%^尊敬語・そんけいご
+%^東京・とうきょう
+%^電車・でんしゃ
+
+The honorifics language, or ${尊敬語}, is a
+
+The uri ${http://www.yahoo.com} is here.
+
 The で particle can be used to express the mean of a transportation if we
 are articulating a movement in a physical space.
 

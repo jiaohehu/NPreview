@@ -76,10 +76,10 @@ culpa qui officia deserunt mollit anim id est laborum.
   - James
   - James
   - James
--- Strawberry
--- Water melon
+  - Strawberry
+  - Water melon
 10) Dragon fruit
---  Wonder fruit
+  - Wonder fruit
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

@@ -1,7 +1,12 @@
 
-%!samp.style=1
+%!samp.style=2
 %!samp.monospace=0
 %!latex.titlepage=1
+%!latex.toc=1
+%!contex.titlepage=1
+%!contex.toc=1
+$!all.title=Test using Master Document
+$!all.author=James Yu
 %^簡単・かんたん
 %^part=Beginning
 %^h1=test-sub1.md

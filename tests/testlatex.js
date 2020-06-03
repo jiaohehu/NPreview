@@ -13,8 +13,7 @@ var work = async ()=>{
   parser.translateBlocks();
   var main = parser.blocks;
   var texlines = main.map(x=>x.latex);
-  console.log(texlines[0]);
-  console.log(texlines[1]);
+  texlines.forEach(x => console.log(x));
 };
 
 work();

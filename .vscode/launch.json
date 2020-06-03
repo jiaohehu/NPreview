@@ -13,7 +13,7 @@
       ],
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/testlatex.js",
-      "args":["test.md"]
+      "args":["a.md"]
     }
   ]
 }

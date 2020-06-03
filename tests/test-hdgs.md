@@ -68,3 +68,5 @@ Some text
 Some text
 
 The headings are: $(#hdg1), $(#hdg2), $(#hdg3), $(#hdg4), $(#hdg5). 
+
+The headings are: ($(#hdg1)), ($(#hdg2)), ($(#hdg3)), ($(#hdg4)), ($(#hdg5)). 

@@ -70,8 +70,8 @@ culpa qui officia deserunt mollit anim id est laborum."
   Amount of substance
   Amount of substance
   Amount of substance
-
-= Unit          
+  ---
+  Unit          
   meter         
   kilogram      
   second        
@@ -99,8 +99,8 @@ culpa qui officia deserunt mollit anim id est laborum."
   mole          
   mole          
   mole          
-
-= Symbol
+  ---
+  Symbol
   m
   kg
   s  

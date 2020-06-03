@@ -6,17 +6,15 @@ const fname = process.argv[2];
 console.log(fname);
 
 var work = async ()=>{
-  console.log(fname);
-  var out = await utils.readFileAsync(fname);
-  var lines = out.split('\n');
-  console.log(lines);
-  const parser = new NitrilePreviewLatex();
-  parser.readFromLines(lines);
+  var parser = new NitrilePreviewLatex();
+  await parser.readFromFileAsync(fname);
+  await parser.readModeAsync();
   parser.idenBlocks();
   parser.translateBlocks();
   var main = parser.blocks;
-  var outlines = main.map(x=>x.latex);
-  console.log(outlines.join('\n'));
+  var texlines = main.map(x=>x.latex);
+  console.log(texlines[0]);
+  console.log(texlines[1]);
 };
 
 work();

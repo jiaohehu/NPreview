@@ -1,6 +1,6 @@
 Pear
 
-# ${#pear} Pear Overview 
+# $(#pear) Pear Overview 
 
 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
@@ -28,7 +28,7 @@ ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea
 voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 eum fugiat quo voluptas nulla pariatur?"
 
-Please see ${#apple}
+Please see $(#apple)
 
 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore

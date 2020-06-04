@@ -1,8 +1,8 @@
 test-rubymap.md
 
-%大本・おおもと the root
-%一切・いっさい all; everything
-%避ける・さける to avoid
+%^大本・おおもと
+%^一切・いっさい
+%^避ける・さける 
     
     大本 
     一切

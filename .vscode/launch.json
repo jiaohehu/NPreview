@@ -12,7 +12,7 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/testlatex.js",
+      "program": "${workspaceFolder}/tests/testcontex.js",
       "args":["a.md"]
     }
   ]

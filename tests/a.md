@@ -1,12 +1,14 @@
 a.md
 
-Following is a minimum example taken from w3schools.com that
-showcases the possibility of clicking a button
-to show/hide a certain element. The element is referred
-to by its id "myDIV", through a JS function:
-
-@ $(fig:showhidediv) Screenshot.
-  ```image
-  image-showhidediv.png
-  image-showhidediv2.png
+@ $(#tbl:weightunits)
+  Units of weight measurements.
+  ```table
+  Type  |  Unit     | Symbol | Equivalents              
+  SI    |  Kilogram |  kg    | 1 kilogram = 1000 gram   
+  SI    |  Gram     |  g     | 1 gram = 1/1000 kilogram 
+  SI    |  Carat    |  ct    | 1 carat = 1/5 gram       
+  USCS  |  Ounce    |  oz    | 1 ounce ≅ 28.3 gram      
+  USCS  |  Pound    |  lb    | 1 pound = 16 ounce       
+  USCS  |  Ton      |  ton   | 1 ton = 2000 pound       
   ```
+

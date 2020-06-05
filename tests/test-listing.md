@@ -1,8 +1,8 @@
 Test Listing
 
-Please see listing (${#mylisting}) for more information.
+Please see listing ($(#mylisting)) for more information.
 
-@ ${#mylisting}
+@ $(#mylisting)
   Source code of PNG.TCL.
   ```listing
   ### "PNG.tcl"

@@ -70,7 +70,7 @@ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
 
-  ``` framed
+@ ``` framed
   set palette {FFFFFF 000000 FF0000 00FF00 0000FF FFFF00 FF00FF}
   set image {
   {1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1}

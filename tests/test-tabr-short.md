@@ -9,6 +9,6 @@
    5.5      | 11
    6        | 12
   ---
-  [^1] First number
+  [^1] First \\number
   [^2] Second number
   ```

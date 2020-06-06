@@ -1,8 +1,7 @@
 test.md
 
 
-@ ${#mydiag} This is my diagram.
-  ```diagram
+@ ```diagram
   viewport 32 20
 
   % variables

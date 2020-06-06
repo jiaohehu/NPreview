@@ -1,4 +1,6 @@
 
+%!HTML.bodyfontsizept=16
+
 $ \text{abcdefghijklmnopqrstuvwxyz}
 
 $ \operatorname{hello   world}

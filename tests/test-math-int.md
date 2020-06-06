@@ -1,4 +1,5 @@
 
+%!html.bodyfontsizept=8
 
 $ \int 5
 

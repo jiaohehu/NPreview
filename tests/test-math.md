@@ -1,10 +1,17 @@
 test-math.md
 
 
+# Display math One
 
-# Plain math
+$ e = \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n
 
-Aligned:
+
+# Display math Two
+
+$ {\displaystyle e=\sum _{n=0}^{\infty }{\frac {1}{n!}}={\frac {1}{1}}+{\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots }
+
+
+# Display math and aligned (no equation numbering)
 
 $ x &= \sqrt{2} + \sqrt{4} + \sqrt{5} 
 
@@ -12,7 +19,8 @@ $ x + 7 &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y + 7 + 8 &= \sqrt{2} 
 
-Note Aligned:
+
+# Display math not aligned (no equation numbering)
 
 $ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
@@ -21,29 +29,26 @@ $ x + 7 = \sqrt{2} + \sqrt{4} + \sqrt{5}
 $ y + 7 + 8 = \sqrt{2} 
 
 
-# Equation (unaligned)
+# Equation with numbering and aligned
 
-Equation::
-
-$ x = \sqrt{2} + \sqrt{4} + \sqrt{5}
-
-$ y = \sqrt{2} 
-
-
-# Equation (aligned)
-
-Equation::
-
-$ x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ $(#) x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y + 7 &= \sqrt{2} 
+
+
+# Equation with numbering and not aligned 
+
+$ $(#) x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y = \sqrt{2} 
 
 
 
 
 # Greek Symbols
 
-& Letter|Symbol
+@ ```table
+  Letter|Symbol
   ------|-----------
    o    |``\omicron``
    A    |``\Alpha``
@@ -59,139 +64,139 @@ $ y + 7 &= \sqrt{2}
    P    |``\Rho``
    T    |``\Tau``
    X    |``\Chi``
+  ```
 
 
 
-# Comands
+# Math commands and accents
 
-``\sqrt{2}``
+- ``\sqrt{2}``
 
-``\sqrt[3]{2}``
+- ``\sqrt[3]{2}``
 
-``\binom{a}{b}``
+- ``\binom{a}{b}``
 
-``\frac{a}{b}``
+- ``\frac{a}{b}``
 
-``\text{abc}``
+- ``\text{abc}``
 
-``\operatorname{abc}``
+- ``\operatorname{abc}``
 
-``\dot{a}``
+- ``\dot{a}``
 
-``\ddot{a}``
+- ``\ddot{a}``
 
-``\dddot{a}``
+- ``\dddot{a}``
 
-``\bar{a}``
+- ``\bar{a}``
 
-``\vec{a}``
+- ``\vec{a}``
 
-``\mathring{a}``
+- ``\mathring{a}``
 
-``\hat{a}``
+- ``\hat{a}``
 
-``\check{a}``
+- ``\check{a}``
 
-``\grave{a}``
+- ``\grave{a}``
 
-``\acute{a}``
+- ``\acute{a}``
 
-``\breve{a}``
+- ``\breve{a}``
 
-``\tilde{a}``
+- ``\tilde{a}``
 
-``\widehat{abcdef}``
+- ``\widehat{abcdef}``
 
-``\overline{abcdef}``
+- ``\overline{abcdef}``
 
-``\overleftrightarrow{abcdef}``
+- ``\overleftrightarrow{abcdef}``
 
-``\overrightarrow{abcdef}``
+- ``\overrightarrow{abcdef}``
 
-``a^2``
+- ``a^2``
 
-``a_i``
+- ``a_i``
 
-``a_i^2``
+- ``a_i^2``
 
-``{a + b}``
+- ``{a + b}``
 
-``{a + b}^2``
+- ``{a + b}^2``
 
-``{a + b}_i``
+- ``{a + b}_i``
 
-``a^{1+2}``
+- ``a^{1+2}``
 
-``a_{1+2}``
+- ``a_{1+2}``
 
-``\left\{ a \right\}``
+- ``\left\{ a \right\}``
 
-``\left[ a \right]``
+- ``\left[ a \right]``
 
-``\left( a \right)``
+- ``\left( a \right)``
 
-``\left\lvert a \right\rvert``
+- ``\left\lvert a \right\rvert``
 
-``\left\lVert a \right\rVert``
+- ``\left\lVert a \right\rVert``
 
-``\left\langle a \right\rangle``
+- ``\left\langle a \right\rangle``
 
-``\left\{ \frac 1 a \right\}``
+- ``\left\{ \frac 1 a \right\}``
 
-``\left[ \frac 1 a \right]``
+- ``\left[ \frac 1 a \right]``
 
-``\left( \frac 1 a \right)``
+- ``\left( \frac 1 a \right)``
 
-``\left\lvert \frac 1 a \right\rvert``
+- ``\left\lvert \frac 1 a \right\rvert``
 
-``\left\lVert \frac 1 a \right\rVert``
+- ``\left\lVert \frac 1 a \right\rVert``
 
-``\left\langle \frac 1 a \right\rangle``
+- ``\left\langle \frac 1 a \right\rangle``
 
-``\begin{matrix} a \end{matrix}``
+- ``\begin{matrix} a \end{matrix}``
 
-``\begin{pmatrix} a \end{pmatrix}``
+- ``\begin{pmatrix} a \end{pmatrix}``
 
-``\begin{bmatrix} a \end{bmatrix}``
+- ``\begin{bmatrix} a \end{bmatrix}``
 
-``\begin{Bmatrix} a \end{Bmatrix}``
+- ``\begin{Bmatrix} a \end{Bmatrix}``
 
-``\begin{vmatrix} a \end{vmatrix}``
+- ``\begin{vmatrix} a \end{vmatrix}``
 
-``\begin{Vmatrix} a \end{Vmatrix}``
+- ``\begin{Vmatrix} a \end{Vmatrix}``
 
-``\begin{matrix} a & b \\ c & d \end{matrix}``
+- ``\begin{matrix} a & b \\ c & d \end{matrix}``
 
-``\begin{pmatrix} a & b \\ c & d \end{pmatrix}``
+- ``\begin{pmatrix} a & b \\ c & d \end{pmatrix}``
 
-``\begin{bmatrix} a & b \\ c & d \end{bmatrix}``
+- ``\begin{bmatrix} a & b \\ c & d \end{bmatrix}``
 
-``\begin{Bmatrix} a & b \\ c & d \end{Bmatrix}``
+- ``\begin{Bmatrix} a & b \\ c & d \end{Bmatrix}``
 
-``\begin{vmatrix} a & b \\ c & d \end{vmatrix}``
+- ``\begin{vmatrix} a & b \\ c & d \end{vmatrix}``
 
-``\begin{Vmatrix} a & b \\ c & d \end{Vmatrix}``
+- ``\begin{Vmatrix} a & b \\ c & d \end{Vmatrix}``
 
-``\begin{pmatrix} a^2 & b^3 \\ \cos c & \sin d \end{pmatrix}``
+- ``\begin{pmatrix} a^2 & b^3 \\ \cos c & \sin d \end{pmatrix}``
 
-``\dif{x}``
+- ``\dif{x}``
 
-``\od{x^2}{x}``
+- ``\od{x^2}{x}``
 
-``\pd{x^2}{x}``
+- ``\pd{x^2}{x}``
 
-``\od[2]{x^2}{x}``
+- ``\od[2]{x^2}{x}``
 
-``\pd[2]{x^2}{x}``
+- ``\pd[2]{x^2}{x}``
 
-``\{ a \}``
 
-``[ a ]``
+# Braces
 
-``a \nequiv b``
+- ``\{ a \}``
 
-$ e = \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n
+- ``[ a ]``
 
-$ {\displaystyle e=\sum _{n=0}^{\infty }{\frac {1}{n!}}={\frac {1}{1}}+{\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots }
+- ``a \nequiv b``
 
 

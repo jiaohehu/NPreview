@@ -1,8 +1,9 @@
 
+$ \text{abcdefghijklmnopqrstuvwxyz}
+
+$ \operatorname{hello   world}
 
 $ a_1
-
-
 
 $ a^2
 

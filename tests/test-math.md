@@ -43,6 +43,14 @@ $ $(#) x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 $ y = \sqrt{2} 
 
 
+# Equation with mixed numbering           
+
+$ $(#) x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+
+$ y = \sqrt{2} 
+
+$ $(#) z = \sqrt{2} 
+
 
 
 # Greek Symbols

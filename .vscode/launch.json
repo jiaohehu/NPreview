@@ -12,8 +12,8 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/testhtml.js",
-      "args":["a.md"]
+      "program": "${workspaceFolder}/tests/contex.js",
+      "args":["test-framed.md"]
     }
   ]
 }

@@ -1,7 +1,7 @@
 Test longtable
 
-Table:: This is the normal text. 谷歌 簡単 ``\sqrt{2}``
-(#tab:a)
+This is the normal text. 谷歌 簡単 ``\sqrt{2}``, and
+${日本・にほん}
 
 (&) Node.JS (3fr)
 (&) AngularJS (5fr)
@@ -9,7 +9,7 @@ Table:: This is the normal text. 谷歌 簡単 ``\sqrt{2}``
 (&) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language.
 (&) AnglarJS is an open source web application development framework
-  developed by Google (谷歌) ``\sqrt{2}``
+  developed by Google (谷歌) ``\sqrt{2}`` ${日本・にほん}
 
 (&) You need to install Node.js on the computer system.
 (&) You just need to add AngularJS file just like any other JavaScript

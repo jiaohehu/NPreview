@@ -195,16 +195,16 @@
     { "kbd": "\\?"             ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 6    },
     { "kbd": " "               ,    "unicode": ""               ,  "id": "mySPACE",       "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
 
-    { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQRT",        "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 8    },
-    { "kbd": "\\cbrt"          ,    "unicode": "&#x221B;"       ,  "id": "myCBRT",        "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 8    },
-    { "kbd": "\\qdrt"          ,    "unicode": "&#x221C;"       ,  "id": "myQDRT",        "dx":"0",      "dy":"0.95em",  "op": 0    ,  "width": 8    },
+    { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
+    { "kbd": "\\cbrt"          ,    "unicode": "&#x221B;"       ,  "id": "myCBRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
+    { "kbd": "\\qdrt"          ,    "unicode": "&#x221C;"       ,  "id": "myQDRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
 
-    { "kbd": "\\int"           ,    "unicode": "&#x222B;"       ,  "id": "myINT",         "dx":"0",      "dy":"0.95em",  "op": 3    ,  "width": 6    },
+    { "kbd": "\\int"           ,    "unicode": "&#x222B;"       ,  "id": "myINT",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 5    },
     { "kbd": "\\sum"           ,    "unicode": "&#x2211;"       ,  "id": "mySUM",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 8    },
     { "kbd": "\\lim"           ,    "unicode": "lim"            ,  "id": "myLIM" ,        "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 14   },
 
-    { "kbd": "\\inttop"        ,    "unicode": "&#x2320;"       ,  "id": "myINTTOP",      "dx":"0",      "dy":"0.00em",  "op": 3    ,  "width": 6    },
-    { "kbd": "\\intbot"        ,    "unicode": "&#x2321;"       ,  "id": "myINTBOT",      "dx":"0",      "dy":"0.00em",  "op": 3    ,  "width": 6    },
+    { "kbd": "\\inttop"        ,    "unicode": "&#x2320;"       ,  "id": "myINTTOP",      "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 5    },
+    { "kbd": "\\intbot"        ,    "unicode": "&#x2321;"       ,  "id": "myINTBOT",      "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 5    },
 
     { "kbd": "\\{"             ,    "unicode": "&#x007B;"       ,  "id": "myLB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\}"             ,    "unicode": "&#x007D;"       ,  "id": "myRB",          "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },

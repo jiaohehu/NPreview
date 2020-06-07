@@ -1,5 +1,12 @@
 test.md
 
+%!LATEX.bodyfontsizept=10
+%!LATEX.diagfontsizept=12
+%!CONTEX.bodyfontsizept=10
+%!CONTEX.diagfontsizept=12
+%!HTML.bodyfontsizept=10
+%!HTML.diagfontsizept=12
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -136,6 +143,9 @@ culpa qui officia deserunt mollit anim id est laborum.
 
   % radical
   radical (1,17)
+
+  % math
+  label.ctr { ``\sqrt{2}`` } (18,18)
   ```
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

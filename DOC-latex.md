@@ -120,3 +120,18 @@ Following are required LATEX packages that must be included:
 
     \usepackage[export]{adjustbox}
       For \resizebox command that is used for typesetting verb block.
+
+# Select a different font size
+
+  \documentclass{article}
+  \usepackage{anyfontsize}
+  \begin{document}
+  {\fontsize{1cm}{1cm}\selectfont First test : I need to 
+    put some text here.}
+  \bigskip
+  {\fontsize{1cm}{2cm}\selectfont Second test : I need to 
+    put some text here --- does it work?}
+  \end{document}
+
+  It requires the package "anyfontsize", and it also works
+  if this command is used with the "label" command of MP.

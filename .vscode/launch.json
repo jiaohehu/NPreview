@@ -7,13 +7,39 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch HTML",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/html.js",
+      "args":["a.md"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch CONTEX",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/contex.js",
-      "args":["test-framed.md"]
+      "args": [
+        "a.md"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch LATEX",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/latex.js",
+      "args": [
+        "a.md"
+      ]
     }
   ]
 }

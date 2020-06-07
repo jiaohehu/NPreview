@@ -3,11 +3,7 @@ Test longtable
 %!html.bodyfontsizept=16
 
 This is the normal text. 谷歌 簡単 ``\sqrt{2}``, and
-${日本・にほん} ``\int \frac{a}{b}`` and ``\int_a^b \frac{a}{b}``
-
-$ \int \frac{1}{2} 
-
-$ \int_1^2 \frac{1}{2}
+${日本・にほん} 
 
 (&) Node.JS (3fr)
 (&) AngularJS (5fr)
@@ -15,7 +11,7 @@ $ \int_1^2 \frac{1}{2}
 (&) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language.
 (&) AnglarJS is an open source web application development framework
-  developed by Google (谷歌) ``\sqrt{2}`` ${日本・にほん}
+  developed by Google (谷歌) ``\sqrt{2}`` 
 
 (&) You need to install Node.js on the computer system.
 (&) You just need to add AngularJS file just like any other JavaScript
@@ -25,7 +21,7 @@ $ \int_1^2 \frac{1}{2}
   non-blocking input/output API and an event-driven architecture.
 (&) AngularJS is written entirely in JavaScript. It also allows
   extending the HTML's syntax to describe the components of your
-  application.
+  application. ${日本・にほん}
 
 (&) Node.js is useful to build fast and scalable server-side networking
   applications.
@@ -96,3 +92,9 @@ $ \int_1^2 \frac{1}{2}
   messaging or chat apps.
 
 This is the table: ${#tab:a}
+``\int \frac{1}{2} \dif{x}`` and ``\int_1^2 \frac{1}{2} \dif{x}``
+
+$ \int \frac{1}{2} \dif{x}
+
+$ \int_1^2 \frac{1}{2} \dif{x}
+

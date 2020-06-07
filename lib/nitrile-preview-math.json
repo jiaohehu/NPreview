@@ -326,37 +326,35 @@
 
   ],
   "mathCommands": [
-    { "name": "\\text",        "count": 1 },
-    { "name": "\\operatorname","count": 1 },
+    { "name": "\\text",               "count": 1,  "verbatim": 1 },
+    { "name": "\\operatorname",       "count": 1,  "verbatim": 1 },
+    { "name": "\\widehat",            "count": 1,  "verbatim": 1 },
+    { "name": "\\overline",           "count": 1,  "verbatim": 1 },
+    { "name": "\\overleftrightarrow", "count": 1,  "verbatim": 1 },
+    { "name": "\\overrightarrow",     "count": 1,  "verbatim": 1 },
+    { "name": "\\dot",                "count": 1,  "verbatim": 1 },
+    { "name": "\\ddot",               "count": 1,  "verbatim": 1 },
+    { "name": "\\dddot",              "count": 1,  "verbatim": 1 },
+    { "name": "\\ddddot",             "count": 1,  "verbatim": 1 },
+    { "name": "\\bar",                "count": 1,  "verbatim": 1 },
+    { "name": "\\vec",                "count": 1,  "verbatim": 1 },
+    { "name": "\\mathring",           "count": 1,  "verbatim": 1 },
+    { "name": "\\hat",                "count": 1,  "verbatim": 1 },
+    { "name": "\\check",              "count": 1,  "verbatim": 1 },
+    { "name": "\\grave",              "count": 1,  "verbatim": 1 },
+    { "name": "\\acute",              "count": 1,  "verbatim": 1 },
+    { "name": "\\breve",              "count": 1,  "verbatim": 1 },
+    { "name": "\\tilde",              "count": 1,  "verbatim": 1 },
 
-    { "name": "\\widehat",     "count": 1 },
-    { "name": "\\overline",    "count": 1 },
-    { "name": "\\overleftrightarrow", "count": 1},
-    { "name": "\\overrightarrow", "count": 1},
-
-    { "name": "\\dot",         "count": 1},
-    { "name": "\\ddot",        "count": 1},
-    { "name": "\\dddot",       "count": 1},
-    { "name": "\\ddddot",      "count": 1},
-    { "name": "\\bar",         "count": 1},
-    { "name": "\\vec",         "count": 1},
-    { "name": "\\mathring",    "count": 1},
-    { "name": "\\hat",         "count": 1},
-    { "name": "\\check",       "count": 1},
-    { "name": "\\grave",       "count": 1},
-    { "name": "\\acute",       "count": 1},
-    { "name": "\\breve",       "count": 1},
-    { "name": "\\tilde",       "count": 1},
-
-    { "name": "\\dif",         "count": 1 },
-    { "name": "\\od",          "count": 2, "option": 1 },
-    { "name": "\\pd",          "count": 2, "option": 1 },
-
-    { "name": "\\pmod",        "count": 1 },
-
-    { "name": "\\sqrt",        "count": 1, "option": 1 },
-    { "name": "\\frac",        "count": 2 },
-    { "name": "\\binom",       "count": 2 }
+    { "name": "\\dif",                "count": 1 },
+    { "name": "\\od",                 "count": 2, "option": 1 },
+    { "name": "\\pd",                 "count": 2, "option": 1 },
+       
+    { "name": "\\pmod",               "count": 1 },
+       
+    { "name": "\\sqrt",               "count": 1, "option": 1 },
+    { "name": "\\frac",               "count": 2 },
+    { "name": "\\binom",              "count": 2 }
   ],
   "smallLetters": {
     "myi945": 2.5,

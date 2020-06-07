@@ -52,6 +52,29 @@
   "equal-sign" all line up. The adjustment (*) is currently done 
   using "position:relative;left:*" CSS style.
 
+# PLST and ILST
 
+  For these two blocks, the HTML ways of styling a 
+  UL or OL is to allow for specifying the start of the
+  text after the bullet point, or number point, where
+  the position of the bullet or number points are 
+  positioned by the browser where user does not have
+  any control. The position of the start of the text
+  is controlled by the "padding-left" member
+  of the style. 
+
+  The danger of this behavior is that it is difficult
+  to predict what is the best distance.
+  If the distance is too short, it risks cutting
+  off the bullet or number. If the distance is too
+  large then it wastes the precious screen space.
+
+  Thus, the solution is to set a starting point,
+  which is 2em for it, and allow this to be configuration
+  parameter than can be adjust to different situation.
+  This parameter is "HTML.step". It is a number that
+  is multiple of "em".
+
+  
 
 

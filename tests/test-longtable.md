@@ -1,7 +1,13 @@
 Test longtable
 
+%!html.bodyfontsizept=16
+
 This is the normal text. 谷歌 簡単 ``\sqrt{2}``, and
-${日本・にほん}
+${日本・にほん} ``\int \frac{a}{b}`` and ``\int_a^b \frac{a}{b}``
+
+$ \int \frac{1}{2} 
+
+$ \int_1^2 \frac{1}{2}
 
 (&) Node.JS (3fr)
 (&) AngularJS (5fr)

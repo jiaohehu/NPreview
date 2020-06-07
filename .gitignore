@@ -28,3 +28,4 @@ test.md
 *.epub
 *.pgf
 *.tuc
+tests/a.md

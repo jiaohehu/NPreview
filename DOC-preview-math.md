@@ -81,8 +81,7 @@ the syntax that is supported by Nitrile.
 
     \mathbb{ABab12}       Double-struck
     \mathbf{ABab12}       Bold-face
-    \mathscr{ABab12}      Scr
-    \mathcal{ABab12}      Cal
+    \mathcal{ABab12}      Cal (Script Capital L U+2112, etc.)
     \mathit{ABab12}       Italic (default for single-letter variable)
     \mathrm{ABab12}       Roman (regular letter or digit)
 

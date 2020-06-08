@@ -101,5 +101,10 @@ HDGS/2 as subsection, and so on. The "h2" designation is to treat
 the HDGS/0 of each child document as a section, HDGS/1 as a subsection,
 HDGS/2 as a subsubsection, and so on. 
 
+# The \mathscr command 
+
+The \mathscr is not available on CONTEX and thus is not supported
+on NITRILE.
+
 
 

@@ -1,38 +1,7 @@
-# LATEX Generation
-
-## Configuration Parameters
-
-Following are configuration options that are related to LATEX document
-generation only.  It does not affects PREVIEW.
-
-``` tabbing
-
-    latexTitle                       The title 
-    latexAuthor                      The author
-    latexEngine                      LATEX engine, either pdflatex or lualatex
-    latexIsArticle                   Whether it is a article (no chapters)
-    latexDocumentClass               Custom document class
-    latexTwoColumnEnabled            Whether twocolumn option should benabled
-    latexTwoSideEnabled              Whethter twoside option should be enabled
-    latexA4PaperEnabled              Whether A4 paper should be enabled
-    latexTableStyle                  Table style for 'tabular','tabulary','tabularx'
-    latexAutoRubyEnabled             Auto ruby enabled for SAMP block
-    latexDescriptionItemBullet       Customized bullet for DESC
-    latexStepMargin                  Left margin for all indented text and list items
-    latexSampleSize                  Font size for SAMP block
-    latexSampleMargin                Left margin for SAMP block
-    latexSampleWrap                  Set to non-zero for wrapping lines of SAMP block
-    latexLeftMargin                  Left margin for the entire document
-    latexRightMargin                 Right margin for the entire document
-    latexTopMargin                   Top margin for the entire document
-    latexLeftMarginForTwoColumn      Left margin for the entire document when in twocolumn mode
-    latexRightMarginForTwoColumn     Right margin for the entire document when in twocolumn mode
-    latexTopMarginForTwoColumn       Top margin for the entire document when in twocolumn mode
-
-```
+# LATEX translation
 
 
-## Required LATEX Packages For LuaLaTeX
+# Required LATEX Packages For LuaLaTeX
 
 Following are required LATEX packages that must be included:
 
@@ -121,17 +90,64 @@ Following are required LATEX packages that must be included:
     \usepackage[export]{adjustbox}
       For \resizebox command that is used for typesetting verb block.
 
-# Select a different font size
+# Setting the relative font size
 
-  \documentclass{article}
-  \usepackage{anyfontsize}
-  \begin{document}
-  {\fontsize{1cm}{1cm}\selectfont First test : I need to 
-    put some text here.}
-  \bigskip
-  {\fontsize{1cm}{2cm}\selectfont Second test : I need to 
-    put some text here --- does it work?}
-  \end{document}
+Font sizes can be set for the following contents:
 
-  It requires the package "anyfontsize", and it also works
-  if this command is used with the "label" command of MP.
+  code: "fscode" 
+  listing: "fslisting"
+  tabular: "fstabular"
+
+The first one is used the SAMP block when its style is not
+set to 1 or 2. The second one is used for listing contents.
+The third one is used for tabular entries, which includes all
+contents of TABR, TABB, and LONG contents.  
+
+These options must only be used to specify a "relative font size".
+The only valid relative font sizes are the following:
+
+     size            factor
+     ----------------------------
+     tiny            0.5
+     scriptsize      0.7
+     footnotesize    0.8
+     small           0.9
+     normalsize      1.0
+     large           1.2
+     Large           1.4
+     LARGE           1.7
+     huge            2.0
+     Huge            2.3
+  
+For example:
+
+  %!LATEX.fscode=footnotesize
+  %!LATEX.fslisting=scriptsize
+  %!LATEX.fstabular=small
+
+
+# Creating a LATEX document
+
+When running 'nil' and the document is not a master document,
+then no chapter is to be created, and only sections are.
+In particular, each HDGS/1 block will become a "section"
+of the CONTEX document, and the HDGS/2 block is to become
+a subsection. If there is a HDGS/0 block it will also be 
+part of the generated TEX document, but it will not be 
+a section. It is simply a paragraph with a bigger font (\tfd).
+
+If the ALL.title is set, then a title page will also be generated,
+with the title set to this, and ALL.author will be included
+if it is also specified. If ALL.title is not set, then no title
+page will be created.
+
+For a master document that includes other child documents, each child
+document is to become a chapter (if "h1" is used). If ALL.title
+is set, then a title page will be created. The "h1", "h2" designation
+is to express the "indent" level, for which "h1" will treate each HDGS/0
+block of each child document as a chapter, HDGS/1 as section, 
+HDGS/2 as subsection, and so on. The "h2" designation is to treat
+the HDGS/0 of each child document as a section, HDGS/1 as a subsection,
+HDGS/2 as a subsubsection, and so on. 
+
+

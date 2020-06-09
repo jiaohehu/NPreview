@@ -402,6 +402,13 @@ Following commands are supported that are provided by the 'commath' package.
   on LATEX yet because there is no suitable font found to show
   this glyph.
 
+- The \lfloor and \rfloor symbol cannot appear by itself in a
+  LATEX document. It must be part of a \left \right expression
+  such as \left\lfloor ... \right\rfloor. It is OK to have them
+  appear in a CONTEX. Thus, ensure to use \left\lfloor and \right\rfloor
+  when writing MD document, otherwise it might not appear in 
+  a PDF processed by LATEX.
+
 ## The equation numbering
 
 Equation numbering is done using a MATH block and specify 
@@ -476,3 +483,5 @@ for the main-equation.
 
   $ $(#eq:c) E &= a^3 + b^3 \\
                &= c^4
+
+

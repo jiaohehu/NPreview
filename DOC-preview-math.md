@@ -100,10 +100,7 @@ than the other ones:
     R  - field of all real numbers, including integers and floating point numbers
     Z  - field of all integers, including negative integers and zeros.
 
-NOTE: Unicode only provide code points for mathbb-variant digits, which would
-have a double-struck style appearance. Unicode does not provide code points for
-mathscr-variant or mathcal-variant digits. Thus, if digits are detected for
-mathscr or mathcal variants it simply falls back to using regular digits.
+Note that \mathscr is not supported. Use \mathcal instead.
 
 ## Supported LATEX spaces
 
@@ -332,11 +329,22 @@ Following commands are supported that are provided by the 'commath' package.
   then the rest of the expression after \begin{name1} is treated as part
   of that environment.
 
+- For backslash followed by one or more letters such as \Rot, then it is
+  treated as a log-like symbol. The CONTEX/LATEX implementation is to
+  generate something like '\;\text{Rot}'. Thus adding some kind of space 
+  before it. But it needs work so that the '\;' should not be added
+  when it is the first element. And it should also add a '\;' after it 
+  if the next element is not a parenthesis. But these bahavior is  
+  currently not implemented yet. For HTML this behavior is correctly
+  similated.
+
 ## Behavior that is different than LATEX:      
 
 - In LATEX, The double-backslash (`\\`) in a inline math will actually cause a
-  line break in PDF file. In PREVIEW math, a double-backslash is shown
-  as a double-backslash.
+  line break in PDF file. In CONTEX, the same double-backslash does not do 
+  anything. Thus, the same double-backslashes are ignored in HTML, 
+  LATEX, and CONTEX. The future implementation will try to see if it can
+  be used to split a long equation into multiple lines.
 
 - In LATEX, the ampersand (`&`) in a inline math that is not part of a
   \begin{matrix} will not show up in the PDF file. In PREVIEW math, the

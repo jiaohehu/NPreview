@@ -402,5 +402,77 @@ Following commands are supported that are provided by the 'commath' package.
   on LATEX yet because there is no suitable font found to show
   this glyph.
 
+## The equation numbering
 
+Equation numbering is done using a MATH block and specify 
+a label as the first part of the formula.
 
+  $ $(#eq:a) a^2 + b^2 = c^2
+
+Two or more consecutive blocks will each get they own numbering
+if the first one is provided with a label. 
+
+  $ $(#eq:a) a^2 + b^2 = c^2
+
+  $          a^3 + b^3 = c^3
+
+  $          a^4 + b^4 = c^4
+
+However, having a label in a sub-equation will allow one to
+refer to it later.
+
+  $ $(#eq:a) a^2 + b^2 = c^2
+
+  $ $(#eq:b) a^3 + b^3 = c^3
+
+  $ $(#eq:c) a^4 + b^4 = c^4
+
+The numbering will be given for all three equations regardless 
+whether the second or third actuall has a label. 
+
+For a given equation, it is possible to have a single equation 
+to be splitted into multiple lines. This behavior is similar
+to LATEX "split" environment.
+
+  $ $(#eq:a) C = a^2 + b^2 + c^2 \\
+               = a^3 + b^3 \\
+               = c^4
+
+In this case, it might be preferrable to have a alignment 
+point indicator "&" to be placed in front of the equal-sign
+and then the equal-sign will be aligned.
+
+  $ $(#eq:a) C &= a^2 + b^2 + c^2 \\
+               &= a^3 + b^3 \\
+               &= c^4
+
+This equation this "split" equation be combined with 
+others that might or might not be a "split" equation.
+
+  $ $(#eq:a) C &= a^2 + b^2 + c^2 \\
+               &= a^3 + b^3 \\
+               &= c^4
+
+  $ $(#eq:b) D &= a^2 + b^2 + c^2 
+
+  $ $(#eq:c) E &= a^3 + b^3 \\
+               &= c^4
+
+By default, each sub-eqation is to be aligned
+with the main-equation (first one) by the presence
+of '&', which is considered an alignment, and
+when that alignment point isn't there, it is assumed
+to be the end of that equation. However, one can
+say that alignment point is always the center
+of the equation, regardless of the presence 
+of the '&'. In this case, use the double-dollar-sign
+for the main-equation.
+
+  $$ $(#eq:a) C &= a^2 + b^2 + c^2 \\
+               &= a^3 + b^3 \\
+               &= c^4
+
+  $ $(#eq:b) D &= a^2 + b^2 + c^2 
+
+  $ $(#eq:c) E &= a^3 + b^3 \\
+               &= c^4

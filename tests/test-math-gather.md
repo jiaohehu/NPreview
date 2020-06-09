@@ -1,18 +1,18 @@
 Another equation:
 
-$  $(#eq:a) f &= a + b 
+$$  $(#eq:a) f &= a + b 
 
 $    &= a + b + c 
 
 
 Another equation:
 
-$  $(#eq:a) f &= a + b \\
+$$  $(#eq:a) f &= a + b \\
      &= a + b + c 
 
 Another equation:
 
-$  $(#eq:a) f &= a + b \\
+$$  $(#eq:a) f &= a + b \\
      &= a + b + c 
 
 $  $(#eq:b) F &= A + B \\
@@ -22,7 +22,7 @@ See $(#eq:a), $(#eq:b)
 
 Another equation:
 
-$ $(#eq:c) a + b &= c + d
+$$ $(#eq:c) a + b &= c + d
 
 $ $(#eq:d) a  &= c 
 
@@ -34,7 +34,7 @@ See $(#eq:c) $(#eq:d) $(#eq:e)
 
 Another equation:
 
-$ $(#eq:f) a + b &= c + d
+$$ $(#eq:f) a + b &= c + d
 
 $          a  &= c 
 
@@ -46,7 +46,7 @@ See $(#eq:f) $(#eq:g)
 
 Another equation:
 
-$ $(#eq:h) c &= d + e + f + g \\
+$$ $(#eq:h) c &= d + e + f + g \\
              &= a \\
              &= b 
 

@@ -147,6 +147,7 @@ math is shown as display mode.
     \begin{Bmatrix} ... \end{Bmatrix}
     \begin{vmatrix} ... \end{vmatrix}
     \begin{Vmatrix} ... \end{Vmatrix}
+    \begin{cases} ... \end{cases}
 
 ## The compact layout mode 
 
@@ -319,169 +320,185 @@ Following commands are supported that are provided by the 'commath' package.
 
     ``\dif{x}``
 
-## Special behaviors
+## Issues and remarks            
 
 - A matching \begin{somename} and \end{somename} environment for which the
   name of the environment is not one of the recognized one will simply be
-  treated as a braced expression.
+  treated as a normal braced expression.
 
 - If a \begin{name1} is found for which there is no matching \end{name1}
   then the rest of the expression after \begin{name1} is treated as part
-  of that environment.
+  of that environment and no error is generated.
 
-- For backslash followed by one or more letters such as \Rot, then it is
-  treated as a log-like symbol. The CONTEX/LATEX implementation is to
-  generate something like '\;\text{Rot}'. Thus adding some kind of space 
-  before it. But it needs work so that the '\;' should not be added
-  when it is the first element. And it should also add a '\;' after it 
-  if the next element is not a parenthesis. But these bahavior is  
-  currently not implemented yet. For HTML this behavior is correctly
-  similated.
-
-## Behavior that is different than LATEX:      
+- For a backslash followed by one or more letters such as \Rot, then it is
+  treated as a log-like symbol. For CONTEX/LATEX translation it is to
+  generate something like '\;\text{Rot}' to similate this effect. 
+  However, this similation is not always perfect.
+  First of all, a space \; is always added, even when it is at the beginning
+  of an expression. Second, the after-space should be created if \Rot is not
+  immediately followed by a parenthesis, which is exactly what \log like 
+  operators do.  But this bahavior is not implemented for CONTEX/LATEX
+  translation.  For HTML this behavior is correctly similated.
 
 - In LATEX, The double-backslash (`\\`) in a inline math will actually cause a
   line break in PDF file. In CONTEX, the same double-backslash does not do 
-  anything. Thus, the same double-backslashes are ignored in HTML, 
-  LATEX, and CONTEX. The future implementation will try to see if it can
-  be used to split a long equation into multiple lines.
+  anything. This is to assume that it is not part of a begin-end matrix 
+  or cases. However, in NITRILE, a \\ that is part of the top-level
+  expression is repurposed to mean to break down a long expression 
+  into two or more lines.
 
 - In LATEX, the ampersand (`&`) in a inline math that is not part of a
-  \begin{matrix} will not show up in the PDF file. In PREVIEW math, the
-  ampersand is shown as an ampersand.
-
-## Known problems
-
-- The `\bar{a}`, `\vec{a}`, and all other variant seems to have left a larger
-  gap between the top edge of the letter 'a' and the bar, then the appearance
-  done by LATEX. Do not know if this is a problem.
-
-- The font used as integral symbol `\int` on MaxOS X have been observed to have
-  over shifted to the right and downwards, thus overlaying part of the text on
-  the right hand side of it, making it appear that they are overlapping.  This
-  behavior was observed when viewing exported HTML using Safari, Firefox,
-  and/or Chrome. 
+  \begin{matrix} will not show up in the PDF file. NITRILE has repurposed this
+  character as expressing the "alignment point" (this is only when this 
+  character is not part of a matrix or cases expression.
 
 - The fraction, such as \frac{1}{3} when previewed in HTML, appeared to be a
   little too tall relative to the surrounding text, especailly when 
   LATEX have made it appear a little smaller comparing with the surrounding
   text.
 
-- Need to support \operatorname{}
-
-- When typesetting a SUM operator, the top part if it is a smaller 
-  letter i it is left justified. It needs to be center justified.
-
-- Need to shrink the preview math SVG if the font size is set to small.
-
-- For (-a,0) the minus sign should be placed immediate in front of a but
-  right now there seems to be a gap between the minus sign and a
-
 - If a unicode math symbol is entered, such as U+2262 NOT IDENTICAL TO, 
-  then MATH PREVIEW will display it. However, it will display it without
+  then HTML translation will display it. However, it will display it without
   treating it as an operator. It is treating it as a text. Thus, this
-  symbol gets no extra spacing before and after it.
+  symbol gets no extra spacing before and after it. This problem is the 
+  same that is to happen to ther Unicode character that need to be 
+  treated as an operator like such as plus-sign or minus-sign, to have
+  before and after-space. Right now, all these character are treated 
+  as a text, thus, no before and after space is allocated.
 
-## LATEX math commands not supported on CONTEX
+- The \operatorname{} is not available on CONTEX. NITRILE
+  supports it. It is being
+  translated as `{\\:\\mathrm{a}\\:}` if `\operatorname{a}` is 
+  detected.
 
-- operatorname{a} 
-  This is simulated as: {\:\mathrm{a}\:}
+- The ddddot{a} is not supported on CONTEX. Therefore it is
+  not provided by NITRILE.
 
-- ddddot{a} 
-  This is currently not supported on CONTEX
-
-- \not\equiv 
-  This is not rendered correct on CONTEX; it is rendered
-  as a \not followed by \equiv. The solution to get the
-  "not congruent" symbol to work on CONTEX is to simply
-  enter the Unicode U+2262 symbol (≢)
-
-## LATEX math problems
+- The \not\equiv symbol is not being rendered correct on CONTEX; 
+  it is rendered as a \not followed by \equiv. Thus, the \not\equiv
+  is not supported by NITRILE. The solution to have this symbol
+  ("not congruent") is to enter this symbol as a Unicode character,
+  in a MD document: U+2262 symbol (≢).
 
 - For unicode characters such as ℤ (U+2124), it cannot be shown
   on LATEX yet because there is no suitable font found to show
   this glyph.
 
-- The \lfloor and \rfloor symbol cannot appear by itself in a
-  LATEX document. It must be part of a \left \right expression
-  such as \left\lfloor ... \right\rfloor. It is OK to have them
-  appear in a CONTEX. Thus, ensure to use \left\lfloor and \right\rfloor
-  when writing MD document, otherwise it might not appear in 
-  a PDF processed by LATEX.
+- It has been observed if a \lfloor and/or \rfloor symbol is 
+  to appear in a LATEX document by itself, then nothing is seen
+  in the PDF.  To make it "appear", it must be part of 
+  a \left-\right expression: such as \left\lfloor ... \right\rfloor. 
+  CONTEX does not this problem. 
+  Thus, the solution is to always use \left\lfloor and \right\rfloor.
 
-## The equation numbering
+## Equation numbering
 
-Equation numbering is done using a MATH block and specify 
-a label as the first part of the formula.
+By default, equations are not numbered. However if the equation
+is detected to have a label that is at the first part of the expression
+immediately after the dollar sign, then this equation is to be
+numbered.  On top of that, if multiple equations are "conglomerated"
+due to their appearing one after another, then all the equations
+will be numbered.
 
-  $ $(#eq:a) a^2 + b^2 = c^2
+This makes it easy to be implemented in LATEX, as latex provides
+two environments, namely, "align" and "gather", that would assign
+a number for each one of the equations in the list. If one is to
+prefer having a single number for an equation that spans across
+multiple lines, then the "split" is the one. The nice thing about
+the "split" is that it can be nested inside an "align" or "gather".
+See the following.
 
-Two or more consecutive blocks will each get they own numbering
-if the first one is provided with a label. 
+    \begin{align}
+    \begin{split}
+    A = a + b + c\\
+      = 2a + 2b
+    \end{split}
+    B = a + b\\
+    C = b + c
+    \end{align}
 
-  $ $(#eq:a) a^2 + b^2 = c^2
+However, similar things can not be said for CONTEX. For CONTEX,
+There is no "subalignment", or I have tried and it does not 
+work. For CONTEX, it is possible to assign numbering to a selected
+few equations with a \startmathalign-\stopmathalign block.  And this
+is exactly what we are going to do to "simulate" this effect
+if some of the equations are considered to be part of a larger "multi-line"
+equation where one should only assign a single number. Following
+is how to do it in CONTEX.
 
-  $          a^3 + b^3 = c^3
+    \startmathalign[n=1]
+    \NC A \NC = a + b + c \NR
+    \NC   \NC = 2a + 2b \NR[+]
+    \NC B \NC = a + b \NR[+]
+    \NC C \NC = b + c \NR[+]
+    \stopmathalign
 
-  $          a^4 + b^4 = c^4
+This is to assume that following appears within
+a source MD file.
 
-However, having a label in a sub-equation will allow one to
-refer to it later.
+  $ $(#eq:a) A &= a + b + c\\ 
+               &= 2a + 2b
 
-  $ $(#eq:a) a^2 + b^2 = c^2
+  $          B &= a + b
 
-  $ $(#eq:b) a^3 + b^3 = c^3
+  $          C &= b + c      
 
-  $ $(#eq:c) a^4 + b^4 = c^4
+Note that in the previous case, only having had detected
+the label in the first (main) equation will trigger all
+numbering for subsequent sub-equations, regardless if
+the subequation is labeled or not. However, without a label
+means it is impossible to reliably refer to this equation
+using a number that is consistant. Thus, in order to 
+refer to sub-equations, one can place additional labels
+such as follows.
 
-The numbering will be given for all three equations regardless 
-whether the second or third actuall has a label. 
+  $ $(#eq:a) A &= a + b + c\\ 
+               &= 2a + 2b
 
-For a given equation, it is possible to have a single equation 
-to be splitted into multiple lines. This behavior is similar
-to LATEX "split" environment.
+  $ $(#eq:b) B &= a + b
 
-  $ $(#eq:a) C = a^2 + b^2 + c^2 \\
-               = a^3 + b^3 \\
-               = c^4
+  $ $(#eq:c) C &= b + c      
 
-In this case, it might be preferrable to have a alignment 
-point indicator "&" to be placed in front of the equal-sign
-and then the equal-sign will be aligned.
+For a given equation, if a double-backslashes are detected in the 
+main expression, (those that are part of a begin-end matrix or 
+begin-end cases are not counted), then these backslashes
+are interpreted as "line breaks" for a long formular.
+This behavior is similar to LATEX "split" environment.
+
+  $ $(#eq:a) A &= a + b + c\\ 
+               &= 2a + 2b
+
+In this case, it might be preferrable to have an "alignment 
+point" where all equations will be aligned to that point.
+This is done by placing a '&' character.
 
   $ $(#eq:a) C &= a^2 + b^2 + c^2 \\
                &= a^3 + b^3 \\
                &= c^4
 
-This equation this "split" equation be combined with 
-others that might or might not be a "split" equation.
+Note that only the first '&' will be treated as the alignment
+point. All subsequent '&' detected will be ignore.
 
-  $ $(#eq:a) C &= a^2 + b^2 + c^2 \\
-               &= a^3 + b^3 \\
-               &= c^4
+However, it is possible to similate the "gather" environment
+of the LATEX, in which the "alignment point" of each equation
+is the middle point of that equation. To enable a "gather"
+environment instead of "align", use a double-dollar as the 
+leading bullet.
 
-  $ $(#eq:b) D &= a^2 + b^2 + c^2 
+  $$ $(#eq:a) A &= a + b + c\\ 
+               &= 2a + 2b
 
-  $ $(#eq:c) E &= a^3 + b^3 \\
-               &= c^4
+  $ $(#eq:b) B &= a + b
 
-By default, each sub-eqation is to be aligned
-with the main-equation (first one) by the presence
-of '&', which is considered an alignment, and
-when that alignment point isn't there, it is assumed
-to be the end of that equation. However, one can
-say that alignment point is always the center
-of the equation, regardless of the presence 
-of the '&'. In this case, use the double-dollar-sign
-for the main-equation.
+  $ $(#eq:c) C &= b + c      
 
-  $$ $(#eq:a) C &= a^2 + b^2 + c^2 \\
-               &= a^3 + b^3 \\
-               &= c^4
+The double-dollar leading bullet for the first equation 
+will tell NITRILE to use a "gather" environment. Otherwise
+it uses "align".
 
-  $ $(#eq:b) D &= a^2 + b^2 + c^2 
+It is not necessary for the sub-equations to have a double-dollar
+leading bullet, as NITRILE only looks at the double-dollar
+leading bullet from the first equation to make the decision.
 
-  $ $(#eq:c) E &= a^3 + b^3 \\
-               &= c^4
 
 

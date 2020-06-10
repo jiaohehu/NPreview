@@ -6,10 +6,8 @@ const fname = process.argv[2];
 console.log(fname);
 
 var work = async ()=>{
-  console.log(fname);
   var out = await utils.readFileAsync(fname);
   var lines = out.split('\n');
-  console.log(lines);
   const parser = new NitrilePreviewContex();
   parser.readFromLines(lines);
   await parser.readModeAsync();

@@ -569,5 +569,10 @@ leading bullet from the first equation to make the decision.
   CONTEX does not this problem. 
   Thus, the solution is to always use \left\lfloor and \right\rfloor.
 
-
+- Note that the backtick and the dollar-sign arn't part of the TEX 
+  math expression.  CONTEX even goes so far as to raise an error
+  if a dollar-sign or backtick is detected. For this reason and
+  others, the math expression detection excludes any appearances
+  of backtick and dollar-sign. If they are detected, then it is
+  not treated as a math expression but rather as normal text.
 

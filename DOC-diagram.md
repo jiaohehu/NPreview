@@ -1,4 +1,4 @@
-# Supporting Diagram
+# Diagram
 
 A diagram block is to generate a diagram with vector based figures, made up
 with vector based components as lines, circles, rectangles, arrows, dots, etc.

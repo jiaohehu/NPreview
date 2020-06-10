@@ -14,139 +14,145 @@ A diagram block is to be translated into an inline MetaPost block between
 
 
 
-## An example diagram
+# An example diagram
 
 Following is an example of a diagram block.
 
 
-```diagram
-viewport 32 20
+    @ ```diagram
+    viewport 32 20
 
-% variables
-a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
-b := (1,1) .. (5,5) .. (5,1) .. (1,1) ()
+    % variables
+    a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
+    b := (1,1) .. (5,5) .. (5,1) .. (1,1) ()
 
-% drawline
-drawline *a
-drawline *b
+    % drawline
+    drawline *a
+    drawline *b
 
-% circles
+    % circles
 
-set fillcolor pink
-circle    {1} (16,1)
-halfcircle.top {1} (16,3)
-halfcircle.bot {1} (16,5)
-halfcircle.rt  {1} (16,7)
-halfcircle.lft {1} (16,9)
-quadrant.q1  {1} (18,1)
-quadrant.q2  {1} (18,1)
-quadrant.q3  {1} (18,1)
-quadrant.q4  {1} (18,1)
-octant.o1  {1} (18,3)
-octant.o2  {1} (18,3)
-octant.o3  {1} (18,3)
-octant.o4  {1} (18,3)
-octant.o5  {1} (18,3)
-octant.o6  {1} (18,3)
-octant.o7  {1} (18,3)
-octant.o8  {1} (18,3)
-circle.chord {1,0,135} (20,1)
-circle.arc   {1,0,135} (20,3)
-circle.cseg  {1,0,135} (20,5)
+    set fillcolor pink
+    circle    {1} (16,1)
+    halfcircle.top {1} (16,3)
+    halfcircle.bot {1} (16,5)
+    halfcircle.rt  {1} (16,7)
+    halfcircle.lft {1} (16,9)
+    quadrant.q1  {1} (18,1)
+    quadrant.q2  {1} (18,1)
+    quadrant.q3  {1} (18,1)
+    quadrant.q4  {1} (18,1)
+    octant.o1  {1} (18,3)
+    octant.o2  {1} (18,3)
+    octant.o3  {1} (18,3)
+    octant.o4  {1} (18,3)
+    octant.o5  {1} (18,3)
+    octant.o6  {1} (18,3)
+    octant.o7  {1} (18,3)
+    octant.o8  {1} (18,3)
+    circle.chord {1,0,135} (20,1)
+    circle.arc   {1,0,135} (20,3)
+    circle.cseg  {1,0,135} (20,5)
 
-% dot
-sq := (22,3) (23,3) (23,2) (22,2)
-dot (22,1)
-dot $somepoints(sq,0) $somepoints(sq,1) $somepoints(sq,2) $somepoints(sq,3) (22,4) (23,4)
+    % dot
+    sq := (22,3) (23,3) (23,2) (22,2)
+    dot (22,1)
+    dot $somepoints(sq,0) $somepoints(sq,1) $somepoints(sq,2) $somepoints(sq,3) (22,4) (23,4)
 
-% tick
-tick.top (23,1)
-tick.bot (24,1)
-tick.rt  (25,1)
-tick.lft (26,1)
+    % tick
+    tick.top (23,1)
+    tick.bot (24,1)
+    tick.rt  (25,1)
+    tick.lft (26,1)
 
-% 90-degree angle
-drawline (28,4)--(31,4)
-a/b := *
-drawline (28,4)--(28,7)
-/c := *
-drawanglearc.sq *a *b *c
+    % 90-degree angle
+    drawline (28,4)--(31,4)
+    a/b := *
+    drawline (28,4)--(28,7)
+    /c := *
+    drawanglearc.sq *a *b *c
 
-% 45-degree angle
-drawline <0,-4> (28,4)--(31,4)
-a/b := *
-drawline <0,-4> (28,4)--(31,7)
-/c := *
-drawanglearc *a *b *c
+    % 45-degree angle
+    drawline <0,-4> (28,4)--(31,4)
+    a/b := *
+    drawline <0,-4> (28,4)--(31,7)
+    /c := *
+    drawanglearc *a *b *c
 
-% drawline will fill      
-ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
-set linesize 2px
-set fillcolor orange
-drawline *ff
-reset
+    % drawline will fill      
+    ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
+    set linesize 2px
+    set fillcolor orange
+    drawline *ff
+    reset
 
-% label
-label.rt  {``C_0``} (5,5)
-label.rt  {``B_0``} (5,1)
-label.top {``A_0``} (1,1)
+    % label
+    label.rt  {``C_0``} (5,5)
+    label.rt  {``B_0``} (5,1)
+    label.top {``A_0``} (1,1)
 
-% dots
-dot (1,1) \
-        (2,2) (3,3) \
-        (4,4) (5,5)
+    % dots
+    dot (1,1) \
+            (2,2) (3,3) \
+            (4,4) (5,5)
 
-% ticks
-tick.top (2,1) (3,1) (4,1)
-tick.bot (2,1) (3,1) (4,1)
-tick.rt  (5,2) (5,3) (5,4)
-tick.lft (5,2) (5,3) (5,4)
+    % ticks
+    tick.top (2,1) (3,1) (4,1)
+    tick.bot (2,1) (3,1) (4,1)
+    tick.rt  (5,2) (5,3) (5,4)
+    tick.lft (5,2) (5,3) (5,4)
 
-% arrow & dblarrow
-drawarrow (7,3) (9,5)
-drawdblarrow (9,3) (11,5)
-drawrevarrow (11,3) (13,5)
+    % arrow & dblarrow
+    drawarrow (7,3) (9,5)
+    drawdblarrow (9,3) (11,5)
+    drawrevarrow (11,3) (13,5)
 
-% text of a different fontsize
-set fontsize 14pt
-label.ctr { 簡単 Triangle } (10,1)
+    % text of a different fontsize
+    set fontsize 14pt
+    label.ctr { 簡単 Triangle } (10,1)
 
-% shape
-brick (7,7) [h:1] [h:1]
-brick (7,8) [h:1] [h:1]
+    % shape
+    brick (7,7) [h:1] [h:1]
+    brick (7,8) [h:1] [h:1]
 
-% trapezoid
-trapezoid (2,11)
+    % trapezoid
+    trapezoid (2,11)
 
-% rhombus
-rhombus (5,11)
+    % rhombus
+    rhombus (5,11)
 
-% rect
-rect (8,11)
+    % rect
+    rect (8,11)
 
-% parallelgram
-parallelgram (11,11)
+    % parallelgram
+    parallelgram (11,11)
 
-% apple
-apple (15,11)
+    % apple
+    apple (15,11)
 
-% basket
-basket (17,11)
+    % basket
+    basket (17,11)
 
-% crate
-crate (21,11)
+    % crate
+    crate (21,11)
 
-% rrect
-rrect (26,11)
+    % rrect
+    rrect (26,11)
 
-% protractor
-protractor (10,15)
+    % protractor
+    protractor (10,15)
 
-% radical
-radical (1,17)
-```
+    % updnprotractor
+    updnprotractor (10,15)
 
-## The unit length and grid lines
+    % radical
+    radical (1,17)
+
+    % math
+    label.ctr { ``\sqrt{2}`` } (18,18)
+    ```
+
+# The unit length and grid lines
 
 In Diagram, each figure is always expresses using the grid unit length. A unit
 unit length is considered as a distance between two adjacent grid lines on a
@@ -182,7 +188,7 @@ is to be explained later.
 
 
 
-## Drawing instructions
+# Drawing instructions
 
 Aside from `viewport` and `unit`, the rest of diagram commands are considered
 drawing instructions. Almost all drawing instructions will generate a MetaPost
@@ -680,7 +686,7 @@ centered at the location because the instruction is `label`.
 
 
 
-## The drawing parameters
+# The drawing parameters
 
 Following is a list of all drawing parameters
 
@@ -728,7 +734,7 @@ Following is a list of all drawing parameters
                       It is used when drawing an area.                      
 
 * dotcolor            Set the color used for drawing dots, such as "red".   
-                      It is used by the drawdot instruction.                
+                      It is used by the `dot` instruction.                
 
 * dotsize             Configure the size of the dot to be drawn, such as    
                       "8pt". Used by the `dot` instruction. The default     
@@ -749,7 +755,7 @@ Following is a list of all drawing parameters
 
 
 
-## Path expression       
+# Path expression       
 
 As can be seen, a path expression is used by an assignment instruction, as well
 as other statements that also expectes a path.  A path expression consists of
@@ -910,7 +916,7 @@ that a "move" point will still be affected by the current settings of the
 "offset" as all the other coordinate points in the path expression.
 
 
-## Path functions        
+# Path functions        
 
 Note that for a path function all its arguments must be either a path variable
 or a number. Coordinate list is not valid. In the following examples all
@@ -991,7 +997,7 @@ variable 'pts' will hold two points: (6,2) and (4,2).
 
 
 
-## Specifying the color for MetaPost
+# Specifying the color for MetaPost
 
 The color syntax is either the color name, such as "red", "green",
 or RGB such as "rgb(200,100,25)".
@@ -1036,11 +1042,12 @@ such as
     drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
 
 
-## The line size or dot size unit
+# The line size or dot size unit
 
-Note that for units such as line width, dot size, etc, is maintained internally
-by Diagram as the SVG user unit. One user unit is exactly 1/96 of an inch.
-Following is the conversion of SVG units.
+Note that for units such as line width, dot size, etc, is
+maintained internally by Diagram as the SVG user unit. One user
+unit is exactly 1/96 of an inch.  Following is the conversion of
+SVG units.
 
     1in = 96px
     1in = 72pt
@@ -1050,19 +1057,19 @@ It seems that MetaPost allows for a line length or dot size to be
 expressed without a specific unit attached to it. For example, you
 can ask to draw a dot by MetaPost with the following command.
 The "withpen pencircle scaled 5" is part of a configuration to
-the "drawdot" command that is to tell it to use a pen size of 5.
+the "dot" command that is to tell it to use a pen size of 5.
 Note that the size of 5 is interpreted as the size of the pen,
 therefore, the diameter of the dot as the pen is a circle pen.
 
-    drawdot (22*u,3*u) withpen pencircle scaled 5 ;
+    dot (22*u,3*u) withpen pencircle scaled 5 ;
 
 You can also provide a unit directly, such as pt.
 
-    drawdot (22*u,3*u) withpen pencircle scaled 5pt ;
+    dot (22*u,3*u) withpen pencircle scaled 5pt ;
 
 
 
-## The Linecap draw parameter
+# The Linecap draw parameter
 
 The linecap attribute is defines the shape to be used at the end
 of open subpaths when they are stroked. The SVG has an attribute
@@ -1070,68 +1077,143 @@ that can used for <line> element. The available values are:
 'butt', 'round', and 'square'. The default value is 'butt'.
 
 
-## Known problems
+# The cartesian command
 
-  - The arrow head in HTML is done using <marker> element. And for SVG 1.1
-    the limitation is that its coloring and filling is not changed to
-    the line element it attaches to. It is a browser problem and currently
-    there is no fix.
+The `cartesian` command is used to draw plots, curves, axis,
+ticks that are related to a single Cartesian coordinate.  It is a
+composite command that includes many sub-commands.
 
-  - For SVG we *had* to make a choice to either show a plaintext, using <text>
-    element or math text  using <svg> element, there is currently a lot of grief
-    as prevously we were freely mixing normal and math text as this was not
-    a problem for MetaPost, as it supports TeX text between btex and etex
-    constructs. However, mixing plain text and math text is an issue
-    because math text is translated into SVG and plain text into
-    <text> SVG element, and there is no way to correctly position
-    the SVG text if it is to appear in the middle of a <text> element.
+The command must be called with a letter that is attached to the
+command such as `cartesian.a`. This instructs to use Cartesian
+coordinates named 'a'. 
 
-  - The generation of fontsize is always done to convert a user unit
-    to pt.
+The `setup` command would set up a Cartesian coordate to be used.
+The parameters are: xorigin, yorigin, xgrid, ygrid. The first two
+defines the location where the center of the cartesian
+coordinates will appear inside the diagram. For example, if it is
+passed as "2 3", then the center of the Cartesian coordinate will
+be located in the same place as where the dot will appear if we
+were to use invoke the command 'dot (2,3)'.
 
-  - It has been observed that for MP generation if the symbol were part
-    of a math such as between \( and \), then it appears smaller than
-    those that are not.
+  cartesian.a setup 2 3 0.75 0.75
 
-  - The text-aligmnents are default to 'urt' and not 'centered', thus
-    we need to ensure previous auto choices of text alignment which
-    asssumes the center are now being shown as 'urt' and thus we need
-    to make some adjustments where necessary.
+The next two parameters are for expressing how to scale the
+coordinate.  For example, if specified as (0.75,0.75), then each
+grid on the Diagram express a length of 0.75 inside the Cartesian
+coordinate, essentially making the points in the coordinate
+appear more spread out.
 
-  - Need to make the aligment of objects consistant. By default labels
-    are aligned at the center, crate and basket and apples are aligned at the
-    center, but rect, trapezoid, rhombus, and parallelgram are aligned
-    at the lower left corner. Need to change is so that besides text,
-    other objects are by default aligned at the lower-left corner.
+The `cartesian xaxis` command is to draw the x-axis. The only two
+parameters passed to it is the lower and upper range that this
+axis entails.  Similarly, the `cartesian.yaxis` command draws the
+y-axis with similar parameter requirements.
 
-  - For shapes such as apple, brick and radical cannot be scaled, although
-    the radical has a configuration option. We need to create a scale factor
-    for each of the shape. Even though each shape has a natural size, but
-    we should also be able to specify a scaling factor to allow it to enlarge
-    or shrink beyond its natural size.
+  cartesian.a xaxis -0.75 5.6
+  cartesian.a yaxis -0.75 4.5
 
-  - When mathtext is generated for the label, since the font size is always set
-    at 12-pt, which makes the text look big. The problem has been corrected
-    by shrinking the size of the SVG.    
+The `cartesian xticks` is used to draw ticks as well as labels on
+the x-axis of the coordinate. The list of arguments passed to
+this command is a list of location of these ticks on the axis.
+For example, if passed as "1 2 3" then the ticks will appear
+where (1,0), (2,0), and (3,0) points are. For each tick, a label
+string will also appear unerneath that tick.  Similarly, the
+`cartesian.yticks` command does the same thing except for that it
+is for the y-axis. 
 
-  - It is not currently possible to specify multiple line segments such that
-    the line drawing is to terminate at one point and restart at another.
-    The newly proposed form of @(5,6) is to make it possible to "move a point"
-    to a new position so that the last point becomes the "last point of a
-    polyline" and the new moved point is the "first point of a new polyline".
+  cartesian.a xticks 1 2 3 4 5
+  cartesian.a yticks 1 2 3 4
 
-  - Note that for MetaPost translation, it is very sensitive to backslashes.
-    Even for texts that exists in comments, if a backslash is encountered
-    that is not followed by another backslash, it is processed as a backslash
-    sequence for which, it will consume a brace which will likely cause
-    an unmatched brace compile error in LATEX engine. For this reason,
-    all texts translated as a comment line are also "escaped".
+The `cartesian plot` command plots a number points within the
+cartesian plan as dots. The required arguments passed to it must
+appear in pairs, with the first one expressing x-coord and second
+one expressing the y-coord of the point. 
 
-  - The "dashed withdots" option for "drawline" will not show any visible
-    dotted lines in the PDF file when linecap:=butt. The linecap:=rounded will
-    has to be set in order to produce dotted-lines. Thus, currently the 
-    "set linedashed withdots" option is considered broken for MP generation.
-    Do not use it for now. Use "set linedashed evenly" instead.
+  cartesian.a plot -4 0 4 0 \
+                   -5 0 5 0
+
+The `cartesian curve` command draws a curve that will best first
+the given points in the coordinate.
+
+  cartesian.a curve  0.2 4.11 \
+                     0.5 2.67 \
+                     0.8 2.05 \
+                     1   1.80 \
+                     2   1.22 \
+                     3   1.00 \
+                     4   0.88 \
+                     5   0.81   
+
+The `cartesian text` command draws a text at the location of the
+cartesian coord. The location is expressed in the same form as
+that of `cartesian plot`.  The actual text content are taken from
+the "label" variable that is set outside of the `cartesian`
+command.    The "justi" variable expresses how this label is
+aligned relative to this point.
+
+  set label Vertex
+  set justi ulft   
+  cartesian.a text -5 0
+
+# Known problems
+
+- The arrow head in HTML is done using <marker> element. And for SVG 1.1 the
+  limitation is that its coloring and filling is not changed to the line
+  element it attaches to. It is a browser problem and currently there is no
+  fix.
+
+- For SVG we *had* to make a choice to either show a plaintext, using <text>
+  element or math text  using <svg> element, there is currently a lot of grief
+  as prevously we were freely mixing normal and math text as this was not a
+  problem for MetaPost, as it supports TeX text between btex and etex
+  constructs.  However, mixing plain text and math text is an issue because
+  math text is translated into SVG and plain text into <text> SVG element, and
+  there is no way to correctly position the SVG text if it is to appear in the
+  middle of a <text> element.
+
+- The generation of fontsize is always done to convert a user unit to pt.
+
+- It has been observed that for MP generation if the symbol were part of a math
+  such as between \( and \), then it appears smaller than those that are not.
+
+- The text-aligmnents are default to 'urt' and not 'centered', thus we need to
+  ensure previous auto choices of text alignment which asssumes the center are
+  now being shown as 'urt' and thus we need to make some adjustments where
+  necessary.
+
+- Need to make the aligment of objects consistant. By default labels are
+  aligned at the center, crate and basket and apples are aligned at the center,
+  but rect, trapezoid, rhombus, and parallelgram are aligned at the lower left
+  corner. Need to change is so that besides text, other objects are by default
+  aligned at the lower-left corner.
+
+- For shapes such as apple, brick and radical cannot be scaled, although the
+  radical has a configuration option. We need to create a scale factor for each
+  of the shape. Even though each shape has a natural size, but we should also
+  be able to specify a scaling factor to allow it to enlarge or shrink beyond
+  its natural size.
+
+- When mathtext is generated for the label, since the font size is always set
+  at 12-pt, which makes the text look big. The problem has been corrected by
+  shrinking the size of the SVG.    
+
+- It is not currently possible to specify multiple line segments such that the
+  line drawing is to terminate at one point and restart at another.  The newly
+  proposed form of @(5,6) is to make it possible to "move a point" to a new
+  position so that the last point becomes the "last point of a polyline" and
+  the new moved point is the "first point of a new polyline".
+
+- Note that for MetaPost translation, it is very sensitive to backslashes.
+  Even for texts that exists in comments, if a backslash is encountered that is
+  not followed by another backslash, it is processed as a backslash sequence
+  for which, it will consume a brace which will likely cause an unmatched brace
+  compile error in LATEX engine. For this reason, all texts translated as a
+  comment line are also "escaped".
+
+- The "dashed withdots" option for "drawline" will not show any visible dotted
+  lines in the PDF file when linecap:=butt. The linecap:=rounded will has to be
+  set in order to produce dotted-lines. Thus, currently the "set linedashed
+  withdots" option is considered broken for MP generation.  Do not use it for
+  now. Use "set linedashed evenly" instead.
 
 
 

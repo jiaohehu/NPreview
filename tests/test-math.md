@@ -7,9 +7,19 @@ test-math.md
 $ e = \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n
 
 
-# Display math Two
+# Display math Sum
 
 $ {\displaystyle e=\sum _{n=0}^{\infty }{\frac {1}{n!}}={\frac {1}{1}}+{\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots }
+
+# Display math Int
+
+$ {\displaystyle y=\int _{a}^{b} f(x) \dif{x}}
+
+# Display math Lim
+
+$ {\displaystyle y=\lim _{x\to\infty} \frac{1}{x}}  
+
+
 
 
 # Display math and aligned (no equation numbering)
@@ -54,27 +64,55 @@ $ $(#) z = \sqrt{2}
 
 
 
-# Greek Symbols
+# Greek letters 
+
+@   ```table
+             |               |            |               |              |                  
+    \Alpha   | ``\Alpha  ``  |   \Iota    | ``\Iota   ``  |     \Rho     | ``\Rho    ``     
+    \Beta    | ``\Beta   ``  |   \Kappa   | ``\Kappa  ``  |     \Sigma   | ``\Sigma  ``   
+    \Gamma   | ``\Gamma  ``  |   \Lambda  | ``\Lambda ``  |     \Tau     | ``\Tau    ``   
+    \Delta   | ``\Delta  ``  |   \Mu      | ``\Mu     ``  |     \Upsilon | ``\Upsilon``   
+    \Epsilon | ``\Epsilon``  |   \Nu      | ``\Nu     ``  |     \Phi     | ``\Phi    ``   
+    \Zeta    | ``\Zeta   ``  |   \Xi      | ``\Xi     ``  |     \Chi     | ``\Chi    ``   
+    \Eta     | ``\Eta    ``  |   \Omicron | ``\Omicron``  |     \Psi     | ``\Psi    ``   
+    \Theta   | ``\Theta  ``  |   \Pi      | ``\Pi     ``  |     \Omega   | ``\Omega  ``   
+    ---
+    [^1] Name
+    [^2] Symbol
+    [^3] Name
+    [^4] Symbol
+    [^5] Name
+    [^6] Symbol
+    ```
+
+@   ```table
+             |                |            |               |              |                  
+    \alpha   | ``\alpha  ``   |   \iota    | ``\iota   ``  |     \rho     | ``\rho    ``        
+    \beta    | ``\beta   ``   |   \kappa   | ``\kappa  ``  |     \sigma   | ``\sigma  `` 
+    \gamma   | ``\gamma  ``   |   \lambda  | ``\lambda ``  |     \tau     | ``\tau    ``     
+    \delta   | ``\delta  ``   |   \mu      | ``\mu     ``  |     \upsilon | ``\upsilon``       
+    \epsilon | ``\epsilon``   |   \nu      | ``\nu     ``  |     \phi     | ``\phi    ``  
+    \zeta    | ``\zeta   ``   |   \xi      | ``\xi     ``  |     \chi     | ``\chi    ``   
+    \eta     | ``\eta    ``   |   \omicron | ``\omicron``  |     \psi     | ``\psi    ``    
+    \theta   | ``\theta  ``   |   \pi      | ``\pi     ``  |     \omega   | ``\omega  ``  
+    ---
+    [^1] Name
+    [^2] Symbol
+    [^3] Name
+    [^4] Symbol
+    [^5] Name
+    [^6] Symbol
+    ```
 
 @ ```table
-  Letter|Symbol
-  ------|-----------
-   o    |``\omicron``
-   A    |``\Alpha``
-   B    |``\Beta``
-   E    |``\Epsilon``
-   Z    |``\Zeta``
-   H    |``\Eta``
-   I    |``\Iota``
-   K    |``\Kappa``
-   M    |``\Mu``
-   N    |``\Nu``
-   O    |``\Omicron``
-   P    |``\Rho``
-   T    |``\Tau``
-   X    |``\Chi``
+    Letter      | Symbol
+    ------------|-------------------
+    \vartheta   | ``\vartheta  ``
+    \varrho     | ``\varrho    ``       
+    \varsigma   | ``\varsigma  ``           
+    \varphi     | ``\varphi    ``      
+    \varepsilon | ``\varepsilon``           
   ```
-
 
 
 # Math commands and accents
@@ -162,6 +200,8 @@ $ $(#) z = \sqrt{2}
 - ``\left\lVert \frac 1 a \right\rVert``
 
 - ``\left\langle \frac 1 a \right\rangle``
+
+- ``\left\lfloor \frac 1 a \right\rfloor``
 
 - ``\begin{matrix} a \end{matrix}``
 

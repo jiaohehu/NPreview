@@ -5,6 +5,7 @@
 %!latex.toc=1
 %!contex.frontpage=1
 %!contex.toc=1
+%!contex.twocolumns=1
 %!all.title=Test using Master Document
 %!all.author=James Yu
 %^簡単・かんたん

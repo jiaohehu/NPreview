@@ -1,6 +1,5 @@
 test-tabr.md
 
-%!contex.twocolumns=1
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -10,32 +9,14 @@ fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum."
 
 @ ```table
-  Category         
-  Length             
-  Mass               
-  Time               
-  Electric current   
-  Temperature        
-  Luminous intensity 
-  Amount of substance
-  ---
-  Unit          
-  meter         
-  kilogram      
-  second        
-  ampere        
-  kelvin        
-  candela       
-  mole          
-  ---
-  Symbol
-  m
-  kg
-  s  
-  A  
-  K  
-  cd
-  mol  
+  Category             | Unit       | Symbol                                   
+  Length               | meter      | m
+  Mass                 | kilogram   | kg
+  Time                 | second     | s  
+  Electric current     | ampere     | A  
+  Temperature          | kelvin     | K  
+  Luminous intensity   | candela    | cd
+  Amount of substance  | mole       | mol  
   ```
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

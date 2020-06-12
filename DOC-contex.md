@@ -140,5 +140,7 @@ similar names but not sure what they are about.
   if there are many lines they some of them might appear before a 
   "floating" figure and some of them after.
 
+- The \sfrac in CONTEX does not place the numerator/denominator side-by-side,
+  but instead laying them out top-to-bottom.
 
 

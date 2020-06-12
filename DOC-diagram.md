@@ -1154,6 +1154,36 @@ aligned relative to this point.
   set justi ulft   
   cartesian.a text -5 0
 
+# The line, area, linearea operation
+
+The 'line' operation would stroke a line alone the path. The
+'area' operation would fill an area enclosed by the path, and it
+will "close" the path if it is not closed. The 'linearea'
+operation will fill the area and also stroke its outline, and it
+will also "close" the path if it is not closed. For 'line' and
+'linearea' operations, the lines are always visible. If
+'linesize' is set to zero then the default line width is used.
+For the 'linearea' and 'area' operation the 'fillcolor' is used;
+and it will be set to BLACK if it is not set.  For 'line' and 
+'linearea' the line color uses 'linecolor' property. If it is
+not set it defaults to BLACK.
+
+# The arrow, revarrow, and dblarrow operation
+
+These three operations only draw lines, similar to the 'line'
+operation. The 'arrow' would place an arrowhead at the ending
+line cap location. The 'revarrow' would place an arrowhead at the
+starting line cap location. The 'dblarrow' would place two
+arrowheads one at the beginning and the other at the ending line
+cap location. The lines are always drawn, regardless of the
+'linesize' setting. If 'linesize' is set to zero, the default
+line width for the target platform is assumed.  The 'linecolor'
+setting determines the line color as well as the color of the
+arrowhead.  However, due to outstanding issues on SVG, the
+arrowhead <marker> element does not reflect the color setting of
+the from the line to which it is attached, and will always show
+as black. 
+
 # Known problems
 
 - The arrow head in HTML is done using <marker> element. And for SVG 1.1 the

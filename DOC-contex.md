@@ -107,4 +107,11 @@ The \mathscr is not available on CONTEX and thus is not supported
 on NITRILE.
 
 
+# Issues
+
+- For code listing in VERB block, as it is done using \starttabulate,
+  if there are many lines they some of them might appear before a 
+  "floating" figure and some of them after.
+
+
 

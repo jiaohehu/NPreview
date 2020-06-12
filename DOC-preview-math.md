@@ -576,3 +576,12 @@ leading bullet from the first equation to make the decision.
   of backtick and dollar-sign. If they are detected, then it is
   not treated as a math expression but rather as normal text.
 
+- For \usepackage{libertinust1math} the U character when it is
+  under \mathcal{U} looks more a little like a V than a U. But I
+  think it is a small issue. Overall, this fonts is much better
+  when it comes to rendering small letters and numbers such as
+  those of a nested fraction.  Especially the vertical spacing 
+  between the numerator and denominator seems correct while the native
+  LATEX font does this poorly.
+  
+

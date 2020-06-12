@@ -150,4 +150,14 @@ HDGS/2 as subsection, and so on. The "h2" designation is to treat
 the HDGS/0 of each child document as a section, HDGS/1 as a subsection,
 HDGS/2 as a subsubsection, and so on. 
 
+# Libertine Fonts
+
+Use use libertine fonts, add the following two lines to the preamble.
+
+  \usepackage{libertine}
+  \usepackage{libertinust1math}
+  \usepackage[T1]{fontenc}
+
+For LUALATEX output, only the first two lines are needed. 
+
 

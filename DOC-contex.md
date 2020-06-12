@@ -106,6 +106,33 @@ HDGS/2 as a subsubsection, and so on.
 The \mathscr is not available on CONTEX and thus is not supported
 on NITRILE.
 
+# Using libertine font
+
+To use the Linux Libertine font, specify "linuxlibertineo" as the
+font family name. 
+
+  \setupbodyfont[linuxlibertineo]
+  \setupbodyfont[linuxlibertineo,12pt]
+
+There are other font family in there with 
+similar names but not sure what they are about.
+
+  $ mtxrun --script font --list --file -pattern=*libertine*
+
+  familyname                weight     style    width    variant   fontname               filename               subfont   fontweight
+
+  linuxlibertinedisplayo    normal     normal   normal   normal    linlibertinedisplayo   LinLibertine_DR.otf              conflict: book
+  linuxlibertineinitialso   normal     normal   normal   normal    linlibertineio         LinLibertine_I.otf               conflict: book
+  linuxlibertinemonoo       normal     normal   normal   normal    linlibertinemo         LinLibertine_M.otf               conflict: book
+  linuxlibertinemonoo       bold       normal   normal   normal    linlibertinemob        LinLibertine_MB.otf
+  linuxlibertinemonoo       bold       italic   normal   normal    linlibertinemobo       LinLibertine_MBO.otf
+  linuxlibertinemonoo       normal     italic   normal   normal    linlibertinemoo        LinLibertine_MO.otf              conflict: book
+  linuxlibertineo           normal     normal   normal   normal    linlibertineo          LinLibertine_R.otf               conflict: book
+  linuxlibertineo           bold       normal   normal   normal    linlibertineob         LinLibertine_RB.otf
+  linuxlibertineo           bold       italic   normal   normal    linlibertineobi        LinLibertine_RBI.otf
+  linuxlibertineo           normal     italic   normal   normal    linlibertineoi         LinLibertine_RI.otf              conflict: book
+  linuxlibertineo           semibold   normal   normal   normal    linlibertineoz         LinLibertine_RZ.otf
+  linuxlibertineo           semibold   italic   normal   normal    linlibertineozi        LinLibertine_RZI.otf
 
 # Issues
 

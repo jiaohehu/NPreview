@@ -584,4 +584,10 @@ leading bullet from the first equation to make the decision.
   between the numerator and denominator seems correct while the native
   LATEX font does this poorly.
   
-
+- Currently for SVG-math it uses nested SVG to shrink the inner SVG,
+  in some cases the top part of the letter of ``\xi`` is clipped,
+  as in ``\int_{-\infty}^{\infty} f(\xi) \dif{\xi}`` . This does not
+  happen in all places, and it differs. For this, iBOOK would have
+  clipped the top part of ``\xi``, while Safari does not have this
+  problem.
+  

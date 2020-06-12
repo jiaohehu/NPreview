@@ -52,17 +52,16 @@ a "part" before it, the "part" will be in its own XHTML file.
 
 # Issues and remarks
 
-- The iBook does not render EPUB well when it is styled with
-  position:absolute.  Thus, for equation numbering and line
-  numbering for listing blocks, it has been deliberately changed
-  to not relying on this kind of technique to typeset line
-  number. Instead the <table> is used and the leftmost table cell
-  is used for inserting the numbering text.  For listing and/or
-  verb block, the <table> is to be used in the similar style.
-
-- In HTML generating of reference to equations are not yet
-  implemented.
-
+- For MATH blocks with two more equations, EPUB tends to shrink
+  the SVG for an formula if that formula has been too wide
+  to fit within the boundary of the page. The shrink has been
+  kept of their aspect ratio. However, this does raise an issue
+  of vertical equations where they should be aligned with their
+  "alignment points"---when one of the formula is shrinked it
+  is no longer aligned with the neighboring formulas. One possible
+  solution is to place them all inside a container SVG, thus
+  if the container SVG is shrinked at least all formulas in it
+  are kept in relative positions.
 
 
 

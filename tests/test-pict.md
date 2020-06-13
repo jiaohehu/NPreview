@@ -7,12 +7,14 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum."
 
-@  image-gimp.jpg One 
+@  ```image
+   image-gimp.jpg One 
    image-gimp.jpg Two 
    image-gimp.jpg Three
    ---
    image-gimp.jpg Four 
    image-gimp.jpg Five
+   ```
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

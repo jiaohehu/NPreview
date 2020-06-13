@@ -126,7 +126,6 @@
     { "kbd": ";"               ,    "unicode": ";"              ,  "id": "mySEMIC"   ,    "dx":"0",      "dy":"0.75em",   "op": 2    ,  "width": 4    },
     { "kbd": "/"               ,    "unicode": "/"              ,  "id": "mySLASH"   ,    "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
     { "kbd": "|"               ,    "unicode": "|"              ,  "id": "myVBAR"    ,    "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
-    { "kbd": ""                ,    "unicode": "&#x29F8;"       ,  "id": "mySOLIDUS" ,    "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 6    },
 
     { "kbd": "&"               ,    "unicode": "&#38;"          ,  "id": "myAMPERSAND",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7    },
     { "kbd": "\""              ,    "unicode": "&#34;"          ,  "id": "myQUOTATION",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },

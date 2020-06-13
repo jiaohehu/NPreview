@@ -160,4 +160,22 @@ Use use libertine fonts, add the following two lines to the preamble.
 
 For LUALATEX output, only the first two lines are needed. 
 
+# To wide table table/figure
+
+  \begin{figure*}[ht]
+  ...
+  \end{figure*}
+
+  \begin{table*}[ht]
+  ...
+  \end{table*}
+
+You can change the horizontal space between columns through:
+
+  \setlength{\columnsep}{2cm}
+
+The following code adds a separation line between columns:
+
+  \setlength{\columnseprule}{0.5pt}
+
 

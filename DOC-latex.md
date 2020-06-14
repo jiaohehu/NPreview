@@ -261,3 +261,14 @@ Following is a custom float for Program:
   the preamble, and not within the document.
   \end{document}
 
+# Issues and remarks
+
+- For Linux liberbine package which changes body font, the documentation
+  states to use font encoding using the following option. However, it
+  has been observed that on LuaLATEX if following package is used then
+  the bold-face went away.
+
+  \usepackage[T1]{fontenc}
+
+
+

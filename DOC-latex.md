@@ -88,23 +88,33 @@ Following are required LATEX packages that must be included:
       Needed to use color such as \xcolor{...}
 
     \usepackage[export]{adjustbox}
-      For \resizebox command that is used for typesetting verb block.
+      For \resizebox command that is used for typesetting VERB block.
+
+    \usepackage{float}
+      For defining customized floats.
 
 # Setting the relative font size
 
 Font sizes can be set for the following contents:
 
-  code: "fscode" 
-  listing: "fslisting"
-  tabular: "fstabular"
+  %!LATEX.fscode = small
+  %!LATEX.fstabular = small
+  %!LATEX.fslisting = footnotesize
+  %!LATEX.fssubcaption = footnotesize
 
 The first one is used the SAMP block when its style is not
-set to 1 or 2. The second one is used for listing contents.
-The third one is used for tabular entries, which includes all
-contents of TABR, TABB, and LONG contents.  
+set to 1 or 2. The second one is used for tabular entries.
+This will influence the text of TABB, TABR, and LONG blocks.
+The third one is used for text in a VERB blocks, including the
+line number. The last one is for captions and subcaptions.
+Subcaptions are the text underneath each image in a PICT
+block.
 
-These options must only be used to specify a "relative font size".
-The only valid relative font sizes are the following:
+The values to be placed after the option is one of the following
+values that expresses the font size relative to the current
+document font. Note that these entries corresponding closely
+with the font size switches of LATEX, but without the leading
+backslash.
 
      size            factor
      ----------------------------
@@ -119,13 +129,6 @@ The only valid relative font sizes are the following:
      huge            2.0
      Huge            2.3
   
-For example:
-
-  %!LATEX.fscode=footnotesize
-  %!LATEX.fslisting=scriptsize
-  %!LATEX.fstabular=small
-
-
 # Creating a LATEX document
 
 When running 'nil' and the document is not a master document,
@@ -152,13 +155,31 @@ HDGS/2 as a subsubsection, and so on.
 
 # Libertine Fonts
 
-Use use libertine fonts, add the following two lines to the preamble.
+There are pre-existing packages of the following nature
+that can be included with each TEX document to change
+the document font to Linux Libertine, including also
+changing the font of Math expression.
+The last one is the one instructing LATEX to use T1
+encoded fonts, even though there are other types of 
+encodings out there, including TrueType, and OpenType.
 
   \usepackage{libertine}
   \usepackage{libertinust1math}
   \usepackage[T1]{fontenc}
 
-For LUALATEX output, only the first two lines are needed. 
+These packages are not enabled by default. However, NITRILE has
+provision that allows additional commands to be inserted at the
+end of preamble by providing the following configuration
+parameters inside the document.
+
+  %!LATEX.extra+=\usepackage{libertine}
+  %!LATEX.extra+=\usepackage{libertinust1math}
+  %!LATEX.extra+=\usepackage[T1]{fontenc}
+
+Note the use of `+=` operator rather than the normal `='
+operator. It is designed to build expand the previous string into
+a larger one by appending new text at the end of it---and 
+to insert a "newline" character before each additional text.
 
 # To wide table table/figure
 
@@ -261,7 +282,34 @@ Following is a custom float for Program:
   the preamble, and not within the document.
   \end{document}
 
-# Issues and remarks
+# Floats
+
+The PICT, TABR, FRMD, and DIAG will *always* generate a "float" regardless
+if a label or caption is present. If both caption and label is lacking
+a \caption command is simply not there inside the "float" block---the visual
+effect is that user will see no caption text at all, and no numbering.
+
+However, if a label is detected or a caption is provided then 
+the \caption will appear. Actually to be more accurate it is the star-version
+of the \caption, which will show up as \caption*. This is because NITRILE
+generates the number of all floats itself---the only exception being
+the equation.
+
+Thus, the \caption* will be used to typeset the caption. The logic is follow:
+if the label is there, then a new number is obtained, and is shown, making
+look like a "Fig.1", "Table.1", "Prog.1", etc. If no label is present, but
+a caption text, then no new numbering is obtained---the caption line is simply
+just the caption text without the numbering text that is "Fig.1", "Table.1",
+"Prog.1", etc.
+
+One can force the generation of a number by using an "empty label"
+in the form of `$(#)`.
+
+NITRILE defines customized floats in the names of: Figure, Table, and Program.
+The last one is for source code list, which works with VERB block. The first
+one works for PICT, DIAG, and FRMD. The second float works with TABR block.
+
+# Issues and additional remarks
 
 - For Linux liberbine package which changes body font, the documentation
   states to use font encoding using the following option. However, it

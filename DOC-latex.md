@@ -178,4 +178,86 @@ The following code adds a separation line between columns:
 
   \setlength{\columnseprule}{0.5pt}
 
+# Custom float
+
+LATEX provides custom float allowing one to define for 
+their own use. One good thing about it is that it 
+has a star-version such as \begin{Program*} 
+that would allow this float to be wide taking up spaces
+of both columns when one-column mode is enabled. 
+
+Another thing to point out is that the float number is always
+monotonously increasing as a single integer regardless whether
+chapter is present or not. To enable it to be chapter aware
+the [section] option will need to be specified:
+
+  \floatstyle{ruled}
+  \newfloat{Program}{tbp}{lop}[section]
+
+Note that if a star-version of the "caption" command such as
+\caption* is used the counter is not increased.  In addition, if
+\caption command is not present, there is no caption shown, and
+the counter is not increased.
+
+Following is a custom float for Figure:
+
+  \documentclass[twocolumn]{report}
+  \usepackage{float}
+  \usepackage{graphicx}
+  \floatstyle{plaintop}
+  \newfloat{Figure}{tbp}{lof}
+  \begin{document}
+  \chapter*{Chapter 1 - My}
+  If tables and figures are not adequate for your needs, then you always have the
+  option to create your own! A good example of such an instance would be a
+  document that gives lots of source code examples of a programming language. One
+  might therefore wish to create a program float. The float package is your
+  friend for this task. All commands to set up the new float must be placed in
+  the preamble, and not within the document.
+  \begin{Figure*}
+  \centering
+  \caption{The Hello World! program in Java.}
+  \medskip
+  \includegraphics{tests/image-gimp.jpg}
+  \end{Figure*}
+  If tables and figures are not adequate for your needs, then you always have the
+  option to create your own! A good example of such an instance would be a
+  document that gives lots of source code examples of a programming language. One
+  might therefore wish to create a program float. The float package is your
+  friend for this task. All commands to set up the new float must be placed in
+  the preamble, and not within the document.
+  \end{document}
+
+Following is a custom float for Program:
+
+  \documentclass[twocolumn]{report}
+  \usepackage{float}
+  \floatstyle{ruled}
+  \newfloat{Program}{tbp}{lop}
+  \begin{document}
+  \chapter*{Chapter 1 - My}
+  If tables and figures are not adequate for your needs, then you always have the
+  option to create your own! A good example of such an instance would be a
+  document that gives lots of source code examples of a programming language. One
+  might therefore wish to create a program float. The float package is your
+  friend for this task. All commands to set up the new float must be placed in
+  the preamble, and not within the document.
+  \begin{Program*}
+  \caption{The Hello World! program in Java.}
+  \begin{verbatim}
+  class HelloWorldApp {
+    public static void main(String[] args) {
+      //Display the string
+      System.out.println("Hello World!");
+    }
+  }
+  \end{verbatim}
+  \end{Program*}
+  If tables and figures are not adequate for your needs, then you always have the
+  option to create your own! A good example of such an instance would be a
+  document that gives lots of source code examples of a programming language. One
+  might therefore wish to create a program float. The float package is your
+  friend for this task. All commands to set up the new float must be placed in
+  the preamble, and not within the document.
+  \end{document}
 

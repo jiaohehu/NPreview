@@ -143,4 +143,54 @@ similar names but not sure what they are about.
 - The \sfrac in CONTEX does not place the numerator/denominator side-by-side,
   but instead laying them out top-to-bottom.
 
+- The equation numbering always starts at 1 for each chapter, regardless of
+  how many chapters there are. Each chapter would have its equation starting
+  from 1. This is different than LATEX, where the whole document is considered
+  a unit, and equation numbers continue from those of a previous chapter.
+
+- The only place to insert [+] or [eq:a] is to place it inside one
+  of the items after \startmathalignment. Placing after the \startformula
+  would trigger the equation numbering to be generated, and the numbering text 
+  is seen vertically centered comparing to the formula---however, 
+  the \in[eq:a] reference will not work in this case; all it shows is a ??.
+
+- When in twocolumn code, some of the lines are being compressed horizontally
+  when CONTEX determines it is just a little too long to fit in a line and
+  it think it can just squeeze it in by shrinking all the spaces tighter.
+  However, it has been observed that sometimes the parentheses are being
+  drawn on top of other characters.
+
+# Math formula
+
+The math formula generation for CONTEX is done 
+as the following:
+
+  $  C &= a + &b\\
+       &= c + d
+
+  $ A + B &= a + b
+
+  $ A + B + C &= c + d
+
+The output would have been as follows:
+
+  \startformula
+  \startmathalignment[n=2]
+  \NC C \NC = a + b \NR
+  \NC  \NC = c + d \NR[+]
+  \stopmathalignment
+  \stopformula
+  \startformula
+  \startmathalignment[n=2]
+  \NC A + B + C \NC = c \NR
+  \stopmathalignment
+  \stopformula
+  \startformula
+    A + B = c
+  \stopformula
+
+The result is that for the first \startformula, there are
+two lines on top of each other and these two lines will have
+their equal-signs aligned. For the next two formulas they
+are always arranged centered.
 

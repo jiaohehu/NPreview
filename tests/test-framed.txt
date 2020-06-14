@@ -1,0 +1,311 @@
+% !TEX program = lualatex
+%!ALL.title = 
+%!ALL.author = 
+%!CONTEX.backspace = 40
+%!CONTEX.cutspace = 40
+%!CONTEX.width = 130
+%!CONTEX.topspace = 20
+%!CONTEX.header = 10
+%!CONTEX.footer = 0
+%!CONTEX.height = 250
+%!CONTEX.bodyfontsizept = 11
+%!CONTEX.diagfontsizept = 12
+%!CONTEX.papersize = A4
+%!CONTEX.twocolumns = 0
+%!CONTEX.chapter = \bfc
+%!CONTEX.section = \bfb
+%!CONTEX.subsection = \bfa
+%!CONTEX.subsubsection = \bold
+%!CONTEX.subsubsubsection = \bold
+%!CONTEX.toc = 0
+%!CONTEX.docstyle = 0
+%!CONTEX.frontpage = 0
+%!CONTEX.trace = 0
+%!CONTEX.step = 5
+%!CONTEX.fscode = sm
+%!CONTEX.fstabular = sm
+%!CONTEX.fslisting = xsm
+%!CONTEX.longpadding = 1 3
+%!CONTEX.longvlines = *
+%!CONTEX.longhlines = t m b r
+%!CONTEX.fssubcaption = xsm
+%!LATEX.leftmargin = 40
+%!LATEX.rightmargin = 40
+%!LATEX.topmargin = 20
+%!LATEX.bodyfontsizept = 11.5
+%!LATEX.diagfontsizept = 12
+%!LATEX.papersize = a4paper
+%!LATEX.twoside = 0
+%!LATEX.twocolumns = 0
+%!LATEX.latexengine = 
+%!LATEX.toc = 0
+%!LATEX.documentclass = 
+%!LATEX.docstyle = 0
+%!LATEX.frontpage = 0
+%!LATEX.trace = 0
+%!LATEX.maxn = 44
+%!LATEX.step = 5
+%!LATEX.fscode = small
+%!LATEX.fstabular = small
+%!LATEX.fslisting = footnotesize
+%!LATEX.fssubcaption = footnotesize
+%!HTML.textcolor = #333
+%!HTML.width = 130
+%!HTML.margin = 4
+%!HTML.leftmargin = 44
+%!HTML.rightmargin = 44
+%!HTML.topmargin = 30
+%!HTML.bodyfontsizept = 12
+%!HTML.diagfontsizept = 12
+%!HTML.eqnumwidth = 10
+%!HTML.toc = 0
+%!HTML.trace = 0
+%!HTML.step = 2
+%!HTML.fscode = .8
+%!HTML.fstabular = .8
+%!HTML.fslisting = .8
+%!HTML.fssubcaption = .8
+%!HTML.mathoutline = 0
+\documentclass[11.5pt]{article}
+\usepackage{microtype}
+\usepackage{luatexja-fontspec}
+\usepackage{luatexja-ruby}
+\newjfontfamily\cn{arplsungtilgb}
+\newjfontfamily\tw{arplmingti2lbig5}
+\newjfontfamily\jp{ipaexmincho}
+\newjfontfamily\kr{baekmukbatang}
+\usepackage[left=40mm,right=40mm,top=20mm,a4paper]{geometry}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{unicode-math}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathSymbol{\Alpha}{\mathalpha}{operators}{"41}
+\DeclareMathSymbol{\Beta}{\mathalpha}{operators}{"42}
+\DeclareMathSymbol{\Epsilon}{\mathalpha}{operators}{"45}
+\DeclareMathSymbol{\Zeta}{\mathalpha}{operators}{"5A}
+\DeclareMathSymbol{\Eta}{\mathalpha}{operators}{"48}
+\DeclareMathSymbol{\Iota}{\mathalpha}{operators}{"49}
+\DeclareMathSymbol{\Kappa}{\mathalpha}{operators}{"4B}
+\DeclareMathSymbol{\Mu}{\mathalpha}{operators}{"4D}
+\DeclareMathSymbol{\Nu}{\mathalpha}{operators}{"4E}
+\DeclareMathSymbol{\Omicron}{\mathalpha}{operators}{"4F}
+\DeclareMathSymbol{\Rho}{\mathalpha}{operators}{"50}
+\DeclareMathSymbol{\Tau}{\mathalpha}{operators}{"54}
+\DeclareMathSymbol{\Chi}{\mathalpha}{operators}{"58}
+\DeclareMathSymbol{\omicron}{\mathord}{letters}{"6F}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{textcomp}
+\usepackage{changepage}
+\usepackage{fancyvrb}
+\usepackage[unicode]{hyperref}
+\usepackage{anyfontsize}
+\usepackage{luamplib}
+\usepackage[normalem]{ulem}
+\usepackage{xltabular}
+\usepackage{tabulary}
+\usepackage{xcolor}
+%\usepackage{supertabular}
+\usepackage[export]{adjustbox}
+\usepackage{libertine}
+\usepackage{libertinust1math}
+\floatstyle{plaintop}
+\newfloat{Figure}{tbp}{lof}
+\floatstyle{plaintop}
+\newfloat{Table}{tbp}{lot}
+\floatstyle{ruled}
+\newfloat{Program}{tbp}{lop}
+
+\begin{document}
+
+
+%HDGS () h0  (Test framed) 0 1
+\begin{flushleft}
+\noindent{\huge Test framed}
+\end{flushleft}
+
+%TEXT () h0  (Test framed) 1 9
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%VERB () h0  (Test framed) 9 24
+\begin{Program}[ht]
+\begin{tabular}{@{}l l@{}}
+{\footnotesize{}1} & {\footnotesize{}\char35{}~Tcl~package~index~file,~version~1.1}\\
+{\footnotesize{}2} & {\footnotesize{}\char35{}~This~file~is~generated~by~the~\char34{}pkg\_mkIndex\char34{}~command}\\
+{\footnotesize{}3} & {\footnotesize{}\char35{}~and~sourced~either~when~an~application~starts~up~or}\\
+{\footnotesize{}4} & {\footnotesize{}\char35{}~by~a~\char34{}package~unknown\char34{}~script.~~It~invokes~the}\\
+{\footnotesize{}5} & {\footnotesize{}\char35{}~The~newline~char~\char92{}n~is~great}\\
+{\footnotesize{}6} & {\footnotesize{}\char35{}~\char34{}package~ifneeded\char34{}~command~to~set~up~package-related}\\
+{\footnotesize{}7} & {\footnotesize{}\char35{}~information~so~that~packages~will~be~loaded~automatically}\\
+{\footnotesize{}8} & {\footnotesize{}\char35{}~in~response~to~\char34{}package~require\char34{}~commands.~~When~this}\\
+{\footnotesize{}9} & {\footnotesize{}\char35{}~script~is~sourced,~the~variable~\$dir~must~contain~the}\\
+{\footnotesize{}10} & {\footnotesize{}\char35{}~full~path~name~of~this~file's~directory.}\\
+{\footnotesize{}11} & \\
+{\footnotesize{}12} & {\footnotesize{}package~ifneeded~myfruits~1.0~\char91{}list~source~\char91{}file~join~\$dir~myfruits.tcl\char93{}\char93{}xxxxxxx}\\
+\end{tabular}
+\end{Program}
+
+%TEXT () h0  (Test framed) 24 32
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%FRMD () h0  (Test framed) 32 43
+\begin{Figure}[ht]
+\centering
+\begin{flushleft}
+\setlength{\unitlength}{1pt}
+\fbox{\resizebox{\linewidth}{!}{\begin{picture}(494,96)
+\put(0,3){\ttfamily\fontsize{12pt}{12pt}\selectfont{}package~ifneeded~myfruits~1.0~\char91{}list~source~\char91{}file~join~\$dir~myfruits.tcl\char93{}\char93{}xxxxxxx}
+\put(0,15){\ttfamily\fontsize{12pt}{12pt}\selectfont{}}
+\put(0,27){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~in~response~to~"package~require"~commands.}
+\put(0,39){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~information~so~that~packages~will~be~loaded~automatically}
+\put(0,51){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~"package~ifneeded"~command~to~set~up~package-related}
+\put(0,63){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~The~newline~char~\char92{}n~is~great}
+\put(0,75){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~and~sourced~either~when~an~application~starts~up~or}
+\put(0,87){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~Tcl~package~index~file,~version~1.1}
+\end{picture}}}
+\end{flushleft}
+
+\end{Figure}
+
+%TEXT () h0  (Test framed) 43 51
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%FRMD () h0  (Test framed) 51 62
+\begin{Figure}[ht]
+\centering
+\begin{flushleft}
+\setlength{\unitlength}{1pt}
+\fbox{\resizebox{\linewidth}{!}{\begin{picture}(494,96)
+\put(0,3){\ttfamily\fontsize{12pt}{12pt}\selectfont{}package~ifneeded~myfruits~1.0~\char91{}list~source~\char91{}file~join~\$dir~myfruits.tcl\char93{}\char93{}}
+\put(0,15){\ttfamily\fontsize{12pt}{12pt}\selectfont{}}
+\put(0,27){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~in~response~to~"package~require"~commands.}
+\put(0,39){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~information~so~that~packages~will~be~loaded~automatically}
+\put(0,51){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~"package~ifneeded"~command~to~set~up~package-related}
+\put(0,63){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~The~newline~char~\char92{}n~is~great}
+\put(0,75){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~and~sourced~either~when~an~application~starts~up~or}
+\put(0,87){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\#~Tcl~package~index~file,~version~1.1}
+\end{picture}}}
+\end{flushleft}
+
+\end{Figure}
+
+%TEXT () h0  (Test framed) 62 70
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%FRMD () h0  (Test framed) 70 110
+\begin{Figure}[ht]
+\centering
+\begin{flushleft}
+\setlength{\unitlength}{1pt}
+\fbox{\resizebox{\linewidth}{!}{\begin{picture}(494,432)
+\put(0,3){\ttfamily\fontsize{12pt}{12pt}\selectfont{}PNG~write~test.png~\$\{palette\}~\$\{image\}}
+\put(0,15){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\}}
+\put(0,27){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1\}}
+\put(0,39){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,51){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,63){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,75){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~0~0~0~0~1~1~0~0~0~0~1~1~0~0~6~6~6~6~6~6~6~6~0~0~1\}}
+\put(0,87){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~0~0~0~0~1~1~0~0~0~0~1~1~0~0~6~6~6~6~6~6~6~6~0~0~1\}}
+\put(0,99){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~0~0~0~0~1~1~0~0~0~0~1~1~0~0~6~6~0~0~0~0~6~6~0~0~1\}}
+\put(0,111){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~4~4~4~4~0~0~0~1~1~0~0~0~1~1~1~0~0~6~6~0~0~0~0~6~6~0~0~1\}}
+\put(0,123){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~4~4~4~4~4~0~0~1~1~0~0~1~1~1~1~0~0~6~6~0~0~6~6~6~6~0~0~1\}}
+\put(0,135){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~4~4~0~0~1~1~0~1~1~0~1~1~0~0~6~6~0~0~6~6~6~6~0~0~1\}}
+\put(0,147){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~4~4~0~0~1~1~1~1~0~0~1~1~0~0~6~6~0~0~0~0~0~0~0~0~1\}}
+\put(0,159){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~0~0~0~4~4~0~0~1~1~1~0~0~0~1~1~0~0~6~6~0~0~0~0~0~0~0~0~1\}}
+\put(0,171){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~4~4~4~4~4~0~0~1~1~0~0~0~0~1~1~0~0~6~6~6~6~6~6~6~6~0~0~1\}}
+\put(0,183){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~4~4~4~4~4~4~0~0~0~1~1~0~0~0~0~1~1~0~0~6~6~6~6~6~6~6~6~0~0~1\}}
+\put(0,195){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,207){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,219){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,231){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,243){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~0~3~3~3~3~0~0~0~2~2~2~2~2~2~2~0~0~0~1\}}
+\put(0,255){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~3~3~3~3~0~0~2~2~2~2~2~2~2~0~0~0~1\}}
+\put(0,267){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~3~3~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,279){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~0~0~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,291){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~0~0~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,303){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~0~0~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,315){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~0~0~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,327){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~1~1~0~0~0~0~0~3~3~0~0~3~3~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,339){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~1~1~1~1~1~1~1~1~0~0~3~3~3~3~3~3~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,351){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~1~1~1~1~1~1~1~1~0~0~0~3~3~3~3~0~0~0~2~2~0~0~0~0~0~0~0~0~1\}}
+\put(0,363){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,375){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,387){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~0~1\}}
+\put(0,399){\ttfamily\fontsize{12pt}{12pt}\selectfont{}\{1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1~1\}}
+\put(0,411){\ttfamily\fontsize{12pt}{12pt}\selectfont{}set~image~\{}
+\put(0,423){\ttfamily\fontsize{12pt}{12pt}\selectfont{}set~palette~\{FFFFFF~000000~FF0000~00FF00~0000FF~FFFF00~FF00FF\}}
+\end{picture}}}
+\end{flushleft}
+
+\end{Figure}
+
+%TEXT () h0  (Test framed) 110 112
+Following frame should have a caption and label that is: Fig.\hyperref[testframe]{1}
+
+%FRMD () h0  (Test framed) 112 153
+\begin{figure}[ht]
+\fbox{\resizebox{\linewidth}{!}{%
+\begin{mplibcode}
+numeric o; o := 12pt;
+draw (1*o,0)--(1*o,-36*o) withpen pencircle withcolor white;
+label.rt(btex {\ttfamily\fontsize{12pt}{12pt}\selectfont{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } etex, (0,0));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}{\jp{}日本には人気です}}} etex, (0,-0*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}set\ palette\ \char123{}FFFFFF\ 000000\ FF0000\ 00FF00\ 0000FF\ FFFF00\ FF00FF\char125{}}} etex, (0,-1*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}set\ image\ \char123{}}} etex, (0,-2*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\char125{}}} etex, (0,-3*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-4*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-5*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-6*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 0\ 3\ 3\ 3\ 3\ 0\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-7*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 0\ 0\ 3\ 3\ 3\ 3\ 3\ 3\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-8*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 3\ 3\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-9*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 0\ 0\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-10*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 0\ 0\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-11*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 0\ 0\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-12*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 0\ 0\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-13*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 0\ 0\ 3\ 3\ 0\ 0\ 2\ 2\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-14*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 3\ 3\ 3\ 3\ 0\ 0\ 2\ 2\ 2\ 2\ 2\ 2\ 2\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-15*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 3\ 3\ 3\ 3\ 0\ 0\ 0\ 2\ 2\ 2\ 2\ 2\ 2\ 2\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-16*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-17*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-18*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-19*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-20*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 4\ 4\ 4\ 4\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-21*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 4\ 4\ 4\ 4\ 4\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-22*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 4\ 4\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-23*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 4\ 4\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-24*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 4\ 4\ 0\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-25*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 4\ 4\ 4\ 4\ 4\ 0\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-26*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 4\ 4\ 4\ 4\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 0\ 0\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-27*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 0\ 0\ 0\ 0\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-28*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-29*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 4\ 4\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 0\ 0\ 1\ 1\ 0\ 0\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 6\ 0\ 0\ 1\char125{}}} etex, (0,-30*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-31*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-32*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 1\char125{}}} etex, (0,-33*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char123{}1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\ 1\char125{}}} etex, (0,-34*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}\char125{}}} etex, (0,-35*o));
+label.rt(btex {\ttfamily{\fontsize{12pt}{12pt}\selectfont{}PNG\ write\ test.png\ \$\char123{}palette\char125{}\ \$\char123{}image\char125{}}} etex, (0,-36*o));
+numeric pu; pu := \mpdim{\linewidth};
+endfig
+\end{mplibcode}}}
+\end{figure}
+
+\end{document}

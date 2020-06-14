@@ -1,5 +1,8 @@
 test-nlst.md
 
+%^興奮・こうふん
+%^再び始まった・ふたたびはじまった
+
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -50,6 +53,22 @@ culpa qui officia deserunt mollit anim id est laborum."
 
 2) Pear
 
+  ~~~
+  行きます. 
+  go.
+  ~~~
+
+  Another example.
+
+  ~~~
+  お使いください. 
+  Please use this.
+  ~~~
+  
+  ~~~
+  興奮がおさまった時、話し合いが、再び始まった.
+  When the excitement is over, the discussion started.
+	~~~
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

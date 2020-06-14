@@ -149,5 +149,5 @@ Following frame should have a caption and label that is: $(#testframe)
   {1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1}
   {1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1}
   }
-  PNG write test.png ${palette} ${image}
+  PNG write test.png ${palette}  ${image}
   ```

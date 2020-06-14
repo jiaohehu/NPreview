@@ -1,9 +1,15 @@
 Test longtable
 
 %!latex.twocolumns=1
+
 %!contex.twocolumns=0
 %!contex.longpadding=1 3
+
 %!html.bodyfontsizept=16
+%!html.css+=.nitabb{font-size:.75em}
+
+%!epub.css+=.nitabb{font-size:.75em}
+%!epub.css+=.nisvg{outline:1px solid orange}
 
 This is the normal text. 谷歌 簡単 ``\sqrt{2}``, and
 ${日本・にほん} 

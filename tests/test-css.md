@@ -8,7 +8,7 @@ My Title
 %!EPUB.css+=.nicode{font-size:0.8em}
 %!EPUB.css+=.niprog{font-size:0.8em}
 %!EPUB.css+=.nicaption{font-size:0.8em}
-%!EPUB.css+=.nitabb{font-size:0.8em}
+%!EPUB.css+=.nitabb{font-size:0.7em}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

@@ -1,80 +1,16 @@
-test-tabr.md
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
+&  ``0 \: \leftrightarrow \: 9``
+&  ``1 \: \leftrightarrow \: 8``
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
+&  ``2 \: \leftrightarrow \: 7``
+&  ``3 \: \leftrightarrow \: 6``
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
-                             
-= Category                Unit        Symbol
-  Length                  meter       m
-  Mass                    kilogr      kg
-  Time                    second      s  
-  Electric current        ampere      A  
-  Temperature             kelvin      K  
-  Luminous intensity      candel      cd
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance     mole        mol  
-  Amount of substance        
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
-  Amount of substance     
+&  ``4 \: \leftrightarrow \: 5``
+&  ``5 \: \leftrightarrow \: 4``
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
+&  ``6 \: \leftrightarrow \: 3``
+&  ``7 \: \leftrightarrow \: 2``
+
+&  ``8 \: \leftrightarrow \: 1``
+&  ``9 \: \leftrightarrow \: 0``
 

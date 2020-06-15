@@ -1,26 +1,26 @@
-Another equation:
+
++ Single numbered equation
 
 $$  $(#eq:a) f &= a + b 
+               &= a + b + c 
 
-$    &= a + b + c 
 
-
-Another equation:
-
-$$  $(#eq:a) f &= a + b \\
-     &= a + b + c 
-
-Another equation:
++ Single numbered equation
 
 $$  $(#eq:a) f &= a + b \\
-     &= a + b + c 
+               &= a + b + c 
+
++ Two numbered equations
+
+$$  $(#eq:a) f &= a + b \\
+               &= a + b + c 
 
 $  $(#eq:b) F &= A + B \\
-     &= A + B + C 
+              &= A + B + C 
      
 See $(#eq:a), $(#eq:b)
 
-Another equation:
++ Three numbered equations
 
 $$ $(#eq:c) a + b &= c + d
 
@@ -32,7 +32,7 @@ $ $(#eq:e) c &= d + e + f + g \\
 
 See $(#eq:c) $(#eq:d) $(#eq:e)
 
-Another equation:
++ Three numbered equations
 
 $$ $(#eq:f) a + b &= c + d
 
@@ -44,7 +44,7 @@ $ $(#eq:g) c &= d + e + f + g \\
 
 See $(#eq:f) $(#eq:g) 
 
-Another equation:
++ Two numbered equations
 
 $$ $(#eq:h) c &= d + e + f + g \\
              &= a \\

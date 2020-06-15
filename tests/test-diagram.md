@@ -29,26 +29,18 @@ culpa qui officia deserunt mollit anim id est laborum.
   % circles
 
   set fillcolor pink
-  circle    {1} (16,1)
-  halfcircle.top {1} (16,3)
-  halfcircle.bot {1} (16,5)
-  halfcircle.rt  {1} (16,7)
-  halfcircle.lft {1} (16,9)
-  quadrant.q1  {1} (18,1)
-  quadrant.q2  {1} (18,1)
-  quadrant.q3  {1} (18,1)
-  quadrant.q4  {1} (18,1)
-  octant.o1  {1} (18,3)
-  octant.o2  {1} (18,3)
-  octant.o3  {1} (18,3)
-  octant.o4  {1} (18,3)
-  octant.o5  {1} (18,3)
-  octant.o6  {1} (18,3)
-  octant.o7  {1} (18,3)
-  octant.o8  {1} (18,3)
-  circle.chord {1,0,135} (20,1)
-  circle.arc   {1,0,135} (20,3)
-  circle.cseg  {1,0,135} (20,5)
+  circle.fill {r:1;start:0;stop:180} (16,3)
+  circle.fill {r:1;start:180;stop:0} (16,5)
+  circle.fill {r:1;start:-90;stop:90} (16,7)
+  circle.fill {r:1;start:90;stop:-90} (16,9)
+  circle.fill {r:1;start:0;stop:100} (20,1)
+  circle.fill {r:1;start:100;stop:0} (20,3)
+  circle.fill {r:1}                  (20,5)
+  circle.fill {r:2}                  (20,8)
+  circle.fill {r:1;start:0;stop:90}  (16,1)
+  circle.fill {r:1;start:90;stop:180}  (16,1)
+  circle.fill {r:1;start:180;stop:270}  (16,1)
+  circle.fill {r:1;start:270;stop:0}  (16,1)
 
   % dot
   sq := (22,3) (23,3) (23,2) (22,2)
@@ -99,9 +91,9 @@ culpa qui officia deserunt mollit anim id est laborum.
   tick.lft (5,2) (5,3) (5,4)
 
   % arrow & dblarrow
-  drawarrow (7,3) (9,5)
-  drawdblarrow (9,3) (11,5)
-  drawrevarrow (11,3) (13,5)
+  arrow (7,3) (9,5)
+  dblarrow (9,3) (11,5)
+  revarrow (11,3) (13,5)
 
   % text of a different fontsize
   set fontsize 14pt

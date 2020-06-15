@@ -1,6 +1,5 @@
 
-= CSV
-  Year,Number,Comment
+= Year,Number,Comment
   2018,123.1,99999
   2019,124.1,99999
   2020,125.1,99999

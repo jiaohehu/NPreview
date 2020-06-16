@@ -93,6 +93,9 @@ Following are required LATEX packages that must be included:
     \usepackage{float}
       For defining customized floats.
 
+    \usepackage{xfrac}
+      For math \sfrac commands which provides side-by-side fraction.
+
 # Setting the relative font size
 
 Font sizes can be set for the following contents:
@@ -318,5 +321,27 @@ one works for PICT, DIAG, and FRMD. The second float works with TABR block.
 
   \usepackage[T1]{fontenc}
 
+- The "xltabular" environment does not work with "twocolumn" mode. 
+  Thus, the LONG and CSVD blocks cannot be present if "twocolumn" 
+  is going to be an option for the document because both of these
+  blocks reply on "xltabular" environment. However, TABR 
+  uses float and thus is save with "twocolumn". TABB 
+  uses "tabbing" and is thus also safe with "twocolumn". 
+
+# The "tabbing" environment
+
+Following is an example of a "tabbing" environment in LATEX
+that can set the "tab-stop" to positions relative to the whole
+page width.
+
+  \begin{tabbing}
+  \hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\=\hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\kill
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+  \end{tabbing}
 
 

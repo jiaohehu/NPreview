@@ -1,10 +1,11 @@
 The TABB block
 
-This block is designed to layout tabular data similar to LONG
-but without the header and frame, thus all rows are considered
-table bodies. In addition, each cell is to be rendered in
-the same width, in proportion to each other, and the entire
-block takes up the full width of the page. 
+This block is designed to layout tabular data similar to LONG but
+without the header and frame, thus all rows are considered table
+bodies. Similar to LONG, the entire block is to occupy the whole
+width of the page. However, to be different than LONG, each cell
+is to be always rendered in the same width, in proportion to each
+other. 
 
 The syntax of this block to be recognized is similar to LONG,
 the only difference is that `(&)` is being replaced by `&`.

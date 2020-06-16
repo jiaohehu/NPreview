@@ -76,6 +76,18 @@ For example:
   %!CONTEX.fslisting=xxsm
   %!CONTEX.fstabular=sm  
 
+Note that the relative font such as 'sm' is to be combined
+with other switches that specifies the typeface such
+as Sans Serif (\sssm), or Serif (\tfsm). This switch has
+a lasting effect that stays on even after switches to a 
+different font family. This could be beneficial if 
+a different font family is to be chosen for a different
+Unicode character or a collection of characters.
+
+  {\tfsm Hello {\switchtobodyfont[jp]日本人}}
+
+
+
 
 # Creating a CONTEX document
 
@@ -193,4 +205,63 @@ The result is that for the first \startformula, there are
 two lines on top of each other and these two lines will have
 their equal-signs aligned. For the next two formulas they
 are always arranged centered.
+
+# Setting the gap between images
+
+For PICT block, when multiple images are present in a row,
+there must be some gap that needs to be reserved. The 
+default setting for the gap between the images is a fixed
+value (unknown), which causes the problem of not being able
+to control the total width of the block so that it stay
+within the width of the page.
+
+The solution is to configure it so that the gap is set to
+a fraction of the width of the page. Following is an example
+of setting it to be 6% of the page width.
+
+  \setupcombinations[distance=0.06\textwidth]
+
+Following are examples copied from WIKI page of CONTEX.
+Suppressing both the horizontal and vertical gap between cells:
+
+  \setupcombinations[distance=0mm,after=]
+
+A 10mm horizontal and vertical gap between cells:
+
+  \setupcombinations[distance=10mm,after={\blank[10mm]}]
+
+The distance between the content and its caption entry is set
+with the 'inbetween' parameter.
+
+Current the distance is made a parameter in CONTEX
+that is CONTEX.distance, it is set to a number that represents
+the percentage of the page. For example '2' would mean two-percent
+of the page width. The \setupcombinations command is then placed
+at the preamble of each generated CONTEX document that reflects
+this setting.
+
+# Page layout
+
+To setup the page layout of the entire document. The following three
+parameters are to be used for controlling the margin left/right
+and the width of the document itself.
+
+  %!CONTEX.papersize=A4
+  %!CONTEX.backspace=15
+  %!CONTEX.cutspace=15
+  %!CONTEX.width=180
+
+Note that the total distance of backspace, cutspace and width
+should equal to the width of the page, which has been set to A4,
+having a standard width of 210mm and height of 297mm. All the
+numbers of these parameters must be specified in numbers, and are
+assumed to be in mm.
+
+The vertical spaces are controlled by the following parameters:
+
+  %!CONTEX.topspace=20;
+  %!CONTEX.header=10;
+  %!CONTEX.footer=0;
+  %!CONTEX.height=250;
+
 

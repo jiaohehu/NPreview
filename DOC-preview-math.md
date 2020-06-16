@@ -441,14 +441,12 @@ a source MD file.
 
   $          C &= b + c      
 
-Note that in the previous case, only having had detected
-the label in the first (main) equation will trigger all
-numbering for subsequent sub-equations, regardless if
-the subequation is labeled or not. However, without a label
-means it is impossible to reliably refer to this equation
-using a number that is consistant. Thus, in order to 
-refer to sub-equations, one can place additional labels
-such as follows.
+Note that in the previous case, when the first equation
+(main-equation) is present with a label, then numbering for all
+remaining sub-equations is to be done, regardless if the that
+sub-equation is presented with a labeled or not.  Regardless,
+having a label with a sub-equation is going to make it easier to
+"refer" to this sub-equation within a text block.
 
   $ $(#eq:a) A &= a + b + c\\ 
                &= 2a + 2b
@@ -457,46 +455,84 @@ such as follows.
 
   $ $(#eq:c) C &= b + c      
 
-For a given equation, if a double-backslashes are detected in the 
-main expression, (those that are part of a begin-end matrix or 
-begin-end cases are not counted), then these backslashes
-are interpreted as "line breaks" for a long formular.
-This behavior is similar to LATEX "split" environment.
+For a given equation (whether it is a main-equation or a
+sub-equation), if a double-backslashes are detected in the main
+expression, (those that are part of a begin-end matrix or
+begin-end cases are not counted), then these backslashes are
+interpreted as "line breaks" for a long formular.  This behavior
+is similar to LATEX "split" environment.
 
   $ $(#eq:a) A &= a + b + c\\ 
                &= 2a + 2b
 
-In this case, it might be preferrable to have an "alignment 
-point" where all equations will be aligned to that point.
-This is done by placing a '&' character.
+For LATEX translation it will become a "split".
 
-  $ $(#eq:a) C &= a^2 + b^2 + c^2 \\
-               &= a^3 + b^3 \\
-               &= c^4
+  \begin{gather}
+  \begin{split}
+  A &= a + b + c\\ 
+  &= 2a + 2b
+  \end{split}\label{eq:a}
+  \end{gather}
 
-Note that only the first '&' will be treated as the alignment
-point. All subsequent '&' detected will be ignore.
+For CONTEX, it will be translated into a \startformula,
+with \startmathalignment inside.
 
-However, it is possible to similate the "gather" environment
-of the LATEX, in which the "alignment point" of each equation
-is the middle point of that equation. To enable a "gather"
-environment instead of "align", use a double-dollar as the 
-leading bullet.
+  \placeformula
+  \startformula
+  \startmathalignment[n=2]
+  \NC A \NC a + b + c \NC\NR
+  \NC   \NC 2a + 2b \NC\NR[eq:a]
+  \stopmathalignment
+  \stopformula
 
-  $$ $(#eq:a) A &= a + b + c\\ 
+If this one is to be followed by additional sub-equations,
+such as the following.
+
+  $ $(#eq:a) A &= a + b + c\\ 
                &= 2a + 2b
 
   $ $(#eq:b) B &= a + b
 
   $ $(#eq:c) C &= b + c      
 
-The double-dollar leading bullet for the first equation 
-will tell NITRILE to use a "gather" environment. Otherwise
-it uses "align".
+Then for LATEX it becomes.
 
-It is not necessary for the sub-equations to have a double-dollar
-leading bullet, as NITRILE only looks at the double-dollar
-leading bullet from the first equation to make the decision.
+  \begin{gather}
+  \begin{split}
+  A &= a + b + c\\ 
+  &= 2a + 2b
+  \end{split}\\
+  B &= a + b\\
+  C &= b + c      
+  \end{gather}
+
+For CONTEX is becomes:
+
+  \placeformula
+  \startformula
+  \startmathalignment[n=2]
+  \NC A \NC = a + b + c \NR
+  \NC  \NC = 2 a + 2 b \NR[eq:a]
+  \stopmathalignment
+  \stopformula
+  \placeformula
+  \startformula
+  \startmathalignment[n=2]
+  \NC B \NC = a + b \NR[eq:b]
+  \stopmathalignment
+  \stopformula
+  \placeformula
+  \startformula
+  \startmathalignment[n=2]
+  \NC C \NC = b + c \NR[eq:c]
+  \stopmathalignment
+  \stopformula
+
+Thus, the net effect is that both LATEX and CONTEX will *always* treat 
+the alignments among two or more main- or sub-equations as "gather".
+There is currently no provision to change that into an "align" because
+there is no obvious way to implement it on CONTEX. On LATEX it is
+possible, and on HTML it can be simulated.
 
 # Issues and remarks            
 

@@ -15,4 +15,5 @@
   as well and it is shrinked or expanded in accordance to the 
   size of the relative font size such as `0.7em`, `1.2em`.
 
-
+- Following BLOCK are to be place inside a <figure>: 
+  PICT, TABR, FRMD, DIAG, VERB, MATH

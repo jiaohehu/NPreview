@@ -12,45 +12,57 @@ character of this block.
     2020,125.1,99999
     2021,126.1,99999
     2022,127.1,99999
-    2023,128.1,99999
-    2024,129.1,99999
-    2025,130.1,99999
-    2026,131.1,99999
-    2027,132.1,99999
-    2028,133.1,99999
-    2029,134.1,99999
-    2030,135.1,99999
-    2031,136.1,99999
-    2032,137.1,99999
-    2033,138.1,99999
-    2034,139.1,99999
-    2035,140.1,99999
-    2036,141.1,99999
 
-What sets this apart from TABB is that the content of the data
-is assumed to be plaintext, rather than richtext which is
-what's assumed by TABB. In addition, white space are preserved
-and not collapsed, which is similar to VERB block, and the
-font size is going to be affected by the choices of 'niprog'.
+What sets this apart from TABB is that the content of this block
+is always assumed to be plaintext, and will be arranged close to
+each other, with each column just wide widest element within each
+column. rather than richtext which is In addition, the entire
+block is indended by the 'step' parameter, just like it is
+with a SAMP block.
 
-In addition, TABB is designed for presenting materials that 
-complements the explanation, in which case the nature
-of the material is short and should be better laid out in rows
-and columns for a better visualization experience. 
+For translation, on LATEX it is done by the "tabbing" with
+each tab set with the longest string in that column, plus
+an additional 8pt (hardcoded) of horizontal space. 
+Note that the longest string is only determined by looking at the
+'length' field of the string. This longest string is then
+used to determined the tab stop position for the next column
+after this one.
 
-On the countrary, the CSVD block is used to showcase an 
-example of the data file, with a focus on illustrating the structural 
-dimension of the data file, rather than the content of the data.
+Following is the output of a LATEX translation.
 
-For translation, on LATEX it is done by the "xltabular" with
-the "l" option, thus making it left-aligned and able to be
-split across page boundaries. 
-On CONTEX it is done by the \starttabulate
+  \begin{flushleft}
+  \begin{adjustwidth}{5mm}{0mm}
+  \begin{tabbing}
+  {\small{}Year}\hspace{8pt}\={\small{}Number}\hspace{8pt}\={\small{}Comment}\kill
+  {\small{}Year}\>{\small{}Number}\>{\small{}Comment}\\
+  {\small{}2018}\>{\small{}123.1}\>{\small{}99999}\\
+  {\small{}2019}\>{\small{}124.1}\>{\small{}99999}\\
+  {\small{}2020}\>{\small{}125.1}\>{\small{}99999}\\
+  {\small{}2021}\>{\small{}126.1}\>{\small{}99999}\\
+  {\small{}2022}\>{\small{}127.1}\>{\small{}99999}
+  \end{tabbing}
+  \end{adjustwidth}
+  \end{flushleft}
+
+Note that the left indentation of 5mm is a setting of LATEX.step.
+It is the idea that for CSVD block is should be indented by
+this value, just like the SAMP block.
+
+For CONTEX it is done by the \bTABLE 
 command, which is also designed to go across page boundaries.
-On HTML it is a TABLE-element.
+The 5mm here is the result of CONTEX.step setting.
+Folowing is the output of a CONTEX translation.
 
-Since "xltabular" environement is not designed to work with
-"two column", it will complain if "twocolumns" option is set
-for the "documentclass".
+  \setupTABLE[frame=off]
+  \setupTABLE[c][1][width=5mm]
+  \bTABLE[loffset=0pt,roffset=8pt,toffset=0pt,boffset=0pt,split=yes]
+  \bTR \bTD \eTD \bTD {\tfsm{}Year} \eTD \bTD {\tfsm{}Number} \eTD \bTD {\tfsm{}Comment} \eTD \eTR
+  \bTR \bTD \eTD \bTD {\tfsm{}2018} \eTD \bTD {\tfsm{}123.1} \eTD \bTD {\tfsm{}99999} \eTD \eTR
+  \bTR \bTD \eTD \bTD {\tfsm{}2019} \eTD \bTD {\tfsm{}124.1} \eTD \bTD {\tfsm{}99999} \eTD \eTR
+  \bTR \bTD \eTD \bTD {\tfsm{}2020} \eTD \bTD {\tfsm{}125.1} \eTD \bTD {\tfsm{}99999} \eTD \eTR
+  \bTR \bTD \eTD \bTD {\tfsm{}2021} \eTD \bTD {\tfsm{}126.1} \eTD \bTD {\tfsm{}99999} \eTD \eTR
+  \bTR \bTD \eTD \bTD {\tfsm{}2021} \eTD \bTD {\tfsm{}126.1} \eTD \bTD {\tfsm{}99999} \eTD \eTR
+  \eTABLE
 
+For HTML it is a TABLE-element.
 

@@ -48,10 +48,20 @@ Note that the left indentation of 5mm is a setting of LATEX.step.
 It is the idea that for CSVD block is should be indented by
 this value, just like the SAMP block.
 
-For CONTEX it is done by the \bTABLE 
-command, which is also designed to go across page boundaries.
-The 5mm here is the result of CONTEX.step setting.
-Folowing is the output of a CONTEX translation.
+For CONTEX it is done by the \starttabulate.  The \bTABLE had
+been attempted but was abandoned because it seems to have a
+problem with always wanting to start at a new column for the
+first row when two column layout is enabled, even though there
+are still plenty of spaces available at the bottom of the current
+column---a strange anomaly but nevertheless very annoying.
+However, the \bTABLE has a better support for drawing table
+frames, and for \starttabulate it is impossible to have vertical
+frames without having it being broken when it crosses over
+from one row to another.
+
+The
+5mm here is the result of CONTEX.step setting.  Folowing is the
+output of a CONTEX translation.
 
   \setupTABLE[frame=off]
   \setupTABLE[c][1][width=5mm]

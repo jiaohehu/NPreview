@@ -1,0 +1,5 @@
+za.txt name:zapfdingbatsitc
+cn.txt name:arplsungtilgb
+tw.txt name:arplmingti2lbig5
+jp.txt name:ipaexmincho
+kr.txt name:baekmukbatang

@@ -28,7 +28,7 @@ ${日本・にほん}
 
 (&) It is written in C, C++ and JavaScript languages. Node.js supports
   non-blocking input/output API and an event-driven architecture.
-(&) AngularJS is written entirely in JavaScript. It also allows
+(&) ${日本・にほん} AngularJS is written entirely in JavaScript. It also allows
   extending the HTML's syntax to describe the components of your
   application. ${日本・にほん}
 

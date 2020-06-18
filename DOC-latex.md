@@ -344,4 +344,48 @@ page width.
   {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
   \end{tabbing}
 
+# LATEX tables
+
+The 'tabular' environment does not work across pages. The 'xtabular' environment
+can work across page but not across columns when two column layout is turned on.
+'tabulary' does not work across pages, but it has the benefit of always
+ensure that the total table width does not go over the specified width, which
+is a plus when typesetting tables in a tight space, such as within the column
+of a two column layout, the feature of which neither 'tabular' nor 'xtabular'
+offers. 
+
+The 'xltabular' environment can work with large list of table rows
+and works very well across different page, but it does not work in two column
+layout. When this happens all the rows of the table end up in the column
+that is at the left-hand side of the page---no rows are placed at the right-hand
+side of the column. This is also to assume that the compilation flag is 
+the following, which ensures that the compiler does not despite the warning.
+
+  lualatex --interaction=nonstopmode
+
+One can choose to temporary "halt" the two column layout by inserting the 
+command 
+
+  \onecolumn
+
+before the \begin{xltabular} command, and then another command
+
+  \twocolumn
+
+after the \end{xltabular} command. However, by doing so LATEX would
+starts a new page for the table, thus leaving a visible blank at 
+towards the bottom of the page that is before the table.
+
+It should also be pointed out that the normal way of adding additional 
+vertical spacing to each row, either before or after, using the following
+command
+
+  \noalign{\vspace{2pt}}
+
+is possible, unless when the vertical line is to be drawn, in which 
+case there is going to be visible gap at at the place that the previous
+gap is inserted. To ensure that there is no gap do not use this
+command to insert vertical spacing between rows.
+
+
 

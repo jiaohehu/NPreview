@@ -17,3 +17,28 @@
 
 - Following BLOCK are to be place inside a <figure>: 
   PICT, TABR, FRMD, DIAG, VERB, MATH
+
+- The font size change for "nitabb", "nicode", "niprog" and "nicaption"
+  are to be done by providing a CSS that sets the font-size
+  style.
+
+  %!HTML.css+=.nitabb{font-size:0.8em}
+  %!HTML.css+=.nicode{font-size:0.9em}
+  %!HTML.css+=.niprog{font-size:0.9em}
+  %!HTML.css+=.nicaption{font-size:0.8em}
+ 
+  The settings will have to be defined different differently
+  for HTML and EPUB, thus allowing each translation to take on 
+  a different stylesheet settings.
+
+  %!EPUB.css+=.nitabb{font-size:0.8em}
+  %!EPUB.css+=.nicode{font-size:0.9em}
+  %!EPUB.css+=.niprog{font-size:0.9em}
+  %!EPUB.css+=.nicaption{font-size:0.8em}
+
+  Note that '+=' is used here instead of the normal '='.
+  This allows the CSS to be built incrementally. On top
+  of that, each addition by string by '+=' is going to be
+  prepended with a newline character, except for the very
+  first item.    
+

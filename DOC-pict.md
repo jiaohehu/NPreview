@@ -17,17 +17,15 @@ images to be arranged side-by-side on the bottom row.
      ```
 
 For CONTEX translation the following output are likely to be
-generated. Note that the choice of "width" to be a percentage
-of the total page width (\textwidth) are harded coded and
-fine tuned so that the total row width does not go beyond
-the \textwidth, as the \startcombination command provided
-by CONTEX adds an unknown length of inter-margin between
-images. Thus, it is hard-coded so that when there are three
-images asked to be laid out then each image is set to
-have 29% of the total page width. And when there are a
-total of two images to be placed in a row each image is to
-be shrinked to be 47% of the page width.
-When there is only a single image it is set to 100%.
+generated. Note that the choice of "width" option to 
+each image to be a percentage
+of the total page width (\textwidth) are calculated 
+based on the settings of the 'distance' parameter
+and the total number of images. In essense, the 'distance'
+parameter specifies the percentage of total page width
+that is reserved to be set for the inter-image gap.
+Thus, each image width can be calculated based on this
+value and the total number images.
 
   \placefloat
   [here]
@@ -77,8 +75,45 @@ However, LATEX has been good at "moving" the "float" to the next
 column or page in two-column mode, when the current column has
 been shown to not have enough space left. On the other hand
 CONTEX has been shown to be more "loyal" in keep image after
-their preceeding paragraph, and in doing so, leaving a "hole"
-between its preceeding paragraph and itself, after it has
-been moved to the next column or page.
+their preceeding paragraph when two column layout is enabled,
+and in doing so, leaving a "gap" between its preceeding paragraph 
+and itself. This has been observed whether it is to moving
+the image from the left-hand column to the next or from the right-hand
+side column to the left-hand column of the following page.
+
+Another interesting fact about "float" figure is that LATEX
+allows for a "wide" float that covers the length of two columns
+when two column layout mode is enabled for the entire document,
+thus making it possible to still have table or image that requires
+the width of the whole page to be laid out nicely, while at the
+same time still manage the arrange for the normal text to be
+shown in a two column setting.
+
+However, it is still yet to have this same feature available on
+CONTEX. As of writing it wasn't available.
+
+To specify the "wide" float for LATEX, it is the star-version
+of the "float", for exmple:
+
+  \begin{Figure*}[ht]
+  \centering
+  \begin{tabulary}{\linewidth}{@{}CCC@{}}
+  \includegraphics[width=\linewidth]{image-gimp.jpg} & \includegraphics[width=\linewidth]{image-gimp.jpg} & \includegraphics[width=\linewidth]{image-gimp.jpg}
+  \\
+  {\small{}One} & {\small{}Two} & {\small{}Three}
+  \\
+  \end{tabulary}
+  \begin{tabulary}{\linewidth}{@{}CC@{}}
+  \includegraphics[width=\linewidth]{image-gimp.jpg} & \includegraphics[width=\linewidth]{image-gimp.jpg}
+  \\
+  {\small{}Four} & {\small{}Five}
+  \\
+  \end{tabulary}
+  \end{Figure}
+
+The "Figure" is a custom float that is defined by NITRILE. 
+It places the definition of "Figure" at the preamble of each
+generated LATEX document. There are other custom floats, namely
+"Table", "Program".
 
 

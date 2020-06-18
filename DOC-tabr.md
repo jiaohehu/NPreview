@@ -111,7 +111,17 @@ row text will each be split into two lines.
 If the starting fence appear at the first line, then the table is assumed
 to be a non-floating table.  
 
+For LATEX translation, "tabulary" is used. This environment is pretty 
+versatile as it treats each cell as a "paragraph", but is smart enough
+to automatically adjust the width of each column so that it appears
+natural in terms of its width in ration to neighboring columns. 
+It automatically calculates and chooses the best width for each
+column and thus making the entire table look "balanced". 
 
+For CONTEX the bTABLE is used. It is similar to "tabulary" in its
+versatility in figuring out the optimum width of each column,
+and will also optionally wrap the content of each cell if the width
+gets too small.
 
 
 

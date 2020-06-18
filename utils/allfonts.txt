@@ -15,3 +15,24 @@ kr.txt name:baekmukbatang
    fontmap[161]=jp;
    fontmap[162]=jp+tw;
    ...
+
+For CN fonts:
+
+  name:arplsungtilgb
+  name:arplkaitimgb
+
+For TW fonts:
+
+  name:arplmingti2lbig5
+  name:arplkaitimbig5
+
+Math symbols:
+
+  name:mnsymbol
+
+DejaVu
+
+  name:dejavusans
+  name:dejavuserif
+
+

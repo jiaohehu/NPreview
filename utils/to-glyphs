@@ -1,0 +1,6 @@
+#!/bin/bash
+#echo $1
+#node -e "console.log($1)"
+node -e "const { runGlyphs } = require ('../lib/nitrile-preview-utils'); runGlyphs('$*').then(f => console.log(f)).catch(err => console.log(err))"
+
+

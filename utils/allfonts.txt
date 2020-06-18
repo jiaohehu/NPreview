@@ -1,3 +1,4 @@
+de.txt name:dejavusans
 za.txt name:zapfdingbats
 cn.txt name:arplsungtilgb
 tw.txt name:arplmingti2lbig5

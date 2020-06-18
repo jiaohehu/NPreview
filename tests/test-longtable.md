@@ -12,13 +12,13 @@ Test longtable
 %!epub.css+=.nisvg{outline:1px solid orange}
 
 This is the normal text. 谷歌 簡単 ``\sqrt{2}``, and
-${日本・にほん} 
+${日本・にほん} ✗ ✓
 
 (&) Node.JS $(3fr)
 (&) AngularJS $(5fr)
 
 (&) Node.js is a cross-platform run-time environment for applications
-  written in JavaScript language.
+  written in JavaScript language. (✗)
 (&) AnglarJS is an open source web application development framework
   developed by Google (谷歌) ``\sqrt{2}`` 
 

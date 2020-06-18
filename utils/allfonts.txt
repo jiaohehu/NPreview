@@ -1,5 +1,17 @@
-za.txt name:zapfdingbatsitc
+za.txt name:zapfdingbats
 cn.txt name:arplsungtilgb
 tw.txt name:arplmingti2lbig5
 jp.txt name:ipaexmincho
 kr.txt name:baekmukbatang
+
+   var fontmap = new Uint8Array(0x10000);
+   var za = 1;
+   var jp = 2;
+   var tw = 4;
+   var cn = 8;
+   var kr = 16;
+   fontmap[128]=tw;
+   fontmap[160]=jp;
+   fontmap[161]=jp;
+   fontmap[162]=jp+tw;
+   ...

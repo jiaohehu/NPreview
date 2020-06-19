@@ -387,5 +387,31 @@ case there is going to be visible gap at at the place that the previous
 gap is inserted. To ensure that there is no gap do not use this
 command to insert vertical spacing between rows.
 
+# The \adjustwidth command
+
+With the "changepage" package, you can use the adjustwidth environment as
+follows, to shrink the width of the current paragraph by 5mm on
+the left-hand side and 7mm from the right-hand side.
+
+  \usepackage{changepage}
+  \begin{adjustwidth}{5mm}{7mm}
+  \lipsum[2]
+  \end{adjustwidth}
+
+It has also been suggested by other people to place
+the following in the preamble:
+
+  \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+  \let\endchangemargin=\endlist 
+
+Then the \changemargin becomes a new command that can be used to
+do the following:
+
+  \begin{changemargin}{0.5cm}{0.5cm} 
+  %your text here  
+  \end{changemargin}
+
+
+
 
 

@@ -1,10 +1,8 @@
-The CSVD block
+The TABU block
 
-This block is designed to show plain text type is organized
-in CSV (comma separated data).
-
-To designate this block, place the equal-sign as the first
-character of this block.
+This block is designed to present a block of plain text that is 
+organzied by lines and separated by commas (or spaces) within
+each line. 
 
   = Year,Number,Comment
     2018,123.1,99999
@@ -13,22 +11,19 @@ character of this block.
     2021,126.1,99999
     2022,127.1,99999
 
-What sets this apart from TABB is that the content of this block
-is always assumed to be plaintext, and will be arranged close to
-each other, with each column just wide widest element within each
-column. rather than richtext which is In addition, the entire
-block is indended by the 'step' parameter, just like it is
-with a SAMP block.
+What sets this apart from TABB is that the contents of this block
+are always assumed to be plaintext. While TABB will attempt
+to "stretch" the table to cover the entire length of the page,
+and make each column the same width, TABU will try to arrange
+the columns close to each for as much as possible. 
+In addition, the entire block is indended by the 'step' parameter, 
+similar to that of a SAMP block.
 
-For translation, on LATEX it is done by the "tabbing" with
-each tab set with the longest string in that column, plus
-an additional 8pt (hardcoded) of horizontal space. 
-Note that the longest string is only determined by looking at the
-'length' field of the string. This longest string is then
-used to determined the tab stop position for the next column
-after this one.
-
-Following is the output of a LATEX translation.
+For translation, on LATEX it is done by the "tabbing"
+environment, such that each "tab" is set by the length
+of the longest string within that column, with an additional 
+8pt (hardcoded) horizontal space between each column.
+Following is the likely output of a LATEX translation.
 
   \begin{flushleft}
   \begin{adjustwidth}{5mm}{0mm}
@@ -45,23 +40,13 @@ Following is the output of a LATEX translation.
   \end{flushleft}
 
 Note that the left indentation of 5mm is a setting of LATEX.step.
-It is the idea that for CSVD block is should be indented by
-this value, just like the SAMP block.
-
-For CONTEX it is done by the \starttabulate.  The \bTABLE had
-been attempted but was abandoned because it seems to have a
-problem with always wanting to start at a new column for the
-first row when two column layout is enabled, even though there
-are still plenty of spaces available at the bottom of the current
-column---a strange anomaly but nevertheless very annoying.
-However, the \bTABLE has a better support for drawing table
-frames, and for \starttabulate it is impossible to have vertical
-frames without having it being broken when it crosses over
-from one row to another.
-
-The
-5mm here is the result of CONTEX.step setting.  Folowing is the
-output of a CONTEX translation.
+For CONTEX it is done by the \starttabulate. The \bTABLE
+environment had been attempted but abandoned later because it
+seems to have a problem with always wanting to start at a new
+column with the entire document is in a two column layout mode
+---a rather strange behavior.  The 5mm here is the result of
+CONTEX.step setting.  Folowing is the output of a CONTEX
+translation.
 
   \setupTABLE[frame=off]
   \setupTABLE[c][1][width=5mm]

@@ -1,5 +1,6 @@
 MetaPost & MetaFun
 
+# MetaPost
 
 MetaPost refers to both a programming language and the interpreter of the
 MetaPost programming language. Both are derived from Donald Knuth's Metafont
@@ -7,6 +8,31 @@ language and interpreter. MetaPost produces vector graphic diagrams from a
 geometric/algebraic description. The language shares Metafont's declarative
 syntax for manipulating lines, curves, points and geometric transformations.
 However,
+
+  beginfig(1) ;
+  fill fullcircle scaled 5cm withcolor red ; % a graphic
+  endfig ;
+  end .
+
+Don’t forget the semi--colons that end the statements. If the file is saved as
+yourfile.mp, then the file can be processed. Before we process this file, we
+first need to load some basic METAPOST definitions, because the built in
+repertoire of commands is rather limited. Such a set is called a format. The
+standard format is called metapost but we will use a more extensive set of
+macros metafun. In the past such a set was converted into a mem file and
+running the above file was done with:
+
+  mpost --mem=metafun.mem yourfile
+
+However, this is no longer the case and macros need to be loaded at startup as
+follows:
+
+  mpost --ini metafun.mpii yourfile.mp
+
+Watch the suffix mpii: this refers to the stand alone, the one that doesn’t
+rely on LUATEX.  After the run the results are available in yourfile.1 and can
+be viewed with GHOSTSCRIPT. You don’t need to close the file so reprocessing is
+very convenient.
 
 - Metafont is set up to produce fonts, in the form of image files (in .gf
 format) with associated font metric files (in .tfm format), whereas MetaPost
@@ -50,6 +76,24 @@ code directly within a document file, and then compile the document using the
 same command as to compile a normal ConTeXt or LuaTeX file, and then have the
 resulting image appearing as part of the document. It is also possible to
 typeset the image as a "float".
+
+  \starttext
+    \startMPpage
+      fill fullcircle scaled 5cm withcolor red ;
+    \stopMPpage
+    \startMPpage
+      fill unitsquare scaled 5cm withcolor red ;
+    \stopMPpage
+  \stoptext
+
+If the file is saved as yourfile.tex, then you can produce a PDF file with:
+
+  context yourfile
+
+The previous call will use LUATEX and CONTEXT MKIV to produce a file with two
+pages using the built in METAPOST library with METAFUN. When you use this route
+you will automatically get the integrated text support shown in this manual,
+including OPENTYPE support. If one page is enough, you can also say:
 
 Inclusion of MetaPost code in LaTeX is also possible by using LaTeX-packages,
 for example gmp or mpgraphics.

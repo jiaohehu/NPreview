@@ -138,6 +138,80 @@ The \fontsize{12pt}{12pt}\selectfont command is defined by the
 "anyfont" package that must also be included within that LuaLaLaTeX
 document.
 
+Following are additional commands that are introduced by 
+MetaFun:
+
++ bbwidth(Page);
++ bbheight(Page);
+
+These two command is to return the width and/or height of the
+bounding box of the picture being drawn. For \startMPpage, after
+the "StartPage" command, the entire picture is to be point to by
+the "Page" varibale. This can be compared to the "currentpicture"
+variable if \startMPcode is to be used instead.
+
+However, the bbwidth(Page) would return the width of the page
+before any drawing command is put in place. In the case
+\startMPcode, the picture would probably expand or shink based on
+the "draw" command that is performed. The "draw" is capable of
+"expanding" the picture if it is to draw "outside" of the
+bounding box of the existing picture; in this case the new
+bounding box is recomputed to be just big enough to "include" the
+area that is affected by the drawing. 
+
+The \startMPpage is one to create an entire page that is to be
+filled with vectors of graphics. Following is a simple example:
+
+  \definecolor [Top] [h=a5b291]
+  \definecolor [Bottom] [h=b7c1a7]
+  \definecolor [TitleColor] [h=96433a]
+  \starttext
+  \startMPpage
+  StartPage;
+  numeric w; w := bbwidth(Page);
+  numeric h; h := bbheight(Page);
+  fill (unitsquare xyscaled (w,.0.8h)) withcolor \MPcolor{Bottom}
+  fill (unitsquare xyscaled (w,.0.2h)) withcolor \MPcolor{Top}
+  draw (0,.8h) -- (w,.8h) withpen pensquare scaled 2pt withcolor white;
+  StopPage;
+  \stopMPpage
+  \stoptext
+
+This block of MetaFun code is to create an entire page that is to
+be filled with two colors and a line drawn at the border of the
+two colors, with the top color taking up 20-percent of the
+height, and the bottom color taking up 80-percent of the height,
+and with a width that spans the entire width of the page. Of
+course, the name of the color such as "Bottom" and "Top" must be
+enclosed using the command \MPcolor in order to convert the name
+of the color, which is defined within the CONTEX scope, into a
+color within the METAFUN scope. Note that METAPOST/METAFUN only
+defines two colors, "black" and "white". These are the only two
+color names that can be used within the METAPOST/METAFUN
+directly. This is also why the last "draw" command is able to use the 
+color name "white" without having to go through the \MPcolor
+command.
+
++ textext() 
+
+The textext() function constructs a new path object that is based
+on the choice of the font and the text string composition.
+With the introduction of this function, it is possible to 
+call up the "draw" command, which expects a path specification.
+
+  draw textext("{\switchtobodyfont[12pt]0}") shifted (4*u,7.5*u) ;
+
+Without going through textext() function, the process of drawing
+a text label must be done through the "label" command such as 
+follows.
+
+  label (btex {\switchtobodyfont[12pt]0} etex, (4*u,7.5*u)) ;
+
+The "alignment" option of the "label" command is to be specified
+by the "alignment" option of the "textext()" function as follows:
+
+  label.rt (btex {\switchtobodyfont[12pt]0} etex, (4*u,7.5*u)) ;
+  draw textext.rt("{\switchtobodyfont[12pt]0}") shifted (4*u,7.5*u) ;
 
 
 

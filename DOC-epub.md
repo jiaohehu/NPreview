@@ -63,5 +63,16 @@ a "part" before it, the "part" will be in its own XHTML file.
   if the container SVG is shrinked at least all formulas in it
   are kept in relative positions.
 
+- For iBOOK which is on iPAD, first generation, there are several
+  problems. First it does not support Unicode characters beyond
+  0xFFFF. Thus, an italic variable such as v that is expressed
+  by U+1D463 is not going to be shown correctly. Secondly, it
+  has trouble position the image inside a <caption> element
+  correctly---the image being a <img> element containing an
+  embedded SVG. 
 
-
+- When a SVG is converted to an IMG, with an embedded data URI,
+  then the 'currentColor' for both 'stroke' and 'fill' attribute
+  of the SVG does not pick up the current color setting of the
+  document, and is always the color of black instead.
+   

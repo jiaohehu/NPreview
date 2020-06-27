@@ -293,4 +293,33 @@ The vertical spaces are controlled by the following parameters:
   %!CONTEX.footer=0;
   %!CONTEX.height=250;
 
+# Two column layout
+
+The two column layout for CONTEX can be done. It involves using
+the command \startcolumns[balance=no] and \stopcolumns. Without
+additional setup, these two commands assumes a two column layout.
+The "balance=no" option instructs that the left column can be
+as long as needed if there isn't enough text and it is alright
+that these two columns are not balanced---balanced means that
+they each gets the same amount of text.
+
+The things that are to be watched out is to decide where to 
+start the two columns, such as if it is to be after the title
+of the chapter or before, or is the title of the chapter part
+of the two column or it should be allowed to expand the
+entire page?
+
+The current approach is that the two column layout is always
+going to be started and stopped at the boundary where hdgn=0.
+This translates to starting and stopping each new two column
+layout block for each "source file".  
+
+If the main document is a "standalone" document then the entire
+document is placed under one two-column-layout division. If the
+main document is a "master" document with child source files then
+each child source file is to start and stop a new
+two-column-layout division themselvs.  The starting and stopping
+of a new two-column-layout will likely land in a new page for 
+the start of a new two-column-layout.
+
 

@@ -146,7 +146,7 @@ similar names but not sure what they are about.
   linuxlibertineo           semibold   normal   normal   normal    linlibertineoz         LinLibertine_RZ.otf
   linuxlibertineo           semibold   italic   normal   normal    linlibertineozi        LinLibertine_RZI.otf
 
-# Issues
+# Remarks
 
 - For code listing in VERB block, as it is done using \starttabulate,
   if there are many lines they some of them might appear before a 
@@ -171,6 +171,11 @@ similar names but not sure what they are about.
   it think it can just squeeze it in by shrinking all the spaces tighter.
   However, it has been observed that sometimes the parentheses are being
   drawn on top of other characters.
+
+- The \latexdesc command that is defined allows for font switch
+  commands and math to be included inside the braces.
+  The LATEX version of \item[], can also include font switch commands
+  and math mode texts (using \( and \))
 
 # Math formula
 

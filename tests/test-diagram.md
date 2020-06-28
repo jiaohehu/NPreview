@@ -22,9 +22,9 @@ culpa qui officia deserunt mollit anim id est laborum.
   a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
   b := (1,1) .. (5,5) .. (5,1) .. (1,1) ()
 
-  % drawline
-  drawline *a
-  drawline *b
+  % line
+  line *a
+  line *b
 
   % circles
 
@@ -54,24 +54,24 @@ culpa qui officia deserunt mollit anim id est laborum.
   tick.lft (26,1)
 
   % 90-degree angle
-  drawline (28,4)--(31,4)
+  line (28,4)--(31,4)
   a/b := *
-  drawline (28,4)--(28,7)
+  line (28,4)--(28,7)
   /c := *
   drawanglearc.sq *a *b *c
 
   % 45-degree angle
-  drawline <0,-4> (28,4)--(31,4)
+  line <0,-4> (28,4)--(31,4)
   a/b := *
-  drawline <0,-4> (28,4)--(31,7)
+  line <0,-4> (28,4)--(31,7)
   /c := *
   drawanglearc *a *b *c
 
-  % drawline will fill      
+  % line will fill      
   ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
   set linesize 2px
   set fillcolor orange
-  drawline *ff
+  line *ff
   reset
 
   % label

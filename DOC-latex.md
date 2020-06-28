@@ -509,6 +509,102 @@ be applied to each data term in a 'description' list.
   \item
   \end{description}
 
+# The LONG block
+
+The long table is expressed by the LONG block. It is done
+by the 'xltabular' environment that is offered by the following 
+package:
+
+  \usepackage{xltabular}
+
+This environment is perfect for one to typeset a table that has
+many rows that would need to appear in many different pages.
+This environment also has the ability to designate a header row
+that is to appear at the top of each one of the sub-tables.  
+
+However, there is a limitation to the 'xltabular'
+environment---that its implementor has not designed it to work
+when the 'twocolumn' option is set for the document class.
+Thus, if the following is the case then when a 'xltabular' is to
+appear inside this document then LATEX will complain.
+
+  \documentclass[twocolumn]{article}
+
+Thus, NITRILE implementation of the translation to LATEX has
+been implemented so that if a 'twocolumns' option is set,
+then it will place a \onecolumn command before the start
+of this environment, and then insert a \twocolumn command
+after it to resume the two column layout mode.
+
+By doing it this way it has been shown that it makes 'xltabular'
+environment happy.  However, the downside of this is, the flow of
+the text is interrupted at the point of \onecolumn, where the
+table is to start at a new page, and the text after the table is
+to start at a new page after the table. Depending on the
+situation, there might be a huge blank space between the last
+line of the text before the table to the end of the page it is
+in. It would be nice to later find a way to make the long table 
+"float" when the two column layout mode is enabled.
+
+The 'xltabular' environment is able to have a caption. 
+The \caption command must be the first one immediately following
+the opening of 'xltabular', and terminated by a double-backslash.
+
+  \begin{xltabular}
+  \caption{...}\\
+  \end{xltablar}
+
+The star version of the caption command is also possible to
+be used to suppress the numbering of the table.
+
+  \begin{xltabular}
+  \caption*{...}\\
+  \end{xltablar}
+
+However, the current syntax for a LONG block in a NITRILE
+document does not allow for the specification of a caption.
+
+# The TABB block
+
+The TABB block is to be typeset by a 'tabbing' environment. 
+This block is expressing a quick tabular environment where isn't
+a table header. 
+
+The 'tabbing' environment generated in the TEX file has been
+specifically designed so that each column is to occupy the same
+width of the entire page, the entire column if it is in a two
+column layout mode.
+
+Note that TABB block would treat each entry as a rich text.
+
+# The TABU block
+
+This block is similar to TABB block. However, data inside this block
+is to be treated as a plain text. 
+
+This block is to be typeset using the 'tabbing' environment.
+However, one of the objectives of the typesetting is to only
+allocate enough column width to accomodate the widest data of
+that column, such that more columns can be packed.
+
+To achieve that, we have to take advantage of one of the features
+of the 'tabbing' environment, which is that it allows for setting
+the "tab stop" of the next column based on the width of a piece of text
+that is given to it. Thus, the tab stop of each column is done by
+a string that is taken of that column and which is the "longest".
+The longest string means the 'length' field of the 'String'
+object is the largest.
+
+This strategy is not fool proof---it is entirely possible the
+longest string might produce the largest width for that column.
+But nevertheless it should work in most of the cases. 
+
+Another reason that the 'tabbing' environement is chose, rather
+than, say 'xltabular' which would arguably achieve the same
+objective. However, the 'tabbing' environment has an undisputed
+advantage which it allows for it to work flawlessly in a two
+column layout mode, which is considered an important feature
+of this block.
 
 
 

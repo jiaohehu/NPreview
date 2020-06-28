@@ -1,3 +1,4 @@
+# MEMOR translation
 
 
 # The luatexja-fontspec package
@@ -35,6 +36,19 @@ and this error will be ignored.
 
   lualatex --interaction=nonstopmode my.tex
 
+However, since this isn't a satisfactory solution. The current
+translation implementation is to simply replace the 'luatexja'
+version of the packages with the orthodox ones:
+
+  \\usepackage{fontspec}
+  \\usepackage{ruby}
+  \\newjfontfamily\\de{dejavusans}
+  \\newjfontfamily\\za{zapfdingbats}
+  \\newjfontfamily\\cn{arplsungtilgb}
+  \\newjfontfamily\\tw{arplmingti2lbig5}
+  \\newjfontfamily\\jp{ipaexmincho}
+  \\newjfontfamily\\kr{baekmukbatang}
+
 # The hyperref package
 
 The hyperref package is stated to have many conflicts with the 
@@ -53,5 +67,13 @@ a control sequence not defined. Unsure how to fix the problem.
   l.299 \mplibtoPDF
                  {
   l.383 \end{mplibcode}
+
+The solution turns out to be to add the following line to the
+preamble section of the generated MEMOR document.
+
+  \def\mplibtoPDF#1{\special{pdf:literal direct #1}}
+
+
+
 
 

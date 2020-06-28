@@ -411,6 +411,103 @@ do the following:
   %your text here  
   \end{changemargin}
 
+# The enumerate package     
+
+The 'enumerate' package redefines the 'enumerate' and 'itemize'
+environments.
+
+  \usepackage{enumerate}
+
+The enumerate package allows you to control the display of the
+enumeration counter. The package adds an optional parameter to
+the enumerate environment, which is used to specify the layout of
+the labels. The layout parameter contains an enumeration type (1
+for arabic numerals, a or A for alphabetic enumeration, and i or
+I for Roman numerals), and things to act as decoration of the
+enumeration. For example, the following 'enumerate' environment
+will allow for the labels of each item to appear as
+(a), (b), (c), etc.
+
+  \usepackage{enumerate}
+  \begin{enumerate}[(a)]
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+The following 'enumerate' environment would allow for the labels
+of each list item to appear as I/, II/, III/, etc.
+
+  \usepackage{enumerate}
+  \begin{enumerate}[I/]
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+# The enumitem package
+
+This package redefines the 'itemize', 'enumerate' and
+'description' environment
+so that it can have the effect of a "tight list", such that the
+vertical margins before and after each item are removed. 
+
+  \begin{itemize}[nosep]
+
+If you need non-stereotyped designs, the enumitem package gives
+you most of the flexibility you might want to design your own.
+The silly roman example above could be achieved by:
+
+  \usepackage{enumitem}
+  \begin{enumerate}[label=\Roman{*}/]
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+Note that the * in the key value stands for the list counter at
+this level. You can also manipulate the format of references to
+list item labels:
+
+  \usepackage{enumitem}
+  \begin{enumerate}[label=\Roman{*}/, ref=(\roman{*})]
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+To make references to the list items format appear as (i), (ii),
+(iii), etc.
+
+The 'unboxed' option is especially useful if the label is long
+and sometimes need to be split into multiple lines.
+
+  \usepackage{enumitem}
+  \begin{enumerate}[style=unboxed]
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+The 'nosep' option is used to ask that there is no additional
+vertical margins allocated for each list item---thus making it a 
+"tight list" in appearance.
+
+  \usepackage{enumitem}
+  \begin{enumerate}[nosep]         
+  \item 
+  \item 
+  \item 
+  \end{enumerate}
+
+The 'font' option allows for a different font style to
+be applied to each data term in a 'description' list.
+
+  \begin{description}[nosep,style=unboxed,font=\\normalfont]
+  \item
+  \item
+  \item
+  \end{description}
 
 
 

@@ -322,4 +322,30 @@ two-column-layout division themselvs.  The starting and stopping
 of a new two-column-layout will likely land in a new page for 
 the start of a new two-column-layout.
 
+# The \defineparagraphs command
+
+This command allows to configure a block of paragraphs so that
+it appears as multiple columns. 
+
+  \defineparagraphs[sidebyside][n=2]
+  \startsidebyside
+  Hello world left.
+  \sidebyside
+  Hello world right.
+  \stopsidebyside
+
+In this case, the word "Hello world left" will appear in its own
+column which is on the left hand side, while the word "Hello
+world right" will appear in its own column and it is on the right
+hand side of the first column. 
+
+Note that to use a CONTEX "paragraph" this is the only way,
+which is to have to define a new paragraph with a new name.
+Another limitation is that all the texts of this paragraph is
+always to be kept together---this means if the text is long
+they will not be split into multiple columns, in a two column
+layout mode, or spilled into the next page. 
+
+
+
 

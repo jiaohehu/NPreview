@@ -172,22 +172,6 @@ similar names but not sure what they are about.
   However, it has been observed that sometimes the parentheses are being
   drawn on top of other characters.
 
-- The \placefloat does not seem to have an option to expand the
-  float so that it covers the entire width of the page. The only
-  available way of having it expand multiple columns is to use
-  the \startpostponing..\page..\stoppostponing command. In
-  addition, it will expand the float to multiple columns when
-  the float is *wider* than the width of a column. For \bTABLE,
-  the only way to make the entire table wide is to set the width
-  of each column separately---this breaking the internal algorithm of
-  the table that each column will balance itself based on the
-  width of neighboring columns. However, this is the only way to
-  have it work for now---that is to hardcode the column width
-  to be the same and being the fraction of the \makeupwidth,
-  which seems to be always set to the width of the entire page, 
-  rather than \textwidth, which will be shrunk to be the width
-  of only a single column.
-
 - The \latexdesc command that is defined allows for font switch
   commands and math to be included inside the braces.
   The LATEX version of \item[], can also include font switch commands
@@ -346,6 +330,36 @@ always to be kept together---this means if the text is long
 they will not be split into multiple columns, in a two column
 layout mode, or spilled into the next page. 
 
+# One-column float for two column layout
 
+The \placefloat command does not have an option to allow for a
+one-column float. 
+
+The only way of similating it is to use the
+\startpostponing..\page..\stoppostponing command. 
+
+  \startpostponing
+  ...
+  \page
+  \stoppostponing
+
+It automatically switches to expand the float to cover both
+columns if the width of the float is *wider* than the width
+of the single column it is in.
+
+However, the problem is that there is no obvious way to 
+set \bTABLE *wider*---this width of this table is determined
+by the internal algorithm to be the same as the width of the 
+\textwidth. 
+
+However, so far the only way to trick it is to hardcode the
+column width to be the same and being the fraction of the
+\makeupwidth, which seems to be always set to the width of the
+entire page, rather than \textwidth, which will be shrunk to be
+the width of only a single column.
+
+Similarly, the \starttabulate also suffers the same problem.
+The width of the table is now allowed to go over the width
+of \textwidth.
 
 

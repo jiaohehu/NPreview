@@ -1,6 +1,7 @@
 Test Listing
 
 %!latex.twocolumns=1
+%!contex.twocolumns=1
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

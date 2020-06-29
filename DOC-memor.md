@@ -125,24 +125,24 @@ Following are font size switches made available by the 'memoir'
 class.  Following is a table copied directly from memoir class
 documentation.
 
-  Table 3.9: The memoir class font sizes
+@ Table 
+  The memoir class font sizes
 
-  ---------------------------------------------
-  Switches       9pt    10pt    11pt    12pt
-  ---------------------------------------------
-  \miniscule     4pt    5pt      6pt     7pt
-  \tiny          5pt    6pt      7pt     8pt
-  \scriptsize    6pt    7pt      8pt     9pt
-  \footnotesize  7pt    8pt      9pt    10pt
-  \small         8pt    9pt     10pt    11pt
-  \normalsize    9pt   10pt     11pt    12pt
-  \large        10pt   11pt     12pt    14pt
-  \Large        11pt   12pt     14pt    17pt
-  \LARGE        12pt   14pt     17pt    20pt
-  \huge         14pt   17pt     20pt    25pt
-  \Huge         17pt   20pt     25pt    30pt
-  \HUGE         20pt   25pt     30pt    36pt
-  ---------------------------------------------
+  Switches       | 9pt  | 10pt   |11pt   |12pt
+  ---------------|------|--------|-------|-------
+  \miniscule     | 4pt  | 5pt    | 6pt   | 7pt
+  \tiny          | 5pt  | 6pt    | 7pt   | 8pt
+  \scriptsize    | 6pt  | 7pt    | 8pt   | 9pt
+  \footnotesize  | 7pt  | 8pt    | 9pt   |10pt
+  \small         | 8pt  | 9pt    |10pt   |11pt
+  \normalsize    | 9pt  |10pt    |11pt   |12pt
+  \large         |10pt  |11pt    |12pt   |14pt
+  \Large         |11pt  |12pt    |14pt   |17pt
+  \LARGE         |12pt  |14pt    |17pt   |20pt
+  \huge          |14pt  |17pt    |20pt   |25pt
+  \Huge          |17pt  |20pt    |25pt   |30pt
+  \HUGE          |20pt  |25pt    |30pt   |36pt
+  ---------------|------|--------|-------|-------
 
 Given the same body font size, the same font size switch would
 likely have turned out a smaller looking font for a memoir class
@@ -229,26 +229,25 @@ among a range of sizes, selecting a type size, selecting the kind
 of manuscript, and some related specifically to the typesetting
 of mathematics.
 
-  Table 
+@ Table 
   Class stock metric paper size options,
   and commands
 
-  --------------------------------------------
-  Option                 Size 
-  --------------------------------------------
-  a6paper                148×105mm       
-  a5paper                210×148mm 
-  a4paper                297×210mm 
-  a3paper                420×297mm 
-  b6paper                176×125mm 
-  b5paper                250×176mm 
-  b4paper                353×250mm
-  b3paper                500×353mm 
-  mcrownvopaper          186×123mm 
-  mlargecrownvopaper     198×129mm 
-  mdemyvopaper           216×138mm 
-  msmallroyalvopaper     234×156mm
-  --------------------------------------------
+  Option                |Size 
+  ----------------------|---------------------
+  a6paper               |148×105mm       
+  a5paper               |210×148mm 
+  a4paper               |297×210mm 
+  a3paper               |420×297mm 
+  b6paper               |176×125mm 
+  b5paper               |250×176mm 
+  b4paper               |353×250mm
+  b3paper               |500×353mm 
+  mcrownvopaper         |186×123mm 
+  mlargecrownvopaper    |198×129mm 
+  mdemyvopaper          |216×138mm 
+  msmallroyalvopaper    |234×156mm
+  ----------------------|---------------------
 
 The 'stock size' is the size of a single sheet of the paper you
 expect to put through the printer. There is a range of stock
@@ -266,25 +265,24 @@ the stock.
 All the options, except for landscape, are mutually exclusive.
 The default stock paper size is letterpaper.
 
-  Table 
+@ Table 
   Class stock US paper size, and commands
 
-  --------------------------------------------
-  Option                 Size 
-  --------------------------------------------
-  dbillpaper             7 x 3 in           
-  statementpaper         8.5 x 5.5 in   
-  executivepaper         10.5 x 7.25 in   
-  letterpaper            11 x 8.5 in   
-  oldpaper               12 x 9 in   
-  legalpaper             14 x 8.5 in   
-  ledgerpaper            17 x 11 in   
-  broadsheetpaper        22 x 17 in   
-  --------------------------------------------
+  Option                |Size 
+  ----------------------|---------------------
+  dbillpaper            |7 x 3 in           
+  statementpaper        |8.5 x 5.5 in   
+  executivepaper        |10.5 x 7.25 in   
+  letterpaper           |11 x 8.5 in   
+  oldpaper              |12 x 9 in   
+  legalpaper            |14 x 8.5 in   
+  ledgerpaper           |17 x 11 in   
+  broadsheetpaper       |22 x 17 in   
+  ----------------------|---------------------
 
 Following are point size options.
 
-The type size option sets the default font size throughout the
+The type size option set the default font size throughout the
 document. The class offers a wider range of type sizes than
 usual. These are:
 

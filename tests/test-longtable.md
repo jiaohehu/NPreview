@@ -1,5 +1,7 @@
 Test longtable
 
+%!memor.twocolumns=1
+
 %!latex.twocolumns=1
 
 %!contex.twocolumns=0

@@ -143,6 +143,50 @@ respect to the sheet of paper that is used in the printer. This
 is provided by the 'showtrims' option. A variety of trim marks are
 provided and you can define your own if you need some other kind.
 
+# The \autorows and \autocols command
 
+The \autorows and \autocols commands are created to quickly
+typeset a grid of texts arranged according to the rule that
+is either a row-based or a column-based flow.
+The following example is given by the documentation of the
+'memoir' package. 
+
+  \autorows{c}{5}{l}{one, two, three, four,
+  five, six, seven, eight, nine, ten,
+  eleven, twelve, thirteen }
+
+And this as well.
+
+ \autocols{c}{5}{l}{one, two, three, four,
+ five, six, seven, eight, nine, ten,
+ eleven, twelve, thirteen }
+
+Each of the previous two commands takes four arguments. The first
+one is a letter that is 'c', which states that the entire grid is
+to be centered in the middle of the page. The second argument is
+'5', which states that the maximum number of items per row is 5.
+The third argument is 'l', which states that each item is to be
+left aligned for that column. The last argument is a list of
+items each of which is separated by a comma from the one before
+it and from the one after it.
+
+Note that the space after the comma is significant---which means
+that the space before the text "six" is to appear also in the
+grid before the text. However, multiple spaces will be
+"collapsed" into a single space. It is also possible to allow for
+spaces to be part of a grid item, by simply adding a set braces.
+
+  \autorows{c}{5}{l}{one, two, three, four,
+  five, {six weeks}, seven, eight, nine, ten,
+  eleven, twelve, thirteen }
+
+In this case, the item that was "six" before is now "six weeks",
+and this is the text that will appear in that location of the
+grid.  Note that the lengthening of the text in this case will
+also influence the layout of the grid.  The \autorows command has
+seen to be designed so that each column always occupies the same
+width.  This, if the width of the text such as "six weeks" is to
+become the longest text in the entire grid, its width becomes the
+width for all the columns of the grid.
 
 

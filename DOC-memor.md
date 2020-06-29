@@ -52,11 +52,23 @@ been loaded.
 
 # The hyperref package
 
-The hyperref package is stated to have many conflicts with the 
-memoir package and is not recommanded. Thus, it is not possible
-to click a link such as "Fig.1" to jump to the figure. However,
-the correct figure numbering is still there. The figure
-numberings are done internally by NITRILE.
+Most packages work with the memoir class, the main exception
+being the hyperref package. This package modifies many of the
+internals of the standard classes but does not cater for all of
+the differences between memoir and the standard ones. If you wish
+to use hyperref with memoir then you must use the memhfixc
+package2 after using hyperref. For example like:
+
+  \documentclass[...]{memoir}
+  ...
+  \usepackage[...]{hyperref}
+  \usepackage{memhfixc}
+  ...
+  \begin{document}
+
+However, if you have a version of hyperref dated 2006/11/15 or
+after, hyperref will auto- matically call in memhfixc so that you
+don’t have to do anything.
 
 # The metapost code
 
@@ -70,26 +82,52 @@ a control sequence not defined. Unsure how to fix the problem.
   l.383 \end{mplibcode}
 
 The solution turns out to be to add the following line to the
-preamble section of the generated MEMOR document.
+preamble section of the generated MEMOR document, at the point 
+after the inclusion of all packages and before the start
+of the \begin{document} command.
 
   \def\mplibtoPDF#1{\special{pdf:literal direct #1}}
 
 # The two column layout mode
 
-The two column layout mode is supported by the 'memoir' class. 
+The two column layout mode is supported by the 'memoir' class 
+by adding the 'twocolumn' option to the \documentclass command.
+
+  \documentclass[twocolumn]{memoir}
 
 It has also been shown that it automatically reduces the
 left/right margins of the document if 'twocolumn' option is
 inserted as one of the options of the class name, without one has
 to do some specifically.
 
-# Font size switches
+# The body font size
 
-Following is copied directly from memoir 
-class documentation.
+The standard LATEX classes such as 'article' and 'report' provide
+point options of 10, 11, or 12 points for the main body font.
+
+  \documentclass[12pt]{article}
+
+However, memoir extends this by also providing a 9 point option,
+and options ranging from 14 to 60 points. 
+
+  \documentclass[9pt]{memoir}
+
+  \documentclass[14pt]{memoir}
+
+The width of the text block is automatically adjusted according
+to the selected point size to try and keep within generally
+accepted typographical limits for line lengths; you can override
+this if you want.
+
+# Font size switches within a document
+
+Following are font size switches made available by the 'memoir'
+class.  Following is a table copied directly from memoir class
+documentation.
 
   Table 3.9: The memoir class font sizes
 
+  ---------------------------------------------
   Switches       9pt    10pt    11pt    12pt
   ---------------------------------------------
   \miniscule     4pt    5pt      6pt     7pt
@@ -104,6 +142,7 @@ class documentation.
   \huge         14pt   17pt     20pt    25pt
   \Huge         17pt   20pt     25pt    30pt
   \HUGE         20pt   25pt     30pt    36pt
+  ---------------------------------------------
 
 Given the same body font size, the same font size switch would
 likely have turned out a smaller looking font for a memoir class
@@ -112,16 +151,6 @@ document than it would have for an article class document.
 It has also been observed that the chapter, and section titles
 appear to be one font size smaller than that of the equivalent 
 chapter, section, subsection of a report class document. 
-
-# The body font size
-
-The standard classes provide point options of 10, 11, or 12
-points for the main body font. memoir extends this by also
-providing a 9 point option, and options ranging from 14 to 60
-points. The width of the text block is automatically adjusted
-according to the selected point size to try and keep within
-generally accepted typographical limits for line lengths; you 
-can override this if you want.
 
 # Setting margins
 
@@ -188,5 +217,160 @@ seen to be designed so that each column always occupies the same
 width.  This, if the width of the text such as "six weeks" is to
 become the longest text in the entire grid, its width becomes the
 width for all the columns of the grid.
+
+# Additional document class options
+
+As usual, the memoir class is called by
+
+  \documentclass[options]{memoir} 
+
+The 'options' include being able to select a paper size from
+among a range of sizes, selecting a type size, selecting the kind
+of manuscript, and some related specifically to the typesetting
+of mathematics.
+
+  Table 
+  Class stock metric paper size options,
+  and commands
+
+  --------------------------------------------
+  Option                 Size 
+  --------------------------------------------
+  a6paper                148×105mm       
+  a5paper                210×148mm 
+  a4paper                297×210mm 
+  a3paper                420×297mm 
+  b6paper                176×125mm 
+  b5paper                250×176mm 
+  b4paper                353×250mm
+  b3paper                500×353mm 
+  mcrownvopaper          186×123mm 
+  mlargecrownvopaper     198×129mm 
+  mdemyvopaper           216×138mm 
+  msmallroyalvopaper     234×156mm
+  --------------------------------------------
+
+The 'stock size' is the size of a single sheet of the paper you
+expect to put through the printer. There is a range of stock
+paper sizes from which to make a selection. These are listed in
+Table 1.1 through Table 1.3 of the 'memoir' documentation.  Also
+included in the tables are commands that will set the stock size
+or paper size to the same dimensions.
+
+There are two options that don’t really fit into the tables.
+'ebook' for a stock size of 6 × 9 inches, principally for
+‘electronic books’ intended to be dis- played on a computer
+monitor, and 'landscape' to interchange the height and width of
+the stock.
+
+All the options, except for landscape, are mutually exclusive.
+The default stock paper size is letterpaper.
+
+  Table 
+  Class stock US paper size, and commands
+
+  --------------------------------------------
+  Option                 Size 
+  --------------------------------------------
+  dbillpaper             7 x 3 in           
+  statementpaper         8.5 x 5.5 in   
+  executivepaper         10.5 x 7.25 in   
+  letterpaper            11 x 8.5 in   
+  oldpaper               12 x 9 in   
+  legalpaper             14 x 8.5 in   
+  ledgerpaper            17 x 11 in   
+  broadsheetpaper        22 x 17 in   
+  --------------------------------------------
+
+Following are point size options.
+
+The type size option sets the default font size throughout the
+document. The class offers a wider range of type sizes than
+usual. These are:
+
+  9pt for 9pt as the normal type size 
+  10pt for 10pt as the normal type size 
+  11pt for 11pt as the normal type size 
+  12pt for 12pt as the normal type size 
+  14pt for 14pt as the normal type size
+
+Note that for 14pt, \huge, \Huge and \HUGE will be the same as
+\LARGE, unless the extrafontsizes option is also is activated.
+
+  17pt for 17pt as the normal type size 
+  20pt for 20pt as the normal type size 
+  25pt for 25pt as the normal type size 
+  30pt for 30pt as the normal type size 
+  36pt for 36pt as the normal type size 
+  48pt for 48pt as the normal type size 
+  60pt for 60pt as the normal type size
+
+By default, if you use the extrafontsizes option the default font
+for the document is Latin Modern in the T1 font encoding. 
+
+Following are printing options:
+
+* twoside  for when the document will be published with printing
+  on both sides of the paper.
+
+* oneside  for when the document will be published with only one 
+  side of each sheet being printed on.  Note that 'twoside' and
+  'oneside' option are mutually exclusive.
+
+* onecolumn  only one column of text on a page.
+
+* twocolumn  two equal width columns of text on a page. The
+  'onecolumn' and 'twocolumn' options are mutually exclusive.
+
+* openright  each character will start on a recto page.
+
+* openleft  each character will start on a verso page.
+
+* openany  a chapter may start on either a recto or verso page.
+
+* final  for camera-ready copy of your labours.
+
+* draft  this marks overfull lines with black bars and enables
+  some change marking to be shown. There may be other effects as
+  well, particularly if some packages are used.
+
+* ms  this tries to make the document look as though it was
+  prepared on a typewriter. some publisher prefer to receive poor
+  looking submissions.
+
+* showtrims  this option prints marks at the corners of the sheet
+  so that you can see where the stock must be trimmed to produce
+  the final page size.
+
+Following are other options.
+
+* leqno  equations will be numbered at the left hand side.
+
+* fleqn  displayed math environments will be indented an amount 
+  \mathindent from the left margin (the default is to center
+  the environments).
+
+* openbib  each part of a bibliography entry will start on a new
+  line, with second and succeding lines indented by \bibindent
+  (the default is for an entry to run continuously with no
+  indentations).
+
+* article  typesetting simulates the article class, but the
+  \chapter command is not disabled, basically \chapter will
+  behave as if it was \section. Chapters do not start a new page
+  and chapter headings are typeset like a section heading. The
+  numbering of figures, etc., is continuous and not per chater.
+  However, a \part command still puts its heading on a page by
+  itself.
+
+* oldfontcommands  makes the old, deprecated LATEX version 2.09
+  font commands available. Warning messages will be produced
+  whenever an old font command is encountered.
+
+* fullptlayout  disable point trunction of certain layout
+  lengths, for example \textwidth. The default is to round these
+  of to a whole number of points, this option disables this
+  feature.
+
 
 

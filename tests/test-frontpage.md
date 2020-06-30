@@ -1,10 +1,12 @@
 test-text.md
 
-%!contex.twocolumns=1
-%!latex.twocolumns=1
-%!memor.latexengine=pdflatex
+%!memor.fontpage=1
+%!memor.title=Test Front-page
+%!memor.toc=1
 
-# $(#first) Introduction
+%!contex.twocolumns=1
+
+%!latex.twocolumns=1
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -20,8 +22,6 @@ culpa qui officia deserunt mollit anim id est laborum.
   console.log('Hello World');
   console.log('Hello World');
   console.log('Hello World');
-
-# Background   
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -43,8 +43,6 @@ aliquip ex ea commodo consequat. Duis aute irure dolor in
 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
-
-# Advanced     
 
 [ Lorem ipsum ] dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -112,4 +110,3 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-See $(#first)

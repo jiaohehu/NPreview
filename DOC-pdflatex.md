@@ -287,30 +287,27 @@ Following is a custom float for Program:
 
 # Floats
 
-The PICT, TABR, FRMD, and DIAG will *always* generate a "float" regardless
-if a label or caption is present. If both caption and label is lacking
-a \caption command is simply not there inside the "float" block---the visual
-effect is that user will see no caption text at all, and no numbering.
+The PICT, TABR, FRMD, DIAG, and PROG will *always* generate a
+"float" regardless if a label or caption is present. If both
+caption and label is lacking a \caption command is simply not
+there inside the "float" block---the visual effect is that user
+will see no caption text at all, and no numbering.
 
-However, if a label is detected or a caption is provided then 
-the \caption will appear. Actually to be more accurate it is the star-version
-of the \caption, which will show up as \caption*. This is because NITRILE
-generates the number of all floats itself---the only exception being
-the equation.
+However, if a label is detected or a caption is provided and the
+numbering will appear.  Since NITRILE provides its own numbering
+and thus \caption* is used instead of \caption.  The logic is
+follow: if the label is there, then a new number is obtained, and
+is shown, making look like a "Figure.1", "Table.1", "Program.1", etc.
+If no label is present, but a caption text, then no new numbering
+is obtained---the caption line is simply just the caption text
+without the numbering text. If none of two is there then no
+caption is shown. 
 
-Thus, the \caption* will be used to typeset the caption. The logic is follow:
-if the label is there, then a new number is obtained, and is shown, making
-look like a "Fig.1", "Table.1", "Prog.1", etc. If no label is present, but
-a caption text, then no new numbering is obtained---the caption line is simply
-just the caption text without the numbering text that is "Fig.1", "Table.1",
-"Prog.1", etc.
+One can force the generation of a number by using an "empty
+label" in the form of `$(#)`.
 
-One can force the generation of a number by using an "empty label"
-in the form of `$(#)`.
-
-NITRILE defines customized floats in the names of: Figure, Table, and Program.
-The last one is for source code list, which works with VERB block. The first
-one works for PICT, DIAG, and FRMD. The second float works with TABR block.
+Note that PICT, DIAG and FRMD would all be treated as "Figure."
+TABR will be treated as a "Table", and PROG as a "Program."
 
 # Issues and additional remarks
 
@@ -605,6 +602,12 @@ objective. However, the 'tabbing' environment has an undisputed
 advantage which it allows for it to work flawlessly in a two
 column layout mode, which is considered an important feature
 of this block.
+
+# The FRMD and DIAG blocks
+
+These two blocks are not supported for PDFLATEX because both of
+these two blocks involve using 'luamplib' package which is only
+available on LuaLatex.
 
 
 

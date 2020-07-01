@@ -599,4 +599,6 @@ serve this purpose inside a 'p' specification for that column.
 Since 'L' for 'tabulary' is really a 'p' then this command is
 carried over to the 'tabulary' environment.
 
-
+However, using this approach is not recommand as 'tabulary' seems
+to have made that column too wide when \newline
+appear within that column.

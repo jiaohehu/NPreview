@@ -20,9 +20,6 @@ Following are required LATEX packages that must be included:
     \usepackage{graphicx}
       For \includegraphics command.
 
-    \usepackage{subcaption}
-      For \begin{subfigure} environment.
-
     \usepackage{caption}
       For \caption*{...}
 
@@ -56,33 +53,18 @@ Following are required LATEX packages that must be included:
     \usepackage{anyfontsize}
       Defines \selectfont{} used in typesetting of a verb block.
 
-    \usepackage{tikz}
-      For \begin{pgfpicture} and \begin{tikzpicture}
-
     \usepackage{luamplib}
       For \begin{mplibcode}
 
     \usepackage[normalem]{ulem}
       For \underline.
 
-    \usepackage{listings}
-      For \begin{lstlisting} used for typesetting code block.
-
     \usepackage{ltablex}
       Needed to make 'tabular' environment happy. If not include there
       are some unexplained compilation errors.ßßß
 
-    \usepackage{tabularx}
-      For \begin{tabularx} 
-
     \usepackage{tabulary}
       For \begin{tabulary} 
-
-    \usepackage{tabu}
-      For \begin{longtabu} 
-
-    \usepackage{booktabs}
-      For \toprule, \midrule, and \bottomrule
 
     \usepackage{xcolor}
       Needed to use color such as \xcolor{...}
@@ -322,7 +304,7 @@ one works for PICT, DIAG, and FRMD. The second float works with TABR block.
   \usepackage[T1]{fontenc}
 
 - The "xltabular" environment does not work with "twocolumn" mode. 
-  Thus, the LONG and CSVD blocks cannot be present if "twocolumn" 
+  Thus, the LONG and TABU blocks cannot be present if "twocolumn" 
   is going to be an option for the document because both of these
   blocks reply on "xltabular" environment. However, TABR 
   uses float and thus is save with "twocolumn". TABB 
@@ -579,32 +561,42 @@ Note that TABB block would treat each entry as a rich text.
 
 # The TABU block
 
-This block is similar to TABB block. However, data inside this block
-is to be treated as a plain text. 
+This block is similar to TABB block. However, data inside this
+block is to be treated as a plain text. 
 
-This block is to be typeset using the 'tabbing' environment.
-However, one of the objectives of the typesetting is to only
-allocate enough column width to accomodate the widest data of
-that column, such that more columns can be packed.
+  =  Inf. neg.               ,  簡単ではない
+     Inf. past               ,  簡単だった
+     Inf. neg. past          ,  簡単ではなかった
+     Formal                  ,  簡単です
+     Formal neg.             ,  簡単ではありません
+     Formal past             ,  簡単でした
+     Formal neg. past        ,  簡単ではありませんでした
+     Conjunctive             ,  簡単で
+     Conditional             ,  簡単なら（ば）
+     Provisional             ,  簡単だったら
+     Volitional              ,  簡単だろう
+     Adverbial               ,  簡単に
+     Degree                  ,  簡単さ
 
-To achieve that, we have to take advantage of one of the features
-of the 'tabbing' environment, which is that it allows for setting
-the "tab stop" of the next column based on the width of a piece of text
-that is given to it. Thus, the tab stop of each column is done by
-a string that is taken of that column and which is the "longest".
-The longest string means the 'length' field of the 'String'
-object is the largest.
+It scans the first line to see if it contains a comma. If 
+it does then the commas are treated as delimeter for separating 
+items for each line. If a comma is not found then spaces
+are assume.
 
-This strategy is not fool proof---it is entirely possible the
-longest string might produce the largest width for that column.
-But nevertheless it should work in most of the cases. 
+The begin/end "tabbing" environment is used to typeset this
+block. The "tabbing" environment need to be "marked" for the tab
+stops in order it to work property. For TABB, each column should
+appear to be just wide enough for the widest element of that
+column. In this case, the "widest" element of that column is
+determined to be the longest string. 
 
-Another reason that the 'tabbing' environement is chose, rather
-than, say 'xltabular' which would arguably achieve the same
-objective. However, the 'tabbing' environment has an undisputed
-advantage which it allows for it to work flawlessly in a two
-column layout mode, which is considered an important feature
-of this block.
+# Breaking lines inside a \begin{tabulary}
 
+Inside a \begin{tabulary}, each cell can be broken into multiple
+lines by inserting a \newline{} in the middle the text.
+This is possible because \newline macro has been redefined to
+serve this purpose inside a 'p' specification for that column.
+Since 'L' for 'tabulary' is really a 'p' then this command is
+carried over to the 'tabulary' environment.
 
 

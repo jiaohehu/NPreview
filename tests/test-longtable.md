@@ -1,10 +1,10 @@
 Test longtable
 
-%!memor.twocolumns=1
+%!memor.twocolumn=1
 
-%!latex.twocolumns=1
+%!lualatex.twocolumn=1
 
-%!contex.twocolumns=0
+%!contex.twocolumn=1
 %!contex.longpadding=1 3
 
 %!html.bodyfontsizept=16

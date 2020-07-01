@@ -362,4 +362,11 @@ Similarly, the \starttabulate also suffers the same problem.
 The width of the table is now allowed to go over the width
 of \textwidth.
 
+# Break line inside \bTABLE
+
+Inside \bTABLE, the text within a cell can be broken into
+multiple lines by insert a double-backslash in the middle
+of a line. However, the \starttabulate environment does not
+allow for such a construction.
+
 

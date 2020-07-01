@@ -31,12 +31,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch LATEX",
+      "name": "Launch LUALATEX",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/latex.js",
+      "program": "${workspaceFolder}/tests/lualatex.js",
       "args": [
         "a.md"
       ]

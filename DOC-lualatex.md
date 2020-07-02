@@ -602,3 +602,14 @@ carried over to the 'tabulary' environment.
 However, using this approach is not recommand as 'tabulary' seems
 to have made that column too wide when \newline
 appear within that column.
+
+# Multi-column 
+
+Merging multiple columns for a given row.
+
+  \begin{tabulary}{\linewidth}{LLL}
+  Category & \multicolumn{2}{c}{Unit Symbol}\\
+  Length & meter & m\\
+  Mass & kilogram & kg\\
+  \end{tabulary}
+

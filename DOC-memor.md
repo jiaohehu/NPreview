@@ -6,14 +6,14 @@
 The inclusion of the following packages causes 
 the error which is also list below.
 
-  \\usepackage{luatexja-fontspec}
-  \\usepackage{luatexja-ruby}
-  \\newjfontfamily\\de{dejavusans}
-  \\newjfontfamily\\za{zapfdingbats}
-  \\newjfontfamily\\cn{arplsungtilgb}
-  \\newjfontfamily\\tw{arplmingti2lbig5}
-  \\newjfontfamily\\jp{ipaexmincho}
-  \\newjfontfamily\\kr{baekmukbatang}
+  \usepackage{luatexja-fontspec}
+  \usepackage{luatexja-ruby}
+  \newjfontfamily\de{dejavusans}
+  \newjfontfamily\za{zapfdingbats}
+  \newjfontfamily\cn{arplsungtilgb}
+  \newjfontfamily\tw{arplmingti2lbig5}
+  \newjfontfamily\jp{ipaexmincho}
+  \newjfontfamily\kr{baekmukbatang}
 
   (/usr/local/texlive/2018/texmf-dist/tex/latex/filehook/filehook-memoir.sty)))))
    (/usr/local/texlive/2018/texmf-dist/tex/luatex/luatexja/luatexja-compat.sty(lo
@@ -218,6 +218,12 @@ width.  This, if the width of the text such as "six weeks" is to
 become the longest text in the entire grid, its width becomes the
 width for all the columns of the grid.
 
+The \autorows and \autocols command produces an environment that
+is similar to 'tabular', in which case all rows and columns are
+always held together. In the case of two column layout, all texts
+will appear in a single column. In the case of one column layout,
+all texts will appear in a single page. 
+
 # Additional document class options
 
 As usual, the memoir class is called by
@@ -268,6 +274,7 @@ The default stock paper size is letterpaper.
 @ Table 
   Class stock US paper size, and commands
 
+  ----------------------|---------------------
   Option                |Size 
   ----------------------|---------------------
   dbillpaper            |7 x 3 in           

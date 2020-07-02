@@ -613,3 +613,34 @@ Merging multiple columns for a given row.
   Mass & kilogram & kg\\
   \end{tabulary}
 
+# The %^rmap= entry
+
+This entry is a new 'mode' entry that serves to express a MD file
+such that all its 'rmap' entries will be imported and added to
+the end of the 'rmap' entries of the current doc.
+
+Its typical use will be to set it up so that the master document
+will have this entry. Since all entries of a 'rmap' that is part 
+of a master document will be copied over and appended to the end
+of the 'rmap' of a sub-document, it serves the purpose of letting
+all sub-document sharing the same 'rmap' entries of those of the
+master document.
+
+Note that if a sub-document has a '%^root=' entry, then when this
+sub-document is compiled the 'rmap' entries from a master file
+will be "imported". If the '%^only=' mode is set to 1, then only
+the contents of this sub-document will be shown.
+
+A 'rmap' is automatically created for a doc, whether it is a
+master or a sub-document. The 'rmap' is automatically populated
+whenever a DLST is encountered such that the 'key' part of an
+item is detected to follow the pattern of a "rmap", which is a
+pattern that starts with some Japanese characters, followed by a
+Unicode character U+30fb, and then followed by some additional
+Japanese characters. When such a pattern is detected, the 
+'rmap' of that document is populated with the content of this
+item. 
+
+
+
+

@@ -356,7 +356,9 @@
     { "name": "\\sqrt",               "count": 1, "option": 1 },
     { "name": "\\frac",               "count": 2 },
     { "name": "\\sfrac",              "count": 2 },
-    { "name": "\\binom",              "count": 2 }
+    { "name": "\\binom",              "count": 2 },
+
+    { "name": "\\image",              "count": 1 }
   ],
   "smallLetters": {
     "myi945": 2.5,

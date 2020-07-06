@@ -8,7 +8,7 @@ Test longtable
 %!contex.longpadding=1 3
 
 %!html.bodyfontsizept=16
-%!html.css+=.nitabb{font-size:.75em}
+%!html.css+=.LONG{font-size:.75em}
 
 %!epub.css+=.nitabb{font-size:.75em}
 %!epub.css+=.nisvg{outline:1px solid orange}

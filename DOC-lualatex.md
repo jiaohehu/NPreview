@@ -654,4 +654,35 @@ When compiling a document with such \label and/or \ref
 designation, no error will be generated, but the reference
 to the labels are remained unresolved.
 
+# The \img 
+
+The \img phrase would insert an external image on the bases
+that the name of an external image file is to be expected:
+
+  The image is \img{mytree.png}
+
+Note that for LATEX translation it is to be the \includegraphics
+command without additional options.
+
+  The image is \includegraphics{mytree.png}
+
+For CONTEX translation it is to be the \externalfigure
+command without additional options.
+
+  The image is \externalfigure[mytree.png]
+
+For HTML translation it is to be a IMG element.
+
+  The image is <img src='mytree.png' />
+
+The intend is to typeset a image without having to worry about
+the placement and scaling of this image. It is thus suitable for
+showing small images alone with text or by itself.  The image
+will tend to be shown in its native size, according to the rules
+observed on LATEX, CONTEX and HTML. For LATEX and CONTEX if it is
+by itself the only element in a paragraph, it might still be
+subject to indentation processing and thus might be shown with
+an indentation.
+
+
 

@@ -1,11 +1,11 @@
 Test label
 
-# Chapter 1 (#mychap1)
+# ${#mychap1} Chapter 1 
 
 This is content.
 
-## Section 1 (#mysec1)
+## ${#mysec1} Section 1 
 
 This is content
 
-Please see [[#mychap1]] and [[#mysec1]].
+Please see ${#mychap1} and ${#mysec1}.

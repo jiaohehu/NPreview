@@ -12,9 +12,9 @@ culpa qui officia deserunt mollit anim id est laborum.
 * Apple              A fox jumps over a fence.
 * ``\sqrt{2}``       A fox jumps over a fence.
 * `console.log(a)`   A fox jumps over a fence.
+* ```console.log(a)```   A fox jumps over a fence.
 * "3 o'clock"        A fox jumps over a fence.
-* {{3 o'clock}}      A fox jumps over a fence.
-* ${日本・にほん}    A fox jumps over a fence.
+* 日本・にほん       A fox jumps over a fence.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

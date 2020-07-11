@@ -641,6 +641,17 @@ Japanese characters. When such a pattern is detected, the
 'rmap' of that document is populated with the content of this
 item. 
 
+# The \label and \ref
 
+Note that \label and \ref commands do not accept the hash mark
+character as part of the label name---thus following are
+illegal.
+
+  \label{#my} 
+  \ref{#my}
+
+When compiling a document with such \label and/or \ref
+designation, no error will be generated, but the reference
+to the labels are remained unresolved.
 
 

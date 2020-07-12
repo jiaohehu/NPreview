@@ -48,7 +48,17 @@ Following are required LATEX packages that must be included:
 
     \usepackage[unicode]{hyperref}
       Defines \href, \url, and others. Also allows for generating
-      of PDF bookmarks.
+      of PDF bookmarks. This package has been superceeded by 
+      "bookmark" package. 
+
+    \usepackage{bookmark}
+      Defines \href, \url, and others. Also allows for generating
+      of PDF bookmarks. This package replaces "hyperref", which 
+      requires two runs to have the bookmark inserted into the
+      document, while "bookmark" package only requires one run.
+      Ensure that Y2020 release is used, which seems to fix the 
+      issue of CJK characters in the bookmark. Y2018 has been
+      shown to have problems showing CJK characters.
 
     \usepackage{anyfontsize}
       Defines \selectfont{} used in typesetting of a verb block.

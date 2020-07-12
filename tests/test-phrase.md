@@ -1,15 +1,17 @@
-Test phrase
 
-This is 'file.txt'.
+%^簡単・かんたん
 
-_Hello_ world
+Variable: `a` and `b`
 
-__Hello__ world
+Math: ``\sqrt{2}`` and ``\sqrt{3}``
 
-This is ``\sqrt{2}``
+Em: The word \em{hello} is italic.
 
-The 'rotate(angle,axis)' method returns a new Plane instance that is
-the result of rotating the current plane by a given 'angle' in radians
-about the Line denoted by the 'axis' argument. The rotation is
-performed in a right-handed fashion about 'axis.direction'.
+Uri: The word \uri{http://www.yahoo.com} is a uri.
+
+Ref: The ref is \ref{tbl:one}.
+
+Ruby: The ruby is \ruby{日本・にほん}
+
+Ruby: The ruby is \ruby{簡単}
 

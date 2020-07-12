@@ -684,5 +684,17 @@ by itself the only element in a paragraph, it might still be
 subject to indentation processing and thus might be shown with
 an indentation.
 
+# The ampersand character in the sectional title
+
+The ampersand character and other symbol should not appear in 
+a sectional title, such as a chapter, a section, a subsection, 
+a subsubsection, etc. Since the text of the sectional title is
+used directly as the string to the command `\addcontentsline`
+when a symbol such as an ampersand appears it causes the 
+lualatex compilation to complain---don't know why.
+It is thus better to avoid it.
+
+  \addcontentsline{toc}{chapter}{1 Continuative forms}
+
 
 

@@ -1,6 +1,6 @@
 test-math.md
 
-%!html.bodyfontsizept=16
+%!html.bodyfontsizept=12
 
 # Display math One
 

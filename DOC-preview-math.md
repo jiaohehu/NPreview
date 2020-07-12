@@ -627,3 +627,20 @@ possible, and on HTML it can be simulated.
   clipped the top part of ``\xi``, while Safari does not have this
   problem.
   
+- In iBOOK, if the math has only a single letter that is ``\mathcal{L}`` 
+  then when it is displayed in iBOOK the right part of the letter
+  is clipped. This is probably correct because the standard
+  unicode SVG outline for this character shows that some part of
+  the character lies outside of the bounding box of the found,
+  and thus wheneven when the character is shown with the
+  character stretched over the entire length, this will only
+  apply to the portion of the character that is inside the
+  bounding box, and the part that is outside of the bounding box 
+  should by definition be outside of the bounding box. Not sure
+  how solve this, but a possible solution is to include, for each
+  character, an additional member in the 'math.json' file to
+  specify the extra amount of space to the left or right, such
+  that when being stringed together and it is the last character
+  this extra space will be taken into account.
+
+

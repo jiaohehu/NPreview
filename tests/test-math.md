@@ -1,6 +1,6 @@
 test-math.md
 
-%!html.bodyfontsizept=12
+This is the normal text. ``\sqrt{2}``
 
 # Display math One
 

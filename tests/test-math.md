@@ -6,6 +6,10 @@ test-math.md
 
 $ e = \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n
 
+# Display math split
+
+$ e &= \lim_{n\to\infty} {\left(1 + \frac{1}{n}\right)}^n \\
+    &= a + b
 
 # Display math Sum
 
@@ -42,32 +46,35 @@ $ y + 7 + 8 = \sqrt{2}
 
 # Equation with numbering and aligned
 
-$ $(#) x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ \ref{}  x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y + 7 &= \sqrt{2} 
 
 
 # Equation with numbering and not aligned 
 
-$ $(#) x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ \ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y = \sqrt{2} 
 
 
 # Equation with mixed numbering           
 
-$ $(#) x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ \ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y = \sqrt{2} 
 
-$ $(#) z = \sqrt{2} 
+$ \ref{}  z = \sqrt{2} 
 
 
 
 # Greek letters 
 
-@   ```table
+@   Table    
+
+    ---------|---------------|------------|---------------|--------------|-------------
              |               |            |               |              |                  
+    ---------|---------------|------------|---------------|--------------|-------------
     \Alpha   | ``\Alpha  ``  |   \Iota    | ``\Iota   ``  |     \Rho     | ``\Rho    ``     
     \Beta    | ``\Beta   ``  |   \Kappa   | ``\Kappa  ``  |     \Sigma   | ``\Sigma  ``   
     \Gamma   | ``\Gamma  ``  |   \Lambda  | ``\Lambda ``  |     \Tau     | ``\Tau    ``   
@@ -76,17 +83,20 @@ $ $(#) z = \sqrt{2}
     \Zeta    | ``\Zeta   ``  |   \Xi      | ``\Xi     ``  |     \Chi     | ``\Chi    ``   
     \Eta     | ``\Eta    ``  |   \Omicron | ``\Omicron``  |     \Psi     | ``\Psi    ``   
     \Theta   | ``\Theta  ``  |   \Pi      | ``\Pi     ``  |     \Omega   | ``\Omega  ``   
+    ---------|---------------|------------|---------------|--------------|-------------
     ---
-    [^1] Name
-    [^2] Symbol
-    [^3] Name
-    [^4] Symbol
-    [^5] Name
-    [^6] Symbol
-    ```
+    $a=Name
+    $b=Symbol
+    $c=Name
+    $d=Symbol
+    $e=Name
+    $f=Symbol
 
-@   ```table
+@   Table 
+
+    ---------|----------------|------------|---------------|--------------|-------------
              |                |            |               |              |                  
+    ---------|----------------|------------|---------------|--------------|-------------
     \alpha   | ``\alpha  ``   |   \iota    | ``\iota   ``  |     \rho     | ``\rho    ``        
     \beta    | ``\beta   ``   |   \kappa   | ``\kappa  ``  |     \sigma   | ``\sigma  `` 
     \gamma   | ``\gamma  ``   |   \lambda  | ``\lambda ``  |     \tau     | ``\tau    ``     
@@ -95,16 +105,18 @@ $ $(#) z = \sqrt{2}
     \zeta    | ``\zeta   ``   |   \xi      | ``\xi     ``  |     \chi     | ``\chi    ``   
     \eta     | ``\eta    ``   |   \omicron | ``\omicron``  |     \psi     | ``\psi    ``    
     \theta   | ``\theta  ``   |   \pi      | ``\pi     ``  |     \omega   | ``\omega  ``  
+    ---------|----------------|------------|---------------|--------------|-------------
     ---
-    [^1] Name
-    [^2] Symbol
-    [^3] Name
-    [^4] Symbol
-    [^5] Name
-    [^6] Symbol
-    ```
+    $a=Name
+    $b=Symbol
+    $c=Name
+    $d=Symbol
+    $e=Name
+    $f=Symbol
 
-@ ```table
+@   Table   
+
+    ------------|-------------------
     Letter      | Symbol
     ------------|-------------------
     \vartheta   | ``\vartheta  ``
@@ -112,7 +124,7 @@ $ $(#) z = \sqrt{2}
     \varsigma   | ``\varsigma  ``           
     \varphi     | ``\varphi    ``      
     \varepsilon | ``\varepsilon``           
-  ```
+    ------------|-------------------
 
 
 # Math commands and accents

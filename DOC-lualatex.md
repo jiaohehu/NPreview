@@ -706,5 +706,27 @@ It is thus better to avoid it.
 
   \addcontentsline{toc}{chapter}{1 Continuative forms}
 
+# The dollar-sign and ampersand in math expression
+
+For inline math, the dollar-sign and ampersand will be inserted
+into the inline math of the TEX document as '\$' and '\&', 
+each of which will result it being shown as the dollar sign and 
+ampersand literally.  
+
+For displaymath/equations, the dollar-sign will still be shown as
+'\$'.  However, the ampersand symbol is to be recognized as the
+"alignment character" to denote the alignment point for each
+formula that is to appear one on top of another, such that each
+formula is to be moved horizontally untill the alignment point
+expressed by that ampersand symbol aligned vertically.
+
+# The colon-equal symbol
+
+The := symbol in math can be typeset using '\coloneqq' command, 
+which is available through package 'mathtools'
+
+  \( a \coloneq b \)
+
+
 
 

@@ -70,19 +70,19 @@ incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 
-@  ```image
-   image-gimp.jpg One 
-   image-gimp.jpg Two 
-   image-gimp.jpg Three
+@  Image
+
+   \img{image-gimp.jpg} One 
+   \img{image-gimp.jpg} Two 
+   \img{image-gimp.jpg} Three
    ---
-   image-gimp.jpg Four 
-   image-gimp.jpg Five
+   \img{image-gimp.jpg} Four 
+   \img{image-gimp.jpg} Five
    ---
-   image-gimp.jpg Four 
-   image-gimp.jpg Four 
-   image-gimp.jpg Four 
-   image-gimp.jpg Five
-   ```
+   \img{image-gimp.jpg} Four 
+   \img{image-gimp.jpg} Four 
+   \img{image-gimp.jpg} Four 
+   \img{image-gimp.jpg} Five
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

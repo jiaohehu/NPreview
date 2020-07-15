@@ -1111,48 +1111,106 @@ y-axis with similar parameter requirements.
   cartesian.a xaxis -0.75 5.6
   cartesian.a yaxis -0.75 4.5
 
-The `cartesian xticks` is used to draw ticks as well as labels on
+The `cartesian xtick` is used to draw ticks as well as labels on
 the x-axis of the coordinate. The list of arguments passed to
 this command is a list of location of these ticks on the axis.
 For example, if passed as "1 2 3" then the ticks will appear
 where (1,0), (2,0), and (3,0) points are. For each tick, a label
 string will also appear unerneath that tick.  Similarly, the
-`cartesian.yticks` command does the same thing except for that it
+`cartesian ytick` command does the same thing except for that it
 is for the y-axis. 
 
-  cartesian.a xticks 1 2 3 4 5
-  cartesian.a yticks 1 2 3 4
+  cartesian.a xtick 1 2 3 4 5
+  cartesian.a ytick 1 2 3 4
 
-The `cartesian plot` command plots a number points within the
-cartesian plan as dots. The required arguments passed to it must
-appear in pairs, with the first one expressing x-coord and second
-one expressing the y-coord of the point. 
+The `cartesian dot` command shows one or more points as dots
+inside the coordinate. Every two numbers are interpreted as
+a pair of (x,y) coordinates.  
 
-  cartesian.a plot -4 0 4 0 \
+  cartesian.a dot  -4 0 4 0 \
                    -5 0 5 0
 
-The `cartesian curve` command draws a curve that will best first
-the given points in the coordinate.
+The "cartesian line" command would draw line segment(s) between 
+points. It is similar to "cartesian dot" except that it draws
+connecting lines between points instead of circled dots.
+The following command would have drawn three line segments
+each connecting two of the four points.
 
-  cartesian.a curve  0.2 4.11 \
-                     0.5 2.67 \
-                     0.8 2.05 \
-                     1   1.80 \
-                     2   1.22 \
-                     3   1.00 \
-                     4   0.88 \
-                     5   0.81   
+  cartesian.a line -4 0 4 0 \
+                   -5 0 5 0
+
+The "cartesian line" command allows for following options to be
+configured:
+
+* arrowstart  set to 1 for arrow at the start of the entire line
+              segment.
+* arrowend    set to 1 for arrow at the end of the entire line
+              segment.
+* cycle       set to 1 for a closed path
+
+The `cartesian yplot` is similar to `cartesian dot` except for that
+the y-coordinate of each point is computed from a function,
+and the x-coordinate of each point is computed from a set of
+min/max values in the command line.
+
+  def P(x) = pow(x,2)
+  cartesian.a {f:P} yplot -2 2 100
+
+The function is specified by the "f" member of the option.
+This member denotes the name of a function that must be 
+previously defined by the "def" command.
+
+There would be exactly 101 points generated between -2 and 2,
+where the first point is to have an x-coordinate of -2, and the
+last one of 2, and the other 99 points evenly spaced between -2
+and 2. The number 100 can be interpreted as having the distance
+of 4 evenly divided into 100 evenly spaced segments, and points
+are generated at the boundary of each segment. 
+
+If the last argument is not specified, then the total number of
+segments will be automatically computed such that each segment
+equals to 1/10th of the distance of each grid, or that for within
+each grid there should be exactly 11 points generated, with the
+first and last point occupying the edge of the grid.
+
+Similarly, thre is a "cartesian xplot" command that does the
+samilar thing, except that all input points are to express the
+range of y-coordinates and the function would be computing
+the x-coordinates of each point instead.
 
 The `cartesian text` command draws a text at the location of the
 cartesian coord. The location is expressed in the same form as
-that of `cartesian plot`.  The actual text content are taken from
-the "label" variable that is set outside of the `cartesian`
-command.    The "justi" variable expresses how this label is
-aligned relative to this point.
+that of `cartesian dot`. The actual text content are taken from
+the "label" option, and the "anchor" option expresses how
+the text is oriented around the anchor. For example, "ulrt" would
+have meant that the text will be moved at the upper-left hand 
+side of the anchor. If more than one coordinates are specified
+than the same text will be drawn in each location.
 
-  set label Vertex
-  set justi ulft   
-  cartesian.a text -5 0
+  cartesian.a {label:Vertex;anchor:ulrt} text -5 0
+
+The "cartesian ellipse" will draw an ellipse centered at the
+location. There can only be one ellipse to be drawn, and the
+signature of the arguments are:
+
+  cartesian.a ellipse x y Rx Ry Phi
+
+The 'x' and 'y' are coodinates for the center point of the
+ellipse. Each of the 'Rx' and 'Ry' is the semi-major or semi-minor
+axis in horizontal or vertical direction. 'Phy' is the
+measurement of the angle rotation around center. Positive number
+is for a counter-clockwise rotation. It is in degrees.
+
+The "cartesian arc" command will draw an arc with the given
+center, radius, start and stop angle. The signature of the
+function looks like the following.
+
+  cartesian.a arc x y R startAngle stopAngle
+
+The 'x' and 'y' are coordinates expressing the center
+of the arc. 'R' is the radius of the arc. 'startAngle'
+and 'stopAngle' are the angles expressing starting angle
+and stopping angle of the arc. They are both in degrees.
 
 # The line, area, linearea operation
 

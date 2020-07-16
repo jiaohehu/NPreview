@@ -12,6 +12,12 @@ A diagram block is to be translated into an inline MetaPost block between
 
     \usepackage{luamplib}
 
+For CONTEX the MetaPost is called MetaFun, which is a variant that is based on 
+MetaPost by has been modified by Hans Hagen. The syntax of MetaFun and MetaPost
+are mostly compatible, but there are differences. One different is that MetaFun
+supports transparent colors, while MetePost does not. In TexLive2020 distribution
+the 'label' command for MetaFun requires quotation marks rather than btex and etex
+for its first argument.
 
 
 # An example diagram
@@ -42,7 +48,7 @@ Following is an example of a diagram block.
     % dot
     path sq = (22,3) (23,3) (23,2) (22,2)
     dot (22,1)
-    dot $somepoints(sq,0) $somepoints(sq,1) $somepoints(sq,2) $somepoints(sq,3) (22,4) (23,4)
+    dot *sq (22,4) (23,4)
 
     % dots and bars
     hbar    (23,1) (24,1)
@@ -130,38 +136,37 @@ unit length is considered as a distance between two adjacent grid lines on a
 graphing paper for which a length of 1 corresponds to the width of a single
 grid.
 
-In Diagram a grid is always draw as the background. By default the grid is
-25 grid units length long in the horizontal direction and 10 grid unit length
-long in the vertical directon. You can change that by running the `viewport`
-command as the first statement within the diagram block. In the following example
-a diagram area is set to be 32 grid unit length long in horizontal direction
-and 20 grid unit length in vertical direction.
+In Diagram a grid is drawn as the background by default. The size of the grid
+is 25 grid units length long in the horizontal direction and 10 grid unit length
+long in the vertical directon. You can change that by using the 'config' command.
 
-    viewport 32 20
+ config width 30  
+ config height 20  
 
-When generationg MetaPost, each grid is by default considered as 4mm in length.
-Thus, a total grid of 32 in width will give you a total width of 120mm and, a
-total grid of 20 will give a total height of 80mm.  You can change the length
-of each grid by running the `unit` command as follows.
+Each grid is by default 5mm in length, thus, 
+a total of 25 grid units in horizontal direction will generate an image 
+of 125mm in width, and 10 grid units of horizontal direction will put
+the image in the height of 50mm. To set the unit to a different length,
+call the 'config unit' command below.
 
-    unit 6mm
+  config unit 6mm
 
-The `config` command is designed to configure viewport. So far the only
-available option is to set the 'grid' option to either one of the two values:
+The 'config grid' command can be used to change how background grid lines are to be 
+shown in the final Diagram image. By default, each grid is to be show with a 
+grid line that is colored at 10% black. The color is currently not configurable.
+When set the grid to 'boxed', only the outline of the image is drawn, and when set
+to 'none', there is even no outline.
 
   config grid boxed
   config grid none   
 
-When set to 'boxed', only the bounding box of the viewport is show. If
-set to none, the outlines are not show. However, for MetaPost and MetaFun
-the bounding box is still drawn, but using "white" color instead, so that
-it is "invisible" to the eye because the background is always white, but
-nevertheless it has the effect of "enlarge" the entire drawing to cover
-the size that is at least the size of the viewport. Without it the viewport
-might be smaller depending on the actual shapes drawn.
-
-Note that it is important to set these commands before any drawing 
-commands.
+However, for MetaPost and MetaFun generation when the grid is set to 'none' the
+outline is actually drawn using a "white" color pixel.  This is because the
+image that is generated are automatically expanded whenever there is contents
+drawn on that image. Thus, without performing the draw of the outline does not
+guarentee that the size of the image will be the size we want. However, for MetaFun
+and MetaPost generation the image will be "enlarged" if contents were drawn outside
+of the outline.
 
 
 # The set and reset commands
@@ -169,12 +174,12 @@ commands.
 The `set` command sets the following parameters
 for the current drawing environment.
 
-    set refx <number>
-    set refy <number>
-    set refs <number>
-    set barlength <number>     
-    set labelgapx <number>
-    set labelgapy <number>
+  set refx <number>
+  set refy <number>
+  set refs <number>
+  set barlength <number>     
+  set labelgapx <number>
+  set labelgapy <number>
 
 Following are default values for it.
 
@@ -219,9 +224,9 @@ The 'reset' command reset all parameters to its default value.
 
 # The exit command
 
-The `exit` instruction will stop the processing of the rest of the instructions and
-of the instruction.  It can be used to temporary avoiding
-some instruction to aid debugging.
+The 'exit' command stops the processing of the rest of the instructions and of
+the instruction.  It can be used to temporary avoiding some instruction to aid
+debugging.
 
     exit
 
@@ -229,8 +234,9 @@ some instruction to aid debugging.
 # The path   
 
 The 'path' command can be used to create path variables.  A path variable must
-be consists of only upper case or lower case letters.  Digits in a path
-variable are not allowed.  
+start with a upper case or lower case letters, and followed by one or more
+upper case or lower case letters, or digits. Symbols and operators are
+not allowed.
 
     path a = (1,1) -- (2,2) -- (3,4)
 
@@ -272,10 +278,10 @@ The path command also has provision to allow for something akin to JavaScript
 assigned to different path variables at the same time by the same assignment
 instruction. In the following assignment instruction path variables 'a', 'b'
 and 'c' are each created and assigned three different points of the same path
-that was drawn by the `drawline` statement.
+that was drawn by the `draw` statement.
 
     path A = (1,1) (2,2) (3,4) (4,5)
-    path a/b/c = A
+    path [a,b,c] = A
 
 The previous assignment instruction is functionally equivalent to the following
 three assignment instructions using $somepoints() path function.
@@ -316,21 +322,183 @@ Following is an example of drawing dots.
     path p = (5,6) (7,8)
     dot *p1 *p2 (9,9)
 
-You can narrow down the range of the points by including a scription
-such as the following, for example, if you only interested in printing
-out the dot for the first point of a path 'p'.
+For a given path variable access to individual points or a selected
+few descrete range of points can also be done by the combination
+of brackets, commas, and hyphen.
 
-    p := (1,2) (1,3) (3,4)
-    dot *p[0]
-
-Similarly, you can specify a range of subscriptions.
-
-    p := (1,2) (1,3) (3,4) (4,5) (5,6) (6,7)
+    path p = (1,2) (1,3) (3,4) (4,5) (5,6) (6,7)
     dot *p[0]
     dot *p[0-1]
     dot *p[0-2]
     dot *p[0,1,2]
     dot *p[0,1,2,4-5]
+
+
+# The draw command
+
+Following commands treats the input argument as path.
+
+- draw
+- drawarrow
+- drawrevarrow
+- drawdblarrow
+- drawcontrolpoints
+- drawanglearc
+
+The 'draw' command would draw connecting lines between path points.
+Typically it is straight lines, but Bezier curves are also supported.
+This includes quadratic and cubic curves. The SVG arc is also supported.
+
+  draw (0,0) -- (1,1) (2,2)
+
+The double-hyphen operator between points indicates that it should be a
+straight line between two points. However, it is assumed if two points
+are detected without a connecting double-hyphen between, such as the case
+of the second and third point above.  The points are typically expressed
+as absolute points, but relative points can also be expressed. They 
+are all in the form of [...] where a set of brackets are present.
+
+  draw (0,0) [l:1,1] [l:1,1] 
+
+Here the second and third points are each expressed as a distance away from its
+previous point, which is to move right for one grid unit and then up for one
+unit. Note that the coordinates in Diagram are always expressed in terms of
+grid unit. There are other relative position syntaxes, that are shown below.
+
+-   [l:dx,dy]
+-   [h:dx]
+-   [v:dy]
+-   [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy]
+-   [c:dx1,dy1,dx2,dy2,dx,dy]
+-   [s:dx2,dy2,dx,dy]
+-   [q:dx1,dy1,dx,dy]
+-   [t:dx,dy]
+-   [angledist:angle,dist]
+-   [turn:angle,dist]
+-   [flip:dx,dy]
+
+The [l:dx,dy] is to draw a line from the current point to the new location is
+relative to the current point by dx and dy. Note that dx and dy are specified
+in Cartesian coordinates, thus positive dx is towards the right, and positive
+dy is towards the top.
+
+The [h:dx] is to draw a horizontal line. The [v:dy] is to draw a vertical
+line.
+
+The [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy] is to draw an arc to the end
+point that is dx/dy away from the current point. The arc is assumed to trace
+alone an elliptical arc with x-axis and y-axis each of which having a radius of
+rx and ry. The angle is in the unit of degrees, specifying the rotation of the
+ellipse if any, with position number denoting a counter-clockwise rotation. The
+bigarcflag is set to 1 if the arc to be drawn are the longer of the two
+between the starting point and end point. Otherwise the shorter arc is to be
+drawn. The sweepflag expresses whether the shorter arc or longer is to travel
+counterclockwise or clockwise from the current point to the new point: 0 =
+counterclockwise, 1 = clockwise. Thus, to draw an arc from the last point to a
+new point that is on its right hand side of the last point, and if the
+sweepflag is set to 0, then the arc will always appear below both points.
+
+The [c:dx1,dy1,dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current
+point to the new point that is dx/dy away. The (dx1,dy1), and (dx2,dy2) are
+two control points. Note that all numbers are specified relative to the
+last point.
+
+The [s:dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current point to
+the new point that is dx/dy away. Only the second point of the current Bezier
+curve needs to be provided. The first control point is deduced from the second
+control point of the previous cubic Bezier curve operation. If the previous
+operation is not a cubic Bezier curve drawing, but a quadratic Bezier curve
+drawing, then the first control point of the quadratic curve is used to
+deduce the first control point of the current operation. If it is neither a
+cubic nor a quadrilatic, then the last point is assumed.
+
+The [q:dx1,dy1,dx,dy] is to draw a quadrilatic Bezier curve. The dx1/dy1
+is the only control point. The dx/dy is the new point. All positions
+are expressed relative to the last point.
+
+The [t:dx,dy] is to draw a quadratic Bezier curve with the first control
+point deduced from a previous Bezier curve operation. If a previous operation
+is not a Bezier curve operation, then the last point is assumed to be control
+point, in which case the drawn curve will be straight line.
+
+The [angledist:1,30] allows you to construct a new point that is to travel at a
+angle of 30 degrees counterclockwise from due east for 1 unit length, starting
+from the current point.
+
+The [turn:30,1] is to create a new point that is equivalent to making a left
+turn of 30 degrees from the direction you have arrived at the current point, and
+then travel for one more unit length. If it is to make a right turn, then set
+the angle to a negative number.
+
+The [flip:5,5] is to construct a new point that is the mirror image of the
+current point. The current point in this case is five unit distance to the
+right and towards the top of the last point.  The mirror is the line segment
+that is made up by the current point and the point before that. This operations
+allows you to figure out where an existing point will land as if you were
+folding a paper along an existing line that is traveled between the last two
+points.
+
+Path expression can also include "offsets". An offset is expressed
+as <x,y>. The presence of them will not cause a real points to be inserted
+into the path. Rather, it serves to provide an "offset" such that all
+future points will be computed as relative to this offset.
+For example, let's suppose we have the following two draw line program.
+
+    draw (10,0) (15,0)
+    draw (10,0) (10,5)
+
+However, by using "offsets" we can rewrite them as follows.
+
+    draw <10,0> (0,0) (5,0)
+    draw <10,0> (0,0) (0,5)
+
+Here, <10,0> are considered an offset. An offset <10,0> is to set it so that the
+all future points will be considered an offset to the point that is (10,0).
+Thus, the point of (0,0) is considered as (10,0), and (5,0) is considered
+(15,0). The offset always appears between a set of angle brackets. The first
+number is the offset in the horizontal direction, and the second one in vertical
+direction.
+
+The offset is only going to be valid for the current path, and it only
+takes affect after it is encountered, and will only affect the points
+that follow it. Thus, if you have placed an offset in the middle of two
+points, such as the following, then the first point is to be considered
+as (0,0) while the second one as (15,0).
+
+    draw (0,0) <10,0> (5,0)
+
+Offsets are also accumulative. Thus, if two offset appears in a path expression,
+then the second offset is considered to be offset to the first. This allows you
+to construct more points simply by moving offsets. For example, you can
+construct a path with four points (11,0), (12,0), (13,0) and (14,0) as follows.
+
+    draw <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
+
+The 'cycle' point, when encountered, will introduce two new points to the path:
+a duplicate point that is the same as the first point, and an additional 'cycle'
+point.  The 'cycle' point can be compared to a 'z' operator of a SVG d
+attribute.  For this reason, when a 'cycle' point is encountered, all addition
+points after the cycle point are ignored.
+
+    draw (0,0) (1,2) (3,4) cycle
+
+A 'move' point allows an existing path to be broken into multiple line
+segment. It always takes the form of @(x,y).
+
+    draw (0,0) (2,3) @(4,5) (6,7)
+
+In the following example there will be two distinct polylines: one
+goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
+
+When generating MetaPost output, the entire path will be broken down into two
+separate "draw" commands.  For SVG, two <path> elements will be generated. Note
+that a "move" point will still be affected by the current settings of the
+"offset" as all the other coordinate points in the path expression.
+
+
+
+
+
 
 The `brick` command is to draw a brick. The brick is a a width of 1
 and height of 0.5. Its lower-left corner aligns with the point.
@@ -366,33 +534,33 @@ of the shape aligns with the point.
 
     crate (0,12)
 
-The `drawline`, `drawarea`, `drawdblarrow`, `drawarrow` instructions
+The `draw`, `drawarea`, `drawdblarrow`, `drawarrow` instructions
 are designed to stroke a path or fill in the area desginated by the path.
 
-    drawline
+    draw
     drawarea
     drawdblarrow
     drawarrow
     drawrevarrow
 
-The `drawline` instruction strokes the path, which many consists of multiple
+The `draw` instruction strokes the path, which many consists of multiple
 straight line segments and/or curved segments. The `drawarea` instruction is to
 fill the area designated by the path.  The `drawdblarrow` instruction is to do
-the same thing as `drawline` except to place arrow at the beginning of the
+the same thing as `draw` except to place arrow at the beginning of the
 first line segment and the end of the last line segment. The `drawarrow` is
 similar to `drawdblarrow` except that the arrow head is to appear on at the end
 of the last line segment.
 
-The `drawline` instruction stroke a given path.  The (stroke) and
+The `draw` instruction stroke a given path.  The (stroke) and
 (stroke-width) settings will be pulled to get the stroke width and stroke
 color.  The (stroke) setting is for specifying the color of the line. This
-setting is to apply for both `drawline` and `drawarea`.  The (stroke-width)
-setting is to set the line width when `drawline` and/or `drawarea`.
+setting is to apply for both `draw` and `drawarea`.  The (stroke-width)
+setting is to set the line width when `draw` and/or `drawarea`.
 However, there is a difference. If (stroke-width) is set to "0", then
-`drawline` would still draw the line. However, `drawarea` will not draw the
+`draw` would still draw the line. However, `drawarea` will not draw the
 outline of the path.
 
-Note that for drawing lines, such as `drawline`, `drawdblarrow`, and
+Note that for drawing lines, such as `draw`, `drawdblarrow`, and
 `drawarrow` instructions, the line color is controlled by the *stroke*
 parameter.  The *stroke-width* would have constrolled the line width, which could
 be set to something like "2pt".
@@ -698,7 +866,7 @@ Following is a list of all drawing parameters
                       Default is empty, that a solid line is to be drawn.   
 
 * linecolor           Set the color used when drawing lines, such as "red".
-                      It is used by the drawline instruction.               
+                      It is used by the draw instruction.               
 
 * linesize            Set the thickness of the line when drawing lines,     
                       such as "4pt".                                        
@@ -838,13 +1006,13 @@ into the path. Rather, it serves to provide an "offset" such that all
 future points will be computed as relative to this offset.
 For example, let's suppose we have the following two draw line program.
 
-    drawline (10,0) (15,0)
-    drawline (10,0) (10,5)
+    draw (10,0) (15,0)
+    draw (10,0) (10,5)
 
 However, by using "offsets" we can rewrite them as follows.
 
-    drawline <10,0> (0,0) (5,0)
-    drawline <10,0> (0,0) (0,5)
+    draw <10,0> (0,0) (5,0)
+    draw <10,0> (0,0) (0,5)
 
 Here, <10,0> are considered an offset. An offset <10,0> is to set it so that the
 all future points will be considered an offset to the point that is (10,0).
@@ -859,14 +1027,14 @@ that follow it. Thus, if you have placed an offset in the middle of two
 points, such as the following, then the first point is to be considered
 as (0,0) while the second one as (15,0).
 
-    drawline (0,0) <10,0> (5,0)
+    draw (0,0) <10,0> (5,0)
 
 Offsets are also accumulative. Thus, if two offset appears in a path expression,
 then the second offset is considered to be offset to the first. This allows you
 to construct more points simply by moving offsets. For example, you can
 construct a path with four points (11,0), (12,0), (13,0) and (14,0) as follows.
 
-    drawline <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
+    draw <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
 The 'cycle' point, when encountered, will introduce two new points to the path:
 a duplicate point that is the same as the first point, and an additional 'cycle'
@@ -874,12 +1042,12 @@ point.  The 'cycle' point can be compared to a 'z' operator of a SVG d
 attribute.  For this reason, when a 'cycle' point is encountered, all addition
 points after the cycle point are ignored.
 
-    drawline (0,0) (1,2) (3,4) cycle
+    draw (0,0) (1,2) (3,4) cycle
 
 A 'move' point allows an existing path to be broken into multiple line
 segment. It always takes the form of @(x,y).
 
-    drawline (0,0) (2,3) @(4,5) (6,7)
+    draw (0,0) (2,3) @(4,5) (6,7)
 
 In the following example there will be two distinct polylines: one
 goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
@@ -980,7 +1148,7 @@ The MetaPost code has the provision to allow for a "xcolor" provided
 by the "xcolor" package, such as using the \mpcolor macro. Thus,
 the MetaPost command can be set up as
 
-    drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(gray)
+    draw (1,2)--(2,3) withpen pencircle withcolor \mpcolor(gray)
 
 The xcolor package has also expanded the avialble color names to more than
 what's provided by MetaPost, including "gray", "orange", etc. Following
@@ -1013,7 +1181,7 @@ color using RGB directly.
 Note that MetaPost does allow for a color mixing using existing color names
 such as
 
-    drawline (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
+    draw (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
 
 
 # The line size or dot size unit
@@ -1332,7 +1500,7 @@ black.
   compile error in LATEX engine. For this reason, all texts translated as a
   comment line are also "escaped".
 
-- The "dashed withdots" option for "drawline" will not show any visible dotted
+- The "dashed withdots" option for "draw" will not show any visible dotted
   lines in the PDF file when linecap:=butt. The linecap:=rounded will has to be
   set in order to produce dotted-lines. Thus, currently the "set linedashed
   withdots" option is considered broken for MP generation.  Do not use it for

@@ -1079,168 +1079,229 @@ that can used for <line> element. The available values are:
 
 # The cartesian command
 
+- cartesian.setup xorigin yorigin gridrange
+- cartesian.xaxis xmin xmax   
+- cartesian.yaxis ymin ymax   
+- cartesian.ytick y1 y2 y3 ...
+- cartesian.xtick x1 x2 x3 ...
+- cartesian.yplot {f:P} x1 x2 x3 ...
+- cartesian.xplot {f:P} y1 y2 y3 ...
+- cartesian.dot x1 y1 x2 y2 x3 y3 ...
+- cartesian.line x1 y1 x2 y2 x3 y3 ...
+- cartesian.arrow x1 y1 x2 y2 x3 y3 ...
+- cartesian.text.rt x1 y1 x2 y2 x3 y3 ...
+- cartesian.ellipse x y Rx Ry Phi
+- cartesian.arc x y R startAngle stopAngle
+
 The `cartesian` command is used to draw plots, curves, axis,
 ticks that are related to a single Cartesian coordinate.  It is a
-composite command that includes many sub-commands.
-
-The command must be called with a letter that is attached to the
-command such as `cartesian.a`. This instructs to use Cartesian
-coordinates named 'a'. 
+composite command that includes many sub-commands. All subcommands must follow the
+word 'cartesian' after a dot symbol. The subcommand itself
+can also have its own option, such as 'cartesian.text.rt'.
 
 The `setup` command would set up a Cartesian coordate to be used.
-The parameters are: xorigin, yorigin, xgrid, ygrid. The first two
-defines the location where the center of the cartesian
-coordinates will appear inside the diagram. For example, if it is
-passed as "2 3", then the center of the Cartesian coordinate will
-be located in the same place as where the dot will appear if we
-were to use invoke the command 'dot (2,3)'.
+The first two arguments defines the low left hand corner where the origin of the cartesian
+coordinates will appear inside the Diagram. It is specified in grid coordintes.
+For example, if they are passed as 2 and 3, then the origin
+of the Cartesian coordinates will appear at the location of (2,3) 
+of the Diagram.
 
-  cartesian.a setup 2 3 0.75 0.75
+  cartesian.setup 2 3 0.5 
 
-The next two parameters are for expressing how to scale the
-coordinate.  For example, if specified as (0.75,0.75), then each
-grid on the Diagram express a length of 0.75 inside the Cartesian
-coordinate, essentially making the points in the coordinate
-appear more spread out.
+The third argument can be omitted. If provided, it states the how to interpret
+the input range of the Cartesian coordinates. For example, when 0.5 is passed,
+it states that each grid unit of the Diagram is to be interpreted as expressing
+an input range of 0.5 for the Cartesian coordinates, or that 2 grid units will
+be used for each length of 1 of the input range of the Cartesian coordinates.
+This means that if we were to plot a point of (1,1) of the Cartesian
+coordinates the dot will appear at the location  (2,3) + (2,2) = (4,5) inside
+the Diagram, where (2,3) is the location of the origin, and (2,2) is where
+the point is relative to the origin.
 
-The `cartesian xaxis` command is to draw the x-axis. The only two
-parameters passed to it is the lower and upper range that this
-axis entails.  Similarly, the `cartesian.yaxis` command draws the
-y-axis with similar parameter requirements.
+The `cartesian.xaxis` command is to draw the x-axis. The only two parameters
+passed to it is the lower and upper range that this axis entails.  Similarly,
+the `cartesian.yaxis` command draws the y-axis with similar parameter
+requirements.
 
-  cartesian.a xaxis -0.75 5.6
-  cartesian.a yaxis -0.75 4.5
+  cartesian.xaxis -0.75 5.6
+  cartesian.yaxis -0.75 4.5
 
-The `cartesian xtick` is used to draw ticks as well as labels on
+The `cartesian.xtick` is used to draw ticks as well as labels on
 the x-axis of the coordinate. The list of arguments passed to
 this command is a list of location of these ticks on the axis.
 For example, if passed as "1 2 3" then the ticks will appear
 where (1,0), (2,0), and (3,0) points are. For each tick, a label
 string will also appear unerneath that tick.  Similarly, the
-`cartesian ytick` command does the same thing except for that it
+`cartesian.ytick` command does the same thing except for that it
 is for the y-axis. 
 
-  cartesian.a xtick 1 2 3 4 5
-  cartesian.a ytick 1 2 3 4
+  cartesian.xtick 1 2 3 4 5
+  cartesian.ytick 1 2 3 4
 
 The `cartesian dot` command shows one or more points as dots
 inside the coordinate. Every two numbers are interpreted as
 a pair of (x,y) coordinates.  
 
-  cartesian.a dot  -4 0 4 0 \
-                   -5 0 5 0
+  cartesian.dot  -4 0 4 0 \
+                 -5 0 5 0
 
-The "cartesian line" command would draw line segment(s) between 
-points. It is similar to "cartesian dot" except that it draws
-connecting lines between points instead of circled dots.
-The following command would have drawn three line segments
-each connecting two of the four points.
+The 'cartesian.line' and 'cartesian.arrow' commands 
+are similar, except for that the first one will draw connecting
+lines between all points, and the second one also adds an arrowhead
+at the very end of the line.
 
-  cartesian.a line -4 0 4 0 \
-                   -5 0 5 0
+  cartesian.line  -4 0 4 0 \
+                  -5 0 5 0
+  cartesian.arrow -4 0 4 0 \
+                  -5 0 5 0
 
-The "cartesian line" command allows for following options to be
-configured:
-
-* arrowstart  set to 1 for arrow at the start of the entire line
-              segment.
-* arrowend    set to 1 for arrow at the end of the entire line
-              segment.
-* cycle       set to 1 for a closed path
-
-The `cartesian yplot` is similar to `cartesian dot` except for that
-the y-coordinate of each point is computed from a function,
-and the x-coordinate of each point is computed from a set of
-min/max values in the command line.
+The 'cartesian.yplot; is similar to 'cartesian.dot', in
+that it generates a series of dots. However, the coordinates
+of dots are based on the result of evaluting a function 
+that must be provided via the {f:P} option and the 'P'
+expresses the name of a scalar function. 
 
   def P(x) = pow(x,2)
-  cartesian.a {f:P} yplot -2 2 100
+  cartesian.yplot {f:P} -2 2 100
 
-The function is specified by the "f" member of the option.
-This member denotes the name of a function that must be 
-previously defined by the "def" command.
+The name of the function could be arbitrary.  However, it must be specified by
+the "f" member of the option.  The function must have been previously defined
+by a 'def' command. The first two arguments expresses the lower and upper bound
+of the input range, and the third argument specifies the total number of
+intervals within that range. For example, if 100 is provided, then the range
+between -2 and 2, which is 4, is to be subdivided into a total of 100
+intervals, with each interval of 4/100 in length. Note that the exact number of
+points will be exactly one more than the total number of intervals; so there
+would be exactly 101 points for the previous example.  If the last argument is
+not specified, then the total number of segments will be automatically computed
+such that for each grid within the Diagram there will be exactly 10 intervals.
 
-There would be exactly 101 points generated between -2 and 2,
-where the first point is to have an x-coordinate of -2, and the
-last one of 2, and the other 99 points evenly spaced between -2
-and 2. The number 100 can be interpreted as having the distance
-of 4 evenly divided into 100 evenly spaced segments, and points
-are generated at the boundary of each segment. 
+The 'cartesian.xplot' is similar except for that the input arguments expresses
+a range of values as the y-coordinates of the points, and the funtion generates
+the corresponding x-coordinates.
 
-If the last argument is not specified, then the total number of
-segments will be automatically computed such that each segment
-equals to 1/10th of the distance of each grid, or that for within
-each grid there should be exactly 11 points generated, with the
-first and last point occupying the edge of the grid.
+The `cartesian.text` command draws a text at the location of the cartesian
+coord. The text itself is expressed via the quotation marks that must proceed
+the any option and all scalar values.  Following example draw texts at location
+(-5,0), (-5,1) and (-5,2) of the Cartesian coordinates, and at each point the
+text will be "P(0)", "P(1)", and "P(2)". The text is to appear at the bottom of
+each point.
 
-Similarly, thre is a "cartesian xplot" command that does the
-samilar thing, except that all input points are to express the
-range of y-coordinates and the function would be computing
-the x-coordinates of each point instead.
+  cartesian.text.bot "P(0)\\P(1)\\P(2)" -5 0 -5 1 -5 2
 
-The `cartesian text` command draws a text at the location of the
-cartesian coord. The location is expressed in the same form as
-that of `cartesian dot`. The actual text content are taken from
-the "label" option, and the "anchor" option expresses how
-the text is oriented around the anchor. For example, "ulrt" would
-have meant that the text will be moved at the upper-left hand 
-side of the anchor. If more than one coordinates are specified
-than the same text will be drawn in each location.
-
-  cartesian.a {label:Vertex;anchor:ulrt} text -5 0
-
-The "cartesian ellipse" will draw an ellipse centered at the
+The 'cartesian.ellipse' will draw an ellipse centered at the
 location. There can only be one ellipse to be drawn, and the
 signature of the arguments are:
 
   cartesian.a ellipse x y Rx Ry Phi
 
-The 'x' and 'y' are coodinates for the center point of the
-ellipse. Each of the 'Rx' and 'Ry' is the semi-major or semi-minor
-axis in horizontal or vertical direction. 'Phy' is the
-measurement of the angle rotation around center. Positive number
-is for a counter-clockwise rotation. It is in degrees.
+The 'x' and 'y' are coodinates for the center point of the ellipse. Each of the
+'Rx' and 'Ry' is the semi-major or semi-minor axis in horizontal or vertical
+direction. 'Phi' is the measurement of the angle rotation of the entire ellipse
+around the center.  If it is a counter-clockwise rotation. It is in degrees.
 
-The "cartesian arc" command will draw an arc with the given
-center, radius, start and stop angle. The signature of the
-function looks like the following.
+The "cartesian.arc" command will draw an arc with the given center, radius,
+start and stop angle. The signature of the function looks like the following.
 
-  cartesian.a arc x y R startAngle stopAngle
+  cartesian.a arc x y R startAngle stopAngle     
 
 The 'x' and 'y' are coordinates expressing the center
 of the arc. 'R' is the radius of the arc. 'startAngle'
 and 'stopAngle' are the angles expressing starting angle
 and stopping angle of the arc. They are both in degrees.
 
+
+# The barchart compound command
+
+The 'barchart' is another compound command that is to be used
+with many subcommands. Following is a list of some 
+of its subcommands.
+
+- barchart.setup xorigin yorigin xwidth ywidth xrange yrange
+- barchart.bbox 
+- barchart.vbar
+- barchart.ytick 
+- barchart.xtext
+
+The 'barchart.setup' command would setup the barchart and
+config it. The 'xorigin' and 'yorigin' are to state
+the grid coordinates where lower left hand corner is to appear in the 
+Diagram. Note that this number is subject to current settings
+of 'refx', 'refy', 'refsx' and 'refsy' settings.
+
+The 'xwidth' and 'ywidth' is to state the width and height
+of the bar chart measured in grid length. Thus, setting them
+to '10' and '15' would have a barchart of 10 grids wide and
+15 grids tall.
+
+The 'xrange' and 'yrange' is to state the input range for the x-direction and
+y-direction axes. Specifically, if the bars are going to be drawn vertically,
+from bottom to top, then the 'yrange' should be stated as the highest number of
+the tallest bar,and 'xrange' should be stated as the total number of bars minus
+1.  For example, if we were to show five bars, that is 0.1, 0.3, 0.2, 0.4, 0.2,
+then the 'yrange' should be set to 0.4, and 'xrange' should be set to 5.
+Following example shows how to set up a barchart that is to be placed at
+(0,0), with a width of 10, and height of 15, and with the 'xrange' set to 5
+and 'yrange' set to 0.4.
+
+  barchart.setup 0 0 10 15 5 0.4
+
+The 'barchart.bbox' is to draw a bounding box covering the entire barchart.
+It does not require any arguments.
+
+The 'barchart.vbar' is to draw vertical bars. The arguments are the y-values
+of the bar themselves. Thus, to draw the previous five bars, it will be
+
+  barchart.vbar 0.1 0.3 0.2 0.4 0.2
+
+The 'barchart.ytick' operation is to draw "ticks" along its y-axis on the left
+hand side, and also show the label for each axis to its left hand side. Its
+arguments are the location of ticks, and they should be stated in the same
+input range as those of the 'vbar'. For example, if ticks were to be placed
+at the location of '0.1', '0.2' and '0.3', then following command should be
+issued.
+
+  barchart.ytick 0.1 0.2 0.3
+
+The 'barchart.xtext' is to add information at the bottom of each bar as to
+express what these bars are intended for.  The text must be provided by a
+set of quotation marks that must proceed all options and scalars. The scalars
+express the location of vertical bars on x-axis. Thus, if the input range
+has been set to 5, the first bar is to appear between 0-1, and second bar 1-2, 
+and so on, thus, the center location for the first vertical bar is 0.5, and center
+location for the second bar is 1.5, etc.
+
+  barchart.xtext "P(0)\\P(1)\\P(2)" 0.5 1.5 2.5
+
+The text will always be centered at location, and placed directly below the 
+bar.
+
+
 # The line, area, linearea operation
 
-The 'line' operation would stroke a line alone the path. The
-'area' operation would fill an area enclosed by the path, and it
-will "close" the path if it is not closed. The 'linearea'
-operation will fill the area and also stroke its outline, and it
-will also "close" the path if it is not closed. For 'line' and
-'linearea' operations, the lines are always visible. If
-'linesize' is set to zero then the default line width is used.
-For the 'linearea' and 'area' operation the 'fillcolor' is used;
-and it will be set to BLACK if it is not set.  For 'line' and 
-'linearea' the line color uses 'linecolor' property. If it is
-not set it defaults to BLACK.
+The 'line' operation would stroke a line alone the path. The 'area' operation
+would fill an area enclosed by the path, and it will "close" the path if it is
+not closed. The 'linearea' operation will fill the area and also stroke its
+outline, and it will also "close" the path if it is not closed. For 'line' and
+'linearea' operations, the lines are always visible. If 'linesize' is set to
+zero then the default line width is used.  For the 'linearea' and 'area'
+operation the 'fillcolor' is used; and it will be set to BLACK if it is not
+set.  For 'line' and 'linearea' the line color uses 'linecolor' property. If it
+is not set it defaults to BLACK.
 
 # The arrow, revarrow, and dblarrow operation
 
-These three operations only draw lines, similar to the 'line'
-operation. The 'arrow' would place an arrowhead at the ending
-line cap location. The 'revarrow' would place an arrowhead at the
-starting line cap location. The 'dblarrow' would place two
-arrowheads one at the beginning and the other at the ending line
-cap location. The lines are always drawn, regardless of the
-'linesize' setting. If 'linesize' is set to zero, the default
-line width for the target platform is assumed.  The 'linecolor'
-setting determines the line color as well as the color of the
-arrowhead.  However, due to outstanding issues on SVG, the
-arrowhead <marker> element does not reflect the color setting of
-the from the line to which it is attached, and will always show
-as black. 
+These three operations only draw lines, similar to the 'line' operation. The
+'arrow' would place an arrowhead at the ending line cap location. The
+'revarrow' would place an arrowhead at the starting line cap location. The
+'dblarrow' would place two arrowheads one at the beginning and the other at the
+ending line cap location. The lines are always drawn, regardless of the
+'linesize' setting. If 'linesize' is set to zero, the default line width for
+the target platform is assumed.  The 'linecolor' setting determines the line
+color as well as the color of the arrowhead.  However, due to outstanding
+issues on SVG, the arrowhead <marker> element does not reflect the color
+setting of the from the line to which it is attached, and will always show as
+black. 
 
 # Known problems
 

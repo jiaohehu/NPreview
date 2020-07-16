@@ -18,53 +18,56 @@ A diagram block is to be translated into an inline MetaPost block between
 
 Following is an example of a diagram block.
 
+  @ Diagram
 
-    @ ```diagram
     viewport 32 20
 
     % variables
-    a := (1,1) -- (5,5) -- (5,1) -- (1,1) ()
-    b := (1,1) .. (5,5) .. (5,1) .. (1,1) ()
+    path a = (1,1) -- (5,5) -- (5,1) -- (1,1) ()
+    path b = (1,1) .. (5,5) .. (5,1) .. (1,1) ()
 
     % draw    
-    draw  *a
+    draw  *a 
+    draw  *b 
 
     % circles
 
     set fillcolor pink
-    circle    {1} (16,1)
-    chord     {1,0,135} (20,1)
-    arc       {1,0,135} (20,3)
-    cseg      {1,0,135} (20,5)
+    circle    {r:1} (16,1)
+    pie       {r:1; a1:0; a2:135} (20,1)
+    chord     {r:1; a1:0; a2:135} (20,3)
+    arc       {r:1; a1:0; a2:135} (20,5)
+    cseg      {r:1; a1:0; a2:135} (20,7)
 
     % dot
-    sq := (22,3) (23,3) (23,2) (22,2)
+    path sq = (22,3) (23,3) (23,2) (22,2)
     dot (22,1)
     dot $somepoints(sq,0) $somepoints(sq,1) $somepoints(sq,2) $somepoints(sq,3) (22,4) (23,4)
 
-    % tick
-    tick.top (23,1)
-    tick.bot (24,1)
-    tick.rt  (25,1)
-    tick.lft (26,1)
+    % dots and bars
+    hbar    (23,1) (24,1)
+    vbar    (25,1) (26,1)
+    dot     (1,1) \
+            (2,2) (3,3) \
+            (4,4) (5,5)
 
     % 90-degree angle
     draw     (28,4)--(31,4)
-    a/b := *
+    path [a,b] = *
     draw     (28,4)--(28,7)
-    /c := *
+    path [,c] = *
     drawanglearc.sq *a *b *c
 
     % 45-degree angle
     draw     <0,-4> (28,4)--(31,4)
-    a/b := *
+    path [a,b] = *
     draw     <0,-4> (28,4)--(31,7)
-    /c := *
+    path [,c] = *
     drawanglearc *a *b *c
 
     % draw     will fill      
-    ff := (28,8)--(31,8)--(31,9)--(28,9)--cycle
-    fill {linesize:2;fillcolor:orange}  *ff
+    path ff = (28,8)--(31,8)--(31,9)--(28,9)--cycle
+    draw {linesize:2;fillcolor:orange}  *ff
     reset
 
     % label
@@ -72,23 +75,18 @@ Following is an example of a diagram block.
     label.rt  "``B_0``" (5,1)
     label.top "``A_0``" (1,1)
 
-    % dots
-    dot (1,1) \
-            (2,2) (3,3) \
-            (4,4) (5,5)
-
     % arrow & dblarrow
     drawarrow (7,3) (9,5)
     drawdblarrow (9,3) (11,5)
     drawrevarrow (11,3) (13,5)
 
     % text of a different fontsize
-    set fontsize 14pt
-    label.ctr { 簡単 Triangle } (10,1)
+    label.ctr " 簡単 Triangle " (10,1)
 
-    % shape
-    brick (7,7) [h:1] [h:1]
-    brick (7,8) [h:1] [h:1]
+    % math
+    label.ctr " ``\sqrt{2}`` " (18,18)
+
+    %% shapes
 
     % trapezoid
     trapezoid (2,11)
@@ -123,9 +121,7 @@ Following is an example of a diagram block.
     % radical
     radical (1,17)
 
-    % math
-    label.ctr { ``\sqrt{2}`` } (18,18)
-    ```
+
 
 # The unit length and grid lines
 
@@ -151,54 +147,77 @@ of each grid by running the `unit` command as follows.
     unit 6mm
 
 The `config` command is designed to configure viewport. So far the only
-available option is to set the 'grid' option to 1. When it is set to 1
-then the grid will be drawn in such a way that the 10th and 5th grid
-will be drawn in a slightly darker color, making it easier to spot
-and count the number of grid lines horizontally and vertically.
+available option is to set the 'grid' option to either one of the two values:
 
-    config grid 1
+  config grid boxed
+  config grid none   
 
-Note that these commands must appear before all other drawing instructions that
-is to be explained later.
+When set to 'boxed', only the bounding box of the viewport is show. If
+set to none, the outlines are not show. However, for MetaPost and MetaFun
+the bounding box is still drawn, but using "white" color instead, so that
+it is "invisible" to the eye because the background is always white, but
+nevertheless it has the effect of "enlarge" the entire drawing to cover
+the size that is at least the size of the viewport. Without it the viewport
+might be smaller depending on the actual shapes drawn.
+
+Note that it is important to set these commands before any drawing 
+commands.
 
 
+# The set and reset commands
 
-# Drawing instructions
+The `set` command sets the following parameters
+for the current drawing environment.
 
-Aside from `viewport` and `unit`, the rest of diagram commands are considered
-drawing instructions. Almost all drawing instructions will generate a MetaPost
-output, such as output to draw a line, a circle, a dot, etc. The only
-exceptions are the `set`, `reset` and `exit` instructions. The first two is to
-set and/or clear the drawing parameters for other drawing instructions, and the
-last one is to stop the processing of the rest of the instruction prematurely.
+    set refx <number>
+    set refy <number>
+    set refs <number>
+    set barlength <number>     
+    set labelgapx <number>
+    set labelgapy <number>
 
-Each instruction must start its own line. If a line is too long to fit side a
-single source paragraph then a backslash can be placed at the end of the line
-to instruct that the next line is a continuation of the current line.
+Following are default values for it.
 
-If a percent sign (`%`) is detected as the first character of the line
-then the entire line is considered a comment and will be ignored.
+  refx        0
+  refy        0
+  refs        1
+  barlength   0.25
+  labelgapx   3
+  labelgapy   3
 
-The first word of each instruction is considered the instruction name that tells
-what actions to take.  Following is a list of all instruction names:
+The 'refx', 'refy', and 'refs' parameters can be set at any point during a drawing.
+It can be compared to a "transform" of a SVG operation. In this case, all drawings
+will be scaled and/or translated. The 'refs' defines the scaling factor and 'refx'
+and 'refy' defines the location to be translated to.
 
-    set stroke-width 2pt
-    set fill 0.5[red,green]
-    set stroke 0.5[red,green]
-    set slant 0.44
+By default all drawings are expressed as relative to the origin, which is
+(0,0), which is located at the lower-left-hand corner of the viewport.  By
+setting it to a different value, it allows you to treat several drawings as a
+group and then move them all at once at ease.
 
-The `set` instruction is to set or clear a drawing parameter.  When provide
-a setting, simply place the parameter name after the `set` command, followed
-by the value of the parameter.
+The 'barlength' is the length of the bar for the 'vbar' and 'hbar' operations.
+The default valueis 0.25, which expresses the fact that each bar will be shown
+at the length of 1/4 of the grid.
 
-To restore the parameter to its initial value you can call the `set` instruction
-followed by the name of the parameter without any values.
+The 'labelgapx' and 'labelgapy' parameters define the additional "gap" between
+the point and the edge of the text to be drawn. It is only for the SVG translation.
+It is used to add additional spacing between the anchor point and the actual text.
 
-    set stroke-width
+Note that when callign the 'set' command with a parameter, but without supplying
+any additional values reset that parameter to its default value.
+Thus, the second 'set' command below will reset the 'refx' parameter to its
+default value, which is 0.
 
-The `reset` instruction clears *all* drawing parameters to its initial value.
+  set refx 10
+  set refx
 
-    reset
+
+# The reset command
+
+The 'reset' command reset all parameters to its default value.
+
+
+# The exit command
 
 The `exit` instruction will stop the processing of the rest of the instructions and
 of the instruction.  It can be used to temporary avoiding
@@ -206,78 +225,65 @@ some instruction to aid debugging.
 
     exit
 
-An assignment is to create a new path variable or several new path variables,
-or to modify exsiting variables. A path variable must be consists of only
-upper case or lower case letters. Digits are not allowed.
-An assignment must appear in the form where the variable or variables
-are to appear on the left hand side of the ':=' and the path expression
-on the right hand side of it.
 
-    a := (1,1) -- (2,2) -- (3,4)
-    b := a .. (5,5) .. (6,7)
+# The path   
 
-Typically, a path expression consists of one or more coordinates (points),
-and join types. A join type can only be '--' or '..'. The '--' join type is
-to express a 'lineto' operation between the last point and the next point.
-A '..' join type is to express a 'curveto' operation between the last point
-and the next point. A point should always be expressed between a set of
-parentheses, such as `(1,1)`, `(2,2)`, `(3,4)`, etc.
+The 'path' command can be used to create path variables.  A path variable must
+be consists of only upper case or lower case letters.  Digits in a path
+variable are not allowed.  
+
+    path a = (1,1) -- (2,2) -- (3,4)
+
+To reference all points in a path variable, use the asterisk followed
+by the variable name. This is equivalent to a "spread" of a JavaScript.
+Thus, '*a' is equivalent of taking out all points of a path. This syntax
+allows a new path to be constructed based on the contents of a previous
+path.
+
+    draw *a
+    path b = *a .. (5,5) .. (6,7)
+    draw *b 
+
+Typically, a path expression consists of one or more coordinates (points), and
+join types. A join type can only be '--' or '..'. The '--' join type is to
+express a 'lineto' operation between the last point and the next point.  A '..'
+join type is to express a 'curveto' operation between the last point and the
+next point. A point should always be expressed between a set of parentheses,
+such as `(1,1)`, `(2,2)`, `(3,4)`, etc.  
+
 However, Diagram also has something called 'path function'. It's main purpose
-is to allow for new coordinates to be created from existing path variables.
-For example, in the following example the variable 'c' is to be assigned the
-the first point of the path 'a'.
+is to create new a new path based on points of existing path variables.     
+In the following example a new path variable 'c' is created and is 
+assigned the first point of the path 'a'.
 
-    c := $somepoints(a,0)
+    path c = $somepoints(a,0)
 
-Similarly, following statement will assign the second point of path 'a' to
-variable 'd'.
+Following statement will assign the second point of path 'a' to
+variable 'c'.
 
-    d := $somepoints(a,1)
+    path c = $somepoints(a,1)
 
-Besides the user created variable, the asterisk (`*`) is called a "wildcard
-path variable" A wildcard variable is a  built-in variable that is designed to
-holds the path encountered by the last draw instruction.  This variable can be
-used to recall the last path encountered. In the following example the same
-path that was used for drawing the line is assigned to variable 'a'.
+Following statement assign the second and third point to path 'c'.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a := *
+    path c = $somepoints(a,1,2)
 
-The wildcard variable is updated each time a new drawing instruction is
-encountered.  However, it will not be changed by an assignment instruction such
-as `a := *`.  This is by design and is to allow for the same wildcard variable
-to be used multiple times to create other path variables.  Following example
-shows how to create path variable 'a', 'b', and 'c' by extracting points and
-amending points from the same path that was used by the `drawline` instruction.
+The path command also has provision to allow for something akin to JavaScript
+"array destructuring" statement, in which case individual points of a path are
+assigned to different path variables at the same time by the same assignment
+instruction. In the following assignment instruction path variables 'a', 'b'
+and 'c' are each created and assigned three different points of the same path
+that was drawn by the `drawline` statement.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a := *
-    b := * (5,6)
-    c := $somepoints(*,1,2)
-
-For a path variable, as well as a wildcard variable, all its content points
-will be subject to coordinate transformation based on values of 'refx', 'refy',
-'refsx', and/or 'refsy' at the time.  Thus, the same path variable might
-be used to draw different lines and curves under a different setting
-of 'refx', 'refy', 'refsx' and 'refsy'.
-
-The assignment instruction also has provision to allow for something akin to
-JavaScript "array destructuring" statement, in which case individual points of
-a path are assigned to different path variables at the same time by the same
-assignment instruction. In the following assignment instruction path variables
-'a', 'b' and 'c' are each created and assigned three different points of the
-same path that was drawn by the `drawline` statement.
-
-    drawline (1,1) (2,2) (3,4)(4,5)
-    a/b/c := *
+    path A = (1,1) (2,2) (3,4) (4,5)
+    path a/b/c = A
 
 The previous assignment instruction is functionally equivalent to the following
 three assignment instructions using $somepoints() path function.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a := $somepoints(*,0,0)
-    b := $somepoints(*,1,1)
-    c := $somepoints(*,2,3)
+    path A = (1,1) (2,2) (3,4) (4,5)
+    path a = $somepoints(A,0)
+    path b = $somepoints(A,1)
+    path c = $somepoints(A,2,3)
 
 Each sub-variable must be separated from other sub-variables by one or more
 slash character.  You can skip ahead and bypass certain points by not
@@ -285,36 +291,29 @@ including any variables in between slashes. For example, you can choose to
 assign the first point to variable 'a' and the third point to variable 'b'
 as follows.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a//b := *
+    path A = (1,1) (2,2) (3,4) (4,5)
+    path a//b = A
 
-Note that the last variable always gets all the remaining points.  In the
-previous example, variable 'b' will get the last two points, which are
+Note that the last variable gets all remaining points.  
+This, variable 'b' will get the last two points, which are
 (3,4) and (4,5).  However, you can choose to allow only a single point to
 be assigned to the last variable by including an additional slash after
 this variable.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    a//b/ := *
+    path A = (1,1) (2,2) (3,4) (4,5)
+    path a//b/ = A
 
 Similarly you can also add slashes at the beginning to skip first few
 points.  Following example will skip the first two points and assign the
 remaining two points to variable 'a'.
 
-    drawline (1,1) (2,2) (3,4) (4,5)
-    //a := *
+    path A = (1,1) (2,2) (3,4) (4,5)
+    path //a = A
 
-To use a variable inside another path expression, place an asterisk
-in front of it such as `*p`.
+Following is an example of drawing dots.
 
-    p := (1,2) (2,3) (3,4)
-    dot *p
-
-In such a case three dots will be drawn in three locations that are: (1,2),
-(2,3), and (3,4).  You can also freely mix variables and coordinates.
-
-    p1 := (1,2) (2,3) (3,4)
-    p2 := (5,6) (7,8)
+    path p = (1,2) (2,3) (3,4)
+    path p = (5,6) (7,8)
     dot *p1 *p2 (9,9)
 
 You can narrow down the range of the points by including a scription

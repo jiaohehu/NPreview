@@ -178,17 +178,25 @@ for the current drawing environment.
   set refy <number>
   set refs <number>
   set barlength <number>     
+  set dotsize   <number>     
   set labelgapx <number>
   set labelgapy <number>
 
 Following are default values for it.
 
-  refx        0
-  refy        0
-  refs        1
-  barlength   0.25
-  labelgapx   3
-  labelgapy   3
+@ Table
+
+  ---------------|-----------------------------------------------
+  Options        |Default value     Comments
+  ---------------|-----------------------------------------------
+  refx           |0                 Offset location
+  refy           |0                 Offset location
+  refs           |1                 Scale factor     
+  barlength      |0.25              The default length of the bar    
+  dotsize        |5                 The default size of dot
+  labelgapx      |3                 The x-offset to label text
+  labelgapy      |3                 The y-offset to label text
+  ---------------|-----------------------------------------------
 
 The 'refx', 'refy', and 'refs' parameters can be set at any point during a drawing.
 It can be compared to a "transform" of a SVG operation. In this case, all drawings
@@ -467,340 +475,262 @@ as (0,0) while the second one as (15,0).
 
     draw (0,0) <10,0> (5,0)
 
-Offsets are also accumulative. Thus, if two offset appears in a path expression,
-then the second offset is considered to be offset to the first. This allows you
-to construct more points simply by moving offsets. For example, you can
-construct a path with four points (11,0), (12,0), (13,0) and (14,0) as follows.
+Offsets are also accumulative. Thus, if there are two offsets one appear after
+another then the second offset is considered to be offset to the first. This
+allows you to construct more points simply by moving offsets. For example, you
+can construct a path with four points (11,0), (12,0), (13,0) and (14,0) as
+follows.
 
     draw <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
 
-The 'cycle' point, when encountered, will introduce two new points to the path:
-a duplicate point that is the same as the first point, and an additional 'cycle'
-point.  The 'cycle' point can be compared to a 'z' operator of a SVG d
-attribute.  For this reason, when a 'cycle' point is encountered, all addition
-points after the cycle point are ignored.
+The keyword 'cycle' denotes a special point such that the path is to be closed
+and the last point should be connected to the first point using a straight line.
+Note that a 'cycle' is not a physical point. It should be considered a meta data
+and a notational trick that expresses the afformentioned intent. This notation
+is usually a special syntax placed at the end of the long list of points.
+For SVG it is the 'z', and for MetaPost/MetaFun it is the 'cycle'.
 
     draw (0,0) (1,2) (3,4) cycle
 
-A 'move' point allows an existing path to be broken into multiple line
-segment. It always takes the form of @(x,y).
+Note that for all 'draw' related commands, a path can be expressed such that
+it contains multiple disjoint segments. For example, we can express to draw
+two disjoint line in a single 'draw' command such that the first line segment
+goes from (0,0) to (2,3) and the second line segment goes from (4,5) to (6,7). 
+To do that, place a null point between the the (2,3) and (4,5).
+
+    draw (0,0) (2,3) () (4,5) (6,7)
+
+A null point is a point that is expressed a '()'. In addition, any appearances
+In this case, Diagram recognizes that there is going to be two path segments,
+one consisting of all points before the null point and the other consisting of 
+all points after the null point.
 
-    draw (0,0) (2,3) @(4,5) (6,7)
+In additional, if the 'cycle' keyword appears then it also means the 
+end of the current path segment and the start of a new one. In this case no
+null point needs to be specified. In the following example two path segment
+is to e created, with one consisting of a triangle, and another one a line.
 
-In the following example there will be two distinct polylines: one
-goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
+    draw (0,0) (2,0) (2,2) cycle (4,0) (6,2)
 
-When generating MetaPost output, the entire path will be broken down into two
-separate "draw" commands.  For SVG, two <path> elements will be generated. Note
-that a "move" point will still be affected by the current settings of the
-"offset" as all the other coordinate points in the path expression.
+For MetaPost output, each path segment requires a separate "draw" command.
+For SVG, a single PATH elements is sufficient; the SVG is implemented such
+that a "M" operation can follow a "z". However, in our implementation 
+each seprate path segment is still to be placed inside a separate PATH 
+element. This is specifically designed so that those path segments that are
+not "closed" will not be attempted to do a "fill" operation.
+
+By default, the 'draw' command would stroke the path. However, 
+if the 'fillcolor' attribute is set, then it would also fill the area enclosed
+by the path. However, it does so only when the path is deemed "closed", in which
+case a 'cycle' keyword must follow the last point. 
+If the path is not closed, it will not be filled, even when 'fillcolor' is specified.
+
+For SVG, when a 'fill=' attribute is specified the rendering engine will
+attempt to fill the area, even when the area is not closed.  For
+MetaPost/MetaFun the path will have to be closed before calling the 'fill'
+MetaPost, as otherwise the compilation will complain.
+
+The 'drawarrow', 'drawdblarrow', and 'drawrevarrow' are similar to 'draw' except
+for the additional arrow head at the end of the line segment.
+
+The 'drawcontrolpoint' is a special command that draws all the control points
+detected in a given path. The control points are those present in a path
+specification that are necessary to describe a Bezier curve, whether it is
+cubic or quadratic.
+
+The 'drawanglearc' is designed to draw a small arc describing the span of an
+angle. The path that is given to this command is expected to describe the
+angle, where the first/second/third path would have formed the first angle
+where the second point serves as the vertex of the angle, and each of the first
+and third point denotes a point on either side of the angle. There should be at least three 
+points on the path, but if there are additional points, then each consecutive three points
+will be used to describe an angle for the arc to draw. Thus, if there had been
+four points in the path, then the first three points describes the first angle,
+and the last three points describes the second angle.
+
+
+# Circle and its friends
+
+Following commands work to draw elements related to a circle.
+
+- circle
+- pie
+- chord
+- arc
+- cseg
+
+The 'circle' command is to draw a full circle centered on each one
+of the points in the path given. Thus, the following example 
+would have drawn three circles each centered at a different location
+that is (1,1), (3,4), and (5,5).
+
+    circle   (1,1) (3,4) [l:2,1]
+
+Note that for all commands that are in this group, the path merely serves to
+provide the location to which the shape is to appear. For all the above
+commands, including 'circle', it expresses the center of the circle.
+
+The radius of the circle is to be given by the 'r' attribute.
+In the following example three circles each having a radius of 10 is
+to be drawn at three different locations.
+
+  circle {r:10} (1,1) (3,4) [l:2,1]
+
+The rest of the commands have all something to do with a circle.  For example,
+the command 'arc' is to draw part of the circle circumference.  For this to
+work, additional attributes would need to be specified. In particular, the 'a1'
+and 'a2' attributes each specifies an angle. In particular, the 'a1' attribute
+specifies the starting angle and the 'a2' attribute specifies the stop angle.
+The arc will run from the angle that is 'a1' to the one that is 'a2'.  The
+angles are in the unit of degrees. The following example draws an arc that is
+part of the circle circumference that runs from the 30 degree angle to the 60
+degree angle.
+
+  arc {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+
+The 'pie' command is similar to 'arc' except that it also connects the two
+end points of an arc to the center of the circle, forming an area.
+
+  pie {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+
+The 'chord' command would draw a straight line that connects the 
+two end points of an arc.
 
+  chord {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
+The 'cseg' draws a circular segment that expresses an a region of a circle
+which is "cut off" from the rest of the circle by a chord line.
+For this reason, it always expresses an area.
 
+  cseg {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 
+# Shapes
 
-The `brick` command is to draw a brick. The brick is a a width of 1
-and height of 0.5. Its lower-left corner aligns with the point.
+Following commands are to draw a shape. 
+The shape to be drawn is specified as the "subcommand". 
+Each shape has its "native" size, which is going to be different 
+from shape to shape. 
 
-    brick (0,12)
+-   shape.rect
+-   shape.rhombus
+-   shape.trapezoid
+-   shape.parallelgram
+-   shape.apple
+-   shape.rrect
+-   shape.basket
+-   shape.crate
+-   shape.radical
+-   shape.protractor
+-   shape.updnprotractor
 
-The `radical` command draws a radical shape suitable for presetting
-a long division worksheet. The topleft corner aligns with the point.
+Similar to the 'circle' command, each shape is to be drawn
+at a location of the path. Thus, the following command would have 
+drawn three 'rect' shape each at a different location.
 
-    radical (0,12)
+  shape.rect   (1,1) (3,4) [l:2,1]
 
-By default, the length of the radical symbol is 4 grid units long. You
-can change it by setting the 'radical-length' parameter.
+Each shape has its own native size, and depending on the shape, each
+shape will be aligned differently to the location specified.
+example, the 'rect' and 'rrect' will position the shape so that its
+lower left hand corner aligned with the location.
+However, the 'protractor' shape will position itself so that
+its middle center point is aligned with the location.
+Following table shows the natural size and the alignment location
+of that shape.
 
-    set radical-length 7
-    radical (0,12)
+@ Table
 
-The `protractor` command draws a protractor. The protractor is defined
-to be having a width of 7 and height of 3.5. It is a half-circle
-shape. The center of the protractor which is the center of the half
-circle aligns with the point. Currently there is no provision to change
-the size of the protractor.
+  -----------------|-----------------|-----------
+  Shape            |Natural size     |Alignment
+  -----------------|-----------------|-----------
+  rect             |1x1              |left-left
+  rhombus          |1x1              |left-left
+  trapezoid        |1x1              |left-left
+  parallelgram     |1x1              |left-left
+  apple            |1x1              |left-left
+  rrect            |1x1              |left-left
+  basket           |3x2              |left-left
+  crate            |4x3              |left-left
+  radical          |4x2(*)           |top-left
+  protractor       |7x3.5            |lower-center
+  updnprotractor   |7x3.5            |upper-center
+  -----------------|-----------------|-----------
 
-    protractor (0,12)
+- (*) Note that for the radical the height is always 2, but the width
+  might be changed to a differen width if the 'radicallength' attribute
+  is set to a different number. The default width is 4.
+  
+For each shape, the 'sx' and 'sy' attribute can be used to resize
+it. For example, protractor will be shrunk to half it size.
 
-The `basket` command draws a basket shape that is 3-by-2. The lower-left corner
-of the basket aligns with the point.
+  shape.protractor {sx:0.5;sy:0.5} (0,0)
 
-    basket (0,12)
 
-The `crate` command draws a crate shape that is 4-by-4. The lower-left corner
-of the shape aligns with the point.
+# The dot command
 
-    crate (0,12)
+The 'dot' command is to draw a dot to mark the location.
+Similar to the primitive command, a
+single dot is to be repeated for all points on the given path. Thus, following
+command will draw three dots each at three different locations of the input
+path.
 
-The `draw`, `drawarea`, `drawdblarrow`, `drawarrow` instructions
-are designed to stroke a path or fill in the area desginated by the path.
+  dot      (1,1) (3,4) [l:2,1]
 
-    draw
-    drawarea
-    drawdblarrow
-    drawarrow
-    drawrevarrow
+The 'dot' command provide several subcommands that allows for a different
+shape to be drawn instead of a circular dot.
 
-The `draw` instruction strokes the path, which many consists of multiple
-straight line segments and/or curved segments. The `drawarea` instruction is to
-fill the area designated by the path.  The `drawdblarrow` instruction is to do
-the same thing as `draw` except to place arrow at the beginning of the
-first line segment and the end of the last line segment. The `drawarrow` is
-similar to `drawdblarrow` except that the arrow head is to appear on at the end
-of the last line segment.
+  dot.hbar (1,1) (3,4) [l:2,1]
+  dot.vbar (1,1) (3,4) [l:2,1]
 
-The `draw` instruction stroke a given path.  The (stroke) and
-(stroke-width) settings will be pulled to get the stroke width and stroke
-color.  The (stroke) setting is for specifying the color of the line. This
-setting is to apply for both `draw` and `drawarea`.  The (stroke-width)
-setting is to set the line width when `draw` and/or `drawarea`.
-However, there is a difference. If (stroke-width) is set to "0", then
-`draw` would still draw the line. However, `drawarea` will not draw the
-outline of the path.
+For 'dot' command, the color can be specified using the 'color' attribute.
 
-Note that for drawing lines, such as `draw`, `drawdblarrow`, and
-`drawarrow` instructions, the line color is controlled by the *stroke*
-parameter.  The *stroke-width* would have constrolled the line width, which could
-be set to something like "2pt".
+  dot      {color:orange} (1,1) (3,4) [l:2,1]
+  dot.hbar {color:orange} (1,1) (3,4) [l:2,1]
+  dot.vbar {color:orange} (1,1) (3,4) [l:2,1]
 
-The `circle` instruction is to draw a full circle, or part of a circle.
-It also has variants that would draw only a part of a circle as an arc, or to draw
-a chord, or the circular segment described by the arc and chord,
+The diameter of the dot can be set using the 'size' attribute.
 
-    circle        (1,1)
-    circle.chord  (1,1)
-    circle.arc    (1,1)
-    circle.cseg   (1,1)
+  dot      {color:orange; size:10} (1,1) (3,4) [l:2,1]
 
-    halfcircle.top    (1,1)
-    halfcircle.bot    (1,1)
-    halfcircle.rt     (1,1)
-    halfcircle.lft    (1,1)
+For 'hbar' and 'vbar' subcommands the 'size' attribute would hve
+expressed the width of the line.
 
-    quadrant.q1     (1,1)
-    quadrant.q2     (1,1)
-    quadrant.q3     (1,1)
-    quadrant.q4     (1,1)
-
-    octant.o1     (1,1)
-    octant.o2     (1,1)
-    octant.o3     (1,1)
-    octant.o4     (1,1)
-    octant.o5     (1,1)
-    octant.o6     (1,1)
-    octant.o7     (1,1)
-    octant.o8     (1,1)
-
-Each instruction is to accept a path expression where each point on the path
-is to be interpreted as a point to place the circle. The center of the circle
-is to be aligned with the point.  The following example draws the same circle
-twice, once at (1,1) and another at (2,2).
-
-    circle (1,1) (2,2)
-
-The `circle` instruction is designed to either draw or fill in the area of the
-circle. If it is to fill in the area of the circle, you must set the *fill*
-parameter to a non-empty value, such as "orange", etc.
-In this case, the circle will first be filled with black or orange, and then
-drawn the outline using the normal line color. If not drawing is to happen,
-set the *stroke-width* parameter to "0".
-
-The size of the circle is to be controlled by the *diameter* parameter, which default
-to 1. If set to "5", then the circle drawn will have a diameter of 5.
-
-Variants of `circle.top`, `circle.bot`, `circle.rt`, `circle.lft` are to draw
-half circle at the designed location. For example, `circle.top` is to draw a
-half circle that appear on top of the point. These instructions can also be
-used for draw, filling, or draw/fill, depending on the settings of *fill*
-and/or *stroke-width*, in the same mannor as that of the `circle` instruction.
-
-The variants of `circle.q1`, `circle.q2`, `circle.q3`, and `circle.q4` are designed
-to draw a quadrand of the circle. Their drawing and filling behavior can be controlled
-in the same mannor as that of the `circle`.
-
-The variants of `circle.o1` to `circle.o8` are designed to draw octant of a
-circle.  Their drawing and filling behavior can be controlled in the same
-mannor as that of the `circle`.
-
-The instructions of `circle.chord` or `circle.arc` are stroke operations only.
-They will not attempt to fill an area.  They drawing behavior will only respond
-to changes in *stroke* and *stroke-width*. The `circle.chord` is to draw a
-chord connecting to points on the circumference of the circle. The two points
-are defined by the *angle1* and *angle2* parameter, each of which expresses an
-angle that is in degrees. The circle is of a diameter that is expressed by the
-*diameter* parameter.  The location of the circle is given by a point that is
-part of a path expression.
-
-    circle.chord (1,1)
-
-The `circle.arc` instruction works the same way and is controlled by the same
-set of parameters as that of the `circle.chord`.
-
-    circle.chord (1,1)
-
-The `circle.cseg` is to draw a circular segment bound by the chord and arc.
-Therefore it is controlled by the same set of parameters as those of
-`circle.chord` and `circle.arc`. It is an area operation that will subject to
-the drawing or filling operation depending on the same set of settings as those
-of the `circle` instruction.
-
-    circle.chord (1,1)
-
-The `drawanglearc` instruction is to draw a small arc denoting the interior
-of an angle.  The `drawanglearc.sq` is to do the same thing but will draw a
-square instead of the arc.  It should only be used for a right angle.
-
-The `drawanglearc` instruction is similar to `circle.arc` except for the
-interpretation of the arguments. the `drawanglearc` instruction expectes
-three points in the arguments to be interpreted as the origin, a point on
-the starting side of the angle, and a point at the ending side of the
-angle. Following will draw a 45 degree angle arc assuming angle vertex is
-at (0,0), the starting side is a line from (0,0) to (1,0), and the ending
-side is a line from (0,0) to (1,1).
-
-    drawanglearc (0,0) (1,0) (1,1)
-
-The amount of distance of the arc is controled by the setting (anglearcradius)
-which expresses the radius of the arc from the angle vertex. The default
-setting is 0.5 grid unit length. You can set it to a larger value if the angle
-is small.
-
-    set anglearcradius 1.5
-    drawanglearc (0,0) (1,0) (1,0.5)
-
-Latest addition also allows for a text label to be positioned relative to the
-arc or sq.  To specify text label, includes it as the first argument before any
-coordinates.
-
-    drawanglearc {``\gamma``} (3,4) (4,4) (4,5)
-
-The `drawarc` instruction would draw an arc from point a to point b.
-
-    drawarc (6,10) (10,10) (14,10)
-
-The arc to be drawn will be understood to have a x-radius of 2 and y-radius
-of 1, and a rotation of 0. To change it you can set the 'x-radius', 'y-radius'
-and 'rotation'.
-
-    set x-radius 6
-    set y-radius 4
-    set rotation 30
-    drawarc (6,10) (10,10) (14,10)
-
-Note that the 'rotation' setting is in the unit of degrees and
-counterclockwise direction is the positive direction.
-
-The `rect` instruction draws a rectangle, `rect.parallelgram` draws a
-parallelgram, `rect.rhombus` draws a rhombus, and `rect.trapezoid` draws a
-trapezoid shape.
-
-    rect                (1,1)
-    rect.parallelgram   (1,1)
-    rect.rhombus        (1,1)
-    rect.trapezoid      (1,1)
-
-These instructions are all area operations. By default it draws the outline of
-the shape, but if *fill* is set, then it also fills the area using the fill
-color specified. It always draw the outline of the shape unless the
-*stroke-width* is specifically set to "0" when filling an area.
-
-The overall size of the quadrilateral is controlled by the *rectw* and *recth*
-parameter, which specifies the width and height of the shape in grid unit
-length.  The following example draws a rectangle with a width of 5 and height
-of 3, and its lower-left position is aligned with (1,1).
-
-    set rectw 5
-    set recth 3
-    rect (1,1)
-
-These settings apples to all quadrilaterals.  For a parallelgram, this means
-that the horizontal difference between its lower-left and upper-right hand
-corner is always equal to *rectw*, and the height difference between the upper
-parallel line and lower parallel line is always equal to *recth*.  
-
-However, for a parallelgram, the topleft and bottomright part of the rect area
-will be sliced off to make the shape of a parallelgram.  The amount of
-incursion is determined by the *slant* setting.  This setting is a number
-between 0.1 and 0.9.  It describes the portion of the total width that is to
-make up the "slanting" part of the parallelgram.  For example, if it is set to
-"0.3" which is the default, it means that 30 percent of the overall width will be
-used for slanting. This means 30 percent of the distance of the overall width
-from top left corner moving towards the right, and 30 percent of the overall
-width from the bottom right corner moving towards the left, will be the
-"slanting" part of the parallelgram. The following example will draw a
-parallelgram such that its slanted part is half the width of the overall
-parallgram.
-
-    set rectw 5
-    set recth 3
-    set slant 0.5
-    parallelgram (1,1)
-
-The `rect.rhombus` shape is drawn with diamond head and tail pointing
-to the left and right. There is currently no provision to change
-its size so it will be the same size for now.
-
-    set rectw 5
-    set recth 3
-    rhombus (1,1)
-
-The `rect.trapezoid` shape is drawn with a base larger than the top.    
-Also, the encroachmentment from the left at the top is 20 percent of the
-total width. The encroachment from the right at the top is 40 percent of
-the total width.  Currently these numbers are fixed but future improvement
-will likely to provide options to allow for adjustments.
-
-    set rectw 5
-    set recth 3
-    trapezoid (1,1)
-
-The `dot` instruction is to draw a dot at each path point.  It is typically
-used to identify the location of a point in a plane by showing a visible round
-black dot.  The `dot` instruction will draw a circular dot. The default size of
-the dot is '4pt', but can be changed by the *dotsize* setting, i.e., to set it
-to a string of '5pt'.  Following example draw three dots at location of (1,1),
-(2,2) and (3,3) where each dot is at a size of "5pt".
-
-    set dotsize 5pt
-    dot (1,1) (2,2) (3,3)
-
-The color of the dot is by default set to black, unless changed by the
-*dot* setting, which describes a color such as "orange".
-
-    set dot orange
-    set dotsize 5pt
-    dot (1,1) (2,2) (3,3)
-
-The `tick` instruction is designed to draw ticks along a number line, or x-axis
-or y-axis.  Specifically, the `tick.top` instruction draws a vertical tick
-above the point.  The `tick.bot` instruction draws a vertical tick below the
-point The `tick.rt ` instruction draws a horizontal tick to the right hand side
-of the point The `tick.lft` instruction draws a horizontal tick to the left
-hand side of the point
-
-The protrusion of the tick is by default set to 0.33 grid unit. This is length
-of the line it will protrude away from the point. It is controlled by the
-*tickprotrude* setting. It is always in the grid unit length.  The default is
-'0.33'.
-
-The color of the tick is set to black, unless changed by the *tick*
-setting, which describes the color of the tick, such as "0.5[red,white]".
-The thickness of the tick line is controlled by the setting *tick-width*.
-The default is "1pt".
-
-Drawing text labels are done by using the `label` instruction.
-For example, the following `label` instruction will each draw a label
-at the given location.
-
-    label.rt {A} (1,1)
-    label.lft {B} (2,2)
-    label.top {C} (3,4)
-
-The default `label` instruction will position the text so that it is centered
-at the path point. Other variants of the `label` instruction is to allow the
-text to be positioned around the location of the point.
+  dot.hbar {color:orange; size:2} (1,1) (3,4) [l:2,1]
+  dot.vbar {color:orange; size:2} (1,1) (3,4) [l:2,1]
+
+The size is expressed in terms of 'pt'. The length of the bar is fixed to be
+0.25 grid unit, which is a quarter long of the current grid. It can be
+set to a different length using the 'length' attribute.
+
+  dot.hbar {color:orange; size:2; length:0.5} (1,1) (3,4) [l:2,1]
+  dot.vbar {color:orange; size:2; length:0.5} (1,1) (3,4) [l:2,1]
+
+Here, the length of each bar is going to be about half the length of the grid.
+Note that for 'vbar', it's lower end point aligns with the location, and for 
+'hbar', its left end aligns with the location.
+
+
+# Label text
+
+Drawing text labels are done by using the 'label' command.    For example, the
+following 'label' command will each draw a label at the given location.
+
+    label.rt "A" (1,1)
+    label.lft "B" (2,2)
+    label.top "C" (3,4)
+
+The 'label' command is designed to draw the same label at multiple
+locations. For example, we can draw the same letter A three times
+each at three different locations such as follows.
+
+    label "A" (1,1) (2,2) (3,4)
+
+Each subcommand specifies how the text is to be aligned relative to the 
+locatoin. For example, the 'top' subcommand would have aligned the text
+so that it appears on top of the location, centered horizontally.
+When a label command is without its subcommand it defaults to 'urt', which 
+basically asignes the lower left hand corner of the text with the loction.
 
     label.top   -  top
     label.bot   -  bottom
@@ -810,252 +740,27 @@ text to be positioned around the location of the point.
     label.llft  -  lower left
     label.urt   -  upper right
     label.lrt   -  lower right
+    label.ctr   -  centering the text
 
-All `label` instructions are designed to draw the same label at multiple
-locations. For example, we can draw the same letter A three times
-each at three different locations such as follows.
+The text to be drawn must be expressed using a set of quotation marks, and they
+must appear before any option and before any coordinates.  Usually a single
+text is repeated in all locations. However, it is also possible to specify a
+different text for each one of the locations, by separating each text with
+a double-backslash, such as the following, in which case the letter "A",
+"B", and "C" are each to be drawn at three different location.
 
-    label {A} (1,1) (2,2) (3,4)
+    label "A\\B\\C" (1,1) (2,2) (3,4)
 
-We can also ask a differet label to be drawn at a different
-location by writing the text label like the following:
+It is also possible to express that a math expression is to be recognized. 
+For example.
 
-    label {A\\B\\C} (1,1) (2,2) (3,4)
+    label "``A_1``\\``B_1``\\``C_1``" (1,1) (2,2) (3,4)
 
-This will draw the label "A", "B", and "C" respectly each at a different
-location that is (1,1), (2,2), and (3,4). Note that all the labels will be
-centered at the location because the instruction is `label`.
-
-
-
-# The drawing parameters
-
-Following is a list of all drawing parameters
-
-* refx                Set an offset number to offset coordinate in x-axis.  
-                      Ex. if refx is set to 4 a source coordinate of        
-                      (2,0) will map to (6,0).                              
-                      Must be set to a number zero or greater, and no more  
-                      than the total number of grids in the horizontal.     
-
-* refy                Same as refx bug does it for its y-coordinate.        
-                      Must be set to a number zero or greater, and no more  
-                      than the total number of grids in the vertical.       
-
-* refsx               Set a scalar number to scale coordinate in x-axis.    
-                      Ex. if refx is set to 6 and refsx      is set to 3,   
-                      For a coord that is specified as (2,0),               
-                      it is first scaled three times which puts it at (6,0)
-                      before being shifted 6 grids to the right which puts  
-                      it at (12,0), which is its final displayed position.  
-                      Must be set to a number between 0.1 and 10.           
-
-* refsy               Same as refsx      but does it in y-axis.             
-
-* fontcolor           Set to a string that describes the color,
-                      such as        
-                      'green', 'red', 'blue', 'black', and 'white'.         
-                      Note that expressing using RGB such as "rgb(100,200,50)"
-                      is only supported for SVG generation.
-
-* fontsize            Set to a font size specification such as '14pt'.      
-                      Used when drawing text labels.                        
-
-* linedashed          Set a string that is either 'evenly', or 'withdots'   
-                      that is to control the appearances of the dashes.     
-                      Default is empty, that a solid line is to be drawn.   
-
-* linecolor           Set the color used when drawing lines, such as "red".
-                      It is used by the draw instruction.               
-
-* linesize            Set the thickness of the line when drawing lines,     
-                      such as "4pt".                                        
-                      It is used when drawing lines.                        
-
-* fillcolor           Set the color used when filling an area, i.e., "red".
-                      It is used when drawing an area.                      
-
-* dotcolor            Set the color used for drawing dots, such as "red".   
-                      It is used by the `dot` instruction.                
-
-* dotsize             Configure the size of the dot to be drawn, such as    
-                      "8pt". Used by the `dot` instruction. The default     
-                      is "5" user unit.                                     
-
-* tickcolor           Set the color used for drawing ticks, i.e.,  "red".   
-                      It is used by the `tick`  instruction.                
-                      The default is empty, which MetaPost assume as black.
-
-* ticksize            Configure the thickness of the line for ticks.        
-                      i.e, "2pt". The default is "1pt".                     
-                      It is used by the `tick` instruction.                 
-
-* tickprotrude        Configure how far away the end point is from the      
-                      axis line. The default is 0.33 grid unit.             
-                      The maximum is "1.0", the minimum is "0.1".           
-
-
-
-
-# Path expression       
-
-As can be seen, a path expression is used by an assignment instruction, as well
-as other statements that also expectes a path.  A path expression consists of
-literal points, path variables, path functions, wildcard spreads, or path
-variable spreads.
-
-All the previous constructs are for a single goal, which is to create a path.
-A path can be considered collection of single points, where each point
-describes its location and how it supposes to join the previous point (line, or
-curve).  It also includes additional information such as '{up}', '{down}' that
-describes the direction of the curvature if a curve is to be formed between the
-two points.  The syntax of a Diagram path expression is very similar to that of
-MetaPost and models it closely, allowing it take advantage of the MetaPost's
-strong path description capability.
-
-    a := (1,1) -- (2,2) -- (3,4)
-    b := a{up} .. (5,5) .. (6,7)
-
-However, Diagram have added a few more syntax designed to allow for specifying
-points in a few more different ways. For example, it offers a "relative point"
-syntax that allows you to specify a point that is relative to the point before
-it.
-
-    a := (1,1) [v:1] [h:2] [v:-1]
-
-This allows you to create a four point path where the first point is (1,1),
-and the rest points being at (1,2), (3,2), and (3,1).
-Following are all relative points.
-
-    [l:dx,dy]
-    [h:dx]
-    [v:dy]
-    [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy]
-    [c:dx1,dy1,dx2,dy2,dx,dy]
-    [s:dx2,dy2,dx,dy]
-    [q:dx1,dy1,dx,dy]
-    [t:dx,dy]
-    [angledist:angle,dist]
-    [turn:angle,dist]
-    [flip:dx,dy]
-
-The [l:dx,dy] is to draw a line from the current point to the new location is
-relative to the current point by dx and dy. Note that dx and dy are specified
-in Cartesian coordinates, thus positive dx is towards the right, and positive
-dy is towards the top.
-
-The [h:dx] is to draw a horizontal line. The [v:dy] is to draw a vertical
-line.
-
-The [a:rx,ry,angle,bigarcflag,sweepflag,dx,dy] is to draw an arc to the end
-point that is dx/dy away from the current point. The arc is assumed to trace
-alone an elliptical arc with x-axis and y-axis each of which having a radius of
-rx and ry. The angle is in the unit of degrees, specifying the rotation of the
-ellipse if any, with position number denoting a counter-clockwise rotation. The
-bigarcflag is set to 1 if the arc to be drawn are the longer of the two
-between the starting point and end point. Otherwise the shorter arc is to be
-drawn. The sweepflag expresses whether the shorter arc or longer is to travel
-counterclockwise or clockwise from the current point to the new point: 0 =
-counterclockwise, 1 = clockwise. Thus, to draw an arc from the last point to a
-new point that is on its right hand side of the last point, and if the
-sweepflag is set to 0, then the arc will always appear below both points.
-
-The [c:dx1,dy1,dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current
-point to the new point that is dx/dy away. The (dx1,dy1), and (dx2,dy2) are
-two control points. Note that all numbers are specified relative to the
-last point.
-
-The [s:dx2,dy2,dx,dy] is to draw a cubic Bezier curve from the current point to
-the new point that is dx/dy away. Only the second point of the current Bezier
-curve needs to be provided. The first control point is deduced from the second
-control point of the previous cubic Bezier curve operation. If the previous
-operation is not a cubic Bezier curve drawing, but a quadratic Bezier curve
-drawing, then the first control point of the quadratic curve is used to
-deduce the first control point of the current operation. If it is neither a
-cubic nor a quadrilatic, then the last point is assumed.
-
-The [q:dx1,dy1,dx,dy] is to draw a quadrilatic Bezier curve. The dx1/dy1
-is the only control point. The dx/dy is the new point. All positions
-are expressed relative to the last point.
-
-The [t:dx,dy] is to draw a quadratic Bezier curve with the first control
-point deduced from a previous Bezier curve operation. If a previous operation
-is not a Bezier curve operation, then the last point is assumed to be control
-point, in which case the drawn curve will be straight line.
-
-The [angledist:1,30] allows you to construct a new point that is to travel at a
-angle of 30 degrees counterclockwise from due east for 1 unit length, starting
-from the current point.
-
-The [turn:30,1] is to create a new point that is equivalent to making a left
-turn of 30 degrees from the direction you have arrived at the current point, and
-then travel for one more unit length. If it is to make a right turn, then set
-the angle to a negative number.
-
-The [flip:5,5] is to construct a new point that is the mirror image of the
-current point. The current point in this case is five unit distance to the
-right and towards the top of the last point.  The mirror is the line segment
-that is made up by the current point and the point before that. This operations
-allows you to figure out where an existing point will land as if you were
-folding a paper along an existing line that is traveled between the last two
-points.
-
-Path expression can also include "offsets". An offset is expressed
-as <x,y>. The presence of them will not cause a real points to be inserted
-into the path. Rather, it serves to provide an "offset" such that all
-future points will be computed as relative to this offset.
-For example, let's suppose we have the following two draw line program.
-
-    draw (10,0) (15,0)
-    draw (10,0) (10,5)
-
-However, by using "offsets" we can rewrite them as follows.
-
-    draw <10,0> (0,0) (5,0)
-    draw <10,0> (0,0) (0,5)
-
-Here, <10,0> are considered an offset. An offset <10,0> is to set it so that the
-all future points will be considered an offset to the point that is (10,0).
-Thus, the point of (0,0) is considered as (10,0), and (5,0) is considered
-(15,0). The offset always appears between a set of angle brackets. The first
-number is the offset in the horizontal direction, and the second one in vertical
-direction.
-
-The offset is only going to be valid for the current path, and it only
-takes affect after it is encountered, and will only affect the points
-that follow it. Thus, if you have placed an offset in the middle of two
-points, such as the following, then the first point is to be considered
-as (0,0) while the second one as (15,0).
-
-    draw (0,0) <10,0> (5,0)
-
-Offsets are also accumulative. Thus, if two offset appears in a path expression,
-then the second offset is considered to be offset to the first. This allows you
-to construct more points simply by moving offsets. For example, you can
-construct a path with four points (11,0), (12,0), (13,0) and (14,0) as follows.
-
-    draw <11,0> (0,0) <1,0> (0,0) <1,0> (0,0) <1,0> (0,0)
-
-The 'cycle' point, when encountered, will introduce two new points to the path:
-a duplicate point that is the same as the first point, and an additional 'cycle'
-point.  The 'cycle' point can be compared to a 'z' operator of a SVG d
-attribute.  For this reason, when a 'cycle' point is encountered, all addition
-points after the cycle point are ignored.
-
-    draw (0,0) (1,2) (3,4) cycle
-
-A 'move' point allows an existing path to be broken into multiple line
-segment. It always takes the form of @(x,y).
-
-    draw (0,0) (2,3) @(4,5) (6,7)
-
-In the following example there will be two distinct polylines: one
-goes from (0,0) to (2,3) and the other goes from (4,5) to (6,7).
-
-When generating MetaPost output, the entire path will be broken down into two
-separate "draw" commands.  For SVG, two <path> elements will be generated. Note
-that a "move" point will still be affected by the current settings of the
-"offset" as all the other coordinate points in the path expression.
+The trick is to surround each individual text with double-backquot.  However,
+there are limitation to it. The text is either plain text, or math text. The
+math text cannot be mixed with plain text, or be part of it. For text with
+multiple segments such as the one shown, each segment is to be surrounded
+with double-backquote if the text describes a math expression.
 
 
 # Path functions        
@@ -1068,8 +773,8 @@ The `$midpoint()` function returns the mid point of the first two points in a
 path expression if a single argument is given.  Following returns a path with a
 single point: (1.5,2), which is the mid point of (1,1) and (2,3).
 
-    a := (1,1) (2,3)
-    b := $midpoint(a)
+    path a = (1,1) (2,3)
+    path b = $midpoint(a)
 
 Note that only the first two points of a path is used. The other points
 are ignored. Thus if path a has three points, then the third point
@@ -1083,14 +788,14 @@ For example, if 0.5 is given as the second parameters, it should return the
 same path as that with a single argument. Thus, following example will return
 the same result as the one before.
 
-    a := (1,1) (2,3)
-    b := $midpoint(a,0.5)
+    path a = (1,1) (2,3)
+    path b = $midpoint(a,0.5)
 
 Following will return the a point that is one-third the way from the first
 point to the second point.
 
-    a := (1,1) (2,3)
-    b := $midpoint(a,0.333333)
+    path a = (1,1) (2,3)
+    path b = $midpoint(a,0.333333)
 
 The `$shiftpoints()` function is always needed to be provided with three
 arguments. The first argument is always interpreted as a path variable. The
@@ -1101,7 +806,7 @@ grid units specified in the argument. For example, following would have shifted
 all the points in the original path one position to the left and two positions
 up.
 
-    b := $shiftpoints(a,-1,2)
+    path b = $shiftpoints(a,-1,2)
 
 The `$scatterpoints()`  function is to create new path with the number of
 points evenly distributed beteen the two end points. In the previous example
@@ -1109,7 +814,7 @@ there will be 10 points created in a path such that the first point is (1,0),
 and the last point is (10,0), and the rest of the points will be spaced evenly
 between the first and the last.
 
-    a := $scatterpoints(1,0,10,0,10)
+    path a = $scatterpoints(1,0,10,0,10)
 
 The `$lineintersect()` Returns new a path that contains a single point which is
 the point at which the two lines intersect. The first line is described by the
@@ -1118,28 +823,28 @@ by the symbol 'b', which must have at least two points. Only the first two
 points of 'a' and 'b' are considered. The rest of the points of 'a' and 'b' are
 ignored.
 
-    a := $lineintersect(a,b)  
+    path a = $lineintersect(a,b)  
 
 Note that the returned point might have Infinity or NaN due to the nature of
 line parallelness.  In the following example the path variable 'c' will hold
 one point: (2,2)
 
-    a := (0,2) (4,2)
-    b := (2,0) (2,6)
-    c := $lineintersect(a,b)
+    path a = (0,2) (4,2)
+    path b = (2,0) (2,6)
+    path c = $lineintersect(a,b)
 
 
 The `$linecircleintersect()` function returns new a path that contains two
 points for the line and circle intersection.  In the following diagram the pts
 variable 'pts' will hold two points: (6,2) and (4,2).
 
-    a := (2,2) (6,2)
-    c := (5,3)
-    pts := $linecircleintersect(a,c,1.4142)
+    path a = (2,2) (6,2)
+    path c = (5,3)
+    path pts = $linecircleintersect(a,c,1.4142)
 
 
 
-# Specifying the color for MetaPost
+# Special notes for MetaPost users
 
 The color syntax is either the color name, such as "red", "green",
 or RGB such as "rgb(200,100,25)".
@@ -1183,9 +888,6 @@ such as
 
     draw (1,2)--(2,3) withpen pencircle withcolor \mpcolor(red!80!white!20!)
 
-
-# The line size or dot size unit
-
 Note that for units such as line width, dot size, etc, is
 maintained internally by Diagram as the SVG user unit. One user
 unit is exactly 1/96 of an inch.  Following is the conversion of
@@ -1209,14 +911,11 @@ You can also provide a unit directly, such as pt.
 
     dot (22*u,3*u) withpen pencircle scaled 5pt ;
 
-
-
-# The Linecap draw parameter
-
 The linecap attribute is defines the shape to be used at the end
 of open subpaths when they are stroked. The SVG has an attribute
 that can used for <line> element. The available values are:
 'butt', 'round', and 'square'. The default value is 'butt'.
+
 
 
 # The cartesian command

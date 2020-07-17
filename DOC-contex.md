@@ -148,6 +148,8 @@ similar names but not sure what they are about.
 
 # Remarks
 
+- The name for the parser is 'CONTEX'.
+
 - For code listing in VERB block, as it is done using \starttabulate,
   if there are many lines they some of them might appear before a 
   "floating" figure and some of them after.
@@ -183,7 +185,14 @@ similar names but not sure what they are about.
   of a chapter, or the content of a document if the current
   document is not a master document.
 
-- The name for the parser is 'CONTEX'.
+- There is not provision for a *wide* table, either for \starttabulate
+  or for \bTABLE
+
+- The caption appearance is more pleasing than those of LATEX, where it 
+  is centered and does not take up the entire width of the page. In 
+  addition, the "Figure 13.2" text is bold.
+
+
 
 # Math formula
 

@@ -39,37 +39,35 @@ Following is an example of a diagram block.
     % circles
 
     set fillcolor pink
-    circle    {r:1} (16,1)
-    pie       {r:1; a1:0; a2:135} (20,1)
-    chord     {r:1; a1:0; a2:135} (20,3)
-    arc       {r:1; a1:0; a2:135} (20,5)
-    cseg      {r:1; a1:0; a2:135} (20,7)
+    circle        {r:1} (16,1)
+    circle.pie    {r:1; a1:0; a2:135} (20,1)
+    circle.chord  {r:1; a1:0; a2:135} (20,3)
+    circle.arc    {r:1; a1:0; a2:135} (20,5)
+    circle.cseg   {r:1; a1:0; a2:135} (20,7)
 
     % dot
     path sq = (22,3) (23,3) (23,2) (22,2)
     dot (22,1)
     dot *sq (22,4) (23,4)
-
-    % dots and bars
-    hbar    (23,1) (24,1)
-    vbar    (25,1) (26,1)
-    dot     (1,1) \
-            (2,2) (3,3) \
-            (4,4) (5,5)
+    dot.hbar  (23,1) (24,1)
+    dot.vbar  (25,1) (26,1)
+    dot   (1,1) \
+          (2,2) (3,3) \
+          (4,4) (5,5)
 
     % 90-degree angle
     draw     (28,4)--(31,4)
     path [a,b] = *
     draw     (28,4)--(28,7)
     path [,c] = *
-    drawanglearc.sq *a *b *c
+    drawanglearc.sq *b *a *c
 
     % 45-degree angle
     draw     <0,-4> (28,4)--(31,4)
     path [a,b] = *
     draw     <0,-4> (28,4)--(31,7)
     path [,c] = *
-    drawanglearc *a *b *c
+    drawanglearc *b *a *c
 
     % draw     will fill      
     path ff = (28,8)--(31,8)--(31,9)--(28,9)--cycle
@@ -93,39 +91,17 @@ Following is an example of a diagram block.
     label.ctr " ``\sqrt{2}`` " (18,18)
 
     %% shapes
-
-    % trapezoid
-    trapezoid (2,11)
-
-    % rhombus
-    rhombus (5,11)
-
-    % rect
-    rect (8,11)
-
-    % parallelgram
-    parallelgram (11,11)
-
-    % apple
-    apple (15,11)
-
-    % basket
-    basket (17,11)
-
-    % crate
-    crate (21,11)
-
-    % rrect
-    rrect (26,11)
-
-    % protractor
-    protractor (10,15)
-
-    % updnprotractor
-    updnprotractor (10,15)
-
-    % radical
-    radical (1,17)
+    shape.trapezoid (2,11)
+    shape.rhombus (5,11)
+    shape.rect (8,11)
+    shape.parallelgram (11,11)
+    shape.apple (15,11)
+    shape.basket (17,11)
+    shape.crate (21,11)
+    shape.rrect (26,11)
+    shape.protractor (10,15)
+    shape.updnprotractor (10,15)
+    shape.radical (1,17)
 
 
 
@@ -519,19 +495,19 @@ each seprate path segment is still to be placed inside a separate PATH
 element. This is specifically designed so that those path segments that are
 not "closed" will not be attempted to do a "fill" operation.
 
-By default, the 'draw' command would stroke the path. However, 
-if the 'fillcolor' attribute is set, then it would also fill the area enclosed
-by the path. However, it does so only when the path is deemed "closed", in which
-case a 'cycle' keyword must follow the last point. 
-If the path is not closed, it will not be filled, even when 'fillcolor' is specified.
+By default, the 'draw' command would stroke the path. However, if the
+'fillcolor' attribute is set, then it would also fill the area enclosed by the
+path. However, it does so only when the path is deemed "closed", in which case
+a 'cycle' keyword must follow the last point.  If the path is not closed, it
+will not be filled, even when 'fillcolor' is specified.
 
 For SVG, when a 'fill=' attribute is specified the rendering engine will
 attempt to fill the area, even when the area is not closed.  For
 MetaPost/MetaFun the path will have to be closed before calling the 'fill'
 MetaPost, as otherwise the compilation will complain.
 
-The 'drawarrow', 'drawdblarrow', and 'drawrevarrow' are similar to 'draw' except
-for the additional arrow head at the end of the line segment.
+The 'drawarrow', 'drawdblarrow', and 'drawrevarrow' are similar to 'draw'
+except for the additional arrow head at the end of the line segment.
 
 The 'drawcontrolpoint' is a special command that draws all the control points
 detected in a given path. The control points are those present in a path
@@ -542,22 +518,29 @@ The 'drawanglearc' is designed to draw a small arc describing the span of an
 angle. The path that is given to this command is expected to describe the
 angle, where the first/second/third path would have formed the first angle
 where the second point serves as the vertex of the angle, and each of the first
-and third point denotes a point on either side of the angle. There should be at least three 
-points on the path, but if there are additional points, then each consecutive three points
-will be used to describe an angle for the arc to draw. Thus, if there had been
-four points in the path, then the first three points describes the first angle,
-and the last three points describes the second angle.
+and third point denotes a point on either side of the angle. There should be at
+least three points on the path, but if there are additional points, then each
+consecutive three points will be used to describe an angle for the arc to draw.
+Thus, if there had been four points in the path, then the first three points
+describes the first angle, and the last three points describes the second
+angle.
+
+The 'drawanglearc' can also place text next to the angle arc to show the name
+of an angle.
+
+  draw (0,6) (2,4) (4,6) (6,4) (8,6)
+  drawanglearc "1\\2\\3" *
 
 
-# Circle and its friends
+# The circle command
 
 Following commands work to draw elements related to a circle.
 
 - circle
-- pie
-- chord
-- arc
-- cseg
+- circle.pie
+- circle.chord
+- circle.arc
+- circle.cseg
 
 The 'circle' command is to draw a full circle centered on each one
 of the points in the path given. Thus, the following example 
@@ -586,23 +569,23 @@ angles are in the unit of degrees. The following example draws an arc that is
 part of the circle circumference that runs from the 30 degree angle to the 60
 degree angle.
 
-  arc {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+  circle.arc {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'pie' command is similar to 'arc' except that it also connects the two
 end points of an arc to the center of the circle, forming an area.
 
-  pie {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+  circle.pie {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'chord' command would draw a straight line that connects the 
 two end points of an arc.
 
-  chord {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+  circle.chord {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'cseg' draws a circular segment that expresses an a region of a circle
 which is "cut off" from the rest of the circle by a chord line.
 For this reason, it always expresses an area.
 
-  cseg {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+  circle.cseg {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 
 # Shapes
@@ -675,7 +658,7 @@ single dot is to be repeated for all points on the given path. Thus, following
 command will draw three dots each at three different locations of the input
 path.
 
-  dot      (1,1) (3,4) [l:2,1]
+  dot (1,1) (3,4) [l:2,1]
 
 The 'dot' command provide several subcommands that allows for a different
 shape to be drawn instead of a circular dot.
@@ -683,28 +666,34 @@ shape to be drawn instead of a circular dot.
   dot.hbar (1,1) (3,4) [l:2,1]
   dot.vbar (1,1) (3,4) [l:2,1]
 
-For 'dot' command, the color can be specified using the 'color' attribute.
+For 'dot' command, the color can be specified using the 'dotcolor'.
 
-  dot      {color:orange} (1,1) (3,4) [l:2,1]
-  dot.hbar {color:orange} (1,1) (3,4) [l:2,1]
-  dot.vbar {color:orange} (1,1) (3,4) [l:2,1]
+  dot {dotcolor:orange} (1,1) (3,4) [l:2,1]
 
-The diameter of the dot can be set using the 'size' attribute.
+For 'hbar' and 'vbar' subcommands the 'linecolor' attribute would
+have expressed the color of the lines.
 
-  dot      {color:orange; size:10} (1,1) (3,4) [l:2,1]
+  dot.hbar {linecolor:orange} (1,1) (3,4) [l:2,1]
+  dot.vbar {linecolor:orange} (1,1) (3,4) [l:2,1]
 
-For 'hbar' and 'vbar' subcommands the 'size' attribute would hve
+The diameter of the dot can be set using the 'dotsize' attribute.
+
+  dot {dotcolor:orange; dotsize:10} (1,1) (3,4) [l:2,1]
+
+For 'hbar' and 'vbar' subcommands the 'linesize' attribute would hve
 expressed the width of the line.
 
-  dot.hbar {color:orange; size:2} (1,1) (3,4) [l:2,1]
-  dot.vbar {color:orange; size:2} (1,1) (3,4) [l:2,1]
+  dot.hbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
+  dot.vbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
 
-The size is expressed in terms of 'pt'. The length of the bar is fixed to be
-0.25 grid unit, which is a quarter long of the current grid. It can be
-set to a different length using the 'length' attribute.
+The 'dotsize' and 'linesize' are both expressed in terms of 'pt'. For 'hbar'
+and 'vbar' commands, the length of the bar can be specified via the 'barlength'
+attribute.  It is a number that expresses the line length in grid unit.  If not
+specified, the default value is 0.25, which is one-quarter the length of a
+grid, and it can be changed to a different value by the 'set barlength' command.
 
-  dot.hbar {color:orange; size:2; length:0.5} (1,1) (3,4) [l:2,1]
-  dot.vbar {color:orange; size:2; length:0.5} (1,1) (3,4) [l:2,1]
+  dot.hbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
+  dot.vbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
 
 Here, the length of each bar is going to be about half the length of the grid.
 Note that for 'vbar', it's lower end point aligns with the location, and for 

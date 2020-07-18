@@ -728,5 +728,31 @@ which is available through package 'mathtools'
   \( a \coloneq b \)
 
 
+# Inline barchart
 
+The inline barchart takes on a syntax of \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}. 
+It must have the form of 
+
+  \vbarchart{width;height;data}
+
+The 'width' argument is a number expressing in mm the width of the chart
+on paper. The 'height' argument is a number expressing in mm the height
+of the chart on paper. The 'data' argument is a list of floats, each separated
+by a comma, the height of the bar. This number must be in the range from 0-1.
+
+It will generate the following MP code.
+
+  \begin{mplibcode}
+  beginfig(1)
+  linecap := butt;
+  linejoin := mitered;
+  w := 20mm;
+  h := 10mm;
+  draw ((0,0)--(0.2,0)--(0.2,0.2)--(0,0.2)--cycle)     xscaled(w) yscaled(h) ;
+  draw ((0.2,0)--(0.4,0)--(0.4,0.8)--(0.2,0.8)--cycle) xscaled(w) yscaled(h) ;
+  draw ((0.4,0)--(0.6,0)--(0.6,0.6)--(0.4,0.6)--cycle) xscaled(w) yscaled(h) ;
+  draw ((0.6,0)--(0.8,0)--(0.8,0.4)--(0.6,0.4)--cycle) xscaled(w) yscaled(h) ;
+  draw ((0.8,0)--(1,0)--(1,1.0)--(0.8,1.0)--cycle)     xscaled(w) yscaled(h) ;
+  endfig
+  \end{mplibcode}
 

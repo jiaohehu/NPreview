@@ -728,9 +728,9 @@ which is available through package 'mathtools'
   \( a \coloneq b \)
 
 
-# Inline barchart
+# Inline BARCHART
 
-The inline barchart takes on a syntax of \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}. 
+The inline BARCHART takes on a syntax of \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}. 
 It must have the form of 
 
   \vbarchart{width;height;data}
@@ -755,4 +755,40 @@ It will generate the following MP code.
   draw ((0.8,0)--(1,0)--(1,1.0)--(0.8,1.0)--cycle)     xscaled(w) yscaled(h) ;
   endfig
   \end{mplibcode}
+
+
+# Inline XYPLOT
+
+Inline XYPLOT can be generated via the \xyplot phrase. 
+It must has the following form
+
+  \xyplot{width;height;data}
+
+The 'width' argument expresses a number that is the width of the chart in mm.
+The 'height' argument expresses a number that is the height of the chart in mm.
+The 'data' argument expresses a list of xy-coordinates pairs, all separated by
+commas. All coordinates must in the range between 0-1. Following is an example
+to plot (0,2,0.2), (0.3,0.3), and (0.4,0.4).
+
+  \xyplot{20;10;0.2,0.2,0.3,0.3,0.4,0.4}
+
+The prevous phrase
+would have generated the following code for LATEX.
+  
+  \begin{mplibcode}
+  beginfig(1)
+  linecap := butt;
+  linejoin := mitered;
+  w := 20mm;
+  h := 10mm;
+  fill fullcircle scaled(2) shifted(0.2,0.2) scaled(u) ;`);
+  fill fullcircle scaled(2) shifted(0.3,0.3) scaled(u) ;`);
+  fill fullcircle scaled(2) shifted(0.4,0.4) scaled(u) ;`);
+  endfig
+  \end{mplibcode}
+
+Each dot is a circle of diameter 2pt. This is hardcoded
+and cannot be changed.
+
+
 

@@ -762,7 +762,7 @@ It will generate the following MP code.
 Inline XYPLOT can be generated via the \xyplot phrase. 
 It must has the following form
 
-  \xyplot{width;height;data}
+  \xyplot{width;height;data;opt}
 
 The 'width' argument expresses a number that is the width of the chart in mm.
 The 'height' argument expresses a number that is the height of the chart in mm.
@@ -789,6 +789,21 @@ would have generated the following code for LATEX.
 
 Each dot is a circle of diameter 2pt. This is hardcoded
 and cannot be changed.
+
+The last argument is the option. It is the combination
+of the following numbers:
+
+* 1 - circle point instead of dot point
+* 2 - interpolation line
+
+If "interpolation line" is enabled, then the first and second point will be
+considered as expressing the two ends of the line that is to be drawn, and the
+rest of the points will describe the points to be plotted.
+
+When more than one option is to be included, add these
+numbers together. For example, if both the "circle point"
+option and the "interpolation line" option is to be included,
+then the 'opt' argument would be set to "3".
 
 
 

@@ -1,4 +1,5 @@
-const { NitrilePreviewLualatex } = require('../lib/nitrile-preview-latex');
+const { NitrilePreviewParser } = require('../lib/nitrile-preview-parser');
+const { NitrilePreviewLualatex } = require('../lib/nitrile-preview-lualatex');
 const utils = require('../lib/nitrile-preview-utils');
 
 console.log(process.argv);
@@ -6,14 +7,17 @@ const fname = process.argv[2];
 console.log(fname);
 
 var work = async ()=>{
-  var parser = new NitrilePreviewLualatex();
+  console.log(fname);
+  const parser = new NitrilePreviewParser();
+  const translator = new NitrilePreviewLualatex();
   await parser.readFromFileAsync(fname);
-  await parser.readModeAsync();
   parser.idenBlocks();
-  parser.translateBlocks();
+  parser.translateBlocks(translator);
   var main = parser.blocks;
-  var texlines = main.map(x=>x.latex);
-  texlines.forEach(x => console.log(x));
+  var latex = main.map(x=>x.latex);
+  console.log(latex.join('\n'));
+  var data = translator.toDocument();
+  console.log(data);
 };
 
 work();

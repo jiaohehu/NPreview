@@ -136,7 +136,7 @@
     { "kbd": "^"               ,    "unicode": "^"              ,  "id": "myCR",          "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7     },
     { "kbd": "="               ,    "unicode": "="              ,  "id": "myEQ",          "dx":"0",      "dy":"0.75em",    "op": 1    ,  "width": 7     },
     { "kbd": "-"               ,    "unicode": "&#8722;"        ,  "id": "myMI",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
-    { "kbd": "?"               ,    "unicode": "?"              ,  "id": "myQU",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
+    { "kbd": "?"               ,    "unicode": "?"              ,  "id": "myQU",          "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 5     },
     { "kbd": ">"               ,    "unicode": "&#62;"          ,  "id": "myGT",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "<"               ,    "unicode": "&#60;"          ,  "id": "myLE",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "\\ne"            ,    "unicode": "&#x2260;"       ,  "id": "myNEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },

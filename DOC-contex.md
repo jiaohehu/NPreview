@@ -379,3 +379,9 @@ of a line. However, the \starttabulate environment does not
 allow for such a construction.
 
 
+# Sections and chapters
+
+CONTEX automatically chooses sections as the toplevel
+sectional headings when no \startchapter is detectd.
+
+

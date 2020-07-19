@@ -18,12 +18,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch CONTEX",
+      "name": "Launch CONTEXT",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/contex.js",
+      "program": "${workspaceFolder}/tests/context.js",
       "args": [
         "a.md"
       ]

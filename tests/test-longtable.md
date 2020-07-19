@@ -4,7 +4,7 @@ Test longtable
 
 %!lualatex.twocolumn=1
 
-%!contex.twocolumn=1
+%!contex.twocolumn=0
 %!contex.longpadding=1 3
 
 %!html.bodyfontsizept=16

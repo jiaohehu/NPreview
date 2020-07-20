@@ -17,8 +17,8 @@ var work = async () => {
      parser.isepub = 1;
      parser.fname = fname;
      parser.readFromLines(lines);
-     parser.idenBlocks();
-     parser.translateBlocks();
+     parser.iden_blocks();
+     parser.translate_blocks();
      var blocks = parser.blocks;
      var htmls = blocks.map(x => x.html);
      console.log(htmls.join('\n'));

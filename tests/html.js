@@ -10,8 +10,8 @@ var work = async ()=>{
   var lines = out.split('\n');
   const parser = new NitrilePreviewHtml();
   parser.readFromLines(lines);
-  parser.idenBlocks();
-  parser.translateBlocks();
+  parser.iden_blocks();
+  parser.translate_blocks();
   var main = parser.blocks;
   var htmls = main.map(x=>x.html);
   console.log(htmls.join('\n'));

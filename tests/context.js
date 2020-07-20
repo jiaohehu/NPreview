@@ -9,13 +9,13 @@ var work = async ()=>{
   console.log(fname);
   const parser = new NitrilePreviewParser();
   const translator = new NitrilePreviewContext();
-  await parser.readFromFileAsync(fname);
-  parser.idenBlocks();
-  parser.translateBlocks(translator);
+  await parser.read_from_file_async(fname);
+  parser.iden_blocks();
+  parser.translate_blocks(translator);
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);
   console.log(latex.join('\n'));
-  var data = translator.toDocument();
+  var data = translator.to_context_document();
   console.log(data);
 };
 

@@ -805,5 +805,60 @@ numbers together. For example, if both the "circle point"
 option and the "interpolation line" option is to be included,
 then the 'opt' argument would be set to "3".
 
+# Defining custom floats
+
+  \\usepackage{float}
+  \\floatstyle{plaintop}
+  \\newfloat{Figure}{tbp}{lof}
+  \\floatstyle{plaintop}
+  \\newfloat{Table}{tbp}{lot}
+  \\floatstyle{plaintop}
+  \\newfloat{program}{tbp}{lop}
+
+# Additional math operators and Greek letters
+
+  \\DeclareMathOperator{\\sech}{sech}
+  \\DeclareMathOperator{\\csch}{csch}
+  \\DeclareMathOperator{\\arcsec}{arcsec}
+  \\DeclareMathOperator{\\arccot}{arccot}
+  \\DeclareMathOperator{\\arccsc}{arccsc}
+  \\DeclareMathOperator{\\arcosh}{arcosh}
+  \\DeclareMathOperator{\\arsinh}{arsinh}
+  \\DeclareMathOperator{\\artanh}{artanh}
+  \\DeclareMathOperator{\\arsech}{arsech}
+  \\DeclareMathOperator{\\arcsch}{arcsch}
+  \\DeclareMathOperator{\\arcoth}{arcoth}
+  \\DeclareMathSymbol{\\Alpha}{\\mathalpha}{operators}{"41}
+  \\DeclareMathSymbol{\\Beta}{\\mathalpha}{operators}{"42}
+  \\DeclareMathSymbol{\\Epsilon}{\\mathalpha}{operators}{"45}
+  \\DeclareMathSymbol{\\Zeta}{\\mathalpha}{operators}{"5A}
+  \\DeclareMathSymbol{\\Eta}{\\mathalpha}{operators}{"48}
+  \\DeclareMathSymbol{\\Iota}{\\mathalpha}{operators}{"49}
+  \\DeclareMathSymbol{\\Kappa}{\\mathalpha}{operators}{"4B}
+  \\DeclareMathSymbol{\\Mu}{\\mathalpha}{operators}{"4D}
+  \\DeclareMathSymbol{\\Nu}{\\mathalpha}{operators}{"4E}
+  \\DeclareMathSymbol{\\Omicron}{\\mathalpha}{operators}{"4F}
+  \\DeclareMathSymbol{\\Rho}{\\mathalpha}{operators}{"50}
+  \\DeclareMathSymbol{\\Tau}{\\mathalpha}{operators}{"54}
+  \\DeclareMathSymbol{\\Chi}{\\mathalpha}{operators}{"58}
+  \\DeclareMathSymbol{\\omicron}{\\mathord}{letters}{"6F}
+
+# Memoir new floats
+
+This is how MEMOIR class has defined to allow for creating
+of new custom floats.
+
+  %%% create a new float named 'diagram'
+  \\newcommand{\\diagramname}{Diagram}
+  \\newcommand{\\listdiagramname}{List of Diagrams}
+  \\newlistof{listofdiagrams}{dgm}{\\listdiagramname}
+  \\newfloat{diagram}{dgm}{\\diagramname}
+  \\newlistentry{diagram}{dgm}{0}
+  %%% create a new float named 'program'
+  \\newcommand{\\programname}{Program}
+  \\newcommand{\\listprogramname}{List of Programs}
+  \\newlistof{listofprograms}{pgm}{\\listprogramname}
+  \\newfloat{program}{pgm}{\\programname}
+  \\newlistentry{program}{pgm}{0}
 
 

@@ -1,8 +1,7 @@
 test-text.md
 
-%!contex.twocolumns=1
-%!latex.twocolumns=1
-%!memor.latexengine=pdflatex
+%!context.papersize=A5
+
 
 # \ref{first} Introduction
 

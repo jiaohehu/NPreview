@@ -11,7 +11,6 @@ var work = async ()=>{
   const parser = new NitrilePreviewContex();
   parser.readFromLines(lines);
   await parser.readModeAsync();
-  parser.iden_blocks();
   parser.translate_blocks();
   var main = parser.blocks;
   var outlines = main.map(x=>x.latex);

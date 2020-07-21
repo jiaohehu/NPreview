@@ -20,6 +20,19 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch EPUB",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/epub.js",
+      "args":[
+        "test-text.md"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch CONTEXT",
       "skipFiles": [
         "<node_internals>/**"

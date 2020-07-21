@@ -10,7 +10,6 @@ var work = async ()=>{
   const parser = new NitrilePreviewParser();
   const translator = new NitrilePreviewContext();
   await parser.read_md_file_async(fname);
-  parser.iden_blocks();
   parser.translate_blocks(translator);
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);

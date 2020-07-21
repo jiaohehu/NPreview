@@ -1,28 +1,24 @@
-const { NitrilePreviewHtml } = require('../lib/nitrile-preview-html');
+const { NitrilePreviewParser } = require('../lib/nitrile-preview-parser');
 const { NitrilePreviewEpub } = require('../lib/nitrile-preview-epub');
 const utils = require('../lib/nitrile-preview-utils');
-const path = require('path');
 
 console.log(process.argv);
 const fname = process.argv[2];
-const dirname = path.dirname(fname);
-const parser = new NitrilePreviewHtml();
-const epub = new NitrilePreviewEpub();
 
-var work = async () => {
-     
-     console.log(fname);
-     var out = await utils.readFileAsync(fname);
-     var lines = out.split('\n');
-     parser.isepub = 1;
-     parser.fname = fname;
-     parser.readFromLines(lines);
-     parser.iden_blocks();
-     parser.translate_blocks();
-     var blocks = parser.blocks;
-     var htmls = blocks.map(x => x.html);
-     console.log(htmls.join('\n'));
-     await epub.generateAsync(parser,dirname);
+var work = async ()=>{
+  console.log(fname);
+  var out = await utils.readFileAsync(fname);
+  var lines = out.split('\n');
+  const parser = new NitrilePreviewParser();
+  parser.read_md_lines(lines);
+  var translator = new NitrilePreviewEpub();
+  parser.translate_blocks(translator);
+  var main = parser.blocks;
+  var htmls = main.map(x=>x.html);
+  console.log(htmls.join('\n'));
+
+  /// now construct a Context document
+  const data = await translator.to_epub_document_async();
 };
 
 work();

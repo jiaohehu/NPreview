@@ -1,4 +1,4 @@
-# CONTEX translation
+# CONTEXT translation
 
 # The Font size problem
 
@@ -72,9 +72,9 @@ The only valid relative font sizes are the following:
 
 For example:
 
-  %!CONTEX.fscode=xxsm
-  %!CONTEX.fslisting=xxsm
-  %!CONTEX.fstabular=sm  
+  %!CONTEXT.fscode=xxsm
+  %!CONTEXT.fslisting=xxsm
+  %!CONTEXT.fstabular=sm  
 
 Note that the relative font such as 'sm' is to be combined
 with other switches that specifies the typeface such
@@ -89,12 +89,12 @@ Unicode character or a collection of characters.
 
 
 
-# Creating a CONTEX document
+# Creating a CONTEXT document
 
 When running 'nic' and the document is not a master document,
 then no chapter is to be created, and only sections are.
 In particular, each HDGS/1 block will become a "section"
-of the CONTEX document, and the HDGS/2 block is to become
+of the CONTEXT document, and the HDGS/2 block is to become
 a subsection. If there is a HDGS/0 block it will also be 
 part of the generated TEX document, but it will not be 
 a section. It is simply a paragraph with a bigger font (\tfd).
@@ -115,7 +115,7 @@ HDGS/2 as a subsubsection, and so on.
 
 # The \mathscr command 
 
-The \mathscr is not available on CONTEX and thus is not supported
+The \mathscr is not available on CONTEXT and thus is not supported
 on NITRILE.
 
 # Using libertine font
@@ -146,47 +146,58 @@ similar names but not sure what they are about.
   linuxlibertineo           semibold   normal   normal   normal    linlibertineoz         LinLibertine_RZ.otf
   linuxlibertineo           semibold   italic   normal   normal    linlibertineozi        LinLibertine_RZI.otf
 
-# Remarks
+# Cons
 
-- The name for the parser is 'CONTEX'.
+- Does not support \lstlisting, making code listing hard
 
-- For code listing in VERB block, as it is done using \starttabulate,
-  if there are many lines they some of them might appear before a 
-  "floating" figure and some of them after.
-
-- The \sfrac in CONTEX does not place the numerator/denominator side-by-side,
+- The \sfrac in CONTEXT does not place the numerator/denominator side-by-side,
   but instead laying them out top-to-bottom.
 
-- The equation numbering always starts at 1 for each chapter, regardless of
-  how many chapters there are. Each chapter would have its equation starting
-  from 1. This is different than LATEX, where the whole document is considered
-  a unit, and equation numbers continue from those of a previous chapter.
+- The \ruby command seems to be broken for Texlive2020 release, it worked for
+  Texlive2018
 
+- For Texlive2020, if there is a part, each chapter will be numbered in such a
+  way that the first integer is the part number, followed by a dot and then the
+  chapter number. Each section    would be numbered in a form that is
+  `part.chapter.section`.  However, the equations are still numbered as
+  `chapter.section`.
+
+- The text that is slanted (\sl) or italic (\it) within a paragraph sometimes
+  shows skewed, especially when the text contains a parenthesis, such as `(?<!)`
+  
 - The only place to insert [+] or [eq:a] is to place it inside one
   of the items after \startmathalignment. Placing after the \startformula
   would trigger the equation numbering to be generated, and the numbering text 
   is seen vertically centered comparing to the formula---however, 
   the \in[eq:a] reference will not work in this case; all it shows is a ??.
+  This is observed in Texlive2018. Not verified if this behavior is 
+  the same for Texlive2020.
+
+- For two-column-layout mode, there is not a default option to configure, it
+  will have to be done manually, by placing   \startcolumns and \stopcolumns
+  commands at the start and end of a chapter, or the content of a document if
+  the current document is not a master document. For Texlive2020 it seems to be
+  broken and will generate random errors with no obvious cause.
 
 - When in twocolumn code, some of the lines are being compressed horizontally
-  when CONTEX determines it is just a little too long to fit in a line and
-  it think it can just squeeze it in by shrinking all the spaces tighter.
-  However, it has been observed that sometimes the parentheses are being
-  drawn on top of other characters.
-
-- The \latexdesc command that is defined allows for font switch
-  commands and math to be included inside the braces.
-  The LATEX version of \item[], can also include font switch commands
-  and math mode texts (using \( and \))
-
-- For two-column-layout mode, there is not a default option to
-  configure, it will have to be done manually, by placing   
-  \startcolumns and \stopcolumns commands at the start and end
-  of a chapter, or the content of a document if the current
-  document is not a master document.
+  when CONTEXT determines it is just a little too long to fit in a line and it
+  think it can just squeeze it in by shrinking all the spaces tighter.
+  However, it has been observed that sometimes the parentheses are being drawn
+  on top of other characters.
 
 - There is not provision for a *wide* table, either for \starttabulate
   or for \bTABLE
+
+
+
+# Remarks
+
+- The name for the parser is 'CONTEXT'.
+
+- The \latexdesc command allows font switch commands and other to be 
+  included as part of the key, math can also appear in there as well.
+  The LATEX version of \item[], can also include font switch commands
+  and math mode texts (using \( and \))
 
 - The caption appearance is more pleasing than those of LATEX, where it 
   is centered and does not take up the entire width of the page. In 
@@ -196,7 +207,7 @@ similar names but not sure what they are about.
 
 # Math formula
 
-The math formula generation for CONTEX is done 
+The math formula generation for CONTEXT is done 
 as the following:
 
   $  C &= a + &b\\
@@ -243,7 +254,7 @@ of setting it to be 6% of the page width.
 
   \setupcombinations[distance=0.06\textwidth]
 
-Following are examples copied from WIKI page of CONTEX.
+Following are examples copied from WIKI page of CONTEXT.
 Suppressing both the horizontal and vertical gap between cells:
 
   \setupcombinations[distance=0mm,after=]
@@ -255,23 +266,33 @@ A 10mm horizontal and vertical gap between cells:
 The distance between the content and its caption entry is set
 with the 'inbetween' parameter.
 
-Current the distance is made a parameter in CONTEX
-that is CONTEX.distance, it is set to a number that represents
+Current the distance is made a parameter in CONTEXT
+that is CONTEXT.distance, it is set to a number that represents
 the percentage of the page. For example '2' would mean two-percent
 of the page width. The \setupcombinations command is then placed
-at the preamble of each generated CONTEX document that reflects
+at the preamble of each generated CONTEXT document that reflects
 this setting.
+
+# Paper size
+
+The paper size is done by the \setpapersize command.
+Following option sets the paper size.
+
+  %!CONTEXT.papersize=A4
 
 # Page layout
 
-To setup the page layout of the entire document. The following three
-parameters are to be used for controlling the margin left/right
-and the width of the document itself.
+Layout of each page is done by the \setlayout command.
 
-  %!CONTEX.papersize=A4
-  %!CONTEX.backspace=15
-  %!CONTEX.cutspace=15
-  %!CONTEX.width=180
+  \setlayout[backspace=30mm,
+             cutspace=15mm,
+             width=30mm]
+
+Following options can be used to set this command.
+
+  %!CONTEXT.layout+=backspace=30
+  %!CONTEXT.layout+=cutspace=15mm
+  %!CONTEXT.layout+=width=15mm
 
 Note that the total distance of backspace, cutspace and width
 should equal to the width of the page, which has been set to A4,
@@ -281,14 +302,14 @@ assumed to be in mm.
 
 The vertical spaces are controlled by the following parameters:
 
-  %!CONTEX.topspace=20;
-  %!CONTEX.header=10;
-  %!CONTEX.footer=0;
-  %!CONTEX.height=250;
+  \setlayout[topspace=20mm,
+             header=10mm,
+             footer=0mm,
+             height=250mm]
 
 # Two column layout
 
-The two column layout for CONTEX can be done. It involves using
+The two column layout for CONTEXT can be done. It involves using
 the command \startcolumns[balance=no] and \stopcolumns. Without
 additional setup, these two commands assumes a two column layout.
 The "balance=no" option instructs that the left column can be
@@ -332,7 +353,7 @@ column which is on the left hand side, while the word "Hello
 world right" will appear in its own column and it is on the right
 hand side of the first column. 
 
-Note that to use a CONTEX "paragraph" this is the only way,
+Note that to use a CONTEXT "paragraph" this is the only way,
 which is to have to define a new paragraph with a new name.
 Another limitation is that all the texts of this paragraph is
 always to be kept together---this means if the text is long
@@ -381,7 +402,8 @@ allow for such a construction.
 
 # Sections and chapters
 
-CONTEX automatically chooses sections as the toplevel
+CONTEXT automatically chooses sections as the toplevel
 sectional headings when no \startchapter is detectd.
 
+  
 

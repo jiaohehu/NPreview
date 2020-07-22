@@ -46,11 +46,6 @@ Following are required LATEX packages that must be included:
       is also used extensively
       by Nitrile.
 
-    \usepackage[unicode]{hyperref}
-      Defines \href, \url, and others. Also allows for generating
-      of PDF bookmarks. This package has been superceeded by 
-      "bookmark" package. 
-
     \usepackage{bookmark}
       Defines \href, \url, and others. Also allows for generating
       of PDF bookmarks. This package replaces "hyperref", which 

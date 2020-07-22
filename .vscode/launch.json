@@ -14,7 +14,7 @@
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/html.js",
       "args":[
-        "${file}"
+        "a.md"
       ]
     },
     {
@@ -27,7 +27,7 @@
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/epub.js",
       "args":[
-        "test-text.md"
+        "a.md"
       ]
     },
     {
@@ -40,7 +40,7 @@
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/context.js",
       "args": [
-        "${file}"
+        "a.md"
       ]
     },
     {

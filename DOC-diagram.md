@@ -1195,5 +1195,30 @@ black.
   now. Use "set linedashed evenly" instead.
 
 
+# The Unicode Characters for subscript 0-9
 
+  0   U+2080
+  1   U+2081
+  2   U+2082
+  3   U+2083
+  4   U+2084
+  5   U+2085
+  6   U+2086
+  7   U+2087
+  8   U+2088
+  9   U+2089
+
+
+# The Unicode Characters for superscript 0-9
+
+  0   U+2070
+  1   U+00B9
+  2   U+00B2
+  3   U+00B3
+  4   U+2074
+  5   U+2075
+  6   U+2076
+  7   U+2077
+  8   U+2078
+  9   U+2079
 

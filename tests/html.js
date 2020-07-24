@@ -12,8 +12,8 @@ var work = async ()=>{
   var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
   parser.read_md_lines(lines);
-  var translator = new NitrilePreviewHtml();
-  parser.translate_blocks(translator);
+  var translator = new NitrilePreviewHtml(parser);
+  translator.translate_blocks();
   var main = parser.blocks;
   var htmls = main.map(x=>x.html);
   console.log(htmls.join('\n'));

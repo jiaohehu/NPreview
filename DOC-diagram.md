@@ -1222,3 +1222,42 @@ black.
   8   U+2078
   9   U+2079
 
+
+# The foreach loop
+
+A foreach-loop is provided by Diagram such that a number
+of commands can be executed repeated, and in such a way
+that each invocation is to have a slightly different
+set of arguments for the commands.
+
+  @ Diagram
+
+    viewport 31 24
+
+    foreach (a,b) [9,0.4, 19,0.5, 29,0.6]:
+      set refx \a
+      foreach (c) [16,4]:
+        set refy \c
+        draw (0,0) [h:-6] [v:6]
+        draw (0,0) [q:-6,0,-6,6]
+        path P0 = (0,0)
+        path P1 = (-6,0)
+        path P2 = (-6,6)
+        dot *P0 *P1 *P2
+        label.lrt "P_0" *P0
+        label.llft "P_1" *P1
+        label.ulft "P_2" *P2
+        path line1 = *P0 *P1
+        path line2 = *P1 *P2
+        path m0 = $midpoint(line1,\b )
+        path m1 = $midpoint(line2,\b )
+        dot *m0 *m1
+        draw *m0 *m1
+        path line3 = *m0 *m1
+        path B = $midpoint(line3,\b )
+        dot *B
+        label.bot "m_0" *m0
+        label.lft "m_1" {dx:-.1} *m1
+        label.urt "B" *B
+      label.bot "Hello" (-3,-2)
+

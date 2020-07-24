@@ -8,16 +8,15 @@ console.log(fname);
 
 var work = async ()=>{
   console.log(fname);
+  var out = await utils.readFileAsync(fname);
+  var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
-  const translator = new NitrilePreviewLualatex();
-  await parser.read_md_file_async(fname);
-  await parser.read_mode_async();
+  parser.read_md_lines(lines);
+  var translator = new NitrilePreviewLualatex();
   parser.translate_blocks(translator);
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);
   console.log(latex.join('\n'));
-  var data = translator.to_lualatex_document();
-  console.log(data);
 };
 
 work();

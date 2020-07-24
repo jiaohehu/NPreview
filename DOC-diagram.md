@@ -1226,15 +1226,87 @@ black.
 # The foreach loop
 
 A foreach-loop is provided by Diagram such that a number
-of commands can be executed repeated, and in such a way
-that each invocation is to have a slightly different
-set of arguments for the commands.
+of commands can be repetitively executed, and each iteration
+these commands would have been run under a different set
+of arguments. The basic syntax is 
+
+  foreach (a) [1,2,3,4]:
+    draw (\a,\a) (0,0)
+
+In the example, the 'draw' command will be executed exactly
+four times, each of which looks like the following.
+
+    draw (1,1) (0,0)
+    draw (2,2) (0,0)
+    draw (3,3) (0,0)
+    draw (4,4) (0,0)
+
+The 'foreach' command starts with the keyword 'foreach', followed
+by a set of parentheses, and then followed by a set 
+of brackets, and then a colon. 
+
+The set of parentheses denotes a list of loop symbols.  Each loop
+symbol must only consist of uppercase or lowercase letters, such
+as a, aa, abc, zzz, etc.  Symbols such as 1, 2, a2, aa3 are not
+allowed.  
+
+The set of brackets denotes a list of sequences.  Each sequence
+could be of any string, except for comma, which serves solely as
+the delimiters for two neighboring sequences.
+
+The 'foreach' command would iterate over each sequence provided
+in the sequence list.  If there is only one loop symbol, such as
+the one shown in the previous example, the number of
+iterations equals the total number of sequences. For each
+iteration, the loop body, which consists of one or more lines,
+would execute exactly once, during which each command within the
+body executes in the same order as it appears in the body. 
+
+Before each iteration, the entire loop body would undergo a global
+search-and-replace to substitute any occurrences of the loop
+symbol with the actual sequence that is to be iterated over.
+For example, if the symbol is provided as 'a',
+then the global search-and-replace would replace any occurrences
+of `\a` by the sequence.
+
+If there are two loop symbols, then each iteration would 
+pick up two sequences in the list, and the total number
+of iterations would be reduced by half. 
+In addition, the global search-and-replace would be
+done for both symbols.  For example, if we were to
+have the following 'foreach' loop,
+
+  foreach (a,b) [1,2,3,4]:
+    draw (\a,\a) (\b,\b)
+
+then the 'draw' command would be executed two times,
+and each of them looks like 
+
+    draw (1,1) (2,2)
+    draw (3,3) (4,4)
+
+Note that all lines of the loop body must have an indentation
+level that is greater than the indentation of the 'foreach'
+command itself.  If a line is encountered that is of the same or
+less of an indentation level as that of the 'foreach' command,
+then that line is not considered as part of the loop body, and no
+additional lines will be considered for inclusion as the loop
+body.
+
+This design also permits the inclusion of additional nested
+'foreach' loop, each of which only to have its own loop body
+being indented even further inwards.  The following example show
+the implementation of two 'foreach' loops. The toplevel 'foreach'
+loop offsers two loop symbols: 'a', and 'b', and the nested
+'foreach' loop offers one loop symbol: 'c'.  Note that the last
+'label.bot' command is not part of the nested 'foreach' loop, but
+rather part of the toplevel 'foreach' loop.
 
   @ Diagram
 
     viewport 31 24
 
-    foreach (a,b) [9,0.4, 19,0.5, 29,0.6]:
+    foreach (a,b) [9,0.4, 19,0.5, 29,0.6] :
       set refx \a
       foreach (c) [16,4]:
         set refy \c
@@ -1259,5 +1331,5 @@ set of arguments for the commands.
         label.bot "m_0" *m0
         label.lft "m_1" {dx:-.1} *m1
         label.urt "B" *B
-      label.bot "Hello" (-3,-2)
+      label.bot "t=\b" (-3,-2)
 

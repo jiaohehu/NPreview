@@ -2,8 +2,9 @@ const { NitrilePreviewParser } = require('../lib/nitrile-preview-parser');
 const { NitrilePreviewHtml } = require('../lib/nitrile-preview-html');
 const utils = require('../lib/nitrile-preview-utils');
 
-console.log(process.argv);
+console.log('process.arg=',process.argv);
 const fname = process.argv[2];
+console.log('fname=',fname);
 
 var work = async ()=>{
   console.log(fname);
@@ -18,4 +19,6 @@ var work = async ()=>{
   console.log(htmls.join('\n'));
 };
 
-work();
+if(fname){
+  work();
+}

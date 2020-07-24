@@ -406,4 +406,40 @@ CONTEXT automatically chooses sections as the toplevel
 sectional headings when no \startchapter is detectd.
 
   
+# Generating customized part page
+
+Set the `CONTEXT.partpage` option to 1, and then 
+set the `CONTEXT.part` using segmented entry 
+syntax, where each entry to appear in its own line.
+
+  %^CONTEXT.partpage=1
+  %^CONTEXT.part+=\dontleavehmode
+  %^CONTEXT.part+=\blank[50mm]
+  %^CONTEXT.part+=\startalignment[flushleft]
+  %^CONTEXT.part+={\bfb Part ${1}}
+  %^CONTEXT.part+=\stopalignment
+  %^CONTEXT.part+=\blank[8mm]
+  %^CONTEXT.part+=\startalignment[flushleft]
+  %^CONTEXT.part+={\bfd ${text}}
+  %^CONTEXT.part+=\stopalignment
+  %^CONTEXT.part+=\page
+
+Use `${text}` for a placehold for the title of 
+of the part, and `${1}` for the numbering 
+of the part. Replace "1" with one of the following
+letter or digit for a different 
+numbering style. For example `${a}` would have
+been for lowercase letters such that 'a' will be
+shown for the first part, and 'b' for the 
+second part, etc.
+
+- a for lowercase letters
+- A for uppercase letters
+- i for lowercase Roman numerals
+- I for uppercase Roman numerals
+- 1 for numbers (default)
+
+For now, only the first 26 parts are supported.
+
+
 

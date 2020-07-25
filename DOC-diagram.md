@@ -1333,3 +1333,35 @@ rather part of the toplevel 'foreach' loop.
         label.urt "B" *B
       label.bot "t=\b" (-3,-2)
 
+
+# The def command
+
+The 'def' command would define a new function that could be used
+for a plotting command such as 
+
+  def P(x) = pow(x,2)
+  cartesian.yplot {f:P} 1 2 3
+
+The command starts with the string 'def', followed by a function
+name, followed by a set of parentheses, within which is a list
+of arguments, separated by comma, followed by an equal sign,
+and then addtional expression. 
+
+The expression can contain other defined funtions, built-in
+function. As of writing, following built-in functions exist.
+
+* log     natural log
+* log10   base-10 log
+* log1p   natural log of 1 plus the argument, the same as log(1+x)
+* log2    base-2 log
+* exp     exponential function: exp(1) = e, exp(2) = `e^2`
+* pow     power function: power(5,2) = 25
+* rad     convert degree to radian
+* deg     convert radian to degree
+* cos     cosine function, input must be given in radians
+* sin     sine function, input must be given in radians
+* sqrt    the square root function
+* atan2   returns the angle in radians for a given point (x,y) in a Euclidean plane: atan2(y,x)
+
+
+

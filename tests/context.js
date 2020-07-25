@@ -7,10 +7,13 @@ const fname = process.argv[2];
 
 var work = async ()=>{
   console.log(fname);
+  var out = await utils.readFileAsync(fname);
+  var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
-  const translator = new NitrilePreviewContext();
-  await parser.read_md_file_async(fname);
-  parser.translate_blocks(translator);
+  const translator = new NitrilePreviewContext(parser);
+  parser.read_md_lines(lines);
+  await parser.read_mode_async();
+  translator.translate_blocks();
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);
   console.log(latex.join('\n'));

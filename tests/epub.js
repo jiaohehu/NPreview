@@ -10,8 +10,9 @@ var work = async ()=>{
   var out = await utils.readFileAsync(fname);
   var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
+  const translator = new NitrilePreviewEpub(parser);
   parser.read_md_lines(lines);
-  var translator = new NitrilePreviewEpub();
+  await parser.read_mode_async();
   parser.translate_blocks(translator);
   var main = parser.blocks;
   var htmls = main.map(x=>x.html);

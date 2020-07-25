@@ -14,8 +14,8 @@ culpa qui officia deserunt mollit anim id est laborum.
   viewport 32 20
 
   % variables
-  path a = (1,1) -- (5,5) -- (5,1) -- (1,1) ()
-  path b = (1,1) .. (5,5) .. (5,1) .. (1,1) ()
+  path a = (1,1) -- (5,5) -- (5,1) -- (1,1) cycle
+  path b = (1,1) .. (5,5) .. (5,1) .. (1,1) cycle
 
   % line
   draw *a

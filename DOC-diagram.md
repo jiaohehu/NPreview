@@ -24,84 +24,84 @@ for its first argument.
 
 Following is an example of a diagram block.
 
-  @ Diagram
+    @ Diagram
 
-    viewport 32 20
+      viewport 32 20
 
-    % variables
-    path a = (1,1) -- (5,5) -- (5,1) -- (1,1) ()
-    path b = (1,1) .. (5,5) .. (5,1) .. (1,1) ()
+      % variables
+      path a = (1,1) -- (5,5) -- (5,1) -- (1,1) ()
+      path b = (1,1) .. (5,5) .. (5,1) .. (1,1) ()
 
-    % draw    
-    draw  *a 
-    draw  *b 
+      % draw    
+      draw  *a 
+      draw  *b 
 
-    % circles
+      % circles
 
-    set fillcolor pink
-    circle        {r:1} (16,1)
-    circle.pie    {r:1; a1:0; a2:135} (20,1)
-    circle.chord  {r:1; a1:0; a2:135} (20,3)
-    circle.arc    {r:1; a1:0; a2:135} (20,5)
-    circle.cseg   {r:1; a1:0; a2:135} (20,7)
+      set fillcolor pink
+      circle        {r:1} (16,1)
+      circle.pie    {r:1; a1:0; a2:135} (20,1)
+      circle.chord  {r:1; a1:0; a2:135} (20,3)
+      circle.arc    {r:1; a1:0; a2:135} (20,5)
+      circle.cseg   {r:1; a1:0; a2:135} (20,7)
 
-    % dot
-    path sq = (22,3) (23,3) (23,2) (22,2)
-    dot (22,1)
-    dot *sq (22,4) (23,4)
-    dot.hbar  (23,1) (24,1)
-    dot.vbar  (25,1) (26,1)
-    dot   (1,1) \
-          (2,2) (3,3) \
-          (4,4) (5,5)
+      % dot
+      path sq = (22,3) (23,3) (23,2) (22,2)
+      dot (22,1)
+      dot *sq (22,4) (23,4)
+      dot.hbar  (23,1) (24,1)
+      dot.vbar  (25,1) (26,1)
+      dot   (1,1) \
+            (2,2) (3,3) \
+            (4,4) (5,5)
 
-    % 90-degree angle
-    draw     (28,4)--(31,4)
-    path [a,b] = *
-    draw     (28,4)--(28,7)
-    path [,c] = *
-    drawanglearc.sq *b *a *c
+      % 90-degree angle
+      draw     (28,4)--(31,4)
+      path [a,b] = *
+      draw     (28,4)--(28,7)
+      path [,c] = *
+      drawanglearc.sq *b *a *c
 
-    % 45-degree angle
-    draw     <0,-4> (28,4)--(31,4)
-    path [a,b] = *
-    draw     <0,-4> (28,4)--(31,7)
-    path [,c] = *
-    drawanglearc *b *a *c
+      % 45-degree angle
+      draw     <0,-4> (28,4)--(31,4)
+      path [a,b] = *
+      draw     <0,-4> (28,4)--(31,7)
+      path [,c] = *
+      drawanglearc *b *a *c
 
-    % draw     will fill      
-    path ff = (28,8)--(31,8)--(31,9)--(28,9)--cycle
-    draw {linesize:2;fillcolor:orange}  *ff
-    reset
+      % draw     will fill      
+      path ff = (28,8)--(31,8)--(31,9)--(28,9)--cycle
+      draw {linesize:2;fillcolor:orange}  *ff
+      reset
 
-    % label
-    label.rt  "``C_0``" (5,5)
-    label.rt  "``B_0``" (5,1)
-    label.top "``A_0``" (1,1)
+      % label
+      label.rt  `C_0` (5,5)
+      label.rt  `B_0` (5,1)
+      label.top `A_0` (1,1)
 
-    % arrow & dblarrow
-    drawarrow (7,3) (9,5)
-    drawdblarrow (9,3) (11,5)
-    drawrevarrow (11,3) (13,5)
+      % arrow & dblarrow
+      drawarrow (7,3) (9,5)
+      drawdblarrow (9,3) (11,5)
+      drawrevarrow (11,3) (13,5)
 
-    % text of a different fontsize
-    label.ctr " 簡単 Triangle " (10,1)
+      % text of a different fontsize
+      label.ctr " 簡単 Triangle " (10,1)
 
-    % math
-    label.ctr " ``\sqrt{2}`` " (18,18)
+      % math
+      label.ctr " ``\sqrt{2}`` " (18,18)
 
-    %% shapes
-    shape.trapezoid (2,11)
-    shape.rhombus (5,11)
-    shape.rect (8,11)
-    shape.parallelgram (11,11)
-    shape.apple (15,11)
-    shape.basket (17,11)
-    shape.crate (21,11)
-    shape.rrect (26,11)
-    shape.protractor (10,15)
-    shape.updnprotractor (10,15)
-    shape.radical (1,17)
+      %% shapes
+      shape.trapezoid (2,11)
+      shape.rhombus (5,11)
+      shape.rect (8,11)
+      shape.parallelgram (11,11)
+      shape.apple (15,11)
+      shape.basket (17,11)
+      shape.crate (21,11)
+      shape.rrect (26,11)
+      shape.protractor (10,15)
+      shape.updnprotractor (10,15)
+      shape.radical (1,17)
 
 
 
@@ -116,8 +116,8 @@ In Diagram a grid is drawn as the background by default. The size of the grid
 is 25 grid units length long in the horizontal direction and 10 grid unit length
 long in the vertical directon. You can change that by using the 'config' command.
 
- config width 30  
- config height 20  
+  config width 30  
+  config height 20  
 
 Each grid is by default 5mm in length, thus, 
 a total of 25 grid units in horizontal direction will generate an image 
@@ -125,7 +125,7 @@ of 125mm in width, and 10 grid units of horizontal direction will put
 the image in the height of 50mm. To set the unit to a different length,
 call the 'config unit' command below.
 
-  config unit 6mm
+    config unit 6mm
 
 The 'config grid' command can be used to change how background grid lines are to be 
 shown in the final Diagram image. By default, each grid is to be show with a 
@@ -133,8 +133,8 @@ grid line that is colored at 10% black. The color is currently not configurable.
 When set the grid to 'boxed', only the outline of the image is drawn, and when set
 to 'none', there is even no outline.
 
-  config grid boxed
-  config grid none   
+    config grid boxed
+    config grid none   
 
 However, for MetaPost and MetaFun generation when the grid is set to 'none' the
 outline is actually drawn using a "white" color pixel.  This is because the
@@ -150,29 +150,29 @@ of the outline.
 The `set` command sets the following parameters
 for the current drawing environment.
 
-  set refx <number>
-  set refy <number>
-  set refs <number>
-  set barlength <number>     
-  set dotsize   <number>     
-  set labelgapx <number>
-  set labelgapy <number>
+    set refx <number>
+    set refy <number>
+    set refs <number>
+    set barlength <number>     
+    set dotsize   <number>     
+    set labelgapx <number>
+    set labelgapy <number>
 
 Following are default values for it.
 
-@ Table
+    @ Table
 
-  ---------------|-----------------------------------------------
-  Options        |Default value     Comments
-  ---------------|-----------------------------------------------
-  refx           |0                 Offset location
-  refy           |0                 Offset location
-  refs           |1                 Scale factor     
-  barlength      |0.25              The default length of the bar    
-  dotsize        |5                 The default size of dot
-  labelgapx      |3                 The x-offset to label text
-  labelgapy      |3                 The y-offset to label text
-  ---------------|-----------------------------------------------
+      ---------------|-----------------------------------------------
+      Options        |Default value     Comments
+      ---------------|-----------------------------------------------
+      refx           |0                 Offset location
+      refy           |0                 Offset location
+      refs           |1                 Scale factor     
+      barlength      |0.25              The default length of the bar    
+      dotsize        |5                 The default size of dot
+      labelgapx      |3                 The x-offset to label text
+      labelgapy      |3                 The y-offset to label text
+      ---------------|-----------------------------------------------
 
 The 'refx', 'refy', and 'refs' parameters can be set at any point during a drawing.
 It can be compared to a "transform" of a SVG operation. In this case, all drawings
@@ -197,8 +197,8 @@ any additional values reset that parameter to its default value.
 Thus, the second 'set' command below will reset the 'refx' parameter to its
 default value, which is 0.
 
-  set refx 10
-  set refx
+    set refx 10
+    set refx
 
 
 # The reset command
@@ -215,7 +215,7 @@ debugging.
     exit
 
 
-# The path   
+# The path  command
 
 The 'path' command can be used to create path variables.  A path variable must
 start with a upper case or lower case letters, and followed by one or more
@@ -333,7 +333,7 @@ The 'draw' command would draw connecting lines between path points.
 Typically it is straight lines, but Bezier curves are also supported.
 This includes quadratic and cubic curves. The SVG arc is also supported.
 
-  draw (0,0) -- (1,1) (2,2)
+    draw (0,0) -- (1,1) (2,2)
 
 The double-hyphen operator between points indicates that it should be a
 straight line between two points. However, it is assumed if two points
@@ -342,7 +342,7 @@ of the second and third point above.  The points are typically expressed
 as absolute points, but relative points can also be expressed. They 
 are all in the form of [...] where a set of brackets are present.
 
-  draw (0,0) [l:1,1] [l:1,1] 
+    draw (0,0) [l:1,1] [l:1,1] 
 
 Here the second and third points are each expressed as a distance away from its
 previous point, which is to move right for one grid unit and then up for one
@@ -528,8 +528,8 @@ angle.
 The 'drawanglearc' can also place text next to the angle arc to show the name
 of an angle.
 
-  draw (0,6) (2,4) (4,6) (6,4) (8,6)
-  drawanglearc "1\\2\\3" *
+    draw (0,6) (2,4) (4,6) (6,4) (8,6)
+    drawanglearc "1\\2\\3" *
 
 
 # The circle command
@@ -569,23 +569,23 @@ angles are in the unit of degrees. The following example draws an arc that is
 part of the circle circumference that runs from the 30 degree angle to the 60
 degree angle.
 
-  circle.arc {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+    circle.arc {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'pie' command is similar to 'arc' except that it also connects the two
 end points of an arc to the center of the circle, forming an area.
 
-  circle.pie {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+    circle.pie {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'chord' command would draw a straight line that connects the 
 two end points of an arc.
 
-  circle.chord {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+    circle.chord {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 The 'cseg' draws a circular segment that expresses an a region of a circle
 which is "cut off" from the rest of the circle by a chord line.
 For this reason, it always expresses an area.
 
-  circle.cseg {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
+    circle.cseg {r:10; a1:30; a2:60} (1,1) (3,4) [l:2,1]
 
 
 # Shapes
@@ -611,7 +611,7 @@ Similar to the 'circle' command, each shape is to be drawn
 at a location of the path. Thus, the following command would have 
 drawn three 'rect' shape each at a different location.
 
-  shape.rect   (1,1) (3,4) [l:2,1]
+    shape.rect   (1,1) (3,4) [l:2,1]
 
 Each shape has its own native size, and depending on the shape, each
 shape will be aligned differently to the location specified.
@@ -622,23 +622,23 @@ its middle center point is aligned with the location.
 Following table shows the natural size and the alignment location
 of that shape.
 
-@ Table
+    @ Table
 
-  -----------------|-----------------|-----------
-  Shape            |Natural size     |Alignment
-  -----------------|-----------------|-----------
-  rect             |1x1              |left-left
-  rhombus          |1x1              |left-left
-  trapezoid        |1x1              |left-left
-  parallelgram     |1x1              |left-left
-  apple            |1x1              |left-left
-  rrect            |1x1              |left-left
-  basket           |3x2              |left-left
-  crate            |4x3              |left-left
-  radical          |4x2(*)           |top-left
-  protractor       |7x3.5            |lower-center
-  updnprotractor   |7x3.5            |upper-center
-  -----------------|-----------------|-----------
+      -----------------|-----------------|-----------
+      Shape            |Natural size     |Alignment
+      -----------------|-----------------|-----------
+      rect             |1x1              |left-left
+      rhombus          |1x1              |left-left
+      trapezoid        |1x1              |left-left
+      parallelgram     |1x1              |left-left
+      apple            |1x1              |left-left
+      rrect            |1x1              |left-left
+      basket           |3x2              |left-left
+      crate            |4x3              |left-left
+      radical          |4x2(*)           |top-left
+      protractor       |7x3.5            |lower-center
+      updnprotractor   |7x3.5            |upper-center
+      -----------------|-----------------|-----------
 
 - (*) Note that for the radical the height is always 2, but the width
   might be changed to a differen width if the 'radicallength' attribute
@@ -658,33 +658,33 @@ single dot is to be repeated for all points on the given path. Thus, following
 command will draw three dots each at three different locations of the input
 path.
 
-  dot (1,1) (3,4) [l:2,1]
+    dot (1,1) (3,4) [l:2,1]
 
 The 'dot' command provide several subcommands that allows for a different
 shape to be drawn instead of a circular dot.
 
-  dot.hbar (1,1) (3,4) [l:2,1]
-  dot.vbar (1,1) (3,4) [l:2,1]
+    dot.hbar (1,1) (3,4) [l:2,1]
+    dot.vbar (1,1) (3,4) [l:2,1]
 
 For 'dot' command, the color can be specified using the 'dotcolor'.
 
-  dot {dotcolor:orange} (1,1) (3,4) [l:2,1]
+    dot {dotcolor:orange} (1,1) (3,4) [l:2,1]
 
 For 'hbar' and 'vbar' subcommands the 'linecolor' attribute would
 have expressed the color of the lines.
 
-  dot.hbar {linecolor:orange} (1,1) (3,4) [l:2,1]
-  dot.vbar {linecolor:orange} (1,1) (3,4) [l:2,1]
+    dot.hbar {linecolor:orange} (1,1) (3,4) [l:2,1]
+    dot.vbar {linecolor:orange} (1,1) (3,4) [l:2,1]
 
 The diameter of the dot can be set using the 'dotsize' attribute.
 
-  dot {dotcolor:orange; dotsize:10} (1,1) (3,4) [l:2,1]
+    dot {dotcolor:orange; dotsize:10} (1,1) (3,4) [l:2,1]
 
 For 'hbar' and 'vbar' subcommands the 'linesize' attribute would hve
 expressed the width of the line.
 
-  dot.hbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
-  dot.vbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
+    dot.hbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
+    dot.vbar {barcolor:orange; linesize:2} (1,1) (3,4) [l:2,1]
 
 The 'dotsize' and 'linesize' are both expressed in terms of 'pt'. For 'hbar'
 and 'vbar' commands, the length of the bar can be specified via the 'barlength'
@@ -692,8 +692,8 @@ attribute.  It is a number that expresses the line length in grid unit.  If not
 specified, the default value is 0.25, which is one-quarter the length of a
 grid, and it can be changed to a different value by the 'set barlength' command.
 
-  dot.hbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
-  dot.vbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
+    dot.hbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
+    dot.vbar {linecolor:orange; barlength:0.5} (1,1) (3,4) [l:2,1]
 
 Here, the length of each bar is going to be about half the length of the grid.
 Note that for 'vbar', it's lower end point aligns with the location, and for 
@@ -740,16 +740,17 @@ a double-backslash, such as the following, in which case the letter "A",
 
     label "A\\B\\C" (1,1) (2,2) (3,4)
 
-It is also possible to express that a math expression is to be recognized. 
-For example.
+It is also possible to express that a math expression instead of
+plain text.
 
-    label "``A_1``\\``B_1``\\``C_1``" (1,1) (2,2) (3,4)
+    label ``A_1\\B_1\\C_1`` (1,1) (2,2) (3,4)
 
-The trick is to surround each individual text with double-backquot.  However,
-there are limitation to it. The text is either plain text, or math text. The
-math text cannot be mixed with plain text, or be part of it. For text with
-multiple segments such as the one shown, each segment is to be surrounded
-with double-backquote if the text describes a math expression.
+If all you have is something like A_0 and x^2 then a pair of
+single backquates can be used so that all these patterns will be
+scanned and re-formatted to be subscript and superscript.
+
+    label `A_1\\B_1\\C_1` (1,1) (2,2) (3,4)
+
 
 
 # Path functions        
@@ -936,7 +937,7 @@ For example, if they are passed as 2 and 3, then the origin
 of the Cartesian coordinates will appear at the location of (2,3) 
 of the Diagram.
 
-  cartesian.setup 2 3 0.5 
+    cartesian.setup 2 3 0.5 
 
 The third argument can be omitted. If provided, it states the how to interpret
 the input range of the Cartesian coordinates. For example, when 0.5 is passed,
@@ -953,8 +954,8 @@ passed to it is the lower and upper range that this axis entails.  Similarly,
 the `cartesian.yaxis` command draws the y-axis with similar parameter
 requirements.
 
-  cartesian.xaxis -0.75 5.6
-  cartesian.yaxis -0.75 4.5
+    cartesian.xaxis -0.75 5.6
+    cartesian.yaxis -0.75 4.5
 
 The `cartesian.xtick` is used to draw ticks as well as labels on
 the x-axis of the coordinate. The list of arguments passed to
@@ -965,65 +966,69 @@ string will also appear unerneath that tick.  Similarly, the
 `cartesian.ytick` command does the same thing except for that it
 is for the y-axis. 
 
-  cartesian.xtick 1 2 3 4 5
-  cartesian.ytick 1 2 3 4
+    cartesian.xtick 1 2 3 4 5
+    cartesian.ytick 1 2 3 4
 
 The `cartesian dot` command shows one or more points as dots
 inside the coordinate. Every two numbers are interpreted as
 a pair of (x,y) coordinates.  
 
-  cartesian.dot  -4 0 4 0 \
-                 -5 0 5 0
+    cartesian.dot  -4 0 4 0 \
+                  -5 0 5 0
 
 The 'cartesian.line' and 'cartesian.arrow' commands 
 are similar, except for that the first one will draw connecting
 lines between all points, and the second one also adds an arrowhead
 at the very end of the line.
 
-  cartesian.line  -4 0 4 0 \
-                  -5 0 5 0
-  cartesian.arrow -4 0 4 0 \
-                  -5 0 5 0
+    cartesian.line  -4 0 4 0 \
+                    -5 0 5 0
+    cartesian.arrow -4 0 4 0 \
+                    -5 0 5 0
 
 The 'cartesian.yplot; is similar to 'cartesian.dot', in
-that it generates a series of dots. However, the coordinates
-of dots are based on the result of evaluting a function 
-that must be provided via the {f:P} option and the 'P'
-expresses the name of a scalar function. 
+that it generates a series of dots. Only the x-coordinates
+of plotted points are provided, and the y-coordinates of
+each point is calculated by the supplied function, which
+must be provided by the "f" member of the option. 
 
-  def P(x) = pow(x,2)
-  cartesian.yplot {f:P} -2 2 100
+    def P(x) = pow(x,2)
+    cartesian.yplot {f:P} 1 2 3 4 5
+
+In the previous example, following points will be shown:
+(1,1), (2,4), (3,9), (4,16), and (5,25) as dots.
+The Range expression in this case can be useful, such
+as the following:
+
+    def P(v) = pow(v,2)
+    cartesian.yplot {f:P} [1:5]
 
 The name of the function could be arbitrary.  However, it must be specified by
 the "f" member of the option.  The function must have been previously defined
-by a 'def' command. The first two arguments expresses the lower and upper bound
-of the input range, and the third argument specifies the total number of
-intervals within that range. For example, if 100 is provided, then the range
-between -2 and 2, which is 4, is to be subdivided into a total of 100
-intervals, with each interval of 4/100 in length. Note that the exact number of
-points will be exactly one more than the total number of intervals; so there
-would be exactly 101 points for the previous example.  If the last argument is
-not specified, then the total number of segments will be automatically computed
-such that for each grid within the Diagram there will be exactly 10 intervals.
+by a 'def' command, and must only accept one argument and return a single
+scalar.
 
 The 'cartesian.xplot' is similar except for that the input arguments expresses
 a range of values as the y-coordinates of the points, and the funtion generates
 the corresponding x-coordinates.
 
-The `cartesian.text` command draws a text at the location of the cartesian
+    def P(v) = sqrt(v)
+    cartesian.xplot {f:P} 1 4 9 25 16 25
+
+The `cartesian.label` command draws a text at the location of the cartesian
 coord. The text itself is expressed via the quotation marks that must proceed
 the any option and all scalar values.  Following example draw texts at location
 (-5,0), (-5,1) and (-5,2) of the Cartesian coordinates, and at each point the
 text will be "P(0)", "P(1)", and "P(2)". The text is to appear at the bottom of
 each point.
 
-  cartesian.text.bot "P(0)\\P(1)\\P(2)" -5 0 -5 1 -5 2
+    cartesian.label.bot "P(0)\\P(1)\\P(2)" -5 0 -5 1 -5 2
 
 The 'cartesian.ellipse' will draw an ellipse centered at the
 location. There can only be one ellipse to be drawn, and the
 signature of the arguments are:
 
-  cartesian.a ellipse x y Rx Ry Phi
+    cartesian.ellipse x y Rx Ry Phi
 
 The 'x' and 'y' are coodinates for the center point of the ellipse. Each of the
 'Rx' and 'Ry' is the semi-major or semi-minor axis in horizontal or vertical
@@ -1033,7 +1038,7 @@ around the center.  If it is a counter-clockwise rotation. It is in degrees.
 The "cartesian.arc" command will draw an arc with the given center, radius,
 start and stop angle. The signature of the function looks like the following.
 
-  cartesian.a arc x y R startAngle stopAngle     
+    cartesian.arc x y R startAngle stopAngle     
 
 The 'x' and 'y' are coordinates expressing the center
 of the arc. 'R' is the radius of the arc. 'startAngle'
@@ -1068,13 +1073,13 @@ The 'xrange' and 'yrange' is to state the input range for the x-direction and
 y-direction axes. Specifically, if the bars are going to be drawn vertically,
 from bottom to top, then the 'yrange' should be stated as the highest number of
 the tallest bar,and 'xrange' should be stated as the total number of bars minus
-1.  For example, if we were to show five bars, that is 0.1, 0.3, 0.2, 0.4, 0.2,
-then the 'yrange' should be set to 0.4, and 'xrange' should be set to 5.
+one.  For example, if we were to show five bars, that is 0.1, 0.3, 0.2, 0.4, 0.2,
+then the 'yrange' should be set to 0.4, and 'xrange' should be set to "5"
 Following example shows how to set up a barchart that is to be placed at
 (0,0), with a width of 10, and height of 15, and with the 'xrange' set to 5
 and 'yrange' set to 0.4.
 
-  barchart.setup 0 0 10 15 5 0.4
+    barchart.setup 0 0 10 15 5 0.4
 
 The 'barchart.bbox' is to draw a bounding box covering the entire barchart.
 It does not require any arguments.
@@ -1082,7 +1087,7 @@ It does not require any arguments.
 The 'barchart.vbar' is to draw vertical bars. The arguments are the y-values
 of the bar themselves. Thus, to draw the previous five bars, it will be
 
-  barchart.vbar 0.1 0.3 0.2 0.4 0.2
+    barchart.vbar 0.1 0.3 0.2 0.4 0.2
 
 The 'barchart.ytick' operation is to draw "ticks" along its y-axis on the left
 hand side, and also show the label for each axis to its left hand side. Its
@@ -1091,7 +1096,7 @@ input range as those of the 'vbar'. For example, if ticks were to be placed
 at the location of '0.1', '0.2' and '0.3', then following command should be
 issued.
 
-  barchart.ytick 0.1 0.2 0.3
+    barchart.ytick 0.1 0.2 0.3
 
 The 'barchart.xtext' is to add information at the bottom of each bar as to
 express what these bars are intended for.  The text must be provided by a
@@ -1101,7 +1106,7 @@ has been set to 5, the first bar is to appear between 0-1, and second bar 1-2,
 and so on, thus, the center location for the first vertical bar is 0.5, and center
 location for the second bar is 1.5, etc.
 
-  barchart.xtext "P(0)\\P(1)\\P(2)" 0.5 1.5 2.5
+    barchart.xtext "P(0)\\P(1)\\P(2)" 0.5 1.5 2.5
 
 The text will always be centered at location, and placed directly below the 
 bar.
@@ -1129,30 +1134,30 @@ ending line cap location. The lines are always drawn, regardless of the
 'linesize' setting. If 'linesize' is set to zero, the default line width for
 the target platform is assumed.  The 'linecolor' setting determines the line
 color as well as the color of the arrowhead.  However, due to outstanding
-issues on SVG, the arrowhead <marker> element does not reflect the color
-setting of the from the line to which it is attached, and will always show as
-black. 
+issues on SVG, the arrowhead MARKER-element does not change the color
+with the line it is attached to, and is always shown as black.
 
 # Known problems
 
-- The arrow head in HTML is done using <marker> element. And for SVG 1.1 the
+- The arrow head in HTML is done using MARKER-element. And for SVG 1.1 the
   limitation is that its coloring and filling is not changed to the line
   element it attaches to. It is a browser problem and currently there is no
   fix.
 
-- For SVG we *had* to make a choice to either show a plaintext, using <text>
-  element or math text  using <svg> element, there is currently a lot of grief
+- For SVG we *had* to make a choice to either show a plaintext, using 
+  TEXT-element or math text  using SVG-element, there is currently a 
+  lot of grief
   as prevously we were freely mixing normal and math text as this was not a
   problem for MetaPost, as it supports TeX text between btex and etex
   constructs.  However, mixing plain text and math text is an issue because
-  math text is translated into SVG and plain text into <text> SVG element, and
+  math text is translated into SVG and plain text into the  TEXT-element, and
   there is no way to correctly position the SVG text if it is to appear in the
-  middle of a <text> element.
+  middle of a TEXT-element.
 
 - The generation of fontsize is always done to convert a user unit to pt.
 
 - It has been observed that for MP generation if the symbol were part of a math
-  such as between \( and \), then it appears smaller than those that are not.
+  such as between `\(` and `\)`, then it appears smaller than those that are not.
 
 - The text-aligmnents are default to 'urt' and not 'centered', thus we need to
   ensure previous auto choices of text alignment which asssumes the center are
@@ -1197,30 +1202,30 @@ black.
 
 # The Unicode Characters for subscript 0-9
 
-  0   U+2080
-  1   U+2081
-  2   U+2082
-  3   U+2083
-  4   U+2084
-  5   U+2085
-  6   U+2086
-  7   U+2087
-  8   U+2088
-  9   U+2089
+    0   U+2080
+    1   U+2081
+    2   U+2082
+    3   U+2083
+    4   U+2084
+    5   U+2085
+    6   U+2086
+    7   U+2087
+    8   U+2088
+    9   U+2089
 
 
 # The Unicode Characters for superscript 0-9
 
-  0   U+2070
-  1   U+00B9
-  2   U+00B2
-  3   U+00B3
-  4   U+2074
-  5   U+2075
-  6   U+2076
-  7   U+2077
-  8   U+2078
-  9   U+2079
+    0   U+2070
+    1   U+00B9
+    2   U+00B2
+    3   U+00B3
+    4   U+2074
+    5   U+2075
+    6   U+2076
+    7   U+2077
+    8   U+2078
+    9   U+2079
 
 
 # The foreach loop
@@ -1230,8 +1235,8 @@ of commands can be repetitively executed, and each iteration
 these commands would have been run under a different set
 of arguments. The basic syntax is 
 
-  foreach (a) [1,2,3,4]:
-    draw (\a,\a) (0,0)
+    foreach (a) [1,2,3,4]:
+      draw (\a,\a) (0,0)
 
 In the example, the 'draw' command will be executed exactly
 four times, each of which looks like the following.
@@ -1276,8 +1281,8 @@ In addition, the global search-and-replace would be
 done for both symbols.  For example, if we were to
 have the following 'foreach' loop,
 
-  foreach (a,b) [1,2,3,4]:
-    draw (\a,\a) (\b,\b)
+    foreach (a,b) [1,2,3,4]:
+      draw (\a,\a) (\b,\b)
 
 then the 'draw' command would be executed two times,
 and each of them looks like 
@@ -1302,66 +1307,122 @@ loop offsers two loop symbols: 'a', and 'b', and the nested
 'label.bot' command is not part of the nested 'foreach' loop, but
 rather part of the toplevel 'foreach' loop.
 
-  @ Diagram
+    @ Diagram
 
-    viewport 31 24
+      viewport 31 24
 
-    foreach (a,b) [9,0.4, 19,0.5, 29,0.6] :
-      set refx \a
-      foreach (c) [16,4]:
-        set refy \c
-        draw (0,0) [h:-6] [v:6]
-        draw (0,0) [q:-6,0,-6,6]
-        path P0 = (0,0)
-        path P1 = (-6,0)
-        path P2 = (-6,6)
-        dot *P0 *P1 *P2
-        label.lrt "P_0" *P0
-        label.llft "P_1" *P1
-        label.ulft "P_2" *P2
-        path line1 = *P0 *P1
-        path line2 = *P1 *P2
-        path m0 = $midpoint(line1,\b )
-        path m1 = $midpoint(line2,\b )
-        dot *m0 *m1
-        draw *m0 *m1
-        path line3 = *m0 *m1
-        path B = $midpoint(line3,\b )
-        dot *B
-        label.bot "m_0" *m0
-        label.lft "m_1" {dx:-.1} *m1
-        label.urt "B" *B
-      label.bot "t=\b" (-3,-2)
+      foreach (a,b) [9,0.4, 19,0.5, 29,0.6] :
+        set refx \a
+        foreach (c) [16,4]:
+          set refy \c
+          draw (0,0) [h:-6] [v:6]
+          draw (0,0) [q:-6,0,-6,6]
+          path P0 = (0,0)
+          path P1 = (-6,0)
+          path P2 = (-6,6)
+          dot *P0 *P1 *P2
+          label.lrt "P_0" *P0
+          label.llft "P_1" *P1
+          label.ulft "P_2" *P2
+          path line1 = *P0 *P1
+          path line2 = *P1 *P2
+          path m0 = $midpoint(line1,\b )
+          path m1 = $midpoint(line2,\b )
+          dot *m0 *m1
+          draw *m0 *m1
+          path line3 = *m0 *m1
+          path B = $midpoint(line3,\b )
+          dot *B
+          label.bot "m_0" *m0
+          label.lft "m_1" {dx:-.1} *m1
+          label.urt "B" *B
+        label.bot "t=\b" (-3,-2)
 
 
 # The def command
 
-The 'def' command would define a new function that could be used
-for a plotting command such as 
+The 'def' command allows for a new user-defined function to be  
+created.
 
-  def P(x) = pow(x,2)
-  cartesian.yplot {f:P} 1 2 3
+    def P(x) = pow(x,2)
+    cartesian.yplot {f:P} 1 2 3
 
 The command starts with the string 'def', followed by a function
 name, followed by a set of parentheses, within which is a list
 of arguments, separated by comma, followed by an equal sign,
 and then addtional expression. 
 
-The expression can contain other defined funtions, built-in
-function. As of writing, following built-in functions exist.
-
-* log     natural log
-* log10   base-10 log
-* log1p   natural log of 1 plus the argument, the same as log(1+x)
-* log2    base-2 log
-* exp     exponential function: exp(1) = e, exp(2) = `e^2`
-* pow     power function: power(5,2) = 25
-* rad     convert degree to radian
-* deg     convert radian to degree
-* cos     cosine function, input must be given in radians
-* sin     sine function, input must be given in radians
-* sqrt    the square root function
-* atan2   returns the angle in radians for a given point (x,y) in a Euclidean plane: atan2(y,x)
+The expression can contain other user-defined funtions, 
+or built-in scalar function provided by Diagram. 
 
 
+# Built-in scalar functions
+
+Following are built-in functions provided by Diagram
+
+* log     - natural log
+* log10   - base-10 log
+* log1p   - natural log of 1 plus the argument, the same as log(1+x)
+* log2    - base-2 log
+* exp     - exponential function: exp(1) = e, exp(2) = `e^2`
+* pow     - power function: power(5,2) = 25
+* rad     - convert degree to radian
+* deg     - convert radian to degree
+* cos     - cosine function, input must be given in radians
+* sin     - sine function, input must be given in radians
+* sqrt    - the square root function
+* atan2   - returns the measurement in radians for an 
+            angle formed between the vector line from the origin to 
+            (x,y) and the x-axis, when called as atan2(y,x)
+
+
+
+# Range expression
+
+The Range expression serves to express one or more scalar
+quantities.    When it appears as part of a group of scalar
+arguments of a command, it serves to express one or more
+scalar quantities for that command, instead of a single scalar
+as is expressed by a float or an expression.  
+For example, in the following command
+a total of 11 scalars will be supplied to the `cartesian.yplot`
+command.
+
+    def P(x) = pow(x,2)
+    cartesian.yplot {f:P} [1:10] 
+
+A Range-expression must appears between a set of brackets,
+and it consists of two or three quantities each of which separated
+by a single colon.
+
+The semantics between a Range expression for when there are two
+quantities versus when there are three quantities are slightly 
+different. When there are only two quantities, such as
+"1:10", the quantity "1" denotes the `base`, and the quantity
+"10" denotes the `limit`. The range of scalars will be
+generated in such a way that the first one is always the same 
+as `base`, and each additional scalars is introduced
+by adding "1" to the previous quantity. The generation of
+scalars stops as soon as the scalar exceeds the quantity
+imposed by the `limit`.
+Thus, for the example of "1:10", the scalars it
+entails are 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10. 
+
+If a Range-expression is given as a set of three quantities, such
+as the case of "1:3:10", then the last quantity denotes
+the `limit`, and the middle quantity denotes the increment for
+each additional scalar starting from the second one.
+Thus, in the case of "1:3:10", the scalars it entails
+are: 1, 4, 7, 10.
+
+
+
+# The mini-diagram
+
+The mini-diagram are commands that allow for a diagram to be generated
+that would be blended with the surrounding text. Following are two
+examples of such mini-diagram.
+
+    \xyplot{20;10;0.2,0.2,0.3,0.3,0.4,0.4;3}
+    \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}
 

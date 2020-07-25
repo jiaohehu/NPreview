@@ -19,6 +19,9 @@ ${日本・にほん} ✗ ✓
 (&) Node.JS $(3fr)
 (&) AngularJS $(5fr)
 
+(&) {}
+(&) AngularJS $(5fr)
+
 (&) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language. (✗)
 (&) AnglarJS is an open source web application development framework

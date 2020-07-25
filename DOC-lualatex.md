@@ -87,10 +87,10 @@ Following are required LATEX packages that must be included:
 
 Font sizes can be set for the following contents:
 
-  %!LATEX.fscode = small
-  %!LATEX.fstabular = small
-  %!LATEX.fslisting = footnotesize
-  %!LATEX.fssubcaption = footnotesize
+    %!LATEX.fscode = small
+    %!LATEX.fstabular = small
+    %!LATEX.fslisting = footnotesize
+    %!LATEX.fssubcaption = footnotesize
 
 The first one is used the SAMP block when its style is not
 set to 1 or 2. The second one is used for tabular entries.
@@ -153,18 +153,18 @@ The last one is the one instructing LATEX to use T1
 encoded fonts, even though there are other types of 
 encodings out there, including TrueType, and OpenType.
 
-  \usepackage{libertine}
-  \usepackage{libertinust1math}
-  \usepackage[T1]{fontenc}
+    \usepackage{libertine}
+    \usepackage{libertinust1math}
+    \usepackage[T1]{fontenc}
 
 These packages are not enabled by default. However, NITRILE has
 provision that allows additional commands to be inserted at the
 end of preamble by providing the following configuration
 parameters inside the document.
 
-  %!LATEX.extra+=\usepackage{libertine}
-  %!LATEX.extra+=\usepackage{libertinust1math}
-  %!LATEX.extra+=\usepackage[T1]{fontenc}
+    %!LATEX.extra+=\usepackage{libertine}
+    %!LATEX.extra+=\usepackage{libertinust1math}
+    %!LATEX.extra+=\usepackage[T1]{fontenc}
 
 Note the use of `+=` operator rather than the normal `='
 operator. It is designed to build expand the previous string into
@@ -173,21 +173,21 @@ to insert a "newline" character before each additional text.
 
 # To wide table table/figure
 
-  \begin{figure*}[ht]
-  ...
-  \end{figure*}
+    \begin{figure*}[ht]
+    ...
+    \end{figure*}
 
-  \begin{table*}[ht]
-  ...
-  \end{table*}
+    \begin{table*}[ht]
+    ...
+    \end{table*}
 
 You can change the horizontal space between columns through:
 
-  \setlength{\columnsep}{2cm}
+    \setlength{\columnsep}{2cm}
 
 The following code adds a separation line between columns:
 
-  \setlength{\columnseprule}{0.5pt}
+    \setlength{\columnseprule}{0.5pt}
 
 # Custom float
 
@@ -202,8 +202,8 @@ monotonously increasing as a single integer regardless whether
 chapter is present or not. To enable it to be chapter aware
 the [section] option will need to be specified:
 
-  \floatstyle{ruled}
-  \newfloat{Program}{tbp}{lop}[section]
+    \floatstyle{ruled}
+    \newfloat{Program}{tbp}{lop}[section]
 
 Note that if a star-version of the "caption" command such as
 \caption* is used the counter is not increased.  In addition, if
@@ -212,65 +212,65 @@ the counter is not increased.
 
 Following is a custom float for Figure:
 
-  \documentclass[twocolumn]{report}
-  \usepackage{float}
-  \usepackage{graphicx}
-  \floatstyle{plaintop}
-  \newfloat{Figure}{tbp}{lof}
-  \begin{document}
-  \chapter*{Chapter 1 - My}
-  If tables and figures are not adequate for your needs, then you always have the
-  option to create your own! A good example of such an instance would be a
-  document that gives lots of source code examples of a programming language. One
-  might therefore wish to create a program float. The float package is your
-  friend for this task. All commands to set up the new float must be placed in
-  the preamble, and not within the document.
-  \begin{Figure*}
-  \centering
-  \caption{The Hello World! program in Java.}
-  \medskip
-  \includegraphics{tests/image-gimp.jpg}
-  \end{Figure*}
-  If tables and figures are not adequate for your needs, then you always have the
-  option to create your own! A good example of such an instance would be a
-  document that gives lots of source code examples of a programming language. One
-  might therefore wish to create a program float. The float package is your
-  friend for this task. All commands to set up the new float must be placed in
-  the preamble, and not within the document.
-  \end{document}
+    \documentclass[twocolumn]{report}
+    \usepackage{float}
+    \usepackage{graphicx}
+    \floatstyle{plaintop}
+    \newfloat{Figure}{tbp}{lof}
+    \begin{document}
+    \chapter*{Chapter 1 - My}
+    If tables and figures are not adequate for your needs, then you always have the
+    option to create your own! A good example of such an instance would be a
+    document that gives lots of source code examples of a programming language. One
+    might therefore wish to create a program float. The float package is your
+    friend for this task. All commands to set up the new float must be placed in
+    the preamble, and not within the document.
+    \begin{Figure*}
+    \centering
+    \caption{The Hello World! program in Java.}
+    \medskip
+    \includegraphics{tests/image-gimp.jpg}
+    \end{Figure*}
+    If tables and figures are not adequate for your needs, then you always have the
+    option to create your own! A good example of such an instance would be a
+    document that gives lots of source code examples of a programming language. One
+    might therefore wish to create a program float. The float package is your
+    friend for this task. All commands to set up the new float must be placed in
+    the preamble, and not within the document.
+    \end{document}
 
 Following is a custom float for Program:
 
-  \documentclass[twocolumn]{report}
-  \usepackage{float}
-  \floatstyle{ruled}
-  \newfloat{Program}{tbp}{lop}
-  \begin{document}
-  \chapter*{Chapter 1 - My}
-  If tables and figures are not adequate for your needs, then you always have the
-  option to create your own! A good example of such an instance would be a
-  document that gives lots of source code examples of a programming language. One
-  might therefore wish to create a program float. The float package is your
-  friend for this task. All commands to set up the new float must be placed in
-  the preamble, and not within the document.
-  \begin{Program*}
-  \caption{The Hello World! program in Java.}
-  \begin{verbatim}
-  class HelloWorldApp {
-    public static void main(String[] args) {
-      //Display the string
-      System.out.println("Hello World!");
+    \documentclass[twocolumn]{report}
+    \usepackage{float}
+    \floatstyle{ruled}
+    \newfloat{Program}{tbp}{lop}
+    \begin{document}
+    \chapter*{Chapter 1 - My}
+    If tables and figures are not adequate for your needs, then you always have the
+    option to create your own! A good example of such an instance would be a
+    document that gives lots of source code examples of a programming language. One
+    might therefore wish to create a program float. The float package is your
+    friend for this task. All commands to set up the new float must be placed in
+    the preamble, and not within the document.
+    \begin{Program*}
+    \caption{The Hello World! program in Java.}
+    \begin{verbatim}
+    class HelloWorldApp {
+      public static void main(String[] args) {
+        //Display the string
+        System.out.println("Hello World!");
+      }
     }
-  }
-  \end{verbatim}
-  \end{Program*}
-  If tables and figures are not adequate for your needs, then you always have the
-  option to create your own! A good example of such an instance would be a
-  document that gives lots of source code examples of a programming language. One
-  might therefore wish to create a program float. The float package is your
-  friend for this task. All commands to set up the new float must be placed in
-  the preamble, and not within the document.
-  \end{document}
+    \end{verbatim}
+    \end{Program*}
+    If tables and figures are not adequate for your needs, then you always have the
+    option to create your own! A good example of such an instance would be a
+    document that gives lots of source code examples of a programming language. One
+    might therefore wish to create a program float. The float package is your
+    friend for this task. All commands to set up the new float must be placed in
+    the preamble, and not within the document.
+    \end{document}
 
 # Floats
 
@@ -321,15 +321,15 @@ Following is an example of a "tabbing" environment in LATEX
 that can set the "tab-stop" to positions relative to the whole
 page width.
 
-  \begin{tabbing}
-  \hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\=\hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\kill
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
-  \end{tabbing}
+    \begin{tabbing}
+    \hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\=\hspace{0.234527\linewidth}\=\hspace{0.265473\linewidth}\kill
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    {\small{}hello} \> {\small{}world} \> {\small{}hello} \> {\small{}world} \\
+    \end{tabbing}
 
 # LATEX tables
 
@@ -348,16 +348,16 @@ that is at the left-hand side of the page---no rows are placed at the right-hand
 side of the column. This is also to assume that the compilation flag is 
 the following, which ensures that the compiler does not despite the warning.
 
-  lualatex --interaction=nonstopmode
+    lualatex --interaction=nonstopmode
 
 One can choose to temporary "halt" the two column layout by inserting the 
 command 
 
-  \onecolumn
+    \onecolumn
 
 before the \begin{xltabular} command, and then another command
 
-  \twocolumn
+    \twocolumn
 
 after the \end{xltabular} command. However, by doing so LATEX would
 starts a new page for the table, thus leaving a visible blank at 
@@ -367,7 +367,7 @@ It should also be pointed out that the normal way of adding additional
 vertical spacing to each row, either before or after, using the following
 command
 
-  \noalign{\vspace{2pt}}
+    \noalign{\vspace{2pt}}
 
 is possible, unless when the vertical line is to be drawn, in which 
 case there is going to be visible gap at at the place that the previous
@@ -380,30 +380,30 @@ With the "changepage" package, you can use the adjustwidth environment as
 follows, to shrink the width of the current paragraph by 5mm on
 the left-hand side and 7mm from the right-hand side.
 
-  \usepackage{changepage}
-  \begin{adjustwidth}{5mm}{7mm}
-  \lipsum[2]
-  \end{adjustwidth}
+    \usepackage{changepage}
+    \begin{adjustwidth}{5mm}{7mm}
+    \lipsum[2]
+    \end{adjustwidth}
 
 It has also been suggested by other people to place
 the following in the preamble:
 
-  \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-  \let\endchangemargin=\endlist 
+    \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+    \let\endchangemargin=\endlist 
 
 Then the \changemargin becomes a new command that can be used to
 do the following:
 
-  \begin{changemargin}{0.5cm}{0.5cm} 
-  %your text here  
-  \end{changemargin}
+    \begin{changemargin}{0.5cm}{0.5cm} 
+    %your text here  
+    \end{changemargin}
 
 # The enumerate package     
 
 The 'enumerate' package redefines the 'enumerate' and 'itemize'
 environments.
 
-  \usepackage{enumerate}
+    \usepackage{enumerate}
 
 The enumerate package allows you to control the display of the
 enumeration counter. The package adds an optional parameter to
@@ -415,22 +415,22 @@ enumeration. For example, the following 'enumerate' environment
 will allow for the labels of each item to appear as
 (a), (b), (c), etc.
 
-  \usepackage{enumerate}
-  \begin{enumerate}[(a)]
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumerate}
+    \begin{enumerate}[(a)]
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 The following 'enumerate' environment would allow for the labels
 of each list item to appear as I/, II/, III/, etc.
 
-  \usepackage{enumerate}
-  \begin{enumerate}[I/]
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumerate}
+    \begin{enumerate}[I/]
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 # The enumitem package
 
@@ -439,29 +439,29 @@ This package redefines the 'itemize', 'enumerate' and
 so that it can have the effect of a "tight list", such that the
 vertical margins before and after each item are removed. 
 
-  \begin{itemize}[nosep]
+    \begin{itemize}[nosep]
 
 If you need non-stereotyped designs, the enumitem package gives
 you most of the flexibility you might want to design your own.
 The silly roman example above could be achieved by:
 
-  \usepackage{enumitem}
-  \begin{enumerate}[label=\Roman{*}/]
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumitem}
+    \begin{enumerate}[label=\Roman{*}/]
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 Note that the * in the key value stands for the list counter at
 this level. You can also manipulate the format of references to
 list item labels:
 
-  \usepackage{enumitem}
-  \begin{enumerate}[label=\Roman{*}/, ref=(\roman{*})]
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumitem}
+    \begin{enumerate}[label=\Roman{*}/, ref=(\roman{*})]
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 To make references to the list items format appear as (i), (ii),
 (iii), etc.
@@ -469,32 +469,32 @@ To make references to the list items format appear as (i), (ii),
 The 'unboxed' option is especially useful if the label is long
 and sometimes need to be split into multiple lines.
 
-  \usepackage{enumitem}
-  \begin{enumerate}[style=unboxed]
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumitem}
+    \begin{enumerate}[style=unboxed]
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 The 'nosep' option is used to ask that there is no additional
 vertical margins allocated for each list item---thus making it a 
 "tight list" in appearance.
 
-  \usepackage{enumitem}
-  \begin{enumerate}[nosep]         
-  \item 
-  \item 
-  \item 
-  \end{enumerate}
+    \usepackage{enumitem}
+    \begin{enumerate}[nosep]         
+    \item 
+    \item 
+    \item 
+    \end{enumerate}
 
 The 'font' option allows for a different font style to
 be applied to each data term in a 'description' list.
 
-  \begin{description}[nosep,style=unboxed,font=\\normalfont]
-  \item
-  \item
-  \item
-  \end{description}
+    \begin{description}[nosep,style=unboxed,font=\\normalfont]
+    \item
+    \item
+    \item
+    \end{description}
 
 # The LONG block
 
@@ -502,7 +502,7 @@ The long table is expressed by the LONG block. It is done
 by the 'xltabular' environment that is offered by the following 
 package:
 
-  \usepackage{xltabular}
+    \usepackage{xltabular}
 
 This environment is perfect for one to typeset a table that has
 many rows that would need to appear in many different pages.
@@ -515,7 +515,7 @@ when the 'twocolumn' option is set for the document class.
 Thus, if the following is the case then when a 'xltabular' is to
 appear inside this document then LATEX will complain.
 
-  \documentclass[twocolumn]{article}
+    \documentclass[twocolumn]{article}
 
 Thus, NITRILE implementation of the translation to LATEX has
 been implemented so that if a 'twocolumns' option is set,
@@ -537,19 +537,65 @@ The 'xltabular' environment is able to have a caption.
 The \caption command must be the first one immediately following
 the opening of 'xltabular', and terminated by a double-backslash.
 
-  \begin{xltabular}
-  \caption{...}\\
-  \end{xltablar}
+    \begin{xltabular}
+    \caption{...}\\
+    \end{xltablar}
 
 The star version of the caption command is also possible to
 be used to suppress the numbering of the table.
 
-  \begin{xltabular}
-  \caption*{...}\\
-  \end{xltablar}
+    \begin{xltabular}
+    \caption*{...}\\
+    \end{xltablar}
 
 However, the current syntax for a LONG block in a NITRILE
 document does not allow for the specification of a caption.
+Following is an example of a LONG block.
+        
+    (&) Node.JS $(3fr)
+    (&) AngularJS $(5fr)
+
+    (&) Node.js is a cross-platform run-time environment for applications
+      written in JavaScript language. 
+    (&) AnglarJS is an open source web application development framework
+      developed by Google
+
+    (&) You need to install Node.js on the computer system.
+    (&) You just need to add AngularJS file just like any other JavaScript
+      file to use it in applications. 
+
+    (&) It is written in C, C++ and JavaScript languages. Node.js supports
+      non-blocking input/output API and an event-driven architecture.
+    (&) AngularJS is written entirely in JavaScript. It also allows
+      extending the HTML's syntax to describe the components of your
+      application. 
+
+Each paragraph must start with a '(&)' with no spaces before it.
+This entire paragraph represents an entire row of a long table. Each
+table cell entry is marked by the presence of an additional '(&)' 
+and followed by a space. Subsequent occurrences 
+of such paragraphs are considered additional rows for the same long table.
+Thus, in our example we will have a long table of four rows.
+
+For the first row, if the cell text ends with ${1fr} where the number "1"
+here could be of any one or digits, it will be interpreted as expressing
+the relative fraction of the column width for that column, and the entire
+pattern will be excluded from the the actual text of that cell. Thus,
+in our example the first row would each have the text of "Node.JS" and "AngularJS",
+and the first column is considered to have a fraction of column width of "3",
+and the second column a fraction of "5". 
+
+The fractional column width quantities are to be passed to the translation
+engine so that they could adjust the column width accordingly, using whatever
+native layout methods available.
+
+If one of table cells is to become empty, then it should be expressed as 
+
+    (&) {}
+
+
+
+
 
 # The TABB block
 
@@ -569,19 +615,19 @@ Note that TABB block would treat each entry as a rich text.
 This block is similar to TABB block. However, data inside this
 block is to be treated as a plain text. 
 
-  =  Inf. neg.               ,  簡単ではない
-     Inf. past               ,  簡単だった
-     Inf. neg. past          ,  簡単ではなかった
-     Formal                  ,  簡単です
-     Formal neg.             ,  簡単ではありません
-     Formal past             ,  簡単でした
-     Formal neg. past        ,  簡単ではありませんでした
-     Conjunctive             ,  簡単で
-     Conditional             ,  簡単なら（ば）
-     Provisional             ,  簡単だったら
-     Volitional              ,  簡単だろう
-     Adverbial               ,  簡単に
-     Degree                  ,  簡単さ
+    = Inf. neg.               ,  簡単ではない
+      Inf. past               ,  簡単だった
+      Inf. neg. past          ,  簡単ではなかった
+      Formal                  ,  簡単です
+      Formal neg.             ,  簡単ではありません
+      Formal past             ,  簡単でした
+      Formal neg. past        ,  簡単ではありませんでした
+      Conjunctive             ,  簡単で
+      Conditional             ,  簡単なら（ば）
+      Provisional             ,  簡単だったら
+      Volitional              ,  簡単だろう
+      Adverbial               ,  簡単に
+      Degree                  ,  簡単さ
 
 It scans the first line to see if it contains a comma. If 
 it does then the commas are treated as delimeter for separating 
@@ -612,11 +658,11 @@ appear within that column.
 
 Merging multiple columns for a given row.
 
-  \begin{tabulary}{\linewidth}{LLL}
-  Category & \multicolumn{2}{c}{Unit Symbol}\\
-  Length & meter & m\\
-  Mass & kilogram & kg\\
-  \end{tabulary}
+    \begin{tabulary}{\linewidth}{LLL}
+    Category & \multicolumn{2}{c}{Unit Symbol}\\
+    Length & meter & m\\
+    Mass & kilogram & kg\\
+    \end{tabulary}
 
 # The %^rmap= entry
 
@@ -646,39 +692,39 @@ Japanese characters. When such a pattern is detected, the
 'rmap' of that document is populated with the content of this
 item. 
 
-# The \label and \ref
+# The LATEX native \label and \ref commands
 
 Note that \label and \ref commands do not accept the hash mark
 character as part of the label name---thus following are
 illegal.
 
-  \label{#my} 
-  \ref{#my}
+    \label{#my} 
+    \ref{#my}
 
 When compiling a document with such \label and/or \ref
 designation, no error will be generated, but the reference
 to the labels are remained unresolved.
 
-# The \img 
+# The \img phrase
 
 The \img phrase would insert an external image on the bases
 that the name of an external image file is to be expected:
 
-  The image is \img{mytree.png}
+    The image is \img{mytree.png}
 
 Note that for LATEX translation it is to be the \includegraphics
 command without additional options.
 
-  The image is \includegraphics{mytree.png}
+    The image is \includegraphics{mytree.png}
 
 For CONTEX translation it is to be the \externalfigure
 command without additional options.
 
-  The image is \externalfigure[mytree.png]
+    The image is \externalfigure[mytree.png]
 
 For HTML translation it is to be a IMG element.
 
-  The image is <img src='mytree.png' />
+    The image is <img src='mytree.png' />
 
 The intend is to typeset a image without having to worry about
 the placement and scaling of this image. It is thus suitable for
@@ -699,7 +745,7 @@ when a symbol such as an ampersand appears it causes the
 lualatex compilation to complain---don't know why.
 It is thus better to avoid it.
 
-  \addcontentsline{toc}{chapter}{1 Continuative forms}
+    \addcontentsline{toc}{chapter}{1 Continuative forms}
 
 # The dollar-sign and ampersand in math expression
 
@@ -720,15 +766,15 @@ expressed by that ampersand symbol aligned vertically.
 The := symbol in math can be typeset using '\coloneqq' command, 
 which is available through package 'mathtools'
 
-  \( a \coloneq b \)
+    \( a \coloneq b \)
 
 
-# Inline BARCHART
+# Inline VBARCHART
 
 The inline BARCHART takes on a syntax of \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}. 
 It must have the form of 
 
-  \vbarchart{width;height;data}
+    \vbarchart{width;height;data}
 
 The 'width' argument is a number expressing in mm the width of the chart
 on paper. The 'height' argument is a number expressing in mm the height
@@ -737,19 +783,19 @@ by a comma, the height of the bar. This number must be in the range from 0-1.
 
 It will generate the following MP code.
 
-  \begin{mplibcode}
-  beginfig(1)
-  linecap := butt;
-  linejoin := mitered;
-  w := 20mm;
-  h := 10mm;
-  draw ((0,0)--(0.2,0)--(0.2,0.2)--(0,0.2)--cycle)     xscaled(w) yscaled(h) ;
-  draw ((0.2,0)--(0.4,0)--(0.4,0.8)--(0.2,0.8)--cycle) xscaled(w) yscaled(h) ;
-  draw ((0.4,0)--(0.6,0)--(0.6,0.6)--(0.4,0.6)--cycle) xscaled(w) yscaled(h) ;
-  draw ((0.6,0)--(0.8,0)--(0.8,0.4)--(0.6,0.4)--cycle) xscaled(w) yscaled(h) ;
-  draw ((0.8,0)--(1,0)--(1,1.0)--(0.8,1.0)--cycle)     xscaled(w) yscaled(h) ;
-  endfig
-  \end{mplibcode}
+    \begin{mplibcode}
+    beginfig(1)
+    linecap := butt;
+    linejoin := mitered;
+    w := 20mm;
+    h := 10mm;
+    draw ((0,0)--(0.2,0)--(0.2,0.2)--(0,0.2)--cycle)     xscaled(w) yscaled(h) ;
+    draw ((0.2,0)--(0.4,0)--(0.4,0.8)--(0.2,0.8)--cycle) xscaled(w) yscaled(h) ;
+    draw ((0.4,0)--(0.6,0)--(0.6,0.6)--(0.4,0.6)--cycle) xscaled(w) yscaled(h) ;
+    draw ((0.6,0)--(0.8,0)--(0.8,0.4)--(0.6,0.4)--cycle) xscaled(w) yscaled(h) ;
+    draw ((0.8,0)--(1,0)--(1,1.0)--(0.8,1.0)--cycle)     xscaled(w) yscaled(h) ;
+    endfig
+    \end{mplibcode}
 
 
 # Inline XYPLOT
@@ -757,7 +803,7 @@ It will generate the following MP code.
 Inline XYPLOT can be generated via the \xyplot phrase. 
 It must has the following form
 
-  \xyplot{width;height;data;opt}
+    \xyplot{width;height;data;opt}
 
 The 'width' argument expresses a number that is the width of the chart in mm.
 The 'height' argument expresses a number that is the height of the chart in mm.
@@ -765,22 +811,22 @@ The 'data' argument expresses a list of xy-coordinates pairs, all separated by
 commas. All coordinates must in the range between 0-1. Following is an example
 to plot (0,2,0.2), (0.3,0.3), and (0.4,0.4).
 
-  \xyplot{20;10;0.2,0.2,0.3,0.3,0.4,0.4}
+    \xyplot{20;10;0.2,0.2,0.3,0.3,0.4,0.4}
 
 The prevous phrase
 would have generated the following code for LATEX.
-  
-  \begin{mplibcode}
-  beginfig(1)
-  linecap := butt;
-  linejoin := mitered;
-  w := 20mm;
-  h := 10mm;
-  fill fullcircle scaled(2) shifted(0.2,0.2) scaled(u) ;`);
-  fill fullcircle scaled(2) shifted(0.3,0.3) scaled(u) ;`);
-  fill fullcircle scaled(2) shifted(0.4,0.4) scaled(u) ;`);
-  endfig
-  \end{mplibcode}
+    
+    \begin{mplibcode}
+    beginfig(1)
+    linecap := butt;
+    linejoin := mitered;
+    w := 20mm;
+    h := 10mm;
+    fill fullcircle scaled(2) shifted(0.2,0.2) scaled(u) ;`);
+    fill fullcircle scaled(2) shifted(0.3,0.3) scaled(u) ;`);
+    fill fullcircle scaled(2) shifted(0.4,0.4) scaled(u) ;`);
+    endfig
+    \end{mplibcode}
 
 Each dot is a circle of diameter 2pt. This is hardcoded
 and cannot be changed.
@@ -800,104 +846,106 @@ numbers together. For example, if both the "circle point"
 option and the "interpolation line" option is to be included,
 then the 'opt' argument would be set to "3".
 
+
+
 # Defining custom floats
 
-  \\usepackage{float}
-  \\floatstyle{plaintop}
-  \\newfloat{Figure}{tbp}{lof}
-  \\floatstyle{plaintop}
-  \\newfloat{Table}{tbp}{lot}
-  \\floatstyle{plaintop}
-  \\newfloat{program}{tbp}{lop}
+    \\usepackage{float}
+    \\floatstyle{plaintop}
+    \\newfloat{Figure}{tbp}{lof}
+    \\floatstyle{plaintop}
+    \\newfloat{Table}{tbp}{lot}
+    \\floatstyle{plaintop}
+    \\newfloat{program}{tbp}{lop}
 
 # Additional math operators and Greek letters
 
-  \\DeclareMathOperator{\\sech}{sech}
-  \\DeclareMathOperator{\\csch}{csch}
-  \\DeclareMathOperator{\\arcsec}{arcsec}
-  \\DeclareMathOperator{\\arccot}{arccot}
-  \\DeclareMathOperator{\\arccsc}{arccsc}
-  \\DeclareMathOperator{\\arcosh}{arcosh}
-  \\DeclareMathOperator{\\arsinh}{arsinh}
-  \\DeclareMathOperator{\\artanh}{artanh}
-  \\DeclareMathOperator{\\arsech}{arsech}
-  \\DeclareMathOperator{\\arcsch}{arcsch}
-  \\DeclareMathOperator{\\arcoth}{arcoth}
-  \\DeclareMathSymbol{\\Alpha}{\\mathalpha}{operators}{"41}
-  \\DeclareMathSymbol{\\Beta}{\\mathalpha}{operators}{"42}
-  \\DeclareMathSymbol{\\Epsilon}{\\mathalpha}{operators}{"45}
-  \\DeclareMathSymbol{\\Zeta}{\\mathalpha}{operators}{"5A}
-  \\DeclareMathSymbol{\\Eta}{\\mathalpha}{operators}{"48}
-  \\DeclareMathSymbol{\\Iota}{\\mathalpha}{operators}{"49}
-  \\DeclareMathSymbol{\\Kappa}{\\mathalpha}{operators}{"4B}
-  \\DeclareMathSymbol{\\Mu}{\\mathalpha}{operators}{"4D}
-  \\DeclareMathSymbol{\\Nu}{\\mathalpha}{operators}{"4E}
-  \\DeclareMathSymbol{\\Omicron}{\\mathalpha}{operators}{"4F}
-  \\DeclareMathSymbol{\\Rho}{\\mathalpha}{operators}{"50}
-  \\DeclareMathSymbol{\\Tau}{\\mathalpha}{operators}{"54}
-  \\DeclareMathSymbol{\\Chi}{\\mathalpha}{operators}{"58}
-  \\DeclareMathSymbol{\\omicron}{\\mathord}{letters}{"6F}
+    \\DeclareMathOperator{\\sech}{sech}
+    \\DeclareMathOperator{\\csch}{csch}
+    \\DeclareMathOperator{\\arcsec}{arcsec}
+    \\DeclareMathOperator{\\arccot}{arccot}
+    \\DeclareMathOperator{\\arccsc}{arccsc}
+    \\DeclareMathOperator{\\arcosh}{arcosh}
+    \\DeclareMathOperator{\\arsinh}{arsinh}
+    \\DeclareMathOperator{\\artanh}{artanh}
+    \\DeclareMathOperator{\\arsech}{arsech}
+    \\DeclareMathOperator{\\arcsch}{arcsch}
+    \\DeclareMathOperator{\\arcoth}{arcoth}
+    \\DeclareMathSymbol{\\Alpha}{\\mathalpha}{operators}{"41}
+    \\DeclareMathSymbol{\\Beta}{\\mathalpha}{operators}{"42}
+    \\DeclareMathSymbol{\\Epsilon}{\\mathalpha}{operators}{"45}
+    \\DeclareMathSymbol{\\Zeta}{\\mathalpha}{operators}{"5A}
+    \\DeclareMathSymbol{\\Eta}{\\mathalpha}{operators}{"48}
+    \\DeclareMathSymbol{\\Iota}{\\mathalpha}{operators}{"49}
+    \\DeclareMathSymbol{\\Kappa}{\\mathalpha}{operators}{"4B}
+    \\DeclareMathSymbol{\\Mu}{\\mathalpha}{operators}{"4D}
+    \\DeclareMathSymbol{\\Nu}{\\mathalpha}{operators}{"4E}
+    \\DeclareMathSymbol{\\Omicron}{\\mathalpha}{operators}{"4F}
+    \\DeclareMathSymbol{\\Rho}{\\mathalpha}{operators}{"50}
+    \\DeclareMathSymbol{\\Tau}{\\mathalpha}{operators}{"54}
+    \\DeclareMathSymbol{\\Chi}{\\mathalpha}{operators}{"58}
+    \\DeclareMathSymbol{\\omicron}{\\mathord}{letters}{"6F}
 
 # Memoir new floats
 
 This is how MEMOIR class has defined to allow for creating
 of new custom floats.
 
-  %%% create a new float named 'diagram'
-  \\newcommand{\\diagramname}{Diagram}
-  \\newcommand{\\listdiagramname}{List of Diagrams}
-  \\newlistof{listofdiagrams}{dgm}{\\listdiagramname}
-  \\newfloat{diagram}{dgm}{\\diagramname}
-  \\newlistentry{diagram}{dgm}{0}
-  %%% create a new float named 'program'
-  \\newcommand{\\programname}{Program}
-  \\newcommand{\\listprogramname}{List of Programs}
-  \\newlistof{listofprograms}{pgm}{\\listprogramname}
-  \\newfloat{program}{pgm}{\\programname}
-  \\newlistentry{program}{pgm}{0}
+    %%% create a new float named 'diagram'
+    \\newcommand{\\diagramname}{Diagram}
+    \\newcommand{\\listdiagramname}{List of Diagrams}
+    \\newlistof{listofdiagrams}{dgm}{\\listdiagramname}
+    \\newfloat{diagram}{dgm}{\\diagramname}
+    \\newlistentry{diagram}{dgm}{0}
+    %%% create a new float named 'program'
+    \\newcommand{\\programname}{Program}
+    \\newcommand{\\listprogramname}{List of Programs}
+    \\newlistof{listofprograms}{pgm}{\\listprogramname}
+    \\newfloat{program}{pgm}{\\programname}
+    \\newlistentry{program}{pgm}{0}
 
-# The "listings" package
+# The LATEX native "listings" package
 
 To include source code listing, do the following.
 
-  \begin{lstlisting}
-  Code here 
-  \end{lstlisting}
+    \begin{lstlisting}
+    Code here 
+    \end{lstlisting}
 
 Additional settings can be fine turned using the \lstset command.
 
-  \usepackage{listings}
-  \usepackage{color}
+    \usepackage{listings}
+    \usepackage{color}
 
-  \definecolor{mygreen}{rgb}{0,0.6,0}
-  \definecolor{mygray}{rgb}{0.5,0.5,0.5}
-  \definecolor{mymauve}{rgb}{0.58,0,0.82}
+    \definecolor{mygreen}{rgb}{0,0.6,0}
+    \definecolor{mygray}{rgb}{0.5,0.5,0.5}
+    \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-  \lstset{ 
-    backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
-    basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-    breaklines=true,                 % sets automatic line breaking
-    captionpos=b,                    % sets the caption-position to bottom
-    commentstyle=\color{mygreen},    % comment style
-    deletekeywords={...},            % if you want to delete keywords from the given language
-    escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-    extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-    firstnumber=1000,                % start line enumeration with line 1000
-    frame=single,	                   % adds a frame around the code
-    keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-    keywordstyle=\color{blue},       % keyword style
-    language=Octave,                 % the language of the code
-    morekeywords={*,...},            % if you want to add more keywords to the set
-    numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-    numbersep=5pt,                   % how far the line-numbers are from the code
-    numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
-    rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-    showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-    showstringspaces=false,          % underline spaces within strings only
-    showtabs=false,                  % show tabs within strings adding particular underscores
-    stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
-    stringstyle=\color{mymauve},     % string literal style
-    tabsize=2,	                   % sets default tabsize to 2 spaces
-    title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-  }
+    \lstset{ 
+      backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+      basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+      breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+      breaklines=true,                 % sets automatic line breaking
+      captionpos=b,                    % sets the caption-position to bottom
+      commentstyle=\color{mygreen},    % comment style
+      deletekeywords={...},            % if you want to delete keywords from the given language
+      escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+      extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+      firstnumber=1000,                % start line enumeration with line 1000
+      frame=single,	                   % adds a frame around the code
+      keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+      keywordstyle=\color{blue},       % keyword style
+      language=Octave,                 % the language of the code
+      morekeywords={*,...},            % if you want to add more keywords to the set
+      numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+      numbersep=5pt,                   % how far the line-numbers are from the code
+      numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+      rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+      showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+      showstringspaces=false,          % underline spaces within strings only
+      showtabs=false,                  % show tabs within strings adding particular underscores
+      stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+      stringstyle=\color{mymauve},     % string literal style
+      tabsize=2,	                   % sets default tabsize to 2 spaces
+      title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+    }

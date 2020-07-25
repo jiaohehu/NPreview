@@ -25,8 +25,9 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/epub.js",
+      "program": "${workspaceFolder}/tests/test.js",
       "args":[
+        "epub",
         "a.md"
       ]
     },
@@ -53,7 +54,7 @@
       "cwd": "${workspaceRoot}/tests",
       "program": "${workspaceFolder}/tests/lualatex.js",
       "args": [
-          "a.md"
+        "a.md"
       ]
     },
     {
@@ -64,8 +65,9 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/pdflatex.js",
+      "program": "${workspaceFolder}/tests/test.js",
       "args": [
+        "pdflatex",
         "a.md"
       ]
     }

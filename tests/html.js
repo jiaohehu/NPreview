@@ -7,18 +7,19 @@ const fname = process.argv[2];
 console.log('fname=',fname);
 
 var work = async ()=>{
-  console.log(fname);
   var out = await utils.readFileAsync(fname);
   var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
+  const translator = new NitrilePreviewHtml(parser);
   parser.read_md_lines(lines);
-  var translator = new NitrilePreviewHtml(parser);
   translator.translate_blocks();
   var main = parser.blocks;
   var htmls = main.map(x=>x.html);
-  console.log(htmls.join('\n'));
+  var html = htmls.join('\n');
+  console.log(html);
 };
 
 if(fname){
   work();
 }
+

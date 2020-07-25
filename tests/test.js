@@ -19,63 +19,71 @@ var work = async ()=>{
   parser.read_md_lines(lines);
   await parser.read_mode_async();
   switch(opt){
-    case 'context':
-      let translator = new NitrilePreviewContext(parser);
+    case 'context': {
+      var translator = new NitrilePreviewContext(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.latex);
+      var outlines = main.map(x=>x.latex);
       console.log(outlines.join('\n'));
-      let data = translator.to_context_document();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
+      var data = translator.to_context_document();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
       await utils.writeFileAsync(ofile,data);
       break;
-    case 'lualatex':
-      let translator = new NitrilePreviewLualatex(parser);
+    }
+    case 'lualatex': {
+      var translator = new NitrilePreviewLualatex(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.latex);
+      var outlines = main.map(x=>x.latex);
       console.log(outlines.join('\n'));
-      let data = translator.to_lualatex_document();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
+      var data = translator.to_lualatex_document();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
       await utils.writeFileAsync(ofile,data);
       break;
-    case 'pdflatex':
-      let translator = new NitrilePreviewPdflatex(parser);
+    }
+    case 'pdflatex': {
+      var translator = new NitrilePreviewPdflatex(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.latex);
+      var outlines = main.map(x=>x.latex);
       console.log(outlines.join('\n'));
-      let data = translator.to_lualatex_document();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
+      var data = translator.to_lualatex_document();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.tex`;
       await utils.writeFileAsync(ofile,data);
       break;
-    case 'html':
-      let translator = new NitrilePreviewHtml(parser);
+    }
+    case 'html': {
+      var translator = new NitrilePreviewHtml(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.html);
+      var outlines = main.map(x=>x.html);
       console.log(outlines.join('\n'));
-      let data = translator.to_html_document();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.html`;
+      var data = translator.to_html_document();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.html`;
       await utils.writeFileAsync(ofile,data);
       break;
-    case 'xhtml':
-      let translator = new NitrilePreviewHtml(parser);
+    }
+    case 'xhtml': {
+      var translator = new NitrilePreviewHtml(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.html);
+      var outlines = main.map(x=>x.html);
       console.log(outlines.join('\n'));
-      let data = translator.to_xhtml_document();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.html`;
+      var data = translator.to_xhtml_document();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.html`;
       await utils.writeFileAsync(ofile,data);
       break;
-    case 'epub':
-      let translator = new NitrilePreviewEpub(parser);
+    }
+    case 'epub': {
+      var translator = new NitrilePreviewEpub(parser);
       translator.translate_blocks();
-      let outlines = main.map(x=>x.html);
+      var outlines = main.map(x=>x.html);
       console.log(outlines.join('\n'));
-      let data = await translator.to_epub_document_async();
-      let ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.epub`;
+      var data = await translator.to_epub_document_async();
+      var ofile = `${fname.slice(0,fname.length-path.extname(fname).length)}.epub`;
       await utils.writeFileAsync(ofile,data);
       break;
+    }
     default: 
       break;
   }
 };
 
-work();
+if(fname){
+  work();
+}

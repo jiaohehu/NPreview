@@ -9,11 +9,10 @@ console.log('fname=',fname);
 var work = async ()=>{
   var out = await utils.readFileAsync(fname);
   var lines = out.split('\n');
-  console.log(lines);
   const parser = new NitrilePreviewParser();
   parser.read_md_lines(lines);
-  var translator = new NitrilePreviewLualatex();
-  parser.translate_blocks(translator);
+  var translator = new NitrilePreviewLualatex(parser);
+  translator.translate_blocks();
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);
   console.log(latex.join('\n'));

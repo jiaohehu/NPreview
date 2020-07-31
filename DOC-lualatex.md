@@ -847,6 +847,39 @@ option and the "interpolation line" option is to be included,
 then the 'opt' argument would be set to "3".
 
 
+# Inline Colorbox
+
+The inline color box is done by the \colorbox command.
+
+    \colorbox{5;3;pink}
+
+The first and second is the width and height of the box, and the third
+one is the color. It could be the name of the color, such as
+"pink". The valid names are the only of those supported by the "xcolor"
+package. 
+
+- black    
+- yellow  
+- magenta 
+- green    
+- darkgray    
+- orange      
+- violet      
+- lime        
+- gray    
+- red      
+- blue    
+- olive    
+- lightgray    
+- purple      
+- cyan        
+- brown        
+- white 
+- pink  
+- teal  
+         
+
+
 
 # Defining custom floats
 
@@ -949,3 +982,18 @@ Additional settings can be fine turned using the \lstset command.
       tabsize=2,	                   % sets default tabsize to 2 spaces
       title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
     }
+
+
+# Placing images in a grid
+	
+	\begin{figure}[ht]
+	\centering
+	\caption{}
+	\begin{tabular}{@{}p{0.32\linewidth}@{\hspace{0.02\linewidth}}p{0.32\linewidth}@{\hspace{0.02\linewidth}}p{0.32\linewidth}@{}}
+	\includegraphics[width=\linewidth]{math-graph-1.png} & \includegraphics[width=\linewidth]{math-graph-2.png} & \includegraphics[width=\linewidth]{math-graph-3.png}
+	\\
+	 &  & 
+	\\
+	\end{tabular}
+	\end{figure}
+

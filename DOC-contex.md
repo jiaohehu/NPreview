@@ -10,8 +10,9 @@
 
 # The \bTABLE problem
 
-The LONG table expressed by \bTABLE tends to start in a 
-fresh new column if "twocolumns" option is set to true.
+The LONG table expressed by \bTABLE would  start 
+in a new page even after a chapter title, when there are
+not text before the table.
 
 
 # The "longpadding" option
@@ -203,6 +204,14 @@ similar names but not sure what they are about.
   is centered and does not take up the entire width of the page. In 
   addition, the "Figure 13.2" text is bold.
 
+- If the math is something like ```\exp()``` the parentheses
+  are sometimes observed to being placed on top of the string "exp",
+  which is a flaw in the current layout system.
+
+- I am not able to center a \starttabulate using \startalignment[center],
+  regardless how hard I've tried, in spite of adding \dontleavehmode
+  after \startalignment command, as was recommended by the 
+  WIKI.CONTEXTGARDEN.
 
 
 # Math formula
@@ -400,6 +409,14 @@ of a line. However, the \starttabulate environment does not
 allow for such a construction.
 
 
+# The \bTABLE for LONG table
+
+For the LONG block, it sometimes can be observed that 
+if the text is too long to fit inside the cell it will
+protrude into the next cell to its right hand side.
+
+
+
 # Sections and chapters
 
 CONTEXT automatically chooses sections as the toplevel
@@ -440,6 +457,58 @@ second part, etc.
 - 1 for numbers (default)
 
 For now, only the first 26 parts are supported.
+
+
+# Centering of a "tabulate"
+
+Following are ways to center a "tabulate".
+It involves calling \placetable with a "force" flag so that
+the table is turned into a "float" but is "forced" into 
+being placed at the current location instead of having an
+option to be moved around. 
+
+    \placetable[force,none]{}{%
+    \starttabulate[|l|l|]
+    \HL
+    \NC First \NC Second \NR
+    \NC number \NC number \NR
+    \HL
+    \NC 1 \NC 2 \NR
+    \NC 2 \NC 4 \NR
+    \NC 3 \NC 6 \NR
+    \NC 4 \NC 8 \NR
+    \NC 5 \NC 10 \NR
+    \NC 5.5 \NC 11 \NR
+    \NC 6 \NC 12 \NR
+    \HL
+    \stoptabulate
+    }
+
+
+# The headers for "tabulate"
+
+Tabulate supports header rows that can be repeated over new table pages instead
+of the title. There is a separate environment \starttabulatehead where this
+header row has to be specified in advance of its use in a tabulation.
+
+In ConTeXt MkIV the command requires an additional [], thus you need to write
+\starttabulatehead[] instead.
+
+
+    \setuptabulate[split=yes,header=repeat]
+
+    \starttabulatehead
+      \FL
+      \NC {\bf format char} \NC {\bf meaning} \NC \AR
+      \LL
+    \stoptabulatehead
+
+    \starttabulate[|r|l|]
+        \NC c \NC centered      \NC \AR
+        \NC l \NC left aligned  \NC \AR
+        \NC r \NC right aligned \NC \AR
+    \stoptabulate
+
 
 
 

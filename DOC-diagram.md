@@ -125,7 +125,7 @@ of 125mm in width, and 10 grid units of horizontal direction will put
 the image in the height of 50mm. To set the unit to a different length,
 call the 'config unit' command below.
 
-    config unit 6mm
+    config unit 6
 
 The 'config grid' command can be used to change how background grid lines are to be 
 shown in the final Diagram image. By default, each grid is to be show with a 
@@ -145,6 +145,68 @@ and MetaPost generation the image will be "enlarged" if contents were drawn outs
 of the outline.
 
 
+# The config command
+
+The config command can be used to control the configuration
+parameters for the entire Diagram. This set includes the previous
+discussed viewport width and height, and the unit.
+
+However, there are additional configuration parameters. These
+parameters should be set at the beginning of the Diagram, before
+any drawing commands, in order to maintain consistencies.
+Changing these configuration parameters in the middle of other
+drawing commands are not recommended and may result in distorted
+picture.
+
+(&) Options         $(1fr)
+(&) Default value   $(1fr)
+(&) Comments        $(3fr)
+
+(&) width      
+(&) 25           
+(&) Offset location (integer)
+
+(&) height     
+(&) 10           
+(&) Offset location (integer)
+
+(&) unit       
+(&) 5            
+(&) The width for each grid (mm)
+
+(&) grid       
+(&) ''           
+(&) ''|'boxed'|'none'                 
+
+(&) barlength  
+(&) 0.25         
+(&) The default length of the bar (grid unit)
+
+(&) dotsize    
+(&) 5            
+(&) The default size of dot (pt)
+
+(&) linesize   
+(&) 0            
+(&) The default size for line drawing (pt), when 0 is set it uses the default line size
+
+(&) fillcolor  
+(&) ''            
+(&) The default fill color, when set to empty string it implies that no filling should be performed
+
+(&) labeldx    
+(&) 2            
+(&) The x-offset of label text to anchor point, SVG only (px)
+
+(&) labeldy    
+(&) 2            
+(&) The y-offset of label text to anchor point, SVG only (px)
+
+(&) noderadius 
+(&) 1            
+(&) The radius of the circle for each node. (grid unit)
+
+
 # The set and reset commands
 
 The `set` command sets the following parameters
@@ -153,26 +215,18 @@ for the current drawing environment.
     set refx <number>
     set refy <number>
     set refs <number>
-    set barlength <number>     
-    set dotsize   <number>     
-    set labelgapx <number>
-    set labelgapy <number>
 
 Following are default values for it.
 
     @ Table
 
-      ---------------|-----------------------------------------------
-      Options        |Default value     Comments
-      ---------------|-----------------------------------------------
-      refx           |0                 Offset location
-      refy           |0                 Offset location
-      refs           |1                 Scale factor     
-      barlength      |0.25              The default length of the bar    
-      dotsize        |5                 The default size of dot
-      labelgapx      |3                 The x-offset to label text
-      labelgapy      |3                 The y-offset to label text
-      ---------------|-----------------------------------------------
+      -----------|-------------|---------------------------------
+      Options    |Default value| Comments
+      -----------|-------------|---------------------------------
+      refx       |0            | Offset location (grid)
+      refy       |0            | Offset location (grid)
+      refs       |1            | Scale factor (scalar)
+      -----------|-------------|---------------------------------
 
 The 'refx', 'refy', and 'refs' parameters can be set at any point during a drawing.
 It can be compared to a "transform" of a SVG operation. In this case, all drawings
@@ -183,14 +237,6 @@ By default all drawings are expressed as relative to the origin, which is
 (0,0), which is located at the lower-left-hand corner of the viewport.  By
 setting it to a different value, it allows you to treat several drawings as a
 group and then move them all at once at ease.
-
-The 'barlength' is the length of the bar for the 'vbar' and 'hbar' operations.
-The default valueis 0.25, which expresses the fact that each bar will be shown
-at the length of 1/4 of the grid.
-
-The 'labelgapx' and 'labelgapy' parameters define the additional "gap" between
-the point and the edge of the text to be drawn. It is only for the SVG translation.
-It is used to add additional spacing between the anchor point and the actual text.
 
 Note that when callign the 'set' command with a parameter, but without supplying
 any additional values reset that parameter to its default value.
@@ -1425,4 +1471,53 @@ examples of such mini-diagram.
 
     \xyplot{20;10;0.2,0.2,0.3,0.3,0.4,0.4;3}
     \vbarchart{20;10;0.2,0.8,0.6,0.4,1.0}
+
+
+
+# The node and edge
+
+The 'node' and 'edge' commands are for supporting drawings commonly found in
+graph theory, where there are nodes, which are basically circles with an
+optional text in the middle, or edges, which are lines (straight or curved)
+connecting two nodes, with an optional arrow at either end of the line.
+
+    node.A  (1,1)
+    node.B  (5,5)
+
+The previous two commands would have drawn two nodes, one named "A",
+and one named "B" at two locations where each aligns with the center
+of one of the nodes.
+The default radius of the node is 1, but it can be configured to another 
+such as "2" by doing the following
+    config noderadius 2
+
+The "edge" command would be able to draw an edge between two nodes.
+
+    edge.A.B  
+
+The edge is by default a straight line.  Each end point of this line starts
+from the outside of the node. However, if a curved line is desired, then the
+"dir:" option can be included. This option describes an angle in degree, as to
+how to start out the curved line in a new direction. A positive number
+describes an additional angle to be added to the normal angle, calculated by
+the direct distance between the two nodes. A positive "dir" expresses that it
+should turn counter-clockwise, and a negative "dir" expresses that it should
+turn clockwise. Note that the angle being discussed here refers to the angle
+going from the first node to the second node.
+
+Thus, the following example would have drawn a curved edge that is to appear on
+the top-left hand side of the supposed straight line that would have been drawn
+had the "dir:" option not been specified.
+
+    edge.A.B {dir:45} 
+
+If the edge is going to include arrow heads, then one of the following three
+options should've been used
+
+    edge.A.B {arrow;dir:45}
+    edge.A.B {revarrow;dir:45}
+    edge.A.B {dblarrow;dir:45}
+
+
+
 

@@ -982,6 +982,7 @@
 
     "in"         : { "html": "&#x2208;"  , "latex":  "$\\in$"            ,  "context":  "$\\in$"                                            },
     "nin"        : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"                                         },
+    "notin"      : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"                                         },
     "ni"         : { "html": "&#x220B;"  , "latex":  "$\\ni$"            ,  "context":  "$\\ni$"                                            },
     "nni"        : { "html": "&#x220C;"  , "latex":  "$\\nni$"           ,  "context":  "$\\nni$"                                           },
     "subset"     : { "html": "&#x2282;"  , "latex":  "$\\subset$"        ,  "context":  "$\\subset$"                                        },

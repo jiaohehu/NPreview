@@ -129,12 +129,12 @@
 
     { "kbd": "&"               ,    "unicode": "&#38;"          ,  "id": "myAMPERSAND",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7    },
     { "kbd": "\""              ,    "unicode": "&#34;"          ,  "id": "myQUOTATION",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
-    { "kbd": "'"               ,    "unicode": "&#39;"          ,  "id": "myAPOSTROPHE",  "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
+    { "kbd": "'"               ,    "unicode": "&#x2032;"       ,  "id": "myAPOSTROPHE",  "dx":"0.15",   "dy":"0.75em",   "op": 0    ,  "width": 4    },
 
     { "kbd": "+"               ,    "unicode": "+"              ,  "id": "myPLUS",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "_"               ,    "unicode": "_"              ,  "id": "myUS",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "^"               ,    "unicode": "^"              ,  "id": "myCR",          "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7     },
-    { "kbd": "="               ,    "unicode": "="              ,  "id": "myEQ",          "dx":"0",      "dy":"0.75em",    "op": 1    ,  "width": 7     },
+    { "kbd": "="               ,    "unicode": "="              ,  "id": "myEQ",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "-"               ,    "unicode": "&#8722;"        ,  "id": "myMI",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "?"               ,    "unicode": "?"              ,  "id": "myQU",          "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 5     },
     { "kbd": ">"               ,    "unicode": "&#62;"          ,  "id": "myGT",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },

@@ -178,14 +178,11 @@
     { "kbd": "\\subseteq"      ,    "unicode": "&#x2286;"       ,  "id": "my2286",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\supset"        ,    "unicode": "&#x2283;"       ,  "id": "my2283",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\supseteq"      ,    "unicode": "&#x2287;"       ,  "id": "my2287",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
-    { "kbd": "\\not\\subset"   ,    "unicode": "&#x2284;"       ,  "id": "my2284",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\nsubseteq"     ,    "unicode": "&#x2288;"       ,  "id": "my2288",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
-    { "kbd": "\\not\\supset"   ,    "unicode": "&#x2285;"       ,  "id": "my2285",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\nsupseteq"     ,    "unicode": "&#x2289;"       ,  "id": "my2289",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\times"         ,    "unicode": "&#x00D7;"       ,  "id": "my00D7",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\div"           ,    "unicode": "&#x00F7;"       ,  "id": "myx00F7",       "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\pm"            ,    "unicode": "&#x00B1;"       ,  "id": "my00B1",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
-    { "kbd": "\\bmod"          ,    "unicode": "mod"            ,  "id": "myMOD",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 21   },
 
     { "kbd": "\\emptyset"      ,    "unicode": "&#x2205;"       ,  "id": "my2205",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7    },
     { "kbd": "\\infty"         ,    "unicode": "&#x221E;"       ,  "id": "my221E",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 8    },
@@ -236,6 +233,7 @@
     { "kbd": "\\:"             ,    "unicode": "&#x2005;"       ,  "id": "myMEDSP",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
     { "kbd": "\\,"             ,    "unicode": "&#x2006;"       ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 2    },
 
+    { "kbd": "\\bmod"          ,    "unicode": "mod"            ,  "id": "myMOD",         "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 21   },
     { "kbd": "\\cos"           ,    "unicode": "cos"            ,  "id": "myCOS",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 14   },
     { "kbd": "\\csc"           ,    "unicode": "csc"            ,  "id": "myCSC",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 14   },
     { "kbd": "\\exp"           ,    "unicode": "exp"            ,  "id": "myEXP",         "dx":"0",      "dy":"0.75em",  "op": 3    ,  "width": 14   },
@@ -1097,6 +1095,7 @@
     "limsup"     : { "html": "lim&#160;sup"   ,  "latex": "$\\limsup$"  , "context": "$\\limsup$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 30   },
     "liminf"     : { "html": "lim&#160;inf"   ,  "latex": "$\\liminf$"  , "context": "$\\liminf$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 30   },
 
+    "bmod"       : { "html": "mod"            ,  "latex": "$\\bmod$"    , "context": "$\\bmod$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
     "exp"        : { "html": "exp"            ,  "latex": "$\\exp$"     , "context": "$\\exp$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
     "ker"        : { "html": "ker"            ,  "latex": "$\\ker$"     , "context": "$\\ker$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
     "deg"        : { "html": "deg"            ,  "latex": "$\\deg$"     , "context": "$\\deg$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },

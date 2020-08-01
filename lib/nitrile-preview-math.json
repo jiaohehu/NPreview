@@ -1000,7 +1000,7 @@
     "lor"        : { "html": "&#x22C1;"  , "latex":  "$\\lor$"           ,  "context":  "$\\lor$"                                           },
     "cap"        : { "html": "&#x22C2;"  , "latex":  "$\\cap$"           ,  "context":  "$\\cap$"                                           },
     "cup"        : { "html": "&#x22C3;"  , "latex":  "$\\cup$"           ,  "context":  "$\\cup$"                                           },
-    "setminus"   : { "html": "&#x2216;"  , "latex":  "$\\setminus$"      ,  "context":  "$\\setminus$"                                      },
+    "setminus"   : { "html": "&#x2216;"  , "latex":  "$\\smallsetminus$" ,  "context":  "$\\smallsetminus$"                                 },
     "iff"        : { "html": "&#x27FA;"  , "latex":  "$\\iff$"           ,  "context":  "$\\iff$"                                           },
 "Leftrightarrow" : { "html": "&#x21D4;"  , "latex":  "$\\Leftrightarrow$",  "context":  "$\\Leftrightarrow$"                                },
     "top"        : { "html": "&#x22A4;"  , "latex":  "$\\top$"           ,  "context":  "$\\top$"                                           },
@@ -1062,7 +1062,12 @@
     "wp"         : { "html": "&#x1D4AB;" , "latex":  "$\\wp$"            ,  "context":  "$\\wp$"                                            },
     "nabla"      : { "html": "&#x2207;"  , "latex":  "$\\nabla$"         ,  "context":  "$\\nabla$"                                         },
     "Box"        : { "html": "&#x2610;"  , "latex":  "$\\Box$"           ,  "context":  "$\\Box$"                                           },
-    "infty"      : { "html": "&#x221E;"  , "latex":  "$\\infty$"         ,  "context":  "$\\infty$"                                         } 
+    "infty"      : { "html": "&#x221E;"  , "latex":  "$\\infty$"         ,  "context":  "$\\infty$"                                         },
+
+    "aleph"      : { "html": "&#x2135;"  , "latex":  "$\\aleph$"         ,  "context":  "$\\aleph$"                                         },
+    "beth"       : { "html": "&#x2136;"  , "latex":  "$\\beth$"          ,  "context":  "$\\beth$"                                          },
+    "gimel"      : { "html": "&#x2137;"  , "latex":  "$\\gimel$"         ,  "context":  "$\\gimel$"                                         },
+    "daleth"     : { "html": "&#x2138;"  , "latex":  "$\\daleth$"        ,  "context":  "$\\daleth$"                                        } 
 
   }
 }

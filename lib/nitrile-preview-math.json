@@ -926,7 +926,6 @@
     "smile"      : { "html": "&#x2323;"  , "latex":  "$\\smile$"         ,  "context":  "$\\smile$"                                      },
     "models"     : { "html": "&#x22A8;"  , "latex":  "$\\models$"        ,  "context":  "$\\models$"                                     },
 
-    "nparallel"  : { "html": "&#x2226;"  , "latex":  "$\\nparallel$"     ,  "context":  "$\\nparallel$"                                  },
     "bowtie"     : { "html": "&#x22C8;"  , "latex":  "$\\bowtie$"        ,  "context":  "$\\bowtie$"                                     },
     "dashv"      : { "html": "&#x22A3;"  , "latex":  "$\\dashv$"         ,  "context":  "$\\dashv$"                                      },
     "frown"      : { "html": "&#x2322;"  , "latex":  "$\\frown$"         ,  "context":  "$\\frown$"                                      },
@@ -978,8 +977,9 @@
     "S"          : { "html": "&#x1D54A;" , "latex":  "$\\mathbb{S}$"     ,  "context":  "$\\mathbb{S}$"                                     },
 
     "in"         : { "html": "&#x2208;"  , "latex":  "$\\in$"            ,  "context":  "$\\in$"                                            },
-    "notin"      : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"                                         },
+    "nin"        : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"                                         },
     "ni"         : { "html": "&#x220B;"  , "latex":  "$\\ni$"            ,  "context":  "$\\ni$"                                            },
+    "nni"        : { "html": "&#x220C;"  , "latex":  "$\\nni$"           ,  "context":  "$\\nni$"                                           },
     "subset"     : { "html": "&#x2282;"  , "latex":  "$\\subset$"        ,  "context":  "$\\subset$"                                        },
     "nsubset"    : { "html": "&#x2284;"  , "latex":  "$\\not\\subset$"   ,  "context":  "$\\not\\subset$"                                   },
     "subseteq"   : { "html": "&#x2286;"  , "latex":  "$\\subseteq$"      ,  "context":  "$\\subseteq$"                                      },
@@ -1049,10 +1049,20 @@
     "downarrow"  : { "html": "&#x2193;"  , "latex":  "$\\downarrow$"     ,  "context":  "$\\downarrow$"                                     },
     "Downarrow"  : { "html": "&#x21D3;"  , "latex":  "$\\Downarrow$"     ,  "context":  "$\\Downarrow$"                                     },
     "updownarrow": { "html": "&#x2195;"  , "latex":  "$\\updownarrow$"   ,  "context":  "$\\updownarrow$"                                   },
-    "Updownarrow": { "html": "&#x21D5;"  , "latex":  "$\\Updownarrow$"   ,  "context":  "$\\Updownarrow$"                                   } 
+    "Updownarrow": { "html": "&#x21D5;"  , "latex":  "$\\Updownarrow$"   ,  "context":  "$\\Updownarrow$"                                   },
 
-
-
+    "partial"    : { "html": "&#x2202;"  , "latex":  "$\\partial$"       ,  "context":  "$\\partial$"                                       },
+    "eth"        : { "html": "&#x00F0;"  , "latex":  "$\\eth$"           ,  "context":  "$\\eth$"                                           },
+    "hbar"       : { "html": "&#x210F;"  , "latex":  "$\\hbar$"          ,  "context":  "$\\hbar$"                                          },
+    "imath"      : { "html": "&#x1D6A4;" , "latex":  "$\\imath$"         ,  "context":  "$\\imath$"                                         },
+    "jmath"      : { "html": "&#x1D6A5;" , "latex":  "$\\jmath$"         ,  "context":  "$\\jmath$"                                         },
+    "ell"        : { "html": "&#x1D4C1;" , "latex":  "$\\ell$"           ,  "context":  "$\\ell$"                                           },
+    "Re"         : { "html": "&#x2111;"  , "latex":  "$\\Re$"            ,  "context":  "$\\Re$"                                            },
+    "Im"         : { "html": "&#x211C;"  , "latex":  "$\\Im$"            ,  "context":  "$\\Im$"                                            },
+    "wp"         : { "html": "&#x1D4AB;" , "latex":  "$\\wp$"            ,  "context":  "$\\wp$"                                            },
+    "nabla"      : { "html": "&#x2207;"  , "latex":  "$\\nabla$"         ,  "context":  "$\\nabla$"                                         },
+    "Box"        : { "html": "&#x2610;"  , "latex":  "$\\Box$"           ,  "context":  "$\\Box$"                                           },
+    "infty"      : { "html": "&#x221E;"  , "latex":  "$\\infty$"         ,  "context":  "$\\infty$"                                         } 
 
   }
 }

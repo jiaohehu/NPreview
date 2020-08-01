@@ -882,6 +882,11 @@
     "chi"       : { "html": "&#967;"    , "latex":  "$\\chi$"           ,  "context":  "$\\chi$"           },  
     "psi"       : { "html": "&#968;"    , "latex":  "$\\psi$"           ,  "context":  "$\\psi$"           },  
     "omega"     : { "html": "&#969;"    , "latex":  "$\\omega$"         ,  "context":  "$\\omega$"         },  
-    "varepsilon": { "html": "&#x03F5;"  , "latex":  "$\\varepsilon$"    ,  "context":  "$\\varepsilon$"    }  
+    "varepsilon": { "html": "&#x03F5;"  , "latex":  "$\\varepsilon$"    ,  "context":  "$\\varepsilon$"    },
+
+    "Digamma"   : { "html": "&#x03DC;"  , "latex":  "$\\Digamma$"       ,  "context":  "$\\Digamma$"       },
+    "digamma"   : { "html": "&#x03DD;"  , "latex":  "$\\digamma$"       ,  "context":  "$\\digamma$"       },
+
+    "neg"       : { "html": "&#x00AC;"  , "latex":  "$\\neg$"           ,  "context":  "$\\neg$"           }
   }
 }

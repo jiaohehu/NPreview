@@ -1056,6 +1056,12 @@
     "updownarrow": { "html": "&#x2195;"  , "latex":  "$\\updownarrow$"   ,  "context":  "$\\updownarrow$"                                   },
     "Updownarrow": { "html": "&#x21D5;"  , "latex":  "$\\Updownarrow$"   ,  "context":  "$\\Updownarrow$"                                   },
 
+    "leftharpoonup"     : { "html": "&#x21BC;" ,  "latex" : "$\\leftharpoonup$"     , "context": "$\\leftharpoonup$"     , "dx":"0", "op":0, "width":7    },
+    "leftharpoondown"   : { "html": "&#x21BD;" ,  "latex" : "$\\leftharpoondown$"   , "context": "$\\leftharpoondown$"   , "dx":"0", "op":0, "width":7    },
+    "rightharpoonup"    : { "html": "&#x21C0;" ,  "latex" : "$\\rightharpoonup$"    , "context": "$\\rightharpoonup$"    , "dx":"0", "op":0, "width":7    },
+    "rightharpoondown"  : { "html": "&#x21C1;" ,  "latex" : "$\\rightharpoondown$"  , "context": "$\\rightharpoondown$"  , "dx":"0", "op":0, "width":7    },
+    "rightleftharpoons" : { "html": "&#x21CC;" ,  "latex" : "$\\rightleftharpoons$" , "context": "$\\rightleftharpoons$" , "dx":"0", "op":0, "width":7    },
+
     "partial"    : { "html": "&#x2202;"  , "latex":  "$\\partial$"       ,  "context":  "$\\partial$"                                       },
     "eth"        : { "html": "&#x00F0;"  , "latex":  "$\\eth$"           ,  "context":  "$\\eth$"                                           },
     "hbar"       : { "html": "&#x210F;"  , "latex":  "$\\hbar$"          ,  "context":  "$\\hbar$"                                          },

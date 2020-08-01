@@ -948,7 +948,43 @@
     "ni"         : { "html": "&#x220B;"  , "latex":  "$\\ni$"            ,  "context":  "$\\ni$"            },
     "frown"      : { "html": "        "  , "latex":  "$\\frown$"         ,  "context":  "$\\frown$"         },
     "notin"      : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"         },
-    "mid"        : { "html": "&#x2223;"  , "latex":  "$\\mid$"           ,  "context":  "$\\mid$"           } 
+    "mid"        : { "html": "&#x2223;"  , "latex":  "$\\mid$"           ,  "context":  "$\\mid$"           },
+
+    "pm"         : { "html": "&#x2223;"  , "latex":  "$\\pm$"            ,  "context":  "$\\pm$"            },
+    "mp"         : { "html": "&#x2223;"  , "latex":  "$\\mp$"            ,  "context":  "$\\mp$"            },
+    "times"      : { "html": "&#x2223;"  , "latex":  "$\\times$"         ,  "context":  "$\\times$"         },
+    "div"        : { "html": "&#x2223;"  , "latex":  "$\\div$"           ,  "context":  "$\\div$"           },
+    "ast"        : { "html": "&#x2223;"  , "latex":  "$\\ast$"           ,  "context":  "$\\ast$"           },
+    "star"       : { "html": "&#x2223;"  , "latex":  "$\\star$"          ,  "context":  "$\\star$"          },
+    "dagger"     : { "html": "&#x2223;"  , "latex":  "$\\dagger$"        ,  "context":  "$\\dagger$"        },
+    "ddagger"    : { "html": "&#x2223;"  , "latex":  "$\\ddagger$"       ,  "context":  "$\\ddagger$"       },
+
+    "cap"        : { "html": "&#x2223;"  , "latex":  "$\\cap$"           ,  "context":  "$\\cap$"           },
+    "cup"        : { "html": "&#x2223;"  , "latex":  "$\\cup$"           ,  "context":  "$\\cup$"           },
+    "uplus"      : { "html": "&#x2223;"  , "latex":  "$\\uplus$"         ,  "context":  "$\\uplus$"         },
+    "sqcap"      : { "html": "&#x2223;"  , "latex":  "$\\sqcap$"         ,  "context":  "$\\sqcap$"         },
+    "sqcup"      : { "html": "&#x2223;"  , "latex":  "$\\sqcup$"         ,  "context":  "$\\sqcup$"         },
+    "vee"        : { "html": "&#x2223;"  , "latex":  "$\\vee$"           ,  "context":  "$\\vee$"           },
+    "wedge"      : { "html": "&#x2223;"  , "latex":  "$\\wedge$"         ,  "context":  "$\\wedge$"         },
+    "cdot"       : { "html": "&#x2223;"  , "latex":  "$\\cdot$"          ,  "context":  "$\\cdot$"          },
+
+    "diamond"    : { "html": "&#x2223;"  , "latex":  "$\\diamond$"         ,  "context": "$\\diamond$"         },
+  "bigtriangleup": { "html": "&#x2223;"  , "latex":  "$\\bigtriangleup$"   ,  "context": "$\\bigtriangleup$"   },
+"bigtriangledown": { "html": "&#x2223;"  , "latex":  "$\\bigtriangledown$" ,  "context": "$\\bigtriangledown$" },
+  "triangleleft" : { "html": "&#x2223;"  , "latex":  "$\\triangleleft$"    ,  "context": "$\\triangleleft$"    },
+ "triangleright" : { "html": "&#x2223;"  , "latex":  "$\\triangleright$"   ,  "context": "$\\triangleright$"   },
+    "bigcirc"    : { "html": "&#x2223;"  , "latex":  "$\\bigcirc$"         ,  "context": "$\\bigcirc$"         },
+    "bullet"     : { "html": "&#x2223;"  , "latex":  "$\\bullet$"          ,  "context": "$\\bullet$"          },
+    "wr"         : { "html": "&#x2223;"  , "latex":  "$\\wr$"              ,  "context": "$\\wr$"              },
+
+    "oplus"      : { "html": "&#x2223;"  , "latex":  "$\\oplus$"         ,  "context":  "$\\oplus$"         },
+    "ominus"     : { "html": "&#x2223;"  , "latex":  "$\\ominus$"        ,  "context":  "$\\ominus$"        },
+    "otimes"     : { "html": "&#x2223;"  , "latex":  "$\\otimes$"        ,  "context":  "$\\otimes$"        },
+    "oslash"     : { "html": "&#x2223;"  , "latex":  "$\\oslash$"        ,  "context":  "$\\oslash$"        },
+    "odot"       : { "html": "&#x2223;"  , "latex":  "$\\odot$"          ,  "context":  "$\\odot$"          },
+    "circ"       : { "html": "&#x2223;"  , "latex":  "$\\circ$"          ,  "context":  "$\\circ$"          },
+    "setminus"   : { "html": "&#x2223;"  , "latex":  "$\\setminus$"      ,  "context":  "$\\setminus$"      },
+    "amalg"      : { "html": "&#x2223;"  , "latex":  "$\\amalg$"         ,  "context":  "$\\amalg$"         } 
 
   }
 }

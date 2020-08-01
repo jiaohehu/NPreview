@@ -312,16 +312,16 @@
     { "kbd": "\\Im"            ,    "unicode": "&#x211C;"       ,  "id": "myx211C",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
     { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
-    { "kbd": "\\cdot"          ,    "unicode": "&#x22C5;"       ,  "id": "myx22C5",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 3    },
-    { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
+    { "kbd": "\\cdot"          ,    "unicode": "&#x22C5;"       ,  "id": "myx22C5",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
+    { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 8    },
     { "kbd": "\\oplus"         ,    "unicode": "&#x2295;"       ,  "id": "myx2295",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
     { "kbd": "\\ominus"        ,    "unicode": "&#x2296;"       ,  "id": "myx2296",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
     { "kbd": "\\otimes"        ,    "unicode": "&#x2297;"       ,  "id": "myx2297",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
     { "kbd": "\\oslash"        ,    "unicode": "&#x2298;"       ,  "id": "myx2298",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
-    { "kbd": "\\wedge"         ,    "unicode": "&#x2227;"       ,  "id": "myx2227",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\vee"           ,    "unicode": "&#x2228;"       ,  "id": "myx2228",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\boxtimes"      ,    "unicode": "&#x22A0;"       ,  "id": "myx22A0",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\cong"          ,    "unicode": "&#x2245;"       ,  "id": "myx2245",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    }
+    { "kbd": "\\wedge"         ,    "unicode": "&#x2227;"       ,  "id": "myx2227",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
+    { "kbd": "\\vee"           ,    "unicode": "&#x2228;"       ,  "id": "myx2228",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
+    { "kbd": "\\boxtimes"      ,    "unicode": "&#x22A0;"       ,  "id": "myx22A0",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
+    { "kbd": "\\cong"          ,    "unicode": "&#x2245;"       ,  "id": "myx2245",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    }
 
   ],
   "mathCommands": [
@@ -903,6 +903,7 @@
     "nsucceq"                         : { "html": "&#x22E1;"      , "tex":  "\\nsucceq"              ,  "width": 7  , "op": 1     },
     "gg"                              : { "html": "&#x226B;"      , "tex":  "\\gg"                   ,  "width": 7  , "op": 1     },
     "ggg"                             : { "html": "&#x22D9;"      , "tex":  "\\ggg"                  ,  "width": 7  , "op": 1     },
+    "coloneq"                         : { "html": ":="            , "tex":  "\\coloneq"              ,  "width": 10 , "op": 1     },
 
     "precsim"                         : { "html": "&#x227E;"      , "tex":  "\\precsim"              ,  "width": 7  , "op": 1    },
     "succsim"                         : { "html": "&#x227F;"      , "tex":  "\\succsim"              ,  "width": 7  , "op": 1    },

@@ -1042,8 +1042,14 @@
     "gets"       : { "html": "&#x22A5;"  , "latex":  "$\\gets$"          ,  "context":  "$\\gets$"                                          },
     "Leftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Leftarrow$"     ,  "context":  "$\\Leftarrow$"                                     },
 "longleftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\longleftarrow$" ,  "context":  "$\\longleftarrow$"                                 },
-"Longleftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Longleftarrow$" ,  "context":  "$\\Longleftarrow$"                                 } 
+"Longleftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Longleftarrow$" ,  "context":  "$\\Longleftarrow$"                                 },
 
+    "uparrow"    : { "html": "&#x22A5;"  , "latex":  "$\\uparrow$"       ,  "context":  "$\\uparrow$"                                       },
+    "Uparrow"    : { "html": "&#x22A5;"  , "latex":  "$\\Uparrow$"       ,  "context":  "$\\Uparrow$"                                       },
+    "downarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\downarrow$"     ,  "context":  "$\\downarrow$"                                     },
+    "Downarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Downarrow$"     ,  "context":  "$\\Downarrow$"                                     },
+    "updownarrow": { "html": "&#x22A5;"  , "latex":  "$\\updownarrow$"   ,  "context":  "$\\updownarrow$"                                   },
+    "Updownarrow": { "html": "&#x22A5;"  , "latex":  "$\\Updownarrow$"   ,  "context":  "$\\Updownarrow$"                                   } 
 
 
 

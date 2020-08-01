@@ -887,7 +887,6 @@
     "Digamma"   : { "html": "&#x03DC;"  , "latex":  "$\\Digamma$"       ,  "context":  "$\\Digamma$"       },
     "digamma"   : { "html": "&#x03DD;"  , "latex":  "$\\digamma$"       ,  "context":  "$\\digamma$"       },
 
-    "neg"       : { "html": "&#x00AC;"  , "latex":  "$\\neg$"           ,  "context":  "$\\neg$"           },
 
     "nless"      : { "html": "&#x226E;"  , "latex":  "$\\nless$"         ,  "context":  "$\\nless$"         },
     "leq"        : { "html": "&#x2264;"  , "latex":  "$\\leq$"           ,  "context":  "$\\leq$"           },
@@ -964,8 +963,8 @@
     "uplus"      : { "html": "&#x228E;"  , "latex":  "$\\uplus$"         ,  "context":  "$\\uplus$"         },
     "sqcap"      : { "html": "&#x2293;"  , "latex":  "$\\sqcap$"         ,  "context":  "$\\sqcap$"         },
     "sqcup"      : { "html": "&#x2294;"  , "latex":  "$\\sqcup$"         ,  "context":  "$\\sqcup$"         },
-    "vee"        : { "html": "&#x2228;"  , "latex":  "$\\vee$"           ,  "context":  "$\\vee$"           },
-    "wedge"      : { "html": "&#x2227;"  , "latex":  "$\\wedge$"         ,  "context":  "$\\wedge$"         },
+    "vee"        : { "html": "&#x22C1;"  , "latex":  "$\\vee$"           ,  "context":  "$\\vee$"           },
+    "wedge"      : { "html": "&#x22C0;"  , "latex":  "$\\wedge$"         ,  "context":  "$\\wedge$"         },
     "cdot"       : { "html": "&#x22C5;"  , "latex":  "$\\cdot$"          ,  "context":  "$\\cdot$"          },
 
     "diamond"    : { "html": "&#x22C4;"  , "latex":  "$\\diamond$"         ,  "context": "$\\diamond$"         },
@@ -995,7 +994,22 @@
     "C"          : { "html": "&#x2102;"  , "latex":  "$\\mathbb{C}$"     ,  "context":  "$\\mathbb{C}$"       },
     "H"          : { "html": "&#x210D;"  , "latex":  "$\\mathbb{H}$"     ,  "context":  "$\\mathbb{H}$"       },
     "O"          : { "html": "&#x1D546;" , "latex":  "$\\mathbb{O}$"     ,  "context":  "$\\mathbb{O}$"       },
-    "S"          : { "html": "&#x1D54A;" , "latex":  "$\\mathbb{S}$"     ,  "context":  "$\\mathbb{S}$"       }
+    "S"          : { "html": "&#x1D54A;" , "latex":  "$\\mathbb{S}$"     ,  "context":  "$\\mathbb{S}$"       },
+
+    "exists"     : { "html": "&#x2203;"  , "latex":  "$\\exists$"        ,  "context":  "$\\exists$"             },
+    "nexists"    : { "html": "&#x2204;"  , "latex":  "$\\nexists$"       ,  "context":  "$\\nexists$"            },
+    "forall"     : { "html": "&#x2200;"  , "latex":  "$\\forall$"        ,  "context":  "$\\forall$"             },
+    "neg"        : { "html": "&#x00AC;"  , "latex":  "$\\neg$"           ,  "context":  "$\\neg$"           },
+    "lor"        : { "html": "&#x2228;"  , "latex":  "$\\lor$"           ,  "context":  "$\\lor$"                },
+    "land"       : { "html": "&#x2227;"  , "latex":  "$\\land$"          ,  "context":  "$\\land$"               },
+"Longrightarrow" : { "html": "&#x27F9;"  , "latex":  "$\\Longrightarrow$",  "context":  "$\\Longrightarrow$"     },
+    "Rightarrow" : { "html": "&#x21D2;"  , "latex":  "$\\Rightarrow$"    ,  "context":  "$\\Rightarrow$"         },
+"Longleftarrow"  : { "html": "&#x27F8;"  , "latex":  "$\\Longleftarrow$" ,  "context":  "$\\Longleftarrow$"      },
+    "Leftarrow"  : { "html": "&#x21D0;"  , "latex":  "$\\Leftarrow$"     ,  "context":  "$\\Leftarrow$"          },
+    "iff"        : { "html": "&#x27FA;"  , "latex":  "$\\iff$"           ,  "context":  "$\\iff$"                },
+"Leftrightarrow" : { "html": "&#x21D4;"  , "latex":  "$\\Leftrightarrow$",  "context":  "$\\Leftrightarrow$"     },
+    "top"        : { "html": "&#x22A4;"  , "latex":  "$\\top$"           ,  "context":  "$\\top$"                },
+    "bot"        : { "html": "&#x22A5;"  , "latex":  "$\\bot$"           ,  "context":  "$\\bot$"                } 
 
   }
 }

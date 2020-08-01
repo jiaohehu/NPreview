@@ -964,7 +964,7 @@
     "otimes"     : { "html": "&#x2297;"  , "latex":  "$\\otimes$"        ,  "context":  "$\\otimes$"                                        },
     "oslash"     : { "html": "&#x2298;"  , "latex":  "$\\oslash$"        ,  "context":  "$\\oslash$"                                        },
     "odot"       : { "html": "&#x2299;"  , "latex":  "$\\odot$"          ,  "context":  "$\\odot$"                                          },
-    "circ"       : { "html": "&#x00B0;"  , "latex":  "$\\circ$"          ,  "context":  "$\\circ$"                                          },
+    "circ"       : { "html": "&#x2218;"  , "latex":  "$\\circ$"          ,  "context":  "$\\circ$"                                          },
     "amalg"      : { "html": "&#x2210;"  , "latex":  "$\\amalg$"         ,  "context":  "$\\amalg$"                                         },
 
     "emptyset"   : { "html": "&#x2205;"  , "latex":  "$\\emptyset$"      ,  "context":  "$\\emptyset$"                                      },
@@ -1011,8 +1011,8 @@
     "angle"      : { "html": "&#x2220;"  , "latex":  "$\\angle$"         ,  "context":  "$\\angle$"                                         },
   "measuredangle": { "html": "&#x2221;"  , "latex":  "$\\measuredangle$" ,  "context":  "$\\measuredangle$"                                 },
     "rightangle" : { "html": "&#x221F;"  , "latex":  "$\\rightangle$"    ,  "context":  "$\\rightangle$"                                    },
-    "triangle"   : { "html": "&#x25B5;"  , "latex":  "$\\triangle$"      ,  "context":  "$\\triangle$"                                      },
-    "square"     : { "html": "&#x25AB;"  , "latex":  "$\\square$"        ,  "context":  "$\\square$"                                        },
+    "triangle"   : { "html": "&#x25B3;"  , "latex":  "$\\triangle$"      ,  "context":  "$\\triangle$"                                      },
+    "square"     : { "html": "&#x25A1;"  , "latex":  "$\\square$"        ,  "context":  "$\\square$"                                        },
     "parallel"   : { "html": "&#x2225;"  , "latex":  "$\\parallel$"      ,  "context":  "$\\parallel$"                                      },
     "nparallel"  : { "html": "&#x2226;"  , "latex":  "$\\nparallel$"     ,  "context":  "$\\nparallel$"                                     },
     "perp"       : { "html": "&#x22A5;"  , "latex":  "$\\perp$"          ,  "context":  "$\\perp$"                                          },
@@ -1027,6 +1027,8 @@
     "lrcorner"   : { "html": "&#x2E25;"  , "latex":  "$\\lrcorner$"      ,  "context":  "$\\lrcorner$"                                      },
     "langle"     : { "html": "&#x27E8;"  , "latex":  "$\\langle$"        ,  "context":  "$\\langle$"                                        },
     "rangle"     : { "html": "&#x27E9;"  , "latex":  "$\\rangle$"        ,  "context":  "$\\rangle$"                                        },
+    "vert"       : { "html": "&#x007C;"  , "latex":  "$\\vert$"          ,  "context":  "$\\vert$"                                          },
+    "Vert"       : { "html": "&#x2016;"  , "latex":  "$\\Vert$"          ,  "context":  "$\\Vert$"                                          },
 
     "rightarrow" : { "html": "&#x2192;"  , "latex":  "$\\rightarrow$"    ,  "context":  "$\\rightarrow$"                                    },
     "to"         : { "html": "&#x2192;"  , "latex":  "$\\to$"            ,  "context":  "$\\to$"                                            },

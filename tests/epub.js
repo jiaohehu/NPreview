@@ -7,7 +7,7 @@ const fname = process.argv[2];
 
 var work = async ()=>{
   console.log(fname);
-  var out = await utils.readFileAsync(fname);
+  var out = await utils.read_file_async(fname);
   var lines = out.split('\n');
   const parser = new NitrilePreviewParser();
   const translator = new NitrilePreviewEpub(parser);

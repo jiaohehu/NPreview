@@ -1073,7 +1073,44 @@
     "aleph"      : { "html": "&#x2135;"  , "latex":  "$\\aleph$"         ,  "context":  "$\\aleph$"                                         },
     "beth"       : { "html": "&#x2136;"  , "latex":  "$\\beth$"          ,  "context":  "$\\beth$"                                          },
     "gimel"      : { "html": "&#x2137;"  , "latex":  "$\\gimel$"         ,  "context":  "$\\gimel$"                                         },
-    "daleth"     : { "html": "&#x2138;"  , "latex":  "$\\daleth$"        ,  "context":  "$\\daleth$"                                        } 
+    "daleth"     : { "html": "&#x2138;"  , "latex":  "$\\daleth$"        ,  "context":  "$\\daleth$"                                        },
 
+    "sin"        : { "html": "sin"            ,  "latex": "$\\sin$"     , "context": "$\\sin$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "cos"        : { "html": "cos"            ,  "latex": "$\\cos$"     , "context": "$\\cos$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "tan"        : { "html": "tan"            ,  "latex": "$\\tan$"     , "context": "$\\tan$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "csc"        : { "html": "csc"            ,  "latex": "$\\csc$"     , "context": "$\\csc$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "sec"        : { "html": "sec"            ,  "latex": "$\\sec$"     , "context": "$\\sec$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "cot"        : { "html": "cot"            ,  "latex": "$\\cot$"     , "context": "$\\cot$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+
+    "sinh"       : { "html": "sinh"           ,  "latex": "$\\sinh$"    , "context": "$\\sinh$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+    "cosh"       : { "html": "cosh"           ,  "latex": "$\\cosh$"    , "context": "$\\cosh$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+    "tanh"       : { "html": "tanh"           ,  "latex": "$\\tanh$"    , "context": "$\\tanh$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+    "csch"       : { "html": "csch"           ,  "latex": "$\\csch$"    , "context": "$\\csch$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+    "sech"       : { "html": "sech"           ,  "latex": "$\\sech$"    , "context": "$\\sech$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+    "coth"       : { "html": "coth"           ,  "latex": "$\\coth$"    , "context": "$\\coth$"   , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 18   },
+
+    "arcsin"     : { "html": "arcsin"         ,  "latex": "$\\arcsin$"  , "context": "$\\arcsin$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 26   },
+    "arccos"     : { "html": "arccos"         ,  "latex": "$\\arccos$"  , "context": "$\\arccos$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 26   },
+    "arctan"     : { "html": "arctan"         ,  "latex": "$\\arctan$"  , "context": "$\\arctan$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 26   },
+
+    "limsup"     : { "html": "lim&#160;sup"   ,  "latex": "$\\limsup$"  , "context": "$\\limsup$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 30   },
+    "liminf"     : { "html": "lim&#160;inf"   ,  "latex": "$\\liminf$"  , "context": "$\\liminf$" , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 30   },
+
+    "exp"        : { "html": "exp"            ,  "latex": "$\\exp$"     , "context": "$\\exp$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "ker"        : { "html": "ker"            ,  "latex": "$\\ker$"     , "context": "$\\ker$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "deg"        : { "html": "deg"            ,  "latex": "$\\deg$"     , "context": "$\\deg$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "gcd"        : { "html": "gcd"            ,  "latex": "$\\gcd$"     , "context": "$\\gcd$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "sup"        : { "html": "sup"            ,  "latex": "$\\sup$"     , "context": "$\\sup$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "det"        : { "html": "det"            ,  "latex": "$\\det$"     , "context": "$\\det$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "hom"        : { "html": "hom"            ,  "latex": "$\\hom$"     , "context": "$\\hom$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "log"        : { "html": "log"            ,  "latex": "$\\log$"     , "context": "$\\log$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "arg"        : { "html": "arg"            ,  "latex": "$\\arg$"     , "context": "$\\arg$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "dim"        : { "html": "dim"            ,  "latex": "$\\dim$"     , "context": "$\\dim$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "min"        : { "html": "min"            ,  "latex": "$\\min$"     , "context": "$\\min$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+    "max"        : { "html": "max"            ,  "latex": "$\\max$"     , "context": "$\\max$"    , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 14   },
+
+    "lg"         : { "html": "lg"             ,  "latex": "$\\lg$"      , "context": "$\\lg$"     , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 9.5  },
+    "ln"         : { "html": "ln"             ,  "latex": "$\\ln$"      , "context": "$\\ln$"     , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 9.5  },
+    "Pr"         : { "html": "Pr"             ,  "latex": "$\\Pr$"      , "context": "$\\Pr$"     , "dx":"0",  "dy":"0.75em",  "op": 3 ,  "width": 9.5  } 
   }
 }

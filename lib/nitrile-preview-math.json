@@ -984,7 +984,18 @@
     "odot"       : { "html": "&#x2223;"  , "latex":  "$\\odot$"          ,  "context":  "$\\odot$"          },
     "circ"       : { "html": "&#x2223;"  , "latex":  "$\\circ$"          ,  "context":  "$\\circ$"          },
     "setminus"   : { "html": "&#x2223;"  , "latex":  "$\\setminus$"      ,  "context":  "$\\setminus$"      },
-    "amalg"      : { "html": "&#x2223;"  , "latex":  "$\\amalg$"         ,  "context":  "$\\amalg$"         } 
+    "amalg"      : { "html": "&#x2223;"  , "latex":  "$\\amalg$"         ,  "context":  "$\\amalg$"         },
+
+    "emptyset"   : { "html": "&#x2205;"  , "latex":  "$\\emptyset$"      ,  "context":  "$\\emptyset$"        },
+    "N"          : { "html": "&#x2115;"  , "latex":  "$\\mathbb{N}$"     ,  "context":  "$\\mathbb{N}$"       },
+    "Z"          : { "html": "&#x2124;"  , "latex":  "$\\mathbb{Z}$"     ,  "context":  "$\\mathbb{Z}$"       },
+    "Q"          : { "html": "&#x211A;"  , "latex":  "$\\mathbb{Q}$"     ,  "context":  "$\\mathbb{Q}$"       },
+    "A"          : { "html": "&#x1D538;" , "latex":  "$\\mathbb{A}$"     ,  "context":  "$\\mathbb{A}$"       },
+    "R"          : { "html": "&#x211D;"  , "latex":  "$\\mathbb{R}$"     ,  "context":  "$\\mathbb{R}$"       },
+    "C"          : { "html": "&#x2102;"  , "latex":  "$\\mathbb{C}$"     ,  "context":  "$\\mathbb{C}$"       },
+    "H"          : { "html": "&#x210D;"  , "latex":  "$\\mathbb{H}$"     ,  "context":  "$\\mathbb{H}$"       },
+    "O"          : { "html": "&#x1D546;" , "latex":  "$\\mathbb{O}$"     ,  "context":  "$\\mathbb{O}$"       },
+    "S"          : { "html": "&#x1D54A;" , "latex":  "$\\mathbb{S}$"     ,  "context":  "$\\mathbb{S}$"       }
 
   }
 }

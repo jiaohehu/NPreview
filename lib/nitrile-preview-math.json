@@ -932,7 +932,23 @@
     "sim"        : { "html": "&#x223C;"  , "latex":  "$\\sim$"           ,  "context":  "$\\sim$"           },
     "propto"     : { "html": "&#x221D;"  , "latex":  "$\\propto$"        ,  "context":  "$\\propto$"        },
     "neq"        : { "html": "&#x2260;"  , "latex":  "$\\neq$"           ,  "context":  "$\\neq$"           },
-    "ne"         : { "html": "&#x2260;"  , "latex":  "$\\ne$"            ,  "context":  "$\\ne$"            } 
+    "ne"         : { "html": "&#x2260;"  , "latex":  "$\\ne$"            ,  "context":  "$\\ne$"            },
+
+    "parallel"   : { "html": "&#x2225;"  , "latex":  "$\\parallel$"      ,  "context":  "$\\parallel$"      },
+    "asymp"      : { "html": "&#x224D;"  , "latex":  "$\\asymp$"         ,  "context":  "$\\asymp$"         },
+    "vdash"      : { "html": "&#x22A2;"  , "latex":  "$\\vdash$"         ,  "context":  "$\\vdash$"         },
+    "in"         : { "html": "&#x2208;"  , "latex":  "$\\in$"            ,  "context":  "$\\in$"            },
+    "smile"      : { "html": "        "  , "latex":  "$\\smile$"         ,  "context":  "$\\smile$"         },
+    "models"     : { "html": "&#x22A8;"  , "latex":  "$\\models$"        ,  "context":  "$\\models$"        },
+    "perp"       : { "html": "&#x22A5;"  , "latex":  "$\\perp$"          ,  "context":  "$\\perp$"          },
+
+    "nparallel"  : { "html": "&#x2226;"  , "latex":  "$\\nparallel$"     ,  "context":  "$\\nparallel$"     },
+    "bowtie"     : { "html": "&#x22C8;"  , "latex":  "$\\bowtie$"        ,  "context":  "$\\bowtie$"        },
+    "dashv"      : { "html": "&#x22A3;"  , "latex":  "$\\dashv$"         ,  "context":  "$\\dashv$"         },
+    "ni"         : { "html": "&#x220B;"  , "latex":  "$\\ni$"            ,  "context":  "$\\ni$"            },
+    "frown"      : { "html": "        "  , "latex":  "$\\frown$"         ,  "context":  "$\\frown$"         },
+    "notin"      : { "html": "&#x2209;"  , "latex":  "$\\notin$"         ,  "context":  "$\\notin$"         },
+    "mid"        : { "html": "&#x2223;"  , "latex":  "$\\mid$"           ,  "context":  "$\\mid$"           } 
 
   }
 }

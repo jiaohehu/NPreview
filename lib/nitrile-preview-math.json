@@ -301,7 +301,6 @@
     { "kbd": "\\blacksquare"   ,    "unicode": "&#x25FC;"       ,  "id": "myx25FC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\square"        ,    "unicode": "&#x25FB;"       ,  "id": "myx25FB",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\neg"           ,    "unicode": "&#x00AC;"       ,  "id": "myx00AC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\varnothing"    ,    "unicode": "&#x2205;"       ,  "id": "myx2205",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\nexists"       ,    "unicode": "&#x2204;"       ,  "id": "myx2204",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\wp"            ,    "unicode": "&#x2118;"       ,  "id": "myx2118",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\partial"       ,    "unicode": "&#x2202;"       ,  "id": "myx2202",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
@@ -313,7 +312,6 @@
 
     { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\cdot"          ,    "unicode": "&#x22C5;"       ,  "id": "myx22C5",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 3    },
-    { "kbd": "\\Square"        ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\oplus"         ,    "unicode": "&#x2295;"       ,  "id": "myx2295",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
     { "kbd": "\\ominus"        ,    "unicode": "&#x2296;"       ,  "id": "myx2296",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
@@ -923,6 +921,8 @@
     "neq"        : { "html": "&#x2260;"  , "latex":  "$\\neq$"           ,  "context":  "$\\neq$"                                        },
     "ne"         : { "html": "&#x2260;"  , "latex":  "$\\ne$"            ,  "context":  "$\\ne$"                                         },
 
+    "boxtimes"   : { "html": "&#x22A0;"  , "latex":  "$\\boxtimes$"      ,  "context":  "$\\boxtimes$"                                   },
+
     "asymp"      : { "html": "&#x224D;"  , "latex":  "$\\asymp$"         ,  "context":  "$\\asymp$"                                      },
     "vdash"      : { "html": "&#x22A2;"  , "latex":  "$\\vdash$"         ,  "context":  "$\\vdash$"                                      },
     "smile"      : { "html": "&#x2323;"  , "latex":  "$\\smile$"         ,  "context":  "$\\smile$"                                      },
@@ -949,6 +949,11 @@
     "vee"        : { "html": "&#x2228;"  , "latex":  "$\\vee$"           ,  "context":  "$\\vee$"                                        },
     "wedge"      : { "html": "&#x2227;"  , "latex":  "$\\wedge$"         ,  "context":  "$\\wedge$"                                      },
     "cdot"       : { "html": "&#x22C5;"  , "latex":  "$\\cdot$"          ,  "context":  "$\\cdot$"                                       },
+    "cdots"      : { "html": "&#x22EF;"  , "latex":  "$\\cdots$"         ,  "context":  "$\\cdots$"                                      },
+    "ldots"      : { "html": "..."       , "latex":  "$\\ldots$"         ,  "context":  "$\\ldots$"                                      },
+
+    "complement" : { "html": "&#x2201;"  , "latex":  "$\\complement$"    ,  "context":  "$\\complement$"                                 },
+    "blacksquare": { "html": "&#x25FC;"  , "latex":  "$\\blacksquare$"   ,  "context":  "$\\blacksquare$"                                },
 
     "diamond"    : { "html": "&#x22C4;"  , "latex":  "$\\diamond$"         ,  "context": "$\\diamond$"                                    },
   "bigtriangleup": { "html": "&#x25B3;"  , "latex":  "$\\bigtriangleup$"   ,  "context": "$\\bigtriangleup$"                              },

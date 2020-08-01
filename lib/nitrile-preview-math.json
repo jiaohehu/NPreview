@@ -143,11 +143,10 @@
     { "kbd": "?"               ,    "unicode": "?"              ,  "id": "myQU",          "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 5     },
     { "kbd": ">"               ,    "unicode": "&#62;"          ,  "id": "myGT",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "<"               ,    "unicode": "&#60;"          ,  "id": "myLE",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
-    { "kbd": "\\ne"            ,    "unicode": "&#x2260;"       ,  "id": "myNEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
+    { "kbd": "\\nless"         ,    "unicode": "&#x226E;"       ,  "id": "myNLESS",       "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
+    { "kbd": "\\nleq"          ,    "unicode": "&#x2270;"       ,  "id": "myLEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "\\neq"           ,    "unicode": "&#x2260;"       ,  "id": "myNEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
-    { "kbd": "\\le"            ,    "unicode": "&#x2264;"       ,  "id": "myLEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "\\leq"           ,    "unicode": "&#x2264;"       ,  "id": "myLEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
-    { "kbd": "\\ge"            ,    "unicode": "&#x2265;"       ,  "id": "myGEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "\\geq"           ,    "unicode": "&#x2265;"       ,  "id": "myGEQ",         "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "\\leqslant"      ,    "unicode": "&#x2A7D;"       ,  "id": "my2A7D",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
     { "kbd": "\\geqslant"      ,    "unicode": "&#x2A7E;"       ,  "id": "my2A7E",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7    },
@@ -881,9 +880,6 @@
     "psi"       : { "html": "&#968;"    , "latex":  "$\\psi$"           ,  "context":  "$\\psi$"              ,  "width": 6  , "op": 0    },  
     "omega"     : { "html": "&#969;"    , "latex":  "$\\omega$"         ,  "context":  "$\\omega$"            ,  "width": 6  , "op": 0    },  
     "varepsilon": { "html": "&#x03F5;"  , "latex":  "$\\varepsilon$"    ,  "context":  "$\\varepsilon$"       ,  "width": 6  , "op": 0    },
-
-    "Digamma"   : { "html": "&#x03DC;"  , "latex":  "$\\Digamma$"       ,  "context":  "$\\Digamma$"          ,  "width": 7  , "op": 1       }, 
-    "digamma"   : { "html": "&#x03DD;"  , "latex":  "$\\digamma$"       ,  "context":  "$\\digamma$"          ,  "width": 7  , "op": 1       },
 
     "nless"      : { "html": "&#x226E;"  , "latex":  "$\\nless$"         ,  "context":  "$\\nless$"           ,  "width": 7  , "op": 1     },
     "leq"        : { "html": "&#x2264;"  , "latex":  "$\\leq$"           ,  "context":  "$\\leq$"             ,  "width": 7  , "op": 1     },

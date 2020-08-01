@@ -1028,7 +1028,24 @@
     "llcorner"   : { "html": "&#x22A5;"  , "latex":  "$\\llcorner$"      ,  "context":  "$\\llcorner$"                                      },
     "lrcorner"   : { "html": "&#x22A5;"  , "latex":  "$\\lrcorner$"      ,  "context":  "$\\lrcorner$"                                      },
     "langle"     : { "html": "&#x22A5;"  , "latex":  "$\\langle$"        ,  "context":  "$\\langle$"                                        },
-    "rangle"     : { "html": "&#x22A5;"  , "latex":  "$\\rangle$"        ,  "context":  "$\\rangle$"                                        } 
+    "rangle"     : { "html": "&#x22A5;"  , "latex":  "$\\rangle$"        ,  "context":  "$\\rangle$"                                        },
+
+    "rightarrow" : { "html": "&#x22A5;"  , "latex":  "$\\rightarrow$"    ,  "context":  "$\\rightarrow$"                                    },
+    "to"         : { "html": "&#x22A5;"  , "latex":  "$\\to$"            ,  "context":  "$\\to$"                                            },
+    "mapsto"     : { "html": "&#x22A5;"  , "latex":  "$\\mapsto$"        ,  "context":  "$\\mapsto$"                                        },
+    "longmapsto" : { "html": "&#x22A5;"  , "latex":  "$\\longmapsto$"    ,  "context":  "$\\longmapsto$"                                    },
+    "Rightarrow" : { "html": "&#x22A5;"  , "latex":  "$\\Rightarrow$"    ,  "context":  "$\\Rightarrow$"                                    },
+"longrightarrow" : { "html": "&#x22A5;"  , "latex":  "$\\longrightarrow$",  "context":  "$\\longrightarrow$"                                },
+"Longrightarrow" : { "html": "&#x22A5;"  , "latex":  "$\\Longrightarrow$",  "context":  "$\\Longrightarrow$"                                },
+
+    "leftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\leftarrow$"     ,  "context":  "$\\leftarrow$"                                     },
+    "gets"       : { "html": "&#x22A5;"  , "latex":  "$\\gets$"          ,  "context":  "$\\gets$"                                          },
+    "Leftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Leftarrow$"     ,  "context":  "$\\Leftarrow$"                                     },
+"longleftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\longleftarrow$" ,  "context":  "$\\longleftarrow$"                                 },
+"Longleftarrow"  : { "html": "&#x22A5;"  , "latex":  "$\\Longleftarrow$" ,  "context":  "$\\Longleftarrow$"                                 } 
+
+
+
 
 
   }

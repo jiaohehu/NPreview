@@ -189,9 +189,6 @@
     { "kbd": "\\infty"         ,    "unicode": "&#x221E;"       ,  "id": "my221E",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 8    },
     { "kbd": "\\aleph"         ,    "unicode": "&#x2135;"       ,  "id": "my2135",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7    },
 
-    { "kbd": "\\?"             ,    "unicode": "&#x00BF;"       ,  "id": "myUDQU",        "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 6    },
-    { "kbd": " "               ,    "unicode": ""               ,  "id": "mySPACE",       "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
-
     { "kbd": "\\sqrt"          ,    "unicode": "&#x221A;"       ,  "id": "mySQRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\cbrt"          ,    "unicode": "&#x221B;"       ,  "id": "myCBRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },
     { "kbd": "\\qdrt"          ,    "unicode": "&#x221C;"       ,  "id": "myQDRT",        "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 8    },

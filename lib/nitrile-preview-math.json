@@ -823,6 +823,19 @@
     "19pt":         "19pt",
     "20pt":         "20pt"
   },
+  "command": {
+    "sqrt" : {},
+    "cbrt" : {},
+    "qdrt" : {},
+    "em" : {},
+    "uri" : {},
+    "ruby" : {},
+    "ref" : {},
+    "img" : {},
+    "vbarchart" : {},
+    "xyplot" : {},
+    "colorbox" : {}
+  },
   "symbol": {
     "Alpha"                           : { "html": "&#913;"        ,  "tex": "\\Alpha"                ,  "width": 8.5  , "op": 0    },
     "Beta"                            : { "html": "&#914;"        ,  "tex": "\\Beta"                 ,  "width": 8.5  , "op": 0    },

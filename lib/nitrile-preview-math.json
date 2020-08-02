@@ -917,7 +917,6 @@
     "sim"                             : { "html": "&#x223C;"      , "tex":  "\\sim"                  ,  "width": 7  , "op": 1   },
     "propto"                          : { "html": "&#x221D;"      , "tex":  "\\propto"               ,  "width": 7  , "op": 1   },
     "neq"                             : { "html": "&#x2260;"      , "tex":  "\\neq"                  ,  "width": 7  , "op": 1   },
-    "ne"                              : { "html": "&#x2260;"      , "tex":  "\\ne"                   ,  "width": 7  , "op": 1   },
     "mid"                             : { "html": "&#x2223;"      , "tex":  "\\mid"                  ,  "width": 7  , "op": 1   },
     "nmid"                            : { "html": "&#x2224;"      , "tex":  "\\nmid"                 ,  "width": 7  , "op": 1   },
     "pm"                              : { "html": "&#x00B1;"      , "tex":  "\\pm"                   ,  "width": 7  , "op": 1   },

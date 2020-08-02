@@ -948,6 +948,9 @@
     "cdot"                            : { "html": "&#x22C5;"      , "tex":  "\\cdot"                 ,  "width": 7  , "op": 1   },
     "cdots"                           : { "html": "&#x22EF;"      , "tex":  "\\cdots"                ,  "width": 10 , "op": 1   },
     "ldots"                           : { "html": "..."           , "tex":  "\\ldots"                ,  "width": 10 , "op": 1   },
+    "vdots"                           : { "html": "&#x22EE;"      , "tex":  "\\vdots"                ,  "width": 10 , "op": 1   },
+    "ddots"                           : { "html": "&#x22F1;"      , "tex":  "\\ddots"                ,  "width": 10 , "op": 1   },
+    "iddots"                          : { "html": "&#x22F0;"      , "tex":  "\\iddots"               ,  "width": 10 , "op": 1   },
 
     "complement"                      : { "html": "&#x2201;"      , "tex":  "\\complement"           ,  "width": 7  , "op": 1   },
     "blacksquare"                     : { "html": "&#x25FC;"      , "tex":  "\\blacksquare"          ,  "width": 7  , "op": 1   },

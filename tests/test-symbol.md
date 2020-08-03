@@ -1,12 +1,32 @@
 
-\pi
+\( F_x(x) ).
 
-\sqrt{\pi+1}
-
-I_j
-
-I_j^1
+I_1
 
 I^1
 
 \dot{x}
+
+\ddot{x}
+
+\hat{x}
+
+\check{x}
+
+\bar{x}
+
+\grave{x}
+
+\acute{x}
+
+\breve{x}
+
+\tilde{x}
+
+\mathring{x}
+
+The \em{hello \vec{x}} world
+
+The \Alpha and \Beta
+
+The \\Alpha and \\Beta

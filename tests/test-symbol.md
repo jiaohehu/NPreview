@@ -30,3 +30,17 @@ The \em{hello \vec{x}} world
 The \Alpha and \Beta
 
 The \\Alpha and \\Beta
+
+`james`
+
+``james``
+
+```james``` yu ```james2``` yu ``james3``
+
+The \\Alpha and \\Beta command
+
+a~dot, a~ddot
+
+a~mathbf a~mathbb
+
+a_h a_k a_n

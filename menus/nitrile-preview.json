@@ -12,23 +12,12 @@
         "command": "nitrile-preview:jump-to-editor"
       },
       {
-        "label": "Open Child Document",
-        "command": "nitrile-preview:open-linked-file"
-      },
-      {
         "label": "Scroll to Highlight",
         "command": "nitrile-preview:show-highlight"
       },
       {
         "label": "Toggle Full Page",
         "command": "nitrile-preview:toggle-full-page"
-      },
-      {
-        "type": "separator"
-      },
-      {
-        "label": "Switch Preview",
-        "command": "nitrile-preview:do-reload"
       },
       {
         "type": "separator"
@@ -45,20 +34,20 @@
         "type": "separator"
       },
       {
+        "label": "Export to PDFLATEX As\u2026",
+        "command": "nitrile-preview:to-pdflatex"
+      },
+      {
+        "label": "Export to LUALATEX As\u2026",
+        "command": "nitrile-preview:to-lualatex"
+      },
+      {
         "label": "Export to HTML As\u2026",
         "command": "nitrile-preview:to-html"
       },
       {
         "label": "Export to XHTML As\u2026",
         "command": "nitrile-preview:to-xhtml"
-      },
-      {
-        "label": "Export to CONTEX As\u2026",
-        "command": "nitrile-preview:to-contex"
-      },
-      {
-        "label": "Export to LATEX As\u2026",
-        "command": "nitrile-preview:to-latex"
       },
       {
         "label": "Export to EPUB As\u2026",

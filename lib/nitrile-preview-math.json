@@ -131,9 +131,9 @@
 
     { "kbd": "&"               ,    "unicode": "&#38;"          ,  "id": "myAMPERSAND",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 7    },
     { "kbd": "\""              ,    "unicode": "&#34;"          ,  "id": "myQUOTATION",   "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
-    { "kbd": "'"               ,    "unicode": "&#x2032;"       ,  "id": "myPRIME1",      "dx":"0.15",   "dy":"0.75em",   "op": 0    ,  "width": 4    },
-    { "kbd": "''"              ,    "unicode": "&#x2033;"       ,  "id": "myPRIME2",      "dx":"0.15",   "dy":"0.75em",   "op": 0    ,  "width": 4    },
-    { "kbd": "'''"             ,    "unicode": "&#x2034;"       ,  "id": "myPRIME3",      "dx":"0.15",   "dy":"0.75em",   "op": 0    ,  "width": 4    },
+    { "kbd": "'"               ,    "unicode": "&#x2032;"       ,  "id": "myPRIME1",      "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
+    { "kbd": "''"              ,    "unicode": "&#x2033;"       ,  "id": "myPRIME2",      "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
+    { "kbd": "'''"             ,    "unicode": "&#x2034;"       ,  "id": "myPRIME3",      "dx":"0",      "dy":"0.75em",   "op": 0    ,  "width": 4    },
 
     { "kbd": "+"               ,    "unicode": "+"              ,  "id": "myPLUS",        "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },
     { "kbd": "_"               ,    "unicode": "_"              ,  "id": "myUS",          "dx":"0",      "dy":"0.75em",   "op": 1    ,  "width": 7     },

@@ -16,9 +16,15 @@
       "default": true,
       "description": "Set it to true if you want the preview to be updated whenever source editor editor has been modified. Set to false if you only want the preview to be updated when the content is saved."
     },
-    "fontSizePt": {
+    "bodyFontSize": {
       "type": "number",
       "default": 14,
+      "minimum": 7,
+      "description": "Set it to a numeric value that is interpreted as the point size for previewed HTML document. The minimum number is 7."
+    },
+    "mathFontSize": {
+      "type": "number",
+      "default": 12,
       "minimum": 7,
       "description": "Set it to a numeric value that is interpreted as the point size for previewed HTML document. The minimum number is 7."
     },

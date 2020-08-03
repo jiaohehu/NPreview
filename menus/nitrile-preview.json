@@ -42,6 +42,10 @@
         "command": "nitrile-preview:to-lualatex"
       },
       {
+        "label": "Export to CONTEXT As\u2026",
+        "command": "nitrile-preview:to-context"
+      },
+      {
         "label": "Export to HTML As\u2026",
         "command": "nitrile-preview:to-html"
       },

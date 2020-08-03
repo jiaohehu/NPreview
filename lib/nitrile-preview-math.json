@@ -1158,6 +1158,7 @@
     "frac03"                          : { "html": "&#8585;"        ,  "tex": "\\sfrac{0}{3}"          , "width": 9.5,  "op": 0   },
 
 
+    "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 6,    "op": 0   },
     "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 6,    "op": 0   } 
 
   }

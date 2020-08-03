@@ -31,11 +31,13 @@ The \Alpha and \Beta
 
 The \\Alpha and \\Beta
 
-`james`
+`verbatim` and ```verbatim``` and ``verbatim``
 
-``james``
+The \Alpha and \Beta command
 
-```james``` yu ```james2``` yu ``james3``
+The \Alpha{} and \Beta{} command
+
+The \Alpha{}x and \Beta{}y command
 
 The \\Alpha and \\Beta command
 
@@ -44,3 +46,5 @@ a~dot, a~ddot
 a~mathbf a~mathbb
 
 a_h a_k a_n
+
+The \Big{Sale} event

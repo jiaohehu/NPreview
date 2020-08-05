@@ -1,49 +1,13 @@
-test-tabr.md
+@@ Table \ref{utf8encoding}
+  UTF-8 encoding table
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
+  Bits |Min      |Max       |Byte-1   |Byte-2   |Byte-3
+  -----|---------|----------|---------|---------|---------
+  7    |U+0000   |U+007F    |0xxxxxxx |         |
+  11   |U+0080   |U+07FF    |110xxxxx |10xxxxxx |
+  16   |U+0800   |U+FFFF    |1110xxxx |10xxxxxx |10xxxxxx
+  
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
-
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
-
-@ Table   
-
-  ---------------------|------------|-------------
-  Category             | Unit       | Symbol                                   
-  ---------------------|------------|-------------
-  Length               | meter      | m
-  Mass                 | kilogram   | kg
-  Time                 | second     | s  
-  Electric current     | ampere     | A  
-  Temperature          | kelvin     | K  
-  Luminous intensity   | candela    | cd
-  Amount of substance  | mole       | mol  
-  Amount of substance  | mole       | mol  
-  Amount of substance  | mole       | mol  
-  Amount of substance  | mole       | mol  
-  Amount of substance  | mole       | mol  
-  Amount of substance  | mole       | mol  
-  ---------------------|------------|-------------
-
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum."
-
+The first row represents the encoding of a ASCII grapheme
+that is in the range of U+0000 and U+007F. The encoding is a
+single byte that with its lowest 7-bit holding the numerical

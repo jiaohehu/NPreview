@@ -279,12 +279,7 @@
     { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
     { "kbd": "\\cdot"          ,    "unicode": "&#x22C5;"       ,  "id": "myx22C5",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
     { "kbd": "\\Box"           ,    "unicode": "&#x2610;"       ,  "id": "myx2610",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 8    },
-    { "kbd": "\\oplus"         ,    "unicode": "&#x2295;"       ,  "id": "myx2295",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
-    { "kbd": "\\ominus"        ,    "unicode": "&#x2296;"       ,  "id": "myx2296",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
-    { "kbd": "\\otimes"        ,    "unicode": "&#x2297;"       ,  "id": "myx2297",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
-    { "kbd": "\\oslash"        ,    "unicode": "&#x2298;"       ,  "id": "myx2298",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 9    },
-    { "kbd": "\\wedge"         ,    "unicode": "&#x2227;"       ,  "id": "myx2227",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
-    { "kbd": "\\vee"           ,    "unicode": "&#x2228;"       ,  "id": "myx2228",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
+
     { "kbd": "\\boxtimes"      ,    "unicode": "&#x22A0;"       ,  "id": "myx22A0",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
     { "kbd": "\\cong"          ,    "unicode": "&#x2245;"       ,  "id": "myx2245",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    }
 
@@ -917,11 +912,12 @@
     "dagger"                          : { "html": "&#x2020;"       , "tex":  "\\dagger"               ,  "width": 6  , "op": 0   },
     "ddagger"                         : { "html": "&#x2021;"       , "tex":  "\\ddagger"              ,  "width": 6  , "op": 0   },
 
-    "uplus"                           : { "html": "&#x228E;"       , "tex":  "\\uplus"                ,  "width": 7  , "op": 1   },
-    "sqcap"                           : { "html": "&#x2293;"       , "tex":  "\\sqcap"                ,  "width": 7  , "op": 1   },
-    "sqcup"                           : { "html": "&#x2294;"       , "tex":  "\\sqcup"                ,  "width": 7  , "op": 1   },
-    "vee"                             : { "html": "&#x2228;"       , "tex":  "\\vee"                  ,  "width": 7  , "op": 1   },
-    "wedge"                           : { "html": "&#x2227;"       , "tex":  "\\wedge"                ,  "width": 7  , "op": 1   },
+    "uplus"                           : { "html": "&#x228E;"       , "tex":  "\\uplus"                ,  "width": 0  , "op": 1   },
+    "sqcap"                           : { "html": "&#x2293;"       , "tex":  "\\sqcap"                ,  "width": 0  , "op": 1   },
+    "sqcup"                           : { "html": "&#x2294;"       , "tex":  "\\sqcup"                ,  "width": 0  , "op": 1   },
+    "vee"                             : { "html": "&#x2228;"       , "tex":  "\\vee"                  ,  "width": 0  , "op": 1   },
+    "wedge"                           : { "html": "&#x2227;"       , "tex":  "\\wedge"                ,  "width": 0  , "op": 1   },
+
     "cdot"                            : { "html": "&#x22C5;"       , "tex":  "\\cdot"                 ,  "width": 7  , "op": 1   },
     "cdots"                           : { "html": "&#x22EF;"       , "tex":  "\\cdots"                ,  "width": 10 , "op": 1   },
     "ldots"                           : { "html": "..."            , "tex":  "\\ldots"                ,  "width": 10 , "op": 1   },
@@ -941,13 +937,15 @@
     "bullet"                          : { "html": "&#x2022;"       , "tex":  "\\bullet"               ,  "width": 7  , "op": 1   },
     "wr"                              : { "html": "&#x2240;"       , "tex":  "\\wr"                   ,  "width": 7  , "op": 1   },
 
-    "oplus"                           : { "html": "&#x2295;"       , "tex":  "\\oplus"                ,  "width": 7  , "op": 1   },
-    "ominus"                          : { "html": "&#x2296;"       , "tex":  "\\ominus"               ,  "width": 7  , "op": 1   },
-    "otimes"                          : { "html": "&#x2297;"       , "tex":  "\\otimes"               ,  "width": 7  , "op": 1   },
-    "oslash"                          : { "html": "&#x2298;"       , "tex":  "\\oslash"               ,  "width": 7  , "op": 1   },
-    "odot"                            : { "html": "&#x2299;"       , "tex":  "\\odot"                 ,  "width": 7  , "op": 1   },
-    "circ"                            : { "html": "&#x2218;"       , "tex":  "\\circ"                 ,  "width": 7  , "op": 1   },
-    "amalg"                           : { "html": "&#x2210;"       , "tex":  "\\amalg"                ,  "width": 7  , "op": 1   },
+    "oplus"                           : { "html": "&#x2295;"       , "tex":  "\\oplus"                ,  "width": 0  , "op": 1   },
+    "ominus"                          : { "html": "&#x2296;"       , "tex":  "\\ominus"               ,  "width": 0  , "op": 1   },
+    "otimes"                          : { "html": "&#x2297;"       , "tex":  "\\otimes"               ,  "width": 0  , "op": 1   },
+    "oslash"                          : { "html": "&#x2298;"       , "tex":  "\\oslash"               ,  "width": 0  , "op": 1   },
+    "odot"                            : { "html": "&#x2299;"       , "tex":  "\\odot"                 ,  "width": 0  , "op": 1   },
+
+    "circ"                            : { "html": "&#x2218;"       , "tex":  "\\circ"                 ,  "width": 5  , "op": 1   },
+
+    "amalg"                           : { "html": "&#x2210;"       , "tex":  "\\amalg"                ,  "width": 0  , "op": 1   },
 
     "infty"                           : { "html": "&#x221E;"       ,  "tex": "\\infty"                ,  "width": 0  , "op": 0   },
     "emptyset"                        : { "html": "&#x2205;"       , "tex":  "\\emptyset"             ,  "width": 0  , "op": 0   },

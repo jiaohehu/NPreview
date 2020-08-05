@@ -233,12 +233,6 @@
 
     { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
-
-    { "kbd": "\\nwarrow"       ,    "unicode": "&#x2196;"       ,  "id": "myx2196",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 10   },
-    { "kbd": "\\nearrow"       ,    "unicode": "&#x2197;"       ,  "id": "myx2197",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 10   },
-    { "kbd": "\\searrow"       ,    "unicode": "&#x2198;"       ,  "id": "myx2198",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 10   },
-    { "kbd": "\\swarrow"       ,    "unicode": "&#x2199;"       ,  "id": "myx2199",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 10   },
-
     { "kbd": "\\surd"          ,    "unicode": "&#x2713;"       ,  "id": "myx2713",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\cdots"         ,    "unicode": "&#x22EF;"       ,  "id": "myx22EF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 10   },
     { "kbd": "\\ldots"         ,    "unicode": "..."            ,  "id": "myLDOTS",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 10   },
@@ -1022,6 +1016,11 @@
     "rightharpoonup"                  : { "html": "&#x21C0;"       ,  "tex" : "\\rightharpoonup"       , "width":12  , "op":1  },
     "rightharpoondown"                : { "html": "&#x21C1;"       ,  "tex" : "\\rightharpoondown"     , "width":12  , "op":1  },
     "rightleftharpoons"               : { "html": "&#x21CC;"       ,  "tex" : "\\rightleftharpoons"    , "width":12  , "op":1  },
+
+    "nwarrow"                         : { "html": "&#x2196;"       ,  "tex" : ""                       , "width":12,  "op": 1  },
+    "nearrow"                         : { "html": "&#x2197;"       ,  "tex" : ""                       , "width":12,  "op": 1  },
+    "searrow"                         : { "html": "&#x2198;"       ,  "tex" : ""                       , "width":12,  "op": 1  },
+    "swarrow"                         : { "html": "&#x2199;"       ,  "tex" : ""                       , "width":12,  "op": 1  },
 
     "partial"                         : { "html": "&#x2202;"       ,  "tex": "\\partial"              , "width": 0  , "op": 0     },
     "eth"                             : { "html": "&#x00F0;"       ,  "tex": "\\eth"                  , "width": 0  , "op": 0     },

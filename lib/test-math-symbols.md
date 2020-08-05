@@ -31,3 +31,37 @@ Longleftarrow \( \Longleftarrow \) [&Longleftarrow]
 leftrightarrow \( \leftrightarrow \) [&leftrightarrow]     
 
 Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]     
+
+"uparrow"              \( \uparrow \)              [&uparrow]              
+
+"Uparrow"              \( \Uparrow \)              [&Uparrow]              
+
+"downarrow"            \( \downarrow \)            [&downarrow]            
+
+"Downarrow"            \( \Downarrow \)            [&Downarrow]            
+
+"updownarrow"          \( \updownarrow \)          [&updownarrow]          
+
+"Updownarrow"          \( \Updownarrow \)          [&Updownarrow]          
+
+"leftharpoonup"        \( \leftharpoonup \)        [&leftharpoonup]        
+
+"leftharpoondown"      \( \leftharpoondown \)      [&leftharpoondown]      
+
+"rightharpoonup"       \( \rightharpoonup \)       [&rightharpoonup]       
+
+"rightharpoondown"     \( \rightharpoondown \)     [&rightharpoondown]     
+
+"rightleftharpoons"    \( \rightleftharpoons \)    [&rightleftharpoons]    
+
+"nwarrow"   \( \nwarrow \)   [&nwarrow]   
+
+"nearrow"   \( \nearrow \)   [&nearrow]   
+
+"searrow"   \( \searrow \)   [&searrow]   
+
+"swarrow"   \( \swarrow \)   [&swarrow]   
+
+
+
+

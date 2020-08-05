@@ -132,20 +132,11 @@
     { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
 
     { "kbd": "\\surd"          ,    "unicode": "&#x2713;"       ,  "id": "myx2713",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\cdots"         ,    "unicode": "&#x22EF;"       ,  "id": "myx22EF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 10   },
-    { "kbd": "\\ldots"         ,    "unicode": "..."            ,  "id": "myLDOTS",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 10   },
     { "kbd": "\\complement"    ,    "unicode": "&#x2201;"       ,  "id": "myx2201",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\blacksquare"   ,    "unicode": "&#x25FC;"       ,  "id": "myx25FC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\neg"           ,    "unicode": "&#x00AC;"       ,  "id": "myx00AC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\nexists"       ,    "unicode": "&#x2204;"       ,  "id": "myx2204",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
     { "kbd": "\\exists"        ,    "unicode": "&#x2203;"       ,  "id": "myx2203",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\forall"        ,    "unicode": "&#x2200;"       ,  "id": "myx2200",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-
-    { "kbd": "\\angle"         ,    "unicode": "&#x2220;"       ,  "id": "myx2220",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 6    },
-    { "kbd": "\\cdot"          ,    "unicode": "&#x22C5;"       ,  "id": "myx22C5",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
-
-    { "kbd": "\\boxtimes"      ,    "unicode": "&#x22A0;"       ,  "id": "myx22A0",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    },
-    { "kbd": "\\cong"          ,    "unicode": "&#x2245;"       ,  "id": "myx2245",       "dx":"0",      "dy":"0.75em",  "op": 1    ,  "width": 7    }
+    { "kbd": "\\forall"        ,    "unicode": "&#x2200;"       ,  "id": "myx2200",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    } 
 
   ],
   "mathCommands": [
@@ -782,15 +773,14 @@
     "vee"                             : { "html": "&#x2228;"       , "tex":  "\\vee"                  ,  "width": 0  , "op": 1   },
     "wedge"                           : { "html": "&#x2227;"       , "tex":  "\\wedge"                ,  "width": 0  , "op": 1   },
 
-    "cdot"                            : { "html": "&#x22C5;"       , "tex":  "\\cdot"                 ,  "width": 7  , "op": 1   },
+    "cdot"                            : { "html": "&#x22C5;"       , "tex":  "\\cdot"                 ,  "width": 3  , "op": 1   },
     "cdots"                           : { "html": "&#x22EF;"       , "tex":  "\\cdots"                ,  "width": 10 , "op": 1   },
     "ldots"                           : { "html": "..."            , "tex":  "\\ldots"                ,  "width": 10 , "op": 1   },
-    "vdots"                           : { "html": "&#x22EE;"       , "tex":  "\\vdots"                ,  "width": 10 , "op": 1   },
-    "ddots"                           : { "html": "&#x22F1;"       , "tex":  "\\ddots"                ,  "width": 10 , "op": 1   },
+    "vdots"                           : { "html": "&#x22EE;"       , "tex":  "\\vdots"                ,  "width": 7  , "op": 1   },
+    "ddots"                           : { "html": "&#x22F1;"       , "tex":  "\\ddots"                ,  "width": 80 , "op": 1   },
     "iddots"                          : { "html": "&#x22F0;"       , "tex":  "\\iddots"               ,  "width": 10 , "op": 1   },
 
     "complement"                      : { "html": "&#x2201;"       , "tex":  "\\complement"           ,  "width": 7  , "op": 1   },
-    "blacksquare"                     : { "html": "&#x25FC;"       , "tex":  "\\blacksquare"          ,  "width": 7  , "op": 1   },
 
     "diamond"                         : { "html": "&#x22C4;"       , "tex":  "\\diamond"              ,  "width": 0  , "op": 1   },
   "bigtriangleup"                     : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"        ,  "width": 0  , "op": 1   },
@@ -1002,6 +992,7 @@
     "triangle"                        : { "html": "&#x25B3;"       , "tex":  "\\triangle"             , "width": 0,    "op": 0   },
 
     "square"                          : { "html": "&#x25FB;"       , "tex":  "\\Square"               , "width": 0,    "op": 0   },
+    "SQUARE"                          : { "html": "&#x25FC;"       , "tex":  "\\blacksquare"          , "width": 0,    "op": 0   },
 
     "circle"                          : { "html": "&#x25CB;"       ,  "tex": "\\Circle"               , "width": 7,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
     "CIRCLE"                          : { "html": "&#x25CF;"       ,  "tex": ""                       , "width": 7,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },

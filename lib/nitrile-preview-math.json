@@ -1073,20 +1073,20 @@
 
     "square"                          : { "html": "&#x25FB;"       , "tex":  "\\Square"               , "width": 0,    "op": 0   },
 
-    "Circle"                          : { "html": "&#x25CB;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
-    "CIRCLE"                          : { "html": "&#x25CF;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
+    "circle"                          : { "html": "&#x25CB;"       ,  "tex": "\\Circle"               , "width": 7,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
+    "CIRCLE"                          : { "html": "&#x25CF;"       ,  "tex": ""                       , "width": 7,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
     
-    "pentagon"                        : { "html": "&#x2B20;"       ,  "tex": ""                       },
-    "PENTAGON"                        : { "html": "&#x2B1F;"       ,  "tex": "?", "textmode":1        },
+    "pentagon"                        : { "html": "&#x2B20;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0                          },
+    "PENTAGON"                        : { "html": "&#x2B1F;"       ,  "tex": "?", "textmode":1        , "width": 12,    "op": 0,  "textmode":0                          },
 
-    "hexagon"                         : { "html": "&#x2B21;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0 },
-    "HEXAGON"                         : { "html": "&#x2B22;"       ,  "tex": "\\Hexasteel"            , "width": 0,    "op": 0,  "textmode":1, "usepackage":"marvosym"  },
+    "hexagon"                         : { "html": "&#x2B21;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0 },
+    "HEXAGON"                         : { "html": "&#x2B22;"       ,  "tex": "\\Hexasteel"            , "width": 12,    "op": 0,  "textmode":1, "usepackage":"marvosym"  },
 
-    "LEFTcircle"                      : { "html": "&#x25D0;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
-    "RIGHTcircle"                     : { "html": "&#x25D1;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
+    "LEFTcircle"                      : { "html": "&#x25D0;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
+    "RIGHTcircle"                     : { "html": "&#x25D1;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
 
-    "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 0,    "op": 0   },
-    "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 0,    "op": 0   } 
+    "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 5,    "op": 0   },
+    "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 6,    "op": 0   } 
 
   }
 }

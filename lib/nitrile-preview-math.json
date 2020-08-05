@@ -119,10 +119,7 @@
     { "kbd": "\\qquad"         ,    "unicode": "&#x2004;"       ,  "id": "myQQUADSP",     "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 24   },
     { "kbd": "\\;"             ,    "unicode": "&#x2004;"       ,  "id": "myBIGSP",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 5    },
     { "kbd": "\\:"             ,    "unicode": "&#x2005;"       ,  "id": "myMEDSP",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
-    { "kbd": "\\,"             ,    "unicode": "&#x2006;"       ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 2    },
-
-    { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    }
-
+    { "kbd": "\\,"             ,    "unicode": "&#x2006;"       ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 2    }
 
   ],
   "mathCommands": [

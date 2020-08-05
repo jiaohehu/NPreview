@@ -331,3 +331,223 @@ Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]
 
 "setminus" \( \setminus \) [&setminus] 
 
+
+"in"                  \( \in \)                  [&in]                  
+
+"nin"                 \( \nin \)                 [&nin]                 
+
+"notin"               \( \notin \)               [&notin]               
+
+"owns"                \( \owns \)                [&owns]                
+
+"ni"                  \( \ni \)                  [&ni]                  
+
+"nni"                 \( \nni \)                 [&nni]                 
+
+"subset"              \( \subset \)              [&subset]              
+
+"nsubset"             \( \nsubset \)             [&nsubset]             
+
+"subseteq"            \( \subseteq \)            [&subseteq]            
+
+"nsubseteq"           \( \nsubseteq \)           [&nsubseteq]           
+
+"sqsubset"            \( \sqsubset \)            [&sqsubset]            
+
+"sqsubseteq"          \( \sqsubseteq \)          [&sqsubseteq]          
+
+"supset"              \( \supset \)              [&supset]              
+
+"nsupset"             \( \nsupset \)             [&nsupset]             
+
+"supseteq"            \( \supseteq \)            [&supseteq]            
+
+"nsupseteq"           \( \nsupseteq \)           [&nsupseteq]           
+
+"sqsupset"            \( \sqsupset \)            [&sqsupset]            
+
+"sqsupseteq"          \( \sqsupseteq \)          [&sqsupseteq]          
+
+"exists"              \( \exists \)              [&exists]              
+
+"nexists"             \( \nexists \)             [&nexists]             
+
+"forall"              \( \forall \)              [&forall]              
+
+"neg"                 \( \neg \)                 [&neg]                 
+
+"complement"          \( \complement \)          [&complement]          
+
+"land"                \( \land \)                [&land]                
+
+"lor"                 \( \lor \)                 [&lor]                 
+
+"cap"                 \( \cap \)                 [&cap]                 
+
+"cup"                 \( \cup \)                 [&cup]                 
+
+"setminus"            \( \setminus \)            [&setminus]            
+
+"iff"                 \( \iff \)                 [&iff]                 
+
+"top"                 \( \top \)                 [&top]                 
+
+"bot"                 \( \bot \)                 [&bot]                 
+
+"parallel"            \( \parallel \)            [&parallel]            
+
+"nparallel"           \( \nparallel \)           [&nparallel]           
+
+"perp"                \( \perp \)                [&perp]                
+
+"angle"                           \( \angle \)                           [&angle]                           
+
+"measuredangle"                     \( \measuredangle \)                     [&measuredangle]                     
+
+"rightangle"                      \( \rightangle \)                      [&rightangle]                      
+
+"lceil"                           \( \lceil \)                           [&lceil]                           
+
+"rceil"                           \( \rceil \)                           [&rceil]                           
+
+"ulcorner"                        \( \ulcorner \)                        [&ulcorner]                        
+
+"urcorner"                        \( \urcorner \)                        [&urcorner]                        
+
+"lfloor"                          \( \lfloor \)                          [&lfloor]                          
+
+"rfloor"                          \( \rfloor \)                          [&rfloor]                          
+
+"llcorner"                        \( \llcorner \)                        [&llcorner]                        
+
+"lrcorner"                        \( \lrcorner \)                        [&lrcorner]                        
+
+"langle"                          \( \langle \)                          [&langle]                          
+
+"rangle"                          \( \rangle \)                          [&rangle]                          
+
+"vert"                            \( \vert \)                            [&vert]                            
+
+"lvert"                           \( \lvert \)                           [&lvert]                           
+
+"rvert"                           \( \rvert \)                           [&rvert]                           
+
+"Vert"                            \( \Vert \)                            [&Vert]                            
+
+"lVert"                           \( \lVert \)                           [&lVert]                           
+
+"rVert"                           \( \rVert \)                           [&rVert]                           
+
+"nless"                  \( \nless \)                  [&nless]                  
+
+"leq"                    \( \leq \)                    [&leq]                    
+
+"leqslant"               \( \leqslant \)               [&leqslant]               
+
+"nleq"                   \( \nleq \)                   [&nleq]                   
+
+"nleqslant"              \( \nleqslant \)              [&nleqslant]              
+
+"prec"                   \( \prec \)                   [&prec]                   
+
+"nprec"                  \( \nprec \)                  [&nprec]                  
+
+"preceq"                 \( \preceq \)                 [&preceq]                 
+
+"npreceq"                \( \npreceq \)                [&npreceq]                
+
+"ll"                     \( \ll \)                     [&ll]                     
+
+"lll"                    \( \lll \)                    [&lll]                    
+
+"ngtr"                   \( \ngtr \)                   [&ngtr]                   
+
+"geq"                    \( \geq \)                    [&geq]                    
+
+"geqslant"               \( \geqslant \)               [&geqslant]               
+
+"ngeq"                   \( \ngeq \)                   [&ngeq]                   
+
+"ngeqslant"              \( \ngeqslant \)              [&ngeqslant]              
+
+"succ"                   \( \succ \)                   [&succ]                   
+
+"nsucc"                  \( \nsucc \)                  [&nsucc]                  
+
+"succeq"                 \( \succeq \)                 [&succeq]                 
+
+"nsucceq"                \( \nsucceq \)                [&nsucceq]                
+
+"gg"                     \( \gg \)                     [&gg]                     
+
+"ggg"                    \( \ggg \)                    [&ggg]                    
+
+"coloneq"                \( \coloneq \)                [&coloneq]                
+
+"precsim"                \( \precsim \)                [&precsim]                
+
+"succsim"                \( \succsim \)                [&succsim]                
+
+"doteq"                  \( \doteq \)                  [&doteq]                  
+
+"equiv"                  \( \equiv \)                  [&equiv]                  
+
+"nequiv"                 \( \nequiv \)                 [&nequiv]                 
+
+"approx"                 \( \approx \)                 [&approx]                 
+
+"cong"                   \( \cong \)                   [&cong]                   
+
+"simeq"                  \( \simeq \)                  [&simeq]                  
+
+"sim"                    \( \sim \)                    [&sim]                    
+
+"propto"                 \( \propto \)                 [&propto]                 
+
+"neq"                    \( \neq \)                    [&neq]                    
+
+"mid"                    \( \mid \)                    [&mid]                    
+
+"nmid"                   \( \nmid \)                   [&nmid]                   
+
+"pm"                     \( \pm \)                     [&pm]                     
+
+"mp"                     \( \mp \)                     [&mp]                     
+
+"times"                  \( \times \)                  [&times]                  
+
+"div"                    \( \div \)                    [&div]                    
+
+"ast"                    \( \ast \)                    [&ast]                    
+
+"star"                   \( \star \)                   [&star]                   
+
+"boxtimes"               \( \boxtimes \)               [&boxtimes]               
+
+"asymp"                  \( \asymp \)                  [&asymp]                  
+
+"vdash"                  \( \vdash \)                  [&vdash]                  
+
+"smile"                  \( \smile \)                  [&smile]                  
+
+"models"                 \( \models \)                 [&models]                 
+
+"bowtie"                 \( \bowtie \)                 [&bowtie]                 
+
+"dashv"                  \( \dashv \)                  [&dashv]                  
+
+"frown"                  \( \frown \)                  [&frown]                  
+
+"dagger"                 \( \dagger \)                 [&dagger]                 
+
+"ddagger"                \( \ddagger \)                [&ddagger]                
+
+"uplus"                  \( \uplus \)                  [&uplus]                  
+
+"sqcap"                  \( \sqcap \)                  [&sqcap]                  
+
+"sqcup"                  \( \sqcup \)                  [&sqcup]                  
+
+"vee"                    \( \vee \)                    [&vee]                    
+
+"wedge"                  \( \wedge \)                  [&wedge]                  

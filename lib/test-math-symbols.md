@@ -195,5 +195,114 @@ Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]
 
 "questiondown"    \( \questiondown \)    [&questiondown]    
 
+"Alpha"                   \( \Alpha \)                   [&Alpha]                   
+
+"Beta"                    \( \Beta \)                    [&Beta]                    
+
+"Gamma"                   \( \Gamma \)                   [&Gamma]                   
+
+"Delta"                   \( \Delta \)                   [&Delta]                   
+
+"Epsilon"                 \( \Epsilon \)                 [&Epsilon]                 
+
+"Zeta"                    \( \Zeta \)                    [&Zeta]                    
+
+"Eta"                     \( \Eta \)                     [&Eta]                     
+
+"Theta"                   \( \Theta \)                   [&Theta]                   
+
+"Iota"                    \( \Iota \)                    [&Iota]                    
+
+"Kappa"                   \( \Kappa \)                   [&Kappa]                   
+
+"Lambda"                  \( \Lambda \)                  [&Lambda]                  
+
+"Mu"                      \( \Mu \)                      [&Mu]                      
+
+"Nu"                      \( \Nu \)                      [&Nu]                      
+
+"Xi"                      \( \Xi \)                      [&Xi]                      
+
+"Omicron"                 \( \Omicron \)                 [&Omicron]                 
+
+"Pi"                      \( \Pi \)                      [&Pi]                      
+
+"Rho"                     \( \Rho \)                     [&Rho]                     
+
+"Sigma"                   \( \Sigma \)                   [&Sigma]                   
+
+"Tau"                     \( \Tau \)                     [&Tau]                     
+
+"Upsilon"                 \( \Upsilon \)                 [&Upsilon]                 
+
+"Phi"                     \( \Phi \)                     [&Phi]                     
+
+"Chi"                     \( \Chi \)                     [&Chi]                     
+
+"Psi"                     \( \Psi \)                     [&Psi]                     
+
+"Omega"                   \( \Omega \)                   [&Omega]                   
+                          
+"alpha"                   \( \alpha \)                   [&alpha]                   
+
+"beta"                    \( \beta \)                    [&beta]                    
+
+"gamma"                   \( \gamma \)                   [&gamma]                   
+
+"delta"                   \( \delta \)                   [&delta]                   
+
+"epsilon"                 \( \epsilon \)                 [&epsilon]                 
+
+"zeta"                    \( \zeta \)                    [&zeta]                    
+
+"eta"                     \( \eta \)                     [&eta]                     
+
+"theta"                   \( \theta \)                   [&theta]                   
+
+"vartheta"                \( \vartheta \)                [&vartheta]                
+
+"iota"                    \( \iota \)                    [&iota]                    
+
+"kappa"                   \( \kappa \)                   [&kappa]                   
+
+"varkappa"                \( \varkappa \)                [&varkappa]                
+
+"lambda"                  \( \lambda \)                  [&lambda]                  
+
+"mu"                      \( \mu \)                      [&mu]                      
+
+"nu"                      \( \nu \)                      [&nu]                      
+
+"xi"                      \( \xi \)                      [&xi]                      
+
+"omicron"                 \( \omicron \)                 [&omicron]                 
+
+"pi"                      \( \pi \)                      [&pi]                      
+
+"varpi"                   \( \varpi \)                   [&varpi]                   
+
+"rho"                     \( \rho \)                     [&rho]                     
+
+"varrho"                  \( \varrho \)                  [&varrho]                  
+
+"varsigma"                \( \varsigma \)                [&varsigma]                
+
+"sigma"                   \( \sigma \)                   [&sigma]                   
+
+"tau"                     \( \tau \)                     [&tau]                     
+
+"upsilon"                 \( \upsilon \)                 [&upsilon]                 
+
+"phi"                     \( \phi \)                     [&phi]                     
+
+"varphi"                  \( \varphi \)                  [&varphi]                  
+
+"chi"                     \( \chi \)                     [&chi]                     
+
+"psi"                     \( \psi \)                     [&psi]                     
+
+"omega"                   \( \omega \)                   [&omega]                   
+
+"varepsilon"              \( \varepsilon \)              [&varepsilon]              
 
 

@@ -159,6 +159,41 @@ Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]
 
 "Pr"          \( \Pr \)          [&Pr]          
 
+"checkmark"       \( \checkmark \)       [&checkmark]       
+
+"circledR"        \( \circledR \)        [&circledR]        
+
+"maltese"         \( \maltese \)         [&maltese]         
+
+"ballotx"         \( \ballotx \)         [&ballotx]         
+
+"CheckedBox"      \( \CheckedBox \)      [&CheckedBox]      
+
+"XBox"            \( \XBox \)            [&XBox]            
+
+"triangle"        \( \triangle \)        [&triangle]        
+
+"square"          \( \square \)          [&square]          
+
+"circle"          \( \circle \)          [&circle]          
+
+"CIRCLE"          \( \CIRCLE \)          [&CIRCLE]          
+
+"pentagon"        \( \pentagon \)        [&pentagon]        
+
+"PENTAGON"        \( \PENTAGON \)        [&PENTAGON]        
+
+"hexagon"         \( \hexagon \)         [&hexagon]         
+
+"HEXAGON"         \( \HEXAGON \)         [&HEXAGON]         
+
+"LEFTcircle"      \( \LEFTcircle \)      [&LEFTcircle]      
+
+"RIGHTcircle"     \( \RIGHTcircle \)     [&RIGHTcircle]     
+
+"degree"          \( \degree \)          [&degree]          
+
+"questiondown"    \( \questiondown \)    [&questiondown]    
 
 
 

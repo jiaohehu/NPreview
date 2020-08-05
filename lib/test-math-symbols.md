@@ -305,4 +305,29 @@ Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]
 
 "varepsilon"              \( \varepsilon \)              [&varepsilon]              
 
+"prec"     \( \prec \)     [&prec]     
+
+"succ"     \( \succ \)     [&succ]     
+
+"succeq"   \( \succeq \)   [&succeq]   
+
+"precsim"  \( \precsim \)  [&precsim]  
+
+"succsim"  \( \succsim \)  [&succsim]  
+
+"nprec"    \( \nprec \)    [&nprec]    
+
+"nsucc"    \( \nsucc \)    [&nsucc]    
+
+"in"       \( \in \)       [&in]       
+
+"notin"    \( \notin \)    [&notin]    
+
+"owns"     \( \owns \)     [&owns]     
+
+"cap"      \( \cap \)      [&cap]      
+
+"cup"      \( \cup \)      [&cup]      
+
+"setminus" \( \setminus \) [&setminus] 
 

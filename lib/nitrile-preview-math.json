@@ -1157,6 +1157,10 @@
     "frac110"                         : { "html": "&#8530;"        ,  "tex": "\\sfrac{1}{10}"         , "width": 9.5,  "op": 0   },
     "frac03"                          : { "html": "&#8585;"        ,  "tex": "\\sfrac{0}{3}"          , "width": 9.5,  "op": 0   },
 
+    "checkmark"                       : { "html": "&#x2713;"       ,  "tex": "\\checkmark"            , "width": 6,    "op": 0   },
+    "circledR"                        : { "html": "&#x00AE;"       ,  "tex": "\\circledR"             , "width": 6,    "op": 0   },
+    "maltese"                         : { "html": "&#x2720;"       ,  "tex": "\\maltese"              , "width": 6,    "op": 0   },
+    "ballotx"                         : { "html": "&#x2717;"       ,  "tex": "\\ding{55}"             , "width": 6,    "op": 0, "usepackage":"pifont"   },
 
     "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 6,    "op": 0   },
     "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 6,    "op": 0   } 

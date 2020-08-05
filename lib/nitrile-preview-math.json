@@ -129,14 +129,8 @@
     { "kbd": "\\:"             ,    "unicode": "&#x2005;"       ,  "id": "myMEDSP",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 3    },
     { "kbd": "\\,"             ,    "unicode": "&#x2006;"       ,  "id": "mySMALLSP",     "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 2    },
 
-    { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
+    { "kbd": "\\hline"         ,    "unicode": "&#x23AF;"       ,  "id": "myx23AF",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    }
 
-    { "kbd": "\\surd"          ,    "unicode": "&#x2713;"       ,  "id": "myx2713",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\complement"    ,    "unicode": "&#x2201;"       ,  "id": "myx2201",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\neg"           ,    "unicode": "&#x00AC;"       ,  "id": "myx00AC",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\nexists"       ,    "unicode": "&#x2204;"       ,  "id": "myx2204",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\exists"        ,    "unicode": "&#x2203;"       ,  "id": "myx2203",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    },
-    { "kbd": "\\forall"        ,    "unicode": "&#x2200;"       ,  "id": "myx2200",       "dx":"0",      "dy":"0.75em",  "op": 0    ,  "width": 7    } 
 
   ],
   "mathCommands": [
@@ -780,7 +774,8 @@
     "ddots"                           : { "html": "&#x22F1;"       , "tex":  "\\ddots"                ,  "width": 80 , "op": 1   },
     "iddots"                          : { "html": "&#x22F0;"       , "tex":  "\\iddots"               ,  "width": 10 , "op": 1   },
 
-    "complement"                      : { "html": "&#x2201;"       , "tex":  "\\complement"           ,  "width": 7  , "op": 1   },
+
+    "surd"                            : { "html": "&#x2713;"       , "tex":  "\\surd"                 ,  "width": 7  , "op": 0,  "comment": "A RADICAL SYMBOL"  },    
 
     "diamond"                         : { "html": "&#x22C4;"       , "tex":  "\\diamond"              ,  "width": 0  , "op": 1   },
   "bigtriangleup"                     : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"        ,  "width": 0  , "op": 1   },
@@ -835,6 +830,7 @@
     "nexists"                         : { "html": "&#x2204;"       , "tex":  "\\nexists"              ,  "width": 7  , "op": 1   },
     "forall"                          : { "html": "&#x2200;"       , "tex":  "\\forall"               ,  "width": 7  , "op": 1   },
     "neg"                             : { "html": "&#x00AC;"       , "tex":  "\\neg"                  ,  "width": 7  , "op": 1   },
+    "complement"                      : { "html": "&#x2201;"       , "tex":  "\\complement"           ,  "width": 7  , "op": 1   },
     "land"                            : { "html": "&#x22C0;"       , "tex":  "\\land"                 ,  "width": 7  , "op": 1   },
     "lor"                             : { "html": "&#x22C1;"       , "tex":  "\\lor"                  ,  "width": 7  , "op": 1   },
     "cap"                             : { "html": "&#x22C2;"       , "tex":  "\\cap"                  ,  "width": 7  , "op": 1   },

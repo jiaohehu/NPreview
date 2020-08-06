@@ -1,5 +1,6 @@
 Test ref
 
+%PDFLATEX.documentclass=memoir
 
 # \ref{my} The info patchlevel command 
 

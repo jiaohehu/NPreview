@@ -768,9 +768,6 @@
     "ddots"                           : { "html": "&#x22F1;"       , "tex":  "\\ddots"                ,  "width": 80 , "op": 1   },
     "iddots"                          : { "html": "&#x22F0;"       , "tex":  "\\iddots"               ,  "width": 10 , "op": 1   },
 
-
-    "surd"                            : { "html": "&#x2713;"       , "tex":  "\\surd"                 ,  "width": 7  , "op": 0,  "comment": "A RADICAL SYMBOL"  },    
-
     "diamond"                         : { "html": "&#x22C4;"       , "tex":  "\\diamond"              ,  "width": 0  , "op": 1   },
   "bigtriangleup"                     : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"        ,  "width": 0  , "op": 1   },
 "bigtriangledown"                     : { "html": "&#x25BD;"       , "tex":  "\\bigtriangledown"      ,  "width": 0  , "op": 1   },
@@ -790,8 +787,11 @@
 
     "amalg"                           : { "html": "&#x2210;"       , "tex":  "\\amalg"                ,  "width": 0  , "op": 1   },
 
-    "infty"                           : { "html": "&#x221E;"       ,  "tex": "\\infty"                ,  "width": 0  , "op": 0   },
+    "infty"                           : { "html": "&#x221E;"       , "tex":  "\\infty"                ,  "width": 0  , "op": 0   },
     "emptyset"                        : { "html": "&#x2205;"       , "tex":  "\\emptyset"             ,  "width": 0  , "op": 0   },
+    "surd"                            : { "html": "&#x2713;"       , "tex":  "\\surd"                 ,  "width": 7  , "op": 0,  "comment": "A RADICAL SYMBOL"  },    
+    "mho"                             : { "html": "&#x01B1;"       , "tex":  "\\mho"                  ,  "width": 0  , "op": 0,  "comment": "LATIN UPSILON"     },    
+
     "Natural"                         : { "html": "&#x2115;"       , "tex":  "\\mathbb{N}"            ,  "width": 0  , "op": 0   },
     "Integer"                         : { "html": "&#x2124;"       , "tex":  "\\mathbb{Z}"            ,  "width": 0  , "op": 0   },
     "Rational"                        : { "html": "&#x211A;"       , "tex":  "\\mathbb{Q}"            ,  "width": 0  , "op": 0   },
@@ -973,9 +973,10 @@
 
     "checkmark"                       : { "html": "&#x2713;"       ,  "tex": "\\checkmark"            , "width": 0,    "op": 0   },
     "circledR"                        : { "html": "&#x00AE;"       ,  "tex": "\\circledR"             , "width": 0,    "op": 0   },
-    "hslash"                          : { "html": "&#x00BF;"       ,  "tex": "\\hslash"               , "width": 0,    "op": 0   },
+    "hslash"                          : { "html": "&#x0127;"       ,  "tex": "\\hslash"               , "width": 0,    "op": 0,  "comment":"LATIN SMALL LETTER WITH STROKE"},
     "maltese"                         : { "html": "&#x2720;"       ,  "tex": "\\maltese"              , "width": 0,    "op": 0   },
     "ballotx"                         : { "html": "&#x2717;"       ,  "tex": "\\ding{55}"             , "width": 0,    "op": 0,  "textmode":1, "usepackage":"pifont"   },
+    "yinyang"                         : { "html": "&#x262F;"       ,  "tex": "\\Yinyang"              , "width": 0,    "op": 0,  "textmode":1, "usepackage":"marvosym" },
 
     "CheckedBox"                      : { "html": "&#x2611;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
     "XBox"                            : { "html": "&#x2612;"       ,  "tex": ""                       , "width": 0,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
@@ -997,12 +998,29 @@
     "LEFTcircle"                      : { "html": "&#x25D0;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
     "RIGHTcircle"                     : { "html": "&#x25D1;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
 
-    "celsius"                         : { "html": "&#x2103;"       ,  "tex": "\\textcelsuis"          , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
-    "fahrenheit"                      : { "html": "&#x2109;"       ,  "tex": "\\textdegree{}F"        , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
-    "copyright"                       : { "html": "&#x00A9;"       ,  "tex": "\\textcopyright"        , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
-    "P"                               : { "html": "&#x00B6;"       ,  "tex": "\\P"                    , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
-    "pounds"                          : { "html": "&#x00A3;"       ,  "tex": "\\pounds"               , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
-    "S"                               : { "html": "&#x00A7;"       ,  "tex": "\\S"                    , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "celsius"                         : { "html": "&#x2103;"       ,  "tex": "\\textcelsuis"          , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "fahrenheit"                      : { "html": "&#x2109;"       ,  "tex": "\\textdegree{}F"        , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "copyright"                       : { "html": "&#x00A9;"       ,  "tex": "\\textcopyright"        , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "P"                               : { "html": "&#x00B6;"       ,  "tex": "\\P"                    , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "pounds"                          : { "html": "&#x00A3;"       ,  "tex": "\\pounds"               , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "S"                               : { "html": "&#x00A7;"       ,  "tex": "\\S"                    , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "SM"                              : { "html": "&#x2120;"       ,  "tex": "\\textservicemark"      , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "TM"                              : { "html": "&#x2122;"       ,  "tex": "\\texttrademark"        , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+
+    "baht"                            : { "html": "&#x0E3F;"       ,  "tex": "\\textbaht"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "cent"                            : { "html": "&#x00A2;"       ,  "tex": "\\textcent"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "currency"                        : { "html": "&#x00A4;"       ,  "tex": "\\textcurrency"         , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "dollar"                          : { "html": "&#x0024;"       ,  "tex": "\\textdollar"           , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "dong"                            : { "html": "&#x20AB;"       ,  "tex": "\\textdong"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "euro"                            : { "html": "&#x20AC;"       ,  "tex": "\\texteuro"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "florin"                          : { "html": "&#x0192;"       ,  "tex": "\\textflorin"           , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "guarani"                         : { "html": "&#x20B2;"       ,  "tex": "\\textguarani"          , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "lira"                            : { "html": "&#x20BA;"       ,  "tex": "\\textlira"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "naira"                           : { "html": "&#x20A6;"       ,  "tex": "\\textnaira"            , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "peso"                            : { "html": "&#x20B1;"       ,  "tex": "\\textpeso"             , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "sterling"                        : { "html": "&#x00A3;"       ,  "tex": "\\textsterling"         , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "won"                             : { "html": "&#x20A9;"       ,  "tex": "\\textwon"              , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "yen"                             : { "html": "&#x20A5;"       ,  "tex": "\\textyen"              , "width": 0,     "op": 0,  "textmode":1, "usepackage":"textcomp" },
 
     "aa"                              : { "html": "&#x00E5;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
     "AA"                              : { "html": "&#x00C5;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },

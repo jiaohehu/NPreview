@@ -1021,7 +1021,7 @@
     "peso"                   : { "html": "&#x20B1;"       ,  "tex": "\\textpeso"         ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" },
     "sterling"               : { "html": "&#x00A3;"       ,  "tex": "\\textsterling"     ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" },
     "won"                    : { "html": "&#x20A9;"       ,  "tex": "\\textwon"          ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" },
-    "yen"                    : { "html": "&#x20A5;"       ,  "tex": "\\textyen"          ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" },
+    "yen"                    : { "html": "&#x00A5;"       ,  "tex": "\\textyen"          ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" },
 
     "aa"                     : { "html": "&#x00E5;"       ,  "tex": ""                   ,"TM":1 , "width": 12,   "op": 0,  "usepackage":"" },
     "AA"                     : { "html": "&#x00C5;"       ,  "tex": ""                   ,"TM":1 , "width": 12,   "op": 0,  "usepackage":"" },

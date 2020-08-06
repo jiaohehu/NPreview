@@ -1004,7 +1004,28 @@
     "pounds"                          : { "html": "&#x00A3;"       ,  "tex": "\\pounds"               , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
     "S"                               : { "html": "&#x00A7;"       ,  "tex": "\\S"                    , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
 
-    "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 5,    "op": 0   },
+    "aa"                              : { "html": "&#x00E5;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "AA"                              : { "html": "&#x00C5;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "AE"                              : { "html": "&#x00C6;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "ae"                              : { "html": "&#x00E6;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "dh"                              : { "html": "&#x00F0;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "DH"                              : { "html": "&#x00D0;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "DJ"                              : { "html": "&#x0110;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "dj"                              : { "html": "&#x0111;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "IJ"                              : { "html": "&#x0132;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "ij"                              : { "html": "&#x0133;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "L"                               : { "html": "&#x0141;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "l"                               : { "html": "&#x0142;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "NG"                              : { "html": "&#x014A;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "ng"                              : { "html": "&#x014B;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "O"                               : { "html": "&#x00D8;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "o"                               : { "html": "&#x00F8;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "OE"                              : { "html": "&#x0152;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "oe"                              : { "html": "&#x0153;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "th"                              : { "html": "&#x00FE;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+    "TH"                              : { "html": "&#x00DE;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":1 },
+
+    "degree"                          : { "html": "&#x00B0;"       ,  "tex": "\\textdegree"           , "width": 5,    "op": 0, "textmode":1, "usepackage":"textcomp"   },
     "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 6,    "op": 0   } 
 
   }

@@ -1,0 +1,6 @@
+#!/bin/bash
+echo $1
+#node -e "console.log($1)"
+node -e "const { NitrilePreviewNode } = require ('/Users/james/github/nitrile-preview/lib/nitrile-preview-node'); new NitrilePreviewNode().to_xhtml_document_async('$1').then(([f]) => { console.log(f); const viewer = require('child_process').spawn('open',[f]); }).catch(err => console.log(err))"
+
+

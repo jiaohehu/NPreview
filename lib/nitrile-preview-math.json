@@ -694,6 +694,9 @@
     "omega"                           : { "html": "&#969;"         , "tex":  "\\omega"                ,  "width": 6  , "op": 0    },  
     "varepsilon"                      : { "html": "&#x03F5;"       , "tex":  "\\varepsilon"           ,  "width": 6  , "op": 0    },
 
+    "Digamma"                         : { "html": "&#x03DC;"       , "tex":  "\\digamma"              ,  "width": 6  , "op": 0    },
+    "digamma"                         : { "html": "&#x03DD;"       , "tex":  "\\digamma"              ,  "width": 6  , "op": 0    },
+
     "nless"                           : { "html": "&#x226E;"       , "tex":  "\\nless"                ,  "width": 7  , "op": 1     },
     "leq"                             : { "html": "&#x2264;"       , "tex":  "\\leq"                  ,  "width": 7  , "op": 1     },
     "leqslant"                        : { "html": "&#x2A7D;"       , "tex":  "\\leqslant"             ,  "width": 7  , "op": 1     },
@@ -749,8 +752,8 @@
     "bowtie"                          : { "html": "&#x22C8;"       , "tex":  "\\bowtie"               ,  "width": 10 , "op": 0   },
     "dashv"                           : { "html": "&#x22A3;"       , "tex":  "\\dashv"                ,  "width": 9  , "op": 0   },
     "frown"                           : { "html": "&#x2322;"       , "tex":  "\\frown"                ,  "width": 10 , "op": 0   },
-    "dagger"                          : { "html": "&#x2020;"       , "tex":  "\\dagger"               ,  "width": 6  , "op": 0   },
-    "ddagger"                         : { "html": "&#x2021;"       , "tex":  "\\ddagger"              ,  "width": 6  , "op": 0   },
+    "dag"                             : { "html": "&#x2020;"       , "tex":  "\\dag"                  ,  "width": 6  , "op": 0   },
+    "ddag"                            : { "html": "&#x2021;"       , "tex":  "\\ddag"                 ,  "width": 6  , "op": 0   },
 
     "uplus"                           : { "html": "&#x228E;"       , "tex":  "\\uplus"                ,  "width": 7  , "op": 1   },
     "sqcap"                           : { "html": "&#x2293;"       , "tex":  "\\sqcap"                ,  "width": 7  , "op": 1   },
@@ -970,6 +973,7 @@
 
     "checkmark"                       : { "html": "&#x2713;"       ,  "tex": "\\checkmark"            , "width": 0,    "op": 0   },
     "circledR"                        : { "html": "&#x00AE;"       ,  "tex": "\\circledR"             , "width": 0,    "op": 0   },
+    "hslash"                          : { "html": "&#x00BF;"       ,  "tex": "\\hslash"               , "width": 0,    "op": 0   },
     "maltese"                         : { "html": "&#x2720;"       ,  "tex": "\\maltese"              , "width": 0,    "op": 0   },
     "ballotx"                         : { "html": "&#x2717;"       ,  "tex": "\\ding{55}"             , "width": 0,    "op": 0,  "textmode":1, "usepackage":"pifont"   },
 
@@ -992,6 +996,13 @@
 
     "LEFTcircle"                      : { "html": "&#x25D0;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
     "RIGHTcircle"                     : { "html": "&#x25D1;"       ,  "tex": ""                       , "width": 12,    "op": 0,  "textmode":0, "usepackage":"wasysym"  },
+
+    "celsius"                         : { "html": "&#x2103;"       ,  "tex": "\\textcelsuis"          , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "fahrenheit"                      : { "html": "&#x2109;"       ,  "tex": "\\textdegree{}F"        , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "copyright"                       : { "html": "&#x00A9;"       ,  "tex": "\\textcopyright"        , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "P"                               : { "html": "&#x00B6;"       ,  "tex": "\\P"                    , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "pounds"                          : { "html": "&#x00A3;"       ,  "tex": "\\pounds"               , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
+    "S"                               : { "html": "&#x00A7;"       ,  "tex": "\\S"                    , "width": 12,    "op": 0,  "textmode":1, "usepackage":"textcomp" },
 
     "degree"                          : { "html": "&#x00B0;"       ,  "tex": "{}^{\\circ}"            , "width": 5,    "op": 0   },
     "questiondown"                    : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"             , "width": 6,    "op": 0   } 

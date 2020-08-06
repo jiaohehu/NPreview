@@ -787,8 +787,8 @@
 
     "infty"                  : { "html": "&#x221E;"       , "tex":  "\\infty"                    ,  "width": 0  , "op": 0,  "usepackage":""                 },
     "emptyset"               : { "html": "&#x2205;"       , "tex":  "\\emptyset"                 ,  "width": 0  , "op": 0,  "usepackage":""                 },
-    "surd"                   : { "html": "&#x2713;"       , "tex":  "\\surd"                     ,  "width": 7  , "op": 0,  "usepackage":"",                "comment": "A RADICAL SYMBOL"  },    
-    "mho"                    : { "html": "&#x01B1;"       , "tex":  "\\mho"                      ,  "width": 0  , "op": 0,  "usepackage":"",                "comment": "LATIN UPSILON"     },    
+    "surd"                   : { "html": "&#x2713;"       , "tex":  "\\surd"                     ,  "width": 7  , "op": 0,  "usepackage":""                 ,"comment":"A RADICAL SYMBOL"  },    
+    "mho"                    : { "html": "&#x01B1;"       , "tex":  "\\mho"                      ,  "width": 0  , "op": 0,  "usepackage":""                 ,"comment":"LATIN CAPITAL LETTER UPSILON"     },    
 
     "Natural"                : { "html": "&#x2115;"       , "tex":  "\\mathbb{N}"                ,  "width": 0  , "op": 0,  "usepackage":""                 },
     "Integer"                : { "html": "&#x2124;"       , "tex":  "\\mathbb{Z}"                ,  "width": 0  , "op": 0,  "usepackage":""                 },
@@ -895,7 +895,7 @@
 
     "partial"                : { "html": "&#x2202;"       ,  "tex": "\\partial"                  , "width": 6  ,  "op": 0,  "usepackage":""        },
     "eth"                    : { "html": "&#x00F0;"       ,  "tex": "\\eth"                      , "width": 6  ,  "op": 0,  "usepackage":""        },
-    "hbar"                   : { "html": "&#x210F;"       ,  "tex": "\\hbar"                     , "width": 6  ,  "op": 0,  "usepackage":""        },
+    "hbar"                   : { "html": "&#x210F;"       ,  "tex": "\\hbar"                     , "width": 6  ,  "op": 0,  "usepackage":""        ,"comment":"U+210F PLANCK CONSTANT OVER TWO PI"},
     "imath"                  : { "html": "&#x1D6A4;"      ,  "tex": "\\imath"                    , "width": 4  ,  "op": 0,  "usepackage":""        },
     "jmath"                  : { "html": "&#x1D6A5;"      ,  "tex": "\\jmath"                    , "width": 4  ,  "op": 0,  "usepackage":""        },
     "ell"                    : { "html": "&#x1D4C1;"      ,  "tex": "\\ell"                      , "width": 6  ,  "op": 0,  "usepackage":""        },

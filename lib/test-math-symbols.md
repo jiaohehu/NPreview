@@ -551,3 +551,30 @@ Leftrightarrow \( \Leftrightarrow \) [&Leftrightarrow]
 "vee"                    \( \vee \)                    [&vee]                    
 
 "wedge"                  \( \wedge \)                  [&wedge]                  
+
+
+"infty"                 \( \infty \) [&infty]        
+
+"emptyset"              \( \emptyset \) [&emptyset]     
+
+"Natural"               \( \Natural \) [&Natural]      
+
+"Integer"               \( \Integer \) [&Integer]      
+
+"Rational"              \( \Rational \) [&Rational]     
+
+"Algebraic"             \( \Algebraic \) [&Algebraic]    
+
+"Real"                  \( \Real \) [&Real]         
+
+"Complex"               \( \Complex \) [&Complex]      
+
+"Quaternions"           \( \Quaternions \) [&Quaternions]  
+
+"Octonions"             \( \Octonions \) [&Octonions]    
+
+"Sedenions"             \( \Sedenions \) [&Sedenions]    
+
+
+
+

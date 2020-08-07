@@ -719,7 +719,6 @@
     "nsucceq"                : { "html": "&#x22E1;"       , "tex":  "\\nsucceq"                  ,  "width": 7  , "op": 1,  "usepackage":""                      },
     "gg"                     : { "html": "&#x226B;"       , "tex":  "\\gg"                       ,  "width": 7  , "op": 1,  "usepackage":""                      },
     "ggg"                    : { "html": "&#x22D9;"       , "tex":  "\\ggg"                      ,  "width": 10 , "op": 1,  "usepackage":""                      },
-    "coloneq"                : { "html": ":="             , "tex":  "\\coloneq"                  ,  "width": 10 , "op": 1,  "usepackage":""                      },
 
     "precsim"                : { "html": "&#x227E;"       , "tex":  "\\precsim"                  ,  "width": 7  , "op": 1,  "usepackage":""                     },
     "succsim"                : { "html": "&#x227F;"       , "tex":  "\\succsim"                  ,  "width": 7  , "op": 1,  "usepackage":""                     },
@@ -893,17 +892,17 @@
     "searrow"                : { "html": "&#x2198;"       ,  "tex" : ""                          , "width":12  ,  "op": 1,  "usepackage":""                },
     "swarrow"                : { "html": "&#x2199;"       ,  "tex" : ""                          , "width":12  ,  "op": 1,  "usepackage":""                },
 
-    "partial"                : { "html": "&#x2202;"       ,  "tex": "\\partial"                  , "width": 6  ,  "op": 0,  "usepackage":""        },
-    "eth"                    : { "html": "&#x00F0;"       ,  "tex": "\\eth"                      , "width": 6  ,  "op": 0,  "usepackage":""        },
+    "partial"                : { "html": "&#x2202;"       ,  "tex": "\\partial"                  , "width": 6  ,  "op": 0,  "usepackage":""        ,"comment":"U+2202 MATHEMATIC PARTIAL SIGN"},
+    "eth"                    : { "html": "&#x00F0;"       ,  "tex": "\\eth"                      , "width": 6  ,  "op": 0,  "usepackage":""        ,"comment":"U+00F0 represents a voiced dental fricative in the International Phonetic Alphabet"},
     "hbar"                   : { "html": "&#x210F;"       ,  "tex": "\\hbar"                     , "width": 6  ,  "op": 0,  "usepackage":""        ,"comment":"U+210F PLANCK CONSTANT OVER TWO PI"},
-    "imath"                  : { "html": "&#x1D6A4;"      ,  "tex": "\\imath"                    , "width": 4  ,  "op": 0,  "usepackage":""        },
-    "jmath"                  : { "html": "&#x1D6A5;"      ,  "tex": "\\jmath"                    , "width": 4  ,  "op": 0,  "usepackage":""        },
-    "ell"                    : { "html": "&#x1D4C1;"      ,  "tex": "\\ell"                      , "width": 6  ,  "op": 0,  "usepackage":""        },
-    "Re"                     : { "html": "&#x2111;"       ,  "tex": "\\Re"                       , "width": 0  ,  "op": 0,  "usepackage":""        },
-    "Im"                     : { "html": "&#x211C;"       ,  "tex": "\\Im"                       , "width": 0  ,  "op": 0,  "usepackage":""        },
-    "wp"                     : { "html": "&#x1D4AB;"      ,  "tex": "\\wp"                       , "width": 0  ,  "op": 0,  "usepackage":""        },
-    "nabla"                  : { "html": "&#x2207;"       ,  "tex": "\\nabla"                    , "width": 0  ,  "op": 0,  "usepackage":""        },
-    "Box"                    : { "html": "&#x2610;"       ,  "tex": "\\Box"                      , "width": 0  ,  "op": 0,  "usepackage":""        },
+    "imath"                  : { "html": "&#x1D6A4;"      ,  "tex": "\\imath"                    , "width": 4  ,  "op": 0,  "usepackage":""        ,"comment":"U+1D6A4 MATHEMATICAL SCRIPT ITALIC DOTLESS I"},
+    "jmath"                  : { "html": "&#x1D6A5;"      ,  "tex": "\\jmath"                    , "width": 4  ,  "op": 0,  "usepackage":""        ,"comment":"U+1D6A5 MATHEMATICAL SCRIPT ITALIC DOTLESS J"},
+    "ell"                    : { "html": "&#x1D4C1;"      ,  "tex": "\\ell"                      , "width": 6  ,  "op": 0,  "usepackage":""        ,"comment":"U+1D4C1"},
+    "Re"                     : { "html": "&#x2111;"       ,  "tex": "\\Re"                       , "width": 0  ,  "op": 0,  "usepackage":""        ,"comment":"U+2111"},
+    "Im"                     : { "html": "&#x211C;"       ,  "tex": "\\Im"                       , "width": 0  ,  "op": 0,  "usepackage":""        ,"comment":"U+211C"},
+    "wp"                     : { "html": "&#x1D4AB;"      ,  "tex": "\\wp"                       , "width": 0  ,  "op": 0,  "usepackage":""        ,"comment":"U+1D4AB MATHEMATICAL SCRIPT CAPITAL P = Weierstrass elliptic function"},
+    "nabla"                  : { "html": "&#x2207;"       ,  "tex": "\\nabla"                    , "width": 0  ,  "op": 0,  "usepackage":""        ,"comment":"U+2207 NABLA = backward difference = gradient, del"},
+    "Box"                    : { "html": "&#x2610;"       ,  "tex": "\\Box"                      , "width": 0  ,  "op": 0,  "usepackage":""        ,"comment":"U+2610"},
 
     "aleph"                  : { "html": "&#x2135;"       ,  "tex": "\\aleph"                    , "width": 8  ,  "op": 0,  "usepackage":""        },
     "beth"                   : { "html": "&#x2136;"       ,  "tex": "\\beth"                     , "width": 8  ,  "op": 0,  "usepackage":""        },
@@ -969,11 +968,11 @@
     "frac110"                : { "html": "&#8530;"        ,  "tex": "\\sfrac{1}{10}"             , "width": 9.5,  "op": 0,  "usepackage":""         },
     "frac03"                 : { "html": "&#8585;"        ,  "tex": "\\sfrac{0}{3}"              , "width": 9.5,  "op": 0,  "usepackage":""         },
 
-    "checkmark"              : { "html": "&#x2713;"       ,  "tex": "\\checkmark"                , "width": 0,    "op": 0,  "usepackage":""         },
-    "circledR"               : { "html": "&#x00AE;"       ,  "tex": "\\circledR"                 , "width": 0,    "op": 0,  "usepackage":""         },
+    "checkmark"              : { "html": "&#x2713;"       ,  "tex": "\\checkmark"                , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+2713 CHECK MARK"},
+    "circledR"               : { "html": "&#x00AE;"       ,  "tex": "\\circledR"                 , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+24C7 CIRCLED LATIN CAPITAL LETTER R"},
     "hslash"                 : { "html": "&#x0127;"       ,  "tex": "\\hslash"                   , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+0127 LATIN SMALL LETTER H WITH STROKE"},
-    "maltese"                : { "html": "&#x2720;"       ,  "tex": "\\maltese"                  , "width": 0,    "op": 0,  "usepackage":""         },
-    "ballotx"                : { "html": "&#x2717;"       ,  "tex": "\\ding{55}"         ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"pifont"   },
+    "maltese"                : { "html": "&#x2720;"       ,  "tex": "\\maltese"                  , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+2720 MALTESE CROSS"},
+    "ballotx"                : { "html": "&#x2717;"       ,  "tex": "\\ding{55}"         ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"pifont"   ,"comment":"U+2717 BALLOT X"},
     "yinyang"                : { "html": "&#x262F;"       ,  "tex": "\\Yinyang"          ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"marvosym" ,"comment":"U+262F YIN YANG"},
 
     "CheckedBox"             : { "html": "&#x2611;"       ,  "tex": ""                           , "width": 0,    "op": 0,  "usepackage":"wasysym"  },
@@ -1044,7 +1043,10 @@
     "th"                     : { "html": "&#x00FE;"       ,  "tex": ""                   ,"TM":1 , "width": 12,   "op": 0,  "usepackage":"" },
     "TH"                     : { "html": "&#x00DE;"       ,  "tex": ""                   ,"TM":1 , "width": 12,   "op": 0,  "usepackage":"" },
 
-    "questiondown"           : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"                 , "width": 6,    "op": 0,  "usepackage":""} 
+    "coloneq"                : { "html": "&#x2254;"       ,  "tex": ""                   ,"TM":0 , "width": 12,   "op": 1,  "usepackage":"mathtools" ,"comment":"U+2254 COLON EQUAL"},
+    "eqcolon"                : { "html": "&#x2255;"       ,  "tex": ""                   ,"TM":0 , "width": 12,   "op": 1,  "usepackage":"mathtools" ,"comment":"U+2255 EQUAL COLON"},
+
+    "questiondown"           : { "html": "&#x00BF;"       ,  "tex": "\\text{?`}"         ,"TM":0 , "width": 6 ,   "op": 0,  "usepackage":""          ,"comment":"U+00BF INVERTED QUESTION MARK"   }
 
   }
 }

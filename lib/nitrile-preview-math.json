@@ -766,10 +766,14 @@
     "dtdot"                  : { "html": "&#x22F1;"       , "tex":  "\\ddots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F1 DOWN RIGHT DIAGONAL ELLIPSIS"           },
 
     "diamond"                : { "html": "&#x22C4;"       , "tex":  "\\diamond"                  ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+22C4 DIAMOND OPERATOR"           },
-  "bigtriangleup"            : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"            ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25B3 WHITE UP-POINTING TRIANGLE"           },
-"bigtriangledown"            : { "html": "&#x25BD;"       , "tex":  "\\bigtriangledown"          ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25BD WHITE DOWN-POINTING TRIANGLE"           },
-  "triangleleft"             : { "html": "&#x25C1;"       , "tex":  "\\triangleleft"             ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25C1 WHITE LEFT-POINTING TRIANGLE"           },
- "triangleright"             : { "html": "&#x25B7;"       , "tex":  "\\triangleright"            ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25B7 WHITE RIGHT-POINTING TRIANGLE"           },
+
+    "xutri"                  : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"            ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25B3 WHITE UP-POINTING TRIANGLE"           },
+    "xdtri"                  : { "html": "&#x25BD;"       , "tex":  "\\bigtriangledown"          ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25BD WHITE DOWN-POINTING TRIANGLE"           },
+
+    "utri"                   : { "html": "&#x25B5;"       , "tex":  "\\smalltriangleup"          ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B5 WHITE UP-POINTING SMALL TRIANGLE"        },
+    "rtri"                   : { "html": "&#x25B9;"       , "tex":  "\\smalltriangleright"       ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B9 WHITE RIGHT-POINTING SMALL TRIANGLE"        },      
+    "dtri"                   : { "html": "&#x25BF;"       , "tex":  "\\smalltriangledown"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25BF WHITE DOWN-POINTING SMALL TRIANGLE"        },     
+    "ltri"                   : { "html": "&#x25C3;"       , "tex":  "\\smalltriangleleft"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25C3 WHITE LEFT-POINTING SMALL TRIANGLE"        },     
 
     "circ"                   : { "html": "&#x25CB;"       , "tex":  "\\bigcirc"                  ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+25CB WHITE CIRCLE"           },
     "bullet"                 : { "html": "&#x2022;"       , "tex":  "\\bullet"                   ,  "width": 4.5, "op": 1,  "usepackage":""         ,"comment":"U+2022 BULLET"           },
@@ -976,11 +980,11 @@
     "XBox"                   : { "html": "&#x2612;"       ,  "tex": "\\XBox"                     , "width": 0,    "op": 0,  "usepackage":"wasysym"  ,"comment":"U+2612 BALLOT BOX WITH X"},
 
 
-    "square"                 : { "html": "&#x25FB;"       ,  "tex":  "\\Square"                  , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+25FB WHITE MEDIUM SQUARE"},
-    "SQUARE"                 : { "html": "&#x25FC;"       ,  "tex":  "\\blacksquare"             , "width": 0,    "op": 0,  "usepackage":""         ,"comment":"U+25FC BLACK MEDIUM SQUARE"},
+    "squ"                    : { "html": "&#x25A1;"       ,  "tex":  "\\medsquare"               , "width": 0,    "op": 0,  "usepackage":"MnSymbol" ,"comment":"U+25A1 WHITE SQUARE"},
+    "squf"                   : { "html": "&#x25AA;"       ,  "tex":  "\\filledmedsquare"         , "width": 0,    "op": 0,  "usepackage":"MnSymbol" ,"comment":"U+25AA BLACK SMALL SQUARE"},
 
-    "circle"                 : { "html": "&#x25CB;"       ,  "tex": "\\Circle"                   , "width": 7,    "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25CB WHITE CIRCLE"},
-    "CIRCLE"                 : { "html": "&#x25CF;"       ,  "tex": "\\CIRCLE"                   , "width": 7,    "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25CF BLACK CIRCLE"},
+    "cir"                    : { "html": "&#x25CB;"       ,  "tex": "\\Circle"                   , "width": 7,    "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25CB WHITE CIRCLE"},
+    "cirf"                   : { "html": "&#x25CF;"       ,  "tex": "\\CIRCLE"                   , "width": 7,    "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25CF BLACK CIRCLE"},
     
     "pentagon"               : { "html": "&#x2B20;"       ,  "tex": "?"                  ,"TM":1 , "width": 12,   "op": 0,  "usepackage":""         ,"comment":"U+2B20 WHITE PENTAGON"},
     "PENTAGON"               : { "html": "&#x2B1F;"       ,  "tex": "?"                  ,"TM":1 , "width": 12,   "op": 0,  "usepackage":""         ,"comment":"U+2B1F BLACK PENTAGON"},

@@ -16,6 +16,7 @@
 %lualatexja.fonts+=kr,baekmukbatang
 
 %xecjk.mainfont=Hiragino Sans GB
+%xecjk.fonts+=kr,AppleGothic
 
 # Japanese
 

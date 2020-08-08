@@ -1,4 +1,8 @@
 
+%xelatex.fontspec+=cn,Wawati SC
+%xelatex.fontspec+=tw,Weibei SC
+%xelatex.fontspec+=jp,YuMincho  
+%xelatex.fontspec+=kr,AppleGothic
 
 # Japanese
 

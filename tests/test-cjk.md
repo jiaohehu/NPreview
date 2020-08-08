@@ -1,14 +1,14 @@
 
-%xelatex.fontspec+=cn,Wawati SC
-%xelatex.fontspec+=tw,Weibei SC
-%xelatex.fontspec+=jp,YuMincho  
-%xelatex.fontspec+=kr,AppleGothic
+%xelatex.fonts+=cn,Wawati SC
+%xelatex.fonts+=tw,Weibei SC
+%xelatex.fonts+=jp,YuMincho  
+%xelatex.fonts+=kr,AppleGothic
 %xelatex.linebreaklocale+=zh
 
-%lualatex.fontspec+=cn,arplsungtilgb
-%lualatex.fontspec+=tw,arplmingti2lbig5
-%lualatex.fontspec+=jp,ipaexmincho
-%lualatex.fontspec+=kr,baekmukbatang
+%lualatex.fonts+=cn,arplsungtilgb
+%lualatex.fonts+=tw,arplmingti2lbig5
+%lualatex.fonts+=jp,ipaexmincho
+%lualatex.fonts+=kr,baekmukbatang
 
 # Japanese
 

@@ -759,13 +759,11 @@
     "wedge"                  : { "html": "&#x2227;"       , "tex":  "\\wedge"                    ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2227 LOGICAL AND"           },
 
     "sdot"                   : { "html": "&#x22C5;"       , "tex":  "\\cdot"                     ,  "width": 3  , "op": 1,  "usepackage":""         ,"comment":"U+22C5 DOT OPERATOR"           },
-    "cdot"                   : { "html": "&#x22C5;"       , "tex":  "\\cdot"                     ,  "width": 3  , "op": 1,  "usepackage":""         ,"comment":"U+22C5 DOT OPERATOR"           },
-    "ctdot"                  : { "html": "&#x22EF;"       , "tex":  "\\cdots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22EF MIDLINE HORIZONTAL ELLIPSIS"           },
-    "ldots"                  : { "html": "..."            , "tex":  "\\ldots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"..."              },
-    "vellip"                 : { "html": "&#x22EE;"       , "tex":  "\\vdots"                    ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+22EE VERTICAL ELLIPSIS"           },
-    "cdots"                  : { "html": "&#x22EF;"       , "tex":  "\\cdots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22EF MIDLINE HORIZONTAL ELLIPSIS"           },
-    "utdot"                  : { "html": "&#x22F0;"       , "tex":  "\\iddots"                   ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F0 UP RIGHT DIAGONAL ELLIPSIS"           },
-    "dtots"                  : { "html": "&#x22F1;"       , "tex":  "\\ddots"                    ,  "width": 80 , "op": 1,  "usepackage":""         ,"comment":"U+22F1 DOWN RIGHT DIAGONAL ELLIPSIS"           },
+    "vellip"                 : { "html": "&#x22EE;"       , "tex":  "\\vdots"                    ,  "width": 6.5, "op": 1,  "usepackage":""         ,"comment":"U+22EE VERTICAL ELLIPSIS"           },
+    "hellip"                 : { "html": "&#x2026;"       , "tex":  "\\ldots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+2026 HORIZONTAL ELLIPSIS"           },
+    "ctdot"                  : { "html": "&#x22EF;"       , "tex":  "\\hdots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22EF MIDLINE HORIZONTAL ELLIPSIS"           },
+    "utdot"                  : { "html": "&#x22F0;"       , "tex":  "\\udots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F0 UP RIGHT DIAGONAL ELLIPSIS"           },
+    "dtdot"                  : { "html": "&#x22F1;"       , "tex":  "\\ddots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F1 DOWN RIGHT DIAGONAL ELLIPSIS"           },
 
     "diamond"                : { "html": "&#x22C4;"       , "tex":  "\\diamond"                  ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+22C4 DIAMOND OPERATOR"           },
   "bigtriangleup"            : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"            ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25B3 WHITE UP-POINTING TRIANGLE"           },
@@ -853,8 +851,6 @@
     "lVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                     ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
     "rVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                     ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
 
-    "mapsto"                 : { "html": "&#x21A6;"       , "tex":  "\\mapsto"                   ,  "width":  9 , "op": 1,  "usepackage":""         ,"comment":"U+21A6 RIGHTWARDS ARROW FROM BAR"        },
-    "mapstoleft"             : { "html": "&#x21A4;"       , "tex":  "\\mapsfrom"                 ,  "width":  9 , "op": 1,  "usepackage":""         ,"comment":"U+21A4 LEFTWARDS ARROW FROM BAR"        },
     "larr"                   : { "html": "&#x2190;"       , "tex":  "\\leftarrow"                ,  "width": 12 , "op": 1,  "usepackage":""         ,"comment":"U+2190 LEFTWARDS ARROW"        },
     "rarr"                   : { "html": "&#x2192;"       , "tex":  "\\rightarrow"               ,  "width": 12 , "op": 1,  "usepackage":""         ,"comment":"U+2192 RIGHTWARDS ARROW"        },
     "lArr"                   : { "html": "&#x21D0;"       , "tex":  "\\Leftarrow"                ,  "width": 12 , "op": 1,  "usepackage":""         ,"comment":"U+21D0 LEFTWARDS DOUBLE ARROW "        },
@@ -877,12 +873,17 @@
     "searrow"                : { "html": "&#x2198;"       , "tex":  "\\searrow"                 , "width":12  ,  "op": 1,  "usepackage":""         ,"comment":"U+2198 SOUTH EAST ARROW"       },
     "swarrow"                : { "html": "&#x2199;"       , "tex":  "\\swarrow"                 , "width":12  ,  "op": 1,  "usepackage":""         ,"comment":"U+2199 SOUTH WEST ARROW"       },
 
-"longleftarrow"              : { "html": "&#x27F5;"       , "tex":  "\\longleftarrow"            ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F5 LONG LEFTWARDS ARROW "        },
-"Longleftarrow"              : { "html": "&#x27F8;"       , "tex":  "\\Longleftarrow"            ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F8 LONG LEFTWARDS DOUBLE ARROW "        },
-"longrightarrow"             : { "html": "&#x27F6;"       , "tex":  "\\longrightarrow"           ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F6 LONG RIGHTWARDS ARROW"        },
-"Longrightarrow"             : { "html": "&#x27F9;"       , "tex":  "\\Longrightarrow"           ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F9 LONG RIGHTWARDS DOUBLE ARROW"        },
-    "longmapsto"             : { "html": "&#x27FC;"       , "tex":  "\\longmapsto"               ,  "width": 16 , "op": 1,  "usepackage":""         ,"comment":"U+27FC LONG RIGHTWARDS ARROW FROM BAR"        },
-    "longmapstoleft"         : { "html": "&#x27FB;"       , "tex":  "\\longmapsfrom"             ,  "width": 16 , "op": 1,  "usepackage":""         ,"comment":"U+27FB RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE"        },
+    "xlarr"                  : { "html": "&#x27F5;"       , "tex":  "\\longleftarrow"            ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F5 LONG LEFTWARDS ARROW "        },
+    "xrarr"                  : { "html": "&#x27F6;"       , "tex":  "\\longrightarrow"           ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F6 LONG RIGHTWARDS ARROW"        },
+
+    "xlArr"                  : { "html": "&#x27F8;"       , "tex":  "\\Longleftarrow"            ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F8 LONG LEFTWARDS DOUBLE ARROW "        },
+    "xrArr"                  : { "html": "&#x27F9;"       , "tex":  "\\Longrightarrow"           ,  "width": 18 , "op": 1,  "usepackage":""         ,"comment":"U+27F9 LONG RIGHTWARDS DOUBLE ARROW"        },
+
+    "mapsto"                 : { "html": "&#x21A6;"       , "tex":  "\\mapsto"                   ,  "width":  9 , "op": 1,  "usepackage":""         ,"comment":"U+21A6 RIGHTWARDS ARROW FROM BAR"        },
+    "mapstoleft"             : { "html": "&#x21A4;"       , "tex":  "\\mapsfrom"                 ,  "width":  9 , "op": 1,  "usepackage":""         ,"comment":"U+21A4 LEFTWARDS ARROW FROM BAR"        },
+
+    "xmapsto"                : { "html": "&#x27FC;"       , "tex":  "\\longmapsto"               ,  "width": 16 , "op": 1,  "usepackage":""         ,"comment":"U+27FC LONG RIGHTWARDS ARROW FROM BAR"        },
+    "xmapstoleft"            : { "html": "&#x27FB;"       , "tex":  "\\longmapsfrom"             ,  "width": 16 , "op": 1,  "usepackage":""         ,"comment":"U+27FB RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE"        },
 
     "complement"             : { "html": "&#x2201;"       ,  "tex": "\\complement"               ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2201 C COMPLEMENT"        },
     "partial"                : { "html": "&#x2202;"       ,  "tex": "\\partial"                  , "width": 6  ,  "op": 0,  "usepackage":""         ,"comment":"U+2202 PARTIAL DIFFERENTIAL"   },

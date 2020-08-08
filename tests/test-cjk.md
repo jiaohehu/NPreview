@@ -4,6 +4,11 @@
 %xelatex.fontspec+=jp,YuMincho  
 %xelatex.fontspec+=kr,AppleGothic
 
+%lualatex.fontspec+=cn,arplsungtilgb
+%lualatex.fontspec+=tw,arplmingti2lbig5
+%lualatex.fontspec+=jp,ipaexmincho
+%lualatex.fontspec+=kr,baekmukbatang
+
 # Japanese
 
 日本では母親がよく家族のために弁当を作っている。

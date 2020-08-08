@@ -3,6 +3,7 @@
 %xelatex.fontspec+=tw,Weibei SC
 %xelatex.fontspec+=jp,YuMincho  
 %xelatex.fontspec+=kr,AppleGothic
+%xelatex.linebreaklocale+=zh
 
 %lualatex.fontspec+=cn,arplsungtilgb
 %lualatex.fontspec+=tw,arplmingti2lbig5

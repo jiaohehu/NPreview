@@ -10,6 +10,11 @@
 %lualatex.fonts+=jp,ipaexmincho
 %lualatex.fonts+=kr,baekmukbatang
 
+%lualatexja.fonts+=cn,arplsungtilgb
+%lualatexja.fonts+=tw,arplmingti2lbig5
+%lualatexja.fonts+=jp,ipaexmincho
+%lualatexja.fonts+=kr,baekmukbatang
+
 %xecjk.mainfont=Hiragino Sans GB
 
 # Japanese

@@ -770,10 +770,10 @@
     "xutri"                  : { "html": "&#x25B3;"       , "tex":  "\\bigtriangleup"            ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25B3 WHITE UP-POINTING TRIANGLE"           },
     "xdtri"                  : { "html": "&#x25BD;"       , "tex":  "\\bigtriangledown"          ,  "width": 0  , "op": 1,  "usepackage":""         ,"comment":"U+25BD WHITE DOWN-POINTING TRIANGLE"           },
 
-    "utri"                   : { "html": "&#x25B5;"       , "tex":  "\\smalltriangleup"          ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B5 WHITE UP-POINTING SMALL TRIANGLE"        },
-    "rtri"                   : { "html": "&#x25B9;"       , "tex":  "\\smalltriangleright"       ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B9 WHITE RIGHT-POINTING SMALL TRIANGLE"        },      
-    "dtri"                   : { "html": "&#x25BF;"       , "tex":  "\\smalltriangledown"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25BF WHITE DOWN-POINTING SMALL TRIANGLE"        },     
-    "ltri"                   : { "html": "&#x25C3;"       , "tex":  "\\smalltriangleleft"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25C3 WHITE LEFT-POINTING SMALL TRIANGLE"        },     
+    "utri"                   : { "html": "&#x25B5;"       , "tex":  "\\medtriangleup"          ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B5 WHITE UP-POINTING SMALL TRIANGLE"        },
+    "rtri"                   : { "html": "&#x25B9;"       , "tex":  "\\medtriangleright"       ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25B9 WHITE RIGHT-POINTING SMALL TRIANGLE"        },      
+    "dtri"                   : { "html": "&#x25BF;"       , "tex":  "\\medtriangledown"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25BF WHITE DOWN-POINTING SMALL TRIANGLE"        },     
+    "ltri"                   : { "html": "&#x25C3;"       , "tex":  "\\medtriangleleft"        ,  "width": 6  , "op": 1,  "usepackage":"MnSymbol" ,"comment":"U+25C3 WHITE LEFT-POINTING SMALL TRIANGLE"        },     
 
     "circ"                   : { "html": "&#x25CB;"       , "tex":  "\\bigcirc"                  ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+25CB WHITE CIRCLE"           },
     "bullet"                 : { "html": "&#x2022;"       , "tex":  "\\bullet"                   ,  "width": 4.5, "op": 1,  "usepackage":""         ,"comment":"U+2022 BULLET"           },

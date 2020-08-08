@@ -10,6 +10,8 @@
 %lualatex.fonts+=jp,ipaexmincho
 %lualatex.fonts+=kr,baekmukbatang
 
+%xecjk.mainfont=Hiragino Sans GB
+
 # Japanese
 
 日本では母親がよく家族のために弁当を作っている。

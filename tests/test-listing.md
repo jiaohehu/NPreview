@@ -1,8 +1,4 @@
-Test Listing
 
-%!memor.twocolumns=1
-%!latex.twocolumns=1
-%!contex.twocolumns=1
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -11,11 +7,11 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum."
 
-Please see listing $(#mylisting) for more information.
+Please see listing \ref{mylisting} for more information.
 
-@@ $(#mylisting)
+@ Listing \ref{mylisting}
   Source code of PNG.TCL.
-  ```listing
+
   ### "PNG.tcl"
 
   package provide PNG 1.0 
@@ -87,7 +83,7 @@ Please see listing $(#mylisting) for more information.
       }   
     }
   }
-  ```
+
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

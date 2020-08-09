@@ -1,12 +1,12 @@
-test-samp.md
 
-%^samp=1
-%^尊敬語・そんけいご
-%^東京・とうきょう
-%^電車・でんしゃ
 
-The honorifics language, or ${尊敬語}, is a
-The uri ${http://www.yahoo.com} is here.
+%sample=1
+%尊敬語・そんけいご
+%東京・とうきょう
+%電車・でんしゃ
+
+The honorifics language, or 尊敬語, is a
+The \\uri{http://www.yahoo.com} is here.
 
 The で particle can be used to express the mean of a transportation if we
 are articulating a movement in a physical space.
@@ -44,7 +44,7 @@ culpa qui officia deserunt mollit anim id est laborum."
     printf('\n');  hello  world
     printf('\n');  hello  world
 
-"Lorem {{ipsum dolor}} sit amet, {{consectetur adipiscing}} elit, sed do eiusmod tempor
+"Lorem \\em{ipsum dolor} sit amet, \\em{consectetur adipiscing} elit, sed do eiusmod tempor
 incididunt ut `console.log(out)` dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu

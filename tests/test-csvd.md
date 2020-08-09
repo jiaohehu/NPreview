@@ -1,9 +1,4 @@
 
-%!contex.twocolumns=1
-
-%!latex.twocolumns=1
-
-# test-csvd.md
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -13,7 +8,9 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-= Year,Number,Comment
+@ CSV
+
+  Year,Number,Comment
   2018,123.1,99999
   2019,124.1,99999
   2020,125.1,99999

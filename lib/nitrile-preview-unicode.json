@@ -161,7 +161,7 @@
     { "start":"0xFE30", "stop":"0xFE4F", "cjk":1, "comment": "CJK Compatibility Forms" },
     { "start":"0xFE50", "stop":"0xFE6F", "cjk":0, "comment": "Small Form Variants" },
     { "start":"0xFE70", "stop":"0xFEFF", "cjk":0, "comment": "Arabic Presentation Forms-B" },
-    { "start":"0xFF00", "stop":"0xFFEF", "cjk":0, "comment": "Halfwidth and Fullwidth Forms" },
+    { "start":"0xFF00", "stop":"0xFFEF", "cjk":1, "comment": "Halfwidth and Fullwidth Forms" },
     { "start":"0xFFF0", "stop":"0xFFFF", "cjk":0, "comment": "Specials" }
   ]
 }

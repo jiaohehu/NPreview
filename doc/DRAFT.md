@@ -473,7 +473,7 @@ compute sample code.
 A RUBY markup such as ``` [私](^わたし) ``` would have generated the RUBY markup for LATEX as:
 
 ```
-\ruby{私}{わたし}
+@ruby{私}{わたし}
 ```
 
 ### URI phrase markup
@@ -511,7 +511,7 @@ A Unicode character literal markup is to physically insert a Unicode character i
 
 ## Cross reference phrase markup
 
-A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[[#tutorial:15#]]` is to generate a LATEX `\ref{}` command such as the following:
+A cross reference markup allows you to refer to the numeric number of a chapter, section, subsection, and subsubsection. For example, a cross reference markup such as `[[#tutorial:15#]]` is to generate a LATEX `@ref{}` command such as the following:
 
 ~~~
 Please see section [[#tutorial:15#]].
@@ -520,7 +520,7 @@ Please see section [[#tutorial:15#]].
 The translated LATEX document would look like:
 
 ~~~
-Please see section \ref{tutorial:15}
+Please see section @ref{tutorial:15}
 ~~~
 
 See the following section for working with cross references in general.
@@ -631,7 +631,7 @@ When referring to a section you will following the notation such as `[^/tutorial
 Please see example 1 at section [^/tutorial:ex1].
 ~~~
 
-The notation of `[^/tutorial:ex1]` will become `\ref{tutorial:ex1}` in the translated LATEX document. As a shortcut, if you are referring to a section of the same document then you can omit the base part to just write it as `[^/:ex1]`.
+The notation of `[^/tutorial:ex1]` will become `@ref{tutorial:ex1}` in the translated LATEX document. As a shortcut, if you are referring to a section of the same document then you can omit the base part to just write it as `[^/:ex1]`.
 
 Note that the entire notation must be a left/right brackets with a caret immediately following the left bracket which is then immediately followed by a slash and then the entire label. There should not be any blank spaces within the brackets.
 

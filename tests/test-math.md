@@ -46,25 +46,25 @@ $ y + 7 + 8 = \sqrt{2}
 
 # Equation with numbering and aligned
 
-$ \ref{}  x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ @ref{}  x &= \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y + 7 &= \sqrt{2} 
 
 
 # Equation with numbering and not aligned 
 
-$ \ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ @ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y = \sqrt{2} 
 
 
 # Equation with mixed numbering           
 
-$ \ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
+$ @ref{}  x = \sqrt{2} + \sqrt{4} + \sqrt{5}
 
 $ y = \sqrt{2} 
 
-$ \ref{}  z = \sqrt{2} 
+$ @ref{}  z = \sqrt{2} 
 
 
 

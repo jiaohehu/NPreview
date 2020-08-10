@@ -44,7 +44,7 @@ Will be translated to HTML such as:
 
 For LATEX the translated string is the following:
 
-    \ruby{簡単}{かんたん}
+    @ruby{簡単}{かんたん}
 
 One of the important goal of the extractRubyItems() method is to figure out the boundaries of the kanji and non-kanji characters. For example, for the Following
 entry:
@@ -59,7 +59,7 @@ the returned string from Html::extraRubyItems() should be:
 
 And the string returned by Latex::extraRubyItems() should be:
 
-    \ruby{近}{ちか}\ruby{く}{}
+    @ruby{近}{ちか}@ruby{く}{}
 
 This logic has been implemented and duplicated in Latex::extraRubyItems() and
 Html::extraRubyItems().

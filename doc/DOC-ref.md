@@ -1,7 +1,7 @@
 # Handling LaTeX Labels 
 
 Labels in LaTeX are done using commands `\label{}`
-and `\ref{}`. The first command is placed next to a chapter,
+and `@ref{}`. The first command is placed next to a chapter,
 section, subsection, etc., to allow for a special name to be
 attached to this particular chapter, section or subjection,
 so that future references to this chapter, section, or subject
@@ -13,7 +13,7 @@ name.
 When referring to this chapter, section, or subsection,
 the second command is used.
 
-    Please see \ref{mych}
+    Please see @ref{mych}
 
 With Nitrile, the first command is always generated with a chapter,
 a section, subsection, or subsubsection. The special name is 

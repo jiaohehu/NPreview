@@ -1,4 +1,4 @@
-@@ Table \ref{utf8encoding}
+@@ Table @ref{utf8encoding}
   UTF-8 encoding table
 
   Bits |Min      |Max       |Byte-1   |Byte-2   |Byte-3

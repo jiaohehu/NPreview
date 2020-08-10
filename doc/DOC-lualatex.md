@@ -699,7 +699,7 @@ character as part of the label name---thus following are
 illegal.
 
     \label{#my} 
-    \ref{#my}
+    @ref{#my}
 
 When compiling a document with such \label and/or \ref
 designation, no error will be generated, but the reference

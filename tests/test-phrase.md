@@ -7,11 +7,11 @@ Math: ``\sqrt{2}`` and ``\sqrt{3}``
 
 Em: The word \em{hello} is italic.
 
-Uri: The word \uri{http://www.yahoo.com} is a uri.
+Uri: The word @uri{http://www.yahoo.com} is a uri.
 
-Ref: The ref is \ref{tbl:one}.
+Ref: The ref is @ref{tbl:one}.
 
-Ruby: The ruby is \ruby{日本・にほん}
+Ruby: The ruby is @ruby{日本・にほん}
 
-Ruby: The ruby is \ruby{簡単}
+Ruby: The ruby is @ruby{簡単}
 

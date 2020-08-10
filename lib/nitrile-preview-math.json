@@ -997,6 +997,7 @@
     "RIGHTcircle"            : { "html": "&#x25D1;"       ,  "tex": "\\RIGHTcircle"              , "width": 12,   "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25D1 CIRCL WITH RIGHT HALF BLACK"},
 
     "deg"                    : { "html": "&#x00B0;"       ,  "tex": "\\textdegree"       ,"TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
+    "degree"                 : { "html": "&#x00B0;"       ,  "tex": "\\textdegree"       ,"TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
     "copyright"              : { "html": "&#x00A9;"       ,  "tex": "\\textcopyright"    ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00A9 COPYRIGHT SIGN" },
     "registered"             : { "html": "&#x00AE;"       ,  "tex": "\\textregistered"   ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00AE REGISTERED SIGN" },
     "para"                   : { "html": "&#x00B6;"       ,  "tex": "\\P"                ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B6 PILCROW SIGN" },

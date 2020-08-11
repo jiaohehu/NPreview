@@ -169,6 +169,8 @@
     { "name": "\\overline",           "count": 1,  "verbatim": 1 },
     { "name": "\\overleftrightarrow", "count": 1,  "verbatim": 1 },
     { "name": "\\overrightarrow",     "count": 1,  "verbatim": 1 },
+    { "name": "\\underleftrightarrow","count": 1,  "verbatim": 1 },
+    { "name": "\\underrightarrow",    "count": 1,  "verbatim": 1 },
     { "name": "\\dot",                "count": 1,  "verbatim": 1 },
     { "name": "\\ddot",               "count": 1,  "verbatim": 1 },
     { "name": "\\dddot",              "count": 1,  "verbatim": 1 },

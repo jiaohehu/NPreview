@@ -4,6 +4,7 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
       "type": "node",
       "request": "launch",
@@ -65,9 +66,21 @@
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/test.js",
+      "program": "${workspaceFolder}/tests/pdflatex.js",
       "args": [
-        "pdflatex",
+        "a.md"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch XELATEX",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/xelatex.js",
+      "args": [
         "a.md"
       ]
     }

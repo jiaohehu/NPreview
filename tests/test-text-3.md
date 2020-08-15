@@ -1,15 +1,34 @@
 
-* 負う・おう (trans.) to bear a responsibility
+
+
+sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
 
   ---
-  私は、その視察旅行に加わった。
-  I teamed up with him in his travel.
+  In mathematics he was greater
+  Than Tycho Brahe, or Erra Pater:    
+  For he, by geometric scale,
+  Could take the size of pots of ale;
+  Resolve, by sines
   ---
   
   ---
-  彼女は、そのたくらみに加わったことを否定した。
-  He denied having had any part in the scheme.
+  If bread or butter wanted weight;
+  And wisely tell what hour o the day
+  The clock does strike, by Algebra.
   ---
   
 
+sit amet, consectetur adipiscing elit}, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
 

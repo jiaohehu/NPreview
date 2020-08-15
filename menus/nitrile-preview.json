@@ -16,8 +16,8 @@
         "command": "nitrile-preview:show-highlight"
       },
       {
-        "label": "Toggle Full Page",
-        "command": "nitrile-preview:toggle-full-page"
+        "label": "Reload",
+        "command": "nitrile-preview:do-reload"
       },
       {
         "type": "separator"

@@ -42,6 +42,10 @@
         "command": "nitrile-preview:to-lualatex"
       },
       {
+        "label": "Export to XELATEX As\u2026",
+        "command": "nitrile-preview:to-xelatex"
+      },
+      {
         "label": "Export to CONTEXT As\u2026",
         "command": "nitrile-preview:to-context"
       },

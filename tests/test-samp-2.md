@@ -1,11 +1,18 @@
 
 
+%sample=1
+%尊敬語・そんけいご
+%東京・とうきょう
+%電車・でんしゃ
+
+The honorifics language, or 尊敬語, is a
+The \@uri{http://www.yahoo.com} is here.
+
 The で particle can be used to express the mean of a transportation if we
 are articulating a movement in a physical space.
 
     田中さんは、電車で、会社へ、行きました。
     Tanaka-san took electric-train to go to work.
-
 
     東京まで、何で、行きますか。
     By what means of transportation will we get to Tokyo?

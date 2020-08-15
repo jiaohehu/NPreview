@@ -1,23 +1,16 @@
-Plane Shapes
 
-Introduction
+@ Diagram
 
-``` diagram
-viewport 32 30
+  viewport 32 30
 
-apple (0,1) 
-basket (5,1) 
-crate (10,1) 
-brick (15,1) 
+  shape.apple (0,1) 
+  shape.basket (5,1) 
+  shape.crate (10,1) 
+  shape.brick (15,1) 
 
-rect {3,4} (0,10) 
-parallelgram (5,10) 
-rrect (10,10) 
-trapezoid (15,10) 
-rhombus (20,10) 
-
-protractor (10,20) (20,20)
-
-radical (10,27) (20,27)
-```
+  shape.rect {sx:3;sy:2} (0,10) 
+  shape.parallelgram {sx:3;sy:2} (5,10) 
+  shape.rrect {sx:3;sy:2} (10,10) 
+  shape.trapezoid {sx:3;sy:2} (15,10) 
+  shape.rhombus {sx:3;sy:2} (20,10) 
 

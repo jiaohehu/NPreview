@@ -800,10 +800,10 @@
     "vee"                    : { "html": "&#x2228;"       , "tex":  "\\vee"                      ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2228 LOGICAL OR"           },
     "wedge"                  : { "html": "&#x2227;"       , "tex":  "\\wedge"                    ,  "width": 7  , "op": 1,  "usepackage":""         ,"comment":"U+2227 LOGICAL AND"           },
 
-    "sdot"                   : { "html": "&#x22C5;"       , "tex":  "\\cdot"                     ,  "width": 3  , "op": 1,  "usepackage":""         ,"comment":"U+22C5 DOT OPERATOR"           },
+    "sdot"                   : { "html": "&#x22C5;"       , "tex":  "\\cdot"                     ,  "width": 3  , "op": 1,  "usepackage":""         ,"comment":"U+22C5 DOT OPERATOR"          },
     "vellip"                 : { "html": "&#x22EE;"       , "tex":  "\\vdots"                    ,  "width": 6.5, "op": 1,  "usepackage":""         ,"comment":"U+22EE VERTICAL ELLIPSIS"           },
     "hellip"                 : { "html": "&#x2026;"       , "tex":  "\\ldots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+2026 HORIZONTAL ELLIPSIS"           },
-    "ctdot"                  : { "html": "&#x22EF;"       , "tex":  "\\hdots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22EF MIDLINE HORIZONTAL ELLIPSIS"           },
+    "ctdot"                  : { "html": "&#x22EF;"       , "tex":  "\\hdots","cex":"0x22EF"     ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22EF MIDLINE HORIZONTAL ELLIPSIS"    },
     "utdot"                  : { "html": "&#x22F0;"       , "tex":  "\\udots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F0 UP RIGHT DIAGONAL ELLIPSIS"           },
     "dtdot"                  : { "html": "&#x22F1;"       , "tex":  "\\ddots"                    ,  "width": 10 , "op": 1,  "usepackage":""         ,"comment":"U+22F1 DOWN RIGHT DIAGONAL ELLIPSIS"           },
 
@@ -998,8 +998,8 @@
     "LEFTcircle"             : { "html": "&#x25D0;"       ,  "tex": "\\LEFTcircle"               , "width": 12,   "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25D0 CIRCLE WITH LEFT HALF BLACK"},
     "RIGHTcircle"            : { "html": "&#x25D1;"       ,  "tex": "\\RIGHTcircle"              , "width": 12,   "op": 0,  "usepackage":"wasysym"  ,"comment":"U+25D1 CIRCL WITH RIGHT HALF BLACK"},
 
-    "deg"                    : { "html": "&#x00B0;"       ,  "tex": "\\textdegree"       ,"TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
-    "degree"                 : { "html": "&#x00B0;"       ,  "tex": "\\textdegree"       ,"TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
+    "deg"                    : { "html": "&#x00B0;"       ,  "tex": "\\textdegree","cex":"0x00B0","TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
+    "degree"                 : { "html": "&#x00B0;"       ,  "tex": "\\textdegree","cex":"0x00B0","TM":1 , "width": 5,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B0 DEGREE SYMBOL" },
     "copyright"              : { "html": "&#x00A9;"       ,  "tex": "\\textcopyright"    ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00A9 COPYRIGHT SIGN" },
     "registered"             : { "html": "&#x00AE;"       ,  "tex": "\\textregistered"   ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00AE REGISTERED SIGN" },
     "para"                   : { "html": "&#x00B6;"       ,  "tex": "\\P"                ,"TM":1 , "width": 0,    "op": 0,  "usepackage":"textcomp" ,"comment":"U+00B6 PILCROW SIGN" },

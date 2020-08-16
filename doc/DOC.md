@@ -1,4 +1,4 @@
-# Nitrile Preview
+# NITRILE markups
 
 Nitrile Preview package generates LATEX document from one or more Markdown (MD)
 documents.
@@ -10,21 +10,25 @@ a LATEX Book document by combining multiple source MD documents.
 
 # Block-level Makeups
 
-Not all MD markups are recognized. Following are the one that are recognized.
-
 Headings using hash
-
 
     # Heading
 
-
 List items using plus (``+``), hyphen (``-``), and asterisk (``*``)
-
 
     + Apple
     - Apple
     * Apple
 
+For an item started by a plus-sign then it is interpreted as a 
+desription list item.
+
+    + Apple
+      A great fruit.
+  
+    + Pear 
+      Another great fruit.
+      
 
 
 # Inline markups

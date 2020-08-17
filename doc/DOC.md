@@ -28,7 +28,44 @@ desription list item.
   
     + Pear 
       Another great fruit.
-      
+
+
+For an item started by a asterisk then it is interpreted as an
+itemized item. In addition, the beginning of the list item text
+is scanned and looked for a certain pattern that is to be interpreted
+as emphasized text that will be shown as bold. 
+
+As a default, only the first word is scanned and collectd
+as the emphasized text.
+
+    * Apple  a great fruit
+    * Pear   another great fruit
+
+If two or more words are needed then a set of braces is to be added.
+Note that there must be at least one space after the opening brace
+and before the closing brace.
+
+    * { Hello world }  is a common used expression
+    * { See you later }  is another common expression.
+
+If astrophies or quotation marks are detected at the beginning then
+they are scanned so that all texts in between the matching quotes are
+collected as a single unit. 
+
+    * '\t'  the tab character
+    * '\ '  the space character
+
+    * "\t"  the tab character
+    * "\ "  the space character
+
+For list items starting with a hyphen-minus it is interpreted as 
+a regular list item for a unordered list---no special processing
+is attached to it. Note that all texts associated with list items
+are treated as rich text, such that markups are to be recognized.
+The only exception is the emphasized text started by asterisk-lead
+items, which is treated as plain text.
+
+
 
 
 # Inline markups

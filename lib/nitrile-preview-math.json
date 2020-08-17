@@ -821,7 +821,7 @@
     "bullet"                 : { "html": "&#x2022;"       , "tex":  "\\bullet"                                    , "width": 4.5,  "op": 1,  "usepackage":""         ,"comment":"U+2022 BULLET"           },
     "wreath"                 : { "html": "&#x2240;"       , "tex":  "\\wr"                                        , "width": 6  ,  "op": 1,  "usepackage":""         ,"comment":"U+2240 WREATH PRODUCT"           },
                  
-    "oplus"                  : { "html": "&#x2295;"       , "tex":  "\\oplus"                                     , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2295 CIRCLED PLUS"        },
+    "oplus"                  : { "html": "&#x2295;"       , "tex":  "\\oplus","cex":"0x2295"                      , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2295 CIRCLED PLUS"        },
     "ominus"                 : { "html": "&#x2296;"       , "tex":  "\\ominus"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2296 CIRCLED MINUS"        },
     "otimes"                 : { "html": "&#x2297;"       , "tex":  "\\otimes"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2297 CIRCLED TIMES"        },
     "osol"                   : { "html": "&#x2298;"       , "tex":  "\\oslash"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2298 CIRCLED DIVISION SLASH"        },
@@ -847,7 +847,7 @@
     "angrt"                  : { "html": "&#x221F;"       , "tex":  "\\rightangle"                                , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+221F RIGHT ANGLE"        },
     "angmsd"                 : { "html": "&#x2221;"       , "tex":  "\\measuredangle"                             , "width": 8  ,  "op": 0,  "usepackage":""         ,"comment":"U+2221 MEASURED ANGLE"        },
     "angsph"                 : { "html": "&#x2222;"       , "tex":  "\\sphericalangle"                            , "width": 8  ,  "op": 0,  "usepackage":""         ,"comment":"U+2222 SPHERICAL ANGLE"       },
-    "in"                     : { "html": "&#x2208;"       , "tex":  "\\in"                                        , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2208 ELEMENT OF"        },
+    "in"                     : { "html": "&#x2208;"       , "tex":  "\\in","cex":"0x2208"                         , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2208 ELEMENT OF"        },
     "nin"                    : { "html": "&#x2209;"       , "tex":  "\\notin"                                     , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2209 NOT AN ELEMENT OF"        },
     "notin"                  : { "html": "&#x2209;"       , "tex":  "\\notin"                                     , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2209 NOT AN ELEMENT OF"        },
     "owns"                   : { "html": "&#x220B;"       , "tex":  "\\ni"                                        , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+220B CONTAINS AS MEMBER"        },
@@ -896,8 +896,8 @@
     "lVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
     "rVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
                 
-   "larr"                   : { "html": "&#x2190;"       , "tex":  "\\leftarrow"                                  , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2190 LEFTWARDS ARROW"        },
-    "rarr"                   : { "html": "&#x2192;"       , "tex":  "\\rightarrow"                                , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2192 RIGHTWARDS ARROW"        },
+    "larr"                   : { "html": "&#x2190;"       , "tex":  "\\leftarrow"                                 , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2190 LEFTWARDS ARROW"        },
+    "rarr"                   : { "html": "&#x2192;"       , "tex":  "\\rightarrow","cex":"0x2192"                 , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2192 RIGHTWARDS ARROW"        },
     "lArr"                   : { "html": "&#x21D0;"       , "tex":  "\\Leftarrow"                                 , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+21D0 LEFTWARDS DOUBLE ARROW "        },
     "rArr"                   : { "html": "&#x21D2;"       , "tex":  "\\Rightarrow"                                , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+21D2 RIGHTWARDS DOUBLE ARROW"        },
 "leftrightarrow"             : { "html": "&#x2194;"       , "tex":  "\\leftrightarrow"                            , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2194 LEFT RIGHT ARROW"        },

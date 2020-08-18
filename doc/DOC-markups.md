@@ -455,13 +455,15 @@ appear across page boundaries.
 The support for in terms of translating into LATEX is made
 possible by the "xltabular" environment, which allows for
 a caption and label to appear with the table, 
-and that the table will be numbered the same style as the 
+and that the table will be numbered following the same sequence
+as that of the 
 normal Table environment, which is a float that cannot hold
 a table larger than the height of a page. However, the support
-for it in terms of translating into CONTEXT is not currently
-possible because CONTEXT does not have a way of typesetting
-a "longtable" with an auto-numbering that shares the same 
-number sequence with that of a "floating" Table.
+for it in terms of translating into CONTEXT is also made
+possible because CONTEXT has a "placetable" command that 
+accepts the "split" as one of its options which can be specified
+such that it will place a "long" table that will split across
+multiple pages.
 
 There are two additional @-blocks 
 that are named "CSV" and "DATA". The "CSV" 

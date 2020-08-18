@@ -158,6 +158,421 @@ spaces.
 
 For these specialized paragraphs, the texts are considered plain text.
 
+The normal "quote block" is supported by placing a greater-than
+sign at the first column of the first line of the paragraph.
+
+    > "The greatest glory in living lies not in never 
+      falling, but in rising every time we fall." 
+      -Nelson Mandela
+
+As always, the rest of the paragraph must not start at the beginning
+of the line, and must be indented. 
+
+There is also a "paragraph block" where two more more columns 
+of text can be placed side-by-side.
+
+    < 1 + 2 = 3
+      1 + 3 = 4
+      1 + 4 = 5
+      1 + 5 = 6
+
+    < 2 + 2 = 4
+      2 + 3 = 5
+      2 + 4 = 6
+
+    < 3 + 2 = 5
+      3 + 3 = 6
+      3 + 4 = 7
+
+The less-than sign will have to appear in the first column, and the 
+rest of the paragraph will have to be indented. Consecutive paragraphs
+will be recognized and merged to become columns that will 
+appear side-by-side on a single block. This, the previous example
+will enable a block where three columns of text will appear, where 
+there are four lines in the first column and three lines in other 
+two columns.
+
+For inline math, it is to be placed using backslashed-parentheses. For 
+example, 
+
+    The math of \(\sqrt{2}\) is 1.414
+
+This formatting is very much similar to those seen on a LATEX document.
+In addition, the display math syntax is also recognized by the use
+of backslashed-brackets. 
+
+    The math of \[\sqrt{2}\] is 1.414.
+
+The display math can be mixed with rest of the text. The translated LATEX
+and CONTEXT document will have no trouble showing display styled math
+expression as they
+both have intrinsic support
+for this type of math markup. For HTML translation a
+Span element is to be created to hold the math
+expression and that is styled as
+
+    "display:block;text-align:center" 
+    
+to allow this block to appear on its own paragraph. However
+the display math style lacks the ability to include additional
+formatting information such as splitting a long equation
+into multiple segments and/or align each sub-segment with
+the rest by their equal signs. In this case, another
+block is designed to handle just that.
+
+    $ a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+A block that starts with a dollar-sign will be recognized
+as a MATH block that holds a math expresion very much like
+a LATEX begin/end "equation*" block, with begin/end split inside.
+
+    \begin{equation*}
+    \begin{split}
+    a + b &= c + d\\
+          &= e + f\\
+          &= g
+    \end{split}
+    \end{equation*}
+
+However, if multiple MATH blocks occurs one after another, they
+are combined so that when being translated into LATEX, they are
+placed into a single "gather*" block.
+
+    $ a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+    $ a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+The result of the LATEX translation.
+
+    \begin{gather*}
+    \begin{split}
+    a + b & = c + d\\ 
+    & = e + f\\ 
+    & = g 
+    \end{split}\\
+    \begin{split}
+    a + b & = c + d\\ 
+    & = e + f\\ 
+    & = g 
+    \end{split}
+    \end{gather*}
+
+Another option is to use the QUAT block, which 
+is a block that starts with a at-sign followed by a 
+space and the word "Equation". 
+
+    @ Equation
+    
+      a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+      a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+Note that all math expressions must be indented. However,
+the syntax follows that of the previous MATH block, and that
+multiply expression must be separated by at least one line.
+The previous QUAT block is exactly equivalent to previous
+two MATH blocks. However, the QUAT allows an equation to be
+labeled and thus allow equation numbers to appear. To do that,
+place a Ref phrase at the beginning of one of the equations,
+such as the following.
+
+    @ Equation
+    
+      &ref{eq:a}
+      a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+      a + b &= c + d \\
+            &= e + f \\
+            &= g
+
+This will be translated to LATEX as:
+
+    \begin{gather}
+    \begin{split}
+    a + b & = c + d\\ 
+    & = e + f\\ 
+    & = g 
+    \end{split}\label{eq:a}\\
+    \begin{split}
+    a + b & = c + d\\ 
+    & = e + f\\ 
+    & = g 
+    \end{split}
+    \end{gather}
+
+Due to the limitation of the LATEX implementation, all equations
+in a "gather" block will be numbered, besides the one that's
+been attached the Label command. 
+
+The @-block is functionally similar to that of a fenced block 
+using triple-backquote, where it is designed to present a 
+group of computer software codes, but nevertheless has the potential
+to include other types of information as well. 
+However, the @-block in NITRILE
+is designed to also allow for a caption and a label to be included. 
+In the following example a LATEX Figure will be created
+with two images and a caption.
+
+    @ Image &ref{fig:a}
+      A tree and a frog
+
+      &img{tree.png} A tree.
+      &img{frog.png} A frog.
+
+In the previous example a PICT block is to be created
+where it will be translated to LATEX as a Figure environment,
+with caption text "A tree and a frog", and a label of "fig:a".
+As with the convention, the at-sign must appear at the first
+column, followed by one or more spaces, and the word "Image",
+case-insensitive. 
+
+After the word "Image", the pattern of a Ref phrase is to be 
+scanned---if found, it is assumed to describe a label
+for the Figure block. The rest of the paragraph, 
+will be treated as the
+caption text for this Figure environment.
+
+Besides the word "Equation" and "Image", there are
+other type of @-blocks that can be specified. If 
+the word "Framed" is to be specified, then an picture will
+be created that would typeset the rest of the content
+as fixed-width text, and with a border. 
+
+    @ Framed
+
+      p {
+        margin:10mm;
+        background-color:white;
+      }
+
+If a Ref label is included, then it will be treated as a Figure,
+the same as the "Image" block, with optional caption.
+
+If the word "Table" is to appear, then it will typeset a
+LATEX tabular.
+
+    @ Table
+
+      Name   | Address
+      -------|---------
+      John   | 123 San St.
+      Jane   | 123 Lindon St.
+
+If a label is included, it will turn into a LATEX Table.
+The official name for this block is TABR. Besides the
+traditional way of expressing the content of the tabular,
+where the content is arranged in a single line, and table
+data separated by a vertical bar, it is possible in NITRILE
+to express table contents using lines arranged vertically.
+To do that, place triple-equal sign after the table.
+
+    @ Table
+
+      Name   | Address
+      -------|---------
+      John   | 123 San St.
+      Jane   | 123 Lindon St.
+
+      ===
+      James
+      123 Sand St.
+
+      Justin
+      123 Sunset St.
+      ===
+
+      Joe    | 123 Apple St.
+      Jack   | 123 Evening St.
+
+A triple-equal sign acts as the "mode switcher" that switches 
+between a "row mode" and a "column mode". The "row mode" is the
+traditional mode where each table data appear in a single line
+separated by a vertical bar, where in "column mode" each line is 
+to express a table data, and an empty line starts a new 
+row.
+
+Note that it is possible for a long table data text
+to be split into multiple lines. If this is the case,
+ensure that the continuation line does not start at the first
+column. In the following example the table data "123 Sand St. and more"
+has been split into two lines.
+
+    @ Table
+
+      Name   | Address
+      -------|---------
+      John   | 123 San St.
+      Jane   | 123 Lindon St.
+
+      ===
+      James
+      123 Sand St. and 
+        more 
+
+      Justin
+      123 Sunset St.
+      ===
+
+It is important to ensure that for all contents after the first
+@-paragraph, all lines starts at the same position. This ensures
+that when in a "column mode", the lines that "falls short" is
+to be recognized and treated as the continuation line for the
+previous line.
+
+There is also a "Longtable" block. It expects the same 
+text as the "Table" block. However, it intends to create a
+"xltabular" in LATEX, that will typeset a table that wil
+appear across page boundaries. 
+
+    @ Longtable
+
+      Name   | Address
+      -------|---------
+      John   | 123 San St.
+      Jane   | 123 Lindon St.
+
+      ===
+      James
+      123 Sand St. and 
+        more 
+
+      Justin
+      123 Sunset St.
+      ===
+
+The support for in terms of translating into LATEX is made
+possible by the "xltabular" environment, which allows for
+a caption and label to appear with the table, 
+and that the table will be numbered the same style as the 
+normal Table environment, which is a float that cannot hold
+a table larger than the height of a page. However, the support
+for it in terms of translating into CONTEXT is not currently
+possible because CONTEXT does not have a way of typesetting
+a "longtable" with an auto-numbering that shares the same 
+number sequence with that of a "floating" Table.
+
+There are two additional @-blocks 
+that are named "CSV" and "DATA". The "CSV" 
+block allows for presenting plain text "raw" data as
+a long table, where each line represent a single row in
+a table, and table cells are separated by commans. The "Data" 
+block does the same thing except that table cells are separated
+by one or more spaces.  
+
+    @ CSV 
+
+      123,134,1334
+      345,123,1233
+      123,567,8989
+
+    @ Data
+
+      123 134 1334
+      345 123 1233
+      123 567 8989
+
+If the word is "Listing", then the rest of the content is treated
+as code listing. For LATEX this will be translated into 
+a begin/end lstlisting environment.
+
+    @ Listing
+
+      console.log()
+      console.log()
+
+If a Ref phrase is found then there is going to be
+a caption and the listing will be numbered by the 
+capability of the "lstlisting" command.
+
+Another interesting block is the "Diagram" block, where
+a group of line is used to describe a "vector diagram" 
+that is translated into a Tikz picture envionment on LATEX.
+
+    @ Diagram
+
+      viewport 25 10
+      unit 5
+      draw (1,1)--(3,4)
+      
+In the prevous example, a begin/end "tikzpicture" environment
+will be created when it is a LATEX translation, and optionally,
+be converted into a Figure environment if a Ref label is 
+also specified. For a CONTEXT translation a MetaFun drawing
+block will be created, and possibliy turning into a 
+"float" if the Ref phrase is specified.
+
+There is also an interesting block called "Note", that does not
+generate any translation by itself, but nevertheless 
+serves a purpose to hold the content somewhere so that it can
+be retrieved later by others when necessary.
+
+Currently, the only place that takes advantage of this
+is a Diagram command named "pic", which will retrieve the lines 
+associated with a particular note and then treate them
+as Diagram commands. 
+
+    @ Note &ref{note1}
+
+      draw (1,1)--(3,4)
+      draw (2,2)--(5,6)
+      
+    @ Diagram
+     
+      viewport 25 10
+      unit 5
+      pic note1
+
+In the previous example the Diagram is 
+to have two "draw" commands literally 
+"inserted" into the place where the "pic" command
+runs.
+
+In NITRILE, if an paragraph is to have its lines indented
+by four spaces then it is considered a "sample block".
+It will be translated the same as that of
+a verbatim block---the
+same "verbatim block" that is fenced by three or more 
+backquotes. However, it is not intended. To set it
+so that it is indented, set the "general.sample" to 1.
+
+    general.sample=1
+
+The amount of indentation is controlled by the "latex.step"
+for LATEX translation and
+"context.step" for CONTEXT translation. By default
+it is '5mm'. 
+
+    latex.step=5mm
+    context.step=5mm
+
+For HTML generation the Blockquote element is used to control
+the indentation. Thus, use the CSS to style the Blockquote
+element if a change of indentation is to be desired.
+
+The other four fenced blocks: "verbatim block", "verse block",
+"story block", and "tabular block" are indented only if
+the paragraph itself is indented in the source. The QUOT
+block is always indented.
+
+Unlike normal Markdown, the appearances of triple-backquote
+in a line by itself does not cause a new block to be started.
+A triple-backquote with a normal paragraph is treated like
+a double-backquote.
+
+
+
 
 
 

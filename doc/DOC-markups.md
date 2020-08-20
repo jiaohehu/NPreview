@@ -10,15 +10,45 @@ a LATEX Book document by combining multiple source MD documents.
 
 # Block-level Makeups
 
-Headings using hash
+Headings are marked by one or more hashes. 
 
     # Heading
+    ## Heading
+    ### heading
+    #### heading
 
-List items using plus (``+``), hyphen (``-``), and asterisk (``*``)
+Each heading block is to be assigned an 
+internal number that equates the number of hash
+marks at the beginning of the line, that is
+called HDGN. 
+
+As a special 
+condition, if a paragraph starts at the first line
+of the document, then it is assigned a HDGN 0. 
+This heading can be understood as the "title" of this 
+document. In the case of establishing a "master" document
+where it imports sub-documents as chapters, section,
+the "title" of this document to be used for the title
+of the chapter, section, subsection, subsubsection, and
+so on. 
+
+List items must appear starting
+a plus (``+``), hyphen (``-``), or asterisk (``*``)
+at the beginning of the line.
 
     + Apple
-    - Apple
-    * Apple
+    - Pear
+    * Banana
+
+If the item text is to be split into multiple lines,
+the continuation line must be indented.
+
+    + Apple is
+      great.
+    + Pear is 
+      great
+    + Banan is
+      great
 
 For an item started by a plus-sign then it is interpreted as a 
 desription list item.

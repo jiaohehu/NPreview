@@ -15,7 +15,7 @@ var work = async ()=>{
   var main = parser.blocks;
   var latex = main.map(x=>x.latex);
   console.log(latex.join('\n'));
-  var data = translator.to_pdf_document();
+  var data = translator.to_pdflatex_document();
   console.log(data);
 };
 

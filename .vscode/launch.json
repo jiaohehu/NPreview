@@ -83,6 +83,19 @@
       "args": [
         "a.md"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch BEAMER",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceRoot}/tests",
+      "program": "${workspaceFolder}/tests/beamer.js",
+      "args": [
+        "a.md"
+      ]
     }
   ]
 }

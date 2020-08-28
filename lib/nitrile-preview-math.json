@@ -1047,8 +1047,9 @@
 
 
     "coloneq"                : { "html": "&#x2254;"       ,  "tex": "\\coloneq","cex":"0x2254"            ,"TM":0 , "width": 12,   "op": 1,  "usepackage":"mathtools" ,"comment":"U+2254 COLON EQUAL"},
-    "eqcolon"                : { "html": "&#x2255;"       ,  "tex": "\\eqcolon","cex":"0x2255"            ,"TM":0 , "width": 12,   "op": 1,  "usepackage":"mathtools" ,"comment":"U+2255 EQUAL COLON"} 
+    "eqcolon"                : { "html": "&#x2255;"       ,  "tex": "\\eqcolon","cex":"0x2255"            ,"TM":0 , "width": 12,   "op": 1,  "usepackage":"mathtools" ,"comment":"U+2255 EQUAL COLON"}, 
 
+    "nbsp"                   : { "html": "&#x00A0;"       ,  "tex": "\\quad"                              ,"TM":0 , "width": 12,   "op": 1,  "usepackage":""         ,"comment":"U+00A0 NO-BREAK SPACE"} 
 
   }
 }

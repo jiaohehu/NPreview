@@ -878,6 +878,13 @@ variable 'pts' will hold two points: (6,2) and (4,2).
     path c = (5,3)
     path pts = $linecircleintersect(a,c,1.4142)
 
+The `circlecircleintersect()` function would return two, one, or no points
+regarding the intersection points of two circles.
+
+    path a = (0,0)
+    path b = (5,0)
+    path pts = &circlecircleintersect(a,b,4,3);
+
 
 
 # Special notes for MetaPost users

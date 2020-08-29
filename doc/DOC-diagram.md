@@ -158,53 +158,64 @@ Changing these configuration parameters in the middle of other
 drawing commands are not recommended and may result in distorted
 picture.
 
-(&) Options         $(1fr)
-(&) Default value   $(1fr)
-(&) Comments        $(3fr)
+@ Longtable
 
-(&) width      
-(&) 25           
-(&) Offset location (integer)
+    ===
+    Options         
+    Default value   
+    Comments        
 
-(&) height     
-(&) 10           
-(&) Offset location (integer)
+    1fr
+    1fr
+    3fr
 
-(&) unit       
-(&) 5            
-(&) The width for each grid (mm)
+    width      
+    25           
+    Offset location (integer)
 
-(&) grid       
-(&) ''           
-(&) ''|'boxed'|'none'                 
+    height     
+    10           
+    Offset location (integer)
 
-(&) barlength  
-(&) 0.25         
-(&) The default length of the bar (grid unit)
+    unit       
+    5            
+    The width for each grid (mm)
 
-(&) dotsize    
-(&) 5            
-(&) The default size of dot (pt)
+    grid       
+    ''           
+    ''|'boxed'|'none'                 
 
-(&) linesize   
-(&) 0            
-(&) The default size for line drawing (pt), when 0 is set it uses the default line size
+    barlength  
+    0.25         
+    The default length of the bar (grid unit)
 
-(&) fillcolor  
-(&) ''            
-(&) The default fill color, when set to empty string it implies that no filling should be performed
+    dotsize    
+    5            
+    The default size of dot (pt)
 
-(&) labeldx    
-(&) 2            
-(&) The x-offset of label text to anchor point, SVG only (px)
+    linesize   
+    0            
+    The default size for line drawing (pt), when 0 is set it uses the default line size
 
-(&) labeldy    
-(&) 2            
-(&) The y-offset of label text to anchor point, SVG only (px)
+    fillcolor  
+    ''            
+    The default fill color, when set to empty string it implies that no filling should be performed
 
-(&) noderadius 
-(&) 1            
-(&) The radius of the circle for each node. (grid unit)
+    opacity
+    ''
+    Specify the opacity of the filled area over the background; should be a number between 0-1; 1=full opaque (default), 0=full transparent (invisible)
+
+    labeldx    
+    2            
+    The x-offset of label text to anchor point, SVG only (px)
+
+    labeldy    
+    2            
+    The y-offset of label text to anchor point, SVG only (px)
+
+    noderadius 
+    1            
+    The radius of the circle for each node. (grid unit)
 
 
 # The set and reset commands

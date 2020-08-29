@@ -1176,17 +1176,20 @@ The text will always be centered at location, and placed directly below the
 bar.
 
 
-# The line, area, linearea operation
+# The line, and area operation.
 
 The 'line' operation would stroke a line alone the path. The 'area' operation
-would fill an area enclosed by the path, and it will "close" the path if it is
-not closed. The 'linearea' operation will fill the area and also stroke its
-outline, and it will also "close" the path if it is not closed. For 'line' and
-'linearea' operations, the lines are always visible. If 'linesize' is set to
-zero then the default line width is used.  For the 'linearea' and 'area'
-operation the 'fillcolor' is used; and it will be set to BLACK if it is not
-set.  For 'line' and 'linearea' the line color uses 'linecolor' property. If it
-is not set it defaults to BLACK.
+would fill an area enclosed by the path, and it only does it when the area
+is considered "closed" by the path. If the area is not "closed" no area operation
+takes place.
+
+If area is to be filled, the "opacity" option is checked. If it is set, then
+the opacity is set according to the setting. A value of "1" means fully-opaque,
+which is the default behavior. A value of "0" means that the area is
+fully-transparent, in which case the fillcolor is not to be applied. A value of
+"0.5" is half-transparent. The "opaque" can be set as a global option that
+applies to all filled areas.
+
 
 # The arrow, revarrow, and dblarrow operation
 

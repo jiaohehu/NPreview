@@ -9,7 +9,7 @@ console.log(fname);
 var work = async ()=>{
   console.log(fname);
   const parser = new NitrilePreviewParser();
-  const translator = new NitrilePreviewPdflatex();
+  const translator = new NitrilePreviewPdflatex(parser);
   await parser.read_md_file_async(fname);
   parser.translate_blocks(translator);
   var main = parser.blocks;

@@ -197,6 +197,14 @@ picture.
     0            
     The default size for line drawing (pt), when 0 is set it uses the default line size
 
+    linejoin
+    ''
+    Available values: 'bevel', 'round', 'miter'.
+
+    linecap
+    ''
+    Available values: 'round', 'butt', 'rect'.
+
     fillcolor  
     ''            
     The default fill color, when set to empty string it implies that no filling should be performed

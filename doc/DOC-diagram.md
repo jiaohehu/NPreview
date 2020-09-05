@@ -311,16 +311,16 @@ is to create new a new path based on points of existing path variables.
 In the following example a new path variable 'c' is created and is 
 assigned the first point of the path 'a'.
 
-    path c = $somepoints(a,0)
+    path c = &somepoints(a,0)
 
 Following statement will assign the second point of path 'a' to
 variable 'c'.
 
-    path c = $somepoints(a,1)
+    path c = &somepoints(a,1)
 
 Following statement assign the second and third point to path 'c'.
 
-    path c = $somepoints(a,1,2)
+    path c = &somepoints(a,1,2)
 
 The path command also has provision to allow for something akin to JavaScript
 "array destructuring" statement, in which case individual points of a path are
@@ -333,12 +333,12 @@ that was drawn by the `draw` statement.
     path [a,b,c] = A
 
 The previous assignment instruction is functionally equivalent to the following
-three assignment instructions using $somepoints() path function.
+three assignment instructions using &somepoints() path function.
 
     path A = (1,1) (2,2) (3,4) (4,5)
-    path a = $somepoints(A,0)
-    path b = $somepoints(A,1)
-    path c = $somepoints(A,2,3)
+    path a = &somepoints(A,0)
+    path b = &somepoints(A,1)
+    path c = &somepoints(A,2,3)
 
 Each sub-variable must be separated from other sub-variables by one or more
 slash character.  You can skip ahead and bypass certain points by not
@@ -824,12 +824,12 @@ Note that for a path function all its arguments must be either a path variable
 or a number. Coordinate list is not valid. In the following examples all
 letters a, b, c are path variables.
 
-The `$midpoint()` function returns the mid point of the first two points in a
+The `&midpoint()` function returns the mid point of the first two points in a
 path expression if a single argument is given.  Following returns a path with a
 single point: (1.5,2), which is the mid point of (1,1) and (2,3).
 
     path a = (1,1) (2,3)
-    path b = $midpoint(a)
+    path b = &midpoint(&a)
 
 Note that only the first two points of a path is used. The other points
 are ignored. Thus if path a has three points, then the third point
@@ -844,15 +844,24 @@ same path as that with a single argument. Thus, following example will return
 the same result as the one before.
 
     path a = (1,1) (2,3)
-    path b = $midpoint(a,0.5)
+    path b = &midpoint(&a,0.5)
 
 Following will return the a point that is one-third the way from the first
 point to the second point.
 
     path a = (1,1) (2,3)
-    path b = $midpoint(a,0.333333)
+    path b = &midpoint(&a,0.333333)
 
-The `$shiftpoints()` function is always needed to be provided with three
+The ``perpoint()`` method returns a new point that is perpendicular
+to the given line and that is also intersecting the line at the first
+point with a given magnitude. In the example below 
+the returned point will be at (0,2).
+
+    path a = (0,0) (2,0)
+    path c = &perpoint(&a[0],&a[1],2); 
+
+
+The `&shiftpoints()` function is always needed to be provided with three
 arguments. The first argument is always interpreted as a path variable. The
 second and the third arguments are to be interpreted as expressing length in
 grid unit. This function is to return a new path with exact the same number of
@@ -861,24 +870,24 @@ grid units specified in the argument. For example, following would have shifted
 all the points in the original path one position to the left and two positions
 up.
 
-    path b = $shiftpoints(a,-1,2)
+    path b = &shiftpoints(a,-1,2)
 
-The `$scatterpoints()`  function is to create new path with the number of
+The `&scatterpoints()`  function is to create new path with the number of
 points evenly distributed beteen the two end points. In the previous example
 there will be 10 points created in a path such that the first point is (1,0),
 and the last point is (10,0), and the rest of the points will be spaced evenly
 between the first and the last.
 
-    path a = $scatterpoints(1,0,10,0,10)
+    path a = &scatterpoints(1,0,10,0,10)
 
-The `$lineintersect()` Returns new a path that contains a single point which is
+The `&lineintersect()` Returns new a path that contains a single point which is
 the point at which the two lines intersect. The first line is described by the
 symbol 'a', which must have at least two points. The second line is described
 by the symbol 'b', which must have at least two points. Only the first two
 points of 'a' and 'b' are considered. The rest of the points of 'a' and 'b' are
 ignored.
 
-    path a = $lineintersect(a,b)  
+    path a = &lineintersect(a,b)  
 
 Note that the returned point might have Infinity or NaN due to the nature of
 line parallelness.  In the following example the path variable 'c' will hold
@@ -886,16 +895,16 @@ one point: (2,2)
 
     path a = (0,2) (4,2)
     path b = (2,0) (2,6)
-    path c = $lineintersect(a,b)
+    path c = &lineintersect(a,b)
 
 
-The `$linecircleintersect()` function returns new a path that contains two
+The `&linecircleintersect()` function returns new a path that contains two
 points for the line and circle intersection.  In the following diagram the pts
 variable 'pts' will hold two points: (6,2) and (4,2).
 
     path a = (2,2) (6,2)
     path c = (5,3)
-    path pts = $linecircleintersect(a,c,1.4142)
+    path pts = &linecircleintersect(a,c,1.4142)
 
 The `circlecircleintersect()` function would return two, one, or no points
 regarding the intersection points of two circles.
@@ -1401,12 +1410,12 @@ rather part of the toplevel 'foreach' loop.
           label.ulft "P_2" *P2
           path line1 = *P0 *P1
           path line2 = *P1 *P2
-          path m0 = $midpoint(line1,\b )
-          path m1 = $midpoint(line2,\b )
+          path m0 = &midpoint(line1,\b )
+          path m1 = &midpoint(line2,\b )
           dot *m0 *m1
           draw *m0 *m1
           path line3 = *m0 *m1
-          path B = $midpoint(line3,\b )
+          path B = &midpoint(line3,\b )
           dot *B
           label.bot "m_0" *m0
           label.lft "m_1" {dx:-.1} *m1

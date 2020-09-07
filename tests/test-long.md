@@ -117,5 +117,5 @@
 (&) Node.js will be useful in situations when something faster and more
   scalable is needed.
 (&) Angular is useful in creating real time applications like instant
-  messaging or chat apps.
+  messaging or chat apps. END
 ~~~

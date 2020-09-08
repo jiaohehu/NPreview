@@ -2,6 +2,14 @@
 
 # Slice
 
+@ Equation
+
+  \sqrt{2} + \sqrt{3}
+
+  \sqrt{2} + \sqrt{3}
+
+  \sqrt{2} + \sqrt{3}
+
 @ Figure
 
   ```framed  

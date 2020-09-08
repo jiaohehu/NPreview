@@ -855,12 +855,26 @@ point to the second point.
     path b = &midpoint{&a[0],&a[1],0.333333}
 
 The ``perpoint`` method returns a new point that is perpendicular
-to the given line and that is also intersecting the line at the first
-point with a given magnitude. In the example below 
-the returned point will be at (0,2).
+to the given line. It operates in two different modes depending
+on the arrangement of the argument.
+
+If the third argument is a scalar, then it returns a path 
+with a single point which expresses a point such that the line
+segment from that point to the first point of the input line segment
+is perpendicular to the input line. In the example below 
+the returned point will be at (0,4).
 
     path a = (0,0) (2,0)
-    path c = &perpoint{&a[0],&a[1],2}
+    path c = &perpoint{&a[0],&a[1],4}
+
+If the third argument is a path with at least a single coordinate, 
+then it returns a point somewhere on the input line segment (or the extension of it) 
+such that the line segment of the returned point and the third point
+forms a new line that is perpendicular to the
+input line. In the following example the returned point is (1,0).
+
+    path a = (0,0) (2,0)
+    path c = &perpoint{&a[0],&a[1],(1,1)}
 
 
 The `&shiftpoints` function is always needed to be provided with three

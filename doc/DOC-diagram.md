@@ -821,15 +821,17 @@ scanned and re-formatted to be subscript and superscript.
 # Path functions        
 
 Note that for a path function all its arguments must be either a path variable
-or a number. Coordinate list is not valid. In the following examples all
-letters a, b, c are path variables.
+or a number. Coordinate numbers are also allowed. 
 
-The `&midpoint()` function returns the mid point of the first two points in a
+In addition, argument lists for a path function is specified between a set
+of curly braces. 
+
+The `&midpoint` function returns the mid point of the first two points in a
 path expression if a single argument is given.  Following returns a path with a
 single point: (1.5,2), which is the mid point of (1,1) and (2,3).
 
     path a = (1,1) (2,3)
-    path b = &midpoint(&a)
+    path b = &midpoint{&a[0],&a[1]}
 
 Note that only the first two points of a path is used. The other points
 are ignored. Thus if path a has three points, then the third point
@@ -844,24 +846,24 @@ same path as that with a single argument. Thus, following example will return
 the same result as the one before.
 
     path a = (1,1) (2,3)
-    path b = &midpoint(&a,0.5)
+    path b = &midpoint{&a[0],&a[1],0.5}
 
 Following will return the a point that is one-third the way from the first
 point to the second point.
 
     path a = (1,1) (2,3)
-    path b = &midpoint(&a,0.333333)
+    path b = &midpoint{&a[0],&a[1],0.333333}
 
-The ``perpoint()`` method returns a new point that is perpendicular
+The ``perpoint`` method returns a new point that is perpendicular
 to the given line and that is also intersecting the line at the first
 point with a given magnitude. In the example below 
 the returned point will be at (0,2).
 
     path a = (0,0) (2,0)
-    path c = &perpoint(&a[0],&a[1],2); 
+    path c = &perpoint{&a[0],&a[1],2}
 
 
-The `&shiftpoints()` function is always needed to be provided with three
+The `&shiftpoints` function is always needed to be provided with three
 arguments. The first argument is always interpreted as a path variable. The
 second and the third arguments are to be interpreted as expressing length in
 grid unit. This function is to return a new path with exact the same number of
@@ -870,7 +872,7 @@ grid units specified in the argument. For example, following would have shifted
 all the points in the original path one position to the left and two positions
 up.
 
-    path b = &shiftpoints(a,-1,2)
+    path b = &shiftpoints{&a,-1,2}
 
 The `&scatterpoints()`  function is to create new path with the number of
 points evenly distributed beteen the two end points. In the previous example
@@ -878,16 +880,16 @@ there will be 10 points created in a path such that the first point is (1,0),
 and the last point is (10,0), and the rest of the points will be spaced evenly
 between the first and the last.
 
-    path a = &scatterpoints(1,0,10,0,10)
+    path a = &scatterpoints{1,0,10,0,10}
 
-The `&lineintersect()` Returns new a path that contains a single point which is
+The `&linelineintersect()` Returns new a path that contains a single point which is
 the point at which the two lines intersect. The first line is described by the
 symbol 'a', which must have at least two points. The second line is described
 by the symbol 'b', which must have at least two points. Only the first two
 points of 'a' and 'b' are considered. The rest of the points of 'a' and 'b' are
 ignored.
 
-    path a = &lineintersect(a,b)  
+    path a = &linelineintersect{&a[0],&a[1],&b[0],&b[1]}
 
 Note that the returned point might have Infinity or NaN due to the nature of
 line parallelness.  In the following example the path variable 'c' will hold
@@ -895,7 +897,7 @@ one point: (2,2)
 
     path a = (0,2) (4,2)
     path b = (2,0) (2,6)
-    path c = &lineintersect(a,b)
+    path c = &linelineintersect{&a[0],&a[1],&b[0],&b[1]}
 
 
 The `&linecircleintersect()` function returns new a path that contains two
@@ -904,14 +906,14 @@ variable 'pts' will hold two points: (6,2) and (4,2).
 
     path a = (2,2) (6,2)
     path c = (5,3)
-    path pts = &linecircleintersect(a,c,1.4142)
+    path pts = &linecircleintersect{&a[0],&a[1],&c[0],1.4142}
 
 The `circlecircleintersect()` function would return two, one, or no points
 regarding the intersection points of two circles.
 
     path a = (0,0)
     path b = (5,0)
-    path pts = &circlecircleintersect(a,b,4,3);
+    path pts = &circlecircleintersect{&a[0],&b[0],4,3};
 
 
 

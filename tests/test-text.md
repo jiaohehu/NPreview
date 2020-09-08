@@ -37,6 +37,21 @@ culpa qui officia deserunt mollit anim id est laborum.
   men; but it is far more terrible for women.
   """
 
+  ```diagram
+  viewport 10 10 
+  draw (0,0) (10,10)
+  ```
+
+  ~~~
+  viewport 10 10 
+  draw (0,0) (10,10)
+  ~~~
+
+  ```framed
+  viewport 10 10 
+  draw (0,0) (10,10)
+  ```
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 minim veniam, quis nostrud exercitation ullamco laboris nisi ut

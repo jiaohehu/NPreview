@@ -14,33 +14,35 @@ culpa qui officia deserunt mollit anim id est laborum.
        return;
      }
 
+   ```
    #include<stdio>
    main(){
      printf('hello world\n');
    }
-
-   ```
-   Task 1
-   Task 2 
-   Task 3
    ```
 
-   ===
+   ~~~
+   - Task 1
+   - Task 2 
+   - Task 3
+   ~~~
+
+   ~~~
    Once upon a time, there was
-   a prince living in a castle, and then, 
-   and then, and then ... the story ends.
-   ===
+     a prince living in a castle, and then, 
+     and then, and then ... the story ends.
+   ~~~
 
-   ---
+   ~~~
    Wind is gone,
    Rain is fading,
    Warmth is coming
-   ---
+   ~~~
 
    ~~~
-   Apple     100     
-   Pear      10    
-   Banana    123   
+   > Apple  |  100     
+     Pear   |  10    
+     Banana |  123   
    ~~~
 
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

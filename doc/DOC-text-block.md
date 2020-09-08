@@ -47,3 +47,46 @@ after a heading. In order to closely model after the look on a LATEX document, t
 For PRIM and SECO block the top margin is set to 1em, and the bottom margin is
 set  to zero, this is to allow for the TEXT block immediately following it to be
 placed close to it with any added vertical spacing.   
+
+
+# Other text blocks
+
+Tabulate
+
+    ~~~
+    > ------|----------|---------
+      Names | Address  | Gender
+      ------|----------|---------
+      James | 123 Sun. | M
+      James | 123 Sun. | M
+      James | 123 Sun. | M
+      ------|----------|---------
+    ~~~
+
+Columns
+
+    ~~~{n:2}
+    < 1 + 2 = 3
+    < 1 + 3 = 4
+    < 1 + 4 = 5
+    < 2 + 2 = 4
+    < 2 + 3 = 5
+    < 2 + 4 = 6
+    ~~~
+
+Itemized and/or enumerated
+
+    ~~~
+    1. Apple
+    2. Pear
+    3. Banana
+    ~~~
+
+Parallel Paragraphs
+
+    ~~~{n:2}
+    & Paragraph text left
+    & Paragraph text right
+    & Paragraph text left
+    & Paragraph text right
+    ~~~

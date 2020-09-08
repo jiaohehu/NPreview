@@ -21,9 +21,9 @@
 
 ***
 
-~~~{fr:1 1;n:2}
-(&) Node.JS 
-(&) AngularJS 
+~~~{fr:2 3;n:2}
+(&) &b{Node.JS }
+(&) &b{AngularJS }
 --
 (&) Node.js is a cross-platform run-time environment for applications
   written in JavaScript language. 

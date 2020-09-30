@@ -1,0 +1,6 @@
+#!/bin/bash
+#echo $1
+#node -e "console.log($1)"
+node -e "const { NitrilePreviewNode } = require ('$HOME/github/nitrile-preview/lib/nitrile-preview-node'); new NitrilePreviewNode().to_beamer_document_async('$1').then(([program,dname,fname]) => { console.log(program); console.log(dname); console.log(fname); const exe = require('child_process').spawn(program,['--interaction=scrollmode', '--output-directory='+dname, '-halt-on-error', fname]); exe.stdout.on('data',(data) => process.stdout.write(data)); exe.on('close',(code) => { console.log(program+' process finished');    } ); } ).catch(err => console.log(err))"
+
+

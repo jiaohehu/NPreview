@@ -865,8 +865,6 @@
     "nsupseteq"              : { "html": "&#x2289;"       , "tex":  "\\nsupseteq"                                 , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2289 NEITHER A SUPERSET OF NOR EQUAL TO"        },
     "sqsupset"               : { "html": "&#x2290;"       , "tex":  "\\sqsupset"                                  , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2290 SQUARE ORIGINAL OF"        },
     "sqsupseteq"             : { "html": "&#x2292;"       , "tex":  "\\sqsupseteq"                                , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2292 SQUARE ORIGINAL OF OR EQUAL TO"        }, 
-    "forall"                 : { "html": "&#x2200;"       , "tex":  "\\forall"                                    , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2200 FOR ALL"        },
-    "neg"                    : { "html": "&#x00AC;"       , "tex":  "\\neg"                                       , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+00AC NOT SIGN"        },
     "land"                   : { "html": "&#x22C0;"       , "tex":  "\\land"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+22C0 N-ARY LOGICAL AND"        },
     "lor"                    : { "html": "&#x22C1;"       , "tex":  "\\lor"                                       , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+22C1 N-ARY LOGICAL OR"        },
     "cap"                    : { "html": "&#x22C2;"       , "tex":  "\\cap"                                       , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+22C2 N-ARY INTERSECTION"        },
@@ -878,8 +876,11 @@
     "nparallel"              : { "html": "&#x2226;"       , "tex":  "\\nparallel"                                 , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2226 NOT PARALLEL TO"        },
     "iff"                    : { "html": "&#x27FA;"       , "tex":  "\\iff"                                       , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+27FA LONG LEFT RIGHT DOUBLE ARROW"        },
     "perp"                   : { "html": "&#x27C2;"       , "tex":  "\\perp"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+27C2 PERPENDICULAR"        },
-                
-   "lceil"                  : { "html": "&#x2308;"       , "tex":  "\\lceil"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2308 LEFT CEILING"        },
+    
+    "forall"                 : { "html": "&#x2200;"       , "tex":  "\\forall"                                    , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+2200 FOR ALL"        },
+    "neg"                    : { "html": "&#x00AC;"       , "tex":  "\\neg"                                       , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+00AC NOT SIGN"        },
+
+    "lceil"                  : { "html": "&#x2308;"       , "tex":  "\\lceil"                                     , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2308 LEFT CEILING"        },
     "rceil"                  : { "html": "&#x2309;"       , "tex":  "\\rceil"                                     , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2309 RIGHT CEILING"        },
     "ulcorner"               : { "html": "&#x2E22;"       , "tex":  "\\ulcorner"                                  , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2E22 TOP LEFT HALF BRACKET"        },
     "urcorner"               : { "html": "&#x2E23;"       , "tex":  "\\urcorner"                                  , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2E23 TOP RIGHT HALF BRACKET"        },

@@ -931,10 +931,10 @@
     "xmapsto"                : { "html": "&#x27FC;"       , "tex":  "\\longmapsto"                                , "width": 16 ,  "op": 1,  "usepackage":""         ,"comment":"U+27FC LONG RIGHTWARDS ARROW FROM BAR"        },
     "xmapstoleft"            : { "html": "&#x27FB;"       , "tex":  "\\longmapsfrom"                              , "width": 16 ,  "op": 1,  "usepackage":""         ,"comment":"U+27FB RIGHTWARDS ARROW WITH DOUBLE VERTICAL STROKE"        },
   
-    "complement"             : { "html": "&#x2201;"       ,  "tex": "\\complement"                                , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2201 C COMPLEMENT"        },
+    "complement"             : { "html": "&#x2201;"       ,  "tex": "\\complement"                                , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+2201 C COMPLEMENT"        },
     "partial"                : { "html": "&#x2202;"       ,  "tex": "\\partial"                                   , "width": 6  ,  "op": 0,  "usepackage":""         ,"comment":"U+2202 PARTIAL DIFFERENTIAL"   },
-    "exists"                 : { "html": "&#x2203;"       ,  "tex": "\\exists"                                    , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2203 THREE EXISTS"        },
-    "nexists"                : { "html": "&#x2204;"       ,  "tex": "\\nexists"                                   , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2204 THREE DOES NOT EXIST"        },
+    "exists"                 : { "html": "&#x2203;"       ,  "tex": "\\exists"                                    , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+2203 THREE EXISTS"        },
+    "nexists"                : { "html": "&#x2204;"       ,  "tex": "\\nexists"                                   , "width": 7  ,  "op": 0,  "usepackage":""         ,"comment":"U+2204 THREE DOES NOT EXIST"        },
     "emptyset"               : { "html": "&#x2205;"       ,  "tex": "\\emptyset"                                  , "width": 0  ,  "op": 0,  "usepackage":""         ,"comment":"U+2205 EMPTY SET"        },
     "increment"              : { "html": "&#x2206;"       ,  "tex": "\\triangle"                                  , "width": 0  ,  "op": 0,  "usepackage":""         ,"comment":"U+2206 INCREMENT = Laplace operator = forward difference = symmetric difference (in set theory)"},
     "nabla"                  : { "html": "&#x2207;"       ,  "tex": "\\nabla"                                     , "width": 0  ,  "op": 0,  "usepackage":""         ,"comment":"U+2207 NABLA = backward difference = gradient, del"},

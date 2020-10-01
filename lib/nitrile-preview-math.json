@@ -953,6 +953,9 @@
     "gimel"                  : { "html": "&#x2137;"       ,  "tex": "\\gimel"                                     , "width": 8  ,  "op": 0,  "usepackage":""         ,"comment":"U+2137 GIMEL SYMBOL"},
     "daleth"                 : { "html": "&#x2138;"       ,  "tex": "\\daleth"                                    , "width": 8  ,  "op": 0,  "usepackage":""         ,"comment":"U+2138 DALET SYMBOL"},
     
+    "therefore"              : { "html": "&#x2234;"       ,  "tex": "\\therefore"                                 , "width": 8  ,  "op": 1,  "usepackage":""         ,"comment":"U+2234 THEREFORE"},
+    "because"                : { "html": "&#x2235;"       ,  "tex": "\\because"                                   , "width": 8  ,  "op": 1,  "usepackage":""         ,"comment":"U+2235 BECAUSE"},
+
     "frac12"                 : { "html": "&#x00BD;"       ,  "tex": "\\sfrac{1}{2}"                               , "width": 9.5,  "op": 0,  "usepackage":""         ,"comment":"U+00BD VULGAR FRACTION ONE HALF" },
     "frac13"                 : { "html": "&#x2153;"       ,  "tex": "\\sfrac{1}{3}"                               , "width": 9.5,  "op": 0,  "usepackage":""         ,"comment":"U+2153 VULGAR FRACTION ONE THIRD" },
     "frac23"                 : { "html": "&#x2154;"       ,  "tex": "\\sfrac{2}{3}"                               , "width": 9.5,  "op": 0,  "usepackage":""         ,"comment":"U+2154 VULGAR FRACTION TWO THIRDS" },

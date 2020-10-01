@@ -824,13 +824,15 @@
     "oplus"                  : { "html": "&#x2295;"       , "tex":  "\\oplus","cex":"0x2295"                      , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2295 CIRCLED PLUS"        },
     "ominus"                 : { "html": "&#x2296;"       , "tex":  "\\ominus"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2296 CIRCLED MINUS"        },
     "otimes"                 : { "html": "&#x2297;"       , "tex":  "\\otimes"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2297 CIRCLED TIMES"        },
+    "circledast"             : { "html": "&#x229B;"       , "tex":  "\\varoast"                                   , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+229B CIRCLED ASTERISK OPERATOR"        },
     "osol"                   : { "html": "&#x2298;"       , "tex":  "\\oslash"                                    , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2298 CIRCLED DIVISION SLASH"        },
     "CircleDot"              : { "html": "&#x2299;"       , "tex":  "\\odot"                                      , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2299 CIRCLED DOT OPERATOR"        },
     "SmallCircle"            : { "html": "&#x2218;"       , "tex":  "\\circ"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2218 RING OPERATOR"        },
     "prod"                   : { "html": "&#x220F;"       , "tex":  "\\prod"                                      , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+220F N-ARY PRODUCT"        },
     "coprod"                 : { "html": "&#x2210;"       , "tex":  "\\amalg"                                     , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2210 N-ARY COPRODUCT"        },
     "sum"                    : { "html": "&#x2211;"       , "tex":  "\\sum"                                       , "width": 0  ,  "op": 1,  "usepackage":""         ,"comment":"U+2211 N-ARY SUMMATION"        },
-                 
+
+    
     "infty"                  : { "html": "&#x221E;"       , "tex":  "\\infty"                                     , "width": 0  ,  "op": 0,  "usepackage":""         ,"comment":"U+221E DOUBLE-STRUCK CAPITAL N"        },
                 
     "naturals"               : { "html": "&#x2115;"       , "tex":  "\\mathbb{N}"                                 , "width": 0  ,  "op": 0,  "usepackage":""         ,"comment":"U+2115 DOUBLE-STRUCK CAPITAL N"        },

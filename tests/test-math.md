@@ -210,7 +210,7 @@ y + 7 + 8 = \sqrt{2}
 
 
 
-# Text and variants
+# Operatorname, text and variants
 
 - ``000\operatorname{abc}111`` &br{}
   \(000\operatorname{abc}111\)
@@ -218,7 +218,20 @@ y + 7 + 8 = \sqrt{2}
 - ``000\text{abc}111`` &br{}
   \(000\text{abc}111\)
 
+- ``000\mathit{abc}111`` &br{}
+  \(000\mathit{abc}111\) &br{}
 
+- ``000\mathrm{abc}111`` &br{}
+  \(000\mathrm{abc}111\) &br{}
+
+- ``000\mathbf{abc}111`` &br{}
+  \(000\mathbf{abc}111\) &br{}
+
+- ``000\mathbb{abc}111`` &br{}
+  \(000\mathbb{abc}111\) &br{}
+
+- ``000\mathcal{abc}111`` &br{}
+  \(000\mathcal{abc}111\) &br{}
 
 
 

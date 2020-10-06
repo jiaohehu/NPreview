@@ -203,4 +203,61 @@ title: test-float.md
   ~~~
 
 
+# Listing
+
+@ Listing &ref{lst:one-variable-ex-1}
+  Octave program for Example 1
+
+  # define fx and g1x
+  fx = @(x) poisspdf(x, n*p);
+  g1x = @(x) 5;
+  # define root x1
+  x1 = @(y) y/5;
+  # define fy
+  fy = @(y) fx(x1(y))/abs(g1x(x1(y)));
+  # define n and p
+  n = 1000
+  p = 0.05
+  # define input range
+  x = linspace(0,n,n+1);
+  y = x;
+  # generate plot
+  figure;
+  hold on;
+  plot(x, arrayfun(fx,x));
+  plot(y, arrayfun(fy,y), "1");
+  hold off;
+  print -dpng "-S640,480" plot.png
+
+
+
+# Vocabulary
+
+@ Vocabulary
+
+  * 芸術・げいじゅつ      the arts;
+  * 美術・びじゅつ        the arts; the fine arts;
+  * 鑑賞・かんしょう      the appreciation (of art,
+                          music, poetry, etc.);
+  * 劇場・げきじょう      a theatre; a playhouse;
+  * 文学・ぶんがく        literature
+  * 絵画・かいが          painting; picture;
+  * 演劇・えんげき        drama; theatre; theater play;
+  * 絵画館・かいがかん    art or picture gallery;
+  * 詩・し                poetry;
+  * 漫画・まんが          cartoon; comic; comic strip;
+  * 芝居・しばい          a play; a drama; an acting in a theatre
+  * 美術館・びじゅつかん  an art gallery
+  * 歌・うた              a song;
+  * 写真・しゃしん        a photo
+  * 映画館・えいがかん    a movie theatre
+  * 博物館・はくぶつかん  a museum;
+  * 物語・ものがたり　    a tale; a story; a legend;
+  * 音楽・おんがく        the music
+  * 展覧会・てんらんかい  an exhibition;
+  * 小説・しょうせつ      a novel; a short story;
+  * 演奏・えんそう        a musical performance;
+  * コンサート            a concert;
+  * 評論・ひょうろん      a criticism; a critique;
+
 

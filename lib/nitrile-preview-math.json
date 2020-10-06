@@ -108,8 +108,6 @@
     { "kbd": "\\rbrace"        ,    "unicode": "&#x007D;"       ,  "id": "myRB",          "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "\\lbrack"        ,    "unicode": "&#x005B;"       ,  "id": "myLBR",         "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "\\rbrack"        ,    "unicode": "&#x005D;"       ,  "id": "myRBR",         "dx":"0"                      ,"op": 0    ,"width": 5    },
-    { "kbd": "\\llbracket"     ,    "unicode": "&#x27E6;"       ,  "id": "myLLBR",        "dx":"0"                      ,"op": 0    ,"width": 5    },
-    { "kbd": "\\rrbracket"     ,    "unicode": "&#x27E7;"       ,  "id": "myRRBR",        "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "("               ,    "unicode": "&#x0028;"       ,  "id": "myLPAREN",      "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": ")"               ,    "unicode": "&#x0029;"       ,  "id": "myRPAREN",      "dx":"0"                      ,"op": 0    ,"width": 5    },
 
@@ -890,6 +888,9 @@
     "rfloor"                 : { "html": "&#x230B;"       , "tex":  "\\rfloor"                                    , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+230B RIGHT FLOOR"        },
     "langle"                 : { "html": "&#x27E8;"       , "tex":  "\\langle"                                    , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+27E8 MATHEMATICAL LEFT ANGLE BRACKET"        },
     "rangle"                 : { "html": "&#x27E9;"       , "tex":  "\\rangle"                                    , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+27E9 MATHEMATICAL RIGHT ANGLE BRACKET"        },
+    "lobrk"                  : { "html": "&#x27E6;"       , "tex":  "\\llbracket"                                 , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+27E6 MATHEMATICAL LEFT WHITE SQUARE BRACKET"  },
+    "robrk"                  : { "html": "&#x27E7;"       , "tex":  "\\rrbracket"                                 , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+27E7 MATHEMATICAL RIGHT WHITE SQUARE BRACKET"  },
+    
     "vert"                   : { "html": "&#x2758;"       , "tex":  "\\vert"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2758 LIGHT VERTICAL BAR"        },
     "lvert"                  : { "html": "&#x2758;"       , "tex":  "\\vert"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2758 LIGHT VERTICAL BAR"        },
     "rvert"                  : { "html": "&#x2758;"       , "tex":  "\\vert"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2758 LIGHT VERTICAL BAR"        },

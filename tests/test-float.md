@@ -62,144 +62,144 @@ title: test-float.md
 @ Table &ref{tbl:some-si-derived-units}
   Twenty-two SI derived units.
 
-  ~~~longtable{n:5;fr:1 2 2 6 4}
-  (&) No.
-  (&) Name
-  (&) Symbol
-  (&) Quantity
-  (&) Equivalents
-  ---
-  (&) 1
-  (&) hertz
-  (&) Hz
-  (&) frequency
-  (&) 1/s
-  ---
-  (&) 2
-  (&) radian
-  (&) rad
-  (&) angle
-  (&) m/m
-  ---
-  (&) 3
-  (&) steradian
-  (&) sr
-  (&) solid angle
-  (&) m²/m²
-  ---
-  (&) 4
-  (&) newton
-  (&) N
-  (&) force, weight
-  (&) kg·m/s²
-  ---
-  (&) 5
-  (&) pascal
-  (&) Pa
-  (&) pressure, stress
-  (&) N/m²
-  ---
-  (&) 6
-  (&) joule
-  (&) J
-  (&) energy, work, heat
-  (&) m·N
-  ---
-  (&) 7
-  (&) watt
-  (&) W
-  (&) power, radiant flux
-  (&) J/s, V·A
-  ---
-  (&) 8
-  (&) coulomb
-  (&) C
-  (&) electric charge or quantity of electricity
-  (&) s·A, F·V
-  ---
-  (&) 9
-  (&) volt
-  (&) V
-  (&) voltage, electrical potential difference, electromotive force
-  (&) W/A, J/C
-  ---
-  (&) 10
-  (&) farad
-  (&) F
-  (&) capacitance
-  (&) C/V, s/Ω
-  ---
-  (&) 11
-  (&) ohm
-  (&) Ω
-  (&) electrical resistance, impedance, reactance
-  (&) 1/S, V/A
-  ---
-  (&) 12
-  (&) siemens
-  (&) S
-  (&) electrical conductance
-  (&) 1/Ω, A/V
-  ---
-  (&) 13
-  (&) weber
-  (&) Wb
-  (&) magnetic flux
-  (&) J/A, T·m²
-  ---
-  (&) 14
-  (&) tesla
-  (&) T
-  (&) magnetic induction, magnetic flux density
-  (&) V·s/m², Wb/m², N/(A·m)
-  ---
-  (&) 15
-  (&) henry
-  (&) H
-  (&) inductance
-  (&) V·s/A, Ω·s, Wb/A
-  ---
-  (&) 16
-  (&) degree Celsuis
-  (&) ℃
-  (&) temperature relative to 273.15 K
-  (&) K
-  ---
-  (&) 17
-  (&) lumen
-  (&) lm
-  (&) luminous flux
-  (&) cd·sr
-  ---
-  (&) 18
-  (&) lux
-  (&) lx
-  (&) illuminance
-  (&) lm/m²
-  ---
-  (&) 19
-  (&) becquerel
-  (&) Bq
-  (&) radioactivity
-  (&) 1/s
-  ---
-  (&) 20
-  (&) gray
-  (&) Gy
-  (&) absorbed dose (of ionizing radiation)
-  (&) J/kg
-  ---
-  (&) 21
-  (&) sievert
-  (&) Sv
-  (&) equivalent dose (of ionizing radiation)
-  (&) J/kg
-  ---
-  (&) 22
-  (&) katal
-  (&) kat
-  (&) catalytic activity
-  (&) mol/s
+  ~~~longtable{border:1;n:5;fr:1 2 2 6 4}
+  > No.
+  > Name
+  > Symbol
+  > Quantity
+  > Equivalents
+
+  > 1
+  > hertz
+  > Hz
+  > frequency
+  > 1/s
+
+  > 2
+  > radian
+  > rad
+  > angle
+  > m/m
+
+  > 3
+  > steradian
+  > sr
+  > solid angle
+  > m²/m²
+
+  > 4
+  > newton
+  > N
+  > force, weight
+  > kg·m/s²
+
+  > 5
+  > pascal
+  > Pa
+  > pressure, stress
+  > N/m²
+
+  > 6
+  > joule
+  > J
+  > energy, work, heat
+  > m·N
+
+  > 7
+  > watt
+  > W
+  > power, radiant flux
+  > J/s, V·A
+
+  > 8
+  > coulomb
+  > C
+  > electric charge or quantity of electricity
+  > s·A, F·V
+
+  > 9
+  > volt
+  > V
+  > voltage, electrical potential difference, electromotive force
+  > W/A, J/C
+
+  > 10
+  > farad
+  > F
+  > capacitance
+  > C/V, s/Ω
+
+  > 11
+  > ohm
+  > Ω
+  > electrical resistance, impedance, reactance
+  > 1/S, V/A
+
+  > 12
+  > siemens
+  > S
+  > electrical conductance
+  > 1/Ω, A/V
+
+  > 13
+  > weber
+  > Wb
+  > magnetic flux
+  > J/A, T·m²
+
+  > 14
+  > tesla
+  > T
+  > magnetic induction, magnetic flux density
+  > V·s/m², Wb/m², N/(A·m)
+
+  > 15
+  > henry
+  > H
+  > inductance
+  > V·s/A, Ω·s, Wb/A
+
+  > 16
+  > degree Celsuis
+  > ℃
+  > temperature relative to 273.15 K
+  > K
+
+  > 17
+  > lumen
+  > lm
+  > luminous flux
+  > cd·sr
+
+  > 18
+  > lux
+  > lx
+  > illuminance
+  > lm/m²
+
+  > 19
+  > becquerel
+  > Bq
+  > radioactivity
+  > 1/s
+
+  > 20
+  > gray
+  > Gy
+  > absorbed dose (of ionizing radiation)
+  > J/kg
+
+  > 21
+  > sievert
+  > Sv
+  > equivalent dose (of ionizing radiation)
+  > J/kg
+
+  > 22
+  > katal
+  > kat
+  > catalytic activity
+  > mol/s
   ~~~
 
 

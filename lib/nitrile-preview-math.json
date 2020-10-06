@@ -895,8 +895,6 @@
     "lvert"                  : { "html": "&#x2758;"       , "tex":  "\\vert"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2758 LIGHT VERTICAL BAR"        },
     "rvert"                  : { "html": "&#x2758;"       , "tex":  "\\vert"                                      , "width": 5  ,  "op": 1,  "usepackage":""         ,"comment":"U+2758 LIGHT VERTICAL BAR"        },
     "Vert"                   : { "html": "&#x2016;"       , "tex":  "\\Vert"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
-    "lVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
-    "rVert"                  : { "html": "&#x2016;"       , "tex":  "\\Vert"                                      , "width": 7  ,  "op": 1,  "usepackage":""         ,"comment":"U+2016 DOUBLE VERTICAL LINE"        },
                 
     "larr"                   : { "html": "&#x2190;"       , "tex":  "\\leftarrow"                                 , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2190 LEFTWARDS ARROW"        },
     "rarr"                   : { "html": "&#x2192;"       , "tex":  "\\rightarrow","cex":"0x2192"                 , "width": 12 ,  "op": 1,  "usepackage":""         ,"comment":"U+2192 RIGHTWARDS ARROW"        },

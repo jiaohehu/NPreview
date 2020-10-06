@@ -110,8 +110,6 @@
     { "kbd": "\\rbrack"        ,    "unicode": "&#x005D;"       ,  "id": "myRBR",         "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "\\llbracket"     ,    "unicode": "&#x27E6;"       ,  "id": "myLLBR",        "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "\\rrbracket"     ,    "unicode": "&#x27E7;"       ,  "id": "myRRBR",        "dx":"0"                      ,"op": 0    ,"width": 5    },
-    { "kbd": "\\langle"        ,    "unicode": "&#x27E8;"       ,  "id": "myLANGLE",      "dx":"0"                      ,"op": 0    ,"width": 5    },
-    { "kbd": "\\rangle"        ,    "unicode": "&#x27E9;"       ,  "id": "myRANGLE",      "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": "("               ,    "unicode": "&#x0028;"       ,  "id": "myLPAREN",      "dx":"0"                      ,"op": 0    ,"width": 5    },
     { "kbd": ")"               ,    "unicode": "&#x0029;"       ,  "id": "myRPAREN",      "dx":"0"                      ,"op": 0    ,"width": 5    },
 

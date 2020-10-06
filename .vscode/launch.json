@@ -8,12 +8,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch HTML",
+      "name": "Launch PAGE",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/html.js",
+      "program": "${workspaceFolder}/tests/page.js",
       "args":[
         "a.md"
       ]

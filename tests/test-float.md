@@ -1,5 +1,7 @@
 ---
 title: test-float.md
+latex.locale: xecjk
+xecjk.mainfont: Hiragino Mincho ProN
 ---
 
 

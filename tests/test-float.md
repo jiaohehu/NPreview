@@ -54,7 +54,6 @@ xecjk.mainfont: Hiragino Mincho ProN
   7    |U+0000   |U+007F    |0xxxxxxx |         |
   11   |U+0080   |U+07FF    |110xxxxx |10xxxxxx |
   16   |U+0800   |U+FFFF    |1110xxxx |10xxxxxx |10xxxxxx
-  -----|---------|----------|---------|---------|---------
   ```
 
 

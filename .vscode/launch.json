@@ -48,38 +48,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch LUALATEX",
+      "name": "Launch REPORT",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/lualatex.js",
-      "args": [
-        "a.md"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch PDFLATEX",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/pdflatex.js",
-      "args": [
-        "a.md"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch XELATEX",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "cwd": "${workspaceRoot}/tests",
-      "program": "${workspaceFolder}/tests/xelatex.js",
+      "program": "${workspaceFolder}/tests/report.js",
       "args": [
         "a.md"
       ]

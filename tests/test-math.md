@@ -1,4 +1,6 @@
-test-math.md
+---
+title: test-math.md
+---
 
 This is the normal text. ``\sqrt{2}``
 
@@ -126,10 +128,6 @@ y + 7 + 8 = \sqrt{2}
 - ``\frac{a}{b}`` &br{}
   \(\frac{a}{b}\)
 
-- ``\text{abc}`` &br{}
-  \(\text{abc}\)
-
-
 
 # Math accents
 
@@ -214,8 +212,12 @@ y + 7 + 8 = \sqrt{2}
 
 # Text and variants
 
-- ``\operatorname{abc}`` &br{}
-  \(\operatorname{abc}\)
+- ``000\operatorname{abc}111`` &br{}
+  \(000\operatorname{abc}111\)
+
+- ``000\text{abc}111`` &br{}
+  \(000\text{abc}111\)
+
 
 
 
